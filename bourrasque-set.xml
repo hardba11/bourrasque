@@ -59,6 +59,9 @@ changelog
 
       <name type="string">bourrasque</name>
       <path type="string">Aircraft/bourrasque/models/brsq.xml</path>
+<!--
+      <path>Aircraft/bourrasque/models/cockpit/cockpit-test-model.xml</path>
+-->
 
       <livery>
         <file type="string">liveries/texture_bourrasque_gris_digital</file>

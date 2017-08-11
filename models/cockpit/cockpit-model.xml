@@ -726,6 +726,39 @@ ________________________________________________________________________________
       <pitch-deg>-30</pitch-deg>
     </offsets>
   </model>
+  <!--animation>
+    <type>translate</type>
+    <object-name>fuel-pilot</object-name>
+    <property>/debug1</property>
+    <factor>1</factor>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>fuel-pilot</object-name>
+    <property>/debug2</property>
+    <factor>1</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>fuel-pilot</object-name>
+    <property>/debug3</property>
+    <factor>1</factor>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation-->
 
   <!--
 ________________________________________________________________________________
