@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+description :
+    this file uses the 3d model and defines animations of the model and objects
+    (mouvements, lightings)
+    it loads if necessary the submodels files
+
+changelog
+- 2016-10-22 : create
+
+-->
+
+<PropertyList>
+
+  <name>electricals</name>
+  <path>instrument_electricals.ac</path>
+
+  <!--
+================================================================================
+                                                             OBJECTS DECLARATION
+================================================================================
+  -->
+  <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
+  <animation>
+    <object-name>electrical.box</object-name>
+    <object-name>electrical.bus1</object-name>
+    <object-name>electrical.bus2</object-name>
+    <object-name>electrical.bus3</object-name>
+    <object-name>electrical.source</object-name>
+    <object-name>electrical.box-emit</object-name>
+    <object-name>electrical.bus1-emit</object-name>
+    <object-name>electrical.bus2-emit</object-name>
+    <object-name>electrical.bus3-emit</object-name>
+    <object-name>electrical.source-emit</object-name>
+    <object-name>electrical.bus1-diode</object-name>
+    <object-name>electrical.bus2-diode</object-name>
+    <object-name>electrical.bus3-diode</object-name>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>electrical.box-emit</object-name>
+    <object-name>electrical.bus1-emit</object-name>
+    <object-name>electrical.bus2-emit</object-name>
+    <object-name>electrical.bus3-emit</object-name>
+    <object-name>electrical.source-emit</object-name>
+  </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ effects -->
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
+    <object-name>electrical.box</object-name>
+    <object-name>electrical.bus1</object-name>
+    <object-name>electrical.bus2</object-name>
+    <object-name>electrical.bus3</object-name>
+    <object-name>electrical.source</object-name>
+    <object-name>electrical.box-emit</object-name>
+    <object-name>electrical.bus1-emit</object-name>
+    <object-name>electrical.bus2-emit</object-name>
+    <object-name>electrical.bus3-emit</object-name>
+    <object-name>electrical.source-emit</object-name>
+    <object-name>electrical.bus1-diode</object-name>
+    <object-name>electrical.bus2-diode</object-name>
+    <object-name>electrical.bus3-diode</object-name>
+  </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
+  <animation>
+    <type>material</type>
+    <object-name>electrical.box-emit</object-name>
+    <object-name>electrical.bus1-emit</object-name>
+    <object-name>electrical.bus2-emit</object-name>
+    <object-name>electrical.bus3-emit</object-name>
+    <object-name>electrical.source-emit</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.8</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (enabled) -->
+  <animation>
+    <type>material</type>
+    <object-name>electrical.bus1-diode</object-name>
+    <object-name>electrical.bus2-diode</object-name>
+    <object-name>electrical.bus3-diode</object-name>
+    <emission>
+      <factor>2</factor>
+      <red>0</red>
+      <green>1</green>
+      <blue>0</blue>
+    </emission>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (color) -->
+
+  <!--
+================================================================================
+                                                         CONTROLS AND ANIMATIONS
+================================================================================
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control master switch -->
+  <animation>
+    <type>pick</type>
+    <object-name>electrical.source</object-name>
+    <object-name>electrical.source-emit</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-cycle</command>
+        <property>/instrumentation/my_aircraft/electricals/controls/master-switch</property>
+        <value>0</value>
+        <value>1</value>
+        <value>2</value>
+        <value>3</value>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-cycle</command>
+        <property>/instrumentation/my_aircraft/electricals/controls/master-switch</property>
+        <value>3</value>
+        <value>2</value>
+        <value>1</value>
+        <value>0</value>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-electrical-source</tooltip-id>
+        <label>Master switch</label>
+        <property>/instrumentation/my_aircraft/electricals/controls/master-switch</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation master switch -->
+  <animation>
+    <type>rotate</type>
+    <object-name>electrical.source</object-name>
+    <object-name>electrical.source-emit</object-name>
+    <property>/instrumentation/my_aircraft/electricals/controls/master-switch</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>180</dep></entry>
+      <entry><ind>1</ind><dep>225</dep></entry>
+      <entry><ind>2</ind><dep>270</dep></entry>
+      <entry><ind>3</ind><dep>335</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0.002</x-m>
+      <y-m>-0.023</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control bus1 (avionics) switch -->
+  <animation>
+    <type>pick</type>
+    <object-name>electrical.bus1</object-name>
+    <object-name>electrical.bus1-emit</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/my_aircraft/electricals/controls/bus-avionics</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-electrical-bus1</tooltip-id>
+        <label>Bus1 - avionics</label>
+      </binding>
+    </hovered>
+  </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation bus1 (avionics) switch -->
+  <animation>
+    <type>rotate</type>
+    <object-name>electrical.bus1</object-name>
+    <object-name>electrical.bus1-emit</object-name>
+    <property>/instrumentation/my_aircraft/electricals/controls/bus-avionics</property>
+    <interpolation>
+      <entry><ind>1</ind><dep>20</dep></entry>
+      <entry><ind>0</ind><dep>-20</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0.044</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control bus2 (engines) switch -->
+  <animation>
+    <type>pick</type>
+    <object-name>electrical.bus2</object-name>
+    <object-name>electrical.bus2-emit</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/my_aircraft/electricals/controls/bus-engines</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-electrical-bus2</tooltip-id>
+        <label>Bus2 - engines</label>
+      </binding>
+    </hovered>
+  </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation bus2 (engines) switch -->
+  <animation>
+    <type>rotate</type>
+    <object-name>electrical.bus2</object-name>
+    <object-name>electrical.bus2-emit</object-name>
+    <property>/instrumentation/my_aircraft/electricals/controls/bus-engines</property>
+    <interpolation>
+      <entry><ind>1</ind><dep>20</dep></entry>
+      <entry><ind>0</ind><dep>-20</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0.044</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control bus3 (commands) switch -->
+  <animation>
+    <type>pick</type>
+    <object-name>electrical.bus3</object-name>
+    <object-name>electrical.bus3-emit</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/my_aircraft/electricals/controls/bus-commands</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-electrical-bus3</tooltip-id>
+        <label>Bus3 - commands</label>
+      </binding>
+    </hovered>
+  </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation bus3 (commands) switch -->
+  <animation>
+    <type>rotate</type>
+    <object-name>electrical.bus3</object-name>
+    <object-name>electrical.bus3-emit</object-name>
+    <property>/instrumentation/my_aircraft/electricals/controls/bus-commands</property>
+    <interpolation>
+      <entry><ind>1</ind><dep>20</dep></entry>
+      <entry><ind>0</ind><dep>-20</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0.044</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation light bus1 -->
+  <animation>
+    <type>select</type>
+    <object-name>electrical.bus1-diode</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation light bus2 -->
+  <animation>
+    <type>select</type>
+    <object-name>electrical.bus2-diode</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[6]</property>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation light bus3 -->
+  <animation>
+    <type>select</type>
+    <object-name>electrical.bus3-diode</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[7]</property>
+    </condition>
+  </animation>
+
+
+</PropertyList>
+

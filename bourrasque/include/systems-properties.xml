@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+################################################################################
+#
+#             THIS FILE INITIALIZES CONTROLS PROPERTY TREE
+#
+################################################################################
+
+PROPERTY-PATH : PropertyList > systems
+
+changelog
+- 2016-10-22 : create
+
+-->
+
+<PropertyList>
+
+  <electrical>
+    <bus>
+      <avionics type="int">0</avionics>
+      <engines type="int">0</engines>
+      <commands type="int">0</commands>
+    </bus>
+  </electrical>
+
+  <!-- USED FOR TUNNING WITHOUT RESTARTING fcm.nas
+  <fcm>
+    <reduction_of_efficiency_for_speed type="float">2.7</reduction_of_efficiency_for_speed>
+    <reduction_of_efficiency_for_altitude type="float">2.0</reduction_of_efficiency_for_altitude>
+    <optimal_speed type="int">200</optimal_speed>
+    <range_speed type="int">550</range_speed>
+    <optimal_altitude type="int">0</optimal_altitude>
+    <range_altitude type="int">20000</range_altitude>
+  </fcm>
+  -->
+
+</PropertyList>
+
+

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+description :
+    this file uses the 3d model and defines animations of the model and objects
+    (mouvements, lightings)
+    it loads if necessary the submodels files
+
+changelog
+- 2016-10-22 : create
+
+-->
+
+<PropertyList>
+
+  <name>command_h</name>
+  <path>instrument_command_h.ac</path>
+
+  <!--
+================================================================================
+                                                             OBJECTS DECLARATION
+================================================================================
+  -->
+  <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
+  <animation>
+    <object-name>command_h.box</object-name>
+    <object-name>command_h.knob_hud</object-name>
+    <object-name>command_h.red</object-name>
+    <object-name>command_h.box-emit</object-name>
+    <object-name>command_h.red-emit</object-name>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+  </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ effects -->
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
+    <object-name>command_h.box</object-name>
+    <object-name>command_h.knob_hud</object-name>
+    <object-name>command_h.red</object-name>
+    <object-name>command_h.box-emit</object-name>
+    <object-name>command_h.red-emit</object-name>
+  </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
+  <animation>
+    <type>material</type>
+    <object-name>command_h.box-emit</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.8</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (enabled) -->
+  <animation>
+    <type>material</type>
+    <object-name>command_h.red-emit</object-name>
+    <emission>
+      <factor>2</factor>
+      <red>1</red>
+      <green>0</green>
+      <blue>0</blue>
+    </emission>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (color) -->
+
+  <!--
+================================================================================
+                                                         CONTROLS AND ANIMATIONS
+================================================================================
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control hud brightness -->
+  <animation>
+    <type>knob</type>
+    <object-name>command_h.knob_hud</object-name>
+    <action>
+      <binding>
+        <command>property-adjust</command>
+        <property>/sim/hud/color/brightness</property>
+        <factor>-.1</factor>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-command-h-hud-brightness</tooltip-id>
+        <label>Hud brighness %s%%</label>
+        <mapping>percent</mapping>
+        <property>/sim/hud/color/brightness</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control hud red -->
+  <animation>
+    <type>pick</type>
+    <object-name>command_h.red</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-cycle</command>
+        <property>/sim/hud/current-color</property>
+        <value>1</value>
+        <value>0</value>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-command-h-hud-red</tooltip-id>
+        <label>Toggle hud color</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation hud red -->
+  <animation>
+    <type>select</type>
+    <object-name>command_h.red-emit</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <equals>
+          <property>/sim/hud/current-color</property>
+          <value>1</value>
+        </equals>
+      </and>
+    </condition>
+  </animation>
+
+
+</PropertyList>
+

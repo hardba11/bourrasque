@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+
+  <sim>
+    <model>
+      <livery>
+
+        <name type="string">green flecktarn</name>
+        <texture>liveries/texture_bourrasque_flecktarn.png</texture>
+        <texture-tank>texture_tanks_flecktarn.png</texture-tank>
+
+      </livery>
+    </model>
+  </sim>
+
+</PropertyList>

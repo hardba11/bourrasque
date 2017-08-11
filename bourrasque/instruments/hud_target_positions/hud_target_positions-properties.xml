@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- DEFINITION OF ALIASES OR INTERNAL PROPERTIES -->
+
+<!-- /instrumentation/my_aircraft/hud_target_positions/ -->
+<PropertyList>
+
+  <!-- data used to control instrument -->
+  <controls>
+    <enabled type="bool">1</enabled>
+    <targets_are_mp type="bool">1</targets_are_mp>
+  </controls>
+
+</PropertyList>

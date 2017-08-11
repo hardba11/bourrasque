@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+################################################################################
+#
+#             THIS FILE INITIALIZES SIM/VIEW 0 PROPERTY TREE
+#
+################################################################################
+
+PROPERTY-PATH : PropertyList > sim > view[0]
+
+-->
+
+<PropertyList>
+
+  <name type="string">Pilot View</name>
+  <internal type="bool" archive="y">true</internal>
+  <config>
+    <x-offset-m archive="y" type="double">.0</x-offset-m>
+    <y-offset-m archive="y" type="double">1.09</y-offset-m>
+    <z-offset-m archive="y" type="double">-3.21</z-offset-m>
+    <pitch-offset-deg>-5</pitch-offset-deg>
+    <default-field-of-view-deg type="double">60.0</default-field-of-view-deg>
+    <limits>
+      <enabled type="bool">true</enabled>
+      <left>
+        <heading-max-deg type="double">160</heading-max-deg>
+        <x-offset-max-m type="double">0.20</x-offset-max-m>
+        <x-offset-threshold-deg type="double">65</x-offset-threshold-deg>
+      </left>
+      <right>
+        <heading-max-deg type="double">160</heading-max-deg>
+        <x-offset-max-m type="double">0.20</x-offset-max-m>
+        <x-offset-threshold-deg type="double">65</x-offset-threshold-deg>
+      </right>
+    </limits>
+  </config>
+
+</PropertyList>
+
+

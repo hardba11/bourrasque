@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+################################################################################
+#
+#                          MAIN MODEL (BACKSEAT VERSION)
+#
+################################################################################
+
+changelog
+- 2016-10-22 : create
+
+-->
+<PropertyList>
+  <nasal>
+    <load>
+      <![CDATA[
+var livery_update = aircraft.livery_update.new("Aircraft/bourrasque/models/aircraft/liveries");
+cmdarg().getNode("sim/model/ac-type", 1).setValue("bourrasque-backseat");
+      ]]>
+    </load>
+    <unload>
+      <![CDATA[
+cmdarg().getNode("sim/model/ac-type", 1).setValue("");
+livery_update.stop();
+      ]]>
+    </unload>
+  </nasal>
+
+</PropertyList>
+

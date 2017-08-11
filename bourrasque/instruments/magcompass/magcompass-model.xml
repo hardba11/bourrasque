@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+description :
+    this file uses the 3d model ans defines animations of the model and objects
+    (mouvements, lightings)
+    it loads if necessary the submodels files
+
+changelog
+- 2016-10-22 : create
+
+-->
+
+<PropertyList>
+
+  <name>magcompass</name>
+  <path>instrument_magcompass.ac</path>
+
+  <!--
+================================================================================
+                                                             OBJECTS DECLARATION
+================================================================================
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
+  <animation>
+    <object-name>magcompass.box</object-name>
+    <object-name>magcompass.poly</object-name>
+    <object-name>magcompass.ring</object-name>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ effects -->
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
+    <object-name>magcompass.box</object-name>
+    <object-name>magcompass.poly</object-name>
+    <object-name>magcompass.ring</object-name>
+  </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
+  <animation>
+    <type>material</type>
+    <object-name>magcompass.ring</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.8</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (enabled) -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (color) -->
+
+  <!--
+================================================================================
+                                                         CONTROLS AND ANIMATIONS
+================================================================================
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation compass ring -->
+  <animation>
+    <type>rotate</type>
+    <object-name>magcompass.ring</object-name>
+    <property>/instrumentation/magnetic-compass/indicated-heading-deg</property>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+
+</PropertyList>

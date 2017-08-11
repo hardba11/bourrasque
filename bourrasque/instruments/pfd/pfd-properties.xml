@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- DEFINITION OF ALIASES OR INTERNAL PROPERTIES -->
+
+<!-- /instrumentation/my_aircraft/pfd/ -->
+<PropertyList>
+
+  <!-- data used for display : captors -->
+  <inputs>
+    <heading-bug-error-deg          alias="/autopilot/internal/heading-bug-error-deg" />
+  </inputs>
+
+  <!-- data used to control instrument -->
+  <controls>
+    <display-heading-bug type="bool">0</display-heading-bug>
+    <target-alt      alias="/autopilot/settings/target-altitude-ft" />
+    <target-speed-kt alias="/autopilot/settings/target-speed-kt" />
+    <target-vs       alias="/autopilot/settings/vertical-speed-fpm" />
+    <target-nav1     alias="/autopilot/settings/vertical-speed-fpm" />
+  </controls>
+
+</PropertyList>
+

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+################################################################################
+#
+#                               STORES MODEL
+#
+################################################################################
+
+changelog
+- 2017-03-22 : create
+
+-->
+<PropertyList>
+
+  <path>stores.ac</path>
+
+  <!--
+================================================================================
+                                                             OBJECTS DECLARATION
+================================================================================
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
+  <animation>
+    <type>material</type>
+    <!-- fixed parts -->
+    <object-name>center-pylon</object-name>
+    <object-name>center-tank2000L</object-name>
+    <object-name>center-tank1250L</object-name>
+    <object-name>wing-pylons</object-name>
+    <object-name>wing-tanks2000L</object-name>
+    <object-name>wing-tanks1250L</object-name>
+  </animation>
+
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/aircraft/aircraft</inherits-from>
+    <object-name>center-pylon</object-name>
+    <object-name>center-tank2000L</object-name>
+    <object-name>center-tank1250L</object-name>
+    <object-name>wing-pylons</object-name>
+    <object-name>wing-tanks2000L</object-name>
+    <object-name>wing-tanks1250L</object-name>
+  </effect>
+
+  <animation>
+    <type>material</type>
+    <object-name>center-pylon</object-name>
+    <object-name>center-tank2000L</object-name>
+    <object-name>center-tank1250L</object-name>
+    <object-name>wing-pylons</object-name>
+    <object-name>wing-tanks2000L</object-name>
+    <object-name>wing-tanks1250L</object-name>
+    <property-base>sim/model/livery</property-base>
+    <texture-prop>texture-tank</texture-prop>
+    <texture-tank>texture_tanks.png</texture-tank>
+  </animation>
+
+
+  <!--
+================================================================================
+                                                         CONTROLS AND ANIMATIONS
+================================================================================
+________________________________________________________________________________
+                                                                          CENTER
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ pylon -->
+  <animation>
+    <type>select</type>
+    <object-name>center-pylon</object-name>
+    <condition>
+      <not>
+        <equals>
+          <property>sim/multiplay/generic/string[0]</property>
+          <value type="string">none</value>
+        </equals>
+      </not>
+    </condition>
+  </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~ tank 1250 l -->
+  <animation>
+    <type>select</type>
+    <object-name>center-tank1250L</object-name>
+    <condition>
+      <equals>
+        <property>sim/multiplay/generic/string[0]</property>
+        <value type="string">tank1250L</value>
+      </equals>
+    </condition>
+  </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~ tank 2000 l -->
+  <animation>
+    <type>select</type>
+    <object-name>center-tank2000L</object-name>
+    <condition>
+      <equals>
+        <property>sim/multiplay/generic/string[0]</property>
+        <value type="string">tank2000L</value>
+      </equals>
+    </condition>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                                           WINGS
+  -->
+  <!-- ~~~~~~~~~~~~~~~~~~ pylons -->
+  <animation>
+    <type>select</type>
+    <object-name>wing-pylons</object-name>
+    <condition>
+      <not>
+        <equals>
+          <property>sim/multiplay/generic/string[1]</property>
+          <value type="string">none</value>
+        </equals>
+      </not>
+    </condition>
+  </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~ tanks 1250 l -->
+  <animation>
+    <type>select</type>
+    <object-name>wing-tanks1250L</object-name>
+    <condition>
+      <equals>
+        <property>sim/multiplay/generic/string[1]</property>
+        <value type="string">tank1250L</value>
+      </equals>
+    </condition>
+  </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~ tanks 2000 l -->
+  <animation>
+    <type>select</type>
+    <object-name>wing-tanks2000L</object-name>
+    <condition>
+      <equals>
+        <property>sim/multiplay/generic/string[1]</property>
+        <value type="string">tank2000L</value>
+      </equals>
+    </condition>
+  </animation>
+
+</PropertyList>
+

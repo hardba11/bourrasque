@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Syd Adams -->
+<!--
+description :
+    this file uses the 3d model ans defines animations of the model and objects
+    (mouvements, lightings)
+    it loads if necessary the submodels files
+
+changelog
+- 2016-10-22 : create
+
+-->
+
+<PropertyList>
+
+  <name>sfd</name>
+  <path>instrument_sfd.ac</path>
+
+  <!--
+================================================================================
+                                                             OBJECTS DECLARATION
+================================================================================
+  -->
+  <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
+  <animation>
+    <object-name>sfd.cadre</object-name>
+    <object-name>sfd.screen.off</object-name>
+    <object-name>sfd.vis</object-name>
+    <object-name>sfd.buttons</object-name>
+    <object-name>sfd_canvas_screen</object-name>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
+  <!--animation>
+    <type>select</type>
+    <condition>
+      <false />
+    </condition>
+  </animation-->
+
+  <animation>
+    <type>select</type>
+    <object-name>sfd.screen.off</object-name>
+    <condition>
+      <not><property>sim/multiplay/generic/int[5]</property></not>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
+  <!--effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>sfd.cadre-emit</object-name>
+  </effect-->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ effects -->
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
+    <object-name>sfd.cadre</object-name>
+    <object-name>sfd.screen.off</object-name>
+    <object-name>sfd_canvas_screen</object-name>
+    <object-name>sfd.vis</object-name>
+    <object-name>sfd.buttons</object-name>
+  </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
+  <animation>
+    <type>material</type>
+    <object-name>sfd_canvas_screen</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>1</red>
+      <green>1</green>
+      <blue>1</blue>
+    </emission>
+  </animation>
+  <!--animation>
+    <type>material</type>
+    <object-name>sfd.cadre-emit</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.8</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+  </animation-->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (color) -->
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (enabled) -->
+
+  <!--
+================================================================================
+                                                         CONTROLS AND ANIMATIONS
+================================================================================
+  -->
+
+
+</PropertyList>

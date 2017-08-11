@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+################################################################################
+#
+#                                 LIGHTS MODEL
+#
+################################################################################
+
+changelog
+- 2016-10-22 : create
+
+-->
+
+<PropertyList>
+
+  <path>lights.ac</path>
+
+  <!--
+================================================================================
+                                                                    OBJECTS LIST
+================================================================================
+  -->
+  <animation>
+    <type>material</type>
+    <type>light_nav_green</type>
+    <type>light_nav_red</type>
+    <type>light_pos</type>
+    <type>light_anticoll</type>
+    <type>light_strobe</type>
+    <type>light_form</type>
+  </animation>
+
+  <!--
+================================================================================
+                                                                       ANIMATION
+================================================================================
+
+________________________________________________________________________________
+                                                               RIGHT LIGHT GREEN
+  -->
+
+  <animation>
+    <type>material</type>
+    <object-name>light_nav_green</object-name>
+    <emission>
+      <red>0.0</red>
+      <green>1.0</green>
+      <blue>0.0</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>select</type>
+    <object-name>light_nav_green</object-name>
+    <condition>
+      <!--property>controls/lighting/nav-lights</property-->
+      <and>
+        <property>sim/multiplay/generic/int[1]</property>
+        <property>sim/multiplay/generic/int[7]</property>
+      </and>
+    </condition>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                                  LEFT LIGHT RED
+  -->
+
+  <animation>
+    <type>material</type>
+    <object-name>light_nav_red</object-name>
+    <emission>
+      <red>1.0</red>
+      <green>0.0</green>
+      <blue>0.0</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>select</type>
+    <object-name>light_nav_red</object-name>
+    <condition>
+      <!--property>controls/lighting/nav-lights</property-->
+      <and>
+        <property>sim/multiplay/generic/int[1]</property>
+        <property>sim/multiplay/generic/int[7]</property>
+      </and>
+    </condition>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                            POSITION LIGHT WHITE
+  -->
+  <animation>
+    <type>material</type>
+    <object-name>light_pos</object-name>
+    <emission>
+      <red>1.0</red>
+      <green>1.0</green>
+      <blue>1.0</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>select</type>
+    <object-name>light_pos</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[2]</property>
+        <property>sim/multiplay/generic/int[7]</property>
+      </and>
+    </condition>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                               ANTI-COLLISION LIGHT BLINKING RED
+  -->
+  <animation>
+    <object-name>light_anticoll</object-name>
+    <type>material</type>
+    <emission>
+      <red>1.0</red>
+      <green>0.0</green>
+      <blue>0.0</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>select</type>
+    <object-name>light_anticoll</object-name>
+    <condition>
+      <property>controls/lighting/beacon</property>
+    </condition>
+  </animation>
+  <animation>
+    <type>select</type>
+    <object-name>light_anticoll</object-name>
+    <condition>
+      <property>controls/lighting/beacon</property>
+    </condition>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                     STROBE LIGHT BLINKING WHITE
+  -->
+  <animation>
+    <type>material</type>
+    <object-name>light_strobe</object-name>
+    <emission>
+      <red>1.0</red>
+      <green>1.0</green>
+      <blue>1.0</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>range</type>
+    <object-name>light_strobe</object-name>
+    <min-m>0</min-m>
+    <max-property>sim/rendering/static-lod/bare</max-property>
+  </animation>
+  <animation>
+    <type>select</type>
+    <object-name>light_strobe</object-name>
+    <condition>
+      <property>controls/lighting/strobe</property>
+    </condition>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                      FORMATION LIGHT SOFT GREEN
+  -->
+  <animation>
+    <type>material</type>
+    <object-name>light_form</object-name>
+    <emission>
+      <red>0.0</red>
+      <green>1</green>
+      <blue>0.0</blue>
+      <factor-prop>sim/multiplay/generic/float[2]</factor-prop>
+    </emission>
+    <condition>
+      <property>sim/multiplay/generic/int[7]</property>
+    </condition>
+  </animation>
+
+
+</PropertyList>
+

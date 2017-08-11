@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- DEFINITION OF ALIASES OR INTERNAL PROPERTIES -->
+
+<!-- /instrumentation/my_aircraft/magcompass/ -->
+<PropertyList>
+
+  <!-- used for start/stop -->
+  <serviceable type="bool">true</serviceable>
+  <volt type="float">28</volt>
+
+</PropertyList>

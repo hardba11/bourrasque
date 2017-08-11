@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PropertyList>
+
+  <path>siege.ac</path>
+
+  <animation>
+    <type>material</type>
+    <object-name>siege</object-name>
+  </animation>
+
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-shadow</inherits-from>
+    <object-name>siege</object-name>
+  </effect>
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
+    <object-name>siege</object-name>
+  </effect>
+
+</PropertyList>
+

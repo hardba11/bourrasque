@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+description :
+    this file uses the 3d model and defines animations of the model and objects
+    (mouvements, lightings)
+    it loads if necessary the submodels files
+
+changelog
+- 2016-10-22 : create
+
+-->
+
+<PropertyList>
+
+  <name>command</name>
+  <path>instrument_command.ac</path>
+
+  <!--
+================================================================================
+                                                             OBJECTS DECLARATION
+================================================================================
+  -->
+  <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
+  <animation>
+    <object-name>command.box</object-name>
+    <object-name>command.parkbrake</object-name>
+    <object-name>command.gears</object-name>
+    <object-name>command.canopy</object-name>
+    <object-name>command.box-emit</object-name>
+    <object-name>command.parkbrake-emit</object-name>
+    <object-name>command.gears-emit</object-name>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>command.box-emit</object-name>
+    <object-name>command.parkbrake-emit</object-name>
+    <object-name>command.gears-emit</object-name>
+  </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ effects -->
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
+    <object-name>command.box</object-name>
+    <object-name>command.parkbrake</object-name>
+    <object-name>command.gears</object-name>
+    <object-name>command.canopy</object-name>
+    <object-name>command.box-emit</object-name>
+    <object-name>command.parkbrake-emit</object-name>
+    <object-name>command.gears-emit</object-name>
+  </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
+  <animation>
+    <type>material</type>
+    <object-name>command.box-emit</object-name>
+    <object-name>command.parkbrake-emit</object-name>
+    <object-name>command.gears-emit</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.8</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (enabled) -->
+  <animation>
+    <type>material</type>
+    <object-name>command.lightParkbrake</object-name>
+    <!--object-name>command.lightGear</object-name-->
+    <emission>
+      <factor>2</factor>
+      <red>1</red>
+      <green>0</green>
+      <blue>0</blue>
+    </emission>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (color) -->
+
+  <!--
+================================================================================
+                                                         CONTROLS AND ANIMATIONS
+================================================================================
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control gears lever up -->
+  <animation>
+    <type>pick</type>
+    <object-name>command.gears</object-name>
+    <object-name>command.gears-emit</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/gear/gear-down</property>
+        <value>0</value>
+        <condition>
+          <and>
+            <not><property>sim/multiplay/generic/float[11]</property></not>
+            <property>controls/gear/gear-down</property>
+          </and>
+        </condition>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/lever_gear</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-command-gears</tooltip-id>
+        <label>Gears</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control gears lever down -->
+  <animation>
+    <type>pick</type>
+    <object-name>command.gears</object-name>
+    <object-name>command.gears-emit</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/gear/gear-down</property>
+        <value>1</value>
+        <condition>
+          <not><property>controls/gear/gear-down</property></not>
+        </condition>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/lever_gear</property>
+      </binding>
+    </action>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation gears lever -->
+  <animation>
+    <type>rotate</type>
+    <object-name>command.gears</object-name>
+    <object-name>command.gears-emit</object-name>
+    <property>controls/gear/gear-down</property>
+    <interpolation>
+      <entry><ind>1</ind><dep>0</dep></entry>
+      <entry><ind>0</ind><dep>-60</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-0.006758</x-m>
+      <y-m>0.045551</y-m>
+      <z-m>0.043729</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation lights gears lever -->
+  <animation>
+    <type>select</type>
+    <object-name>command.lightGear</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <greater-than>
+          <property>gear/gear[0]/position-norm</property>
+          <value>0</value>
+        </greater-than>
+      </and>
+    </condition>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>command.lightGear</object-name>
+    <emission>
+      <factor>1</factor>
+      <red>0</red>
+      <green>.8</green>
+      <blue>0</blue>
+    </emission>
+    <condition>
+      <equals>
+        <property>gear/gear[0]/position-norm</property>
+        <value>1</value>
+      </equals>
+    </condition>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>command.lightGear</object-name>
+    <emission>
+      <factor>1</factor>
+      <red>1</red>
+      <green>0</green>
+      <blue>0</blue>
+    </emission>
+    <condition>
+      <less-than>
+        <property>gear/gear[0]/position-norm</property>
+        <value>1</value>
+      </less-than>
+    </condition>
+  </animation>
+
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control park brake lever -->
+  <animation>
+    <type>pick</type>
+    <object-name>command.parkbrake</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>/controls/gear/brake-parking</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/lever_parkbrake</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-command-parkbrake</tooltip-id>
+        <label>Parking brakes</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation park brake lever -->
+  <animation>
+    <type>rotate</type>
+    <object-name>command.parkbrake</object-name>
+    <object-name>command.parkbrake-emit</object-name>
+    <property>/controls/gear/brake-parking</property>
+    <interpolation>
+      <entry><ind>1</ind><dep>0</dep></entry>
+      <entry><ind>0</ind><dep>80</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0</x-m>
+      <y-m>-0.04196</y-m>
+      <z-m>-0.08541</z-m>
+    </center>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation lights park brake lever -->
+  <animation>
+    <type>select</type>
+    <object-name>command.lightParkbrake</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <property>/controls/gear/brake-parking</property>
+      </and>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control canopy switch -->
+  <animation>
+    <type>pick</type>
+    <object-name>command.canopy</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-cycle</command>
+        <property>/controls/doors/canopy</property>
+        <value>0</value>
+        <value>0.6</value>
+        <value>1</value>
+        <value>0.601</value>
+        <wrap>true</wrap>
+        <condition>
+          <property>sim/multiplay/generic/float[11]</property>
+        </condition>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-command-canopy</tooltip-id>
+        <label>Canopy</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation canopy switch -->
+  <animation>
+    <type>rotate</type>
+    <object-name>command.canopy</object-name>
+    <property>/controls/doors/canopy</property>
+    <interpolation>
+      <entry><ind>1</ind><dep>0</dep></entry>
+      <entry><ind>0.6</ind><dep>-30</dep></entry>
+      <entry><ind>0</ind><dep>-60</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0.008</x-m>
+      <y-m>-0.031</y-m>
+      <z-m>0.043</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+
+</PropertyList>
+

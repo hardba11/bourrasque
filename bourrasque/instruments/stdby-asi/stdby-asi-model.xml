@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- thx f16 team -->
+<!--
+description :
+    this file uses the 3d model ans defines animations of the model and objects
+    (mouvements, lightings)
+    it loads if necessary the submodels files
+
+changelog
+- 2016-10-22 : create
+
+-->
+
+<PropertyList>
+
+  <name>stdby-asi</name>
+  <path>instrument_stdby-asi.ac</path>
+
+  <!--
+================================================================================
+                                                             OBJECTS DECLARATION
+================================================================================
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
+  <animation>
+    <object-name>asi.box</object-name>
+    <object-name>asi.mach_scale</object-name>
+    <object-name>asi.needle</object-name>
+    <object-name>asi.scale</object-name>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>asi.mach_scale-emit</object-name>
+    <object-name>asi.needle-emit</object-name>
+    <object-name>asi.scale-emit</object-name>
+  </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ effects -->
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
+    <object-name>asi.box</object-name>
+    <object-name>asi.mach_scale</object-name>
+    <object-name>asi.needle</object-name>
+    <object-name>asi.scale</object-name>
+  </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
+  <animation>
+    <type>material</type>
+    <object-name>asi.mach_scale-emit</object-name>
+    <object-name>asi.needle-emit</object-name>
+    <object-name>asi.scale-emit</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.8</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (enabled) -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (color) -->
+
+  <!--
+================================================================================
+                                                         CONTROLS AND ANIMATIONS
+================================================================================
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation speed needles -->
+
+  <animation>
+    <type>rotate</type>
+    <object-name>asi.needle</object-name>
+    <object-name>asi.needle-emit</object-name>
+    <object-name>asi.mach_scale</object-name>
+    <object-name>asi.mach_scale-emit</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+    <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>40</ind><dep>16</dep></entry>
+      <entry><ind>75</ind><dep>31</dep></entry>
+      <entry><ind>100</ind><dep>45</dep></entry>
+      <entry><ind>117</ind><dep>61</dep></entry>
+      <entry><ind>135</ind><dep>75</dep></entry>
+      <entry><ind>150</ind><dep>90</dep></entry>
+      <entry><ind>170</ind><dep>104</dep></entry>
+      <entry><ind>185</ind><dep>120</dep></entry>
+      <entry><ind>200</ind><dep>134</dep></entry>
+      <entry><ind>250</ind><dep>156</dep></entry>
+      <entry><ind>300</ind><dep>180</dep></entry>
+      <entry><ind>350</ind><dep>204</dep></entry>
+      <entry><ind>400</ind><dep>224</dep></entry>
+      <entry><ind>500</ind><dep>251</dep></entry>
+      <entry><ind>600</ind><dep>280</dep></entry>
+      <entry><ind>700</ind><dep>305</dep></entry>
+      <entry><ind>800</ind><dep>332</dep></entry>
+      <entry><ind>850</ind><dep>345</dep></entry>
+    </interpolation>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation speed (mach) needles -->
+  <animation>
+    <type>rotate</type>
+    <object-name>asi.mach_scale</object-name>
+    <object-name>asi.mach_scale-emit</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+    <property>/velocities/mach</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>0.8</ind><dep>90</dep></entry>
+      <entry><ind>1.4</ind><dep>180</dep></entry>
+      <entry><ind>2.2</ind><dep>270</dep></entry>
+      <entry><ind>2.6</ind><dep>315</dep></entry>
+    </interpolation>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+</PropertyList>

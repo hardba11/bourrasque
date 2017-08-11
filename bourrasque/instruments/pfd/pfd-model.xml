@@ -1,0 +1,1528 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Syd Adams -->
+<!--
+description :
+    this file uses the 3d model ans defines animations of the model and objects
+    (mouvements, lightings)
+    it loads if necessary the submodels files
+
+changelog
+- 2016-10-22 : create
+
+TODO :
+    animation next wp alt
+    utilite de Nav-src et Nav-id
+
+-->
+
+<PropertyList>
+
+  <name>pfd</name>
+  <path>instrument_pfd.ac</path>
+
+  <!--
+================================================================================
+                                                             OBJECTS DECLARATION
+================================================================================
+  -->
+  <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
+  <animation>
+    <object-name>pfd.cadre</object-name>
+    <object-name>pfd.cadre-emit</object-name>
+    <object-name>vis.001</object-name>
+    <object-name>active.side</object-name>
+    <object-name>alt.d1</object-name>
+    <object-name>alt.d2</object-name>
+    <object-name>alt.d3</object-name>
+    <object-name>alt.d4</object-name>
+    <object-name>altladder</object-name>
+    <object-name>att</object-name>
+    <object-name>hdg.bug</object-name>
+    <object-name>ias.d1000</object-name>
+    <object-name>ias.d100</object-name>
+    <object-name>ias.d10</object-name>
+    <object-name>ias.d1</object-name>
+    <object-name>iasladder</object-name>
+    <object-name>Imarker.001</object-name>
+    <object-name>Mmarker.001</object-name>
+    <object-name>Omarker.001</object-name>
+    <object-name>pfd.alt</object-name>
+    <object-name>pfd.alt-emit</object-name>
+    <object-name>pfd.hdg</object-name>
+    <object-name>pfd.hdg-emit</object-name>
+    <object-name>pfd.disengage</object-name>
+    <object-name>pfd.disengage-emit</object-name>
+    <object-name>pfd.nav</object-name>
+    <object-name>pfd.nav-emit</object-name>
+    <object-name>pfd.set_alt</object-name>
+    <object-name>pfd.set_speed</object-name>
+    <object-name>pfd.set_vs</object-name>
+    <object-name>pfd.speed</object-name>
+    <object-name>pfd.speed-emit</object-name>
+    <object-name>pfd.hold</object-name>
+    <object-name>pfd.hold-emit</object-name>
+    <object-name>pfd.vs</object-name>
+    <object-name>pfd.vs-emit</object-name>
+    <object-name>PFD.hsi</object-name>
+    <object-name>PFD.ovspd</object-name>
+    <object-name>PFD.screen</object-name>
+    <object-name>PFD.screen.001</object-name>
+    <object-name>PFD.screen.off</object-name>
+    <object-name>rose</object-name>
+    <object-name>Vbars</object-name>
+    <object-name>VSbox</object-name>
+    <object-name>vsi.needle</object-name>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
+  <animation>
+    <type>select</type>
+    <object-name>pfd.disengage-emit</object-name>
+    <object-name>pfd.hold-emit</object-name>
+    <object-name>pfd.vs-emit</object-name>
+    <condition>
+      <false />
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>PFD.screen.off</object-name>
+    <condition>
+      <not><property>sim/multiplay/generic/int[5]</property></not>
+    </condition>
+  </animation>
+
+
+  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>pfd.cadre-emit</object-name>
+  </effect>
+
+
+  <!-- ~~~~~~~~~~~~~~~~~~ effects -->
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
+    <object-name>pfd.cadre</object-name>
+    <object-name>pfd.cadre-emit</object-name>
+    <object-name>vis.001</object-name>
+    <object-name>active.side</object-name>
+    <object-name>alt.d1</object-name>
+    <object-name>alt.d2</object-name>
+    <object-name>alt.d3</object-name>
+    <object-name>alt.d4</object-name>
+    <object-name>altladder</object-name>
+    <object-name>att</object-name>
+    <object-name>hdg.bug</object-name>
+    <object-name>ias.d1000</object-name>
+    <object-name>ias.d100</object-name>
+    <object-name>ias.d10</object-name>
+    <object-name>ias.d1</object-name>
+    <object-name>iasladder</object-name>
+    <object-name>Imarker.001</object-name>
+    <object-name>Mmarker.001</object-name>
+    <object-name>Omarker.001</object-name>
+    <object-name>pfd.alt</object-name>
+    <object-name>pfd.alt-emit</object-name>
+    <object-name>pfd.hdg</object-name>
+    <object-name>pfd.hdg-emit</object-name>
+    <object-name>pfd.disengage</object-name>
+    <object-name>pfd.disengage-emit</object-name>
+    <object-name>pfd.nav</object-name>
+    <object-name>pfd.nav-emit</object-name>
+    <object-name>pfd.set_alt</object-name>
+    <object-name>pfd.set_speed</object-name>
+    <object-name>pfd.set_vs</object-name>
+    <object-name>pfd.speed</object-name>
+    <object-name>pfd.speed-emit</object-name>
+    <object-name>pfd.hold</object-name>
+    <object-name>pfd.hold-emit</object-name>
+    <object-name>pfd.vs</object-name>
+    <object-name>pfd.vs-emit</object-name>
+    <object-name>PFD.hsi</object-name>
+    <object-name>PFD.ovspd</object-name>
+    <object-name>PFD.screen</object-name>
+    <object-name>PFD.screen.001</object-name>
+    <object-name>PFD.screen.off</object-name>
+    <object-name>rose</object-name>
+    <object-name>Vbars</object-name>
+    <object-name>VSbox</object-name>
+    <object-name>vsi.needle</object-name>
+  </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
+  <animation>
+    <type>material</type>
+    <object-name>pfd.cadre-emit</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.8</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>PFD.screen</object-name>
+    <object-name>PFD.screen.001</object-name>
+    <object-name>active.side</object-name>
+    <object-name>PFD.hsi</object-name>
+    <object-name>att</object-name>
+    <object-name>alt.d1</object-name>
+    <object-name>alt.d2</object-name>
+    <object-name>alt.d3</object-name>
+    <object-name>alt.d4</object-name>
+    <object-name>altladder</object-name>
+    <object-name>ias.d1000</object-name>
+    <object-name>ias.d100</object-name>
+    <object-name>ias.d10</object-name>
+    <object-name>ias.d1</object-name>
+    <object-name>iasladder</object-name>
+    <object-name>vsi.needle</object-name>
+    <object-name>hdg.bug</object-name>
+    <object-name>Vbars</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.9</red>
+      <green>0.9</green>
+      <blue>0.9</blue>
+    </emission>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (color) -->
+  <animation>
+    <name>green</name>
+    <type>material</type>
+    <object-name>AP-status</object-name>
+    <object-name>AP-lat</object-name>
+    <object-name>AP-vert</object-name>
+    <object-name>Ralt</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0</red>
+      <green>1</green>
+      <blue>0</blue>
+    </emission>
+  </animation>
+  <animation>
+    <name>white</name>
+    <type>material</type>
+    <object-name>AP-lat-armed</object-name>
+    <object-name>AP-vert-armed</object-name>
+    <object-name>CRSlabel</object-name>
+    <object-name>HDGlabel</object-name>
+    <object-name>Mach</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>1</red>
+      <green>1</green>
+      <blue>1</blue>
+    </emission>
+  </animation>
+  <animation>
+    <name>magenta</name>
+    <type>material</type>
+    <object-name>ALT-annun</object-name>
+    <object-name>ALT-min</object-name>
+    <object-name>IAS-annun</object-name>
+    <object-name>MACH-annun</object-name>
+    <object-name>HDG-annun</object-name>
+    <object-name>Valt-display</object-name>
+    <object-name>Nav-src</object-name>
+    <object-name>Nav-dst</object-name>
+    <object-name>Nav-id</object-name>
+    <object-name>CRSannun</object-name>
+    <object-name>HDGannun</object-name>
+    <object-name>VSI-annun</object-name>
+    <object-name>SPD-annun</object-name>
+    <object-name>VSI-tgt</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>1</red>
+      <green>0</green>
+      <blue>1</blue>
+    </emission>
+  </animation>
+  <!--animation>
+    <name>cyan</name>
+    <type>material</type>
+    <object-name>inhg</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0</red>
+      <green>1</green>
+      <blue>1</blue>
+    </emission>
+  </animation-->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (enabled) -->
+  <animation>
+    <type>material</type>
+    <object-name>pfd.speed-emit</object-name>
+    <object-name>pfd.hdg-emit</object-name>
+    <object-name>pfd.alt-emit</object-name>
+    <object-name>pfd.vs-emit</object-name>
+    <object-name>pfd.nav-emit</object-name>
+    <emission>
+      <factor>1</factor>
+      <red>0.9</red>
+      <green>0</green>
+      <blue>0</blue>
+    </emission>
+  </animation>
+
+  <!--
+================================================================================
+                                                         CONTROLS AND ANIMATIONS
+================================================================================
+  -->
+
+  <!--
+________________________________________________________________________________
+                                                                              AI
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ pitch-deg, roll-deg -->
+  <animation>
+    <name>Attitude indicator</name>
+    <type>texmultiple</type>
+    <object-name>att</object-name>
+    <transform>
+      <subtype>textranslate</subtype>
+      <property>orientation/pitch-deg</property>
+      <interpolation>
+        <entry><ind>-90.0</ind><dep>-0.41</dep></entry>
+        <entry><ind>0.0</ind><dep>0.0</dep></entry>
+        <entry><ind>90.0</ind><dep>0.41</dep></entry>
+      </interpolation>
+      <axis>
+        <x>0</x>
+        <y>1</y>
+      </axis>
+    </transform>
+    <transform>
+      <subtype>texrotate</subtype>
+      <property>orientation/roll-deg</property>
+      <axis>
+        <x>0</x>
+        <y>0</y>
+        <z>-1</z>
+      </axis>
+      <center>
+        <x>0.25</x>
+        <y>0.5</y>
+      </center>
+    </transform>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                                             ALT
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation altitude ladder -->
+  <animation>
+    <name>alt ladder</name>
+    <type>texmultiple</type>
+    <object-name>altladder</object-name>
+    <transform>
+      <subtype>textranslate</subtype>
+      <property>/position/altitude-ft</property>
+      <interpolation>
+        <entry><ind>0.0</ind><dep>0.0</dep></entry>
+        <entry><ind>5000.000</ind><dep>0.7570</dep></entry>
+        <entry><ind>5000.001</ind><dep>0.0</dep></entry>
+        <entry><ind>10000.000</ind><dep>0.7570</dep></entry>
+        <entry><ind>10000.001</ind><dep>0.0</dep></entry>
+        <entry><ind>15000.000</ind><dep>0.7570</dep></entry>
+        <entry><ind>15000.001</ind><dep>0.0</dep></entry>
+        <entry><ind>20000.000</ind><dep>0.7570</dep></entry>
+        <entry><ind>20000.001</ind><dep>0.0</dep></entry>
+        <entry><ind>25000.000</ind><dep>0.7570</dep></entry>
+        <entry><ind>25000.001</ind><dep>0.0</dep></entry>
+        <entry><ind>30000.000</ind><dep>0.7570</dep></entry>
+        <entry><ind>30000.001</ind><dep>0.0</dep></entry>
+        <entry><ind>35000.000</ind><dep>0.7570</dep></entry>
+        <entry><ind>35000.001</ind><dep>0.0</dep></entry>
+        <entry><ind>40000.000</ind><dep>0.7570</dep></entry>
+        <entry><ind>40000.001</ind><dep>0.0</dep></entry>
+        <entry><ind>45000.000</ind><dep>0.7570</dep></entry>
+        <entry><ind>45000.001</ind><dep>0.0</dep></entry>
+        <entry><ind>50000.000</ind><dep>0.7570</dep></entry>
+        <entry><ind>50000.001</ind><dep>0.0</dep></entry>
+        <entry><ind>55000.000</ind><dep>0.7570</dep></entry>
+        <entry><ind>55000.001</ind><dep>0.0</dep></entry>
+        <entry><ind>60000.000</ind><dep>0.7570</dep></entry>
+        <entry><ind>60000.001</ind><dep>0.0</dep></entry>
+        <entry><ind>65000.000</ind><dep>0.7570</dep></entry>
+      </interpolation>
+      <axis>
+        <x>0</x>
+        <y>1</y>
+      </axis>
+    </transform>
+    <transform>
+      <subtype>textranslate</subtype>
+      <property>/position/altitude-ft</property>
+      <interpolation>
+        <entry><ind>0.0</ind><dep>0.000</dep></entry>
+        <entry><ind>5000.000</ind><dep>0.000</dep></entry>
+        <entry><ind>5000.001</ind><dep>0.075</dep></entry>
+        <entry><ind>10000.000</ind><dep>0.075</dep></entry>
+        <entry><ind>10000.001</ind><dep>0.150</dep></entry>
+        <entry><ind>15000.000</ind><dep>0.150</dep></entry>
+        <entry><ind>15000.001</ind><dep>0.225</dep></entry>
+        <entry><ind>20000.000</ind><dep>0.225</dep></entry>
+        <entry><ind>20000.001</ind><dep>0.300</dep></entry>
+        <entry><ind>25000.000</ind><dep>0.300</dep></entry>
+        <entry><ind>250000.001</ind><dep>0.375</dep></entry>
+        <entry><ind>30000.000</ind><dep>0.375</dep></entry>
+        <entry><ind>30000.001</ind><dep>0.450</dep></entry>
+        <entry><ind>35000.000</ind><dep>0.450</dep></entry>
+        <entry><ind>35000.001</ind><dep>0.525</dep></entry>
+        <entry><ind>40000.000</ind><dep>0.525</dep></entry>
+        <entry><ind>40000.001</ind><dep>0.600</dep></entry>
+        <entry><ind>45000.000</ind><dep>0.600</dep></entry>
+        <entry><ind>45000.001</ind><dep>0.675</dep></entry>
+        <entry><ind>50000.000</ind><dep>0.675</dep></entry>
+        <entry><ind>50000.001</ind><dep>0.750</dep></entry>
+        <entry><ind>55000.000</ind><dep>0.750</dep></entry>
+        <entry><ind>55000.001</ind><dep>0.825</dep></entry>
+        <entry><ind>60000.000</ind><dep>0.825</dep></entry>
+        <entry><ind>60000.001</ind><dep>0.900</dep></entry>
+      </interpolation>
+      <axis>
+        <x>-1</x>
+        <y>0</y>
+        <z>0</z>
+      </axis>
+    </transform>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation altitude digit1 -->
+  <animation>
+    <type>textranslate</type>
+    <object-name>alt.d1</object-name>
+    <property>/position/altitude-ft</property>
+    <factor>0.00001</factor>
+    <step>10000</step>
+    <bias>0.5</bias>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation altitude digit2 -->
+  <animation>
+    <type>textranslate</type>
+    <object-name>alt.d2</object-name>
+    <property>/position/altitude-ft</property>
+    <factor>0.0001</factor>
+    <step>1000</step>
+    <bias>0.5</bias>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation altitude digit3 -->
+  <animation>
+    <type>textranslate</type>
+    <object-name>alt.d3</object-name>
+    <property>/position/altitude-ft</property>
+    <factor>0.001</factor>
+    <step>100</step>
+    <bias>0.5</bias>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation altitude digit4 -->
+  <animation>
+    <type>textranslate</type>
+    <object-name>alt.d4</object-name>
+    <property>/position/altitude-ft</property>
+    <factor>0.01</factor>
+    <bias>0.5</bias>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                                          VSPEED
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation vspeed needle -->
+  <animation>
+    <type>rotate</type>
+    <object-name>vsi.needle</object-name>
+    <property>autopilot/internal/vert-speed-fpm</property>
+    <interpolation>
+      <entry><ind>-4000.0</ind><dep>-73.33</dep></entry>
+      <entry><ind>0.0</ind><dep>0.0</dep></entry>
+      <entry><ind>4000</ind><dep>73.33</dep></entry>
+    </interpolation>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+    <center>
+      <x-m>0.0033607</x-m>
+      <y-m>0.059302</y-m>
+      <z-m>-0.01553</z-m>
+    </center>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ visibility label vspeed -->
+  <animation>
+    <type>select</type>
+    <object-name>VSbox</object-name>
+    <condition>
+      <equals>
+        <property>autopilot/locks/altitude</property>
+        <value>VS</value>
+      </equals>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ text vspeed -->
+  <text>
+    <name>VSI-annun</name>
+    <offsets>
+      <x-m>0.01</x-m>
+      <y-m>0.057</y-m>
+      <z-m>-0.040</z-m>
+    </offsets>
+    <alignment>left-center</alignment>
+    <axis-alignment>yz-plane</axis-alignment>
+    <type>number-value</type>
+    <property>/autopilot/internal/vert-speed-fpm</property>
+    <format>%-.0f</format>
+    <truncate>true</truncate>
+    <font>helvetica_bold.txf</font>
+    <character-size>0.005</character-size>
+    <character-aspect-ratio type="double">1.3</character-aspect-ratio>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+  </text>
+
+  <!--
+________________________________________________________________________________
+                                                                             HSI
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation heading scale -->
+  <animation>
+    <type>texrotate</type>
+    <object-name>PFD.hsi</object-name>
+    <property>/instrumentation/my_aircraft/nd/outputs/indicated-heading</property>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>-1</z>
+    </axis>
+    <center>
+      <x>0.75</x>
+      <y>0.25</y>
+    </center>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation heading bug -->
+  <animation>
+    <type>rotate</type>
+    <object-name>hdg.bug</object-name>
+    <property>/autopilot/internal/heading-bug-error-deg</property>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+    <center>
+      <x-m>0</x-m>
+      <y-m>-0.002</y-m>
+      <z-m>-0.0397</z-m>
+    </center>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ visibility heading bug -->
+  <animation>
+    <type>select</type>
+    <object-name>hdg.bug</object-name>
+    <condition>
+      <property>/instrumentation/my_aircraft/pfd/controls/display-heading-bug</property>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ label heading bug -->
+  <text>
+    <name>HDGlabel</name>
+    <offsets>
+      <x-m>0.01</x-m>
+      <y-m>-0.059</y-m>
+      <z-m>-0.013</z-m>
+    </offsets>
+    <alignment>center-center</alignment>
+    <axis-alignment>yz-plane</axis-alignment>
+    <type>literal</type>
+    <text>HDG mag</text>
+    <font>helvetica_bold.txf</font>
+    <character-size>0.006</character-size>
+    <character-aspect-ratio type="double">1.3</character-aspect-ratio>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+  </text>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ text heading bug -->
+  <text>
+    <name>HDGannun</name>
+    <offsets>
+      <x-m>0.01</x-m>
+      <y-m>-0.059</y-m>
+      <z-m>-0.020</z-m>
+    </offsets>
+    <alignment>center-center</alignment>
+    <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">number-value</type>
+    <property>/autopilot/settings/heading-bug-deg</property>
+    <format>%03.0f</format>
+    <truncate>true</truncate>
+    <font>helvetica_bold.txf</font>
+    <character-size>0.008</character-size>
+    <character-aspect-ratio type="double">1.3</character-aspect-ratio>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+  </text>
+
+  <!--
+________________________________________________________________________________
+                                                                     ASI - SPEED
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation speed ladder -->
+  <animation>
+    <name>ias ladder</name>
+    <type>texmultiple</type>
+    <object-name>iasladder</object-name>
+    <transform>
+      <subtype>textranslate</subtype>
+      <property>/velocities/airspeed-kt</property>
+      <interpolation>
+        <entry><ind>0.0</ind><dep>0.0</dep></entry>
+        <entry><ind>100.000</ind><dep>0.4536</dep></entry>
+        <entry><ind>100.001</ind><dep>0.0</dep></entry>
+        <entry><ind>180.000</ind><dep>0.4536</dep></entry>
+        <entry><ind>180.001</ind><dep>0.0</dep></entry>
+        <entry><ind>270.000</ind><dep>0.4536</dep></entry>
+        <entry><ind>270.001</ind><dep>0.0</dep></entry>
+        <entry><ind>360.000</ind><dep>0.4536</dep></entry>
+        <entry><ind>360.001</ind><dep>0.0</dep></entry>
+        <entry><ind>450.000</ind><dep>0.4536</dep></entry>
+        <entry><ind>450.001</ind><dep>0.0</dep></entry>
+        <entry><ind>540.000</ind><dep>0.4536</dep></entry>
+      </interpolation>
+      <axis>
+        <x>0</x>
+        <y>1</y>
+      </axis>
+    </transform>
+    <transform>
+      <subtype>textranslate</subtype>
+      <property>/velocities/airspeed-kt</property>
+      <interpolation>
+        <entry><ind>0.0</ind><dep>0.0</dep></entry>
+        <entry><ind>100.000</ind><dep>0.0</dep></entry>
+        <entry><ind>100.001</ind><dep>0.11</dep></entry>
+        <entry><ind>180.000</ind><dep>0.11</dep></entry>
+        <entry><ind>180.001</ind><dep>0.22</dep></entry>
+        <entry><ind>270.000</ind><dep>0.22</dep></entry>
+        <entry><ind>270.001</ind><dep>0.33</dep></entry>
+        <entry><ind>360.000</ind><dep>0.33</dep></entry>
+        <entry><ind>360.001</ind><dep>0.44</dep></entry>
+        <entry><ind>450.000</ind><dep>0.44</dep></entry>
+        <entry><ind>450.001</ind><dep>0.55</dep></entry>
+        <entry><ind>540.000</ind><dep>0.55</dep></entry>
+      </interpolation>
+      <axis>
+        <x>1</x>
+        <y>0</y>
+        <z>0</z>
+      </axis>
+    </transform>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation speed digit1 (1000) -->
+  <animation>
+    <type>textranslate</type>
+    <object-name>ias.d1000</object-name>
+    <property>/velocities/airspeed-kt</property>
+    <factor>0.0001</factor>
+    <step>1000</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~ animation speed digit1 (100) -->
+  <animation>
+    <type>textranslate</type>
+    <object-name>ias.d100</object-name>
+    <property>/velocities/airspeed-kt</property>
+    <factor>0.001</factor>
+    <step>100</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation speed digit2 (10) -->
+  <animation>
+    <type>textranslate</type>
+    <object-name>ias.d10</object-name>
+    <property>/velocities/airspeed-kt</property>
+    <factor>0.01</factor>
+    <step>10</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation speed digit3 (1) -->
+  <animation>
+    <type>textranslate</type>
+    <object-name>ias.d1</object-name>
+    <property>/velocities/airspeed-kt</property>
+    <factor>0.1</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ text mach -->
+  <text>
+    <name>Mach</name>
+    <offsets>
+      <x-m>0.01</x-m>
+      <y-m>-0.058</y-m>
+      <z-m>0.003</z-m>
+    </offsets>
+    <alignment>center-center</alignment>
+    <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">number-value</type>
+    <property>/velocities/mach</property>
+    <format>%.3fM</format>
+    <font>helvetica_bold.txf</font>
+    <character-size>0.006</character-size>
+    <character-aspect-ratio type="double">1.3</character-aspect-ratio>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+  </text>
+
+  <!--
+________________________________________________________________________________
+                                                                             NAV
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ visibility animation outer marker -->
+  <animation>
+    <type>select</type>
+    <object-name>Omarker.001</object-name>
+    <condition>
+      <property>/instrumentation/marker-beacon/outer</property>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ visibility animation middle marker -->
+  <animation>
+    <type>select</type>
+    <object-name>Mmarker.001</object-name>
+    <condition>
+      <property>/instrumentation/marker-beacon/middle</property>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ visibility animation inner marker -->
+  <animation>
+    <type>select</type>
+    <object-name>Imarker.001</object-name>
+    <condition>
+      <property>/instrumentation/marker-beacon/inner</property>
+    </condition>
+  </animation>
+
+
+  <!--
+________________________________________________________________________________
+                                                                      AUTO-PILOT
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation ap status -->
+  <text>
+    <name>AP-status</name>
+    <offsets>
+      <x-m>0.01</x-m>
+      <y-m>-0.035</y-m>
+      <z-m>0.086</z-m>
+    </offsets>
+    <alignment>center-center</alignment>
+    <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property>/autopilot/locks/AP-status</property>
+    <font>helvetica_bold.txf</font>
+    <character-size>0.007</character-size>
+    <character-aspect-ratio type="double">1.4</character-aspect-ratio>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+  </text>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation ap lateral mode -->
+  <text>
+    <name>AP-lat</name>
+    <offsets>
+      <x-m>0.01</x-m>
+      <y-m>-0.017</y-m>
+      <z-m>0.101</z-m>
+    </offsets>
+    <alignment>center-center</alignment>
+    <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property>/autopilot/locks/heading</property>
+    <font>helvetica_bold.txf</font>
+    <character-size>0.007</character-size>
+    <character-aspect-ratio type="double">1.4</character-aspect-ratio>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+  </text>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation ap vertical mode -->
+  <text>
+    <name>AP-vert</name>
+    <offsets>
+      <x-m>0.01</x-m>
+      <y-m>0.012</y-m>
+      <z-m>0.101</z-m>
+    </offsets>
+    <alignment>center-center</alignment>
+    <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property>/autopilot/locks/altitude</property>
+    <font>helvetica_bold.txf</font>
+    <character-size>0.007</character-size>
+    <character-aspect-ratio type="double">1.4</character-aspect-ratio>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+  </text>
+  <text>
+    <name>AP-vert-armed</name>
+    <offsets>
+      <x-m>0.01</x-m>
+      <y-m>0.025</y-m>
+      <z-m>0.101</z-m>
+    </offsets>
+    <alignment>center-center</alignment>
+    <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property>/autopilot/locks/altitude-arm</property>
+    <font>helvetica_bold.txf</font>
+    <character-size>0.007</character-size>
+    <character-aspect-ratio type="double">1.4</character-aspect-ratio>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+  </text>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control heading bug ARM -->
+  <animation>
+    <type>pick</type>
+    <object-name>pfd.hdg</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-cycle</command>
+        <property>/autopilot/locks/heading</property>
+        <value type="string">dg-heading-hold</value>
+        <value type="string"></value>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-pfd-ap-heading</tooltip-id>
+        <label>Toggle A/P heading bug (ctrl-h)</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation heading bug ARM -->
+  <animation>
+    <type>select</type>
+    <object-name>pfd.hdg-emit</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <equals>
+          <property>/autopilot/locks/heading</property>
+          <value>dg-heading-hold</value>
+        </equals>
+      </and>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control heading nav1 ARM -->
+  <animation>
+    <type>pick</type>
+    <object-name>pfd.nav</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-cycle</command>
+        <property>/autopilot/locks/heading</property>
+        <value type="string">nav1-hold</value>
+        <value type="string"></value>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-pfd-nav-heading</tooltip-id>
+        <label>Toggle A/P heading nav (ctrl-n)</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation heading nav1 ARM -->
+  <animation>
+    <type>select</type>
+    <object-name>pfd.nav-emit</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <equals>
+          <property>/autopilot/locks/heading</property>
+          <value>nav1-hold</value>
+        </equals>
+      </and>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control disengage -->
+  <animation>
+    <type>pick</type>
+    <object-name>pfd.disengage</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+instrument_pfd.event_click_disengage_autopilot();
+          ]]>
+        </script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-pfd-disengage-heading</tooltip-id>
+        <label>Disengage A/P (ctrl-P)</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control hold -->
+  <animation>
+    <type>pick</type>
+    <object-name>pfd.hold</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+instrument_pfd.event_click_hold_autopilot();
+          ]]>
+        </script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-pfd-hold-heading</tooltip-id>
+        <label>Toggle A/P with current alt, speed, heading (ctrl-p)</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control target altitude -->
+  <animation>
+    <type>pick</type>
+    <object-name>pfd.set_alt</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-adjust</command>
+        <property>/autopilot/settings/target-altitude-ft</property>
+        <step>1000</step>
+        <min>0</min>
+        <max>50000</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <binding>
+        <command>property-adjust</command>
+        <property>/autopilot/settings/target-altitude-ft</property>
+        <step>-1000</step>
+        <min>0</min>
+        <max>50000</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>3</button>
+      <binding>
+        <command>property-adjust</command>
+        <property>/autopilot/settings/target-altitude-ft</property>
+        <step>100</step>
+        <min>0</min>
+        <max>50000</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>4</button>
+      <binding>
+        <command>property-adjust</command>
+        <property>/autopilot/settings/target-altitude-ft</property>
+        <step>-100</step>
+        <min>0</min>
+        <max>50000</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-pfd-ap-set-alt</tooltip-id>
+        <label>Set A/P altitude</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ text altitude set -->
+  <text>
+    <name>ALT-annun</name>
+    <offsets>
+      <x-m>0.01</x-m>
+      <y-m>0.047</y-m>
+      <z-m>0.093</z-m>
+    </offsets>
+    <alignment>left-bottom</alignment>
+    <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">number-value</type>
+    <property>/autopilot/settings/target-altitude-ft</property>
+    <format>%03.0f</format>
+    <truncate>true</truncate>
+    <font>helvetica_bold.txf</font>
+    <character-size>0.01</character-size>
+    <character-aspect-ratio type="double">1.2</character-aspect-ratio>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+  </text>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control altitude ARM -->
+  <animation>
+    <type>pick</type>
+    <object-name>pfd.alt</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-cycle</command>
+        <property>/autopilot/locks/altitude</property>
+        <value type="string">altitude-hold</value>
+        <value type="string"></value>
+      </binding>
+      <binding>
+        <command>property-adjust</command>
+        <property>/autopilot/internal/target-climb-rate-fps</property>
+        <value type="float">0</value>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-pfd-ap-alt</tooltip-id>
+        <label>Toggle A/P ALT (ctrl-a)</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation altitude ARM -->
+  <animation>
+    <type>select</type>
+    <object-name>pfd.alt-emit</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <equals>
+          <property>/autopilot/locks/altitude</property>
+          <value type="string">altitude-hold</value>
+        </equals>
+      </and>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control target speed -->
+  <animation>
+    <type>pick</type>
+    <object-name>pfd.set_speed</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-adjust</command>
+        <property>/autopilot/settings/target-speed-kt</property>
+        <step>10</step>
+        <min>0</min>
+        <max>2000</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <binding>
+        <command>property-adjust</command>
+        <property>/autopilot/settings/target-speed-kt</property>
+        <step>-10</step>
+        <min>0</min>
+        <max>2000</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>3</button>
+      <binding>
+        <command>property-adjust</command>
+        <property>/autopilot/settings/target-speed-kt</property>
+        <step>1</step>
+        <min>0</min>
+        <max>2000</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>4</button>
+      <binding>
+        <command>property-adjust</command>
+        <property>/autopilot/settings/target-speed-kt</property>
+        <step>-1</step>
+        <min>0</min>
+        <max>2000</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-pfd-ap-set-speed</tooltip-id>
+        <label>Set A/P speed</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ text speed knots set -->
+  <text>
+    <name>SPD-annun</name>
+    <offsets>
+      <x-m>0.01</x-m>
+      <y-m>-0.063</y-m>
+      <z-m>0.096</z-m>
+    </offsets>
+    <alignment>left-center</alignment>
+    <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">number-value</type>
+    <property>/autopilot/settings/target-speed-kt</property>
+    <format>%3.0f</format>
+    <truncate>true</truncate>
+    <font>helvetica_bold.txf</font>
+    <character-size>0.01</character-size>
+    <character-aspect-ratio type="double">1.2</character-aspect-ratio>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+  </text>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control speed ARM -->
+  <animation>
+    <type>pick</type>
+    <object-name>pfd.speed</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-cycle</command>
+        <property>/autopilot/locks/speed</property>
+        <value type="string">speed-with-throttle</value>
+        <value type="string"></value>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-pfd-ap-speed</tooltip-id>
+        <label>Toggle A/P speed (ctrl-s)</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation speed ARM -->
+  <animation>
+    <type>select</type>
+    <object-name>pfd.speed-emit</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <equals>
+          <property>/autopilot/locks/speed</property>
+          <value>speed-with-throttle</value>
+        </equals>
+      </and>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ visibility text speed knots set -->
+  <!--
+  <animation>
+    <type>select</type>
+    <object-name>SPD-annun</object-name>
+    <condition>
+      <or>
+        <equals>
+          <property>/autopilot/locks/altitude</property>
+          <value>FLC</value>
+        </equals>
+        <equals>
+          <property>/autopilot/locks/altitude</property>
+          <value>VFLC</value>
+        </equals>
+      </or>
+    </condition>
+  </animation>
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control target vs -->
+  <animation>
+    <type>knob</type>
+    <object-name>pfd.set_vs</object-name>
+    <action>
+      <binding>
+        <command>property-adjust</command>
+        <property>/autopilot/settings/vertical-speed-fpm</property>
+        <factor>100</factor>
+        <min>0</min>
+        <max>2000</max>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-pfd-ap-set-vs</tooltip-id>
+        <label>Set A/P vertical speed</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ text vsi set -->
+  <text>
+    <name>VSI-tgt</name>
+    <offsets>
+      <x-m>0.01</x-m>
+      <y-m>0.048</y-m>
+      <z-m>0.005</z-m>
+    </offsets>
+    <alignment>left-center</alignment>
+    <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">number-value</type>
+        <property>/autopilot/settings/vertical-speed-fpm</property>
+    <format>VS %4.0f</format>
+    <truncate>true</truncate>
+    <font>helvetica_bold.txf</font>
+    <character-size>0.0055</character-size>
+    <character-aspect-ratio type="double">1.3</character-aspect-ratio>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+  </text>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ visibility text vsi set -->
+  <!--
+  <animation>
+    <type>select</type>
+    <object-name>VSI-tgt</object-name>
+    <condition>
+      <equals>
+        <property>/autopilot/locks/altitude</property>
+        <value>VS</value>
+      </equals>
+    </condition>
+  </animation>
+  -->
+
+
+  <!--
+________________________________________________________________________________
+                                                              TO BE CONTINUED...
+  -->
+
+  <text>
+    <name>Nav-src</name>
+    <offsets>
+      <x-m>0.01</x-m>
+      <y-m>-0.040</y-m>
+      <z-m>-0.007</z-m>
+    </offsets>
+    <alignment>left-center</alignment>
+    <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">text-value</type>
+    <property>autopilot/internal/nav-type</property>
+    <font>helvetica_bold.txf</font>
+    <character-size>0.006</character-size>
+    <character-aspect-ratio type="double">1.3</character-aspect-ratio>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+  </text>
+  <text>
+    <name>Nav-id</name>
+    <offsets>
+      <x-m>0.01</x-m>
+      <y-m>0.025</y-m>
+      <z-m>-0.014</z-m>
+    </offsets>
+    <alignment>left-center</alignment>
+    <axis-alignment>yz-plane</axis-alignment>
+    <type>text-value</type>
+    <property>/autopilot/internal/nav-id</property>
+    <format>%0.5s</format>
+    <font>helvetica_bold.txf</font>
+    <character-size>0.006</character-size>
+    <character-aspect-ratio type="double">1.3</character-aspect-ratio>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+  </text>
+
+  <!--
+  <text>
+    <name>Valt-display</name>
+    <offsets>
+      <x-m>0.01</x-m>
+      <y-m>0.043</y-m>
+      <z-m>0.086</z-m>
+    </offsets>
+    <alignment>right-center</alignment>
+    <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">number-value</type>
+    <property>/instrumentation/gps/wp/wp[1]/altitude-ft</property>
+    <format>%5.0f</format>
+    <font>helvetica_bold.txf</font>
+    <character-size>0.006</character-size>
+    <character-aspect-ratio type="double">1.3</character-aspect-ratio>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+  </text>
+    <animation>
+    <type>select</type>
+    <object-name>Valt-display</object-name>
+    <condition>
+      <equals>
+        <property>autopilot/locks/altitude</property>
+        <value>VALT</value>
+      </equals>
+    </condition>
+  </animation>
+  <text>
+    <name>inhg</name>
+    <offsets>
+      <x-m>0.01</x-m>
+      <y-m>0.057</y-m>
+      <z-m>0.003</z-m>
+    </offsets>
+    <alignment>center-center</alignment>
+    <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">number-value</type>
+    <property>/instrumentation/altimeter/setting-inhg</property>
+    <format>%2.2f</format>
+    <font>helvetica_bold.txf</font>
+    <character-size>0.007</character-size>
+    <character-aspect-ratio type="double">1.3</character-aspect-ratio>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+  </text>
+  <text>
+    <name>ALT-min</name>
+    <offsets>
+      <x-m>0.01</x-m>
+      <y-m>0.062</y-m>
+      <z-m>0.093</z-m>
+    </offsets>
+    <alignment>left-bottom</alignment>
+    <axis-alignment>yz-plane</axis-alignment>
+    <type>literal</type>
+    <text>00</text>
+    <font>helvetica_bold.txf</font>
+    <character-size>0.007</character-size>
+    <character-aspect-ratio type="double">1.2</character-aspect-ratio>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+  </text>
+  <text>
+    <name>Ralt</name>
+    <offsets>
+      <x-m>0.01</x-m>
+      <y-m>0.025</y-m>
+      <z-m>0.010</z-m>
+    </offsets>
+    <alignment>left-center</alignment>
+    <axis-alignment>yz-plane</axis-alignment>
+    <type>number-value</type>
+    <property>/autopilot/settings/minimums</property>
+    <format>%3.0f RA</format>
+    <font>helvetica_bold.txf</font>
+    <character-size>0.005</character-size>
+    <character-aspect-ratio type="double">1.3</character-aspect-ratio>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+  </text>
+  <animation>
+    <type>select</type>
+    <object-name>Ralt</object-name>
+    <condition>
+      <less-than>
+        <property>/position/altitude-agl-ft</property>
+        <property>/autopilot/route-manager/min-lock-altitude-agl-ft</property>
+      </less-than>
+    </condition>
+  </animation>
+  -->
+
+</PropertyList>

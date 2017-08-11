@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+################################################################################
+#
+#                      bourrasque options dialogbox
+#
+################################################################################
+
+the dialogbox is autoloaded if in gui/dialog
+
+https://sourceforge.net/p/flightgear/fgdata/ci/next/tree/Docs/README.gui
+
+changelog
+- 2016-10-22 : create
+
+-->
+
+<PropertyList>
+
+  <name>bourrasque-options</name>
+  <modal type="bool">false</modal>
+  <layout>vbox</layout>
+  <group>
+    <layout>hbox</layout><empty><stretch>1</stretch></empty>
+    <text><label>bourrasques's options</label></text>
+    <empty><stretch>1</stretch></empty>
+    <button><pref-width>16</pref-width><pref-height>16</pref-height><legend />
+      <default>1</default><keynum>27</keynum><border>2</border>
+      <binding><command>dialog-close</command></binding>
+      <binding><command>dialog-apply</command></binding>
+    </button>
+  </group>
+
+  <hrule />
+
+  <!-- ~~~~~~~~~~~~~~~~~~ autostart/autostop -->
+  <group>
+    <layout>table</layout>
+    <halign>left</halign>
+    <button>
+      <row>0</row><col>0</col>
+      <legend>autostart</legend>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+fdm.autostart();
+          ]]>
+        </script>
+      </binding>
+    </button>
+    <button>
+      <row>0</row><col>1</col>
+      <legend>autostop</legend>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+fdm.stop();
+          ]]>
+        </script>
+      </binding>
+    </button>
+    <button>
+      <row>0</row><col>2</col>
+      <legend>fast start</legend>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+fdm.fast_start();
+          ]]>
+        </script>
+      </binding>
+    </button>
+  </group>
+
+  <hrule />
+
+  <!-- ~~~~~~~~~~~~~~~~~~ ground equipment -->
+  <group>
+    <layout>table</layout>
+    <halign>left</halign>
+    <text>
+      <row>0</row><col>0</col>
+      <label>ground equipment</label>
+    </text>
+
+    <text>
+      <row>1</row><col>0</col>
+      <label>covers</label>
+    </text>
+    <button>
+      <row>1</row><col>1</col>
+      <legend>remove</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/ground-equipment-e</property>
+        <value>0</value>
+      </binding>
+    </button>
+    <button>
+      <row>1</row><col>2</col>
+      <legend>put</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/ground-equipment-e</property>
+        <value>1</value>
+      </binding>
+    </button>
+
+    <text>
+      <row>2</row><col>0</col>
+      <label>scale</label>
+    </text>
+    <button>
+      <row>2</row><col>1</col>
+      <legend>remove</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/ground-equipment-s</property>
+        <value>0</value>
+      </binding>
+    </button>
+    <button>
+      <row>2</row><col>2</col>
+      <legend>put</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/ground-equipment-s</property>
+        <value>1</value>
+      </binding>
+    </button>
+
+    <text>
+      <row>3</row><col>0</col>
+      <label>shocks</label>
+    </text>
+    <button>
+      <row>3</row><col>1</col>
+      <legend>remove</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/ground-equipment-g</property>
+        <value>0</value>
+      </binding>
+    </button>
+    <button>
+      <row>3</row><col>2</col>
+      <legend>put</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/ground-equipment-g</property>
+        <value>1</value>
+      </binding>
+    </button>
+  </group>
+
+  <hrule />
+
+  <!-- ~~~~~~~~~~~~~~~~~~ flashlight -->
+  <group>
+    <layout>table</layout>
+    <halign>left</halign>
+    <text>
+      <row>0</row><col>0</col>
+      <label>flashlight</label>
+    </text>
+    <button>
+      <row>0</row><col>1</col>
+      <legend>off</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/rendering/als-secondary-lights/use-flashlight</property>
+        <value>0</value>
+      </binding>
+    </button>
+    <button>
+      <row>0</row><col>2</col>
+      <legend>white</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/rendering/als-secondary-lights/use-flashlight</property>
+        <value>1</value>
+      </binding>
+    </button>
+    <button>
+      <row>0</row><col>3</col>
+      <legend>red</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/rendering/als-secondary-lights/use-flashlight</property>
+        <value>2</value>
+      </binding>
+    </button>
+  </group>
+
+  <hrule />
+
+  <!-- ~~~~~~~~~~~~~~~~~~ tanks -->
+  <group>
+    <layout>table</layout>
+    <halign>left</halign>
+    <text>
+      <row>0</row><col>0</col>
+      <label>wing tanks</label>
+    </text>
+    <button>
+      <row>0</row><col>1</col>
+      <legend>none</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/wing-tanks</property>
+        <value>none</value>
+      </binding>
+    </button>
+    <button>
+      <row>0</row><col>2</col>
+      <legend>1250 l</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/wing-tanks</property>
+        <value>tank1250L</value>
+      </binding>
+    </button>
+    <button>
+      <row>0</row><col>3</col>
+      <legend>2000 l</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/wing-tanks</property>
+        <value>tank2000L</value>
+      </binding>
+    </button>
+    <text>
+      <row>1</row><col>0</col>
+      <label>center tank</label>
+    </text>
+    <button>
+      <row>1</row><col>1</col>
+      <legend>none</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/center-tank</property>
+        <value>none</value>
+      </binding>
+    </button>
+    <button>
+      <row>1</row><col>2</col>
+      <legend>1250 l</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/center-tank</property>
+        <value>tank1250L</value>
+      </binding>
+    </button>
+    <button>
+      <row>1</row><col>3</col>
+      <legend>2000 l</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/center-tank</property>
+        <value>tank2000L</value>
+      </binding>
+    </button>
+  </group>
+
+  <hrule />
+
+  <!-- ~~~~~~~~~~~~~~~~~~ pax -->
+  <group>
+    <layout>table</layout>
+    <halign>left</halign>
+    <text>
+      <row>0</row><col>0</col>
+      <label>pilot</label>
+    </text>
+    <button>
+      <row>0</row><col>1</col>
+      <legend>away</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/pax/pilot</property>
+        <value type="bool">0</value>
+      </binding>
+    </button>
+    <button>
+      <row>0</row><col>2</col>
+      <legend>seated</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/pax/pilot</property>
+        <value type="bool">1</value>
+      </binding>
+    </button>
+    <text>
+      <row>1</row><col>0</col>
+      <label>copilot</label>
+    </text>
+    <button>
+      <row>1</row><col>1</col>
+      <legend>away</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/pax/copilot</property>
+        <value type="bool">0</value>
+      </binding>
+    </button>
+    <button>
+      <row>1</row><col>2</col>
+      <legend>seated</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/pax/copilot</property>
+        <value type="bool">1</value>
+      </binding>
+    </button>
+  </group>
+
+  <hrule />
+
+  <!-- ~~~~~~~~~~~~~~~~~~ canvas hud helper -->
+  <group>
+    <layout>table</layout>
+    <halign>left</halign>
+    <text>
+      <row>0</row><col>0</col>
+      <label>hud helper</label>
+    </text>
+    <checkbox>
+      <row>0</row><col>1</col>
+      <x>150</x>
+      <y>200</y>
+      <width>12</width>
+      <height>12</height>
+      <property>/instrumentation/my_aircraft/hud_target_positions/controls/enabled</property>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/my_aircraft/hud_target_positions/controls/enabled</property>
+      </binding>
+    </checkbox>
+    <text>
+      <row>0</row><col>2</col>
+      <label>show targets positions</label>
+    </text>
+    <checkbox>
+      <row>1</row><col>1</col>
+      <x>150</x>
+      <y>200</y>
+      <width>12</width>
+      <height>12</height>
+      <property>/instrumentation/my_aircraft/hud_target_positions/controls/targets_are_mp</property>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/my_aircraft/hud_target_positions/controls/targets_are_mp</property>
+      </binding>
+    </checkbox>
+    <text>
+      <row>1</row><col>2</col>
+      <label>multiplayers shown (AI)</label>
+    </text>
+  </group>
+
+</PropertyList>
+

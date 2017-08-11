@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+
+  <name>piston</name>
+  <inherits-from>Effects/model-combined-deferred</inherits-from>
+
+  <parameters>
+
+    <lightmap-enabled type="int">0</lightmap-enabled>
+    <normalmap-dds type="int">0</normalmap-dds>
+    <normalmap-enabled type="int">0</normalmap-enabled>
+    <reflection-enabled type="int">1</reflection-enabled>
+    <!--reflection-correction type="float">1</reflection-correction-->
+    <reflection-correction type="float">-0.7</reflection-correction>
+    <reflection-dynamic type="int">1</reflection-dynamic>
+    <!--reflection-rainbow type="float">0.01</reflection-rainbow-->
+    <reflection-rainbow type="float">0</reflection-rainbow>
+    <!--reflection-fresnel type="float">0.8</reflection-fresnel-->
+    <reflection-fresnel type="float">0</reflection-fresnel>
+    <reflection-noise type="float">0</reflection-noise>
+    <reflect-map-enabled type="int">1</reflect-map-enabled>
+    <ambient-correction>0.9</ambient-correction>
+
+    <texture n="4">
+      <image>Aircraft/bourrasque/models/effects/aircraft/greymap.png</image>
+      <type>2d</type>
+      <filter>linear-mipmap-linear</filter>
+      <wrap-s>clamp</wrap-s>
+      <wrap-t>clamp</wrap-t>
+      <internal-format>normalized</internal-format>
+    </texture>
+    <!--texture n="5">
+      <type>cubemap</type>
+      <images>
+        <positive-x>Aircraft/Generic/Effects/fgfs-sky2/1.png</positive-x>
+        <negative-x>Aircraft/Generic/Effects/fgfs-sky2/4.png</negative-x>
+        <positive-y>Aircraft/Generic/Effects/fgfs-sky2/2.png</positive-y>
+        <negative-y>Aircraft/Generic/Effects/fgfs-sky2/3.png</negative-y>
+        <positive-z>Aircraft/Generic/Effects/fgfs-sky2/6.png</positive-z>
+        <negative-z>Aircraft/Generic/Effects/fgfs-sky2/5.png</negative-z>
+      </images>
+    </texture-->
+
+  </parameters>
+
+
+
+</PropertyList>

@@ -1,0 +1,734 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+################################################################################
+#
+#                     bourrasque's SOUNDS SETTINGS
+#
+################################################################################
+
+changelog
+- 2016-10-22 : create
+
+/engines/engine[0]/prop-thrust  : 0.40 min - 25000 max
+/engines/engine[0]/n2           : 73 min - 101 max
+
+
+sim/current-view/internal
+sim/model/canopy-pos-norm
+
+-->
+<PropertyList>
+  <fx>
+
+    <!--
+================================================================================
+                                                                         ENGINES
+================================================================================
+________________________________________________________________________________
+                                                                        ENGINE 0
+    -->
+
+    <!-- ~~~~~~~~~~~~~~~~~~ starting engine 0 : whine -->
+    <whine_ext_0_start>
+      <name>whine_ext_0_start</name>
+      <path>bourrasque_start_engine_ext.wav</path>
+      <mode>once</mode>
+      <condition>
+        <and>
+          <equals>
+            <property>/engines/engine[0]/stopped</property>
+            <value>1</value>
+          </equals>
+          <equals>
+            <property>/instrumentation/my_aircraft/engines/controls/engine[0]/is_starting</property>
+            <value>1</value>
+          </equals>
+          <equals>
+            <property>/instrumentation/my_aircraft/engines/controls/engine[0]/is_stopping</property>
+            <value>0</value>
+          </equals>
+        </and>
+      </condition>
+      <volume>
+        <property>environment/loud-sound</property>
+        <factor>1</factor>
+      </volume>
+    </whine_ext_0_start>
+
+
+    <!-- ~~~~~~~~~~~~~~~~~~ running engine 0 : whine -->
+    <whine_ext_0>
+      <name>whine_ext_0</name>
+      <path>bourrasque_whine_ext.wav</path>
+      <mode>looped</mode>
+      <condition>
+        <and>
+          <equals>
+            <property>/engines/engine[0]/stopped</property>
+            <value>0</value>
+          </equals>
+          <equals>
+            <property>/instrumentation/my_aircraft/engines/controls/engine[0]/is_stopping</property>
+            <value>0</value>
+          </equals>
+        </and>
+      </condition>
+      <volume>
+        <property>/engines/engine[0]/n2</property>
+        <factor>0.001</factor>
+      </volume>
+      <volume>
+        <property>environment/loud-sound</property>
+        <factor>.5</factor>
+      </volume>
+      <pitch>
+        <property>/engines/engine[0]/n2</property>
+        <factor>0.025</factor>
+        <offset>-0.1</offset>
+      </pitch>
+    </whine_ext_0>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ running engine 0 : jet -->
+    <jet_ext_engine_0>
+      <name>jet_ext_engine_0</name>
+      <path>bourrasque_jet_ext.wav</path>
+      <mode>looped</mode>
+      <condition>
+        <not><property>/engines/engine[0]/stopped</property></not>
+      </condition>
+      <orientation>
+        <x>1.0</x>
+        <y>0.0</y>
+        <z>0.0</z>
+        <inner-angle>30.0</inner-angle>
+        <outer-angle>90.0</outer-angle>
+        <outer-gain>0.3</outer-gain>
+      </orientation>
+      <volume>
+        <property>/engines/engine[0]/prop-thrust</property>
+        <factor>0.0002</factor>
+        <min>0</min>
+      </volume>
+      <volume>
+        <property>environment/loud-sound</property>
+        <factor>0.1</factor>
+      </volume>
+      <pitch>
+        <property>/engines/engine[0]/prop-thrust</property>
+        <factor>0.0002</factor>
+        <min>0</min>
+        <max>2</max>
+      </pitch>
+    </jet_ext_engine_0>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ stopping engine 0 : whine -->
+    <whine_ext_0_stop>
+      <name>whine_ext_0_stop</name>
+      <path>bourrasque_stop_engine_ext.wav</path>
+      <mode>once</mode>
+      <condition>
+        <and>
+          <equals>
+            <property>/engines/engine[0]/stopped</property>
+            <value>0</value>
+          </equals>
+          <equals>
+            <property>/instrumentation/my_aircraft/engines/controls/engine[0]/is_starting</property>
+            <value>0</value>
+          </equals>
+          <equals>
+            <property>/instrumentation/my_aircraft/engines/controls/engine[0]/is_stopping</property>
+            <value>1</value>
+          </equals>
+        </and>
+      </condition>
+      <volume>
+        <property>environment/loud-sound</property>
+        <factor>1</factor>
+      </volume>
+    </whine_ext_0_stop>
+
+    <!--
+________________________________________________________________________________
+                                                                        ENGINE 1
+    -->
+
+    <!-- ~~~~~~~~~~~~~~~~~~ starting engine 1 : whine -->
+    <whine_ext_1_start>
+      <name>whine_ext_1_start</name>
+      <path>bourrasque_start_engine_ext.wav</path>
+      <mode>once</mode>
+      <condition>
+        <and>
+          <equals>
+            <property>/engines/engine[1]/stopped</property>
+            <value>1</value>
+          </equals>
+          <equals>
+            <property>/instrumentation/my_aircraft/engines/controls/engine[1]/is_starting</property>
+            <value>1</value>
+          </equals>
+          <equals>
+            <property>/instrumentation/my_aircraft/engines/controls/engine[1]/is_stopping</property>
+            <value>0</value>
+          </equals>
+        </and>
+      </condition>
+      <volume>
+        <property>environment/loud-sound</property>
+        <factor>1</factor>
+      </volume>
+    </whine_ext_1_start>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ running engine 1 : whine -->
+    <whine_ext_1>
+      <name>whine_ext_1</name>
+      <path>bourrasque_whine_ext.wav</path>
+      <mode>looped</mode>
+      <condition>
+        <and>
+          <equals>
+            <property>/engines/engine[1]/stopped</property>
+            <value>0</value>
+          </equals>
+          <equals>
+            <property>/instrumentation/my_aircraft/engines/controls/engine[1]/is_stopping</property>
+            <value>0</value>
+          </equals>
+        </and>
+      </condition>
+      <volume>
+        <property>/engines/engine[1]/n2</property>
+        <factor>0.001</factor>
+      </volume>
+      <volume>
+        <property>environment/loud-sound</property>
+        <factor>.5</factor>
+      </volume>
+      <pitch>
+        <property>/engines/engine[1]/n2</property>
+        <factor>0.025</factor>
+        <offset>-0.1</offset>
+      </pitch>
+    </whine_ext_1>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ running engine 1 : jet -->
+    <jet_ext_engine_1>
+      <name>jet_ext_engine_1</name>
+      <path>bourrasque_jet_ext.wav</path>
+      <mode>looped</mode>
+      <condition>
+        <not><property>/engines/engine[1]/stopped</property></not>
+      </condition>
+      <orientation>
+        <x>1.0</x>
+        <y>0.0</y>
+        <z>0.0</z>
+        <inner-angle>30.0</inner-angle>
+        <outer-angle>90.0</outer-angle>
+        <outer-gain>0.3</outer-gain>
+      </orientation>
+      <volume>
+        <property>/engines/engine[1]/prop-thrust</property>
+        <factor>0.0002</factor>
+        <min>0</min>
+      </volume>
+      <volume>
+        <property>environment/loud-sound</property>
+        <factor>0.1</factor>
+      </volume>
+      <pitch>
+        <property>/engines/engine[1]/prop-thrust</property>
+        <factor>0.0002</factor>
+        <min>0</min>
+        <max>2</max>
+      </pitch>
+    </jet_ext_engine_1>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ stopping engine 1 : whine -->
+    <whine_ext_1_stop>
+      <name>whine_ext_1_stop</name>
+      <path>bourrasque_stop_engine_ext.wav</path>
+      <mode>once</mode>
+      <condition>
+        <and>
+          <equals>
+            <property>/engines/engine[1]/stopped</property>
+            <value>0</value>
+          </equals>
+          <equals>
+            <property>/instrumentation/my_aircraft/engines/controls/engine[1]/is_starting</property>
+            <value>0</value>
+          </equals>
+          <equals>
+            <property>/instrumentation/my_aircraft/engines/controls/engine[1]/is_stopping</property>
+            <value>1</value>
+          </equals>
+        </and>
+      </condition>
+      <volume>
+        <property>environment/loud-sound</property>
+        <factor>1</factor>
+      </volume>
+    </whine_ext_1_stop>
+
+    <!--
+================================================================================
+                                                                     ENVIRONMENT
+================================================================================
+    -->
+    <!-- ~~~~~~~~~~~~~~~~~~ aerodynamic noises internal -->
+    <aero_int>
+      <name>aero_int</name>
+      <path>bourrasque_aero_int.wav</path>
+      <mode>looped</mode>
+      <condition>
+        <property>sim/current-view/internal</property>
+      </condition>
+      <volume>
+        <property>/velocities/mach</property>
+        <factor>0.3</factor>
+      </volume>
+      <pitch>
+        <property>/velocities/mach</property>
+        <factor>0.6</factor>
+      </pitch>
+    </aero_int>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ internal rain -->
+    <rain_int>
+      <name>rain_int</name>
+      <path>rain-windshield.wav</path>
+      <mode>looped</mode>
+      <condition>
+        <greater-than>
+          <property>/environment/rain-norm</property>
+          <value>0.1</value>
+        </greater-than>
+      </condition>
+      <volume>
+        <property>/environment/rain-norm</property>
+        <factor>0.3</factor>
+      </volume>
+      <pitch>
+        <property>/velocities/mach</property>
+        <factor>0.6</factor>
+      </pitch>
+      <position>
+        <x>-4.0</x>
+        <y>0.0</y>
+        <z>0.0</z>
+      </position>
+      <orientation>
+        <x>-1.0</x>
+        <y>0.0</y>
+        <z>0.0</z>
+        <inner-angle>3.0</inner-angle>
+        <outer-angle>45.0</outer-angle>
+        <outer-gain>0.9</outer-gain>
+      </orientation>
+    </rain_int>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ external wind -->
+    <wind_ext>
+      <name>wind</name>
+      <mode>looped</mode>
+      <path>wind.wav</path>
+      <condition>
+        <not>
+          <property>/sim/current-view/internal</property>
+        </not>
+      </condition>
+      <property>/velocities/airspeed-kt</property>
+      <volume>
+        <property>/position/altitude-ft</property>
+        <factor>-0.000015</factor>
+        <offset>1.0</offset>
+        <min>0.1</min>
+        <max>0.7</max>
+      </volume>
+      <volume>
+        <property>/velocities/airspeed-kt</property>
+        <factor>0.015</factor>
+        <min>0.03</min>
+        <max>0.55</max>
+      </volume>
+      <pitch>
+        <property>/velocities/airspeed-kt</property>
+        <factor>0.01</factor>
+        <offset>0.75</offset>
+      </pitch>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </wind_ext>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ external rain -->
+    <rain_ext>
+      <name>rain_ext</name>
+      <path>rain.wav</path>
+      <mode>looped</mode>
+      <condition>
+        <and>
+          <greater-than>
+            <property>/environment/rain-norm</property>
+            <value>0.1</value>
+          </greater-than>
+          <or>
+            <not><property>sim/current-view/internal</property></not>
+            <greater-than>
+              <property>sim/model/canopy-pos-norm</property>
+              <value>0</value>
+            </greater-than>
+          </or>
+        </and>
+      </condition>
+      <volume>
+        <factor>0.2</factor>
+      </volume>
+    </rain_ext>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ gears rumble -->
+    <rumble_gear_internal>
+      <name>rumble_internal</name>
+      <mode>looped</mode>
+      <path>rumble.wav</path>
+      <condition>
+        <or>
+          <property>/gear/gear[0]/wow</property>
+          <property>/gear/gear[1]/wow</property>
+          <property>/gear/gear[2]/wow</property>
+        </or>
+      </condition>
+      <volume>
+        <property>/velocities/airspeed-kt</property>
+        <factor>.0002</factor>
+      </volume>
+      <pitch>
+        <property>/velocities/airspeed-kt</property>
+        <factor>.0002</factor>
+      </pitch>
+    </rumble_gear_internal>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ tire's squeal -->
+    <touchdown_left>
+      <name>touchdown_left</name>
+      <path>touchdown.wav</path>
+      <mode>once</mode>
+      <condition>
+        <property>/gear/gear[1]/wow</property>
+      </condition>
+      <volume>
+        <max>0.2</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </touchdown_left>
+    <touchdown_right>
+      <name>touchdown_right</name>
+      <path>touchdown.wav</path>
+      <mode>once</mode>
+      <condition>
+        <property>/gear/gear[2]/wow</property>
+      </condition>
+      <volume>
+        <max>0.2</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </touchdown_right>
+    <touchdown_nose>
+      <name>touchdown_nose</name>
+      <path>touchdown.wav</path>
+      <mode>once</mode>
+      <condition>
+        <property>/gear/gear[0]/wow</property>
+      </condition>
+      <volume>
+        <max>0.2</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </touchdown_nose>
+
+    <!--
+================================================================================
+                                                                        AVIONICS
+================================================================================
+    -->
+    <!-- ~~~~~~~~~~~~~~~~~~ cockpit systems -->
+    <cockpit>
+      <name>cockpit_internal</name>
+      <path>bourrasque_cockpit.wav</path>
+      <mode>looped</mode>
+      <condition>
+        <and>
+          <property>sim/current-view/internal</property>
+          <property>/systems/electrical/bus/avionics</property>
+        </and>
+      </condition>
+      <position>
+        <x>-4.0</x>
+        <y>0.0</y>
+        <z>0.0</z>
+      </position>
+      <orientation>
+        <x>-1.0</x>
+        <y>0.0</y>
+        <z>0.0</z>
+        <inner-angle>3.0</inner-angle>
+        <outer-angle>45.0</outer-angle>
+        <outer-gain>0.9</outer-gain>
+      </orientation>
+    </cockpit>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ alert full open canopy -->
+    <alert_canopy_fullopen>
+      <name>alert_canopy_fullopen</name>
+      <path>alert.wav</path>
+      <mode>looped</mode>
+      <condition>
+        <and>
+          <!-- inside, canopy full open and ground-speed > 5 -->
+          <property>sim/current-view/internal</property>
+          <greater-than>
+            <property>/velocities/groundspeed-kt</property>
+            <value>5</value>
+          </greater-than>
+          <greater-than>
+            <property>/sim/model/canopy-pos-norm</property>
+            <value>0.7</value>
+          </greater-than>
+        </and>
+      </condition>
+    </alert_canopy_fullopen>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ alert half open canopy -->
+    <alert_canopy_halfopen>
+      <name>alert_canopy_halfopen</name>
+      <path>alert.wav</path>
+      <mode>looped</mode>
+      <condition>
+        <and>
+          <!-- inside, canopy half open and ground-speed > 20 -->
+          <property>sim/current-view/internal</property>
+          <greater-than>
+            <property>/velocities/groundspeed-kt</property>
+            <value>20</value>
+          </greater-than>
+          <greater-than>
+            <property>/sim/model/canopy-pos-norm</property>
+            <value>0.1</value>
+          </greater-than>
+          <less-than>
+            <property>/sim/model/canopy-pos-norm</property>
+            <value>0.7</value>
+          </less-than>
+        </and>
+      </condition>
+    </alert_canopy_halfopen>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ alert brakes -->
+    <alert_brake>
+      <name>alert_brake</name>
+      <path>alert.wav</path>
+      <mode>looped</mode>
+      <condition>
+        <and>
+          <!-- inside, parkbrake and throttle > .2-->
+          <property>sim/current-view/internal</property>
+          <greater-than>
+            <property>/controls/engines/engine[0]/throttle</property>
+            <value>.2</value>
+          </greater-than>
+          <property>/controls/gear/brake-parking</property>
+          <property>/gear/gear[0]/wow</property>
+        </and>
+      </condition>
+    </alert_brake>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ alert up gears -->
+    <alert_up_gear>
+      <name>alert_up_gear</name>
+      <path>alert.wav</path>
+      <mode>looped</mode>
+      <condition>
+        <and>
+          <!-- inside, gears down and speed > 250 -->
+          <property>sim/current-view/internal</property>
+          <greater-than>
+            <property>/velocities/airspeed-kt</property>
+            <value>250</value>
+          </greater-than>
+          <equals>
+            <property>/gear/gear[0]/position-norm</property>
+            <value>1</value>
+          </equals>
+        </and>
+      </condition>
+    </alert_up_gear>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ alert down gears -->
+    <alert_down_gear>
+      <name>alert_down_gear</name>
+      <path>alert.wav</path>
+      <mode>looped</mode>
+      <condition>
+        <and>
+          <!-- inside, gears up, ralt < 400 and speed < 250 -->
+          <property>sim/current-view/internal</property>
+          <less-than>
+            <property>/velocities/airspeed-kt</property>
+            <value>250</value>
+          </less-than>
+          <less-than>
+            <property>/position/altitude-agl-ft</property>
+            <value>400</value>
+          </less-than>
+          <equals>
+            <property>/gear/gear[0]/position-norm</property>
+            <value>0</value>
+          </equals>
+        </and>
+      </condition>
+    </alert_down_gear>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ stall warnings -->
+
+    <!-- ~~~~~~~~~~~~~~~~~~ cockpit toogle switches -->
+    <click>
+      <name>clic1</name>
+      <path>clic.wav</path>
+      <mode>once</mode>
+      <condition>
+        <and>
+          <property>sim/model/click</property>
+          <property>sim/current-view/internal</property>
+        </and>
+      </condition>
+      <volume>
+        <factor>1.0</factor>
+      </volume>
+    </click>
+    <click>
+      <name>clic2</name>
+      <path>clic.wav</path>
+      <mode>once</mode>
+      <condition>
+        <and>
+          <not><property>sim/model/click</property></not>
+          <property>sim/current-view/internal</property>
+        </and>
+      </condition>
+      <volume>
+        <factor>1.0</factor>
+      </volume>
+    </click>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ cockpit gear lever -->
+    <gear_lever>
+      <name>gear_lever1</name>
+      <path>gear_lever.wav</path>
+      <mode>once</mode>
+      <condition>
+        <and>
+          <not><property>sim/model/lever_gear</property></not>
+          <property>sim/current-view/internal</property>
+        </and>
+      </condition>
+      <volume>
+        <factor>0.5</factor>
+      </volume>
+    </gear_lever>
+    <gear_lever>
+      <name>gear_lever2</name>
+      <path>gear_lever.wav</path>
+      <mode>once</mode>
+      <condition>
+        <and>
+          <property>sim/model/lever_gear</property>
+          <property>sim/current-view/internal</property>
+        </and>
+      </condition>
+      <volume>
+        <factor>0.5</factor>
+      </volume>
+    </gear_lever>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ cockpit parkbrake lever -->
+    <brake_lever>
+      <name>brake_lever1</name>
+      <path>lever.wav</path>
+      <mode>once</mode>
+      <condition>
+        <and>
+          <not><property>sim/model/lever_parkbrake</property></not>
+          <property>sim/current-view/internal</property>
+        </and>
+      </condition>
+      <volume>
+        <factor>0.3</factor>
+      </volume>
+    </brake_lever>
+    <brake_lever>
+      <name>brake_lever2</name>
+      <path>lever.wav</path>
+      <mode>once</mode>
+      <condition>
+        <and>
+          <property>sim/model/lever_parkbrake</property>
+          <property>sim/current-view/internal</property>
+        </and>
+      </condition>
+      <volume>
+        <factor>0.3</factor>
+      </volume>
+    </brake_lever>
+
+    <!--
+================================================================================
+                                                                       EQUIPMENT
+================================================================================
+    -->
+    <!-- ~~~~~~~~~~~~~~~~~~ gears open/close -->
+    <gear>
+      <name>gear</name>
+      <mode>in-transit</mode>
+      <path>gear.wav</path>
+      <condition>
+        <and>
+          <greater-than>
+            <property>/gear/gear[0]/position-norm</property>
+            <value>0</value>
+          </greater-than>
+          <less-than>
+            <property>/gear/gear[0]/position-norm</property>
+            <value>1</value>
+          </less-than>
+        </and>
+      </condition>
+      <pitch>
+        <internal>dt_play</internal>
+        <offset>1.0</offset>
+        <factor>-0.0005</factor>
+      </pitch>
+      <volume>
+        <max>0.07</max>
+      </volume>
+    </gear>
+    <!-- ~~~~~~~~~~~~~~~~~~ gears lock -->
+    <gear_lock>
+      <name>gear-lock</name>
+      <path>gear-lck.wav</path>
+      <condition>
+        <equals>
+          <property>/gear/gear[0]/position-norm</property>
+          <value>0</value>
+        </equals>
+      </condition>
+      <volume>
+        <max>0.07</max>
+      </volume>
+    </gear_lock>
+
+  </fx>
+</PropertyList>

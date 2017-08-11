@@ -1,0 +1,66 @@
+                    FLIGHTGEAR "BOURRASQUE" AIRCRAFT - LAYOUT
+
+
+coding rules
+------------
+
+1- encoding utf8 (xml, eff, nas files)
+2- newline : linux style (\n)
+3- indentation : 2 spaces for xml, 4 spaces for nas
+4- no accent, no tab, no mswindows char
+5- try to respect template of files and add comments
+
+see FILES.txt
+
+
+layout
+------
+
+ai/
+    scenario to link or copy to FGDATA/AI/
+fdm/
+    yasim and nasal which modifies aircraft behaviours
+
+models/aircraft/
+    for 3D models : xml, ac, png
+models/aircraft/liveries/
+    for aircraft-specific livery textures (not default) : png
+models/cockpit/
+    for 3D models of cockpit : xml, ac, png
+models/engine/
+    for 3D models of engines : xml, ac, png
+models/stores/
+    for external 3D models (tank, weapons) : xml, ac, png
+models/effects/*
+    all effects : xml, ac, nas
+instruments/
+    for aircraft-specific 3D instruments : instrument's directory/ : xml, ac, png, nas
+sounds/
+    for aircraft-specific sounds : xml, wav
+include/
+    properties settings (but not specific instrument properties : xml)
+
+contrib/
+    limits.xml - XML file configuring aircraft specific flight regime limits, i.e. to provide crash detection parameters
+    AUTHORS.txt - list original authors and contributors, including their work
+    CHANGELOG.txt - list recent changes to the aircraft
+    README.txt - general information about aircraft
+    HELP.txt - Help-related information
+    FEATURES.txt - summary of supported features in plaintext
+    TODO.txt - things that yet need to be done
+    FILES.txt - a description of all relevant files and their purposes
+    LICENSE.txt - detailing licensing and distribution
+    LAYOUT.txt - file detailing layout of folder (i.e. contents of this paragraph)
+    thumbnail.jpg - thumbnail image of aircraft for use by GUI/web frontends (standard size 171x128 for fgfs thumbnails )
+    thumbnail.txt - optional file containing description being displayed on the web as the thumbnail's caption
+    splash.png - for aircraft-specific splash screen (512x477)
+
+docs/
+    for aircraft-specific user's documentation
+
+tutorials/
+    aircraft-specific tutorials (i.e. cold startup, approach etc.)
+
+resources/
+    for all sorts of aircraft specific development resources that may be required by other developers to continue development of an aircraft
+

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+################################################################################
+#
+#             MAIN PROPERTIES DESCRIPTION AND INITIALISATION
+#
+################################################################################
+
+http://wiki.flightgear.org/Property_tree
+
+changelog
+- 2016-10-22 : create
+
+-->
+
+<PropertyList>
+  <!--
+================================================================================
+                                                                  SIM PROPERTIES
+================================================================================
+  -->
+  <sim>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ metadata -->
+    <description type="string">Bourrasque back-seater (multiplayer)</description>
+    <variant-of type="string">bourrasque</variant-of>
+
+    <author>hardball SLK</author>
+    <aircraft-version type="string">2017-08-06</aircraft-version>
+    <status>alpha</status>
+    <tags>
+      <tag>jet</tag>
+      <tag>retractable-gear</tag>
+      <tag>ifr</tag>
+      <tag>twin-engine</tag>
+    </tags>
+
+    <rating>
+      <FDM type="int">2</FDM>
+      <systems type="int">0</systems>
+      <cockpit type="int">4</cockpit>
+      <model type="int">4</model>
+    </rating>
+
+    <long-description type="string">Bourrasque is a fictionnal civil version of the famous Dassault Rafale, its purpose is the world exploration thanks to high speed, short landings and takeoff, radionavigation and auto pilot equipment.</long-description>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ flight model -->
+    <flight-model>null</flight-model>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ model -->
+    <model>
+
+      <name type="string">bourrasque backseat</name>
+      <path type="string">Aircraft/bourrasque/models/brsq-backseat.xml</path>
+      <variant type="string">bourrasque</variant>
+
+      <livery>
+        <file type="string">liveries/texture_bourrasque_gris_digital</file>
+      </livery>
+
+      <!-- for instruments sounds -->
+      <click type="bool">0</click>
+      <lever_gear type="bool">0</lever_gear>
+      <lever_parkbrake type="bool">0</lever_parkbrake>
+
+      <!-- for MP -->
+      <canopy-pos-norm     type="float">1</canopy-pos-norm>
+      <canards-pos-norm    type="float">0</canards-pos-norm>
+      <wing-tanks          type="string">none</wing-tanks>
+      <center-tank         type="string">none</center-tank>
+      <ground-equipment-e  type="string">1</ground-equipment-e>
+      <ground-equipment-g  type="string">1</ground-equipment-g>
+      <ground-equipment-s  type="string">1</ground-equipment-s>
+
+    </model>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ sound -->
+    <sound>
+      <audible>false</audible>
+      <path />
+    </sound>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ specific menu -->
+    <menubar include="gui/specific-menu-backseat.xml" />
+
+    <!-- ~~~~~~~~~~~~~~~~~~ initialisation -->
+    <startup>
+      <splash-texture>contrib/splash-01.png</splash-texture>
+      <splash-texture>contrib/splash-03.png</splash-texture>
+      <splash-texture>contrib/splash-04.png</splash-texture>
+      <splash-texture>contrib/splash-05.png</splash-texture>
+      <splash-texture>contrib/splash-06.png</splash-texture>
+      <splash-texture>contrib/splash-07.png</splash-texture>
+      <splash-texture>contrib/splash-10.png</splash-texture>
+      <splash-texture>contrib/splash-11.png</splash-texture>
+      <splash-texture>contrib/splash-12.png</splash-texture>
+      <splash-texture>contrib/splash-13.png</splash-texture>
+      <splash-texture>contrib/splash-14.png</splash-texture>
+      <splash-texture>contrib/splash-15.png</splash-texture>
+      <splash-texture>contrib/splash-16.png</splash-texture>
+      <splash-texture>contrib/splash-17.png</splash-texture>
+    </startup>
+    <virtual-cockpit archive="y">true</virtual-cockpit>
+    <allow-toggle-cockpit archive="y">true</allow-toggle-cockpit>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ views -->
+    <view n="0"     include="include/sim-view0-backseat-properties.xml" />
+    <view n="102"   include="include/sim-view102-properties.xml" />
+    <view n="103"   include="include/sim-view103-properties.xml" />
+
+    <!-- ~~~~~~~~~~~~~~~~~~ multiplay -->
+    <multiplay      include="include/sim-multiplay-properties.xml" />
+
+    <!-- ~~~~~~~~~~~~~~~~~~ rendering -->
+    <rendering      include="include/sim-rendering-properties.xml" />
+
+    <!-- ~~~~~~~~~~~~~~~~~~ help -->
+    <help           include="docs/sim-help.xml" />
+
+    <!-- ~~~~~~~~~~~~~~~~~~ systems -->
+    <systems>
+      <property-rule n="100">
+        <name>3d-shadow-filters</name>
+        <path>models/effects/shadow/3d-shadow-filters.xml</path>
+      </property-rule>
+      <property-rule n="101">
+        <name>rain-drops-filters</name>
+        <path>models/effects/rain/rain-drops-filters.xml</path>
+      </property-rule>
+    </systems>
+
+  </sim>
+
+  <!--
+================================================================================
+                                                                OTHER PROPERTIES
+================================================================================
+  -->
+
+  <controls />
+
+  <!--
+================================================================================
+                                                                           NASAL
+================================================================================
+  -->
+  <nasal>
+
+    <dual_control_tools>
+      <file>Aircraft/Generic/DualControl/dual-control-tools.nas</file>
+    </dual_control_tools>
+    <aircraft_dual_control>
+      <file>dual_control/dual_control.nas</file>
+    </aircraft_dual_control>
+    <dual_control>
+      <file>Aircraft/Generic/DualControl/copilot-dual-control.nas</file>
+    </dual_control>
+
+    <my_aircraft_functions>
+      <file type="string">functions.nas</file>
+    </my_aircraft_functions>
+
+    <instrument_nd>
+      <file type="string">instruments/nd/nd.nas</file>
+    </instrument_nd>
+    <instrument_pfd>
+      <file type="string">instruments/pfd/pfd.nas</file>
+    </instrument_pfd>
+    <instrument_light>
+      <file type="string">instruments/light/light.nas</file>
+    </instrument_light>
+    <instrument_sfd_canvas>
+      <file type="string">instruments/sfd/sfd_canvas.nas</file>
+    </instrument_sfd_canvas>
+
+    <lights>
+      <file type="string">models/lights/lights.nas</file>
+    </lights>
+
+    <FailureMgr>
+      <enabled type="bool">0</enabled>
+    </FailureMgr>
+    <towing>
+      <enabled type="bool">0</enabled>
+    </towing>
+
+  </nasal>
+
+</PropertyList>
+

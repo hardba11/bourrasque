@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PropertyList>
+
+  <path>als_light.ac</path>
+  <nopreview />
+
+  <effect>
+    <inherits-from>procedural-light-landing</inherits-from>
+    <object-name>als_light</object-name>
+  </effect>
+
+  <animation>
+    <type>select</type>
+    <object-name>als_light</object-name>
+    <condition>
+      <and>
+        <!--property>controls/lighting/taxi-light</property-->
+        <property>sim/multiplay/generic/int[4]</property>
+        <equals>
+          <property>gear/gear[0]/position-norm</property>
+          <value>1</value>
+        </equals>
+      </and>
+    </condition>
+  </animation>
+
+</PropertyList>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+
+pivot visiere
+-3.1735
+-0.1688
+1.134
+r = 37
+-->
+
+<PropertyList>
+
+  <path>pilot.ac</path>
+
+  <animation>
+
+    <!-- Objets opaques -->
+    <object-name>tete</object-name>
+    <object-name>corps</object-name>
+    <object-name>bras</object-name>
+    <object-name>avantbras</object-name>
+    <object-name>main</object-name>
+    <object-name>brasD</object-name>
+    <object-name>avantbrasD</object-name>
+    <object-name>mainD</object-name>
+    <object-name>lunettes</object-name>
+    <object-name>jambeG</object-name>
+    <object-name>jambeD</object-name>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>tete</object-name>
+    <object-name>corps</object-name>
+    <object-name>bras</object-name>
+    <object-name>avantbras</object-name>
+    <object-name>main</object-name>
+    <object-name>brasD</object-name>
+    <object-name>avantbrasD</object-name>
+    <object-name>mainD</object-name>
+    <texture>copilot.png</texture>
+  </animation>
+
+  <animation>
+    <name>bloc_pilote</name>
+    <object-name>tete</object-name>
+    <object-name>corps</object-name>
+    <object-name>bras</object-name>
+    <object-name>avantbras</object-name>
+    <object-name>main</object-name>
+    <object-name>brasD</object-name>
+    <object-name>avantbrasD</object-name>
+    <object-name>mainD</object-name>
+    <object-name>lunettes</object-name>
+  </animation>
+  <animation>
+    <name>bloc_tete</name>
+    <object-name>lunettes</object-name>
+    <object-name>tete</object-name>
+  </animation>
+  <animation>
+    <name>bloc_brasD</name>
+    <object-name>brasD</object-name>
+    <object-name>avantbrasD</object-name>
+    <object-name>mainD</object-name>
+  </animation>
+  <animation>
+    <name>bloc_avantbrasD</name>
+    <object-name>avantbrasD</object-name>
+    <object-name>mainD</object-name>
+  </animation>
+  <animation>
+    <name>bloc_brasG</name>
+    <object-name>bras</object-name>
+    <object-name>avantbras</object-name>
+    <object-name>main</object-name>
+  </animation>
+  <animation>
+    <name>bloc_avantbrasG</name>
+    <object-name>avantbras</object-name>
+    <object-name>main</object-name>
+  </animation>
+
+  <animation>
+    <object-name>bloc_tete</object-name>
+    <type>select</type>
+    <condition>
+      <not-equals>
+        <property>/sim/current-view/view-number</property>
+        <value>8</value>
+      </not-equals>
+    </condition>
+  </animation>
+  <animation>
+    <object-name>bloc_pilote</object-name>
+    <type>select</type>
+    <condition>
+      <or>
+        <not-equals>
+          <property>/sim/current-view/view-number</property>
+          <value>8</value>
+        </not-equals>
+        <and>
+          <equals>
+            <property>/sim/current-view/view-number</property>
+            <value>8</value>
+          </equals>
+          <or>
+            <less-than>
+              <property>/sim/current-view/heading-offset-deg</property>
+              <value>60</value>
+            </less-than>
+            <greater-than>
+              <property>/sim/current-view/heading-offset-deg</property>
+              <value>300</value>
+            </greater-than>
+          </or>
+        </and>
+      </or>
+    </condition>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                                          HELMET
+  -->
+  <animation>
+    <type>rotate</type>
+    <object-name>lunettes</object-name>
+    <property>/controls/pax/helmet</property>
+    <center>
+      <x-m>-3.1735</x-m>
+      <y-m>-0.1688</y-m>
+      <z-m>1.134</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                                            HEAD
+  -->
+  <animation>
+    <type>rotate</type>
+    <object-name>bloc_tete</object-name>
+    <property>controls/pax/copilot-head</property>
+    <center>
+      <x-m>-3.13</x-m>
+      <y-m>-0.03</y-m>
+      <z-m>1</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+
+</PropertyList>

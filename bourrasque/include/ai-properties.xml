@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+################################################################################
+#
+#             THIS FILE INITIALIZES AI/WINGMAN PROPERTY TREE
+#
+################################################################################
+
+PROPERTY-PATH : PropertyList > ai
+
+changelog
+- 2016-10-22 : create
+
+-->
+
+<PropertyList>
+  <models>
+
+    <!-- wingman 0 : Bravo Lima -->
+    <wingman>
+      <gear>
+        <gear>
+          <compression-norm alias="/gear/gear[0]/compression-norm" />
+          <position-norm    alias="/gear/gear[0]/position-norm" />
+        </gear>
+        <gear>
+          <compression-norm alias="/gear/gear[1]/compression-norm" />
+          <position-norm    alias="/gear/gear[1]/position-norm" />
+        </gear>
+        <gear>
+          <compression-norm alias="/gear/gear[2]/compression-norm" />
+          <position-norm    alias="/gear/gear[2]/position-norm" />
+        </gear>
+      </gear>
+      <sim>
+        <multiplay>
+          <generic>
+            <int                  n="0"  alias="/controls/lighting/beacon" />
+            <int                  n="1"  alias="/controls/lighting/nav-lights" />
+            <int                  n="2"  alias="/controls/lighting/pos-lights" />
+            <int                  n="3"  alias="/controls/lighting/strobe" />
+            <int                  n="4"  alias="/controls/lighting/taxi-light" />
+            <int                  n="5"  alias="/systems/electrical/bus/avionics" />
+            <int                  n="6"  alias="/systems/electrical/bus/engines" />
+            <int                  n="7"  alias="/systems/electrical/bus/commands" />
+            <int                  n="8"  alias="/engines/engine[0]/stopped" />
+            <int                  n="9"  alias="/engines/engine[1]/stopped" />
+            <float                n="0"  alias="/sim/model/canopy-pos-norm" />
+            <float                n="1"  alias="/sim/model/canards-pos-norm" />
+            <float                n="2"  alias="/controls/lighting/formation-lights" />
+            <float                n="3"  alias="/position/altitude-agl-m" />
+            <float                n="4"  alias="/gear/gear[0]/rollspeed-ms" />
+            <float                n="5"  alias="/gear/gear[1]/rollspeed-ms" />
+            <float                n="6"  alias="/gear/gear[2]/rollspeed-ms" />
+            <float                n="7"  alias="/gear/gear[0]/steering-norm" />
+            <float                n="8"  alias="/engines/engine[0]/reheat" />
+            <float                n="9"  alias="/engines/engine[1]/reheat" />
+            <float                n="10" alias="/gear/gear[0]/wow" />
+            <float                n="11" alias="/gear/gear[1]/wow" />
+            <float                n="12" alias="/gear/gear[2]/wow" />
+            <string               n="0"  alias="/sim/model/center-tank" />
+            <string               n="1"  alias="/sim/model/wing-tanks" />
+          </generic>
+        </multiplay>
+        <model>
+          <livery>
+            <file alias="/sim/model/livery/file" />
+            <texture alias="/sim/model/livery/texture" />
+            <texture-tank alias="/sim/model/livery/texture-tank" />
+          </livery>
+        </model>
+      </sim>
+    </wingman>
+
+
+    <!-- wingman 1 : Bravo Kilo -->
+    <wingman>
+      <gear>
+        <gear>
+          <compression-norm alias="/gear/gear[0]/compression-norm" />
+          <position-norm    alias="/gear/gear[0]/position-norm" />
+        </gear>
+        <gear>
+          <compression-norm alias="/gear/gear[1]/compression-norm" />
+          <position-norm    alias="/gear/gear[1]/position-norm" />
+        </gear>
+        <gear>
+          <compression-norm alias="/gear/gear[2]/compression-norm" />
+          <position-norm    alias="/gear/gear[2]/position-norm" />
+        </gear>
+      </gear>
+      <sim>
+        <multiplay>
+          <generic>
+            <int                  n="0"  alias="/controls/lighting/beacon" />
+            <int                  n="1"  alias="/controls/lighting/nav-lights" />
+            <int                  n="2"  alias="/controls/lighting/pos-lights" />
+            <int                  n="3"  alias="/controls/lighting/strobe" />
+            <int                  n="4"  alias="/controls/lighting/taxi-light" />
+            <int                  n="5"  alias="/systems/electrical/bus/avionics" />
+            <int                  n="6"  alias="/systems/electrical/bus/engines" />
+            <int                  n="7"  alias="/systems/electrical/bus/commands" />
+            <int                  n="8"  alias="/engines/engine[0]/stopped" />
+            <int                  n="9"  alias="/engines/engine[1]/stopped" />
+            <float                n="0"  alias="/sim/model/canopy-pos-norm" />
+            <float                n="1"  alias="/sim/model/canards-pos-norm" />
+            <float                n="2"  alias="/controls/lighting/formation-lights" />
+            <float                n="3"  alias="/position/altitude-agl-m" />
+            <float                n="4"  alias="/gear/gear[0]/rollspeed-ms" />
+            <float                n="5"  alias="/gear/gear[1]/rollspeed-ms" />
+            <float                n="6"  alias="/gear/gear[2]/rollspeed-ms" />
+            <float                n="7"  alias="/gear/gear[0]/steering-norm" />
+            <float                n="8"  alias="/engines/engine[0]/reheat" />
+            <float                n="9"  alias="/engines/engine[1]/reheat" />
+            <float                n="10" alias="/gear/gear[0]/wow" />
+            <float                n="11" alias="/gear/gear[1]/wow" />
+            <float                n="12" alias="/gear/gear[2]/wow" />
+            <string               n="0"  alias="/sim/model/center-tank" />
+            <string               n="1"  alias="/sim/model/wing-tanks" />
+          </generic>
+        </multiplay>
+        <model>
+          <livery>
+            <file alias="/sim/model/livery/file" />
+            <texture alias="/sim/model/livery/texture" />
+            <texture-tank alias="/sim/model/livery/texture-tank" />
+          </livery>
+        </model>
+      </sim>
+    </wingman>
+
+  </models>
+
+</PropertyList>
+
+

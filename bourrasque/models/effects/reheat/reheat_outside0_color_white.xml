@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- /engines/engine[0]/reheat = sim/multiplay/generic/float[8]   models/effects/reheat/  -->
+<PropertyList>
+
+  <path>reheat_outside_box.ac</path>
+  <nopreview />
+
+  <animation>
+    <type>scale</type>
+    <object-name>reheat_outside_box</object-name>
+    <property>sim/multiplay/generic/float[8]</property>
+    <x-min>0.2</x-min>
+    <y-min>0.55</y-min>
+    <z-min>0.55</z-min>
+    <y-max>1</y-max>
+    <z-max>1</z-max>
+    <x-factor>1.5</x-factor>
+    <y-factor>1</y-factor>
+    <z-factor>1</z-factor>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>reheat_outside_box</object-name>
+    <condition>
+      <and>
+        <greater-than>
+          <property>sim/multiplay/generic/float[8]</property>
+          <value>0.1</value>
+        </greater-than>
+        <equals>
+          <property>sim/multiplay/generic/int[8]</property>
+          <value>0</value>
+        </equals>
+      </and>
+    </condition>
+  </animation>
+
+  <effect>
+    <inherits-from>reheat_outside_color_white</inherits-from>
+    <object-name>reheat_outside_box</object-name>
+  </effect>
+
+</PropertyList>
+

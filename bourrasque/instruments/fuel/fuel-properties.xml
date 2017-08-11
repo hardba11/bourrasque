@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- DEFINITION OF ALIASES OR INTERNAL PROPERTIES -->
+
+<!-- /instrumentation/my_aircraft/fuel/ -->
+
+<PropertyList>
+
+  <total-fuel-m3        type="float">0</total-fuel-m3>
+  <fuel-center-tank-m3  type="float">0</fuel-center-tank-m3>
+  <fuel-left-tank-m3    type="float">0</fuel-left-tank-m3>
+  <fuel-right-tank-m3   type="float">0</fuel-right-tank-m3>
+
+</PropertyList>
+

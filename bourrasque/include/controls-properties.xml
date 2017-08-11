@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+################################################################################
+#
+#             THIS FILE INITIALIZES CONTROLS PROPERTY TREE
+#
+################################################################################
+
+PROPERTY-PATH : PropertyList > controls
+
+changelog
+- 2016-10-22 : create
+
+-->
+
+<PropertyList>
+
+  <flight>
+    <!-- new properties used by fcm.nas and yasim -->
+    <fcm-elevator>1</fcm-elevator>
+    <fcm-aileron>1</fcm-aileron>
+    <fcm-rudder>1</fcm-rudder>
+    <fcm-canard>0</fcm-canard>
+  </flight>
+
+  <gear>
+    <!-- set property : parking brake at start -->
+    <brake-parking>1</brake-parking>
+  </gear>
+
+  <doors>
+    <!-- set property : canopy opened at start -->
+    <canopy type="float">1</canopy>
+  </doors>
+
+  <pax>
+    <helmet type="float">37</helmet>
+    <copilot-head type="int">-25</copilot-head>
+    <pilot type="bool">1</pilot>
+    <copilot type="bool">1</copilot>
+  </pax>
+
+
+  <lighting>
+    <!-- set properties : lights off at start -->
+    <nav-lights type="int">0</nav-lights>
+    <pos-lights type="int">0</pos-lights>
+    <beacon type="int">0</beacon>
+    <strobe type="int">0</strobe>
+    <taxi-light type="int">0</taxi-light>
+    <landing-lights type="int">0</landing-lights>
+    <formation-lights type="float">0</formation-lights>
+    <instruments-norm type="float">0</instruments-norm>
+  </lighting>
+
+</PropertyList>
+
+

@@ -1,0 +1,732 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+description :
+    this file uses the 3d model ans defines animations of the model and objects
+    (mouvements, lightings)
+    it loads if necessary the submodels files
+
+changelog
+- 2016-10-22 : create
+
+-->
+
+<PropertyList>
+
+  <name>light</name>
+  <path>instrument_light.ac</path>
+
+  <!--
+================================================================================
+                                                             OBJECTS DECLARATION
+================================================================================
+  -->
+  <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
+  <animation>
+    <object-name>light.box</object-name>
+    <object-name>light.btn_1</object-name>
+    <object-name>light.btn_2</object-name>
+    <object-name>light.btn_3</object-name>
+    <object-name>light.btn_4</object-name>
+    <object-name>light.btn_5</object-name>
+    <object-name>light.btn_6</object-name>
+    <object-name>light.knob_7</object-name>
+    <object-name>light.knob_8</object-name>
+    <object-name>light.box-emit</object-name>
+    <object-name>light.btn_1-emit</object-name>
+    <object-name>light.btn_2-emit</object-name>
+    <object-name>light.btn_3-emit</object-name>
+    <object-name>light.btn_4-emit</object-name>
+    <object-name>light.btn_5-emit</object-name>
+    <object-name>light.knob_7-emit</object-name>
+    <object-name>light.knob_8-emit</object-name>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
+  <animation>
+    <type>select</type>
+    <object-name>light.btn_6-emit</object-name>
+    <condition>
+      <false />
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>light.box-emit</object-name>
+    <object-name>light.btn_1-emit</object-name>
+    <object-name>light.btn_2-emit</object-name>
+    <object-name>light.btn_3-emit</object-name>
+    <object-name>light.btn_4-emit</object-name>
+    <object-name>light.btn_5-emit</object-name>
+    <object-name>light.knob_7-emit</object-name>
+    <object-name>light.knob_8-emit</object-name>
+  </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ effects -->
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
+    <object-name>light.box</object-name>
+    <object-name>light.btn_1</object-name>
+    <object-name>light.btn_2</object-name>
+    <object-name>light.btn_3</object-name>
+    <object-name>light.btn_4</object-name>
+    <object-name>light.btn_5</object-name>
+    <object-name>light.btn_6</object-name>
+    <object-name>light.knob_7</object-name>
+    <object-name>light.knob_8</object-name>
+    <object-name>light.box-emit</object-name>
+    <object-name>light.btn_1-emit</object-name>
+    <object-name>light.btn_2-emit</object-name>
+    <object-name>light.btn_3-emit</object-name>
+    <object-name>light.btn_4-emit</object-name>
+    <object-name>light.btn_5-emit</object-name>
+    <object-name>light.knob_7-emit</object-name>
+    <object-name>light.knob_8-emit</object-name>
+  </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
+  <animation>
+    <type>material</type>
+    <object-name>light.box-emit</object-name>
+    <object-name>light.knob_7-emit</object-name>
+    <object-name>light.knob_8-emit</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.8</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (enabled) -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (color) -->
+
+
+  <!--
+================================================================================
+                                                         CONTROLS AND ANIMATIONS
+================================================================================
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control navigation light -->
+  <animation>
+    <type>pick</type>
+    <object-name>light.btn_1</object-name>
+    <command>property-toggle</command>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/multiplay/generic/int[1]</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-navigation-lights</tooltip-id>
+        <label>Navigation lights</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation navigation light -->
+  <!-- push -->
+  <animation>
+    <type>translate</type>
+    <object-name>light.btn_1</object-name>
+    <object-name>light.btn_1-emit</object-name>
+    <property>sim/multiplay/generic/int[1]</property>
+    <factor>0.002</factor>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <!-- label ON if enabled -->
+  <animation>
+    <type>textranslate</type>
+    <object-name>light.btn_1-emit</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[1]</property>
+    </condition>
+    <property>sim/multiplay/generic/int[1]</property>
+    <factor>.078</factor>
+    <step>1</step>
+    <axis>
+      <x>0</x>
+      <y>-1</y>
+    </axis>
+  </animation>
+  <!-- emission if enabled -->
+  <animation>
+    <type>material</type>
+    <object-name>light.btn_1-emit</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[1]</property>
+    </condition>
+    <emission>
+      <factor>1</factor>
+      <red>1</red>
+      <green>0</green>
+      <blue>0</blue>
+    </emission>
+  </animation>
+  <!-- emission if disabled -->
+  <animation>
+    <type>material</type>
+    <object-name>light.btn_1-emit</object-name>
+    <condition>
+      <or>
+        <not><property>sim/multiplay/generic/int[1]</property></not>
+        <not><property>sim/multiplay/generic/int[5]</property></not>
+      </or>
+    </condition>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.8</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+  <!-- no emission if no volt -->
+  <animation>
+    <type>select</type>
+    <object-name>light.btn_1-emit</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <property>sim/multiplay/generic/int[7]</property>
+        <property>sim/multiplay/generic/int[1]</property>
+      </and>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control position light -->
+  <animation>
+    <type>pick</type>
+    <object-name>light.btn_2</object-name>
+    <command>property-toggle</command>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/multiplay/generic/int[2]</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-position-lights</tooltip-id>
+        <label>Position lights</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation position light -->
+  <!-- push -->
+  <animation>
+    <type>translate</type>
+    <object-name>light.btn_2</object-name>
+    <object-name>light.btn_2-emit</object-name>
+    <property>sim/multiplay/generic/int[2]</property>
+    <factor>0.002</factor>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <!-- label ON if enabled -->
+  <animation>
+    <type>textranslate</type>
+    <object-name>light.btn_2-emit</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[2]</property>
+    </condition>
+    <property>sim/multiplay/generic/int[2]</property>
+    <factor>.078</factor>
+    <step>1</step>
+    <axis>
+      <x>0</x>
+      <y>-1</y>
+    </axis>
+  </animation>
+  <!-- emission if enabled -->
+  <animation>
+    <type>material</type>
+    <object-name>light.btn_2-emit</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[2]</property>
+    </condition>
+    <emission>
+      <factor>1</factor>
+      <red>1</red>
+      <green>0</green>
+      <blue>0</blue>
+    </emission>
+  </animation>
+  <!-- emission if disabled -->
+  <animation>
+    <type>material</type>
+    <object-name>light.btn_2-emit</object-name>
+    <condition>
+      <or>
+        <not><property>sim/multiplay/generic/int[2]</property></not>
+        <not><property>sim/multiplay/generic/int[5]</property></not>
+      </or>
+    </condition>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.8</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+  <!-- no emission if no volt -->
+  <animation>
+    <type>select</type>
+    <object-name>light.btn_2-emit</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <property>sim/multiplay/generic/int[7]</property>
+        <property>sim/multiplay/generic/int[2]</property>
+      </and>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control anti-collision light -->
+  <animation>
+    <type>pick</type>
+    <object-name>light.btn_3</object-name>
+    <command>property-toggle</command>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/multiplay/generic/int[0]</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-anticoll-lights</tooltip-id>
+        <label>Anticollision lights</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation anti-collision light -->
+  <!-- push -->
+  <animation>
+    <type>translate</type>
+    <object-name>light.btn_3</object-name>
+    <object-name>light.btn_3-emit</object-name>
+    <property>sim/multiplay/generic/int[0]</property>
+    <factor>0.002</factor>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <!-- label ON if enabled -->
+  <animation>
+    <type>textranslate</type>
+    <object-name>light.btn_3-emit</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[0]</property>
+    </condition>
+    <property>sim/multiplay/generic/int[0]</property>
+    <factor>.078</factor>
+    <step>1</step>
+    <axis>
+      <x>0</x>
+      <y>-1</y>
+    </axis>
+  </animation>
+  <!-- emission if enabled -->
+  <animation>
+    <type>material</type>
+    <object-name>light.btn_3-emit</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[0]</property>
+    </condition>
+    <emission>
+      <factor>1</factor>
+      <red>1</red>
+      <green>0</green>
+      <blue>0</blue>
+    </emission>
+  </animation>
+  <!-- emission if disabled -->
+  <animation>
+    <type>material</type>
+    <object-name>light.btn_3-emit</object-name>
+    <condition>
+      <or>
+        <not><property>sim/multiplay/generic/int[0]</property></not>
+        <not><property>sim/multiplay/generic/int[5]</property></not>
+      </or>
+    </condition>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.8</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+  <!-- no emission if no volt -->
+  <animation>
+    <type>select</type>
+    <object-name>light.btn_3-emit</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <property>sim/multiplay/generic/int[7]</property>
+        <property>sim/multiplay/generic/int[0]</property>
+      </and>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control strobe -->
+  <animation>
+    <type>pick</type>
+    <object-name>light.btn_4</object-name>
+    <command>property-toggle</command>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/multiplay/generic/int[3]</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-strobe-lights</tooltip-id>
+        <label>Strobe lights</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation strobe -->
+  <!-- push -->
+  <animation>
+    <type>translate</type>
+    <object-name>light.btn_4</object-name>
+    <object-name>light.btn_4-emit</object-name>
+    <property>sim/multiplay/generic/int[3]</property>
+    <factor>0.002</factor>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <!-- label ON if enabled -->
+  <animation>
+    <type>textranslate</type>
+    <object-name>light.btn_4-emit</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[3]</property>
+    </condition>
+    <property>sim/multiplay/generic/int[3]</property>
+    <factor>.078</factor>
+    <step>1</step>
+    <axis>
+      <x>0</x>
+      <y>-1</y>
+    </axis>
+  </animation>
+  <!-- emission if enabled -->
+  <animation>
+    <type>material</type>
+    <object-name>light.btn_4-emit</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[3]</property>
+    </condition>
+    <emission>
+      <factor>1</factor>
+      <red>1</red>
+      <green>0</green>
+      <blue>0</blue>
+    </emission>
+  </animation>
+  <!-- emission if disabled -->
+  <animation>
+    <type>material</type>
+    <object-name>light.btn_4-emit</object-name>
+    <condition>
+      <or>
+        <not><property>sim/multiplay/generic/int[3]</property></not>
+        <not><property>sim/multiplay/generic/int[5]</property></not>
+      </or>
+    </condition>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.8</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+  <!-- no emission if no volt -->
+  <animation>
+    <type>select</type>
+    <object-name>light.btn_4-emit</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <property>sim/multiplay/generic/int[7]</property>
+        <property>sim/multiplay/generic/int[3]</property>
+      </and>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control taxi + landing -->
+  <animation>
+    <type>pick</type>
+    <object-name>light.btn_5</object-name>
+    <command>property-toggle</command>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/multiplay/generic/int[4]</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-taxi-lights</tooltip-id>
+        <label>Taxi and landing lights</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation taxi + landing -->
+  <!-- push -->
+  <animation>
+    <type>translate</type>
+    <object-name>light.btn_5</object-name>
+    <object-name>light.btn_5-emit</object-name>
+    <property>sim/multiplay/generic/int[4]</property>
+    <factor>0.002</factor>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <!-- label ON if enabled -->
+  <animation>
+    <type>textranslate</type>
+    <object-name>light.btn_5-emit</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[4]</property>
+    </condition>
+    <property>sim/multiplay/generic/int[4]</property>
+    <factor>.078</factor>
+    <step>1</step>
+    <axis>
+      <x>0</x>
+      <y>-1</y>
+    </axis>
+  </animation>
+  <!-- emission if enabled -->
+  <animation>
+    <type>material</type>
+    <object-name>light.btn_5-emit</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[4]</property>
+    </condition>
+    <emission>
+      <factor>1</factor>
+      <red>1</red>
+      <green>0</green>
+      <blue>0</blue>
+    </emission>
+  </animation>
+  <!-- emission if disabled -->
+  <animation>
+    <type>material</type>
+    <object-name>light.btn_5-emit</object-name>
+    <condition>
+      <or>
+        <not><property>sim/multiplay/generic/int[4]</property></not>
+        <not><property>sim/multiplay/generic/int[5]</property></not>
+      </or>
+    </condition>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.8</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+  <!-- no emission if no volt -->
+  <animation>
+    <type>select</type>
+    <object-name>light.btn_5-emit</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <property>sim/multiplay/generic/int[7]</property>
+        <property>sim/multiplay/generic/int[4]</property>
+      </and>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control formation light -->
+  <animation>
+    <type>pick</type>
+    <object-name>light.knob_7</object-name>
+    <object-name>light.knob_7-emit</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-cycle</command>
+        <property>sim/multiplay/generic/float[2]</property>
+        <value>0</value>
+        <value>.33</value>
+        <value>.66</value>
+        <value>1</value>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-cycle</command>
+        <property>sim/multiplay/generic/float[2]</property>
+        <value>1</value>
+        <value>.66</value>
+        <value>.33</value>
+        <value>0</value>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-formation-lights</tooltip-id>
+        <label>Formation lights %s%%</label>
+        <mapping>percent</mapping>
+        <property>sim/multiplay/generic/float[2]</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation formation light -->
+  <animation>
+    <type>rotate</type>
+    <object-name>light.knob_7</object-name>
+    <object-name>light.knob_7-emit</object-name>
+    <property>sim/multiplay/generic/float[2]</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>-60</dep></entry>
+      <entry><ind>.33</ind><dep>-20</dep></entry>
+      <entry><ind>.66</ind><dep>20</dep></entry>
+      <entry><ind>1</ind><dep>60</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0.0099461</x-m>
+      <y-m>0.018161</y-m>
+      <z-m>-0.033371</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control interior light -->
+  <animation>
+    <type>knob</type>
+    <object-name>light.knob_8</object-name>
+    <property>/controls/lighting/instruments-norm</property>
+    <action>
+      <binding>
+        <command>property-adjust</command>
+        <property>/controls/lighting/instruments-norm</property>
+        <factor>.2</factor>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-instruments-lights</tooltip-id>
+        <label>Instruments lights %s%%</label>
+        <mapping>percent</mapping>
+        <property>/controls/lighting/instruments-norm</property>
+      </binding>
+    </hovered>
+  </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation interior light -->
+  <animation>
+    <type>rotate</type>
+    <object-name>light.knob_8</object-name>
+    <object-name>light.knob_8-emit</object-name>
+    <property>/controls/lighting/instruments-norm</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>-60</dep></entry>
+      <entry><ind>.33</ind><dep>-20</dep></entry>
+      <entry><ind>.66</ind><dep>20</dep></entry>
+      <entry><ind>1</ind><dep>60</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0.0554</y-m>
+      <z-m>-0.0318</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+</PropertyList>

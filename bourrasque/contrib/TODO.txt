@@ -1,0 +1,89 @@
+                     FLIGHTGEAR "BOURRASQUE" AIRCRAFT - TODO
+
+Roadmap and releases
+--------------------
+
+
+
+| improve yasim [DONE : 5/5]
+| 
+| exterior lights [DONE : 5/5]
+| 
+| add sounds [DONE : 5/5]
+| 
+| panel and instruments lights [DONE : 5/5]
+| 
+| effects (smoke, wingtips) [DONE : 5/5]
+| 
+| add copilot instruments [DONE : 5/5]
+| 
+| pluggable instruments ? (architecture, cnx, properties) [DONE : 5/5]
+| 
++-------> FIRST RELEASE : USABLE AIRCRAFT AND STABLE BASE [01-03-2017]
+
+
+
+| autopilot : add instruments + design [WIP : 4/5]
+| 
+| improve current yasim, create stability-system (fcm.nas) [DONE : 5/5]
+| 
+| add radar on hud - canvas [STDBY : 4/5]
+| 
+| add radar on Nav Display [TODO : 0/5]
+|
+| instruments : mods [DONE : 5/5]
+| 
++-------> SECOND RELEASE : IMPROVE IMPORTANT FUNCTIONNALITIES [01-06-2017]
+
+
+
+| wingmen AI demo [DONE : 5/5]
+| 
+| multi-player [WIP : 4/5]
+| 
+| multi-player back seat [WIP : 4/5]
+| 
++-------> THIRD RELEASE : MULTIPLAYER READY [22-10-2017]
+
+
+
+| other liveries - textures HD + ambiant occlusion + lightmap + normalmap [STDBY : 2/5]
+| 
+| add sounds : touchdown, buttons, pull up, warnings [WIP : 4/5]
+| 
+| shadows effects [DONE : 5/5]
+| 
+| smoke effects (touchdown)
+| 
+| rain effects (raindrops, textures and particles) [DONE : 5/5]
+| 
+| add/modelize pilot model [DONE : 5/5]
+| 
+| add/modelize external tanks + gui [DONE : 5/5]
+| 
+| modelize instrument (gear/flaps/break panel and eicas) [WIP : 4/5]
+| 
++-------> FOURTH RELEASE : IMPROVED MODEL, SOUNDS AND EFFECT [01-01-2018]
+
+
+
+| clean up files and directory and comments, improve doc [1/5] (table property + wiki)
+| 
+| new yasim from scratch ?
+| 
+| start/stop procedure : nasal + sounds (basic then improved) [WIP : 4/5]
+| 
+| add/improve instruments : PFD, Gload, GPS, message, aoa
+| 
+| nozzle animation ?
+| 
+| optimisations + LOD cockpit
+| 
+| tutorials
+| 
++-------> TO BE CONTINUED... FUTURES RELEASES
+
+
+
+
+

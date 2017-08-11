@@ -1,0 +1,48 @@
+                  FLIGHTGEAR "BOURRASQUE" AIRCRAFT - CHANGELOG
+
+
+semaine 32-2017 :: nouvel instrument fuel
+semaine 31-2017 :: nouvel instrument engine, nouvel instrument command headup, amélioration hud
+semaine 30-2017 :: nouvelles livrées, remplacement des instruments nav/com/adf/transponder
+semaine 29-2017 :: holidays
+semaine 28-2017 :: refactor auto pilot (thanks to itouchpod)
+semaine 27-2017 :: amelioration auto pilot : ctrl-p
+semaine 26-2017 :: keyboard/mouse settings
+semaine 25-2017 :: nouvelles vues : "progo", améliorations pilote et cockpit, keyboard/mouse settings
+semaine 24-2017 :: nouvelle livrée, animation pilote, texture cockpit
+semaine 23-2017 :: équipement au sol, pilote, ajout de sons
+semaine 22-2017 :: sons start/stop, mods, améliorations modèle
+semaine 21-2017 :: Autopilot, wingman, ameliorations graphiques
+semaine 20-2017 :: ameliorations graphiques
+semaine 19-2017 :: stabilisation multiplay, amélioration effects
+semaine 18-2017 :: stabilisation multiplay
+semaine 17-2017 :: stabilisation, amélioration des instruments, archi des fichiers
+semaine 16-2017 :: effets et arrêt/démarrage en multiplay
+semaine 15-2017 :: démarrage/arrêt moteurs, amélioration des sons, effets de pluie
+semaine 14-2017 :: démarrage/arrêt moteurs, gui
+semaine 13-2017 :: hud canvas ok, MP
+semaine 12-2017 :: modélisation bidons, amélioration MP
+semaine 11-2017 :: tests shadow 3d-gears, hud canvas
+semaine 10-2017 :: shadow 3d, effect als lampe, tooltips, hud canvas
+semaine 09-2017 :: AP, hud canvas, ajout palonnier, améliorations modèle
+semaine 08-2017 :: MP, création de livrée
+semaine 07-2017 :: amélioration des sons, création de livrées, préparation au MP, instrument commande
+semaine 06-2017 :: améliorations importantes modèle intérieur et ajout d'effects als
+semaine 05-2017 :: améliorations importantes modèle extérieur, ajout de livrée
+semaine 04-2017 :: améliorations légères
+semaine 03-2017 :: amélioration instruments, ajustements modèle
+semaine 02-2017 :: amélioration instruments, recherche d'un modèle de pilote
+semaine 01-2017 :: création de FBW, amélioration animations et instruments
+semaine 42-2016 :: amélioration yasim, sons, instruments et création d'outils
+semaine 41-2016 :: modification instruments, test yasim
+semaine 40-2016 :: modification instruments
+semaine 39-2016 :: tests yasim, ajout als et effects
+semaine 38-2016 :: améliorations modèle, animation des trains et autres animations
+semaine 37-2016 :: modélisation trains et ajout d'instruments
+semaine 36-2016 :: modélisation instrument light
+semaine 35-2016 :: ajout des instruments
+semaine 34-2016 :: export dans fgfs, amélioration modèle et texturisation
+semaine 33-2016 :: préparation du modèle pour l'export et étude UVmap
+semaine 32-2016 :: ajustement cellule et modélisation cockpit
+semaine 31-2016 :: modélisation cellule
+

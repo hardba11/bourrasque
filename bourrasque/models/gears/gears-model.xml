@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+################################################################################
+#
+#                                 GEARS MODEL
+#
+################################################################################
+
+warning, order of declared animations is important
+
+
+changelog
+- 2016-10-22 : create
+
+-->
+
+<PropertyList>
+
+  <path>gears.ac</path>
+
+  <!--
+================================================================================
+                                                                    OBJECTS LIST
+================================================================================
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ all parts -->
+  <animation>
+    <type>material</type>
+    <object-name>verin_jambe_train</object-name>
+    <object-name>piston_verin_jambe_train</object-name>
+    <object-name>jambe_train</object-name>
+    <object-name>compas_jambe_train</object-name>
+    <object-name>compas_piston_train</object-name>
+    <object-name>piston_train</object-name>
+    <object-name>roue_train</object-name>
+    <object-name>jambe_train_principal_L</object-name>
+    <object-name>compas_jambe_train_principal_L</object-name>
+    <object-name>compas_piston_train_principal_L</object-name>
+    <object-name>piston_train_principal_L</object-name>
+    <object-name>roue_train_principal_L</object-name>
+    <object-name>jambe_train_principal_R</object-name>
+    <object-name>compas_jambe_train_principal_R</object-name>
+    <object-name>compas_piston_train_principal_R</object-name>
+    <object-name>piston_train_principal_R</object-name>
+    <object-name>roue_train_principal_R</object-name>
+    <object-name>projecteur_train</object-name>
+    <object-name>essieu_train</object-name>
+    <object-name>essieu_train_principal_L</object-name>
+    <object-name>essieu_train_principal_L</object-name>
+  </animation>
+
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/aircraft/piston</inherits-from>
+    <object-name>piston_verin_jambe_train</object-name>
+    <object-name>piston_train</object-name>
+    <object-name>piston_train_principal_L</object-name>
+    <object-name>piston_train_principal_R</object-name>
+    <object-name>projecteur_train</object-name>
+  </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ front gear blocks -->
+  <animation>
+    <name>block_verrin_jambe_train</name>
+    <object-name>verin_jambe_train</object-name>
+    <object-name>piston_verin_jambe_train</object-name>
+  </animation>
+  <animation>
+    <name>block_jambe_train</name>
+    <object-name>jambe_train</object-name>
+    <object-name>compas_jambe_train</object-name>
+    <object-name>compas_piston_train</object-name>
+    <object-name>piston_train</object-name>
+    <object-name>essieu_train</object-name>
+    <object-name>roue_train</object-name>
+    <object-name>projecteur_train</object-name>
+  </animation>
+  <animation>
+    <name>block_roue_train</name>
+    <object-name>piston_train</object-name>
+    <object-name>essieu_train</object-name>
+    <object-name>roue_train</object-name>
+    <object-name>compas_piston_train</object-name>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ left gear blocks -->
+  <animation>
+    <name>block_jambe_train_principal_L</name>
+    <object-name>jambe_train_principal_L</object-name>
+    <object-name>compas_jambe_train_principal_L</object-name>
+    <object-name>compas_piston_train_principal_L</object-name>
+    <object-name>piston_train_principal_L</object-name>
+    <object-name>essieu_train_principal_L</object-name>
+    <object-name>roue_train_principal_L</object-name>
+  </animation>
+  <animation>
+    <name>block_roue_train_principal_L</name>
+    <object-name>compas_jambe_train_principal_L</object-name>
+    <object-name>compas_piston_train_principal_L</object-name>
+    <object-name>piston_train_principal_L</object-name>
+    <object-name>essieu_train_principal_L</object-name>
+    <object-name>roue_train_principal_L</object-name>
+  </animation>
+  <animation>
+    <name>block_roue_train_principal_L</name>
+    <object-name>piston_train_principal_L</object-name>
+    <object-name>essieu_train_principal_L</object-name>
+    <object-name>roue_train_principal_L</object-name>
+    <object-name>compas_piston_train_principal_L</object-name>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ right gear blocks -->
+  <animation>
+    <name>block_jambe_train_principal_R</name>
+    <object-name>jambe_train_principal_R</object-name>
+    <object-name>compas_jambe_train_principal_R</object-name>
+    <object-name>compas_piston_train_principal_R</object-name>
+    <object-name>piston_train_principal_R</object-name>
+    <object-name>essieu_train_principal_R</object-name>
+    <object-name>roue_train_principal_R</object-name>
+  </animation>
+  <animation>
+    <name>block_roue_train_principal_R</name>
+    <object-name>compas_jambe_train_principal_R</object-name>
+    <object-name>compas_piston_train_principal_R</object-name>
+    <object-name>piston_train_principal_R</object-name>
+    <object-name>essieu_train_principal_R</object-name>
+    <object-name>roue_train_principal_R</object-name>
+  </animation>
+  <animation>
+    <name>block_roue_train_principal_R</name>
+    <object-name>piston_train_principal_R</object-name>
+    <object-name>essieu_train_principal_R</object-name>
+    <object-name>roue_train_principal_R</object-name>
+    <object-name>compas_piston_train_principal_R</object-name>
+  </animation>
+
+  <!--
+================================================================================
+                                                           FRONT GEAR ANIMATIONS
+================================================================================
+
+________________________________________________________________________________
+                                                          RETRACTING FRONT GEARS
+  -->
+  <!-- ~~~~~~~~~~~~~~~~~~ hiding object if fully retracted -->
+  <animation>
+    <type>select</type>
+    <object-name>verin_jambe_train</object-name>
+    <object-name>piston_verin_jambe_train</object-name>
+    <object-name>jambe_train</object-name>
+    <object-name>projecteur_train</object-name>
+    <object-name>compas_jambe_train</object-name>
+    <object-name>compas_piston_train</object-name>
+    <object-name>piston_train</object-name>
+    <object-name>essieu_train</object-name>
+    <object-name>roue_train</object-name>
+    <condition>
+      <greater-than>
+        <property>gear/gear[0]/position-norm</property>
+        <value type="double">0</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ rotating towards front : bloc verrin -->
+  <animation>
+    <type>rotate</type>
+    <object-name>block_verrin_jambe_train</object-name>
+    <property>gear/gear[0]/position-norm</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>80</dep></entry>
+      <entry><ind>0.2</ind><dep>75</dep></entry>
+      <entry><ind>0.9</ind><dep>0</dep></entry>
+      <entry><ind>1.0</ind><dep>0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-2.24</x-m>
+      <y-m>0</y-m>
+      <z-m>-0.25</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~ translating : verrin -->
+  <animation>
+    <type>translate</type>
+    <object-name>piston_verin_jambe_train</object-name>
+    <property>gear/gear[0]/position-norm</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>-0.8</dep></entry>
+      <entry><ind>0.2</ind><dep>-0.6</dep></entry>
+      <entry><ind>0.98</ind><dep>-0.1</dep></entry>
+      <entry><ind>1.0</ind><dep>0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-2.24</x-m>
+      <y-m>0</y-m>
+      <z-m>-0.25</z-m>
+    </center>
+    <axis>
+      <x>0.385</x>
+      <y>0</y>
+      <z>0.665</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ rotating towards front : bloc jambe -->
+  <animation>
+    <type>rotate</type>
+    <object-name>block_jambe_train</object-name>
+    <property>gear/gear[0]/position-norm</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>95</dep></entry>
+      <entry><ind>0.2</ind><dep>95</dep></entry>
+      <entry><ind>0.9</ind><dep>0</dep></entry>
+      <entry><ind>1.0</ind><dep>0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-2.59</x-m>
+      <y-m>0</y-m>
+      <z-m>-0.1</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                          SUSPENSION FRONT GEARS
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ translating piston -->
+  <animation>
+    <type>translate</type>
+    <object-name>block_roue_train</object-name>
+    <property>gear/gear[0]/compression-norm</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>-0.12</dep></entry>   <!-- airborn -->
+      <entry><ind>.19</ind><dep>0</dep></entry>     <!-- ground -->
+      <entry><ind>.4</ind><dep>0.15</dep></entry>   <!-- compressed -->
+    </interpolation>
+    <axis>
+      <x>0.023</x>
+      <y>0</y>
+      <z>0.117</z>
+    </axis>
+  </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~ rotating : compas of piston -->
+  <animation>
+    <type>rotate</type>
+    <object-name>compas_piston_train</object-name>
+    <property>gear/gear[0]/compression-norm</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>-25</dep></entry>
+      <entry><ind>0.19</ind><dep>0</dep></entry>
+      <entry><ind>0.4</ind><dep>20</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-2.6749</x-m>
+      <y-m>0</y-m>
+      <z-m>-1.3096</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~ rotating compas of jambe -->
+  <animation>
+    <type>rotate</type>
+    <object-name>compas_jambe_train</object-name>
+    <property>gear/gear[0]/compression-norm</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>25</dep></entry>
+      <entry><ind>0.19</ind><dep>0</dep></entry>
+      <entry><ind>0.4</ind><dep>-20</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-2.6402</x-m>
+      <y-m>0</y-m>
+      <z-m>-1.082</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                      WHEEL ROTATION FRONT GEARS
+  -->
+  <!-- ~~~~~~~~~~~~~~~~~~ rotating wheels when taxiing -->
+  <animation>
+    <type>spin</type>
+    <object-name>roue_train</object-name>
+    <property>sim/multiplay/generic/float[4]</property>
+    <factor>30</factor>
+    <center>
+      <x-m>-2.741</x-m>
+      <y-m>0</y-m>
+      <z-m>-1.361</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>-1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <!--
+________________________________________________________________________________
+                                                            STEERING FRONT GEARS
+  -->
+  <!-- ~~~~~~~~~~~~~~~~~~ steering wheels -->
+  <animation>
+    <type>rotate</type>
+    <object-name>block_roue_train</object-name>
+    <object-name>compas_jambe_train</object-name>
+    <property>sim/multiplay/generic/float[7]</property>
+    <factor>-45</factor>
+    <center>
+      <x-m>-2.677</x-m>
+      <y-m>0</y-m>
+      <z-m>-0.941</z-m>
+    </center>
+    <axis>
+      <x>0.023</x>
+      <y>0</y>
+      <z>0.117</z>
+    </axis>
+  </animation>
+
+  <!--
+================================================================================
+                                                            LEFT GEAR ANIMATIONS
+================================================================================
+
+________________________________________________________________________________
+                                                           RETRACTING LEFT GEARS
+  -->
+  <!-- ~~~~~~~~~~~~~~~~~~ hiding object if fully retracted -->
+  <animation>
+    <type>select</type>
+    <object-name>jambe_train_principal_L</object-name>
+    <object-name>compas_jambe_train_principal_L</object-name>
+    <object-name>compas_piston_train_principal_L</object-name>
+    <object-name>piston_train_principal_L</object-name>
+    <object-name>essieu_train_principal_L</object-name>
+    <object-name>roue_train_principal_L</object-name>
+    <condition>
+      <greater-than>
+        <property>gear/gear[1]/position-norm</property>
+        <value type="double">0</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ rotating towards front : bloc jambe -->
+  <animation>
+    <type>rotate</type>
+    <object-name>block_jambe_train_principal_L</object-name>
+    <property>gear/gear[1]/position-norm</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>-105</dep></entry>
+      <entry><ind>0.2</ind><dep>-105</dep></entry>
+      <entry><ind>0.9</ind><dep>0</dep></entry>
+      <entry><ind>1.0</ind><dep>0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>1.953</x-m>
+      <y-m>-0.9</y-m>
+      <z-m>-0.2</z-m>
+    </center>
+    <axis>
+      <x>-0.403</x>
+      <y>-1.21</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ rotating : bloc roue -->
+  <animation>
+    <type>rotate</type>
+    <object-name>block_roue_train_principal_L</object-name>
+    <property>gear/gear[1]/position-norm</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>20</dep></entry>
+      <entry><ind>0.2</ind><dep>20</dep></entry>
+      <entry><ind>0.9</ind><dep>0</dep></entry>
+      <entry><ind>1.0</ind><dep>0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>1.953</x-m>
+      <y-m>-0.9</y-m>
+      <z-m>-0.2</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>0.122</y>
+      <z>0.852</z>
+    </axis>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                           SUSPENSION LEFT GEARS
+  -->
+  <!-- ~~~~~~~~~~~~~~~~~~ translating piston -->
+  <animation>
+    <type>translate</type>
+    <object-name>block_roue_train_principal_L</object-name>
+    <property>gear/gear[1]/compression-norm</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>-0.12</dep></entry>   <!-- airborn -->
+      <entry><ind>0.08</ind><dep>-0.04</dep></entry>  <!-- ground -->
+      <entry><ind>0.2</ind><dep>0.06</dep></entry>    <!-- compressed -->
+    </interpolation>
+    <axis>
+      <x>0</x>
+      <y>0.068</y>
+      <z>0.493</z>
+    </axis>
+  </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~ rotating compas of piston -->
+  <animation>
+    <type>rotate</type>
+    <object-name>compas_piston_train_principal_L</object-name>
+    <property>gear/gear[1]/compression-norm</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>30</dep></entry>
+      <entry><ind>0.08</ind><dep>4</dep></entry>
+      <entry><ind>0.2</ind><dep>-5</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>1.83</x-m>
+      <y-m>0</y-m>
+      <z-m>-1.18</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~ rotating compas of jambe -->
+  <animation>
+    <type>rotate</type>
+    <object-name>compas_jambe_train_principal_L</object-name>
+    <property>gear/gear[1]/compression-norm</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>-30</dep></entry>
+      <entry><ind>0.08</ind><dep>-4</dep></entry>
+      <entry><ind>0.2</ind><dep>5</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>1.847</x-m>
+      <y-m>0</y-m>
+      <z-m>-0.989</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                       WHEEL ROTATION LEFT GEARS
+  -->
+  <!-- ~~~~~~~~~~~~~~~~~~ rotating wheels when taxiing -->
+  <animation>
+    <type>spin</type>
+    <object-name>roue_train_principal_L</object-name>
+    <property>sim/multiplay/generic/float[5]</property>
+    <factor>30</factor>
+    <center>
+      <x-m>1.9088</x-m>
+      <y-m>0</y-m>
+      <z-m>-1.2004</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>-1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <!--
+================================================================================
+                                                           RIGHT GEAR ANIMATIONS
+================================================================================
+
+________________________________________________________________________________
+                                                          RETRACTING RIGHT GEARS
+  -->
+  <!-- ~~~~~~~~~~~~~~~~~~ hiding object if fully retracted -->
+  <animation>
+    <type>select</type>
+    <object-name>jambe_train_principal_R</object-name>
+    <object-name>compas_jambe_train_principal_R</object-name>
+    <object-name>compas_piston_train_principal_R</object-name>
+    <object-name>piston_train_principal_R</object-name>
+    <object-name>essieu_train_principal_R</object-name>
+    <object-name>roue_train_principal_R</object-name>
+    <condition>
+      <greater-than>
+        <property>gear/gear[2]/position-norm</property>
+        <value type="double">0</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ rotating towards front : bloc jambe -->
+  <animation>
+    <type>rotate</type>
+    <object-name>block_jambe_train_principal_R</object-name>
+    <property>gear/gear[2]/position-norm</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>105</dep></entry>
+      <entry><ind>0.2</ind><dep>105</dep></entry>
+      <entry><ind>0.9</ind><dep>0</dep></entry>
+      <entry><ind>1.0</ind><dep>0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>1.953</x-m>
+      <y-m>0.9</y-m>
+      <z-m>-0.2</z-m>
+    </center>
+    <axis>
+      <x>-0.403</x>
+      <y>1.21</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ rotating : bloc roue -->
+  <animation>
+    <type>rotate</type>
+    <object-name>block_roue_train_principal_R</object-name>
+    <property>gear/gear[2]/position-norm</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>-20</dep></entry>
+      <entry><ind>0.2</ind><dep>-20</dep></entry>
+      <entry><ind>0.9</ind><dep>0</dep></entry>
+      <entry><ind>1.0</ind><dep>0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>1.953</x-m>
+      <y-m>0.9</y-m>
+      <z-m>-0.2</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>-0.122</y>
+      <z>0.852</z>
+    </axis>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                          SUSPENSION RIGHT GEARS
+  -->
+  <!-- ~~~~~~~~~~~~~~~~~~ translating piston -->
+  <animation>
+    <type>translate</type>
+    <object-name>block_roue_train_principal_R</object-name>
+    <property>gear/gear[2]/compression-norm</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>-0.12</dep></entry>   <!-- airborn -->
+      <entry><ind>0.08</ind><dep>-0.04</dep></entry>  <!-- ground -->
+      <entry><ind>0.2</ind><dep>0.06</dep></entry>    <!-- compressed -->
+    </interpolation>
+    <axis>
+      <x>0</x>
+      <y>-0.068</y>
+      <z>0.493</z>
+    </axis>
+  </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~ rotating compas of piston -->
+  <animation>
+    <type>rotate</type>
+    <object-name>compas_piston_train_principal_R</object-name>
+    <property>gear/gear[2]/compression-norm</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>30</dep></entry>
+      <entry><ind>0.08</ind><dep>4</dep></entry>
+      <entry><ind>0.2</ind><dep>-5</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>1.83</x-m>
+      <y-m>0</y-m>
+      <z-m>-1.18</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~ rotating compas of jambe -->
+  <animation>
+    <type>rotate</type>
+    <object-name>compas_jambe_train_principal_R</object-name>
+    <property>gear/gear[2]/compression-norm</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>-30</dep></entry>
+      <entry><ind>0.08</ind><dep>-4</dep></entry>
+      <entry><ind>0.2</ind><dep>5</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>1.847</x-m>
+      <y-m>0</y-m>
+      <z-m>-0.989</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                      WHEEL ROTATION RIGHT GEARS
+  -->
+  <!-- ~~~~~~~~~~~~~~~~~~ rotating wheels when taxiing -->
+  <animation>
+    <type>spin</type>
+    <object-name>roue_train_principal_R</object-name>
+    <property>sim/multiplay/generic/float[6]</property>
+    <factor>30</factor>
+    <center>
+      <x-m>1.9088</x-m>
+      <y-m>0</y-m>
+      <z-m>-1.2004</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>-1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+</PropertyList>
+

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+  <filter>
+    <type>gain</type>
+    <gain>0.3048</gain>
+    <input>/position/altitude-agl-ft</input>
+    <reference>0</reference>
+    <output>/position/altitude-agl-m</output>
+  </filter>
+</PropertyList>
+

@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+################################################################################
+#
+#                               MAIN MODEL
+#
+################################################################################
+
+changelog
+- 2016-10-22 : create
+
+-->
+<PropertyList>
+  <nasal>
+    <load>
+      <![CDATA[
+var livery_update = aircraft.livery_update.new("Aircraft/bourrasque/models/aircraft/liveries");
+      ]]>
+    </load>
+    <unload>
+      <![CDATA[
+livery_update.stop();
+      ]]>
+    </unload>
+  </nasal>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ aircraft -->
+  <model>
+    <name>aircraft</name>
+    <path>Aircraft/bourrasque/models/aircraft/bourrasque-model.xml</path>
+  </model>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ gears -->
+  <model>
+    <name>gears</name>
+    <path>Aircraft/bourrasque/models/gears/gears-model.xml</path>
+  </model>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ engines -->
+  <model>
+    <name>engine0</name>
+    <path>Aircraft/bourrasque/models/engine/engine0-model.xml</path>
+    <offsets>
+      <x-m>0</x-m>
+      <y-m>-.52</y-m>
+      <z-m>0</z-m>
+    </offsets>
+  </model>
+  <model>
+    <name>engine1</name>
+    <path>Aircraft/bourrasque/models/engine/engine1-model.xml</path>
+    <offsets>
+      <x-m>0</x-m>
+      <y-m>.52</y-m>
+      <z-m>0</z-m>
+    </offsets>
+  </model>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ stores -->
+  <model>
+    <name>stores</name>
+    <path>Aircraft/bourrasque/models/stores/stores-model.xml</path>
+  </model>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ ground equipment -->
+  <model>
+    <name>ground_equipment</name>
+    <path>Aircraft/bourrasque/models/ground_equipment/ground_equipment-model.xml</path>
+  </model>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ lights -->
+  <model>
+    <name>lights</name>
+    <path>Aircraft/bourrasque/models/lights/lights-model.xml</path>
+  </model>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ als lights -->
+  <model>
+    <name>left light top</name>
+    <path>Aircraft/bourrasque/models/lights/light_nav_left.xml</path>
+    <offsets>
+      <x-m type="float">3.5</x-m>
+      <y-m type="float">-5</y-m>
+      <z-m type="float">.05</z-m>
+    </offsets>
+  </model>
+  <model>
+    <name>left light bottom</name>
+    <path>Aircraft/bourrasque/models/lights/light_nav_left.xml</path>
+    <offsets>
+      <x-m type="float">3.5</x-m>
+      <y-m type="float">-5</y-m>
+      <z-m type="float">-.12</z-m>
+    </offsets>
+  </model>
+  <model>
+    <name>right light top</name>
+    <path>Aircraft/bourrasque/models/lights/light_nav_right.xml</path>
+    <offsets>
+      <x-m type="float">3.5</x-m>
+      <y-m type="float">5</y-m>
+      <z-m type="float">.05</z-m>
+    </offsets>
+  </model>
+  <model>
+    <name>right light bottom</name>
+    <path>Aircraft/bourrasque/models/lights/light_nav_right.xml</path>
+    <offsets>
+      <x-m type="float">3.5</x-m>
+      <y-m type="float">5</y-m>
+      <z-m type="float">-.12</z-m>
+    </offsets>
+  </model>
+  <model>
+    <name>tail light</name>
+    <path>Aircraft/bourrasque/models/lights/light_nav_tail.xml</path>
+    <offsets>
+      <x-m type="float">7.12</x-m>
+      <y-m type="float">0</y-m>
+      <z-m type="float">3.15</z-m>
+    </offsets>
+  </model>
+  <model>
+    <name>strobe light</name>
+    <path>Aircraft/bourrasque/models/lights/light_strobe.xml</path>
+    <offsets>
+      <x-m type="float">1.15</x-m>
+      <y-m type="float">0</y-m>
+      <z-m type="float">1.05</z-m>
+    </offsets>
+  </model>
+  <model>
+    <name>anticoll light</name>
+    <path>Aircraft/bourrasque/models/lights/light_anticoll.xml</path>
+    <offsets>
+      <x-m type="float">1.6</x-m>
+      <y-m type="float">0</y-m>
+      <z-m type="float">-.35</z-m>
+    </offsets>
+  </model>
+  <model>
+    <name>landing light left</name>
+    <path>Aircraft/bourrasque/models/lights/light_landing.xml</path>
+    <offsets>
+      <x-m type="float">-2.8</x-m>
+      <y-m type="float">-0.1</y-m>
+      <z-m type="float">-.8</z-m>
+    </offsets>
+  </model>
+  <model>
+    <name>landing light right</name>
+    <path>Aircraft/bourrasque/models/lights/light_landing.xml</path>
+    <offsets>
+      <x-m type="float">-2.8</x-m>
+      <y-m type="float">0.1</y-m>
+      <z-m type="float">-.8</z-m>
+    </offsets>
+  </model>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ cockpit -->
+  <model>
+    <name>cockpit</name>
+    <path>Aircraft/bourrasque/models/cockpit/cockpit-model.xml</path>
+    <!--usage>interior</usage-->
+  </model>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ als reheat -->
+  <model>
+    <name>left reheat outside white</name>
+    <path>Aircraft/bourrasque/models/effects/reheat/reheat_outside0_color_white.xml</path>
+    <offsets>
+      <x-m>6.1</x-m>
+      <y-m>-.52</y-m>
+      <z-m>.32</z-m>
+    </offsets>
+    <condition>
+      <greater-than>
+        <property>/sim/time/sun-angle-rad</property>
+        <value>1.7</value>
+      </greater-than>
+    </condition>
+  </model>
+  <model>
+    <name>left reheat outside orange</name>
+    <path>Aircraft/bourrasque/models/effects/reheat/reheat_outside0_color_orange.xml</path>
+    <offsets>
+      <x-m>6.1</x-m>
+      <y-m>-.52</y-m>
+      <z-m>.32</z-m>
+    </offsets>
+    <condition>
+      <less-than>
+        <property>/sim/time/sun-angle-rad</property>
+        <value>1.45</value>
+      </less-than>
+    </condition>
+  </model>
+  <model>
+    <name>left reheat outside blue</name>
+    <path>Aircraft/bourrasque/models/effects/reheat/reheat_outside0_color_blue.xml</path>
+    <offsets>
+      <x-m>6.1</x-m>
+      <y-m>-.52</y-m>
+      <z-m>.32</z-m>
+    </offsets>
+    <condition>
+      <and>
+        <less-than>
+          <property>/sim/time/sun-angle-rad</property>
+          <value>1.7</value>
+        </less-than>
+        <greater-than>
+          <property>/sim/time/sun-angle-rad</property>
+          <value>1.45</value>
+        </greater-than>
+      </and>
+    </condition>
+  </model>
+
+  <model>
+    <name>right reheat outside white</name>
+    <path>Aircraft/bourrasque/models/effects/reheat/reheat_outside1_color_white.xml</path>
+    <offsets>
+      <x-m>6.1</x-m>
+      <y-m>.52</y-m>
+      <z-m>.32</z-m>
+    </offsets>
+    <condition>
+      <greater-than>
+        <property>/sim/time/sun-angle-rad</property>
+        <value>1.7</value>
+      </greater-than>
+    </condition>
+  </model>
+  <model>
+    <name>right reheat outside orange</name>
+    <path>Aircraft/bourrasque/models/effects/reheat/reheat_outside1_color_orange.xml</path>
+    <offsets>
+      <x-m>6.1</x-m>
+      <y-m>.52</y-m>
+      <z-m>.32</z-m>
+    </offsets>
+    <condition>
+      <less-than>
+        <property>/sim/time/sun-angle-rad</property>
+        <value>1.45</value>
+      </less-than>
+    </condition>
+  </model>
+  <model>
+    <name>right reheat outside blue</name>
+    <path>Aircraft/bourrasque/models/effects/reheat/reheat_outside1_color_blue.xml</path>
+    <offsets>
+      <x-m>6.1</x-m>
+      <y-m>.52</y-m>
+      <z-m>.32</z-m>
+    </offsets>
+    <condition>
+      <and>
+        <less-than>
+          <property>/sim/time/sun-angle-rad</property>
+          <value>1.7</value>
+        </less-than>
+        <greater-than>
+          <property>/sim/time/sun-angle-rad</property>
+          <value>1.45</value>
+        </greater-than>
+      </and>
+    </condition>
+  </model>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ als 3d exterior shadow -->
+  <model>
+    <path>Aircraft/bourrasque/models/effects/shadow/3d-shadow.xml</path>
+  </model>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ contrails -->
+  <model>
+    <name>left contrail</name>
+    <path>Aircraft/bourrasque/models/effects/contrail/contrail.xml</path>
+    <offsets>
+      <x-m>20</x-m>
+      <y-m>-1</y-m>
+      <z-m>0.35</z-m>
+    </offsets>
+  </model>
+  <model>
+    <name>right contrail</name>
+    <path>Aircraft/bourrasque/models/effects/contrail/contrail.xml</path>
+    <offsets>
+      <x-m>20</x-m>
+      <y-m>1</y-m>
+      <z-m>0.35</z-m>
+    </offsets>
+  </model>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ high G load vortex -->
+  <model>
+    <name>left load</name>
+    <path>Aircraft/bourrasque/models/effects/load/load.xml</path>
+    <offsets>
+      <x-m type="float">2.5</x-m>
+      <y-m type="float">-2.5</y-m>
+      <z-m type="float">.5</z-m>
+    </offsets>
+  </model>
+  <model>
+    <name>right load</name>
+    <path>Aircraft/bourrasque/models/effects/load/load.xml</path>
+    <offsets>
+      <x-m type="float">2.5</x-m>
+      <y-m type="float">2.5</y-m>
+      <z-m type="float">.5</z-m>
+    </offsets>
+  </model>
+  <!--model>
+    <name>load</name>
+    <path>Aircraft/bourrasque/models/effects/cone/g-vortex.xml</path>
+    <offsets>
+      <x-m type="float">2.5</x-m>
+      <y-m type="float">2.5</y-m>
+      <z-m type="float">.5</z-m>
+    </offsets>
+  </model-->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ tiptrails -->
+  <model>
+    <name>left tiptrail</name>
+    <path>Aircraft/bourrasque/models/effects/tiptrail/tiptrail.xml</path>
+    <offsets>
+      <x-m type="float">4</x-m>
+      <y-m type="float">-5</y-m>
+      <z-m type="float">.05</z-m>
+    </offsets>
+  </model>
+  <model>
+    <name>right tiptrail</name>
+    <path>Aircraft/bourrasque/models/effects/tiptrail/tiptrail.xml</path>
+    <offsets>
+      <x-m type="float">4</x-m>
+      <y-m type="float">5</y-m>
+      <z-m type="float">.05</z-m>
+    </offsets>
+  </model>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ rain ground effects -->
+  <!-- front gear -->
+  <model>
+    <path>Aircraft/bourrasque/models/effects/rain/rain_gear0.xml</path>
+    <offsets>
+      <x-m type="float">-2.60</x-m>
+      <y-m type="float">0</y-m>
+      <z-m type="float">-1.5</z-m>
+    </offsets>
+  </model>
+
+  <!-- left gear -->
+  <model>
+    <path>Aircraft/bourrasque/models/effects/rain/rain_gear1.xml</path>
+    <offsets>
+      <x-m type="float">2.5</x-m>
+      <y-m type="float">-1.7</y-m>
+      <z-m type="float">-1</z-m>
+    </offsets>
+  </model>
+
+  <!-- right gear -->
+  <model>
+    <path>Aircraft/bourrasque/models/effects/rain/rain_gear2.xml</path>
+    <offsets>
+      <x-m type="float">2.5</x-m>
+      <y-m type="float">1.7</y-m>
+      <z-m type="float">-1</z-m>
+    </offsets>
+  </model>
+
+  <!-- exhausts -->
+  <model>
+    <path>Aircraft/bourrasque/models/effects/rain/rain_exhaust.xml</path>
+    <offsets>
+      <x-m type="float">5</x-m>
+      <y-m type="float">0</y-m>
+      <z-m type="float">0</z-m>
+    </offsets>
+  </model>
+
+</PropertyList>
+

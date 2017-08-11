@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+description :
+    this file uses the 3d model ans defines animations of the model and objects
+    (mouvements, lightings)
+    it loads if necessary the submodels files
+
+
+CTL 92 Control for TDR-94 transponder
+2.375"W x 2.625"H
+Syd Adams
+-->
+
+<PropertyList>
+  <path>ctl92.ac</path>
+  <!--
+================================================================================
+                                                             OBJECTS DECLARATION
+================================================================================
+  -->
+  <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
+  <animation>
+    <object-name>C92freq.001</object-name>
+    <object-name>C92freq.002</object-name>
+    <object-name>C92freq.003</object-name>
+    <object-name>C92freq.004</object-name>
+    <object-name>C92mem.annun</object-name>
+    <object-name>CTL-92</object-name>
+    <object-name>CTL-92.knob</object-name>
+    <object-name>CTL-92.knob1</object-name>
+    <object-name>CTL-92.pwr</object-name>
+    <object-name>CTL-92.toggle</object-name>
+    <object-name>CTL-92.vol</object-name>
+    <object-name>atc.ident</object-name>
+    <object-name>atc.pre</object-name>
+    <object-name>atc.test</object-name>
+    <object-name>stby1</object-name>
+    <object-name>stby2</object-name>
+    <object-name>stby3</object-name>
+    <object-name>stby4</object-name>
+    <object-name>xmt.annun.001</object-name>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+  </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ effects -->
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
+    <object-name>C92mem.annun</object-name>
+    <object-name>CTL-92</object-name>
+    <object-name>CTL-92.knob</object-name>
+    <object-name>CTL-92.knob1</object-name>
+    <object-name>CTL-92.pwr</object-name>
+    <object-name>CTL-92.toggle</object-name>
+    <object-name>CTL-92.vol</object-name>
+    <object-name>atc.ident</object-name>
+    <object-name>atc.pre</object-name>
+    <object-name>atc.test</object-name>
+    <object-name>xmt.annun.001</object-name>
+  </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
+  <animation>
+    <type>material</type>
+    <object-name>C92freq.001</object-name>
+    <object-name>C92freq.002</object-name>
+    <object-name>C92freq.003</object-name>
+    <object-name>C92freq.004</object-name>
+    <object-name>stby1</object-name>
+    <object-name>stby2</object-name>
+    <object-name>stby3</object-name>
+    <object-name>stby4</object-name>
+    <condition>
+      <greater-than>
+        <property>/controls/lighting/instruments-norm</property>
+        <value>0.1</value>
+      </greater-than>
+    </condition>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.8</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>C92freq.001</object-name>
+    <object-name>C92freq.002</object-name>
+    <object-name>C92freq.003</object-name>
+    <object-name>C92freq.004</object-name>
+    <object-name>stby1</object-name>
+    <object-name>stby2</object-name>
+    <object-name>stby3</object-name>
+    <object-name>stby4</object-name>
+    <condition>
+      <equals>
+        <property>/controls/lighting/instruments-norm</property>
+        <value>0</value>
+      </equals>
+    </condition>
+    <emission>
+      <factor>1</factor>
+      <red>0.8</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+
+  <!--
+================================================================================
+                                                         CONTROLS AND ANIMATIONS
+================================================================================
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control and animation power and mods -->
+  <animation>
+    <type>knob</type>
+    <object-name>CTL-92.pwr</object-name>
+    <action>
+      <binding>
+        <command>property-cycle</command>
+        <property>instrumentation/transponder/inputs/knob-mode</property>
+        <wrap>0</wrap>
+        <!-- don't wrap at the ends -->
+        <value>0</value>
+        <value>1</value>
+        <value>4</value>
+        <value>5</value>
+      </binding>
+    </action>
+    <property>instrumentation/transponder/inputs/knob-mode</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>0.0</dep></entry>  <!-- OFF -->
+      <entry><ind>1</ind><dep>30.0</dep></entry> <!-- STBY -->
+      <entry><ind>4</ind><dep>60.0</dep></entry> <!-- ON -->
+      <entry><ind>5</ind><dep>90.0</dep></entry> <!-- ALT -->
+    </interpolation>
+    <center>
+      <x-m>0.0</x-m>
+      <y-m>-0.014</y-m>
+      <z-m>-0.018</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control digits -->
+  <animation>
+    <type>knob</type>
+    <object-name>CTL-92.knob</object-name>
+    <action>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+var loDigit = getprop('instrumentation/transponder/inputs/digit[2]') or 2;
+var hiDigit = getprop('instrumentation/transponder/inputs/digit[3]') or 1;
+var offset = int(cmdarg().getNode('offset').getValue());
+var incr = (offset > 0);
+if((incr and loDigit == 7) or (! incr and loDigit == 0)) {
+    hiDigit = math.mod(hiDigit + offset, 8);
+}
+loDigit = math.mod(loDigit + offset, 8);
+setprop('instrumentation/transponder/inputs/digit[2]', loDigit);
+setprop('instrumentation/transponder/inputs/digit[3]', hiDigit);
+          ]]>
+        </script>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>transponder-squawk</tooltip-id>
+        <label>Transponder squawk: %s</label>
+        <property>instrumentation/transponder/id-code</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <animation>
+    <type>knob</type>
+    <object-name>CTL-92.knob1</object-name>
+    <action>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+var loDigit = getprop('instrumentation/transponder/inputs/digit[0]') or 0;
+var hiDigit = getprop('instrumentation/transponder/inputs/digit[1]') or 0;
+var offset = int(cmdarg().getNode('offset').getValue());
+var incr = (offset > 0);
+if((incr and loDigit == 7) or (! incr and loDigit == 0)) {
+    hiDigit = math.mod(hiDigit + offset, 8);
+}
+loDigit = math.mod(loDigit + offset, 8);
+setprop('instrumentation/transponder/inputs/digit[0]', loDigit);
+setprop('instrumentation/transponder/inputs/digit[1]', hiDigit);
+          ]]>
+        </script>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>transponder-squawk</tooltip-id>
+        <label>Transponder squawk: %s</label>
+        <property>instrumentation/transponder/id-code</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation digits -->
+  <animation>
+    <type>textranslate</type>
+    <object-name>C92freq.001</object-name>
+    <property>instrumentation/transponder/inputs/digit[3]</property>
+    <factor>0.1</factor>
+    <step>1</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>C92freq.002</object-name>
+    <property>instrumentation/transponder/inputs/digit[2]</property>
+    <factor>0.1</factor>
+    <step>1</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>C92freq.003</object-name>
+    <property>instrumentation/transponder/inputs/digit[1]</property>
+    <factor>0.1</factor>
+    <step>1</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>C92freq.004</object-name>
+    <property>instrumentation/transponder/inputs/digit[0]</property>
+    <factor>0.1</factor>
+    <step>1</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control ident -->
+  <animation>
+    <type>pick</type>
+    <object-name>atc.ident</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>instrumentation/transponder/inputs/ident-btn</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>transponder-ident</tooltip-id>
+        <label>transponder ident: %s</label>
+        <property>instrumentation/transponder/inputs/ident-btn</property>
+        <mapping>on-off</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control ident 1200 -->
+  <animation>
+    <type>pick</type>
+    <object-name>atc.pre</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-assign</command>
+        <property>instrumentation/transponder/id-code</property>
+        <value>1200</value>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>transponder-id-code</tooltip-id>
+        <label>transponder id code: %s</label>
+        <property>instrumentation/transponder/id-code</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control toggle -->
+  <animation>
+    <type>pick</type>
+    <object-name>CTL-92.toggle</object-name>
+    <action>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>instrumentation/tdr-94/mem-selected</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>transponder-mem-toggle</tooltip-id>
+        <label>transponder mem: %s</label>
+        <property>instrumentation/tdr-94/mem-selected</property>
+        <mapping>on-off</mapping>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control test -->
+  <animation>
+    <type>pick</type>
+    <object-name>atc.test</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-assign</command>
+        <property>instrumentation/tdr-94/saved-mode</property>
+        <property>instrumentation/transponder/inputs/knob-mode</property>
+      </binding>
+      <binding>
+        <command>property-assign</command>
+        <property>instrumentation/transponder/inputs/knob-mode</property>
+        <value>2</value> <!-- test mode -->
+      </binding>
+      <mod-up> <!-- restore previous mode on button release -->
+        <binding>
+          <command>property-assign</command>
+          <property>instrumentation/transponder/inputs/knob-mode</property>
+          <property>instrumentation/tdr-94/saved-mode</property>
+        </binding>
+      </mod-up>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>transponder-atc-test</tooltip-id>
+        <label>transponder ATC test</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation mem selected -->
+  <animation>
+    <type>select</type>
+    <object-name>C92mem.annun</object-name>
+    <condition>
+      <property>instrumentation/tdr-94/mem-selected</property>
+    </condition>
+  </animation>
+
+</PropertyList>

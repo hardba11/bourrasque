@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+################################################################################
+#
+#             THIS FILE INITIALIZES INSTRUMENTATION PROPERTY TREE
+#
+################################################################################
+
+PROPERTY-PATH : PropertyList > instrumentation
+
+changelog
+- 2016-10-22 : create
+
+-->
+
+<PropertyList>
+
+  <altimeter>
+    <setting-kpa type="float">1013.0</setting-kpa> <!-- set from bourrasque.nas setting-inhg -->
+  </altimeter>
+
+  <my_aircraft>
+    <electricals            include="../instruments/electricals/electricals-properties.xml" />
+    <engines                include="../instruments/engines/engines-properties.xml" />
+    <hud_target_positions   include="../instruments/hud_target_positions/hud_target_positions-properties.xml" />
+    <magcompass             include="../instruments/magcompass/magcompass-properties.xml" />
+    <chrono                 include="../instruments/chrono/chrono-properties.xml" />
+    <nd                     include="../instruments/nd/nd-properties.xml" />
+    <pfd                    include="../instruments/pfd/pfd-properties.xml" />
+    <fuel                   include="../instruments/fuel/fuel-properties.xml" />
+  </my_aircraft>
+
+  <radar>
+    <range type="int">60</range>
+
+    <!-- http://wiki.flightgear.org/index.php/TCAS -->
+    <display-controls>
+      <tcas type="bool">true</tcas>
+    </display-controls>
+    <font>
+      <tcas>
+        <color n="0"> <!-- distant targets -->
+          <red type="float">0</red>
+          <green type="float">1</green>
+          <blue type="float">1</blue>
+        </color>
+        <color n="1"> <!-- proximity targets -->
+          <red type="float">0</red>
+          <green type="float">1</green>
+          <blue type="float">1</blue>
+        </color>
+        <color n="2"> <!-- TA threat targets -->
+          <red type="float">1</red>
+          <green type="float">0.5</green>
+          <blue type="float">0</blue>
+        </color>
+        <color n="3"> <!-- RA threat targets -->
+          <red type="float">1</red>
+          <green type="float">0</green>
+          <blue type="float">0</blue>
+        </color>
+      </tcas>
+    </font>
+
+  </radar>
+
+  <!-- http://wiki.flightgear.org/index.php/TCAS -->
+  <tcas>
+    <serviceable type="bool">true</serviceable>
+    <inputs>
+      <mode type="int">2</mode>       <!-- 0=off, 1=standby, 2=TA-only, 3=auto(TA/RA) -->
+    </inputs>
+    <speaker>
+      <max-dist>2</max-dist>
+      <reference-dist>1</reference-dist>
+      <volume>0</volume>
+    </speaker>
+  </tcas>
+
+</PropertyList>
+
+

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+################################################################################
+#
+#             THIS FILE INITIALIZES SIM/VIEW 102 PROPERTY TREE
+#
+################################################################################
+
+PROPERTY-PATH : PropertyList > sim > view[102]
+
+-->
+
+<PropertyList>
+
+  <name type="string">proGo pilot view</name>
+  <enabled type="bool">true</enabled>
+  <type>lookfrom</type>
+  <internal type="bool">true</internal>
+  <config>
+    <from-model type="bool">true</from-model>
+    <from-model-idx type="int">0</from-model-idx>
+    <ground-level-nearplane-m type="double">0.5</ground-level-nearplane-m>
+    <default-field-of-view-deg type="double">87</default-field-of-view-deg>
+    <default-pitch-deg type="double">1</default-pitch-deg>
+    <default-heading-deg type="double">170</default-heading-deg>
+    <dynamic-view type="bool">false</dynamic-view>
+    <limits>
+      <enabled type="bool">false</enabled>
+    </limits>
+    <x-offset-m type="double">.2</x-offset-m>
+    <y-offset-m type="double">1.15</y-offset-m>
+    <z-offset-m type="double">-3.95</z-offset-m>
+    <pitch-offset-deg type="double">1</pitch-offset-deg>
+    <heading-offset-deg type="double">170</heading-offset-deg>
+  </config>
+  <dynamic>
+    <blend type="double">1</blend>
+  </dynamic>
+
+</PropertyList>
+
+

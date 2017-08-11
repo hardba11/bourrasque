@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PropertyList>
+
+  <path>als_light.ac</path>
+  <nopreview />
+
+  <effect>
+    <inherits-from>procedural-light-nav-left</inherits-from>
+    <object-name>als_light</object-name>
+  </effect>
+
+  <animation>
+    <type>select</type>
+    <object-name>als_light</object-name>
+    <condition>
+      <!--property>controls/lighting/nav-lights</property-->
+      <and>
+        <property>sim/multiplay/generic/int[1]</property>
+        <property>sim/multiplay/generic/int[7]</property>
+      </and>
+    </condition>
+  </animation>
+
+</PropertyList>

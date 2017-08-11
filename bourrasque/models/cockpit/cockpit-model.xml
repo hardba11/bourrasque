@@ -1,0 +1,1162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+################################################################################
+#
+#                               COCKPIT MODEL
+#
+################################################################################
+
+changelog
+- 2016-10-22 : create
+
+-->
+<PropertyList>
+
+  <path>cockpit.ac</path>
+
+  <!--
+================================================================================
+                                                             OBJECTS DECLARATION
+================================================================================
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
+  <animation>
+    <type>material</type>
+    <!-- fixed parts -->
+    <object-name>cockpit</object-name>
+    <object-name>cockpit.accessoires</object-name>
+    <object-name>support_hotas_L</object-name>
+    <object-name>support_hotas_R</object-name>
+    <!-- mobiles parts -->
+    <object-name>hotas_L</object-name>
+    <object-name>hotas_R</object-name>
+    <object-name>palonnier_L</object-name>
+    <object-name>palonnier_R</object-name>
+    <object-name>verrin_canopy</object-name>
+    <object-name>piston_canopy</object-name>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>hud_int</object-name>
+  </effect>
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/glass/glass</inherits-from>
+    <object-name>hud_ext</object-name>
+  </effect>
+  <animation>
+    <type>select</type>
+    <object-name>hud_ext</object-name>
+    <condition>
+      <not><property>/sim/current-view/internal</property></not>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ effects -->
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-shadow</inherits-from>
+    <object-name>cockpit</object-name>
+    <object-name>cockpit.accessoires</object-name>
+    <object-name>support_hotas_L</object-name>
+    <object-name>support_hotas_R</object-name>
+    <object-name>hotas_L</object-name>
+    <object-name>hotas_R</object-name>
+    <object-name>palonnier_L</object-name>
+    <object-name>palonnier_R</object-name>
+    <object-name>verrin_canopy</object-name>
+  </effect>
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
+    <object-name>cockpit</object-name>
+    <object-name>cockpit.accessoires</object-name>
+    <object-name>support_hotas_L</object-name>
+    <object-name>support_hotas_R</object-name>
+    <object-name>hotas_L</object-name>
+    <object-name>hotas_R</object-name>
+    <object-name>palonnier_L</object-name>
+    <object-name>palonnier_R</object-name>
+    <object-name>verrin_canopy</object-name>
+  </effect>
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/aircraft/piston</inherits-from>
+    <object-name>piston_canopy</object-name>
+  </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (enabled) -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (color) -->
+  <!-- TODO : check if necessary -->
+  <animation>
+    <type>material</type>
+    <object-name>hud_ext</object-name>
+    <emission>
+      <red>0</red>
+      <green>0.8</green>
+      <blue>0.1</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>hud_int</object-name>
+    <emission>
+      <red>0.9</red>
+      <green>0.1</green>
+      <blue>0.7</blue>
+    </emission>
+  </animation>
+
+  <!--
+================================================================================
+                                                         CONTROLS AND ANIMATIONS
+================================================================================
+  -->
+
+  <animation>
+    <type>range</type>
+    <min-m>0</min-m>
+    <max-m>500</max-m>
+    <max-property>/sim/rendering/static-lod/detailed</max-property>
+    <object-name>support_hotas_L</object-name>
+    <object-name>support_hotas_R</object-name>
+    <object-name>hotas_L</object-name>
+    <object-name>hotas_R</object-name>
+    <object-name>palonnier_L</object-name>
+    <object-name>palonnier_R</object-name>
+    <object-name>nd-pilot</object-name>
+    <object-name>pfd-pilot</object-name>
+    <object-name>sfd-pilot</object-name>
+    <object-name>stdby-ai-pilot</object-name>
+    <object-name>aoa-pilot</object-name>
+    <object-name>stdby-alt-pilot</object-name>
+    <object-name>stdby-hsi-pilot</object-name>
+    <object-name>stdby-asi-pilot</object-name>
+    <object-name>command_h</object-name>
+    <object-name>fuel-pilot</object-name>
+    <object-name>com-1-pilot</object-name>
+    <object-name>nav-1-pilot</object-name>
+    <object-name>com-2-pilot</object-name>
+    <object-name>nav-2-pilot</object-name>
+    <object-name>transponder-pilot</object-name>
+    <object-name>adf-pilot</object-name>
+    <object-name>chrono-pilot</object-name>
+    <object-name>magcompass-pilot</object-name>
+    <object-name>light-pilot</object-name>
+    <object-name>nd-copilot</object-name>
+    <object-name>pfd-copilot</object-name>
+    <object-name>sfd-copilot</object-name>
+    <object-name>stdby-ai-copilot</object-name>
+    <object-name>aoa-copilot</object-name>
+    <object-name>stdby-alt-copilot</object-name>
+    <object-name>stdby-hsi-copilot</object-name>
+    <object-name>stdby-asi-copilot</object-name>
+    <object-name>fuel-copilot</object-name>
+    <object-name>com-1-copilot</object-name>
+    <object-name>nav-1-copilot</object-name>
+    <object-name>com-2-copilot</object-name>
+    <object-name>nav-2-copilot</object-name>
+    <object-name>transponder-copilot</object-name>
+    <object-name>adf-copilot</object-name>
+    <object-name>chrono-copilot</object-name>
+    <object-name>magcompass-copilot</object-name>
+    <object-name>light-copilot</object-name>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                                     RIGHT HOTAS
+  -->
+  <animation>
+    <type>rotate</type>
+    <object-name>hotas_R</object-name>
+    <property>/controls/flight/elevator</property>
+    <factor>8</factor>
+    <center>
+      <x-m>-3.5072</x-m>
+      <y-m>0</y-m>
+      <z-m>0.4044</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>-1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>hotas_R</object-name>
+    <property>/controls/flight/aileron</property>
+    <factor>8</factor>
+    <center>
+      <x-m>-3.5072</x-m>
+      <y-m>0.3997</y-m>
+      <z-m>0.4044</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                                      LEFT HOTAS
+  -->
+  <animation>
+    <type>translate</type>
+    <object-name>hotas_L</object-name>
+    <property>/controls/engines/engine[0]/throttle</property>
+    <factor>.06</factor>
+    <axis>
+      <x>-.118</x>
+      <y>.011</y>
+      <z>0.009</z>
+    </axis>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                                  LEFT PALONNIER
+  -->
+  <!-- ~~~~~~~~~~~~~~~~~~ rudder -->
+  <animation>
+    <type>translate</type>
+    <object-name>palonnier_L</object-name>
+    <property>surface-positions/rudder-pos-norm</property>
+    <factor>.03</factor>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~ brakes -->
+  <animation>
+    <type>rotate</type>
+    <object-name>palonnier_L</object-name>
+    <property>/gear/gear[1]/brake-position-norm</property>
+    <factor>10</factor>
+    <center>
+      <x-m>-4.186</x-m>
+      <y-m>0</y-m>
+      <z-m>0.295</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>-1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                                 RIGHT PALONNIER
+  -->
+  <!-- ~~~~~~~~~~~~~~~~~~ rudder -->
+  <animation>
+    <type>translate</type>
+    <object-name>palonnier_R</object-name>
+    <property>surface-positions/rudder-pos-norm</property>
+    <factor>.03</factor>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~ brakes -->
+  <animation>
+    <type>rotate</type>
+    <object-name>palonnier_R</object-name>
+    <property>/gear/gear[2]/brake-position-norm</property>
+    <factor>10</factor>
+    <center>
+      <x-m>-4.186</x-m>
+      <y-m>0</y-m>
+      <z-m>0.295</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>-1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ verrin canopy -->
+  <animation>
+    <type>rotate</type>
+    <object-name>verrin_canopy</object-name>
+    <object-name>piston_canopy</object-name>
+    <property>sim/multiplay/generic/float[0]</property> <!-- for MP sim/model/canopy-pos-norm -->
+    <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>0.6</ind><dep>0</dep></entry>
+      <entry><ind>0.87</ind><dep>0</dep></entry>
+      <entry><ind>1</ind><dep>1</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-1.431</x-m>
+      <y-m>0</y-m>
+      <z-m>0.928</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~ translating piston -->
+  <animation>
+    <type>translate</type>
+    <object-name>piston_canopy</object-name>
+    <property>sim/multiplay/generic/float[0]</property> <!-- for MP sim/model/canopy-pos-norm -->
+    <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>0.6</ind><dep>.005</dep></entry>
+      <entry><ind>1</ind><dep>.073</dep></entry>
+    </interpolation>
+    <axis>
+      <x>.6</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+
+  <!--
+================================================================================
+                                                                 PLACEMENT PILOT
+================================================================================
+
+                                                          TOP
+                                                           Z
+                                                           ^
+                                                           .
+                                                           .
+                         + nd (x=-3.83,z=.835)             .
+                                                           .
+                     +  ai (x=-3.92,z=.54)                 .
+                            +  efis (x=-3.79,z=.348)       .
+                                                           .
+  FRONT ...................................................0........> X BACK
+                                                           .
+
+________________________________________________________________________________
+                                                                            SEAT
+  -->
+  <!-- ~~~~~~~~~~~~~~~~~~ seat -->
+  <model>
+    <name>siege-pilot</name>
+    <path>Aircraft/bourrasque/models/siege/siege-model.xml</path>
+  </model>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ pilot -->
+  <model>
+    <name>pilot</name>
+    <path>Aircraft/bourrasque/models/pilot/pilot.xml</path>
+    <condition>
+      <or>
+        <property>sim/multiplay/generic/int[10]</property>
+        <greater-than>
+          <property>/velocities/groundspeed-kt</property>
+          <value>2</value>
+        </greater-than>
+      </or>
+    </condition>
+  </model>
+
+<!--
+________________________________________________________________________________
+                                                            HUD TARGET POSITIONS
+  -->
+  <model>
+    <name>hud_target_positions</name>
+    <path>instruments/hud_target_positions/hud_target_positions-model.xml</path>
+    <!-- diameter = 2m, center : has to be the coords for view n=0 -->
+    <offsets>
+      <x-m>-3.21</x-m>
+      <y-m>0</y-m>
+      <z-m>1.11</z-m>
+    </offsets>
+  </model>
+
+<!--
+________________________________________________________________________________
+                                                                 COMMAND HEAD UP
+  -->
+  <model>
+    <name>command_h</name>
+    <path>instruments/command_h/command_h-model.xml</path>
+    <offsets>
+      <x-m>-3.889</x-m>
+      <y-m>0</y-m>
+      <z-m>.965</z-m>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                                MAGNETIC COMPASS
+  -->
+  <model>
+    <name>magcompass-pilot</name>
+    <path>instruments/magcompass/magcompass-model.xml</path>
+    <offsets>
+      <x-m>-4.012</x-m>
+      <y-m>-.178</y-m>
+      <z-m>.85</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-30</pitch-deg>
+    </offsets>
+  </model>
+
+<!--
+________________________________________________________________________________
+                                                                     NAV DISPLAY
+  -->
+  <model>
+    <name>nd-pilot</name>
+    <path>instruments/nd/nd-model.xml</path>
+    <offsets>
+      <x-m>-3.88</x-m>
+      <y-m>0</y-m>
+      <z-m>0.825</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-27</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                        PRIMARY FUNCTION DISPLAY
+  -->
+  <model>
+    <name>pfd-pilot</name>
+    <path>instruments/pfd/pfd-model.xml</path>
+    <offsets>
+      <x-m>-3.93</x-m>
+      <y-m>.205</y-m>
+      <z-m>0.73</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-18</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                      SECONDARY FUNCTION DISPLAY
+  -->
+  <model>
+    <name>sfd-pilot</name>
+    <path>instruments/sfd/sfd-model.xml</path>
+    <offsets>
+      <x-m>-3.93</x-m>
+      <y-m>-.205</y-m>
+      <z-m>0.73</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-18</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                      STANDBY ATTITUDE INDICATOR
+  -->
+  <model>
+    <name>stdby-ai-pilot</name>
+    <path>instruments/stdby-ai/stdby-ai-model.xml</path>
+    <offsets>
+      <x-m>-3.935</x-m>
+      <y-m>-.06</y-m>
+      <z-m>0.54</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-30</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                                 ANGLE OF ATTACK
+  -->
+  <model>
+    <name>aoa-pilot</name>
+    <path>instruments/aoa/aoa-model.xml</path>
+    <offsets>
+      <x-m>-3.93</x-m>
+      <y-m>0</y-m>
+      <z-m>.543</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-30</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                               STANDBY ALTIMETER
+  -->
+  <model>
+    <name>stdby-alt-pilot</name>
+    <path>instruments/stdby-alt/stdby-alt-model.xml</path>
+    <offsets>
+      <x-m>-3.935</x-m>
+      <y-m>.06</y-m>
+      <z-m>0.54</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-30</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                          STANDBY HORIZONTAL SITUATION INDICATOR
+  -->
+  <model>
+    <name>stdby-hsi-pilot</name>
+    <path>instruments/stdby-hsi/stdby-hsi-model.xml</path>
+    <offsets>
+      <x-m>-3.885</x-m>
+      <y-m>.055</y-m>
+      <z-m>0.46</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-30</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                     STANDBY AIR SPEED INDICATOR
+  -->
+  <model>
+    <name>stdby-asi-pilot</name>
+    <path>instruments/stdby-asi/stdby-asi-model.xml</path>
+    <offsets>
+      <x-m>-3.885</x-m>
+      <y-m>-.055</y-m>
+      <z-m>0.46</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-30</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                                     CHRONOMETER
+  -->
+  <model>
+    <name>chrono-pilot</name>
+    <path>instruments/chrono/chrono-model.xml</path>
+    <offsets>
+      <x-m>-3.9035</x-m>
+      <y-m>.40</y-m>
+      <z-m>.55</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-30</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                                       COM / NAV
+  -->
+  <!-- ~~~~~~~~~~~~~~~~~~ com/nav 1 -->
+  <model>
+    <name>com-1-pilot</name>
+    <path>instruments/com/ctl22-model1.xml</path>
+    <offsets>
+      <x-m>-3.83</x-m>
+      <y-m>.365</y-m>
+      <z-m>.48</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-68</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>nav-1-pilot</name>
+    <path>instruments/nav/ctl32-model1.xml</path>
+    <offsets>
+      <x-m>-3.83</x-m>
+      <y-m>.425</y-m>
+      <z-m>.48</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-68</pitch-deg>
+    </offsets>
+  </model>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ com/nav 2 -->
+  <model>
+    <name>com-2-pilot</name>
+    <path>instruments/com/ctl22-model2.xml</path>
+    <offsets>
+      <x-m>-3.765</x-m>
+      <y-m>.365</y-m>
+      <z-m>.455</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-68</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>nav-2-pilot</name>
+    <path>instruments/nav/ctl32-model2.xml</path>
+    <offsets>
+      <x-m>-3.765</x-m>
+      <y-m>.425</y-m>
+      <z-m>.455</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-68</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                                     TRANSPONDER
+  -->
+  <model>
+    <name>transponder-pilot</name>
+    <path>instruments/transponder/ctl92-model.xml</path>
+    <offsets>
+      <x-m>-3.7</x-m>
+      <y-m>.365</y-m>
+      <z-m>.43</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-68</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                                             ADF
+  -->
+  <model>
+    <name>adf-pilot</name>
+    <path>instruments/adf/ctl62-model.xml</path>
+    <offsets>
+      <x-m>-3.7</x-m>
+      <y-m>.425</y-m>
+      <z-m>.43</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-68</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                                     ELECTRICALS
+  -->
+  <model>
+    <name>electricals-pilot</name>
+    <path>instruments/electricals/electricals-model.xml</path>
+    <offsets>
+      <x-m>-3.31</x-m>
+      <y-m>.409</y-m>
+      <z-m>.438</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-107</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                                        ENGINE 0
+  -->
+  <model>
+    <name>engine-0-pilot</name>
+    <path>instruments/engines/engine0-model.xml</path>
+    <offsets>
+      <x-m>-3.214</x-m>
+      <y-m>.368</y-m>
+      <z-m>.467</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-107</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                                        ENGINE 1
+  -->
+  <model>
+    <name>engine-1-pilot</name>
+    <path>instruments/engines/engine1-model.xml</path>
+    <offsets>
+      <x-m>-3.214</x-m>
+      <y-m>.451</y-m>
+      <z-m>.467</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-107</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                                            FUEL
+  -->
+  <model>
+    <name>fuel-pilot</name>
+    <path>instruments/fuel/fuel-model.xml</path>
+    <offsets>
+      <x-m>-3.9035</x-m>
+      <y-m>-.40</y-m>
+      <z-m>.55</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-30</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                                   COMMAND PANEL
+  -->
+  <model>
+    <name>command-pilot</name>
+    <path>instruments/command/command-model.xml</path>
+    <offsets>
+      <x-m>-3.75</x-m>
+      <y-m>-.419086</y-m>
+      <z-m>.44</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-69</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                                     LIGHT PANEL
+  -->
+  <model>
+    <name>light-pilot</name>
+    <path>instruments/light/light-model.xml</path>
+    <offsets>
+      <x-m>-3.23</x-m>
+      <y-m>-.42</y-m>
+      <z-m>.46</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-107</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+================================================================================
+                                                               PLACEMENT COPILOT
+================================================================================
+
+________________________________________________________________________________
+                                                                            SEAT
+  -->
+  <!-- ~~~~~~~~~~~~~~~~~~ seat -->
+  <model>
+    <name>siege-copilot</name>
+    <path>Aircraft/bourrasque/models/siege/siege-model.xml</path>
+    <offsets>
+      <pitch-deg type="float">0</pitch-deg>
+      <heading-deg type="float">0</heading-deg>
+      <roll-deg type="float">0</roll-deg>
+      <x-m type="float">1.45</x-m>
+      <y-m type="float">0</y-m>
+      <z-m type="float">.05</z-m>
+    </offsets>
+  </model>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ copilot -->
+  <model>
+    <name>pilot</name>
+    <path>Aircraft/bourrasque/models/pilot/copilot.xml</path>
+    <offsets>
+      <x-m type="float">1.45</x-m>
+      <z-m type="float">.08</z-m>
+    </offsets>
+    <condition>
+      <property>sim/multiplay/generic/int[11]</property>
+    </condition>
+  </model>
+
+<!--
+________________________________________________________________________________
+                                                                     NAV DISPLAY
+  -->
+  <model>
+    <name>nd-copilot</name>
+    <path>instruments/nd/nd-model.xml</path>
+    <offsets>
+      <x-m>-2.42</x-m>
+      <y-m>0</y-m>
+      <z-m>0.9</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-32</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                        PRIMARY FUNCTION DISPLAY
+  -->
+  <model>
+    <name>pfd-copilot</name>
+    <path>instruments/pfd/pfd-model.xml</path>
+    <offsets>
+      <x-m>-2.44</x-m>
+      <y-m>.23</y-m>
+      <z-m>0.83</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-20</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                      SECONDARY FUNCTION DISPLAY
+  -->
+  <model>
+    <name>sfd-copilot</name>
+    <path>instruments/sfd/sfd-model.xml</path>
+    <offsets>
+      <x-m>-2.44</x-m>
+      <y-m>-.23</y-m>
+      <z-m>0.83</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-20</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                      STANDBY ATTITUDE INDICATOR
+  -->
+  <model>
+    <name>stdby-ai-copilot</name>
+    <path>instruments/stdby-ai/stdby-ai-model.xml</path>
+    <offsets>
+      <x-m>-2.48</x-m>
+      <y-m>-.07</y-m>
+      <z-m>0.60</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-25</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                                 ANGLE OF ATTACK
+  -->
+  <model>
+    <name>aoa-copilot</name>
+    <path>instruments/aoa/aoa-model.xml</path>
+    <offsets>
+      <x-m>-2.48</x-m>
+      <y-m>0</y-m>
+      <z-m>0.60</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-30</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                               STANDBY ALTIMETER
+  -->
+  <model>
+    <name>stdby-alt-copilot</name>
+    <path>instruments/stdby-alt/stdby-alt-model.xml</path>
+    <offsets>
+      <x-m>-2.48</x-m>
+      <y-m>.07</y-m>
+      <z-m>0.60</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-30</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                          STANDBY HORIZONTAL SITUATION INDICATOR
+  -->
+  <model>
+    <name>stdby-hsi-copilot</name>
+    <path>instruments/stdby-hsi/stdby-hsi-model.xml</path>
+    <offsets>
+      <x-m>-2.42</x-m>
+      <y-m>.05</y-m>
+      <z-m>0.5</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-30</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                     STANDBY AIR SPEED INDICATOR
+  -->
+  <model>
+    <name>stdby-asi-copilot</name>
+    <path>instruments/stdby-asi/stdby-asi-model.xml</path>
+    <offsets>
+      <x-m>-2.42</x-m>
+      <y-m>-.05</y-m>
+      <z-m>0.5</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-30</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                                     CHRONOMETER
+  -->
+  <model>
+    <name>chrono-copilot</name>
+    <path>instruments/chrono/chrono-model.xml</path>
+    <offsets>
+      <x-m>-2.435</x-m>
+      <y-m>.40</y-m>
+      <z-m>0.62</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-15</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                                MAGNETIC COMPASS
+  -->
+  <model>
+    <name>magcompass-copilot</name>
+    <path>instruments/magcompass/magcompass-model.xml</path>
+    <offsets>
+      <x-m>-2.445</x-m>
+      <y-m>.48</y-m>
+      <z-m>0.61</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-15</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                                       COM / NAV
+  -->
+  <!-- ~~~~~~~~~~~~~~~~~~ com/nav 1 -->
+  <model>
+    <name>com-1-copilot</name>
+    <path>instruments/com/ctl22-model1.xml</path>
+    <offsets>
+      <x-m>-2.35</x-m>
+      <y-m>.365</y-m>
+      <z-m>.55</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-68</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>nav-1-copilot</name>
+    <path>instruments/nav/ctl32-model1.xml</path>
+    <offsets>
+      <x-m>-2.35</x-m>
+      <y-m>.425</y-m>
+      <z-m>.55</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-68</pitch-deg>
+    </offsets>
+  </model>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ com/nav 2 -->
+  <model>
+    <name>com-2-copilot</name>
+    <path>instruments/com/ctl22-model2.xml</path>
+    <offsets>
+      <x-m>-2.285</x-m>
+      <y-m>.365</y-m>
+      <z-m>.525</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-68</pitch-deg>
+    </offsets>
+  </model>
+  <model>
+    <name>nav-2-copilot</name>
+    <path>instruments/nav/ctl32-model2.xml</path>
+    <offsets>
+      <x-m>-2.285</x-m>
+      <y-m>.425</y-m>
+      <z-m>.525</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-68</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                                     TRANSPONDER
+  -->
+  <model>
+    <name>transponder-copilot</name>
+    <path>instruments/transponder/ctl92-model.xml</path>
+    <offsets>
+      <x-m>-2.22</x-m>
+      <y-m>.365</y-m>
+      <z-m>.5</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-68</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                                             ADF
+  -->
+  <model>
+    <name>adf-copilot</name>
+    <path>instruments/adf/ctl62-model.xml</path>
+    <offsets>
+      <x-m>-2.22</x-m>
+      <y-m>.425</y-m>
+      <z-m>.5</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-68</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                                     ELECTRICALS
+  -->
+  <model>
+    <name>electricals-copilot</name>
+    <path>instruments/electricals/electricals-model.xml</path>
+    <offsets>
+      <x-m>-2.0</x-m>
+      <y-m>.409</y-m>
+      <z-m>.48</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-100</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                                        ENGINE 0
+  -->
+  <model>
+    <name>engine-0-copilot</name>
+    <path>instruments/engines/engine0-model.xml</path>
+    <offsets>
+      <x-m>-1.9</x-m>
+      <y-m>.368</y-m>
+      <z-m>.5</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-100</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                                        ENGINE 1
+  -->
+  <model>
+    <name>engine-1-copilot</name>
+    <path>instruments/engines/engine1-model.xml</path>
+    <offsets>
+      <x-m>-1.9</x-m>
+      <y-m>.451</y-m>
+      <z-m>.5</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-100</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                                            FUEL
+  -->
+  <model>
+    <name>fuel-copilot</name>
+    <path>instruments/fuel/fuel-model.xml</path>
+    <offsets>
+      <x-m>-2.435</x-m>
+      <y-m>-.42</y-m>
+      <z-m>0.62</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-15</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                                   COMMAND PANEL
+  -->
+  <model>
+    <name>command-pilot</name>
+    <path>instruments/command/command-model.xml</path>
+    <offsets>
+      <x-m>-2.3127</x-m>
+      <y-m>-.4318</y-m>
+      <z-m>.53</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-69</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                                     LIGHT PANEL
+  -->
+  <model>
+    <name>light-copilot</name>
+    <path>instruments/light/light-model.xml</path>
+    <offsets>
+      <x-m>-1.95</x-m>
+      <y-m>-.427</y-m>
+      <z-m>.48</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-100</pitch-deg>
+    </offsets>
+  </model>
+
+</PropertyList>
+

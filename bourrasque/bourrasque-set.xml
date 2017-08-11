@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+################################################################################
+#
+#             MAIN PROPERTIES DESCRIPTION AND INITIALISATION
+#
+################################################################################
+
+http://wiki.flightgear.org/Property_tree
+
+changelog
+- 2016-10-22 : create
+
+-->
+
+<PropertyList>
+  <!--
+================================================================================
+                                                                  SIM PROPERTIES
+================================================================================
+  -->
+  <sim>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ metadata -->
+    <description type="string">Bourrasque</description>
+
+    <author type="string">hardball SLK</author>
+    <aircraft-version type="string">2017-08-06</aircraft-version>
+    <status>alpha</status>
+    <tags>
+      <tag>jet</tag>
+      <tag>retractable-gear</tag>
+      <tag>ifr</tag>
+      <tag>twin-engine</tag>
+    </tags>
+
+    <rating>
+      <FDM type="int">2</FDM>
+      <systems type="int">0</systems>
+      <cockpit type="int">4</cockpit>
+      <model type="int">4</model>
+    </rating>
+
+    <long-description type="string">Bourrasque is a fictionnal civil version of the famous Dassault Rafale, its purpose is the world exploration thanks to high speed, short landings and takeoff, radionavigation and auto pilot equipment.</long-description>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ flight model -->
+    <flight-model>yasim</flight-model>
+    <aero>fdm/bourrasque-yasim</aero>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ airport -->
+    <airport>
+      <runways>
+        <start-offset-m>30</start-offset-m>
+      </runways>
+    </airport>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ model -->
+    <model>
+
+      <name type="string">bourrasque</name>
+      <path type="string">Aircraft/bourrasque/models/brsq.xml</path>
+
+      <livery>
+        <file type="string">liveries/texture_bourrasque_gris_digital</file>
+      </livery>
+
+      <!-- for instruments sounds -->
+      <click type="bool">0</click>
+      <lever_gear type="bool">0</lever_gear>
+      <lever_parkbrake type="bool">0</lever_parkbrake>
+
+      <!-- for MP -->
+      <canopy-pos-norm     type="float">1</canopy-pos-norm>
+      <canards-pos-norm    type="float">0</canards-pos-norm>
+      <wing-tanks          type="string">none</wing-tanks>
+      <center-tank         type="string">none</center-tank>
+      <ground-equipment-e  type="string">1</ground-equipment-e>
+      <ground-equipment-g  type="string">1</ground-equipment-g>
+      <ground-equipment-s  type="string">1</ground-equipment-s>
+
+    </model>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ sound -->
+    <sound>
+      <path type="string">sounds/sounds.xml</path>
+    </sound>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ specific menu -->
+    <menubar include="gui/specific-menu.xml" />
+
+    <!-- ~~~~~~~~~~~~~~~~~~ initialisation -->
+    <startup>
+      <splash-texture>contrib/splash-01.png</splash-texture>
+      <splash-texture>contrib/splash-03.png</splash-texture>
+      <splash-texture>contrib/splash-04.png</splash-texture>
+      <splash-texture>contrib/splash-05.png</splash-texture>
+      <splash-texture>contrib/splash-06.png</splash-texture>
+      <splash-texture>contrib/splash-07.png</splash-texture>
+      <splash-texture>contrib/splash-10.png</splash-texture>
+      <splash-texture>contrib/splash-11.png</splash-texture>
+      <splash-texture>contrib/splash-12.png</splash-texture>
+      <splash-texture>contrib/splash-13.png</splash-texture>
+      <splash-texture>contrib/splash-14.png</splash-texture>
+      <splash-texture>contrib/splash-15.png</splash-texture>
+      <splash-texture>contrib/splash-16.png</splash-texture>
+      <splash-texture>contrib/splash-17.png</splash-texture>
+    </startup>
+    <fuel-fraction>0.1</fuel-fraction>
+    <virtual-cockpit archive="y">true</virtual-cockpit>
+    <allow-toggle-cockpit archive="y">true</allow-toggle-cockpit>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ views -->
+    <view n="0"     include="include/sim-view0-properties.xml" />
+    <view n="101"   include="include/sim-view101-properties.xml" />
+    <view n="102"   include="include/sim-view102-properties.xml" />
+    <view n="103"   include="include/sim-view103-properties.xml" />
+
+    <!-- ~~~~~~~~~~~~~~~~~~ huds -->
+    <hud            include="include/sim-hud-properties.xml" />
+
+    <!-- ~~~~~~~~~~~~~~~~~~ multiplay -->
+    <multiplay      include="include/sim-multiplay-properties.xml" />
+
+    <!-- ~~~~~~~~~~~~~~~~~~ rendering -->
+    <rendering      include="include/sim-rendering-properties.xml" />
+
+    <!-- ~~~~~~~~~~~~~~~~~~ help -->
+    <help           include="docs/sim-help.xml" />
+
+    <!-- ~~~~~~~~~~~~~~~~~~ systems -->
+    <systems>
+      <property-rule n="100">
+        <name>3d-shadow-filters</name>
+        <path>models/effects/shadow/3d-shadow-filters.xml</path>
+      </property-rule>
+      <property-rule n="101">
+        <name>rain-drops-filters</name>
+        <path>models/effects/rain/rain-drops-filters.xml</path>
+      </property-rule>
+      <!-- ~~~~~~~~~~~~~~~~~~ autopilot -->
+      <autopilot>
+        <path>fdm/autopilot.xml</path>
+      </autopilot>
+    </systems>
+
+    <instrumentation>
+      <tcas>
+        <name>tcas</name>
+        <number>0</number>
+      </tcas>
+    </instrumentation>
+
+    <!--
+    <ai>
+      <scenario n="100">wingman_brsq_demo</scenario>
+    </ai>
+    -->
+
+  </sim>
+
+  <!-- for tests and settings -->
+  <debug1 type="float">0</debug1>
+  <debug2 type="float">0</debug2>
+  <debug3 type="float">0</debug3>
+  <debug4 type="float">0</debug4>
+  <debug5 type="float">0</debug5>
+  <debug6 type="float">0</debug6>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ AI -->
+  <ai include="include/ai-properties.xml" />
+
+  <!--
+================================================================================
+                                                                OTHER PROPERTIES
+================================================================================
+  -->
+
+  <systems          include="include/systems-properties.xml" />
+
+  <engines          include="include/engines-properties.xml" />
+
+  <input            include="include/input-properties.xml" />
+
+  <controls         include="include/controls-properties.xml" />
+
+  <instrumentation  include="include/instrumentation-properties.xml" />
+
+  <autopilot        include="include/autopilot-properties.xml" />
+
+  <environment      include="include/environment-properties.xml" />
+
+  <!--
+================================================================================
+                                                                           NASAL
+================================================================================
+  -->
+  <nasal>
+
+    <my_aircraft_functions>
+      <file type="string">functions.nas</file>
+    </my_aircraft_functions>
+
+    <instrument_hud>
+      <file type="string">instruments/hud/hud.nas</file>
+    </instrument_hud>
+    <instrument_nd>
+      <file type="string">instruments/nd/nd.nas</file>
+    </instrument_nd>
+    <instrument_pfd>
+      <file type="string">instruments/pfd/pfd.nas</file>
+    </instrument_pfd>
+    <instrument_light>
+      <file type="string">instruments/light/light.nas</file>
+    </instrument_light>
+    <instrument_hud_target_positions>
+      <file type="string">instruments/hud_target_positions/hud_target_positions.nas</file>
+    </instrument_hud_target_positions>
+    <instrument_sfd_canvas>
+      <file type="string">instruments/sfd/sfd_canvas.nas</file>
+    </instrument_sfd_canvas>
+    <instrument_fuel_canvas>
+      <file type="string">instruments/fuel/fuel_canvas.nas</file>
+    </instrument_fuel_canvas>
+
+    <fdm>
+      <file type="string">fdm/bourrasque.nas</file>
+      <file type="string">fdm/fcm.nas</file>
+      <file type="string">fdm/systems.nas</file>
+      <file type="string">fdm/autostart.nas</file>
+    </fdm>
+
+    <lights>
+      <file type="string">models/lights/lights.nas</file>
+    </lights>
+
+    <liveries>
+      <file>Aircraft/bourrasque/models/aircraft/select_liveries.nas</file>
+    </liveries>
+
+    <formation>
+      <file>Aircraft/Generic/formation.nas</file>
+    </formation>
+
+    <FailureMgr>
+      <enabled type="bool">0</enabled>
+    </FailureMgr>
+    <towing>
+      <enabled type="bool">0</enabled>
+    </towing>
+
+  </nasal>
+
+</PropertyList>
+

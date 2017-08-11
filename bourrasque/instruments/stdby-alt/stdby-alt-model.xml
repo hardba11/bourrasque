@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- thx 777 team -->
+<!--
+description :
+    this file uses the 3d model ans defines animations of the model and objects
+    (mouvements, lightings)
+    it loads if necessary the submodels files
+
+changelog
+- 2016-10-22 : create
+
+-->
+
+<PropertyList>
+
+  <name>stdby-alt</name>
+  <path>instrument_alt.ac</path>
+
+  <!--
+================================================================================
+                                                             OBJECTS DECLARATION
+================================================================================
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
+  <animation>
+    <object-name>alt.box</object-name>
+    <object-name>alt.knob</object-name>
+    <object-name>alt.needle</object-name>
+    <object-name>alt.scale</object-name>
+    <object-name>alt.kpa1</object-name>
+    <object-name>alt.kpa10</object-name>
+    <object-name>alt.kpa100</object-name>
+    <object-name>alt.kpa1000</object-name>
+    <object-name>alt.in1</object-name>
+    <object-name>alt.in10</object-name>
+    <object-name>alt.in100</object-name>
+    <object-name>alt.in1000</object-name>
+    <object-name>alt.atxt10</object-name>
+    <object-name>alt.atxt100</object-name>
+    <object-name>alt.atxt1000</object-name>
+    <object-name>alt.atxt10000</object-name>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
+
+
+  <!-- ~~~~~~~~~~~~~~~~~~ effects -->
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
+    <object-name>alt.box</object-name>
+    <object-name>alt.knob</object-name>
+    <object-name>alt.needle</object-name>
+    <object-name>alt.scale</object-name>
+    <object-name>alt.kpa1</object-name>
+    <object-name>alt.kpa10</object-name>
+    <object-name>alt.kpa100</object-name>
+    <object-name>alt.kpa1000</object-name>
+    <object-name>alt.in1</object-name>
+    <object-name>alt.in10</object-name>
+    <object-name>alt.in100</object-name>
+    <object-name>alt.in1000</object-name>
+    <object-name>alt.atxt10</object-name>
+    <object-name>alt.atxt100</object-name>
+    <object-name>alt.atxt1000</object-name>
+    <object-name>alt.atxt10000</object-name>
+  </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
+  <animation>
+    <type>material</type>
+    <object-name>alt.knob</object-name>
+    <object-name>alt.needle</object-name>
+    <object-name>alt.scale</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.8</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>alt.kpa1</object-name>
+    <object-name>alt.kpa10</object-name>
+    <object-name>alt.kpa100</object-name>
+    <object-name>alt.kpa1000</object-name>
+    <object-name>alt.in1</object-name>
+    <object-name>alt.in10</object-name>
+    <object-name>alt.in100</object-name>
+    <object-name>alt.in1000</object-name>
+    <object-name>alt.atxt10</object-name>
+    <object-name>alt.atxt100</object-name>
+    <object-name>alt.atxt1000</object-name>
+    <object-name>alt.atxt10000</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.8</red>
+      <green>0.8</green>
+      <blue>0.8</blue>
+    </emission>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (enabled) -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (color) -->
+
+  <!--
+================================================================================
+                                                         CONTROLS AND ANIMATIONS
+================================================================================
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation altitude digit 1 -->
+  <animation>
+    <type>textranslate</type>
+    <object-name>alt.atxt10000</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+    <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+    <factor>0.00001</factor>
+    <step>10000</step>
+    <scroll>20</scroll>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation altitude digit 2 -->
+  <animation>
+    <type>textranslate</type>
+    <object-name>alt.atxt1000</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+    <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+    <factor>0.0001</factor>
+    <step>1000</step>
+    <scroll>20</scroll>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation altitude digit 3 -->
+  <animation>
+    <type>textranslate</type>
+    <object-name>alt.atxt100</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+    <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+    <factor>0.001</factor>
+    <step>100</step>
+    <scroll>20</scroll>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation altitude digit 4 -->
+  <animation>
+    <type>textranslate</type>
+    <object-name>alt.atxt10</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+    <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+    <factor>0.01</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation kPa digit 1 -->
+  <animation>
+    <type>textranslate</type>
+    <object-name>alt.kpa1000</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+    <property>/instrumentation/altimeter/setting-kpa</property>
+    <factor>0.0001</factor>
+    <step>1000</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation kPa digit 2 -->
+  <animation>
+    <type>textranslate</type>
+    <object-name>alt.kpa100</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+    <property>/instrumentation/altimeter/setting-kpa</property>
+    <factor>0.001</factor>
+    <step>100</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation kPa digit 3 -->
+  <animation>
+    <type>textranslate</type>
+    <object-name>alt.kpa10</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+    <property>/instrumentation/altimeter/setting-kpa</property>
+    <factor>0.01</factor>
+    <step>10</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation kPa digit 4 -->
+  <animation>
+    <type>textranslate</type>
+    <object-name>alt.kpa1</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+    <property>/instrumentation/altimeter/setting-kpa</property>
+    <factor>0.1</factor>
+    <step>1</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation inHg digit 1 -->
+  <animation>
+    <type>textranslate</type>
+    <object-name>alt.in1000</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+    <property>/instrumentation/altimeter/setting-inhg</property>
+    <factor>0.01</factor>
+    <step>10</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation inHg digit 2 -->
+  <animation>
+    <type>textranslate</type>
+    <object-name>alt.in100</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+    <property>/instrumentation/altimeter/setting-inhg</property>
+    <factor>0.1</factor>
+    <step>1</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation inHg digit 3 -->
+  <animation>
+    <type>textranslate</type>
+    <object-name>alt.in10</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+    <property>/instrumentation/altimeter/setting-inhg</property>
+    <factor>1.0</factor>
+    <step>0.1</step>
+    <bias>0.005</bias>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation inHg digit 4 -->
+  <animation>
+    <type>textranslate</type>
+    <object-name>alt.in1</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+    <property>/instrumentation/altimeter/setting-inhg</property>
+    <factor>10.0</factor>
+    <step>0.01</step>
+    <bias>0.005</bias>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation altitude needle -->
+  <animation>
+    <type>rotate</type>
+    <object-name>alt.needle</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+    <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+    <factor>0.36</factor>
+    <center>
+      <x-m>0.0</x-m>
+      <y-m>0</y-m>
+      <z-m>0.001</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ control and animation knob inhg/kpa -->
+  <animation>
+    <type>pick</type>
+    <object-name>alt.knob</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+    <action>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.2</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/altimeter/setting-inhg</property>
+        <step>0.01</step>
+        <min>26.0</min>
+        <max>33.0</max>
+        <wrap>false</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>3</button> <!--  scroll up -->
+      <repeatable>true</repeatable>
+      <interval-sec>0.2</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/altimeter/setting-inhg</property>
+        <step>0.01</step>
+        <min>26.0</min>
+        <max>33.0</max>
+        <wrap>false</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>true</repeatable>
+      <interval-sec>0.2</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/altimeter/setting-inhg</property>
+        <step>-0.01</step>
+        <min>26.0</min>
+        <max>33.0</max>
+        <wrap>false</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>4</button> <!-- scroll down -->
+      <repeatable>true</repeatable>
+      <interval-sec>0.2</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/altimeter/setting-inhg</property>
+        <step>-0.01</step>
+        <min>26.0</min>
+        <max>33.0</max>
+        <wrap>false</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-stdby-alt-setting-inhg</tooltip-id>
+        <label>InHg settings</label>
+      </binding>
+    </hovered>
+  </animation>
+
+</PropertyList>
+

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PropertyList>
+
+  <path>engine.ac</path>
+
+  <animation>
+    <type>material</type>
+    <!-- fixed parts -->
+    <object-name>tuyere</object-name>
+    <object-name>tuyere.reheat</object-name>
+    <object-name>tuyere.paroie</object-name>
+    <object-name>reheat_inner_tuyere</object-name>
+    <object-name>reheat_inner_bruleur</object-name>
+    <!-- mobiles parts -->
+    <object-name>tuyere_part_000</object-name>
+    <object-name>tuyere_part_036</object-name>
+    <object-name>tuyere_part_072</object-name>
+    <object-name>tuyere_part_108</object-name>
+    <object-name>tuyere_part_144</object-name>
+    <object-name>tuyere_part_180</object-name>
+    <object-name>tuyere_part_216</object-name>
+    <object-name>tuyere_part_252</object-name>
+    <object-name>tuyere_part_288</object-name>
+    <object-name>tuyere_part_324</object-name>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>reheat_inner_tuyere</object-name>
+    <object-name>reheat_inner_bruleur</object-name>
+  </effect>
+
+  <animation>
+    <type>material</type>
+    <object-name>tuyere.reheat</object-name>
+    <condition>
+      <equals>
+        <property>/engines/engine[0]/stopped</property>
+        <value>0</value>
+      </equals>
+    </condition>
+    <emission>
+      <factor-prop>/controls/engines/engine[0]/throttle</factor-prop>
+      <red>1</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>tuyere.paroie</object-name>
+    <condition>
+      <equals>
+        <property>/engines/engine[0]/stopped</property>
+        <value>0</value>
+      </equals>
+    </condition>
+    <emission>
+      <factor-prop>/controls/engines/engine[0]/throttle</factor-prop>
+      <red>0.6</red>
+      <green>0</green>
+      <blue>0</blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>reheat_inner_tuyere</object-name>
+    <object-name>reheat_inner_bruleur</object-name>
+    <condition>
+      <and>
+        <greater-than>
+          <property>sim/multiplay/generic/float[8]</property>
+          <value>0.1</value>
+        </greater-than>
+        <equals>
+          <property>sim/multiplay/generic/int[8]</property>
+          <value>0</value>
+        </equals>
+      </and>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>reheat_inner_tuyere</object-name>
+    <object-name>reheat_inner_bruleur</object-name>
+    <emission>
+      <red>1</red>
+      <green>1</green>
+      <blue>1</blue>
+    </emission>
+    <transparency>
+      <alpha-prop>/controls/engines/engine[0]/throttle</alpha-prop>
+      <factor>10</factor>
+      <offset>-9</offset>
+    </transparency>
+  </animation>
+  <animation>
+    <type>textranslate</type>
+    <object-name>reheat_inner_tuyere</object-name>
+    <property>engines/engine[0]/prop-thrust</property>
+    <bias>1</bias>
+    <factor>100</factor>
+    <step>10</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+    </axis>
+  </animation>
+
+</PropertyList>
+

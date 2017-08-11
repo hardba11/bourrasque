@@ -1,0 +1,194 @@
+                     FLIGHTGEAR "BOURRASQUE" AIRCRAFT - HELP
+
+
+memo
+====
+
+keyboard shortcuts :
+- c : open/close canopy, you can click on the canopy to half-open it
+- k : Extend Speedbrakes (5 positions)
+- j : Retract Speedbrakes (5 positions)
+- ctrl-a : enable autopilot on Altitude
+- ctrl-s : enable autopilot on Speed
+- ctrl-h : enable autopilot on Heading (bug)
+- ctrl-n : enable autopilot on Heading (nav 1 radial)
+- ctrl-p : enable autopilot to keep current heading, altitude and speed
+- m : select previous mod
+- M : select next mod
+- } : autostart
+- v : next view
+- V : previous view
+- ctrl-v : default view (pilot)
+- tab : mouse mode : pointer, view, stick
+
+
+mouse functionnalities
+======================
+
+when on stick mode
+- pitch : vertical axis (no MMB pressed)
+- roll : horizontal axis (no buttons pressed)
+- yaw : horizontal axis (LMB or MMB pressed)
+- throttle : vertical axis (MMB pressed)
+- throttle : scroll UP/DOWN
+- view : vertical/horizontal axis (RMB pressed)
+
+
+some informations
+=================
+
+instruments knobs
+-----------------
+
+using knobs with mouse :
+- LMB clic   = +10 or +30
+- MMB clic   = -10 or -30
+- scroll UP  = +1
+- scroll DWN = -1
+
+instruments
+-----------
+
+right panel :
+- on the left : engine 0 instrument
+- on the right : engine 1 instrument
+- electrical instrument
+- joystick
+- transponder
+- nav/com 2
+- nav/com 1
+
+front panel :
+- screen on the right : primary function display : speed, altitude, attitude indicator, AP settings (PFD)
+- screen on center : navigation display : navigation information, heading, vor (ND)
+- screen on the left : secondary function display : engines informations (SFD)
+- compass
+
+bottom panel :
+- standby attitude indicator (AI)
+- angle of attack indicator (AOA)
+- standby altitude indicator (ALT)
+- standby air speed indicator (ASI)
+- standby horizontal situation indicator (HSI)
+
+left panel :
+- clock
+- command panel : canopy, gears, parkbrake
+- throttle stick
+- lights panel
+
+mods
+----
+
+4 buttons on the top of the center screen (Nav Display) change fly-by-wire, hud and ND settings
+- TAXI : for taxiing
+- APP : for landing, take-off and approach
+- NAV : for navigation
+- VFR : for free fly
+
+
+how-to
+======
+
+autostart
+---------
+
+use the bourrasque menu or } key
+
+start
+-----
+
+gui/equipment : covers [REMOVE]
+gui/equipment : scale [REMOVE]
+electrical instrument : switch [BAT]
+electrical instrument : avionics [ON]
+lights panel : instrument light [ADJUST]
+nav/com : frequency [ADJUST]
+request autorization
+electrical instrument : engines [ON]
+engine 0 instrument : cut [ON]
+engine 0 instrument : pump [ON]
+engine 0 instrument : start [PUSH]
+engine 0 started [WAIT]
+electrical instrument : switch [ALT]
+engine 1 instrument : cut [ON]
+engine 1 instrument : pump [ON]
+engine 1 instrument : start [PUSH]
+lights panel : anti-collision [ON]
+lights panel : strobe [ON]
+lights panel : navigation [ON]
+lights panel : position [ON]
+lights panel : formation [ADJUST]
+lights panel : landing and taxi [ON]
+engine 0 started [WAIT]
+PFD : autopilot speed [ADJUST]
+PFD : autopilot alt [ADJUST]
+PFD : autopilot heading [ADJUST]
+ALT : hdg [ADJUST]
+
+taxi
+----
+
+command panel : canopy [HALF-CLOSE]
+nd : mod [TAXI]
+gui/equipment : shocks [REMOVE]
+command panel : parkbrake [RELEASE]
+
+
+take off
+--------
+
+command panel : canopy [CLOSE]
+nd : mod [APP]
+full thrust
+rotation: 150kts
+
+nav
+---
+
+nd : mod [NAV]
+ALT : hdg [1013 HPa]
+
+landing
+-------
+
+ALT : hdg [ADJUST]
+nd : mod [APP]
+approach at ~140kts use speedbrakes (j, k keys) (speedbrake 40% - aoa 5)
+hud flight director on runway threshold
+and hud flight director between -2deg and -4deg
+touchdown at 120kts
+nd : mod [TAXI]
+
+stop
+----
+
+gui/equipment : covers [REMOVE]
+gui/equipment : scale [REMOVE]
+electrical instrument : switch [BAT]
+electrical instrument : avionics [ON]
+lights panel : instrument light [ADJUST]
+nav/com : frequency [ADJUST]
+request autorization
+electrical instrument : engines [ON]
+engine 0 instrument : cut [ON]
+engine 0 instrument : pump [ON]
+engine 0 instrument : start [PUSH]
+engine 0 started [WAIT]
+electrical instrument : switch [ALT]
+engine 1 instrument : cut [ON]
+engine 1 instrument : pump [ON]
+engine 1 instrument : start [PUSH]
+lights panel : anti-collision [ON]
+lights panel : strobe [ON]
+lights panel : navigation [ON]
+lights panel : position [ON]
+lights panel : formation [ADJUST]
+lights panel : landing and taxi [ON]
+engine 0 started [WAIT]
+PFD : autopilot speed [ADJUST]
+PFD : autopilot alt [ADJUST]
+PFD : autopilot heading [ADJUST]
+ALT : hdg [ADJUST]
+
+

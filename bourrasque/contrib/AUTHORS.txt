@@ -1,0 +1,20 @@
+                   FLIGHTGEAR "BOURRASQUE" AIRCRAFT - AUTHORS
+
+
+authors
+-------
+
+- hardball SLK
+- itouchpod for the autopilot
+
+
+thanks to
+---------
+
+- all contributors of the wiki which gives a precious help
+- buckaroo for samples files, yasim doc and for his help to the community
+- syd adams for samples files
+- canvas conceptors
+- 777, citationX, F-16, mirage 2000-5, rafaleB, su-27, f-14 developpers
+- instruments developpers
+

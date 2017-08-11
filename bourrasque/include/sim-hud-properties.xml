@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+################################################################################
+#
+#             THIS FILE INITIALIZES SIM/HUD PROPERTY TREE
+#
+################################################################################
+
+PROPERTY-PATH : PropertyList > sim > hud
+
+changelog
+- 2016-10-22 : create
+
+-->
+
+<PropertyList>
+
+  <path n="1" type="string">instruments/hud/hud.xml</path>
+  <visibility n="1" type="bool">0</visibility>
+
+  <path n="4" type="string">instruments/hud/mini-hud.xml</path>
+  <visibility n="4" type="bool">0</visibility>
+
+  <palette>
+    <color n="0">
+      <alpha>0.85</alpha>
+      <transparent>1</transparent>
+      <antialiased>1</antialiased>
+      <red>0.2</red>
+      <green>1</green>
+      <blue>0.2</blue>
+      <brightness>0.85</brightness>
+    </color>
+    <color n="1">
+      <alpha>0.85</alpha>
+      <transparent>1</transparent>
+      <antialiased>1</antialiased>
+      <red>1</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+      <brightness>0.85</brightness>
+    </color>
+  </palette>
+
+</PropertyList>
+
+

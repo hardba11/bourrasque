@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- thx Syd Adams -->
+<!--
+description :
+    this file uses the 3d model ans defines animations of the model and objects
+    (mouvements, lightings)
+    it loads if necessary the submodels files
+
+changelog
+- 2016-10-22 : create
+
+-->
+
+<PropertyList>
+
+  <name>stdby-ai</name>
+  <path>instrument_stdby-ai.ac</path>
+
+  <!--
+================================================================================
+                                                             OBJECTS DECLARATION
+================================================================================
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
+  <animation>
+    <object-name>ai-box</object-name>
+    <object-name>ai.ball</object-name>
+    <object-name>ai.ball-emit</object-name>
+    <object-name>ai.face</object-name>
+    <object-name>ai.face-emit</object-name>
+    <object-name>ai.rollneedle</object-name>
+    <object-name>ai.rollneedle-emit</object-name>
+    <object-name>ai.support</object-name>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>ai.ball-emit</object-name>
+    <object-name>ai.face-emit</object-name>
+    <object-name>ai.rollneedle-emit</object-name>
+  </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ effects -->
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
+    <object-name>ai-box</object-name>
+    <object-name>ai.ball</object-name>
+    <object-name>ai.ball-emit</object-name>
+    <object-name>ai.face</object-name>
+    <object-name>ai.face-emit</object-name>
+    <object-name>ai.rollneedle</object-name>
+    <object-name>ai.rollneedle-emit</object-name>
+    <object-name>ai.support</object-name>
+  </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
+  <animation>
+    <type>material</type>
+    <object-name>ai.ball-emit</object-name>
+    <object-name>ai.face-emit</object-name>
+    <object-name>ai.rollneedle-emit</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.8</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (enabled) -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (color) -->
+
+  <!--
+================================================================================
+                                                         CONTROLS AND ANIMATIONS
+================================================================================
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation ai ball -->
+  <animation>
+    <type>select</type>
+    <object-name>ai.ball-emit</object-name>
+    <condition>
+      <and>
+        <greater-than>
+          <property>/controls/lighting/instruments-norm</property>
+          <value>0</value>
+        </greater-than>
+        <property>sim/multiplay/generic/int[5]</property>
+      </and>
+    </condition>
+  </animation>
+  <animation>
+    <type>texmultiple</type>
+    <object-name>ai.ball</object-name>
+    <object-name>ai.ball-emit</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+    <transform>
+      <property>/orientation/pitch-deg</property>
+      <subtype>textranslate</subtype>
+      <factor>0.00423</factor>
+      <axis>
+        <x>0</x>
+        <y>1</y>
+        <z>0</z>
+      </axis>
+    </transform>
+    <transform>
+      <property>/orientation/roll-deg</property>
+      <subtype>texrotate</subtype>
+      <center>
+        <x>0.25</x>
+        <y>0.50</y>
+      </center>
+      <axis>
+        <x>0</x>
+        <y>0</y>
+        <z>-1</z>
+      </axis>
+    </transform>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation roll needle -->
+  <animation>
+    <type>rotate</type>
+    <object-name>ai.rollneedle</object-name>
+    <object-name>ai.rollneedle-emit</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+    <property>/orientation/roll-deg</property>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+  </animation>
+
+</PropertyList>
+

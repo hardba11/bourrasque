@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- thx Syd Adams -->
+<!--
+description :
+    this file uses the 3d model ans defines animations of the model and objects
+    (mouvements, lightings)
+    it loads if necessary the submodels files
+
+changelog
+- 2016-10-22 : create
+
+-->
+
+<PropertyList>
+
+  <name>stdby-hsi</name>
+  <path>instrument_stdby-hsi.ac</path>
+
+  <!--
+================================================================================
+                                                             OBJECTS DECLARATION
+================================================================================
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
+  <animation>
+    <object-name>hsi.adf_needle</object-name>
+    <object-name>hsi.crs_needle</object-name>
+    <object-name>hsi.dev_needle</object-name>
+    <object-name>hsi.box</object-name>
+    <object-name>hsi.gsneedle</object-name>
+    <object-name>hsi.knob</object-name>
+    <object-name>hsi.hdg_ring</object-name>
+    <object-name>hsi.box-emit</object-name>
+    <object-name>hsi.adf_needle-emit</object-name>
+    <object-name>hsi.crs_needle-emit</object-name>
+    <object-name>hsi.dev_needle-emit</object-name>
+    <object-name>hsi.gsneedle-emit</object-name>
+    <object-name>hsi.hdg_ring-emit</object-name>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>hsi.box-emit</object-name>
+    <object-name>hsi.adf_needle-emit</object-name>
+    <object-name>hsi.crs_needle-emit</object-name>
+    <object-name>hsi.dev_needle-emit</object-name>
+    <object-name>hsi.gsneedle-emit</object-name>
+    <object-name>hsi.hdg_ring-emit</object-name>
+  </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ effects -->
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
+    <object-name>hsi.adf_needle</object-name>
+    <object-name>hsi.crs_needle</object-name>
+    <object-name>hsi.dev_needle</object-name>
+    <object-name>hsi.box</object-name>
+    <object-name>hsi.gsneedle</object-name>
+    <object-name>hsi.knob</object-name>
+    <object-name>hsi.hdg_ring</object-name>
+    <object-name>hsi.box-emit</object-name>
+    <object-name>hsi.adf_needle-emit</object-name>
+    <object-name>hsi.crs_needle-emit</object-name>
+    <object-name>hsi.dev_needle-emit</object-name>
+    <object-name>hsi.gsneedle-emit</object-name>
+    <object-name>hsi.hdg_ring-emit</object-name>
+  </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
+  <animation>
+    <type>material</type>
+    <object-name>hsi.box-emit</object-name>
+    <object-name>hsi.adf_needle-emit</object-name>
+    <object-name>hsi.crs_needle-emit</object-name>
+    <object-name>hsi.dev_needle-emit</object-name>
+    <object-name>hsi.gsneedle-emit</object-name>
+    <object-name>hsi.hdg_ring-emit</object-name>
+    <object-name>hsi.knob</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.8</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (enabled) -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (color) -->
+
+  <!--
+================================================================================
+                                                         CONTROLS AND ANIMATIONS
+================================================================================
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation heading ring -->
+  <animation>
+    <type>rotate</type>
+    <object-name>hsi.hdg_ring</object-name>
+    <object-name>hsi.hdg_ring-emit</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+    <property>/instrumentation/my_aircraft/nd/outputs/indicated-heading</property>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation nav needle / heading -->
+  <animation>
+    <type>rotate</type>
+    <object-name>hsi.crs_needle</object-name>
+    <object-name>hsi.crs_needle-emit</object-name>
+    <object-name>hsi.dev_needle</object-name>
+    <object-name>hsi.dev_needle-emit</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+    <property>/instrumentation/my_aircraft/nd/outputs/indicated-heading</property>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation nav needle / radial (rotate) -->
+  <animation>
+    <type>rotate</type>
+    <object-name>hsi.crs_needle</object-name>
+    <object-name>hsi.crs_needle-emit</object-name>
+    <object-name>hsi.dev_needle</object-name>
+    <object-name>hsi.dev_needle-emit</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+    <property>/instrumentation/nav[0]/radials/selected-deg</property>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation nav needle / radial (translate) -->
+  <animation>
+    <type>translate</type>
+    <object-name>hsi.dev_needle</object-name>
+    <object-name>hsi.dev_needle-emit</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+    <property>/instrumentation/nav[0]/heading-needle-deflection</property>
+    <interpolation>
+      <entry><ind>-10.0</ind><dep>-0.013</dep></entry>
+      <entry><ind>0.0</ind><dep>0.0</dep></entry>
+      <entry><ind>10.0</ind><dep>0.013</dep></entry>
+    </interpolation>
+    <axis>
+      <x>0</x>
+      <y>1.0</y>
+      <z>0.0</z>
+    </axis>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation gs needle (translate) -->
+  <animation>
+    <type>translate</type>
+    <object-name>hsi.gsneedle</object-name>
+    <object-name>hsi.gsneedle-emit</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+    <property>/instrumentation/nav[0]/gs-needle-deflection</property>
+    <interpolation>
+      <entry><ind>-10.0</ind><dep>-0.01</dep></entry>
+      <entry><ind>0.0</ind><dep>0.0</dep></entry>
+      <entry><ind>10.0</ind><dep>0.01</dep></entry>
+    </interpolation>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation adf needle (translate) -->
+  <animation>
+    <type>rotate</type>
+    <object-name>hsi.adf_needle</object-name>
+    <object-name>hsi.adf_needle-emit</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+    <property>/instrumentation/adf/indicated-bearing-deg</property>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ control radial -->
+  <!-- left/middle click = +-30 // wheel = +-1 -->
+  <animation>
+    <type>pick</type>
+    <object-name>hsi.knob</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+    <action>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/nav[0]/radials/selected-deg</property>
+        <step>30</step>
+        <min>0</min>
+        <max>360</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/nav[0]/radials/selected-deg</property>
+        <step>-30</step>
+        <min>0</min>
+        <max>360</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>3</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/nav[0]/radials/selected-deg</property>
+        <step>1</step>
+        <min>0</min>
+        <max>360</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>4</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/nav[0]/radials/selected-deg</property>
+        <step>-1</step>
+        <min>0</min>
+        <max>360</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-stdby-hsi-radial</tooltip-id>
+        <label>Nav1 Radial %3d</label>
+        <mapping>heading</mapping>
+        <property>/instrumentation/nav[0]/radials/selected-deg</property>
+      </binding>
+    </hovered>
+  </animation>
+
+</PropertyList>

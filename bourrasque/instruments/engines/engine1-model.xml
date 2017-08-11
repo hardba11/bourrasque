@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+description :
+    this file uses the 3d model and defines animations of the model and objects
+    (mouvements, lightings)
+    it loads if necessary the submodels files
+
+changelog
+- 2016-10-22 : create
+
+-->
+
+<PropertyList>
+
+  <name>engine1</name>
+  <path>instrument_engines.ac</path>
+
+  <!--
+================================================================================
+                                                             OBJECTS DECLARATION
+================================================================================
+  -->
+  <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
+  <animation>
+    <object-name>engines</object-name>
+    <object-name>engines.box</object-name>
+    <object-name>engines.box-emit</object-name>
+    <object-name>engines.cutoff</object-name>
+    <object-name>engines.cutoff-emit</object-name>
+    <object-name>engines.pump</object-name>
+    <object-name>engines.pump-emit</object-name>
+    <object-name>engines.start</object-name>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>engines.box-emit</object-name>
+    <object-name>engines.cutoff-emit</object-name>
+    <object-name>engines.pump-emit</object-name>
+  </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ effects -->
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
+    <object-name>engines</object-name>
+    <object-name>engines.box</object-name>
+    <object-name>engines.box-emit</object-name>
+    <object-name>engines.cutoff</object-name>
+    <object-name>engines.cutoff-emit</object-name>
+    <object-name>engines.pump</object-name>
+    <object-name>engines.pump-emit</object-name>
+    <object-name>engines.start</object-name>
+  </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
+  <animation>
+    <type>material</type>
+    <object-name>engines.box-emit</object-name>
+    <object-name>engines.cutoff-emit</object-name>
+    <object-name>engines.pump-emit</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.8</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (enabled) -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (color) -->
+
+  <!--
+================================================================================
+                                                         CONTROLS AND ANIMATIONS
+================================================================================
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control cutoff switch -->
+  <animation>
+    <type>pick</type>
+    <object-name>engines.cutoff</object-name>
+    <object-name>engines.cutoff-emit</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/my_aircraft/engines/controls/engine[1]/fuel-on</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-engine1-cutoff</tooltip-id>
+        <label>Engine1 cutoff</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation cutoff switch -->
+  <animation>
+    <type>rotate</type>
+    <object-name>engines.cutoff</object-name>
+    <object-name>engines.cutoff-emit</object-name>
+    <property>/instrumentation/my_aircraft/engines/controls/engine[1]/fuel-on</property>
+    <interpolation>
+      <entry><ind>1</ind><dep>20</dep></entry>
+      <entry><ind>0</ind><dep>-20</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0.028</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control pump switch -->
+  <animation>
+    <type>pick</type>
+    <object-name>engines.pump</object-name>
+    <object-name>engines.pump-emit</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/my_aircraft/engines/controls/engine[1]/pump</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-engine1-cutoff</tooltip-id>
+        <label>Engine1 cutoff</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation pump switch -->
+  <animation>
+    <type>rotate</type>
+    <object-name>engines.pump</object-name>
+    <object-name>engines.pump-emit</object-name>
+    <property>/instrumentation/my_aircraft/engines/controls/engine[1]/pump</property>
+    <interpolation>
+      <entry><ind>1</ind><dep>20</dep></entry>
+      <entry><ind>0</ind><dep>-20</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>-0.004</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control start button -->
+  <animation>
+    <type>pick</type>
+    <object-name>engines.start</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/my_aircraft/engines/controls/engine[1]/is_starting</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-engine1-start</tooltip-id>
+        <label>Engine1 start</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation start button -->
+  <animation>
+    <type>translate</type>
+    <object-name>engines.start</object-name>
+    <property>/instrumentation/my_aircraft/engines/controls/engine[1]/is_starting</property>
+    <factor>0.002</factor>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+</PropertyList>
+

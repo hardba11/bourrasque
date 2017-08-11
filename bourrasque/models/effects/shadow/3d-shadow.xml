@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+
+  <path>3d-shadow.ac</path>
+  <nopreview />
+
+  <offsets>
+    <pitch-deg>.2</pitch-deg>
+    <x-m>0</x-m>
+    <y-m>0</y-m>
+    <z-m>-.09</z-m>
+  </offsets>
+
+  <animation>
+    <type>material</type>
+    <object-name>shadow.fuselage</object-name>
+    <object-name>shadow.gears</object-name>
+    <object-name>shadow.front-gears</object-name>
+    <object-name>shadow.center-tank1250L</object-name>
+    <object-name>shadow.center-tank2000L</object-name>
+    <object-name>shadow.wing-tanks1250L</object-name>
+    <object-name>shadow.wing-tanks2000L</object-name>
+  </animation>
+
+  <effect>
+    <inherits-from>Effects/shadow-vol</inherits-from>
+    <object-name>shadow.fuselage</object-name>
+    <object-name>shadow.gears</object-name>
+    <object-name>shadow.front-gears</object-name>
+    <object-name>shadow.center-tank1250L</object-name>
+    <object-name>shadow.center-tank2000L</object-name>
+    <object-name>shadow.wing-tanks1250L</object-name>
+    <object-name>shadow.wing-tanks2000L</object-name>
+  </effect>
+  <animation>
+    <type>noshadow</type>
+    <object-name>shadow.fuselage</object-name>
+    <object-name>shadow.gears</object-name>
+    <object-name>shadow.front-gears</object-name>
+    <object-name>shadow.center-tank1250L</object-name>
+    <object-name>shadow.center-tank2000L</object-name>
+    <object-name>shadow.wing-tanks1250L</object-name>
+    <object-name>shadow.wing-tanks2000L</object-name>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>shadow.fuselage</object-name>
+    <condition>
+      <less-than>
+        <property>/sim/time/sun-angle-rad</property>
+        <value>1.45</value>
+      </less-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>shadow.front-gears</object-name>
+    <object-name>shadow.gears</object-name>
+    <condition>
+      <and>
+        <property>controls/gear/gear-down</property>
+        <less-than>
+          <property>/sim/time/sun-angle-rad</property>
+          <value>1.45</value>
+        </less-than>
+      </and>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>shadow.center-tank1250L</object-name>
+    <condition>
+      <and>
+        <equals>
+          <property>sim/multiplay/generic/string[0]</property>
+          <value type="string">tank1250L</value>
+        </equals>
+        <less-than>
+          <property>/sim/time/sun-angle-rad</property>
+          <value>1.45</value>
+        </less-than>
+      </and>
+    </condition>
+  </animation>
+  <animation>
+    <type>select</type>
+    <object-name>shadow.center-tank2000L</object-name>
+    <condition>
+      <and>
+        <equals>
+          <property>sim/multiplay/generic/string[0]</property>
+          <value type="string">tank2000L</value>
+        </equals>
+        <less-than>
+          <property>/sim/time/sun-angle-rad</property>
+          <value>1.45</value>
+        </less-than>
+      </and>
+    </condition>
+  </animation>
+  <animation>
+    <type>select</type>
+    <object-name>shadow.wing-tanks1250L</object-name>
+    <condition>
+      <and>
+        <equals>
+          <property>sim/multiplay/generic/string[1]</property>
+          <value type="string">tank1250L</value>
+        </equals>
+        <less-than>
+          <property>/sim/time/sun-angle-rad</property>
+          <value>1.45</value>
+        </less-than>
+      </and>
+    </condition>
+  </animation>
+  <animation>
+    <type>select</type>
+    <object-name>shadow.wing-tanks2000L</object-name>
+    <condition>
+      <and>
+        <equals>
+          <property>sim/multiplay/generic/string[1]</property>
+          <value type="string">tank2000L</value>
+        </equals>
+        <less-than>
+          <property>/sim/time/sun-angle-rad</property>
+          <value>1.45</value>
+        </less-than>
+      </and>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ front gear -->
+  <!--animation>
+    <type>rotate</type>
+    <object-name>shadow.front-gears</object-name>
+    <property>/gear/gear[0]/position-norm</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>95</dep></entry>
+      <entry><ind>0.2</ind><dep>95</dep></entry>
+      <entry><ind>0.9</ind><dep>0</dep></entry>
+      <entry><ind>1.0</ind><dep>0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-2.59</x-m>
+      <y-m>0</y-m>
+      <z-m>-0.1</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation-->
+  <!-- ~~~~~~~~~~~~~~~~~~ main gear -->
+  <!--animation>
+    <type>rotate</type>
+    <object-name>shadow.gears</object-name>
+    <property>/gear/gear[1]/position-norm</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>-105</dep></entry>
+      <entry><ind>0.2</ind><dep>-105</dep></entry>
+      <entry><ind>0.9</ind><dep>0</dep></entry>
+      <entry><ind>1.0</ind><dep>0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>1.953</x-m>
+      <y-m>0</y-m>
+      <z-m>-0.2</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>-1</y>
+      <z>0</z>
+    </axis>
+  </animation-->
+
+  <!-- pitch -->
+  <animation>
+    <type>rotate</type>
+    <object-name>shadow.fuselage</object-name>
+    <object-name>shadow.gears</object-name>
+    <object-name>shadow.front-gears</object-name>
+    <object-name>shadow.center-tank1250L</object-name>
+    <object-name>shadow.center-tank2000L</object-name>
+    <object-name>shadow.wing-tanks1250L</object-name>
+    <object-name>shadow.wing-tanks2000L</object-name>
+    <property>/orientation/pitch-deg</property>
+    <factor>-1</factor>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <!-- roll -->
+  <animation>
+    <type>rotate</type>
+    <object-name>shadow.fuselage</object-name>
+    <object-name>shadow.gears</object-name>
+    <object-name>shadow.front-gears</object-name>
+    <object-name>shadow.center-tank1250L</object-name>
+    <object-name>shadow.center-tank2000L</object-name>
+    <object-name>shadow.wing-tanks1250L</object-name>
+    <object-name>shadow.wing-tanks2000L</object-name>
+    <property>/orientation/roll-deg</property>
+    <factor>1</factor>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+</PropertyList>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+################################################################################
+#
+#                               GROUND EQUIPMENT MODEL
+#
+################################################################################
+
+changelog
+- 2017-03-22 : create
+
+-->
+<PropertyList>
+
+  <path>ground_equipment.ac</path>
+  <nopreview />
+
+  <animation>
+    <type>material</type>
+    <object-name>ground_equipment.engine</object-name>
+    <object-name>ground_equipment.flags</object-name>
+    <object-name>ground_equipment.gears</object-name>
+    <object-name>ground_equipment.scale</object-name>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ engines + flags -->
+  <animation>
+    <type>select</type>
+    <object-name>ground_equipment.engine</object-name>
+    <object-name>ground_equipment.flags</object-name>
+    <condition>
+      <equals>
+        <property>sim/multiplay/generic/string[2]</property>
+        <value type="string">1</value>
+      </equals>
+      <equals>
+        <property>sim/multiplay/generic/int[8]</property>
+        <value type="string">1</value>
+      </equals>
+      <equals>
+        <property>sim/multiplay/generic/int[9]</property>
+        <value type="string">1</value>
+      </equals>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ gears -->
+  <animation>
+    <type>select</type>
+    <object-name>ground_equipment.gears</object-name>
+    <condition>
+      <equals>
+        <property>sim/multiplay/generic/string[3]</property>
+        <value type="string">1</value>
+      </equals>
+    </condition>
+  </animation>
+  <animation> <!-- as the object touchs the ground, I had to add a translation -->
+    <type>translate</type>
+    <object-name>ground_equipment.gears</object-name>
+    <offset-m>-.1</offset-m>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ scale -->
+  <animation>
+    <type>select</type>
+    <object-name>ground_equipment.scale</object-name>
+    <condition>
+      <equals>
+        <property>sim/multiplay/generic/string[4]</property>
+        <value type="string">1</value>
+      </equals>
+    </condition>
+  </animation>
+
+</PropertyList>
+

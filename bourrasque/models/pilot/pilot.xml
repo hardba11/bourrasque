@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+
+pivot visiere
+-3.1735
+-0.1688
+1.134
+r = 37
+-->
+
+<PropertyList>
+
+  <path>pilot.ac</path>
+
+  <animation>
+
+    <!-- Objets opaques -->
+    <object-name>tete</object-name>
+    <object-name>corps</object-name>
+    <object-name>bras</object-name>
+    <object-name>avantbras</object-name>
+    <object-name>main</object-name>
+    <object-name>brasD</object-name>
+    <object-name>avantbrasD</object-name>
+    <object-name>mainD</object-name>
+    <object-name>lunettes</object-name>
+    <object-name>jambeG</object-name>
+    <object-name>jambeD</object-name>
+  </animation>
+
+
+  <animation>
+    <name>bloc_pilote</name>
+    <object-name>tete</object-name>
+    <object-name>corps</object-name>
+    <object-name>bras</object-name>
+    <object-name>avantbras</object-name>
+    <object-name>main</object-name>
+    <object-name>brasD</object-name>
+    <object-name>avantbrasD</object-name>
+    <object-name>mainD</object-name>
+    <object-name>lunettes</object-name>
+  </animation>
+  <animation>
+    <name>bloc_tete</name>
+    <object-name>lunettes</object-name>
+    <object-name>tete</object-name>
+  </animation>
+  <animation>
+    <name>bloc_brasD</name>
+    <object-name>brasD</object-name>
+    <object-name>avantbrasD</object-name>
+    <object-name>mainD</object-name>
+  </animation>
+  <animation>
+    <name>bloc_avantbrasD</name>
+    <object-name>avantbrasD</object-name>
+    <object-name>mainD</object-name>
+  </animation>
+  <animation>
+    <name>bloc_brasG</name>
+    <object-name>bras</object-name>
+    <object-name>avantbras</object-name>
+    <object-name>main</object-name>
+  </animation>
+  <animation>
+    <name>bloc_avantbrasG</name>
+    <object-name>avantbras</object-name>
+    <object-name>main</object-name>
+  </animation>
+
+  <animation>
+    <object-name>bloc_tete</object-name>
+    <type>select</type>
+    <condition>
+      <not-equals>
+        <property>/sim/current-view/view-number</property>
+        <value>0</value>
+      </not-equals>
+    </condition>
+  </animation>
+  <animation>
+    <object-name>bloc_pilote</object-name>
+    <type>select</type>
+    <condition>
+      <or>
+        <not-equals>
+          <property>/sim/current-view/view-number</property>
+          <value>0</value>
+        </not-equals>
+        <and>
+          <equals>
+            <property>/sim/current-view/view-number</property>
+            <value>0</value>
+          </equals>
+          <or>
+            <less-than>
+              <property>/sim/current-view/heading-offset-deg</property>
+              <value>60</value>
+            </less-than>
+            <greater-than>
+              <property>/sim/current-view/heading-offset-deg</property>
+              <value>300</value>
+            </greater-than>
+          </or>
+        </and>
+      </or>
+    </condition>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                                          HELMET
+  -->
+  <animation>
+    <type>rotate</type>
+    <object-name>lunettes</object-name>
+    <property>/controls/pax/helmet</property>
+    <center>
+      <x-m>-3.1735</x-m>
+      <y-m>-0.1688</y-m>
+      <z-m>1.134</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                               RIGHT ARM / PITCH
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ rotating shoulder -->
+  <animation>
+    <type>rotate</type>
+    <object-name>bloc_brasD</object-name>
+    <property>/controls/flight/elevator</property>
+    <interpolation>
+      <entry><ind>-1</ind><dep>-3</dep></entry>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>1</ind><dep>2</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-3.0934</x-m>
+      <y-m>0.1932</y-m>
+      <z-m>0.8948</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~ rotating elbow -->
+  <animation>
+    <type>rotate</type>
+    <object-name>bloc_avantbrasD</object-name>
+    <property>/controls/flight/elevator</property>
+    <interpolation>
+      <entry><ind>-1</ind><dep>3</dep></entry>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>1</ind><dep>-1</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-3.2086</x-m>
+      <y-m>0.2593</y-m>
+      <z-m>0.546</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~ rotating wrist -->
+  <animation>
+    <type>rotate</type>
+    <object-name>mainD</object-name>
+    <property>/controls/flight/elevator</property>
+    <interpolation>
+      <entry><ind>-1</ind><dep>15</dep></entry>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>1</ind><dep>-10</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-3.4784</x-m>
+      <y-m>0.3579</y-m>
+      <z-m>0.5068</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+
+  <!--
+________________________________________________________________________________
+                                                                RIGHT ARM / ROLL
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ rotating wrist -->
+  <animation>
+    <type>rotate</type>
+    <object-name>mainD</object-name>
+    <!--property>/debug2</property-->
+    <property>/controls/flight/aileron</property>
+    <interpolation>
+      <entry><ind>-1</ind><dep>10</dep></entry>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>1</ind><dep>-4</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-3.4784</x-m>
+      <y-m>0.3579</y-m>
+      <z-m>0.5068</z-m>
+    </center>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~ rotating elbow -->
+  <animation>
+    <type>rotate</type>
+    <object-name>bloc_avantbrasD</object-name>
+    <!--property>/debug1</property-->
+    <property>/controls/flight/aileron</property>
+    <interpolation>
+      <entry><ind>-1</ind><dep>3</dep></entry>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>1</ind><dep>-2</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-3.2086</x-m>
+      <y-m>0.2593</y-m>
+      <z-m>0.546</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+
+
+
+
+  <!--
+________________________________________________________________________________
+                                                             LEFT ARM / THROTTLE
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ rotating shoulder -->
+  <animation>
+    <type>rotate</type>
+    <object-name>bloc_brasG</object-name>
+    <property>/controls/engines/engine[0]/throttle</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>4</dep></entry>
+      <entry><ind>1</ind><dep>15</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-3.1533</x-m>
+      <y-m>-0.2929</y-m>
+      <z-m>0.8856</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~ rotating elbow -->
+  <animation>
+    <type>rotate</type>
+    <object-name>bloc_avantbrasG</object-name>
+    <property>/controls/engines/engine[0]/throttle</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>1</ind><dep>-10</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-3.1308</x-m>
+      <y-m>-0.4142</y-m>
+      <z-m>0.5524</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~ rotating wrist -->
+  <animation>
+    <type>rotate</type>
+    <object-name>main</object-name>
+    <property>/controls/engines/engine[0]/throttle</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>0</ind><dep>-5</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-3.404</x-m>
+      <y-m>-0.4346</y-m>
+      <z-m>0.4685</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+
+
+</PropertyList>

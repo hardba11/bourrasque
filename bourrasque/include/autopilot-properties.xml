@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+################################################################################
+#
+#             THIS FILE INITIALIZES AUTOPILOT PROPERTY TREE
+#
+################################################################################
+
+PROPERTY-PATH : PropertyList > autopilot
+
+changelog
+- 2016-10-22 : create
+
+-->
+
+<PropertyList>
+
+  <enabled type="int">0</enabled>
+
+  <locks>
+    <heading></heading>
+    <altitude></altitude>
+    <FD-status type="bool">1</FD-status>
+    <yaw-damper type="bool">0</yaw-damper>
+    <m-trim type="bool">0</m-trim>
+    <speed type="string"></speed>
+  </locks>
+
+  <settings>
+    <heading-bug-deg type="int">0</heading-bug-deg>
+    <true-heading-deg type="int">0</true-heading-deg>
+    <target-speed-kt type="int">300</target-speed-kt>
+    <target-speed-mach type="double">0.40</target-speed-mach>
+    <target-altitude-ft type="int">3000</target-altitude-ft>
+    <vertical-speed-fpm type="int">0</vertical-speed-fpm>
+    <!--minimums type="int">150</minimums-->
+    <target-roll-deg type="double">0</target-roll-deg>
+    <target-pitch-deg type="double">0</target-pitch-deg>
+    <vertical-speed-fpm type="int">0</vertical-speed-fpm>
+    <nav-source type="string">NAV1</nav-source>
+    <bank-limit type="int">30</bank-limit>
+    <changeover type="bool">0</changeover>
+  </settings>
+
+  <internal>
+    <selected-crs type="int">0</selected-crs>
+    <nav-distance type="double">0</nav-distance>
+    <nav-type type="string"></nav-type>
+    <nav-id type="string"></nav-id>
+    <course-deflection type="double">0.0</course-deflection>
+    <gs-valid type="bool">0</gs-valid>
+    <gs-deflection type="double">0.0</gs-deflection>
+    <in-range type="bool">0</in-range>
+    <gs-in-range type="bool">0</gs-in-range>
+  </internal>
+
+</PropertyList>
+
+

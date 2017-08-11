@@ -1,0 +1,970 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- thx 777 Navigation display team  -->
+<!--
+description :
+    this file uses the 3d model ans defines animations of the model and objects
+    (mouvements, lightings)
+    it loads if necessary the submodels files
+
+changelog
+- 2016-10-22 : create
+
+-->
+
+<PropertyList>
+
+  <name>nd</name>
+  <path>instrument_nd.ac</path>
+
+  <!--
+================================================================================
+                                                             OBJECTS DECLARATION
+================================================================================
+  -->
+  <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
+  <animation>
+    <object-name>cadre</object-name>
+    <object-name>cadre-emit</object-name>
+    <object-name>hud.app</object-name>
+    <object-name>hud.app-emit</object-name>
+    <object-name>hud.nav</object-name>
+    <object-name>hud.nav-emit</object-name>
+    <object-name>hud.taxi</object-name>
+    <object-name>hud.taxi-emit</object-name>
+    <object-name>hud.vfr</object-name>
+    <object-name>hud.vfr-emit</object-name>
+    <object-name>hud.void1</object-name>
+    <object-name>hud.void1-emit</object-name>
+    <object-name>nd.adf1</object-name>
+    <object-name>nd.adf1-emit</object-name>
+    <object-name>nd.adf2</object-name>
+    <object-name>nd.adf2-emit</object-name>
+    <object-name>nd.app</object-name>
+    <object-name>nd.app-emit</object-name>
+    <object-name>nd.hdg</object-name>
+    <object-name>nd.info</object-name>
+    <object-name>nd.info-emit</object-name>
+    <object-name>nd.map</object-name>
+    <object-name>nd.map-emit</object-name>
+    <object-name>nd.pln</object-name>
+    <object-name>nd.pln-emit</object-name>
+    <object-name>nd.rdr</object-name>
+    <object-name>nd.rdr-emit</object-name>
+    <object-name>nd.screen</object-name>
+    <object-name>nd.screen.off</object-name>
+    <object-name>nd.true_north</object-name>
+    <object-name>nd.true_north-emit</object-name>
+    <object-name>nd.slave_gps</object-name>
+    <object-name>nd.slave_gps-emit</object-name>
+    <object-name>nd.vor</object-name>
+    <object-name>nd.vor-emit</object-name>
+    <object-name>nd.vor1</object-name>
+    <object-name>nd.vor1-emit</object-name>
+    <object-name>nd.vor2</object-name>
+    <object-name>nd.vor2-emit</object-name>
+    <object-name>nd.zoom</object-name>
+    <object-name>vis</object-name>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
+  <animation>
+    <type>select</type>
+    <object-name>hud.void1-emit</object-name>
+    <object-name>nd.rdr-emit</object-name>
+    <condition>
+      <false />
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>nd.screen.off</object-name>
+    <condition>
+      <not><property>sim/multiplay/generic/int[5]</property></not>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>cadre-emit</object-name>
+    <object-name>hud.app-emit</object-name>
+    <object-name>hud.nav-emit</object-name>
+    <object-name>hud.taxi-emit</object-name>
+    <object-name>hud.vfr-emit</object-name>
+    <object-name>hud.void1-emit</object-name>
+    <object-name>nd.adf1-emit</object-name>
+    <object-name>nd.adf2-emit</object-name>
+    <object-name>nd.app-emit</object-name>
+    <object-name>nd.info-emit</object-name>
+    <object-name>nd.map-emit</object-name>
+    <object-name>nd.pln-emit</object-name>
+    <object-name>nd.rdr-emit</object-name>
+    <object-name>nd.true_north-emit</object-name>
+    <object-name>nd.slave_gps-emit</object-name>
+    <object-name>nd.vor-emit</object-name>
+    <object-name>nd.vor1-emit</object-name>
+    <object-name>nd.vor2-emit</object-name>
+  </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ effects -->
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
+    <object-name>cadre</object-name>
+    <object-name>cadre-emit</object-name>
+    <object-name>hud.app</object-name>
+    <object-name>hud.app-emit</object-name>
+    <object-name>hud.nav</object-name>
+    <object-name>hud.nav-emit</object-name>
+    <object-name>hud.taxi</object-name>
+    <object-name>hud.taxi-emit</object-name>
+    <object-name>hud.vfr</object-name>
+    <object-name>hud.vfr-emit</object-name>
+    <object-name>hud.void1</object-name>
+    <object-name>hud.void1-emit</object-name>
+    <object-name>nd.adf1</object-name>
+    <object-name>nd.adf1-emit</object-name>
+    <object-name>nd.adf2</object-name>
+    <object-name>nd.adf2-emit</object-name>
+    <object-name>nd.app</object-name>
+    <object-name>nd.app-emit</object-name>
+    <object-name>nd.hdg</object-name>
+    <object-name>nd.info</object-name>
+    <object-name>nd.info-emit</object-name>
+    <object-name>nd.map</object-name>
+    <object-name>nd.map-emit</object-name>
+    <object-name>nd.pln</object-name>
+    <object-name>nd.pln-emit</object-name>
+    <object-name>nd.rdr</object-name>
+    <object-name>nd.rdr-emit</object-name>
+    <object-name>nd.screen</object-name>
+    <object-name>nd.screen.off</object-name>
+    <object-name>nd.true_north</object-name>
+    <object-name>nd.true_north-emit</object-name>
+    <object-name>nd.slave_gps</object-name>
+    <object-name>nd.slave_gps-emit</object-name>
+    <object-name>nd.vor</object-name>
+    <object-name>nd.vor-emit</object-name>
+    <object-name>nd.vor1</object-name>
+    <object-name>nd.vor1-emit</object-name>
+    <object-name>nd.vor2</object-name>
+    <object-name>nd.vor2-emit</object-name>
+    <object-name>nd.zoom</object-name>
+    <object-name>vis</object-name>
+  </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
+  <animation>
+    <type>material</type>
+    <object-name>cadre-emit</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.8</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (enabled) -->
+  <animation>
+    <type>material</type>
+    <object-name>hud.app-emit</object-name>
+    <object-name>hud.nav-emit</object-name>
+    <object-name>hud.taxi-emit</object-name>
+    <object-name>hud.vfr-emit</object-name>
+    <object-name>hud.void1-emit</object-name>
+    <object-name>nd.adf1-emit</object-name>
+    <object-name>nd.adf2-emit</object-name>
+    <object-name>nd.app-emit</object-name>
+    <object-name>nd.info-emit</object-name>
+    <object-name>nd.map-emit</object-name>
+    <object-name>nd.pln-emit</object-name>
+    <object-name>nd.rdr-emit</object-name>
+    <object-name>nd.true_north-emit</object-name>
+    <object-name>nd.slave_gps-emit</object-name>
+    <object-name>nd.vor-emit</object-name>
+    <object-name>nd.vor1-emit</object-name>
+    <object-name>nd.vor2-emit</object-name>
+    <emission>
+      <factor>1</factor>
+      <red>0.9</red>
+      <green>0</green>
+      <blue>0</blue>
+    </emission>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (color) -->
+
+  <!--
+================================================================================
+                                                         CONTROLS AND ANIMATIONS
+================================================================================
+  -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control heading bug -->
+  <!-- left/middle click = +-30 // wheel = +-1 -->
+  <animation>
+    <type>pick</type>
+    <object-name>nd.hdg</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/autopilot/settings/heading-bug-deg</property>
+        <step>30</step>
+        <min>0</min>
+        <max>360</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/autopilot/settings/heading-bug-deg</property>
+        <step>-30</step>
+        <min>0</min>
+        <max>360</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>3</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/autopilot/settings/heading-bug-deg</property>
+        <step>1</step>
+        <min>0</min>
+        <max>360</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>4</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/autopilot/settings/heading-bug-deg</property>
+        <step>-1</step>
+        <min>0</min>
+        <max>360</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-nd-set-bug</tooltip-id>
+        <label>Set heading-bug %3d</label>
+        <mapping>heading</mapping>
+        <property>/autopilot/settings/heading-bug-deg</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control range -->
+  <animation>
+    <type>pick</type>
+    <object-name>nd.zoom</object-name>
+    <action>
+      <button>3</button>
+      <binding>
+        <command>property-cycle</command>
+        <wrap type="bool">0</wrap>
+        <property>/instrumentation/my_aircraft/nd/inputs/range-nm</property>
+        <value>10</value>
+        <value>20</value>
+        <value>40</value>
+        <value>80</value>
+        <value>160</value>
+        <value>320</value>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>4</button>
+      <binding>
+        <command>property-cycle</command>
+        <wrap type="bool">0</wrap>
+        <property>/instrumentation/my_aircraft/nd/inputs/range-nm</property>
+        <value>320</value>
+        <value>160</value>
+        <value>80</value>
+        <value>40</value>
+        <value>20</value>
+        <value>10</value>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-nd-range</tooltip-id>
+        <label>Set range %3d / click to toggle center</label>
+        <property>/instrumentation/my_aircraft/nd/inputs/range-nm</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control center -->
+  <animation>
+    <type>pick</type>
+    <object-name>nd.zoom</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/my_aircraft/nd/inputs/nd-centered</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control infos -->
+  <animation>
+    <type>pick</type>
+    <object-name>nd.info</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+instrument_nd.event_click_info();
+          ]]>
+        </script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-nd-infos</tooltip-id>
+        <label>Toggle informations</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation infos -->
+  <animation>
+    <type>select</type>
+    <object-name>nd.info-emit</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <equals>
+          <property>/instrumentation/my_aircraft/nd/inputs/arpt</property>
+          <value>1</value>
+        </equals>
+      </and>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control vor1 -->
+  <animation>
+    <type>pick</type>
+    <object-name>nd.vor1</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-cycle</command>
+        <property>/instrumentation/my_aircraft/nd/inputs/lh-vor-adf</property>
+        <value>1</value>
+        <value>0</value>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-nd-vor1</tooltip-id>
+        <label>Toggle vor1</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation vor1 -->
+  <animation>
+    <type>select</type>
+    <object-name>nd.vor1-emit</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <equals>
+          <property>/instrumentation/my_aircraft/nd/inputs/lh-vor-adf</property>
+          <value>1</value>
+        </equals>
+      </and>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control adf1 -->
+  <animation>
+    <type>pick</type>
+    <object-name>nd.adf1</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-cycle</command>
+        <property>/instrumentation/my_aircraft/nd/inputs/lh-vor-adf</property>
+        <value>-1</value>
+        <value>0</value>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-nd-adf1</tooltip-id>
+        <label>Toggle adf1</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation adf1 -->
+  <animation>
+    <type>select</type>
+    <object-name>nd.adf1-emit</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <equals>
+          <property>/instrumentation/my_aircraft/nd/inputs/lh-vor-adf</property>
+          <value>-1</value>
+        </equals>
+      </and>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control slave gps -->
+  <animation>
+    <type>pick</type>
+    <object-name>nd.slave_gps</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-cycle</command>
+        <property>/instrumentation/nav[0]/slaved-to-gps</property>
+        <value>1</value>
+        <value>0</value>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-nd-slave-gps</tooltip-id>
+        <label>Toggle slave gps</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation slave gps -->
+  <animation>
+    <type>select</type>
+    <object-name>nd.slave_gps-emit</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <property>/instrumentation/nav[0]/slaved-to-gps</property>
+      </and>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control vor2 -->
+  <animation>
+    <type>pick</type>
+    <object-name>nd.vor2</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-cycle</command>
+        <property>/instrumentation/my_aircraft/nd/inputs/rh-vor-adf</property>
+        <value>1</value>
+        <value>0</value>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-nd-vor2</tooltip-id>
+        <label>Toggle vor2</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation vor2 -->
+  <animation>
+    <type>select</type>
+    <object-name>nd.vor2-emit</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <equals>
+          <property>/instrumentation/my_aircraft/nd/inputs/rh-vor-adf</property>
+          <value>1</value>
+        </equals>
+      </and>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control adf2 -->
+  <animation>
+    <type>pick</type>
+    <object-name>nd.adf2</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-cycle</command>
+        <property>/instrumentation/my_aircraft/nd/inputs/rh-vor-adf</property>
+        <value>-1</value>
+        <value>0</value>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-nd-adf2</tooltip-id>
+        <label>Toggle adf2</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation adf2 -->
+  <animation>
+    <type>select</type>
+    <object-name>nd.adf2-emit</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <equals>
+          <property>/instrumentation/my_aircraft/nd/inputs/rh-vor-adf</property>
+          <value>-1</value>
+        </equals>
+      </and>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control true north -->
+  <animation>
+    <type>pick</type>
+    <object-name>nd.true_north</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+instrument_nd.event_click_true_north();
+          ]]>
+        </script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-nd-true-north</tooltip-id>
+        <label>Toggle true/mag north</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation true north -->
+  <animation>
+    <type>select</type>
+    <object-name>nd.true_north-emit</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <property>/instrumentation/my_aircraft/nd/inputs/true-north</property>
+      </and>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control nd mode : app -->
+  <animation>
+    <type>pick</type>
+    <object-name>nd.app</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-assign</command>
+        <property>/instrumentation/my_aircraft/nd/inputs/display-mode-num</property>
+        <value>0</value>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-nd-app</tooltip-id>
+        <label>Approach screen</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation nd mode : app -->
+  <animation>
+    <type>select</type>
+    <object-name>nd.app-emit</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <equals>
+          <property>/instrumentation/my_aircraft/nd/inputs/display-mode-num</property>
+          <value>0</value>
+        </equals>
+      </and>
+    </condition>
+  </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control nd mode : vor -->
+  <animation>
+    <type>pick</type>
+    <object-name>nd.vor</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-assign</command>
+        <property>/instrumentation/my_aircraft/nd/inputs/display-mode-num</property>
+        <value>1</value>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-nd-vor</tooltip-id>
+        <label>VOR navigation screen</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation nd mode : vor -->
+  <animation>
+    <type>select</type>
+    <object-name>nd.vor-emit</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <equals>
+          <property>/instrumentation/my_aircraft/nd/inputs/display-mode-num</property>
+          <value>1</value>
+        </equals>
+      </and>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control nd mode : map -->
+  <animation>
+    <type>pick</type>
+    <object-name>nd.map</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-assign</command>
+        <property>/instrumentation/my_aircraft/nd/inputs/display-mode-num</property>
+        <value>2</value>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-nd-map</tooltip-id>
+        <label>Map screen</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation nd mode : map -->
+  <animation>
+    <type>select</type>
+    <object-name>nd.map-emit</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <equals>
+          <property>/instrumentation/my_aircraft/nd/inputs/display-mode-num</property>
+          <value>2</value>
+        </equals>
+      </and>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control nd mode : pln -->
+  <animation>
+    <type>pick</type>
+    <object-name>nd.pln</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-assign</command>
+        <property>/instrumentation/my_aircraft/nd/inputs/display-mode-num</property>
+        <value>3</value>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-nd-pln</tooltip-id>
+        <label>Plan screen</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation nd mode : pln -->
+  <animation>
+    <type>select</type>
+    <object-name>nd.pln-emit</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <equals>
+          <property>/instrumentation/my_aircraft/nd/inputs/display-mode-num</property>
+          <value>3</value>
+        </equals>
+      </and>
+    </condition>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                                            MODS
+  -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control mode : TAXI -->
+  <animation>
+    <type>pick</type>
+    <object-name>hud.taxi</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.set_mod("TAXI");
+          ]]>
+        </script>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-hud-taxi</tooltip-id>
+        <label>start and taxi mode, m/M key to change</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation mode : TAXI -->
+  <animation>
+    <type>select</type>
+    <object-name>hud.taxi-emit</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <equals>
+          <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+          <value>TAXI</value>
+        </equals>
+      </and>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control mode : APP -->
+  <animation>
+    <type>pick</type>
+    <object-name>hud.app</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.set_mod("APP");
+          ]]>
+        </script>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-hud-app</tooltip-id>
+        <label>approach and taxi mode, m/M key to change</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation mode : APP -->
+  <animation>
+    <type>select</type>
+    <object-name>hud.app-emit</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <equals>
+          <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+          <value>APP</value>
+        </equals>
+      </and>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control mode : NAV -->
+  <animation>
+    <type>pick</type>
+    <object-name>hud.nav</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.set_mod("NAV");
+          ]]>
+        </script>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-hud-nav</tooltip-id>
+        <label>navigation mode, m/M key to change</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation mode : NAV -->
+  <animation>
+    <type>select</type>
+    <object-name>hud.nav-emit</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <equals>
+          <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+          <value>NAV</value>
+        </equals>
+      </and>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control mode : VFR  -->
+  <animation>
+    <type>pick</type>
+    <object-name>hud.vfr</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>nasal</command>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.set_mod("VFR");
+          ]]>
+        </script>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-hud-nav</tooltip-id>
+        <label>vfr mode, m/M key to change</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation mode : VFR -->
+  <animation>
+    <type>select</type>
+    <object-name>hud.vfr-emit</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <equals>
+          <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+          <value>VFR</value>
+        </equals>
+      </and>
+    </condition>
+  </animation>
+
+</PropertyList>
+

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+
+  <sim>
+    <model>
+      <livery>
+
+        <name type="string">sky</name>
+        <texture>liveries/texture_bourrasque_sky.png</texture>
+        <texture-tank>texture_tanks_sky.png</texture-tank>
+
+      </livery>
+    </model>
+  </sim>
+
+</PropertyList>

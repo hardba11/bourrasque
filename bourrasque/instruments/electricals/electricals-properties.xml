@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- DEFINITION OF ALIASES OR INTERNAL PROPERTIES -->
+
+<!-- /instrumentation/my_aircraft/electricals/ -->
+<PropertyList>
+
+  <controls>
+    <master-switch type="int">0</master-switch> <!-- 0=off - 1=battery - 2=alternator - 3=exterior -->
+    <bus-avionics type="int">0</bus-avionics>
+    <bus-engines type="int">0</bus-engines>
+    <bus-commands type="int">0</bus-commands>
+  </controls>
+
+</PropertyList>

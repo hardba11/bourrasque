@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+description :
+    this file uses the 3d model ans defines animations of the model and objects
+    (mouvements, lightings)
+    it loads if necessary the submodels files
+-->
+
+<PropertyList>
+
+  <name>aoa</name>
+  <path>instrument_aoa.ac</path>
+
+  <!--
+================================================================================
+                                                             OBJECTS DECLARATION
+================================================================================
+  -->
+  <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
+  <animation>
+    <object-name>aoa.box</object-name>
+    <object-name>aoa.mask</object-name>
+    <object-name>aoa.tape</object-name>
+    <object-name>aoa.mask-emit</object-name>
+    <object-name>aoa.tape-emit</object-name>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>aoa.mask-emit</object-name>
+    <object-name>aoa.tape-emit</object-name>
+  </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ effects -->
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
+    <object-name>aoa.box</object-name>
+    <object-name>aoa.mask</object-name>
+    <object-name>aoa.tape</object-name>
+    <object-name>aoa.mask-emit</object-name>
+    <object-name>aoa.tape-emit</object-name>
+  </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
+  <animation>
+    <type>material</type>
+    <object-name>aoa.mask-emit</object-name>
+    <object-name>aoa.tape-emit</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.8</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+  </animation>
+
+  <!--
+================================================================================
+                                                         CONTROLS AND ANIMATIONS
+================================================================================
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation AOA -->
+  <animation>
+    <type>textranslate</type>
+    <object-name>aoa.tape</object-name>
+    <object-name>aoa.tape-emit</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+    <property>/orientation/alpha-deg</property>
+    <factor>0.0235</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+    </axis>
+  </animation>
+
+</PropertyList>

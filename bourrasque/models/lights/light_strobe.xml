@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PropertyList>
+
+  <path>als_light.ac</path>
+  <nopreview />
+
+  <effect>
+    <inherits-from>procedural-light-strobe</inherits-from>
+    <object-name>als_light</object-name>
+  </effect>
+
+  <animation>
+    <type>select</type>
+    <object-name>als_light</object-name>
+    <condition>
+      <property>sim/model/lights/strobe/state</property>
+    </condition>
+  </animation>
+
+</PropertyList>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+################################################################################
+#
+#                  bourrasque specific aircraft menu
+#
+################################################################################
+
+changelog
+- 2016-10-22 : create
+
+-->
+
+<PropertyList>
+
+  <default>
+    <menu n="101">
+      <label>Bourrasque</label>
+
+      <item n="0">
+        <label>Select Livery</label>
+        <binding>
+          <command>nasal</command>
+          <script>
+            <![CDATA[
+aircraft.livery.dialog.toggle();
+            ]]>
+          </script>
+        </binding>
+      </item>
+
+      <item n="1">
+        <label>Options</label>
+        <name>options</name>
+        <binding>
+          <command>dialog-show</command>
+          <dialog-name>bourrasque-options</dialog-name>
+        </binding>
+      </item>
+
+    </menu>
+  </default>
+
+</PropertyList>
+
