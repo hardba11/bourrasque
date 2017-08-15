@@ -23,7 +23,7 @@ aircraft install :
 http://wiki.flightgear.org/Howto:Install_aircraft
 
 wingman demo install :
-copy the file wingman_brsq_demo.xml in $FGDATA/AI/ directory
+copy the file ai/wingman_brsq_demo.xml in $FGDATA/AI/ directory
 
 
 How to start ?

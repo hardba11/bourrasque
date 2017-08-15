@@ -66,6 +66,12 @@ changelog
   <animation>
     <type>material</type>
     <object-name>sfd_canvas_screen</object-name>
+    <condition>
+      <greater-than>
+        <property>/controls/lighting/instruments-norm</property>
+        <value>0.1</value>
+      </greater-than>
+    </condition>
     <emission>
       <factor-prop>/controls/lighting/instruments-norm</factor-prop>
       <red>1</red>
@@ -73,19 +79,22 @@ changelog
       <blue>1</blue>
     </emission>
   </animation>
-  <!--animation>
+  <animation>
     <type>material</type>
-    <object-name>sfd.cadre-emit</object-name>
-    <emission>
-      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
-      <red>0.8</red>
-      <green>0.2</green>
-      <blue>0.2</blue>
-    </emission>
+    <object-name>sfd_canvas_screen</object-name>
     <condition>
-      <property>sim/multiplay/generic/int[5]</property>
+      <equals>
+        <property>/controls/lighting/instruments-norm</property>
+        <value>0</value>
+      </equals>
     </condition>
-  </animation-->
+    <emission>
+      <factor>1</factor>
+      <red>1</red>
+      <green>1</green>
+      <blue>1</blue>
+    </emission>
+  </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (color) -->
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (enabled) -->

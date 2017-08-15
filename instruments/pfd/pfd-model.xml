@@ -165,6 +165,7 @@ TODO :
       <property>sim/multiplay/generic/int[5]</property>
     </condition>
   </animation>
+
   <animation>
     <type>material</type>
     <object-name>PFD.screen</object-name>
@@ -185,15 +186,51 @@ TODO :
     <object-name>vsi.needle</object-name>
     <object-name>hdg.bug</object-name>
     <object-name>Vbars</object-name>
+    <condition>
+      <greater-than>
+        <property>/controls/lighting/instruments-norm</property>
+        <value>0.1</value>
+      </greater-than>
+    </condition>
     <emission>
       <factor-prop>/controls/lighting/instruments-norm</factor-prop>
-      <red>0.9</red>
-      <green>0.9</green>
-      <blue>0.9</blue>
+      <red>1</red>
+      <green>1</green>
+      <blue>1</blue>
     </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>PFD.screen</object-name>
+    <object-name>PFD.screen.001</object-name>
+    <object-name>active.side</object-name>
+    <object-name>PFD.hsi</object-name>
+    <object-name>att</object-name>
+    <object-name>alt.d1</object-name>
+    <object-name>alt.d2</object-name>
+    <object-name>alt.d3</object-name>
+    <object-name>alt.d4</object-name>
+    <object-name>altladder</object-name>
+    <object-name>ias.d1000</object-name>
+    <object-name>ias.d100</object-name>
+    <object-name>ias.d10</object-name>
+    <object-name>ias.d1</object-name>
+    <object-name>iasladder</object-name>
+    <object-name>vsi.needle</object-name>
+    <object-name>hdg.bug</object-name>
+    <object-name>Vbars</object-name>
     <condition>
-      <property>sim/multiplay/generic/int[5]</property>
+      <equals>
+        <property>/controls/lighting/instruments-norm</property>
+        <value>0</value>
+      </equals>
     </condition>
+    <emission>
+      <factor>1</factor>
+      <red>1</red>
+      <green>1</green>
+      <blue>1</blue>
+    </emission>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (color) -->

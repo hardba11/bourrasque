@@ -726,6 +726,8 @@ ________________________________________________________________________________
       <pitch-deg>-30</pitch-deg>
     </offsets>
   </model>
+
+<!-- USED FOR DEVELOPMENT -->
   <!--animation>
     <type>translate</type>
     <object-name>fuel-pilot</object-name>
