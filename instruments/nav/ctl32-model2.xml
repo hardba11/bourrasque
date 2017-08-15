@@ -52,11 +52,28 @@ Syd Adams
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
-  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
-  <effect>
-    <inherits-from>Effects/model-transparent</inherits-from>
-  </effect>
+  <animation>
+    <type>select</type>
+    <object-name>freq.001</object-name>
+    <object-name>freq.002</object-name>
+    <object-name>freq.003</object-name>
+    <object-name>freq.004</object-name>
+    <object-name>freq.005</object-name>
+    <object-name>freq.dec</object-name>
+    <object-name>mem.annun</object-name>
+    <object-name>stby.001</object-name>
+    <object-name>stby.002</object-name>
+    <object-name>stby.003</object-name>
+    <object-name>stby.004</object-name>
+    <object-name>stby.005</object-name>
+    <object-name>stby.dec</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+      <property>instrumentation/nav[1]/serviceable</property>
+    </condition>
+  </animation>
 
+  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>

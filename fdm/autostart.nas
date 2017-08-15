@@ -113,6 +113,31 @@ var do_ground_equipment = func(value) {
     setprop('/sim/model/ground-equipment-s', value);
 }
 
+var do_comm0 = func(value) { # 0/1
+    printf("  comm0");
+    setprop('/instrumentation/comm[0]/serviceable', value);
+}
+var do_comm1 = func(value) { # 0/1
+    printf("  comm1");
+    setprop('/instrumentation/comm[1]/serviceable', value);
+}
+var do_nav0 = func(value) { # 0/1
+    printf("  nav0");
+    setprop('/instrumentation/nav[0]/serviceable', value);
+}
+var do_nav1 = func(value) { # 0/1
+    printf("  nav1");
+    setprop('/instrumentation/nav[1]/serviceable', value);
+}
+var do_adf0 = func(value) { # 0/2
+    printf("  adf0");
+    setprop('/instrumentation/adf[0]/func-knob', value);
+}
+var do_transponder = func(value) { # 0/4
+    printf("  transponder");
+    setprop('/instrumentation/transponder/inputs/knob-mode', value);
+}
+
 var flashlight = func(n) {
     var view_number = getprop('/sim/current-view/view-number') or 0;
     if(view_number == 0)
@@ -130,6 +155,12 @@ var init = func() {
     do_lighting_strobe(0);
     do_lighting_anticoll(0);
     do_lighting_instr(0);
+    do_comm0(0);
+    do_comm1(0);
+    do_nav0(0);
+    do_nav1(0);
+    do_adf0(0);
+    do_transponder(0);
     do_engine0_pump(0);
     do_engine0_fuel_on(0);
     do_engine1_pump(0);
@@ -157,6 +188,12 @@ var fast_start = func() {
     do_engine0_fuel_on(1);
     do_engine1_pump(1);
     do_engine1_fuel_on(1);
+    do_comm0(1);
+    do_comm1(1);
+    do_nav0(1);
+    do_nav1(1);
+    do_adf0(2);
+    do_transponder(4);
     do_lighting_instr(1);
     do_lighting_form(1);
     do_lighting_pos(1);
@@ -192,12 +229,19 @@ var stop = func() {
     wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_electrical(); },  wait);
     wait +=  1   ; settimer(func() { do_electrical_master_switch(1); },                 wait);
     wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_engines(); },     wait);
-    wait +=  1.5 ; settimer(func() { do_engine0_pump(0); },                             wait);
-    wait +=  1.5 ; settimer(func() { do_engine0_fuel_on(0); },                          wait);
-    wait +=  1.5 ; settimer(func() { do_engine1_pump(0); },                             wait);
-    wait +=  1.5 ; settimer(func() { do_engine1_fuel_on(0); },                          wait);
-    wait +=  1   ; settimer(func() { my_aircraft_functions.view_sfd(); },               wait);
-    wait +=  8   ; settimer(func() { my_aircraft_functions.view_panel_electrical(); },  wait);
+    wait +=  1   ; settimer(func() { do_engine0_pump(0); },                             wait);
+    wait +=  1   ; settimer(func() { do_engine0_fuel_on(0); },                          wait);
+    wait +=  1   ; settimer(func() { do_engine1_pump(0); },                             wait);
+    wait +=  1   ; settimer(func() { do_engine1_fuel_on(0); },                          wait);
+    wait +=  2   ; settimer(func() { my_aircraft_functions.view_sfd(); },               wait);
+    wait +=  0.5 ; settimer(func() { my_aircraft_functions.view_panel_radio(); },       wait);
+    wait +=  1   ; settimer(func() { do_comm0(0); },                                    wait);
+    wait +=  1   ; settimer(func() { do_comm1(0); },                                    wait);
+    wait +=  1   ; settimer(func() { do_nav0(0); },                                     wait);
+    wait +=  1   ; settimer(func() { do_nav1(0); },                                     wait);
+    wait +=  1   ; settimer(func() { do_adf0(0); },                                     wait);
+    wait +=  1   ; settimer(func() { do_transponder(0); },                              wait);
+    wait +=  2   ; settimer(func() { my_aircraft_functions.view_panel_electrical(); },  wait);
     wait +=  6   ; settimer(func() { do_electrical_bus_commands(0); },                  wait);
     wait +=  1   ; settimer(func() { do_electrical_bus_engines(0); },                   wait);
     wait +=  1   ; settimer(func() { flashlight(2); },                                  wait);
@@ -259,6 +303,13 @@ var autostart = func() {
     wait +=  1   ; settimer(func() { do_lighting_landing(1); },                         wait);
     wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_command(); },     wait);
     wait +=  1   ; settimer(func() { do_command_canopy(0); },                           wait);
+    wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_radio(); },       wait);
+    wait +=  1   ; settimer(func() { do_comm0(1); },                                    wait);
+    wait +=  1   ; settimer(func() { do_comm1(1); },                                    wait);
+    wait +=  1   ; settimer(func() { do_nav0(1); },                                     wait);
+    wait +=  1   ; settimer(func() { do_nav1(1); },                                     wait);
+    wait +=  1   ; settimer(func() { do_adf0(2); },                                     wait);
+    wait +=  1   ; settimer(func() { do_transponder(4); },                              wait);
 
     wait +=  1   ; settimer(func() { my_aircraft_functions.load_current_view(); },      wait);
     wait +=  3   ; settimer(func() { printf("started. Ready to fly !"); },              wait);

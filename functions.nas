@@ -108,6 +108,15 @@ var view_panel_light = func() {
         setprop('/sim/current-view/goal-pitch-offset-deg', -55);
     }
 }
+var view_panel_radio = func() {
+    var view_number = getprop('/sim/current-view/view-number') or 0;
+    if(view_number == 0)
+    {
+        setprop('/sim/current-view/field-of-view', 40);
+        setprop('/sim/current-view/goal-heading-offset-deg', 325);
+        setprop('/sim/current-view/goal-pitch-offset-deg', -45);
+    }
+}
 
 
 #===============================================================================

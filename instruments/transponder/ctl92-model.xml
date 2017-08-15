@@ -42,12 +42,25 @@ Syd Adams
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
+  <animation>
+    <type>select</type>
+    <object-name>C92freq.001</object-name>
+    <object-name>C92freq.002</object-name>
+    <object-name>C92freq.003</object-name>
+    <object-name>C92freq.004</object-name>
+    <object-name>C92mem.annun</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+      <not>
+        <equals>
+          <property>instrumentation/transponder/inputs/knob-mode</property>
+          <value>0</value>
+        </equals>
+      </not>
+    </condition>
+  </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
-  <effect>
-    <inherits-from>Effects/model-transparent</inherits-from>
-  </effect>
-
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
@@ -166,7 +179,8 @@ var loDigit = getprop('instrumentation/transponder/inputs/digit[2]') or 2;
 var hiDigit = getprop('instrumentation/transponder/inputs/digit[3]') or 1;
 var offset = int(cmdarg().getNode('offset').getValue());
 var incr = (offset > 0);
-if((incr and loDigit == 7) or (! incr and loDigit == 0)) {
+if((incr and loDigit == 7) or (! incr and loDigit == 0))
+{
     hiDigit = math.mod(hiDigit + offset, 8);
 }
 loDigit = math.mod(loDigit + offset, 8);
@@ -180,7 +194,7 @@ setprop('instrumentation/transponder/inputs/digit[3]', hiDigit);
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>transponder-squawk</tooltip-id>
-        <label>Transponder squawk: %s</label>
+        <label>transponder squawk: %s</label>
         <property>instrumentation/transponder/id-code</property>
       </binding>
     </hovered>
@@ -198,7 +212,8 @@ var loDigit = getprop('instrumentation/transponder/inputs/digit[0]') or 0;
 var hiDigit = getprop('instrumentation/transponder/inputs/digit[1]') or 0;
 var offset = int(cmdarg().getNode('offset').getValue());
 var incr = (offset > 0);
-if((incr and loDigit == 7) or (! incr and loDigit == 0)) {
+if((incr and loDigit == 7) or (! incr and loDigit == 0))
+{
     hiDigit = math.mod(hiDigit + offset, 8);
 }
 loDigit = math.mod(loDigit + offset, 8);
@@ -212,7 +227,7 @@ setprop('instrumentation/transponder/inputs/digit[1]', hiDigit);
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>transponder-squawk</tooltip-id>
-        <label>Transponder squawk: %s</label>
+        <label>transponder squawk: %s</label>
         <property>instrumentation/transponder/id-code</property>
       </binding>
     </hovered>

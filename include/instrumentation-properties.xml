@@ -19,6 +19,27 @@ changelog
     <setting-kpa type="float">1013.0</setting-kpa> <!-- set from bourrasque.nas setting-inhg -->
   </altimeter>
 
+  <comm n="0">
+    <serviceable type="bool">0</serviceable>
+  </comm>
+  <comm n="1">
+    <serviceable type="bool">0</serviceable>
+  </comm>
+  <nav n="0">
+    <serviceable type="bool">0</serviceable>
+  </nav>
+  <nav n="1">
+    <serviceable type="bool">0</serviceable>
+  </nav>
+  <adf n="0">
+    <func-knob type="int">0</func-knob>
+  </adf>
+  <transponder>
+    <inputs>
+      <knob-mode type="int">0</knob-mode>
+    </inputs>
+  </transponder>
+
   <my_aircraft>
     <electricals            include="../instruments/electricals/electricals-properties.xml" />
     <engines                include="../instruments/engines/engines-properties.xml" />
