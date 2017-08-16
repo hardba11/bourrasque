@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PropertyList>
+
+  <filter>
+    <name>alert</name>
+    <update-interval-secs type="double">1</update-interval-secs>
+    <type>gain</type>
+    <gain>1.0</gain>
+    <enable>
+      <condition>
+        <property>sim/multiplay/generic/int[5]</property>
+        <or>
+          <!-- ~~~~~~~~~~~~~~~~~~ alert full open canopy -->
+          <and>
+            <!-- inside, canopy full open and ground-speed > 5 -->
+            <property>sim/current-view/internal</property>
+            <greater-than>
+              <property>/velocities/groundspeed-kt</property>
+              <value>5</value>
+            </greater-than>
+            <greater-than>
+              <property>/sim/model/canopy-pos-norm</property>
+              <value>0.7</value>
+            </greater-than>
+          </and>
+
+          <!-- ~~~~~~~~~~~~~~~~~~ alert half open canopy -->
+          <and>
+            <!-- inside, canopy half open and ground-speed > 20 -->
+            <property>sim/current-view/internal</property>
+            <greater-than>
+              <property>/velocities/groundspeed-kt</property>
+              <value>20</value>
+            </greater-than>
+            <greater-than>
+              <property>/sim/model/canopy-pos-norm</property>
+              <value>0.1</value>
+            </greater-than>
+            <less-than>
+              <property>/sim/model/canopy-pos-norm</property>
+              <value>0.7</value>
+            </less-than>
+          </and>
+
+          <!-- ~~~~~~~~~~~~~~~~~~ alert brakes -->
+          <and>
+            <!-- inside, parkbrake and throttle > .2-->
+            <property>sim/current-view/internal</property>
+            <greater-than>
+              <property>/controls/engines/engine[0]/throttle</property>
+              <value>.2</value>
+            </greater-than>
+            <property>/controls/gear/brake-parking</property>
+            <property>/gear/gear[0]/wow</property>
+          </and>
+
+          <!-- ~~~~~~~~~~~~~~~~~~ alert up gears -->
+          <and>
+            <!-- inside, gears down and speed > 250 -->
+            <property>sim/current-view/internal</property>
+            <greater-than>
+              <property>/velocities/airspeed-kt</property>
+              <value>250</value>
+            </greater-than>
+            <equals>
+              <property>/gear/gear[0]/position-norm</property>
+              <value>1</value>
+            </equals>
+          </and>
+
+          <!-- ~~~~~~~~~~~~~~~~~~ alert down gears -->
+          <and>
+            <!-- inside, gears up, ralt < 400 and speed < 250 -->
+            <property>sim/current-view/internal</property>
+            <less-than>
+              <property>/velocities/airspeed-kt</property>
+              <value>250</value>
+            </less-than>
+            <less-than>
+              <property>/position/altitude-agl-ft</property>
+              <value>400</value>
+            </less-than>
+            <equals>
+              <property>/gear/gear[0]/position-norm</property>
+              <value>0</value>
+            </equals>
+          </and>
+        </or>
+      </condition>
+    </enable>
+    <input>
+      <value>1</value>
+    </input>
+    <output>
+      <property>/instrumentation/my_aircraft/command_h/is_alert</property>
+    </output>
+  </filter>
+
+</PropertyList>

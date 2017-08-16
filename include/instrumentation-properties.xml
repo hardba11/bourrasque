@@ -49,6 +49,7 @@ changelog
     <nd                     include="../instruments/nd/nd-properties.xml" />
     <pfd                    include="../instruments/pfd/pfd-properties.xml" />
     <fuel                   include="../instruments/fuel/fuel-properties.xml" />
+    <command_h              include="../instruments/command_h/command_h-properties.xml" />
   </my_aircraft>
 
   <radar>

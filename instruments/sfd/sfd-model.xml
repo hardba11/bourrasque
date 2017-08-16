@@ -27,17 +27,12 @@ changelog
     <object-name>sfd.screen.off</object-name>
     <object-name>sfd.vis</object-name>
     <object-name>sfd.buttons</object-name>
+    <object-name>sfd.ack</object-name>
+    <object-name>sfd.cadre-emit</object-name>
     <object-name>sfd_canvas_screen</object-name>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
-  <!--animation>
-    <type>select</type>
-    <condition>
-      <false />
-    </condition>
-  </animation-->
-
   <animation>
     <type>select</type>
     <object-name>sfd.screen.off</object-name>
@@ -45,12 +40,6 @@ changelog
       <not><property>sim/multiplay/generic/int[5]</property></not>
     </condition>
   </animation>
-
-  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
-  <!--effect>
-    <inherits-from>Effects/model-transparent</inherits-from>
-    <object-name>sfd.cadre-emit</object-name>
-  </effect-->
 
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
@@ -60,9 +49,25 @@ changelog
     <object-name>sfd_canvas_screen</object-name>
     <object-name>sfd.vis</object-name>
     <object-name>sfd.buttons</object-name>
+    <object-name>sfd.ack</object-name>
+    <object-name>sfd.cadre-emit</object-name>
   </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
+  <animation>
+    <type>material</type>
+    <object-name>sfd.cadre-emit</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.8</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+  </animation>
+
   <animation>
     <type>material</type>
     <object-name>sfd_canvas_screen</object-name>
@@ -96,14 +101,40 @@ changelog
     </emission>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ emitting (color) -->
-  <!-- ~~~~~~~~~~~~~~~~~~ emitting (enabled) -->
-
   <!--
 ================================================================================
                                                          CONTROLS AND ANIMATIONS
 ================================================================================
   -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control acknowledge master caution -->
+  <animation>
+    <type>pick</type>
+    <object-name>sfd.ack</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+instrument_sfd.event_click_acknowledge_master_caution();
+          ]]>
+        </script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-sfd-ack</tooltip-id>
+        <label>acknowledge master caution</label>
+      </binding>
+    </hovered>
+  </animation>
 
 
 </PropertyList>

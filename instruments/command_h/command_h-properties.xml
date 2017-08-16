@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- DEFINITION OF ALIASES OR INTERNAL PROPERTIES -->
+
+<!-- /instrumentation/my_aircraft/command_h/ -->
+
+<PropertyList>
+
+  <is_alert type="bool">0</is_alert>
+  <ack_alert type="bool">0</ack_alert>
+  <blink_alert type="bool">0</blink_alert>
+
+  <message>
+    <info type="string" />
+    <caution type="string" />
+    <alert type="string" />
+  </message>
+
+</PropertyList>
+

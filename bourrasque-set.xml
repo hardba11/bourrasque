@@ -140,6 +140,10 @@ changelog
         <name>rain-drops-filters</name>
         <path>models/effects/rain/rain-drops-filters.xml</path>
       </property-rule>
+      <property-rule n="102">
+        <name>alert-filters</name>
+        <path>instruments/command_h/alert-filters.xml</path>
+      </property-rule>
       <!-- ~~~~~~~~~~~~~~~~~~ autopilot -->
       <autopilot>
         <path>fdm/autopilot.xml</path>
@@ -212,6 +216,9 @@ changelog
     <instrument_pfd>
       <file type="string">instruments/pfd/pfd.nas</file>
     </instrument_pfd>
+    <instrument_sfd>
+      <file type="string">instruments/sfd/sfd.nas</file>
+    </instrument_sfd>
     <instrument_light>
       <file type="string">instruments/light/light.nas</file>
     </instrument_light>
@@ -224,6 +231,9 @@ changelog
     <instrument_fuel_canvas>
       <file type="string">instruments/fuel/fuel_canvas.nas</file>
     </instrument_fuel_canvas>
+    <instrument_command_h>
+      <file type="string">instruments/command_h/command_h.nas</file>
+    </instrument_command_h>
 
     <fdm>
       <file type="string">fdm/bourrasque.nas</file>

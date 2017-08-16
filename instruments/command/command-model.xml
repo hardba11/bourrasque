@@ -74,7 +74,6 @@ changelog
   <animation>
     <type>material</type>
     <object-name>command.lightParkbrake</object-name>
-    <!--object-name>command.lightGear</object-name-->
     <emission>
       <factor>2</factor>
       <red>1</red>
@@ -85,8 +84,6 @@ changelog
       <property>sim/multiplay/generic/int[5]</property>
     </condition>
   </animation>
-
-  <!-- ~~~~~~~~~~~~~~~~~~ emitting (color) -->
 
   <!--
 ================================================================================

@@ -27,14 +27,9 @@ changelog
     <object-name>command_h.red</object-name>
     <object-name>command_h.box-emit</object-name>
     <object-name>command_h.red-emit</object-name>
+    <object-name>command_h.master_caution</object-name>
+    <object-name>command_h.master_caution-emit</object-name>
   </animation>
-
-  <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
-
-  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
-  <effect>
-    <inherits-from>Effects/model-transparent</inherits-from>
-  </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
@@ -44,6 +39,8 @@ changelog
     <object-name>command_h.red</object-name>
     <object-name>command_h.box-emit</object-name>
     <object-name>command_h.red-emit</object-name>
+    <object-name>command_h.master_caution</object-name>
+    <object-name>command_h.master_caution-emit</object-name>
   </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
@@ -65,6 +62,7 @@ changelog
   <animation>
     <type>material</type>
     <object-name>command_h.red-emit</object-name>
+    <object-name>command_h.master_caution-emit</object-name>
     <emission>
       <factor>2</factor>
       <red>1</red>
@@ -75,8 +73,6 @@ changelog
       <property>sim/multiplay/generic/int[5]</property>
     </condition>
   </animation>
-
-  <!-- ~~~~~~~~~~~~~~~~~~ emitting (color) -->
 
   <!--
 ================================================================================
@@ -151,6 +147,17 @@ changelog
     </condition>
   </animation>
 
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation master caution -->
+  <animation>
+    <type>select</type>
+    <object-name>command_h.master_caution-emit</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <property>/instrumentation/my_aircraft/command_h/blink_alert</property>
+      </and>
+    </condition>
+  </animation>
 
 </PropertyList>
 

@@ -481,116 +481,16 @@ ________________________________________________________________________________
       </orientation>
     </cockpit>
 
-    <!-- ~~~~~~~~~~~~~~~~~~ alert full open canopy -->
-    <alert_canopy_fullopen>
-      <name>alert_canopy_fullopen</name>
+    <!-- ~~~~~~~~~~~~~~~~~~ alert -->
+    <alert>
+      <name>alert</name>
       <path>alert.wav</path>
       <mode>looped</mode>
       <condition>
-        <and>
-          <!-- inside, canopy full open and ground-speed > 5 -->
-          <property>sim/current-view/internal</property>
-          <greater-than>
-            <property>/velocities/groundspeed-kt</property>
-            <value>5</value>
-          </greater-than>
-          <greater-than>
-            <property>/sim/model/canopy-pos-norm</property>
-            <value>0.7</value>
-          </greater-than>
-        </and>
+        <property>/instrumentation/my_aircraft/command_h/is_alert</property>
+        <not><property>/instrumentation/my_aircraft/command_h/ack_alert</property></not>
       </condition>
-    </alert_canopy_fullopen>
-
-    <!-- ~~~~~~~~~~~~~~~~~~ alert half open canopy -->
-    <alert_canopy_halfopen>
-      <name>alert_canopy_halfopen</name>
-      <path>alert.wav</path>
-      <mode>looped</mode>
-      <condition>
-        <and>
-          <!-- inside, canopy half open and ground-speed > 20 -->
-          <property>sim/current-view/internal</property>
-          <greater-than>
-            <property>/velocities/groundspeed-kt</property>
-            <value>20</value>
-          </greater-than>
-          <greater-than>
-            <property>/sim/model/canopy-pos-norm</property>
-            <value>0.1</value>
-          </greater-than>
-          <less-than>
-            <property>/sim/model/canopy-pos-norm</property>
-            <value>0.7</value>
-          </less-than>
-        </and>
-      </condition>
-    </alert_canopy_halfopen>
-
-    <!-- ~~~~~~~~~~~~~~~~~~ alert brakes -->
-    <alert_brake>
-      <name>alert_brake</name>
-      <path>alert.wav</path>
-      <mode>looped</mode>
-      <condition>
-        <and>
-          <!-- inside, parkbrake and throttle > .2-->
-          <property>sim/current-view/internal</property>
-          <greater-than>
-            <property>/controls/engines/engine[0]/throttle</property>
-            <value>.2</value>
-          </greater-than>
-          <property>/controls/gear/brake-parking</property>
-          <property>/gear/gear[0]/wow</property>
-        </and>
-      </condition>
-    </alert_brake>
-
-    <!-- ~~~~~~~~~~~~~~~~~~ alert up gears -->
-    <alert_up_gear>
-      <name>alert_up_gear</name>
-      <path>alert.wav</path>
-      <mode>looped</mode>
-      <condition>
-        <and>
-          <!-- inside, gears down and speed > 250 -->
-          <property>sim/current-view/internal</property>
-          <greater-than>
-            <property>/velocities/airspeed-kt</property>
-            <value>250</value>
-          </greater-than>
-          <equals>
-            <property>/gear/gear[0]/position-norm</property>
-            <value>1</value>
-          </equals>
-        </and>
-      </condition>
-    </alert_up_gear>
-
-    <!-- ~~~~~~~~~~~~~~~~~~ alert down gears -->
-    <alert_down_gear>
-      <name>alert_down_gear</name>
-      <path>alert.wav</path>
-      <mode>looped</mode>
-      <condition>
-        <and>
-          <!-- inside, gears up, ralt < 400 and speed < 250 -->
-          <property>sim/current-view/internal</property>
-          <less-than>
-            <property>/velocities/airspeed-kt</property>
-            <value>250</value>
-          </less-than>
-          <less-than>
-            <property>/position/altitude-agl-ft</property>
-            <value>400</value>
-          </less-than>
-          <equals>
-            <property>/gear/gear[0]/position-norm</property>
-            <value>0</value>
-          </equals>
-        </and>
-      </condition>
-    </alert_down_gear>
+    </alert>
 
     <!-- ~~~~~~~~~~~~~~~~~~ stall warnings -->
 

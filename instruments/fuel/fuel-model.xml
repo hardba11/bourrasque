@@ -29,13 +29,6 @@ changelog
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
-  <!--animation>
-    <type>select</type>
-    <condition>
-      <false />
-    </condition>
-  </animation-->
-
   <animation>
     <type>select</type>
     <object-name>fuel.screen.off</object-name>
@@ -43,8 +36,6 @@ changelog
       <not><property>sim/multiplay/generic/int[5]</property></not>
     </condition>
   </animation>
-
-  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
 
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
@@ -87,9 +78,6 @@ changelog
       <blue>1</blue>
     </emission>
   </animation>
-
-  <!-- ~~~~~~~~~~~~~~~~~~ emitting (color) -->
-  <!-- ~~~~~~~~~~~~~~~~~~ emitting (enabled) -->
 
   <!--
 ================================================================================
