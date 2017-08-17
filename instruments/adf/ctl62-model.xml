@@ -75,7 +75,6 @@ Syd Adams
     </condition>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
@@ -325,100 +324,23 @@ Syd Adams
 
   <!-- ~~~~~~~~~~~~~~~~~~~~~~ control volume -->
   <animation>
-    <type>pick</type>
+    <type>knob</type>
     <object-name>CTL-62.vol</object-name>
     <action>
-      <button>0</button>
-      <repeatable>true</repeatable>
-      <interval-sec>0.1</interval-sec>
       <binding>
         <command>property-adjust</command>
         <property>instrumentation/adf[0]/volume-norm</property>
-        <step>-0.05</step>
+        <factor>-.05</factor>
         <min>0</min>
         <max>1</max>
-        <wrap>0</wrap>
+        <wrap>false</wrap>
       </binding>
     </action>
     <hovered>
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>adf-volume</tooltip-id>
-        <label>ADF volume: %d%%</label>
-        <property>instrumentation/adf[0]/volume-norm</property>
-      </binding>
-    </hovered>
-  </animation>
-
-  <animation>
-    <type>pick</type>
-    <object-name>CTL-62.vol</object-name>
-    <action>
-      <button>0</button>
-      <repeatable>true</repeatable>
-      <interval-sec>0.1</interval-sec>
-      <binding>
-        <command>property-adjust</command>
-        <property>instrumentation/adf[0]/volume-norm</property>
-        <step>0.05</step>
-        <min>0</min>
-        <max>1</max>
-        <wrap>0</wrap>
-      </binding>
-    </action>
-    <hovered>
-      <binding>
-        <command>set-tooltip</command>
-        <tooltip-id>adf-volume</tooltip-id>
-        <label>ADF volume: %d%%</label>
-        <property>instrumentation/adf[0]/volume-norm</property>
-      </binding>
-    </hovered>
-  </animation>
-
-  <animation>
-    <type>pick</type>
-    <object-name>CTL-62.vol</object-name>
-    <action>
-      <button>4</button>
-      <binding>
-        <command>property-adjust</command>
-        <property>instrumentation/adf[0]/volume-norm</property>
-        <step>-0.05</step>
-        <min>0</min>
-        <max>1</max>
-        <wrap>0</wrap>
-      </binding>
-    </action>
-    <hovered>
-      <binding>
-        <command>set-tooltip</command>
-        <tooltip-id>adf-volume</tooltip-id>
-        <label>ADF volume: %d%%</label>
-        <property>instrumentation/adf[0]/volume-norm</property>
-      </binding>
-    </hovered>
-  </animation>
-
-  <animation>
-    <type>pick</type>
-    <object-name>CTL-62.vol</object-name>
-    <action>
-      <button>3</button>
-      <binding>
-        <command>property-adjust</command>
-        <property>instrumentation/adf[0]/volume-norm</property>
-        <step>0.05</step>
-        <min>0</min>
-        <max>1</max>
-        <wrap>0</wrap>
-      </binding>
-    </action>
-    <hovered>
-      <binding>
-        <command>set-tooltip</command>
-        <tooltip-id>adf-volume</tooltip-id>
-        <label>ADF volume: %d%%</label>
+        <label>ADF volume: %0.2f%%</label>
         <property>instrumentation/adf[0]/volume-norm</property>
       </binding>
     </hovered>
@@ -443,70 +365,73 @@ Syd Adams
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~~~~~ control digits frequency -->
-  <animation>
-    <type>pick</type>
-    <object-name>CTL-62.freq1</object-name>
-    <action>
-      <button>1</button>
-      <repeatable>true</repeatable>
-      <interval-sec>0.2</interval-sec>
-      <binding>
-        <command>property-adjust</command>
-        <property>instrumentation/adf[0]/frequencies/standby-khz</property>
-        <step>-1</step>
-        <min>190</min>
-        <max>1800</max>
-        <wrap>true</wrap>
-      </binding>
-    </action>
-    <hovered>
-      <binding>
-        <command>set-tooltip</command>
-        <tooltip-id>adf-freq1</tooltip-id>
-        <label>ADF frequency: %d kHz</label>
-        <property>instrumentation/adf[0]/frequencies/standby-khz</property>
-      </binding>
-    </hovered>
-  </animation>
 
+  <!-- left/middle click = +-10 // wheel = +-1 -->
   <animation>
     <type>pick</type>
     <object-name>CTL-62.freq1</object-name>
     <action>
       <button>0</button>
       <repeatable>true</repeatable>
-      <interval-sec>0.2</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/adf[0]/frequencies/standby-khz</property>
+        <step>10</step>
+        <min>190</min>
+        <max>1800</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/adf[0]/frequencies/standby-khz</property>
+        <step>-10</step>
+        <min>190</min>
+        <max>1800</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>3</button>
+      <repeatable>true</repeatable>
       <binding>
         <command>property-adjust</command>
         <property>instrumentation/adf[0]/frequencies/standby-khz</property>
         <step>1</step>
         <min>190</min>
         <max>1800</max>
-        <wrap>true</wrap>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
       </binding>
     </action>
-    <hovered>
-      <binding>
-        <command>set-tooltip</command>
-        <tooltip-id>adf-freq1</tooltip-id>
-        <label>ADF frequency: %d kHz</label>
-        <property>instrumentation/adf[0]/frequencies/standby-khz</property>
-      </binding>
-    </hovered>
-  </animation>
-
-  <animation>
-    <type>pick</type>
-    <object-name>CTL-62.freq1</object-name>
     <action>
       <button>4</button>
+      <repeatable>true</repeatable>
       <binding>
         <command>property-adjust</command>
         <property>instrumentation/adf[0]/frequencies/standby-khz</property>
         <step>-1</step>
         <min>190</min>
         <max>1800</max>
-        <wrap>true</wrap>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
       </binding>
     </action>
     <hovered>
@@ -519,128 +444,78 @@ Syd Adams
     </hovered>
   </animation>
 
-  <animation>
-    <type>pick</type>
-    <object-name>CTL-62.freq1</object-name>
-    <action>
-      <button>3</button>
-      <binding>
-        <command>property-adjust</command>
-        <property>instrumentation/adf[0]/frequencies/standby-khz</property>
-        <step>1</step>
-        <min>190</min>
-        <max>1800</max>
-        <wrap>true</wrap>
-      </binding>
-    </action>
-    <hovered>
-      <binding>
-        <command>set-tooltip</command>
-        <tooltip-id>adf-freq1</tooltip-id>
-        <label>ADF frequency: %d kHz</label>
-        <property>instrumentation/adf[0]/frequencies/standby-khz</property>
-      </binding>
-    </hovered>
-  </animation>
-
-  <animation>
-    <type>pick</type>
-    <object-name>CTL-62.freq</object-name>
-    <action>
-      <button>1</button>
-      <repeatable>true</repeatable>
-      <interval-sec>0.2</interval-sec>
-      <binding>
-        <command>property-adjust</command>
-        <property>instrumentation/adf[0]/frequencies/standby-khz</property>
-        <step>-10</step>
-        <min>190</min>
-        <max>1800</max>
-        <wrap>true</wrap>
-      </binding>
-    </action>
-    <hovered>
-      <binding>
-        <command>set-tooltip</command>
-        <tooltip-id>adf-freq1</tooltip-id>
-        <label>ADF frequency: %d kHz</label>
-        <property>instrumentation/adf[0]/frequencies/standby-khz</property>
-      </binding>
-    </hovered>
-  </animation>
-
+  <!-- left/middle click = +-100 // wheel = +-10 -->
   <animation>
     <type>pick</type>
     <object-name>CTL-62.freq</object-name>
     <action>
       <button>0</button>
       <repeatable>true</repeatable>
-      <interval-sec>0.2</interval-sec>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/adf[0]/frequencies/standby-khz</property>
+        <step>100</step>
+        <min>190</min>
+        <max>1800</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/adf[0]/frequencies/standby-khz</property>
+        <step>-100</step>
+        <min>190</min>
+        <max>1800</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>3</button>
+      <repeatable>true</repeatable>
       <binding>
         <command>property-adjust</command>
         <property>instrumentation/adf[0]/frequencies/standby-khz</property>
         <step>10</step>
         <min>190</min>
         <max>1800</max>
-        <wrap>true</wrap>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
       </binding>
     </action>
-    <hovered>
-      <binding>
-        <command>set-tooltip</command>
-        <tooltip-id>adf-freq1</tooltip-id>
-        <label>ADF frequency: %d kHz</label>
-        <property>instrumentation/adf[0]/frequencies/standby-khz</property>
-      </binding>
-    </hovered>
-  </animation>
-
-  <animation>
-    <type>pick</type>
-    <object-name>CTL-62.freq</object-name>
     <action>
       <button>4</button>
       <repeatable>true</repeatable>
-      <interval-sec>0.2</interval-sec>
       <binding>
         <command>property-adjust</command>
         <property>instrumentation/adf[0]/frequencies/standby-khz</property>
         <step>-10</step>
         <min>190</min>
         <max>1800</max>
-        <wrap>true</wrap>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
       </binding>
     </action>
     <hovered>
       <binding>
         <command>set-tooltip</command>
-        <tooltip-id>adf-freq1</tooltip-id>
-        <label>ADF frequency: %d kHz</label>
-        <property>instrumentation/adf[0]/frequencies/standby-khz</property>
-      </binding>
-    </hovered>
-  </animation>
-
-  <animation>
-    <type>pick</type>
-    <object-name>CTL-62.freq</object-name>
-    <action>
-      <button>3</button>
-      <repeatable>true</repeatable>
-      <interval-sec>0.2</interval-sec>
-      <binding>
-        <command>property-adjust</command>
-        <property>instrumentation/adf[0]/frequencies/standby-khz</property>
-        <step>10</step>
-        <min>190</min>
-        <max>1800</max>
-        <wrap>true</wrap>
-      </binding>
-    </action>
-    <hovered>
-      <binding>
-        <command>set-tooltip</command>
-        <tooltip-id>adf-freq1</tooltip-id>
+        <tooltip-id>adf-freq</tooltip-id>
         <label>ADF frequency: %d kHz</label>
         <property>instrumentation/adf[0]/frequencies/standby-khz</property>
       </binding>

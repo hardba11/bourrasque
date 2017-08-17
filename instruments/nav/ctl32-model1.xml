@@ -73,7 +73,6 @@ Syd Adams
     </condition>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
@@ -206,18 +205,15 @@ Syd Adams
 
   <!-- ~~~~~~~~~~~~~~~~~~~~~~ control volume -->
   <animation>
-    <type>pick</type>
+    <type>knob</type>
     <object-name>CTL-32.vol</object-name>
     <action>
-      <button>0</button>
-      <repeatable>true</repeatable>
-      <interval-sec>0.1</interval-sec>
       <binding>
         <command>property-adjust</command>
         <property>instrumentation/nav[0]/volume</property>
-        <step>0.050</step>
+        <factor>-.05</factor>
         <min>0</min>
-        <max>1.0</max>
+        <max>1</max>
         <wrap>false</wrap>
       </binding>
     </action>
@@ -226,60 +222,10 @@ Syd Adams
         <command>set-tooltip</command>
         <tooltip-id>nav1-vol</tooltip-id>
         <label>nav1 volume: %d%%</label>
-        <property>instrumentation/nav[0]/volume</property>
         <mapping>percent</mapping>
+        <property>instrumentation/nav[0]/volume</property>
       </binding>
     </hovered>
-  </animation>
-
-  <animation>
-    <type>pick</type>
-    <object-name>CTL-32.vol</object-name>
-    <action>
-      <button>1</button>
-      <repeatable>true</repeatable>
-      <interval-sec>0.1</interval-sec>
-      <binding>
-        <command>property-adjust</command>
-        <property>instrumentation/nav[0]/volume</property>
-        <step>-0.050</step>
-        <min>0</min>
-        <max>1.0</max>
-        <wrap>false</wrap>
-      </binding>
-    </action>
-  </animation>
-
-  <animation>
-    <type>pick</type>
-    <object-name>CTL-32.vol</object-name>
-    <action>
-      <button>3</button>
-      <binding>
-        <command>property-adjust</command>
-        <property>instrumentation/nav[0]/volume</property>
-        <step>0.050</step>
-        <min>0</min>
-        <max>1.0</max>
-        <wrap>false</wrap>
-      </binding>
-    </action>
-  </animation>
-
-  <animation>
-    <type>pick</type>
-    <object-name>CTL-32.vol</object-name>
-    <action>
-      <button>4</button>
-      <binding>
-        <command>property-adjust</command>
-        <property>instrumentation/nav[0]/volume</property>
-        <step>-0.050</step>
-        <min>0</min>
-        <max>1.0</max>
-        <wrap>false</wrap>
-      </binding>
-    </action>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation volume -->
@@ -301,20 +247,152 @@ Syd Adams
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~~~~~ control digits frequency -->
+
+
+  <!-- left/middle click = +-0.1 // wheel = +-0.05 -->
   <animation>
     <type>pick</type>
     <object-name>freq1.knob</object-name>
     <action>
-      <button>1</button>
+      <button>0</button>
       <repeatable>true</repeatable>
-      <interval-sec>0.2</interval-sec>
       <binding>
         <command>property-adjust</command>
         <property>instrumentation/nav[0]/frequencies/standby-mhz</property>
-        <step>-0.050</step>
+        <step>0.1</step>
         <min>108.00</min>
         <max>118.000</max>
-        <wrap>true</wrap>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/nav[0]/frequencies/standby-mhz</property>
+        <step>-0.1</step>
+        <min>108.00</min>
+        <max>118.000</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>3</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/nav[0]/frequencies/standby-mhz</property>
+        <step>0.05</step>
+        <min>108.00</min>
+        <max>118.000</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>4</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/nav[0]/frequencies/standby-mhz</property>
+        <step>-0.05</step>
+        <min>108.00</min>
+        <max>118.000</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>nav1-freq1</tooltip-id>
+        <label>nav1 frequency: %.3f MHz</label>
+        <property>instrumentation/nav[0]/frequencies/standby-mhz</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- left/middle click = +-1 // wheel = +-1 -->
+  <animation>
+    <type>pick</type>
+    <object-name>freq.knob</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/nav[0]/frequencies/standby-mhz</property>
+        <step>1</step>
+        <min>108.00</min>
+        <max>118.000</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/nav[0]/frequencies/standby-mhz</property>
+        <step>-1</step>
+        <min>108.00</min>
+        <max>118.000</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>3</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/nav[0]/frequencies/standby-mhz</property>
+        <step>1</step>
+        <min>108.00</min>
+        <max>118.000</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>4</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/nav[0]/frequencies/standby-mhz</property>
+        <step>-1</step>
+        <min>108.00</min>
+        <max>118.000</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
       </binding>
     </action>
     <hovered>
@@ -325,132 +403,6 @@ Syd Adams
         <property>instrumentation/nav[0]/frequencies/standby-mhz</property>
       </binding>
     </hovered>
-  </animation>
-
-  <animation>
-    <type>pick</type>
-    <object-name>freq1.knob</object-name>
-    <action>
-      <button>0</button>
-      <repeatable>true</repeatable>
-      <interval-sec>0.2</interval-sec>
-      <binding>
-        <command>property-adjust</command>
-        <property>instrumentation/nav[0]/frequencies/standby-mhz</property>
-        <step>0.050</step>
-        <min>108.00</min>
-        <max>118.000</max>
-        <wrap>true</wrap>
-      </binding>
-    </action>
-  </animation>
-
-  <animation>
-    <type>pick</type>
-    <object-name>freq1.knob</object-name>
-    <action>
-      <button>4</button>
-      <binding>
-        <command>property-adjust</command>
-        <property>instrumentation/nav[0]/frequencies/standby-mhz</property>
-        <step>-0.050</step>
-        <min>108.00</min>
-        <max>118.000</max>
-        <wrap>true</wrap>
-      </binding>
-    </action>
-  </animation>
-
-  <animation>
-    <type>pick</type>
-    <object-name>freq1.knob</object-name>
-    <action>
-      <button>3</button>
-      <binding>
-        <command>property-adjust</command>
-        <property>instrumentation/nav[0]/frequencies/standby-mhz</property>
-        <step>0.050</step>
-        <min>108.00</min>
-        <max>118.000</max>
-        <wrap>true</wrap>
-      </binding>
-    </action>
-  </animation>
-
-  <animation>
-    <type>pick</type>
-    <object-name>freq.knob</object-name>
-    <action>
-      <button>1</button>
-      <repeatable>true</repeatable>
-      <interval-sec>0.2</interval-sec>
-      <binding>
-        <command>property-adjust</command>
-        <property>instrumentation/nav[0]/frequencies/standby-mhz</property>
-        <step>-1.0</step>
-        <min>108.00</min>
-        <max>118.00</max>
-        <wrap>true</wrap>
-      </binding>
-    </action>
-    <hovered>
-      <binding>
-        <command>set-tooltip</command>
-        <tooltip-id>nav1-freq</tooltip-id>
-        <label>nav1 frequency: %.3f MHz</label>
-        <property>instrumentation/nav[0]/frequencies/standby-mhz</property>
-      </binding>
-    </hovered>
-  </animation>
-
-  <animation>
-    <type>pick</type>
-    <object-name>freq.knob</object-name>
-    <action>
-      <button>0</button>
-      <repeatable>true</repeatable>
-      <interval-sec>0.2</interval-sec>
-      <binding>
-        <command>property-adjust</command>
-        <property>instrumentation/nav[0]/frequencies/standby-mhz</property>
-        <step>1.0</step>
-        <min>108.00</min>
-        <max>118.000</max>
-        <wrap>true</wrap>
-      </binding>
-    </action>
-  </animation>
-
-  <animation>
-    <type>pick</type>
-    <object-name>freq.knob</object-name>
-    <action>
-      <button>4</button>
-      <binding>
-        <command>property-adjust</command>
-        <property>instrumentation/nav[0]/frequencies/standby-mhz</property>
-        <step>-1.0</step>
-        <min>108.00</min>
-        <max>118.00</max>
-        <wrap>true</wrap>
-      </binding>
-    </action>
-  </animation>
-
-  <animation>
-    <type>pick</type>
-    <object-name>freq.knob</object-name>
-    <action>
-      <button>3</button>
-      <binding>
-        <command>property-adjust</command>
-        <property>instrumentation/nav[0]/frequencies/standby-mhz</property>
-        <step>1.0</step>
-        <min>108.00</min>
-        <max>118.000</max>
-        <wrap>true</wrap>
-      </binding>
-    </action>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation digits active frequency -->
