@@ -1,37 +1,28 @@
-## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/harball/brsq/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+**bourrasque is a [FLIGHTGEAR open source flight simulator](http://www.flightgear.org) aircraft.**
 
-### Markdown
+![Image](http://i.imgur.com/yR9srQI.png)
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## main features
+- detailled model
+- animated controls (ailerons, elevons, slats, canard)
+- usable and clickable instruments with tooltips : VOR, PFD, alt, asi, etc
+- 4 mods (TAXI, APP, NAV, VFR) changing hud and fly-by-wire laws
+- start/stop procedure
+- autostart/autostop shortcuts
+- hud + mini-hud + hud canvas
+- sounds
+- reheat (enable ALS)
+- other animations : opening canopy, retracting gears, lights, gears suspension
+- instrument lighting
+- atmosphere effects : wingtips, contrails
+- light effects : landing lights, flashlight (enable ALS)
+- rain effects : raindrops on canopy and fuselage, particles on ground
+- choice of liveries
+- external stores (fuel tanks)
+- 3d shadow (enable ALS)
+- multiplayer back-seat
+- 2 wingmen AI demo
 
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/harball/brsq/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
