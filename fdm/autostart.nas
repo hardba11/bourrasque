@@ -57,7 +57,6 @@ var do_engines_started = func() {
     setprop('/instrumentation/my_aircraft/engines/controls/engine[0]/is_stopping', 0);
     setprop('/instrumentation/my_aircraft/engines/controls/engine[1]/is_starting', 0);
     setprop('/instrumentation/my_aircraft/engines/controls/engine[1]/is_stopping', 0);
-
     setprop('/engines/engine[0]/stopped', 0);
     setprop('/engines/engine[1]/stopped', 0);
 }
@@ -112,7 +111,6 @@ var do_ground_equipment = func(value) {
     setprop('/sim/model/ground-equipment-g', value);
     setprop('/sim/model/ground-equipment-s', value);
 }
-
 var do_comm0 = func(value) { # 0/1
     printf("  comm0");
     setprop('/instrumentation/comm[0]/serviceable', value);

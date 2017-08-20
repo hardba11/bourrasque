@@ -256,6 +256,7 @@ settimer(func() { my_aircraft_functions.load_current_view(); }, 0.5);
       </binding>
     </key>
 
+    <!-- ~~~~~~~~~~~~~~~~~~ mods (hud, fly by wire, ...) -->
     <key n="77">
       <name>M</name>
       <desc>next mod</desc>

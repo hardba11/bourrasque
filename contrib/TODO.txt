@@ -53,7 +53,7 @@ Roadmap and releases
 | 
 | shadows effects [DONE : 5/5]
 | 
-| smoke effects (touchdown)
+| smoke effects (engines and touchdown)
 | 
 | rain effects (raindrops, textures and particles) [DONE : 5/5]
 | 
@@ -77,7 +77,7 @@ Roadmap and releases
 | 
 | nozzle animation ?
 | 
-| optimisations + LOD cockpit
+| fps optimisations + LOD cockpit
 | 
 | tutorials
 | 

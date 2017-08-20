@@ -37,8 +37,6 @@ changelog
     <object-name>piston_canopy</object-name>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
-
   <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
   <effect>
     <inherits-from>Effects/model-transparent</inherits-from>
@@ -85,10 +83,6 @@ changelog
     <inherits-from>Aircraft/bourrasque/models/effects/aircraft/piston</inherits-from>
     <object-name>piston_canopy</object-name>
   </effect>
-
-  <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
-
-  <!-- ~~~~~~~~~~~~~~~~~~ emitting (enabled) -->
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (color) -->
   <!-- TODO : check if necessary -->

@@ -13,6 +13,13 @@ r = 37
 
   <path>pilot.ac</path>
 
+
+  <!--
+================================================================================
+                                                                    OBJECTS LIST
+================================================================================
+  -->
+
   <animation>
 
     <!-- Objets opaques -->
@@ -29,7 +36,7 @@ r = 37
     <object-name>jambeD</object-name>
   </animation>
 
-
+  <!-- ~~~~~~~~~~~~~~~~~~ full pilot block without legs -->
   <animation>
     <name>bloc_pilote</name>
     <object-name>tete</object-name>
@@ -42,34 +49,54 @@ r = 37
     <object-name>mainD</object-name>
     <object-name>lunettes</object-name>
   </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ head block -->
   <animation>
     <name>bloc_tete</name>
     <object-name>lunettes</object-name>
     <object-name>tete</object-name>
   </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ right arm -->
   <animation>
     <name>bloc_brasD</name>
     <object-name>brasD</object-name>
     <object-name>avantbrasD</object-name>
     <object-name>mainD</object-name>
   </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ right forearm -->
   <animation>
     <name>bloc_avantbrasD</name>
     <object-name>avantbrasD</object-name>
     <object-name>mainD</object-name>
   </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ left arm -->
   <animation>
     <name>bloc_brasG</name>
     <object-name>bras</object-name>
     <object-name>avantbras</object-name>
     <object-name>main</object-name>
   </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ left forearm -->
   <animation>
     <name>bloc_avantbrasG</name>
     <object-name>avantbras</object-name>
     <object-name>main</object-name>
   </animation>
 
+  <!--
+================================================================================
+                                                                       ANIMATION
+================================================================================
+
+________________________________________________________________________________
+                                                                       SHOW/HIDE
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ hide head if pilot view -->
   <animation>
     <object-name>bloc_tete</object-name>
     <type>select</type>
@@ -80,6 +107,8 @@ r = 37
       </not-equals>
     </condition>
   </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ hide body and arms if view side panels -->
   <animation>
     <object-name>bloc_pilote</object-name>
     <type>select</type>
@@ -198,7 +227,6 @@ ________________________________________________________________________________
     </axis>
   </animation>
 
-
   <!--
 ________________________________________________________________________________
                                                                 RIGHT ARM / ROLL
@@ -248,9 +276,6 @@ ________________________________________________________________________________
       <z>1</z>
     </axis>
   </animation>
-
-
-
 
   <!--
 ________________________________________________________________________________

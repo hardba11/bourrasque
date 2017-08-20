@@ -8,8 +8,6 @@
   <parameters>
     <normalmap-enabled type="int">0</normalmap-enabled>
     <lightmap-enabled type="int">0</lightmap-enabled>
-    <!--rain-enabled type="int">2</rain-enabled>
-    <grain-texture-enabled type="int">1</grain-texture-enabled-->
     <reflection-enabled type="int">1</reflection-enabled>
     <reflection-correction type="float">0.5</reflection-correction>
     <reflect-map-enabled type="int">0</reflect-map-enabled>

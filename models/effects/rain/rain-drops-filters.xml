@@ -21,12 +21,6 @@
           <entry><ind>50</ind><dep>2</dep></entry>
           <entry><ind>100</ind><dep>3</dep></entry>
           <entry><ind>200</ind><dep>6</dep></entry>
-          <!--entry><ind>0</ind><dep>0.001</dep></entry>
-          <entry><ind>3</ind><dep>-0.9</dep></entry>
-          <entry><ind>10</ind><dep>-1.8</dep></entry>
-          <entry><ind>50</ind><dep>-3</dep></entry>
-          <entry><ind>100</ind><dep>-4</dep></entry>
-          <entry><ind>200</ind><dep>-5</dep></entry-->
         </table>
       </expression>
     </input>
@@ -55,12 +49,6 @@
           <entry><ind>50</ind><dep>-2</dep></entry>
           <entry><ind>100</ind><dep>-3</dep></entry>
           <entry><ind>200</ind><dep>-4</dep></entry>
-          <!--entry><ind>0</ind><dep>-0.8</dep></entry>
-          <entry><ind>3</ind><dep>0.4</dep></entry>
-          <entry><ind>10</ind><dep>0.4</dep></entry>
-          <entry><ind>50</ind><dep>2</dep></entry>
-          <entry><ind>100</ind><dep>2.1</dep></entry>
-          <entry><ind>200</ind><dep>4</dep></entry-->
         </table>
       </expression>
     </input>
@@ -85,7 +73,6 @@
         <table>
           <property>/velocities/airspeed-kt</property>
           <entry><ind>0</ind><dep>0</dep></entry>
-          <!--entry><ind>3</ind><dep>0.1</dep></entry-->
           <entry><ind>10</ind><dep>0.15</dep></entry>
           <entry><ind>50</ind><dep>0.3</dep></entry>
           <entry><ind>100</ind><dep>0.5</dep></entry>

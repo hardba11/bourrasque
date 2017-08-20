@@ -1,6 +1,7 @@
                   FLIGHTGEAR "BOURRASQUE" AIRCRAFT - CHANGELOG
 
 
+semaine 33-2017 :: amelioration des instruments
 semaine 32-2017 :: nouvel instrument fuel
 semaine 31-2017 :: nouvel instrument engine, nouvel instrument command headup, amélioration hud
 semaine 30-2017 :: nouvelles livrées, remplacement des instruments nav/com/adf/transponder

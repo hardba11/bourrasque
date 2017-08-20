@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+################################################################################
+#
+#                               ENGINE 0 MODEL
+#
+################################################################################
+
+changelog
+- 2016-10-22 : create
+
+-->
+
 <PropertyList>
 
   <path>engine.ac</path>
+
+  <!--
+================================================================================
+                                                                    OBJECTS LIST
+================================================================================
+  -->
 
   <animation>
     <type>material</type>
@@ -30,6 +48,15 @@
     <object-name>reheat_inner_tuyere</object-name>
     <object-name>reheat_inner_bruleur</object-name>
   </effect>
+
+  <!--
+================================================================================
+                                                                       ANIMATION
+================================================================================
+
+________________________________________________________________________________
+                                                         NOZZLE LOW RED EMISSION
+  -->
 
   <animation>
     <type>material</type>
@@ -65,6 +92,11 @@
     </emission>
   </animation>
 
+  <!--
+________________________________________________________________________________
+                                                                  REHEAT EFFECTS
+  -->
+
   <animation>
     <type>select</type>
     <object-name>reheat_inner_tuyere</object-name>
@@ -98,6 +130,7 @@
       <offset>-9</offset>
     </transparency>
   </animation>
+
   <animation>
     <type>textranslate</type>
     <object-name>reheat_inner_tuyere</object-name>

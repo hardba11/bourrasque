@@ -161,7 +161,6 @@ livery_update.stop();
   <model>
     <name>cockpit</name>
     <path>Aircraft/bourrasque/models/cockpit/cockpit-model.xml</path>
-    <!--usage>interior</usage-->
   </model>
 
   <!-- ~~~~~~~~~~~~~~~~~~ als reheat -->
@@ -313,15 +312,6 @@ livery_update.stop();
       <z-m type="float">.5</z-m>
     </offsets>
   </model>
-  <!--model>
-    <name>load</name>
-    <path>Aircraft/bourrasque/models/effects/cone/g-vortex.xml</path>
-    <offsets>
-      <x-m type="float">2.5</x-m>
-      <y-m type="float">2.5</y-m>
-      <z-m type="float">.5</z-m>
-    </offsets>
-  </model-->
 
   <!-- ~~~~~~~~~~~~~~~~~~ tiptrails -->
   <model>
