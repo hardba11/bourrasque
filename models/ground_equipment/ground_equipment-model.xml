@@ -15,6 +15,12 @@ changelog
   <path>ground_equipment.ac</path>
   <nopreview />
 
+  <!--
+================================================================================
+                                                             OBJECTS DECLARATION
+================================================================================
+  -->
+
   <animation>
     <type>material</type>
     <object-name>ground_equipment.engine</object-name>
@@ -23,7 +29,13 @@ changelog
     <object-name>ground_equipment.scale</object-name>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ engines + flags -->
+  <!--
+================================================================================
+                                                         CONTROLS AND ANIMATIONS
+================================================================================
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ engines covers + flags -->
   <animation>
     <type>select</type>
     <object-name>ground_equipment.engine</object-name>
@@ -44,7 +56,7 @@ changelog
     </condition>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ gears -->
+  <!-- ~~~~~~~~~~~~~~~~~~ gears chocks -->
   <animation>
     <type>select</type>
     <object-name>ground_equipment.gears</object-name>
@@ -53,6 +65,10 @@ changelog
         <property>sim/multiplay/generic/string[3]</property>
         <value type="string">1</value>
       </equals>
+      <less-than>
+        <property>/velocities/groundspeed-kt</property>
+        <value>2</value>
+      </less-than>
     </condition>
   </animation>
   <animation> <!-- as the object touchs the ground, I had to add a translation -->
