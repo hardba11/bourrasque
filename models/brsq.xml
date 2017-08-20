@@ -177,6 +177,7 @@ livery_update.stop();
         <property>/sim/time/sun-angle-rad</property>
         <value>1.7</value>
       </greater-than>
+      <property>/sim/rendering/shaders/skydome</property>
     </condition>
   </model>
   <model>
@@ -192,6 +193,7 @@ livery_update.stop();
         <property>/sim/time/sun-angle-rad</property>
         <value>1.45</value>
       </less-than>
+      <property>/sim/rendering/shaders/skydome</property>
     </condition>
   </model>
   <model>
@@ -203,16 +205,15 @@ livery_update.stop();
       <z-m>.32</z-m>
     </offsets>
     <condition>
-      <and>
-        <less-than>
-          <property>/sim/time/sun-angle-rad</property>
-          <value>1.7</value>
-        </less-than>
-        <greater-than>
-          <property>/sim/time/sun-angle-rad</property>
-          <value>1.45</value>
-        </greater-than>
-      </and>
+      <less-than>
+        <property>/sim/time/sun-angle-rad</property>
+        <value>1.7</value>
+      </less-than>
+      <greater-than>
+        <property>/sim/time/sun-angle-rad</property>
+        <value>1.45</value>
+      </greater-than>
+      <property>/sim/rendering/shaders/skydome</property>
     </condition>
   </model>
 
@@ -229,6 +230,7 @@ livery_update.stop();
         <property>/sim/time/sun-angle-rad</property>
         <value>1.7</value>
       </greater-than>
+      <property>/sim/rendering/shaders/skydome</property>
     </condition>
   </model>
   <model>
@@ -244,6 +246,7 @@ livery_update.stop();
         <property>/sim/time/sun-angle-rad</property>
         <value>1.45</value>
       </less-than>
+      <property>/sim/rendering/shaders/skydome</property>
     </condition>
   </model>
   <model>
@@ -255,22 +258,25 @@ livery_update.stop();
       <z-m>.32</z-m>
     </offsets>
     <condition>
-      <and>
-        <less-than>
-          <property>/sim/time/sun-angle-rad</property>
-          <value>1.7</value>
-        </less-than>
-        <greater-than>
-          <property>/sim/time/sun-angle-rad</property>
-          <value>1.45</value>
-        </greater-than>
-      </and>
+      <less-than>
+        <property>/sim/time/sun-angle-rad</property>
+        <value>1.7</value>
+      </less-than>
+      <greater-than>
+        <property>/sim/time/sun-angle-rad</property>
+        <value>1.45</value>
+      </greater-than>
+      <property>/sim/rendering/shaders/skydome</property>
     </condition>
   </model>
 
   <!-- ~~~~~~~~~~~~~~~~~~ als 3d exterior shadow -->
   <model>
+    <object-name>als-shadow</object-name>
     <path>Aircraft/bourrasque/models/effects/shadow/3d-shadow.xml</path>
+    <condition>
+      <property>/sim/rendering/shaders/skydome</property>
+    </condition>
   </model>
 
   <!-- ~~~~~~~~~~~~~~~~~~ contrails -->
