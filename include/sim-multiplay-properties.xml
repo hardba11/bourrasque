@@ -48,6 +48,8 @@ PROPERTY-PATH : PropertyList > sim > multiplay
     <string               n="2"  alias="/sim/model/ground-equipment-e" />
     <string               n="3"  alias="/sim/model/ground-equipment-g" />
     <string               n="4"  alias="/sim/model/ground-equipment-s" />
+    <string               n="5"  alias="/sim/model/ground-equipment-p" />
+    <string               n="6"  alias="/sim/model/ground-equipment-f" />
   </generic>
 
 </PropertyList>

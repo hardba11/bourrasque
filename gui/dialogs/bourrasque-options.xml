@@ -111,10 +111,56 @@ fdm.fast_start();
 
     <text>
       <row>2</row><col>0</col>
-      <label>scale</label>
+      <label>fuel truck</label>
     </text>
     <button>
       <row>2</row><col>1</col>
+      <legend>remove</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/ground-equipment-f</property>
+        <value>0</value>
+      </binding>
+    </button>
+    <button>
+      <row>2</row><col>2</col>
+      <legend>put</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/ground-equipment-f</property>
+        <value>1</value>
+      </binding>
+    </button>
+
+    <text>
+      <row>3</row><col>0</col>
+      <label>epu</label>
+    </text>
+    <button>
+      <row>3</row><col>1</col>
+      <legend>remove</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/ground-equipment-p</property>
+        <value>0</value>
+      </binding>
+    </button>
+    <button>
+      <row>3</row><col>2</col>
+      <legend>put</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/ground-equipment-p</property>
+        <value>1</value>
+      </binding>
+    </button>
+
+    <text>
+      <row>4</row><col>0</col>
+      <label>scale</label>
+    </text>
+    <button>
+      <row>4</row><col>1</col>
       <legend>remove</legend>
       <binding>
         <command>property-assign</command>
@@ -123,7 +169,7 @@ fdm.fast_start();
       </binding>
     </button>
     <button>
-      <row>2</row><col>2</col>
+      <row>4</row><col>2</col>
       <legend>put</legend>
       <binding>
         <command>property-assign</command>
@@ -133,11 +179,11 @@ fdm.fast_start();
     </button>
 
     <text>
-      <row>3</row><col>0</col>
+      <row>5</row><col>0</col>
       <label>shocks</label>
     </text>
     <button>
-      <row>3</row><col>1</col>
+      <row>5</row><col>1</col>
       <legend>remove</legend>
       <binding>
         <command>property-assign</command>
@@ -146,7 +192,7 @@ fdm.fast_start();
       </binding>
     </button>
     <button>
-      <row>3</row><col>2</col>
+      <row>5</row><col>2</col>
       <legend>put</legend>
       <binding>
         <command>property-assign</command>

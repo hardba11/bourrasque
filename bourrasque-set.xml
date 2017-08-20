@@ -77,9 +77,11 @@ changelog
       <canards-pos-norm    type="float">0</canards-pos-norm>
       <wing-tanks          type="string">none</wing-tanks>
       <center-tank         type="string">none</center-tank>
-      <ground-equipment-e  type="string">1</ground-equipment-e>
-      <ground-equipment-g  type="string">1</ground-equipment-g>
-      <ground-equipment-s  type="string">1</ground-equipment-s>
+      <ground-equipment-e  type="string">1</ground-equipment-e> <!-- covers -->
+      <ground-equipment-g  type="string">1</ground-equipment-g> <!-- chocks -->
+      <ground-equipment-s  type="string">1</ground-equipment-s> <!-- scale -->
+      <ground-equipment-p  type="string">1</ground-equipment-p> <!-- power unit -->
+      <ground-equipment-f  type="string">1</ground-equipment-f> <!-- fuel truck-->
 
     </model>
 

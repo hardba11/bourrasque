@@ -27,6 +27,11 @@ changelog
     <object-name>ground_equipment.flags</object-name>
     <object-name>ground_equipment.gears</object-name>
     <object-name>ground_equipment.scale</object-name>
+    <object-name>external-power-unit.box</object-name>
+    <object-name>external-power-unit.wire</object-name>
+    <object-name>fuel-truck.base</object-name>
+    <object-name>fuel-truck.pipe</object-name>
+    <object-name>fuel-truck.tank</object-name>
   </animation>
 
   <!--
@@ -91,6 +96,45 @@ changelog
         <property>sim/multiplay/generic/string[4]</property>
         <value type="string">1</value>
       </equals>
+      <less-than>
+        <property>/velocities/groundspeed-kt</property>
+        <value>2</value>
+      </less-than>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ external-power-unit -->
+  <animation>
+    <type>select</type>
+    <object-name>external-power-unit.box</object-name>
+    <object-name>external-power-unit.wire</object-name>
+    <condition>
+      <equals>
+        <property>sim/multiplay/generic/string[5]</property>
+        <value type="string">1</value>
+      </equals>
+      <less-than>
+        <property>/velocities/groundspeed-kt</property>
+        <value>2</value>
+      </less-than>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ fuel-truck -->
+  <animation>
+    <type>select</type>
+    <object-name>fuel-truck.base</object-name>
+    <object-name>fuel-truck.pipe</object-name>
+    <object-name>fuel-truck.tank</object-name>
+    <condition>
+      <equals>
+        <property>sim/multiplay/generic/string[6]</property>
+        <value type="string">1</value>
+      </equals>
+      <less-than>
+        <property>/velocities/groundspeed-kt</property>
+        <value>2</value>
+      </less-than>
     </condition>
   </animation>
 
