@@ -77,8 +77,6 @@ TODO :
   <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
   <animation>
     <type>select</type>
-    <object-name>pfd.disengage-emit</object-name>
-    <object-name>pfd.hold-emit</object-name>
     <object-name>pfd.vs-emit</object-name>
     <condition>
       <false />
@@ -93,13 +91,11 @@ TODO :
     </condition>
   </animation>
 
-
   <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
   <effect>
     <inherits-from>Effects/model-transparent</inherits-from>
     <object-name>pfd.cadre-emit</object-name>
   </effect>
-
 
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
@@ -287,17 +283,6 @@ TODO :
       <blue>1</blue>
     </emission>
   </animation>
-  <!--animation>
-    <name>cyan</name>
-    <type>material</type>
-    <object-name>inhg</object-name>
-    <emission>
-      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
-      <red>0</red>
-      <green>1</green>
-      <blue>1</blue>
-    </emission>
-  </animation-->
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (enabled) -->
   <animation>
@@ -307,6 +292,8 @@ TODO :
     <object-name>pfd.alt-emit</object-name>
     <object-name>pfd.vs-emit</object-name>
     <object-name>pfd.nav-emit</object-name>
+    <object-name>pfd.disengage-emit</object-name>
+    <object-name>pfd.hold-emit</object-name>
     <emission>
       <factor>1</factor>
       <red>0.9</red>
@@ -1021,6 +1008,18 @@ instrument_pfd.event_click_disengage_autopilot();
     </hovered>
   </animation>
 
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation disengage -->
+  <animation>
+    <type>select</type>
+    <object-name>pfd.disengage-emit</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <property>/instrumentation/my_aircraft/pfd/controls/disengage-blink</property>
+      </and>
+    </condition>
+  </animation>
+
   <!-- ~~~~~~~~~~~~~~~~~~~~~~ control hold -->
   <animation>
     <type>pick</type>
@@ -1048,6 +1047,18 @@ instrument_pfd.event_click_hold_autopilot();
         <label>Toggle A/P with current alt, speed, heading (ctrl-p)</label>
       </binding>
     </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation hold -->
+  <animation>
+    <type>select</type>
+    <object-name>pfd.hold-emit</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <property>/instrumentation/my_aircraft/pfd/controls/hold-blink</property>
+      </and>
+    </condition>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~~~~~ control target altitude -->
