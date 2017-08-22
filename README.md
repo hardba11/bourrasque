@@ -82,7 +82,7 @@ flecktarn livery :
 
 desert livery :
 
-![Image](brsq14.png)
+![Image](https://photos-2.dropbox.com/t/2/AAAR3dt0HPJtfGSj1KkGgHpMIxNirP1L-9c04H-loF2Tyw/12/10009110/png/32x32/3/1503424800/0/2/brsq14.png/EIzjuwcYw6sDIAIoAg/6RmDnnU_F-RmVsBSleAcuEuIB-8YYOtDMsVM_Rh3VaM?dl=0&size=32x32&size_mode=5)
 
 wingmens scenario, contrail effects :
 
@@ -90,5 +90,5 @@ wingmens scenario, contrail effects :
 
 wingmens scenario, landing light :
 
-![Image](brsq15.png)
+![Image](https://photos-5.dropbox.com/t/2/AAA1-WejpWwcvNvOm-2ylFpGhjHpbTnzzEpdyGAHOz9tBw/12/10009110/png/32x32/3/1503428400/0/2/brsq15.png/EIzjuwcYw6sDIAIoAg/q5r8uwEzjwPC8qClvpX930F6WD3FY5CbkaTV5D3MKBk?dl=0&size=32x32&size_mode=5)
 
