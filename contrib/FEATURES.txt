@@ -10,6 +10,7 @@ last version (beta) :
 - animated controls (ailerons, elevons, slats, canard)
 - usable and clickable instruments with tooltips : VOR, PFD, alt, asi, etc
 - 4 mods (TAXI, APP, NAV, VFR) changing hud and fly-by-wire laws
+- autopilot
 - start/stop procedure
 - autostart/autostop shortcuts
 - hud + mini-hud + hud canvas

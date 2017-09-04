@@ -25,7 +25,7 @@ changelog
     <description type="string">Bourrasque back-seater (multiplayer)</description>
     <variant-of type="string">bourrasque</variant-of>
 
-    <author>hardball SLK</author>
+    <author type="string">hardball SLK</author>
     <aircraft-version type="string">2017-08-06</aircraft-version>
     <status>alpha</status>
     <tags>
@@ -68,9 +68,11 @@ changelog
       <canards-pos-norm    type="float">0</canards-pos-norm>
       <wing-tanks          type="string">none</wing-tanks>
       <center-tank         type="string">none</center-tank>
-      <ground-equipment-e  type="string">1</ground-equipment-e>
-      <ground-equipment-g  type="string">1</ground-equipment-g>
-      <ground-equipment-s  type="string">1</ground-equipment-s>
+      <ground-equipment-e  type="string">1</ground-equipment-e> <!-- covers -->
+      <ground-equipment-g  type="string">1</ground-equipment-g> <!-- chocks -->
+      <ground-equipment-s  type="string">1</ground-equipment-s> <!-- scale -->
+      <ground-equipment-p  type="string">1</ground-equipment-p> <!-- power unit -->
+      <ground-equipment-f  type="string">1</ground-equipment-f> <!-- fuel truck-->
 
     </model>
 
@@ -166,12 +168,22 @@ changelog
     <instrument_pfd>
       <file type="string">instruments/pfd/pfd.nas</file>
     </instrument_pfd>
+    <instrument_sfd>
+      <file type="string">instruments/sfd/sfd.nas</file>
+    </instrument_sfd>
     <instrument_light>
       <file type="string">instruments/light/light.nas</file>
     </instrument_light>
     <instrument_sfd_canvas>
       <file type="string">instruments/sfd/sfd_canvas.nas</file>
     </instrument_sfd_canvas>
+    <instrument_fuel_canvas>
+      <file type="string">instruments/fuel/fuel_canvas.nas</file>
+    </instrument_fuel_canvas>
+
+    <fdm>
+      <file type="string">fdm/systems.nas</file>
+    </fdm>
 
     <lights>
       <file type="string">models/lights/lights.nas</file>

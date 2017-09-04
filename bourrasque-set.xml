@@ -59,7 +59,7 @@ changelog
 
       <name type="string">bourrasque</name>
       <path type="string">Aircraft/bourrasque/models/brsq.xml</path>
-<!-- USED FOR DEVELOPMENT 
+<!-- USED FOR DEVELOPMENT
       <path>Aircraft/bourrasque/models/cockpit/cockpit-test-model.xml</path>
 -->
 

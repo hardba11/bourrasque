@@ -18,22 +18,22 @@ Still in development but fully usable.
 - detailed model
 - animated controls (ailerons, elevons, slats, canard)
 - other animations : opening canopy, retracting gears, lights, gears suspension
-- usable and clickable instruments with tooltips : VOR, PFD, alt, asi, etc
+- usable and clickable instruments with tooltips : VOR, PFD, Nav Display, hsi, asi, etc
 - autopilot
 - 4 mods (TAXI, APP, NAV, VFR) changing hud and fly-by-wire laws
 - start/stop procedure
-- autostart/autostop shortcuts
+- autostart/autostop and fast start shortcuts
 - hud + mini-hud + hud canvas
-- sounds
+- sounds (engines, wind, rain, avionics, gears)
 - reheat (enable ALS)
 - 3d shadow (enable ALS)
-- instrument lighting
+- instruments adjustable lighting
 - atmosphere effects : wingtips, contrails
 - light effects : landing lights, flashlight (enable ALS)
 - rain effects : raindrops on canopy and fuselage, particles on ground
 - choice of liveries
 - ground equipments, external stores (fuel tanks)
-- multiplayer back-seat
+- multiplayer back-seat : fly as passenger !
 - 2 wingmen AI demo
 
 ## gallery
@@ -50,7 +50,7 @@ suspension, 3d shadow, strobe lights :
 
 ![Image](http://i.imgur.com/38X5OPu.png)
 
-animated pilots models :
+animated pilots models, specific views :
 
 ![Image](http://i.imgur.com/i0gDhpN.png)
 

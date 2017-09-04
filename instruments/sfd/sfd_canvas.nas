@@ -337,8 +337,8 @@ var SFD_CANVAS = {
         var angle_egt1 = egt1 / 4;
         var angle_ff0  = (ff0 > 5) ? math.log10(ff0) * 60 : 1;
         var angle_ff1  = (ff1 > 5) ? math.log10(ff1) * 60 : 1;
-        var color0     = (reheat0 > .1) ? "red" : "blue" ;
-        var color1     = (reheat1 > .1) ? "red" : "blue" ;
+        var color0     = (reheat0 > .1) ? "red" : "blue";
+        var color1     = (reheat1 > .1) ? "red" : "blue";
 
         # gauge + value n1
         update_circular_gauge(me.n1_engine0_circle, x_n1_engine0, y_n1_engine0, rayon_gauge, angle_n0, color0);

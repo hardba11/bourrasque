@@ -43,7 +43,6 @@ var bourrasque_loop = func() {
     #    setprop('/sim/current-view/pitch-offset-deg', getprop('/sim/view[0]/config/pitch-offset-deg') + getprop('/debug2'));
     #}
 
-
     settimer(bourrasque_loop, 0.1);
 }
 
