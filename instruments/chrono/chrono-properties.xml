@@ -5,36 +5,26 @@
 <!-- /instrumentation/my_aircraft/chrono/ -->
 <PropertyList>
 
-  <!-- used for start/stop -->
-  <serviceable type="bool">true</serviceable>
-  <volt type="float">28</volt>
+  <et-hour type="int">0</et-hour>
+  <et-min type="int">0</et-min>
+  <et-sec type="int">0</et-sec>
+  <et-msec type="int">0</et-msec>
+  <needle-msec type="int">0</needle-msec>
 
-  <!-- data used for display : captors -->
-  <inputs>
-    <hour_real      alias="/sim/time/real/hour" />
-    <hour_utc       alias="/instrumentation/clock/indicated-hour" />
-    <hour_loc       alias="/instrumentation/clock/local-hour" />
-    <min            alias="/instrumentation/clock/indicated-min" />
-    <sec            alias="/instrumentation/clock/indicated-sec" />
-    <day            alias="/sim/time/real/day" />
-    <month          alias="/sim/time/real/month" />
-    <elapsed-sec    alias="/sim/time/elapsed-sec" />
+  <!-- les digits affichent des donnees differentes selon la source choisie,
+  ces donnees seront mises a jour via nasal en basculant les alias appropries -->
+  <outputs>
+    <digit-tl alias="/instrumentation/clock/local-hour" />
+    <digit-tr alias="/instrumentation/clock/indicated-min" />
+    <needle   alias="/instrumentation/clock/indicated-sec" />
+    <digit-bl alias="/sim/time/real/day" />
+    <digit-br alias="/sim/time/real/month" />
+    <colon type="bool">1</colon>
+  </outputs>
 
-<!--
-    <digit1 type="int">12</digit1>
-    <digit2 type="int">34</digit2>
-    <digit3 type="int">56</digit3>
-    <digit4 type="int">78</digit4>
-    <needle type="int">10</needle>
--->
-
-  </inputs>
-
-  <!-- data used to control instrument -->
   <controls>
-    <chr-knob type="int">0</chr-knob>  <!-- 0=dh,  1=chr -->
-    <et-knob  type="int">0</et-knob>   <!-- 0=hld, 1=run, 2=rst -->
-    <dh-knob  type="int">0</dh-knob>   <!-- 0=utc, 1=loc -->
+    <et-knob   type="int">1</et-knob>   <!-- 1=run -->
+    <mode-knob type="int">1</mode-knob> <!-- 1=local -->
   </controls>
 
 </PropertyList>

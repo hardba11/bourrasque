@@ -236,6 +236,9 @@ changelog
     <instrument_command_h>
       <file type="string">instruments/command_h/command_h.nas</file>
     </instrument_command_h>
+    <instrument_chrono>
+      <file type="string">instruments/chrono/chrono.nas</file>
+    </instrument_chrono>
 
     <fdm>
       <file type="string">fdm/bourrasque.nas</file>

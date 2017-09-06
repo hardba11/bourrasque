@@ -6,22 +6,6 @@ description :
     (mouvements, lightings)
     it loads if necessary the submodels files
 
-pour la gestion du chrono
-- voir 777/nasal/system.nas
-- voir fgdata/nasal/aircraft.nas
-- modifier le nom des proprietes
-- voir pour l'affichage des secondes ?
-
-modes affichage :
-- heure : heure, minutes, secondes (aiguille), date jj mm (digit bas)
-- chrono : et secondes (digit bas), et hh et mm (digit haut)
-
-switch mode : click btn chrono
-switch date-heure utc/loc : clic btn dh
-gestion chrono : btn ET
-
-TODO: chronometer
-
 -->
 
 <PropertyList>
@@ -36,10 +20,11 @@ TODO: chronometer
   -->
   <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
   <animation>
-    <!-- box -->
-    <object-name>chrono.background</object-name>
     <object-name>chrono.box</object-name>
-    <object-name>chrono.scale</object-name>
+    <object-name>chrono.needle</object-name>
+    <object-name>chrono.chr_btn</object-name>
+    <object-name>chrono.mode_knob</object-name>
+    <object-name>chrono.et_knob</object-name>
     <!-- digits top -->
     <object-name>chrono.h-01</object-name>
     <object-name>chrono.h-10</object-name>
@@ -52,26 +37,9 @@ TODO: chronometer
     <object-name>chrono.dot</object-name>
     <object-name>chrono.et-01.00</object-name>
     <object-name>chrono.et-10.00</object-name>
-    <!-- needle -->
-    <object-name>chrono.needle</object-name>
-    <!-- button and labels top left -->
-    <object-name>chrono.chr</object-name>
-    <!-- button and labels top right -->
-    <object-name>chrono.dh</object-name>
-    <object-name>chrono.dh.date</object-name>
-    <object-name>chrono.dh.man</object-name>
-    <object-name>chrono.dh.utc</object-name>
-    <!-- button and labels bottom right -->
-    <object-name>chrono.set</object-name>
-    <object-name>chrono.set.h</object-name>
-    <object-name>chrono.set.hld</object-name>
-    <object-name>chrono.set.m</object-name>
-    <object-name>chrono.set.run</object-name>
-    <!-- button and labels bottom left -->
-    <object-name>chrono.et</object-name>
-    <object-name>chrono.et.hold</object-name>
-    <object-name>chrono.et.reset</object-name>
-    <object-name>chrono.et.run</object-name>
+    <object-name>chrono.box-emit</object-name>
+    <object-name>chrono.mode_knob-emit</object-name>
+    <object-name>chrono.et_knob-emit</object-name>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
@@ -79,7 +47,6 @@ TODO: chronometer
     <type>select</type>
     <object-name>chrono.h-01</object-name>
     <object-name>chrono.h-10</object-name>
-    <object-name>chrono.colon</object-name>
     <object-name>chrono.m-01</object-name>
     <object-name>chrono.m-10</object-name>
     <object-name>chrono.et-00.01</object-name>
@@ -92,15 +59,14 @@ TODO: chronometer
     </condition>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
-
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
-    <!-- box -->
-    <object-name>chrono.background</object-name>
     <object-name>chrono.box</object-name>
-    <object-name>chrono.scale</object-name>
+    <object-name>chrono.needle</object-name>
+    <object-name>chrono.chr_btn</object-name>
+    <object-name>chrono.mode_knob</object-name>
+    <object-name>chrono.et_knob</object-name>
     <!-- digits top -->
     <object-name>chrono.h-01</object-name>
     <object-name>chrono.h-10</object-name>
@@ -113,32 +79,18 @@ TODO: chronometer
     <object-name>chrono.dot</object-name>
     <object-name>chrono.et-01.00</object-name>
     <object-name>chrono.et-10.00</object-name>
-    <!-- needle -->
-    <object-name>chrono.needle</object-name>
-    <!-- button and labels top left -->
-    <object-name>chrono.chr</object-name>
-    <!-- button and labels top right -->
-    <object-name>chrono.dh</object-name>
-    <object-name>chrono.dh.date</object-name>
-    <object-name>chrono.dh.man</object-name>
-    <object-name>chrono.dh.utc</object-name>
-    <!-- button and labels bottom right -->
-    <object-name>chrono.set</object-name>
-    <object-name>chrono.set.h</object-name>
-    <object-name>chrono.set.hld</object-name>
-    <object-name>chrono.set.m</object-name>
-    <object-name>chrono.set.run</object-name>
-    <!-- button and labels bottom left -->
-    <object-name>chrono.et</object-name>
-    <object-name>chrono.et.hold</object-name>
-    <object-name>chrono.et.reset</object-name>
-    <object-name>chrono.et.run</object-name>
+    <object-name>chrono.box-emit</object-name>
+    <object-name>chrono.mode_knob-emit</object-name>
+    <object-name>chrono.et_knob-emit</object-name>
+
   </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
   <animation>
     <type>material</type>
-    <object-name>chrono.scale</object-name>
+    <object-name>chrono.box-emit</object-name>
+    <object-name>chrono.mode_knob-emit</object-name>
+    <object-name>chrono.et_knob-emit</object-name>
     <object-name>chrono.needle</object-name>
     <emission>
       <factor-prop>/controls/lighting/instruments-norm</factor-prop>
@@ -171,17 +123,118 @@ TODO: chronometer
     </emission>
   </animation>
 
-
   <!--
 ================================================================================
                                                          CONTROLS AND ANIMATIONS
 ================================================================================
   -->
+  <animation>
+    <type>pick</type>
+    <object-name>chrono.mode_knob</object-name>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation mode knob -->
+  <animation>
+    <type>rotate</type>
+    <object-name>chrono.mode_knob</object-name>
+    <object-name>chrono.mode_knob-emit</object-name>
+    <property>/instrumentation/my_aircraft/chrono/controls/mode-knob</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>1</ind><dep>35</dep></entry>
+      <entry><ind>2</ind><dep>-144</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0.032</y-m>
+      <z-m>0.034</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control mode knob -->
+  <animation>
+    <type>pick</type>
+    <object-name>chrono.mode_knob</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+instrument_chrono.event_click_mode_knob(1);
+          ]]>
+        </script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+instrument_chrono.event_click_mode_knob(-1);
+          ]]>
+        </script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-chrono-mode-knob</tooltip-id>
+        <label>Choose mode</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control chr btn -->
+  <animation>
+    <type>pick</type>
+    <object-name>chrono.chr_btn</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+instrument_chrono.event_click_chr_btn();
+          ]]>
+        </script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-chrono-chr-btn</tooltip-id>
+        <label>Start/Pause chrono</label>
+      </binding>
+    </hovered>
+  </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ animation elapsed time knob -->
   <animation>
     <type>rotate</type>
-    <object-name>chrono.et</object-name>
+    <object-name>chrono.et_knob</object-name>
+    <object-name>chrono.et_knob-emit</object-name>
     <property>/instrumentation/my_aircraft/chrono/controls/et-knob</property>
     <interpolation>
       <entry><ind>0</ind><dep>0</dep></entry>
@@ -200,33 +253,56 @@ TODO: chronometer
     </axis>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ animation date time knob -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control elapsed time knob -->
   <animation>
-    <type>rotate</type>
-    <object-name>chrono.dh</object-name>
-    <property>/instrumentation/my_aircraft/chrono/controls/dh-knob</property>
-    <interpolation>
-      <entry><ind>0</ind><dep>0</dep></entry>
-      <entry><ind>1</ind><dep>35</dep></entry>
-    </interpolation>
-    <center>
-      <x-m>0</x-m>
-      <y-m>0.032</y-m>
-      <z-m>0.034</z-m>
-    </center>
-    <axis>
-      <x>-1</x>
-      <y>0</y>
-      <z>0</z>
-    </axis>
+    <type>pick</type>
+    <object-name>chrono.et_knob</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+instrument_chrono.event_click_et_knob();
+          ]]>
+        </script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+instrument_chrono.event_click_et_knob_reset();
+          ]]>
+        </script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-chrono-et-knob</tooltip-id>
+        <label>Manage elapsed time, MMB=reset</label>
+      </binding>
+    </hovered>
   </animation>
-
 
   <!-- ~~~~~~~~~~~~~~~~~~ animation needle -->
   <animation>
     <type>rotate</type>
     <object-name>chrono.needle</object-name>
-    <property>/instrumentation/clock/indicated-sec</property>
+    <property>instrumentation/my_aircraft/chrono/outputs/needle</property>
     <factor>6</factor>
     <center>
       <x-m>0.0</x-m>
@@ -243,11 +319,21 @@ TODO: chronometer
     </condition>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ animation hours -->
+  <!-- ~~~~~~~~~~~~~~~~~~ animation colon -->
+  <animation>
+    <type>select</type>
+    <object-name>chrono.colon</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+      <property>instrumentation/my_aircraft/chrono/outputs/colon</property>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation digits top -->
   <animation>
     <type>textranslate</type>
     <object-name>chrono.h-10</object-name>
-    <property>/instrumentation/clock/indicated-hour</property>
+    <property>instrumentation/my_aircraft/chrono/outputs/digit-tl</property>
     <factor>0.01</factor>
     <step>10</step>
     <axis>
@@ -259,7 +345,7 @@ TODO: chronometer
   <animation>
     <type>textranslate</type>
     <object-name>chrono.h-01</object-name>
-    <property>/instrumentation/clock/indicated-hour</property>
+    <property>instrumentation/my_aircraft/chrono/outputs/digit-tl</property>
     <factor>0.1</factor>
     <step>1</step>
     <axis>
@@ -268,12 +354,10 @@ TODO: chronometer
       <z>0</z>
     </axis>
   </animation>
-
-  <!-- ~~~~~~~~~~~~~~~~~~ animation minutes -->
   <animation>
     <type>textranslate</type>
     <object-name>chrono.m-10</object-name>
-    <property>/instrumentation/clock/indicated-min</property>
+    <property>instrumentation/my_aircraft/chrono/outputs/digit-tr</property>
     <factor>0.01</factor>
     <step>10</step>
     <axis>
@@ -285,7 +369,7 @@ TODO: chronometer
   <animation>
     <type>textranslate</type>
     <object-name>chrono.m-01</object-name>
-    <property>/instrumentation/clock/indicated-min</property>
+    <property>instrumentation/my_aircraft/chrono/outputs/digit-tr</property>
     <factor>0.1</factor>
     <step>1</step>
     <axis>
@@ -295,11 +379,11 @@ TODO: chronometer
     </axis>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ animation day -->
+  <!-- ~~~~~~~~~~~~~~~~~~ animation digits bottom -->
   <animation>
     <type>textranslate</type>
     <object-name>chrono.et-10.00</object-name>
-    <property>/sim/time/real/day</property>
+    <property>instrumentation/my_aircraft/chrono/outputs/digit-bl</property>
     <factor>0.01</factor>
     <step>10</step>
     <axis>
@@ -311,7 +395,7 @@ TODO: chronometer
   <animation>
     <type>textranslate</type>
     <object-name>chrono.et-01.00</object-name>
-    <property>/sim/time/real/day</property>
+    <property>instrumentation/my_aircraft/chrono/outputs/digit-bl</property>
     <factor>0.1</factor>
     <step>1</step>
     <axis>
@@ -320,12 +404,10 @@ TODO: chronometer
       <z>0</z>
     </axis>
   </animation>
-
-  <!-- ~~~~~~~~~~~~~~~~~~ animation month -->
   <animation>
     <type>textranslate</type>
     <object-name>chrono.et-00.10</object-name>
-    <property>/sim/time/real/month</property>
+    <property>instrumentation/my_aircraft/chrono/outputs/digit-br</property>
     <factor>0.01</factor>
     <step>10</step>
     <axis>
@@ -337,7 +419,7 @@ TODO: chronometer
   <animation>
     <type>textranslate</type>
     <object-name>chrono.et-00.01</object-name>
-    <property>/sim/time/real/month</property>
+    <property>instrumentation/my_aircraft/chrono/outputs/digit-br</property>
     <factor>0.1</factor>
     <step>1</step>
     <axis>
@@ -347,81 +429,4 @@ TODO: chronometer
     </axis>
   </animation>
 
-
-  <!--
-________________________________________________________________________________
-                                                              TO BE CONTINUED...
-  -->
-
-<!--
-  <animation>
-    <type>select</type>
-    <object-name>chrono.et-10.00</object-name>
-    <object-name>chrono.et-01.00</object-name>
-    <condition>
-      <greater-than>
-        <property>instrumentation/clock/ET-display</property>
-        <value>99.99</value>
-      </greater-than>
-    </condition>
-  </animation>
-  <animation>
-    <type>pick</type>
-    <object-name>chrono.et-run</object-name>
-    <action>
-      <button>0</button>
-      <repeatable>false</repeatable>
-      <binding>
-        <command>property-assign</command>
-        <property>instrumentation/clock/et-knob</property>
-        <value>1</value>
-      </binding>
-
-      <binding>
-        <command>property-toggle</command>
-        <property>sim/model/click</property>
-      </binding>
-
-
-    </action>
-  </animation>
-  <animation>
-    <type>pick</type>
-    <object-name>chrono.et-hold</object-name>
-    <action>
-      <button>0</button>
-      <repeatable>false</repeatable>
-      <binding>
-        <command>property-assign</command>
-        <property>instrumentation/clock/et-knob</property>
-        <value>0</value>
-      </binding>
-    </action>
-  </animation>
-  <animation>
-    <type>pick</type>
-    <object-name>chrono.et-reset</object-name>
-    <action>
-      <button>0</button>
-      <repeatable>false</repeatable>
-      <binding>
-        <command>property-assign</command>
-        <property>instrumentation/clock/et-knob</property>
-        <value>-1</value>
-      </binding>
-    </action>
-  </animation>
-  <animation>
-    <type>pick</type>
-    <object-name>chrono.et</object-name>
-    <action>
-      <button>0</button>
-      <repeatable>false</repeatable>
-      <binding>
-        <command>property-toggle</command>
-        <property>instrumentation/clock/et-knob</property>
-      </binding>
-    </action>
-  </animation>
--->
 </PropertyList>
