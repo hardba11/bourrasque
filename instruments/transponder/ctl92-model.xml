@@ -60,7 +60,6 @@ Syd Adams
     </condition>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
@@ -189,6 +188,10 @@ setprop('instrumentation/transponder/inputs/digit[3]', hiDigit);
           ]]>
         </script>
       </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
     </action>
     <hovered>
       <binding>
@@ -221,6 +224,10 @@ setprop('instrumentation/transponder/inputs/digit[0]', loDigit);
 setprop('instrumentation/transponder/inputs/digit[1]', hiDigit);
           ]]>
         </script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
       </binding>
     </action>
     <hovered>
@@ -297,6 +304,10 @@ setprop('instrumentation/transponder/inputs/digit[1]', hiDigit);
         <command>property-toggle</command>
         <property>instrumentation/transponder/inputs/ident-btn</property>
       </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
     </action>
     <hovered>
       <binding>
@@ -321,6 +332,10 @@ setprop('instrumentation/transponder/inputs/digit[1]', hiDigit);
         <property>instrumentation/transponder/id-code</property>
         <value>1200</value>
       </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
     </action>
     <hovered>
       <binding>
@@ -341,6 +356,10 @@ setprop('instrumentation/transponder/inputs/digit[1]', hiDigit);
       <binding>
         <command>property-toggle</command>
         <property>instrumentation/tdr-94/mem-selected</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
       </binding>
     </action>
     <hovered>
@@ -378,6 +397,10 @@ setprop('instrumentation/transponder/inputs/digit[1]', hiDigit);
           <property>instrumentation/tdr-94/saved-mode</property>
         </binding>
       </mod-up>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
     </action>
     <hovered>
       <binding>

@@ -110,6 +110,8 @@ var do_ground_equipment = func(value) {
     setprop('/sim/model/ground-equipment-e', value);
     setprop('/sim/model/ground-equipment-g', value);
     setprop('/sim/model/ground-equipment-s', value);
+    setprop('/sim/model/ground-equipment-p', value);
+    setprop('/sim/model/ground-equipment-f', value);
 }
 var do_comm0 = func(value) { # 0/1
     printf("  comm0");

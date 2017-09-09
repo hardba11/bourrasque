@@ -25,7 +25,7 @@ changelog
     <description type="string">Bourrasque</description>
 
     <author type="string">hardball SLK</author>
-    <aircraft-version type="string">2017-08-06</aircraft-version>
+    <aircraft-version type="string">2017-09-07</aircraft-version>
     <status>alpha</status>
     <tags>
       <tag>jet</tag>

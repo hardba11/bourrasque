@@ -221,6 +221,10 @@ Syd Adams
         <property>instrumentation/adf[0]/mode</property>
         <value>tone</value>
       </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
     </action>
     <hovered>
       <binding>
@@ -300,6 +304,10 @@ Syd Adams
         <command>property-assign</command>
         <property>instrumentation/adf[0]/mode</property>
         <value>tone</value>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
       </binding>
     </action>
   </animation>
@@ -702,6 +710,10 @@ Syd Adams
         <command>property-swap</command>
         <property>instrumentation/adf[0]/frequencies/selected-khz</property>
         <property>instrumentation/adf[0]/frequencies/standby-khz</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
       </binding>
     </action>
     <hovered>

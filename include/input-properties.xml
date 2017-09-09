@@ -429,7 +429,7 @@ ________________________________________________________________________________
   -->
       <x-axis>
         <!-- no buttons pressed: control ailerons -->
-        <binding>
+        <binding n="0">
           <condition>
             <and>
               <not><property>/devices/status/mice/mouse[0]/button[0]</property></not>
@@ -445,9 +445,9 @@ ________________________________________________________________________________
         </binding>
 
         <!-- 2nd binding has to be void to disable default conditions -->
-        <binding>
-          <condition />
-          <command />
+        <binding n="1">
+          <condition n="0" />
+          <command>nasal</command>
           <property />
           <factor />
           <min />
@@ -456,7 +456,7 @@ ________________________________________________________________________________
         </binding>
 
         <!-- left or middle button pressed : control rudder -->
-        <binding>
+        <binding n="2">
           <condition>
             <or>
               <property>/devices/status/mice/mouse[0]/button[0]</property>

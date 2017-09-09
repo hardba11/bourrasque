@@ -164,6 +164,10 @@ Syd Adams
         <command>property-toggle</command>
         <property>instrumentation/nav[0]/serviceable</property>
       </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
     </action>
     <hovered>
       <binding>
@@ -558,6 +562,10 @@ Syd Adams
         <command>property-swap</command>
         <property>instrumentation/nav[0]/frequencies/selected-mhz</property>
         <property>instrumentation/nav[0]/frequencies/standby-mhz</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
       </binding>
     </action>
     <hovered>

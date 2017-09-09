@@ -26,7 +26,7 @@ changelog
     <variant-of type="string">bourrasque</variant-of>
 
     <author type="string">hardball SLK</author>
-    <aircraft-version type="string">2017-08-06</aircraft-version>
+    <aircraft-version type="string">2017-09-07</aircraft-version>
     <status>alpha</status>
     <tags>
       <tag>jet</tag>
@@ -180,6 +180,9 @@ changelog
     <instrument_fuel_canvas>
       <file type="string">instruments/fuel/fuel_canvas.nas</file>
     </instrument_fuel_canvas>
+    <instrument_chrono>
+      <file type="string">instruments/chrono/chrono.nas</file>
+    </instrument_chrono>
 
     <fdm>
       <file type="string">fdm/systems.nas</file>

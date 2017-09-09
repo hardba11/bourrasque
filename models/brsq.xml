@@ -299,6 +299,17 @@ livery_update.stop();
     </offsets>
   </model>
 
+  <!-- ~~~~~~~~~~~~~~~~~~ engine smoke -->
+  <model>
+    <name>engines smoke</name>
+    <path>Aircraft/bourrasque/models/effects/smoke/smoke.xml</path>
+    <offsets>
+      <x-m>10</x-m>
+      <y-m>0</y-m>
+      <z-m>0.35</z-m>
+    </offsets>
+  </model>
+
   <!-- ~~~~~~~~~~~~~~~~~~ high G load vortex -->
   <model>
     <name>left load</name>
