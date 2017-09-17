@@ -52,7 +52,6 @@ ________________________________________________________________________________
     <type>select</type>
     <object-name>light_nav_green</object-name>
     <condition>
-      <!--property>controls/lighting/nav-lights</property-->
       <and>
         <property>sim/multiplay/generic/int[1]</property>
         <property>sim/multiplay/generic/int[7]</property>
@@ -78,7 +77,6 @@ ________________________________________________________________________________
     <type>select</type>
     <object-name>light_nav_red</object-name>
     <condition>
-      <!--property>controls/lighting/nav-lights</property-->
       <and>
         <property>sim/multiplay/generic/int[1]</property>
         <property>sim/multiplay/generic/int[7]</property>
@@ -127,14 +125,10 @@ ________________________________________________________________________________
     <type>select</type>
     <object-name>light_anticoll</object-name>
     <condition>
-      <property>controls/lighting/beacon</property>
-    </condition>
-  </animation>
-  <animation>
-    <type>select</type>
-    <object-name>light_anticoll</object-name>
-    <condition>
-      <property>controls/lighting/beacon</property>
+      <and>
+        <property>controls/lighting/beacon</property>
+        <property>sim/multiplay/generic/int[7]</property>
+      </and>
     </condition>
   </animation>
 
@@ -161,7 +155,10 @@ ________________________________________________________________________________
     <type>select</type>
     <object-name>light_strobe</object-name>
     <condition>
-      <property>controls/lighting/strobe</property>
+      <and>
+        <property>controls/lighting/strobe</property>
+        <property>sim/multiplay/generic/int[7]</property>
+      </and>
     </condition>
   </animation>
 

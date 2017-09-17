@@ -133,6 +133,16 @@ changelog
 
   </sim>
 
+  <!-- smoke touchdown, data updated by bourrasque.nas -->
+  <gear>
+    <gear n="1">
+      <tyre-smoke type="bool">0</tyre-smoke>
+    </gear>
+    <gear n="2">
+      <tyre-smoke type="bool">0</tyre-smoke>
+    </gear>
+  </gear>
+
   <!--
 ================================================================================
                                                                 OTHER PROPERTIES

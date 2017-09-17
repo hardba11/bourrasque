@@ -391,5 +391,27 @@ livery_update.stop();
     </offsets>
   </model>
 
+  <!-- ~~~~~~~~~~~~~~~~~~ smoke touchdown effects -->
+
+  <!-- left gear -->
+  <model>
+    <path>Aircraft/bourrasque/models/effects/touchdown/touchdown_gear1.xml</path>
+    <offsets>
+      <x-m type="float">2.5</x-m>
+      <y-m type="float">-1.7</y-m>
+      <z-m type="float">-1</z-m>
+    </offsets>
+  </model>
+
+  <!-- right gear -->
+  <model>
+    <path>Aircraft/bourrasque/models/effects/touchdown/touchdown_gear2.xml</path>
+    <offsets>
+      <x-m type="float">2.5</x-m>
+      <y-m type="float">1.7</y-m>
+      <z-m type="float">-1</z-m>
+    </offsets>
+  </model>
+
 </PropertyList>
 

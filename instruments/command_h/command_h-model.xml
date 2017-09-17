@@ -127,7 +127,7 @@ changelog
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>tooltip-command-h-hud-red</tooltip-id>
-        <label>Toggle hud color</label>
+        <label>Toggle hud color (h)</label>
       </binding>
     </hovered>
   </animation>
