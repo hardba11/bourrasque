@@ -85,6 +85,9 @@ changelog
 
     </model>
 
+    <!-- ~~~~~~~~~~~~~~~~~~ flight recorder -->
+    <flight-recorder include="include/sim-flight-recorder.xml" />
+
     <!-- ~~~~~~~~~~~~~~~~~~ sound -->
     <sound>
       <path type="string">sounds/sounds.xml</path>
@@ -109,6 +112,8 @@ changelog
       <splash-texture>contrib/splash-15.png</splash-texture>
       <splash-texture>contrib/splash-16.png</splash-texture>
       <splash-texture>contrib/splash-17.png</splash-texture>
+
+      <splash-title>loading brsq ...</splash-title>
     </startup>
     <fuel-fraction>0.1</fuel-fraction>
     <virtual-cockpit archive="y">true</virtual-cockpit>

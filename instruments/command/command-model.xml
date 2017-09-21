@@ -119,7 +119,7 @@ changelog
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>tooltip-command-gears</tooltip-id>
-        <label>Gears</label>
+        <label>Gears (g/G)</label>
       </binding>
     </hovered>
   </animation>
@@ -237,7 +237,7 @@ changelog
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>tooltip-command-parkbrake</tooltip-id>
-        <label>Parking brakes</label>
+        <label>Parking brakes (B)</label>
       </binding>
     </hovered>
   </animation>
@@ -304,7 +304,7 @@ changelog
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>tooltip-command-canopy</tooltip-id>
-        <label>Canopy</label>
+        <label>Canopy (c)</label>
       </binding>
     </hovered>
   </animation>
@@ -329,6 +329,99 @@ changelog
       <y>0</y>
       <z>1</z>
     </axis>
+  </animation>
+
+  <!--
+================================================================================
+                                                                        TEXT OSG
+================================================================================
+  -->
+  <text>
+    <name>textosg1</name>
+    <type type="string">literal</type>
+    <text type="string">parking brake</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.016</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>yz-plane</axis-alignment>
+    <max-height>0.06</max-height>
+    <max-width>0.08</max-width>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+      <x-m>.02</x-m>
+      <y-m>0</y-m>
+      <z-m>-.04</z-m>
+    </offsets>
+  </text>
+  <text>
+    <name>textosg2</name>
+    <type type="string">literal</type>
+    <text type="string">canopy</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.016</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>yz-plane</axis-alignment>
+    <max-height>0.06</max-height>
+    <max-width>0.08</max-width>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+      <x-m>.02</x-m>
+      <y-m>-.04</y-m>
+      <z-m>.02</z-m>
+    </offsets>
+  </text>
+  <text>
+    <name>textosg3</name>
+    <type type="string">literal</type>
+    <text type="string">gears</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.016</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>yz-plane</axis-alignment>
+    <max-height>0.06</max-height>
+    <max-width>0.08</max-width>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+      <x-m>.02</x-m>
+      <y-m>.05</y-m>
+      <z-m>.05</z-m>
+    </offsets>
+  </text>
+
+  <animation>
+    <type>material</type>
+    <object-name>textosg1</object-name>
+    <object-name>textosg2</object-name>
+    <object-name>textosg3</object-name>
+    <emission>
+      <red>0.2</red>
+      <green>1</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>select</type>
+    <object-name>textosg1</object-name>
+    <object-name>textosg2</object-name>
+    <object-name>textosg3</object-name>
+    <condition>
+      <property>sim/panel-hotspots</property>
+    </condition>
   </animation>
 
 </PropertyList>
