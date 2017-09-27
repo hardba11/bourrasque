@@ -145,6 +145,10 @@ Syd Adams
         <value>4</value>
         <value>5</value>
       </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
     </action>
     <property>instrumentation/transponder/inputs/knob-mode</property>
     <interpolation>

@@ -583,7 +583,7 @@ changelog
     <width>36</width>
     <height>10</height>
     <input>
-      <property>position/altitude-ft</property>
+      <property>/instrumentation/altimeter/indicated-altitude-ft</property>
     </input>
     <format>%6.0fft</format>
     <halign>right</halign>
@@ -613,7 +613,7 @@ changelog
     <width>36</width>
     <height>10</height>
     <input>
-      <property>position/altitude-ft</property>
+      <property>/instrumentation/altimeter/indicated-altitude-ft</property>
     </input>
     <format>%6.0fft</format>
     <halign>right</halign>

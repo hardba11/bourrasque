@@ -10,19 +10,21 @@
     <lighting>false</lighting>
     <pass>true</pass>
 
-    <!--offsets>
-      <x-m>0</x-m>
-      <y-m>0</y-m>
-      <z-m>0</z-m>
-      <pitch-deg>90</pitch-deg>
-      <roll-deg>90</roll-deg>
-    </offsets-->
-    
     <condition>
-      <greater-than>
-        <property>velocities/airspeed-kt</property>
-        <value>40</value>
-      </greater-than>
+      <and>
+        <greater-than>
+          <property>velocities/airspeed-kt</property>
+          <value>40</value>
+        </greater-than>
+        <less-than>
+          <property>velocities/airspeed-kt</property>
+          <value>400</value>
+        </less-than>
+        <less-than>
+          <property>/position/altitude-ft</property>
+          <value>19000</value>
+        </less-than>
+      </and>
     </condition>
     
     <attach>world</attach>
@@ -32,7 +34,7 @@
     </placer>
     
     <shooter>
-      <theta-min-deg>45</theta-min-deg> <!-- horiz angle : todo decaler vers l'exterieur -->
+      <theta-min-deg>45</theta-min-deg>
       <theta-max-deg>85</theta-max-deg>
       <phi-min-deg>-60</phi-min-deg>
       <phi-max-deg> 60</phi-max-deg>

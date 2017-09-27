@@ -84,7 +84,7 @@ var event_click_et_knob = func()
 
     # mod 2 (not 3) because we only allow position 0 or 1 to avoid
     # making mistake with reset (position 2)
-    et_no = math.mod(et_no + 1, 2); 
+    et_no = math.mod(et_no + 1, 2);
     setprop('/instrumentation/my_aircraft/chrono/controls/et-knob', et_no);
 
     if(et_no == 0)

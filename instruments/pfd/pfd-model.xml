@@ -358,7 +358,7 @@ ________________________________________________________________________________
     <object-name>altladder</object-name>
     <transform>
       <subtype>textranslate</subtype>
-      <property>/position/altitude-ft</property>
+      <property>/instrumentation/altimeter/indicated-altitude-ft</property>
       <interpolation>
         <entry><ind>0.0</ind><dep>0.0</dep></entry>
         <entry><ind>5000.000</ind><dep>0.7570</dep></entry>
@@ -394,7 +394,7 @@ ________________________________________________________________________________
     </transform>
     <transform>
       <subtype>textranslate</subtype>
-      <property>/position/altitude-ft</property>
+      <property>/instrumentation/altimeter/indicated-altitude-ft</property>
       <interpolation>
         <entry><ind>0.0</ind><dep>0.000</dep></entry>
         <entry><ind>5000.000</ind><dep>0.000</dep></entry>
@@ -434,7 +434,7 @@ ________________________________________________________________________________
   <animation>
     <type>textranslate</type>
     <object-name>alt.d1</object-name>
-    <property>/position/altitude-ft</property>
+    <property>/instrumentation/altimeter/indicated-altitude-ft</property>
     <factor>0.00001</factor>
     <step>10000</step>
     <bias>0.5</bias>
@@ -449,7 +449,7 @@ ________________________________________________________________________________
   <animation>
     <type>textranslate</type>
     <object-name>alt.d2</object-name>
-    <property>/position/altitude-ft</property>
+    <property>/instrumentation/altimeter/indicated-altitude-ft</property>
     <factor>0.0001</factor>
     <step>1000</step>
     <bias>0.5</bias>
@@ -464,7 +464,7 @@ ________________________________________________________________________________
   <animation>
     <type>textranslate</type>
     <object-name>alt.d3</object-name>
-    <property>/position/altitude-ft</property>
+    <property>/instrumentation/altimeter/indicated-altitude-ft</property>
     <factor>0.001</factor>
     <step>100</step>
     <bias>0.5</bias>
@@ -479,7 +479,7 @@ ________________________________________________________________________________
   <animation>
     <type>textranslate</type>
     <object-name>alt.d4</object-name>
-    <property>/position/altitude-ft</property>
+    <property>/instrumentation/altimeter/indicated-altitude-ft</property>
     <factor>0.01</factor>
     <bias>0.5</bias>
     <axis>

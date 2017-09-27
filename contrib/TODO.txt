@@ -53,7 +53,7 @@ Roadmap and releases
 | 
 | shadows effects [DONE : 5/5]
 | 
-| smoke effects (engines and touchdown)
+| smoke effects (engines and touchdown) [DONE : 5/5]
 | 
 | rain effects (raindrops, textures and particles) [DONE : 5/5]
 | 

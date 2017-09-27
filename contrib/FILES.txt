@@ -38,7 +38,6 @@ bourrasque-set.xml
  |    |    |    `-- models/cockpit/texture_commands.png
  |    |    |-- instruments/adf/ctl62-model.xml
  |    |    |    |-- models/effects/interior/interior-flashlight.eff
- |    |    |    |-- Effects/model-transparent.eff
  |    |    |    `-- instruments/adf/ctl62.ac
  |    |    |         `-- instruments/adf/ctl-62.png
  |    |    |-- instruments/aoa/aoa-model.xml
@@ -50,15 +49,14 @@ bourrasque-set.xml
  |    |    |-- instruments/chrono/chrono-model.xml
  |    |    |    |-- models/effects/interior/interior-flashlight.eff
  |    |    |    `-- instruments/chrono/instrument_chrono.ac
+ |    |    |         |-- instruments/chrono/texture_instrument_chrono-emit.png
  |    |    |         `-- instruments/chrono/texture_instrument_chrono.png
  |    |    |-- instruments/com/ctl22-model1.xml
  |    |    |    |-- models/effects/interior/interior-flashlight.eff
- |    |    |    |-- Effects/model-transparent.eff
  |    |    |    `-- instruments/com/ctl22.ac
  |    |    |         `-- instruments/com/ctl-22.png
  |    |    |-- instruments/com/ctl22-model2.xml
  |    |    |    |-- models/effects/interior/interior-flashlight.eff
- |    |    |    |-- Effects/model-transparent.eff
  |    |    |    `-- instruments/com/ctl22.ac
  |    |    |         `-- instruments/com/ctl-22.png
  |    |    |-- instruments/command/command-model.xml
@@ -69,7 +67,6 @@ bourrasque-set.xml
  |    |    |         `-- instruments/command/texture_instrument_command.png
  |    |    |-- instruments/command_h/command_h-model.xml
  |    |    |    |-- models/effects/interior/interior-flashlight.eff
- |    |    |    |-- Effects/model-transparent.eff
  |    |    |    `-- instruments/command_h/instrument_command_h.ac
  |    |    |         |-- instruments/command_h/texture_instrument_command_h-emit.png
  |    |    |         `-- instruments/command_h/texture_instrument_command_h.png
@@ -92,7 +89,6 @@ bourrasque-set.xml
  |    |    |         |-- instruments/engines/texture_instrument_engines-emit.png
  |    |    |         `-- instruments/engines/texture_instrument_engines.png
  |    |    |-- instruments/fuel/fuel-model.xml
- |    |    |    |-- Effects/model-transparent.eff
  |    |    |    |-- models/effects/interior/interior-flashlight.eff
  |    |    |    `-- instruments/fuel/instrument_fuel.ac
  |    |    |         |-- instruments/fuel/texture_instrument_fuel.png
@@ -113,12 +109,10 @@ bourrasque-set.xml
  |    |    |         `-- instruments/magcompass/magcompass.png
  |    |    |-- instruments/nav/ctl32-model1.xml
  |    |    |    |-- models/effects/interior/interior-flashlight.eff
- |    |    |    |-- Effects/model-transparent.eff
  |    |    |    `-- instruments/nav/ctl32.ac
  |    |    |         `-- instruments/nav/ctl-32.png
  |    |    |-- instruments/nav/ctl32-model2.xml
  |    |    |    |-- models/effects/interior/interior-flashlight.eff
- |    |    |    |-- Effects/model-transparent.eff
  |    |    |    `-- instruments/nav/ctl32.ac
  |    |    |         `-- instruments/nav/ctl-32.png
  |    |    |-- instruments/nd/nd-model.xml
@@ -170,7 +164,6 @@ bourrasque-set.xml
  |    |    |         `-- instruments/stdby-hsi/texture_instrument_hsi.png
  |    |    `-- instruments/transponder/ctl92-model.xml
  |    |         |-- models/effects/interior/interior-flashlight.eff
- |    |         |-- Effects/model-transparent.eff
  |    |         `-- instruments/transponder/ctl92.ac
  |    |              `-- instruments/transponder/ctl-92.png
  |    |-- models/effects/contrail/contrail.xml
@@ -200,7 +193,10 @@ bourrasque-set.xml
  |    |-- models/effects/shadow/3d-shadow.xml
  |    |    |-- models/effects/shadow/3d-shadow.ac
  |    |    `-- Effects/shadow-vol.eff
+ |    |-- models/effects/smoke/smoke.xml
  |    |-- models/effects/tiptrail/tiptrail.xml
+ |    |-- models/effects/touchdown/touchdown_gear1.xml
+ |    |-- models/effects/touchdown/touchdown_gear2.xml
  |    |-- models/engine/engine0-model.xml
  |    |    |-- Effects/model-transparent.eff
  |    |    `-- models/engine/engine.ac
@@ -271,6 +267,17 @@ bourrasque-set.xml
  |    |-- include/../instruments/magcompass/magcompass-properties.xml
  |    |-- include/../instruments/nd/nd-properties.xml
  |    `-- include/../instruments/pfd/pfd-properties.xml
+ |-- include/sim-flight-recorder.xml
+ |    `-- /Aircraft/Generic/flightrecorder/generic-jet.xml
+ |         |-- /Aircraft/Generic/flightrecorder/components/controls.xml
+ |         |-- /Aircraft/Generic/flightrecorder/components/engine-jet.xml
+ |         |-- /Aircraft/Generic/flightrecorder/components/environment.xml
+ |         |-- /Aircraft/Generic/flightrecorder/components/faults-engines.xml
+ |         |-- /Aircraft/Generic/flightrecorder/components/gear-retractable.xml
+ |         |    `-- /Aircraft/Generic/flightrecorder/components/gear-fixed.xml
+ |         |-- /Aircraft/Generic/flightrecorder/components/position.xml
+ |         |-- /Aircraft/Generic/flightrecorder/components/surfaces.xml
+ |         `-- /Aircraft/Generic/flightrecorder/components/tanks.xml
  |-- include/sim-hud-properties.xml
  |    |-- instruments/hud/hud.xml
  |    `-- instruments/hud/mini-hud.xml
@@ -281,6 +288,7 @@ bourrasque-set.xml
  |-- include/sim-view102-properties.xml
  |-- include/sim-view103-properties.xml
  |-- include/systems-properties.xml
+ |-- instruments/chrono/chrono.nas
  |-- instruments/command_h/alert-filters.xml
  |-- instruments/command_h/command_h.nas
  |-- instruments/fuel/fuel_canvas.nas
@@ -378,6 +386,7 @@ all files (generated by tree)
 |   |-- environment-properties.xml
 |   |-- input-properties.xml
 |   |-- instrumentation-properties.xml
+|   |-- sim-flight-recorder.xml
 |   |-- sim-hud-properties.xml
 |   |-- sim-multiplay-properties.xml
 |   |-- sim-rendering-properties.xml
@@ -598,9 +607,16 @@ all files (generated by tree)
 |   |   |   |-- 3d-shadow-filters.xml
 |   |   |   |-- 3d-shadow.ac
 |   |   |   `-- 3d-shadow.xml
-|   |   `-- tiptrail
-|   |       |-- tiptrail.png
-|   |       `-- tiptrail.xml
+|   |   |-- smoke
+|   |   |   |-- smoke.png
+|   |   |   `-- smoke.xml
+|   |   |-- tiptrail
+|   |   |   |-- tiptrail.png
+|   |   |   `-- tiptrail.xml
+|   |   `-- touchdown
+|   |       |-- smoke.png
+|   |       |-- touchdown_gear1.xml
+|   |       `-- touchdown_gear2.xml
 |   |-- engine
 |   |   |-- engine.ac
 |   |   |-- engine0-model.xml
@@ -675,10 +691,10 @@ all files (generated by tree)
 |   |-- sounds.xml
 |   |-- touchdown.wav
 |   `-- wind.wav
-|-- thumbnail.jpg
-`-- tutorials
+`-- thumbnail.jpg
 
-54 directories, 304 files
+55 directories, 310 files
+
 
 
 

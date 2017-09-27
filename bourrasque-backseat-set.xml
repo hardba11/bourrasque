@@ -26,7 +26,7 @@ changelog
     <variant-of type="string">bourrasque</variant-of>
 
     <author type="string">hardball SLK</author>
-    <aircraft-version type="string">2017-09-07</aircraft-version>
+    <aircraft-version type="string">2017-09-26</aircraft-version>
     <status>alpha</status>
     <tags>
       <tag>jet</tag>
@@ -101,6 +101,8 @@ changelog
       <splash-texture>contrib/splash-15.png</splash-texture>
       <splash-texture>contrib/splash-16.png</splash-texture>
       <splash-texture>contrib/splash-17.png</splash-texture>
+
+      <splash-title>loading brsq ...</splash-title>
     </startup>
     <virtual-cockpit archive="y">true</virtual-cockpit>
     <allow-toggle-cockpit archive="y">true</allow-toggle-cockpit>
@@ -149,7 +151,19 @@ changelog
 ================================================================================
   -->
 
+  <systems />
+
+  <engines />
+
+  <input />
+
   <controls />
+
+  <instrumentation />
+
+  <autopilot />
+
+  <environment />
 
   <!--
 ================================================================================
