@@ -814,7 +814,7 @@ ________________________________________________________________________________
 
   <!-- ~~~~~~~~~~~~~~~~~~ copilot -->
   <model>
-    <name>pilot</name>
+    <name>copilot</name>
     <path>Aircraft/bourrasque/models/pilot/copilot.xml</path>
     <offsets>
       <x-m type="float">1.45</x-m>

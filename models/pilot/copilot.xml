@@ -119,6 +119,10 @@ ________________________________________________________________________________
     <condition>
       <not-equals>
         <property>/sim/current-view/view-number</property>
+        <value>0</value>
+      </not-equals>
+      <not-equals>
+        <property>/sim/current-view/view-number</property>
         <value>8</value>
       </not-equals>
     </condition>
@@ -129,6 +133,28 @@ ________________________________________________________________________________
     <object-name>bloc_pilote</object-name>
     <type>select</type>
     <condition>
+      <or>
+        <not-equals>
+          <property>/sim/current-view/view-number</property>
+          <value>0</value>
+        </not-equals>
+        <and>
+          <equals>
+            <property>/sim/current-view/view-number</property>
+            <value>0</value>
+          </equals>
+          <or>
+            <less-than>
+              <property>/sim/current-view/heading-offset-deg</property>
+              <value>60</value>
+            </less-than>
+            <greater-than>
+              <property>/sim/current-view/heading-offset-deg</property>
+              <value>300</value>
+            </greater-than>
+          </or>
+        </and>
+      </or>
       <or>
         <not-equals>
           <property>/sim/current-view/view-number</property>
