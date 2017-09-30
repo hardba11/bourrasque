@@ -60,10 +60,9 @@ var _list = setlistener("sim/signals/fdm-initialized", func() {
 
 var nd = func()
 {
-    # simplier to animate with integer wheras string
+    # simplier to animate with integer than string
     var nd_display_mode = ['APP', 'VOR', 'MAP', 'PLAN'];
     setprop('instrumentation/my_aircraft/nd/inputs/display-mode', nd_display_mode[getprop('instrumentation/my_aircraft/nd/inputs/display-mode-num')]);
-
     settimer(nd, 0.5);
 }
 

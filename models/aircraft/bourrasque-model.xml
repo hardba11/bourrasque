@@ -30,6 +30,7 @@ changelog
     <object-name>accessoires_et_capteurs</object-name>
     <object-name>pare_brise_int</object-name>
     <object-name>pare_brise</object-name>
+    <object-name>perche_ravitaillement</object-name>
     <!-- ~~~~~~~~~~~~~~~~~~ mobiles parts - gouvernes -->
     <object-name>aileron_L</object-name>
     <object-name>aileron_R</object-name>
@@ -68,6 +69,7 @@ changelog
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/aircraft/aircraft</inherits-from>
     <object-name>fuselage</object-name>
+    <object-name>perche_ravitaillement</object-name>
     <object-name>accessoires_et_capteurs</object-name>
     <object-name>aileron_L</object-name>
     <object-name>aileron_R</object-name>
@@ -91,6 +93,7 @@ changelog
   <animation>
     <type>material</type>
     <object-name>fuselage</object-name>
+    <object-name>perche_ravitaillement</object-name>
     <object-name>accessoires_et_capteurs</object-name>
     <object-name>aileron_L</object-name>
     <object-name>aileron_R</object-name>
@@ -595,6 +598,19 @@ ________________________________________________________________________________
       <z>0.14</z>
     </axis>
   </animation>
+
+  <!--
+________________________________________________________________________________
+                                                                 REFUELING PROBE
+  -->
+  <animation>
+    <type>select</type>
+    <object-name>perche_ravitaillement</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[12]</property>
+    </condition>
+  </animation>
+
 
 </PropertyList>
 

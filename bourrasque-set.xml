@@ -270,6 +270,10 @@ changelog
       <file>Aircraft/bourrasque/models/aircraft/select_liveries.nas</file>
     </liveries>
 
+    <aar>
+      <file>Aircraft/Generic/aar.nas</file>
+    </aar>
+
     <formation>
       <file>Aircraft/Generic/formation.nas</file>
     </formation>

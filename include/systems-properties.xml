@@ -23,6 +23,15 @@ changelog
     </bus>
   </electrical>
 
+  <refuel>
+    <type>probe</type>
+    <serviceable type="bool">0</serviceable>
+    <max-fuel-transfer-lbs-min>6000</max-fuel-transfer-lbs-min>
+    <offset-x-m>-5.9</offset-x-m>
+    <offset-y-m>.4</offset-y-m>
+    <offset-z-m>1</offset-z-m>
+  </refuel>
+
   <!-- USED FOR TUNNING WITHOUT RESTARTING fcm.nas
   <fcm>
     <reduction_of_efficiency_for_speed type="float">2.7</reduction_of_efficiency_for_speed>

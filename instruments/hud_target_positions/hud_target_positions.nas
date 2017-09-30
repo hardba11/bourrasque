@@ -150,14 +150,21 @@ var HUD = {
             {
                 var list_mp_obj    = props.globals.getNode("/ai/models").getChildren("aircraft");
             }
-            var targets_datas  = [];
+            var list_obj = props.globals.getNode("/ai/models").getChildren("tanker");
 
+            # ajout des objets target aux objets tanker
             for(var i = 0; i < size(list_mp_obj); i += 1)
             {
-                var target_bearing_deg = list_mp_obj[i].getNode("radar/bearing-deg").getValue() or 0;
-                var target_callsign    = list_mp_obj[i].getNode("callsign").getValue() or 0;
-                var target_in_range    = list_mp_obj[i].getNode("radar/in-range").getValue() or 0;
-                var is_valid           = list_mp_obj[i].getNode("valid").getValue() or 0;
+                append(list_obj, list_mp_obj[i]);
+            }
+
+            var targets_datas  = [];
+            for(var i = 0; i < size(list_obj); i += 1)
+            {
+                var target_bearing_deg = list_obj[i].getNode("radar/bearing-deg").getValue() or 0;
+                var target_callsign    = list_obj[i].getNode("callsign").getValue() or 0;
+                var target_in_range    = list_obj[i].getNode("radar/in-range").getValue() or 0;
+                var is_valid           = list_obj[i].getNode("valid").getValue() or 0;
 
                 if(target_in_range
                     and is_valid
@@ -165,11 +172,11 @@ var HUD = {
                 {
                     var target_data = {};
 
-                    var target_elevation_deg         = list_mp_obj[i].getNode("radar/elevation-deg").getValue() or 0;
-                    var target_heading_deg           = list_mp_obj[i].getNode("orientation/true-heading-deg").getValue() or 0;
-                    var target_altitude              = list_mp_obj[i].getNode("position/altitude-ft").getValue() or 0;
-                    var target_airspeed              = list_mp_obj[i].getNode("velocities/true-airspeed-kt").getValue() or 0;
-                    var target_range                 = list_mp_obj[i].getNode("radar/range-nm").getValue() or 0;
+                    var target_elevation_deg         = list_obj[i].getNode("radar/elevation-deg").getValue() or 0;
+                    var target_heading_deg           = list_obj[i].getNode("orientation/true-heading-deg").getValue() or 0;
+                    var target_altitude              = list_obj[i].getNode("position/altitude-ft").getValue() or 0;
+                    var target_airspeed              = list_obj[i].getNode("velocities/true-airspeed-kt").getValue() or 0;
+                    var target_range                 = list_obj[i].getNode("radar/range-nm").getValue() or 0;
 
                     var relative_bearing_deg         = target_bearing_deg + my_heading_deg;
                     var bearing_deg                  = target_bearing_deg - my_heading_deg;

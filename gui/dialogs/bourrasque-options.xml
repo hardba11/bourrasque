@@ -243,51 +243,42 @@ fdm.fast_start();
 
   <hrule />
 
-  <!-- ~~~~~~~~~~~~~~~~~~ tanks -->
+  <!-- ~~~~~~~~~~~~~~~~~~ probe and tanks -->
   <group>
     <layout>table</layout>
     <halign>left</halign>
     <text>
       <row>0</row><col>0</col>
-      <label>wing tanks</label>
+      <label>refueling probe</label>
     </text>
     <button>
       <row>0</row><col>1</col>
       <legend>none</legend>
       <binding>
         <command>property-assign</command>
-        <property>/sim/model/wing-tanks</property>
-        <value>none</value>
+        <property>/systems/refuel/serviceable</property>
+        <value>0</value>
       </binding>
     </button>
     <button>
       <row>0</row><col>2</col>
-      <legend>1250 l</legend>
+      <legend>enabled</legend>
       <binding>
         <command>property-assign</command>
-        <property>/sim/model/wing-tanks</property>
-        <value>tank1250L</value>
-      </binding>
-    </button>
-    <button>
-      <row>0</row><col>3</col>
-      <legend>2000 l</legend>
-      <binding>
-        <command>property-assign</command>
-        <property>/sim/model/wing-tanks</property>
-        <value>tank2000L</value>
+        <property>/systems/refuel/serviceable</property>
+        <value>1</value>
       </binding>
     </button>
     <text>
       <row>1</row><col>0</col>
-      <label>center tank</label>
+      <label>wing tanks</label>
     </text>
     <button>
       <row>1</row><col>1</col>
       <legend>none</legend>
       <binding>
         <command>property-assign</command>
-        <property>/sim/model/center-tank</property>
+        <property>/sim/model/wing-tanks</property>
         <value>none</value>
       </binding>
     </button>
@@ -296,12 +287,43 @@ fdm.fast_start();
       <legend>1250 l</legend>
       <binding>
         <command>property-assign</command>
-        <property>/sim/model/center-tank</property>
+        <property>/sim/model/wing-tanks</property>
         <value>tank1250L</value>
       </binding>
     </button>
     <button>
       <row>1</row><col>3</col>
+      <legend>2000 l</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/wing-tanks</property>
+        <value>tank2000L</value>
+      </binding>
+    </button>
+    <text>
+      <row>2</row><col>0</col>
+      <label>center tank</label>
+    </text>
+    <button>
+      <row>2</row><col>1</col>
+      <legend>none</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/center-tank</property>
+        <value>none</value>
+      </binding>
+    </button>
+    <button>
+      <row>2</row><col>2</col>
+      <legend>1250 l</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/center-tank</property>
+        <value>tank1250L</value>
+      </binding>
+    </button>
+    <button>
+      <row>2</row><col>3</col>
       <legend>2000 l</legend>
       <binding>
         <command>property-assign</command>
@@ -387,6 +409,7 @@ fdm.fast_start();
     </checkbox>
     <text>
       <row>0</row><col>2</col>
+      <halign>left</halign>
       <label>show targets positions</label>
     </text>
     <checkbox>
@@ -403,7 +426,8 @@ fdm.fast_start();
     </checkbox>
     <text>
       <row>1</row><col>2</col>
-      <label>multiplayers shown (AI)</label>
+      <halign>left</halign>
+      <label>show multiplayers targets (AI if unchecked)</label>
     </text>
   </group>
 

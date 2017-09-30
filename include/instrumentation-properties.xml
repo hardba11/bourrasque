@@ -54,6 +54,7 @@ changelog
 
   <radar>
     <range type="int">60</range>
+    <minimized type="bool">0</minimized>
 
     <!-- http://wiki.flightgear.org/index.php/TCAS -->
     <display-controls>

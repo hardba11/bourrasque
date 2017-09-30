@@ -28,6 +28,7 @@ PROPERTY-PATH : PropertyList > sim > multiplay
     <int                  n="9"  alias="/engines/engine[1]/stopped" />
     <int                  n="10" alias="/controls/pax/pilot" />
     <int                  n="11" alias="/controls/pax/copilot" />
+    <int                  n="12" alias="/systems/refuel/serviceable" />
 
     <float                n="0"  alias="/sim/model/canopy-pos-norm" />
     <float                n="1"  alias="/sim/model/canards-pos-norm" />
