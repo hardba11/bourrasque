@@ -38,6 +38,7 @@ var DC2DF = func(DC)
     return (DC * 1.8) + 32;
 }
 
+
 #===============================================================================
 #                                                                 VIEW ANIMATION
 var current_fov = 0;
@@ -121,6 +122,7 @@ var view_panel_radio = func() {
 
 #===============================================================================
 #                                                                         INPUTS
+# used in include/input-properties.xml
 
 var throttle_mouse = func() {
     # throttle only if center mouse button pressed
@@ -227,7 +229,6 @@ var set_mod = func(current_mod) {
 var reload_fx = func() {
     fgcommand("reinit", props.Node.new({ subsystem: "sound" }));
 }
-
 
 var check_source_aliases = func() {
     var list_of_properties = [

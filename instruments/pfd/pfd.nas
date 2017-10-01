@@ -20,7 +20,7 @@ var event_click_hold_autopilot = func()
     setprop('/instrumentation/my_aircraft/pfd/controls/hold-blink', 1);
 
     # set AP altitude as curent altitude
-    var curr_alt = getprop('/position/altitude-ft') or 5000;
+    var curr_alt = getprop('/instrumentation/altimeter/indicated-altitude-ft') or 5000;
     setprop('/autopilot/settings/target-altitude-ft', curr_alt);
 
     # set AP speed as curent speed
@@ -38,9 +38,9 @@ var event_click_hold_autopilot = func()
     setprop('/autopilot/locks/speed',                       'speed-with-throttle');
     setprop('/autopilot/locks/heading',                     'dg-heading-hold');
 
-    settimer(func() { setprop('/instrumentation/my_aircraft/pfd/controls/hold-blink', 0); }, 0.1);
-    settimer(func() { setprop('/instrumentation/my_aircraft/pfd/controls/hold-blink', 1); }, 0.2);
-    settimer(func() { setprop('/instrumentation/my_aircraft/pfd/controls/hold-blink', 0); }, 0.3);
+    settimer(func() { setprop('/instrumentation/my_aircraft/pfd/controls/hold-blink', 0); }, 0.2);
+    settimer(func() { setprop('/instrumentation/my_aircraft/pfd/controls/hold-blink', 1); }, 0.4);
+    settimer(func() { setprop('/instrumentation/my_aircraft/pfd/controls/hold-blink', 0); }, 0.6);
 }
 
 var event_click_disengage_autopilot = func()
@@ -52,8 +52,8 @@ var event_click_disengage_autopilot = func()
     setprop('/autopilot/locks/speed',    '');
     setprop('/autopilot/locks/heading',  '');
 
-    settimer(func() { setprop('/instrumentation/my_aircraft/pfd/controls/disengage-blink', 0); }, 0.1);
-    settimer(func() { setprop('/instrumentation/my_aircraft/pfd/controls/disengage-blink', 1); }, 0.2);
-    settimer(func() { setprop('/instrumentation/my_aircraft/pfd/controls/disengage-blink', 0); }, 0.3);
+    settimer(func() { setprop('/instrumentation/my_aircraft/pfd/controls/disengage-blink', 0); }, 0.2);
+    settimer(func() { setprop('/instrumentation/my_aircraft/pfd/controls/disengage-blink', 1); }, 0.4);
+    settimer(func() { setprop('/instrumentation/my_aircraft/pfd/controls/disengage-blink', 0); }, 0.6);
 }
 

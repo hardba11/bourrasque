@@ -35,6 +35,7 @@ Still in development but fully usable.
 - ground equipments, external stores (fuel tanks)
 - multiplayer back-seat : fly as passenger !
 - 2 wingmen AI demo
+- refuelling ability (enable in menu and see : http://wiki.flightgear.org/Howto:Aerial_refueling)
 
 ## gallery
 

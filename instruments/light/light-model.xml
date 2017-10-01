@@ -684,7 +684,7 @@ changelog
       <binding>
         <command>property-adjust</command>
         <property>/controls/lighting/instruments-norm</property>
-        <factor>.2</factor>
+        <factor>-.2</factor>
         <min>0</min>
         <max>1</max>
         <wrap>false</wrap>
@@ -700,6 +700,7 @@ changelog
       </binding>
     </hovered>
   </animation>
+
   <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation interior light -->
   <animation>
     <type>rotate</type>

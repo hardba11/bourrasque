@@ -26,7 +26,7 @@ changelog
     <variant-of type="string">bourrasque</variant-of>
 
     <author type="string">hardball SLK</author>
-    <aircraft-version type="string">2017-09-26</aircraft-version>
+    <aircraft-version type="string">2017-10-01</aircraft-version>
     <status>alpha</status>
     <tags>
       <tag>jet</tag>

@@ -225,7 +225,7 @@ ________________________________________________________________________________
     <property>surface-positions/rudder-pos-norm</property>
     <factor>.03</factor>
     <axis>
-      <x>1</x>
+      <x>-1</x>
       <y>0</y>
       <z>0</z>
     </axis>
@@ -259,7 +259,7 @@ ________________________________________________________________________________
     <property>surface-positions/rudder-pos-norm</property>
     <factor>.03</factor>
     <axis>
-      <x>-1</x>
+      <x>1</x>
       <y>0</y>
       <z>0</z>
     </axis>
