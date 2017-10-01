@@ -15,7 +15,7 @@
     <condition>
       <and>
         <greater-than>
-          <property>velocities/airspeed-kt</property>
+          <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
           <value>180</value>
         </greater-than>
         <greater-than>

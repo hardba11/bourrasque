@@ -87,10 +87,6 @@ ________________________________________________________________________________
       <name>c</name>
       <binding><command>nasal</command><script /></binding>
     </key>
-    <key n="108">
-      <name>l</name>
-      <binding><command>nasal</command><script /></binding>
-    </key>
     <key n="110">
       <name>n</name>
       <binding><command>nasal</command><script /></binding>
@@ -281,6 +277,34 @@ settimer(func() { my_aircraft_functions.load_current_view(); }, 0.5);
       <binding>
         <command>nasal</command>
         <script>fdm.toggle_autostart()</script>
+      </binding>
+    </key>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ lights (landing, pos+nav+strobe) -->
+    <key n="76">
+      <name>L</name>
+      <desc>toggle lights</desc>
+      <binding>
+        <command>nasal</command>
+        <script>my_aircraft_functions.toggle_lights()</script>
+      </binding>
+    </key>
+    <key n="108">
+      <name>l</name>
+      <desc>toggle landing lights</desc>
+      <binding>
+        <command>nasal</command>
+        <script>my_aircraft_functions.toggle_landing_lights()</script>
+      </binding>
+    </key>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ ack master caution -->
+    <key n="111">
+      <name>o</name>
+      <desc>ack master caution</desc>
+      <binding>
+        <command>nasal</command>
+        <script>my_aircraft_functions.acknowledge_master_caution()</script>
       </binding>
     </key>
 

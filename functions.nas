@@ -212,16 +212,54 @@ var set_mod = func(current_mod) {
         }
         chosen_mod_number += 1;
     }
-    setprop("/instrumentation/my_aircraft/nd/controls/mode",           SETTINGS_MODS[chosen_mod_number][I_MODE]);
-    setprop("/instrumentation/my_aircraft/nd/inputs/display-mode-num", SETTINGS_MODS[chosen_mod_number][I_DISPLAY_MODE_NUM]);
-    setprop("/instrumentation/my_aircraft/nd/inputs/nd-centered",      SETTINGS_MODS[chosen_mod_number][I_ND_CENTERED]);
-    setprop("/controls/pax/helmet",                                    SETTINGS_MODS[chosen_mod_number][I_HELMET]);
-    setprop("/controls/pax/copilot-head",                              SETTINGS_MODS[chosen_mod_number][I_COPILOT_HEAD]);
-#    setprop("/autopilot/settings/target-speed-kt",                     SETTINGS_MODS[chosen_mod_number][I_AP_SPEED]);
-#    setprop("/autopilot/settings/target-altitude-ft",                  SETTINGS_MODS[chosen_mod_number][I_AP_ALT]);
+    setprop('/instrumentation/my_aircraft/nd/controls/mode',           SETTINGS_MODS[chosen_mod_number][I_MODE]);
+    setprop('/instrumentation/my_aircraft/nd/inputs/display-mode-num', SETTINGS_MODS[chosen_mod_number][I_DISPLAY_MODE_NUM]);
+    setprop('/instrumentation/my_aircraft/nd/inputs/nd-centered',      SETTINGS_MODS[chosen_mod_number][I_ND_CENTERED]);
+    setprop('/controls/pax/helmet',                                    SETTINGS_MODS[chosen_mod_number][I_HELMET]);
+    setprop('/controls/pax/copilot-head',                              SETTINGS_MODS[chosen_mod_number][I_COPILOT_HEAD]);
+#    setprop('/autopilot/settings/target-speed-kt',                     SETTINGS_MODS[chosen_mod_number][I_AP_SPEED]);
+#    setprop('/autopilot/settings/target-altitude-ft',                  SETTINGS_MODS[chosen_mod_number][I_AP_ALT]);
     setprop('/sim/model/click', (getprop('/sim/model/click') ? 0 : 1));
 }
 
+var toggle_lights = func() {
+    var beacon = getprop('/controls/lighting/beacon') or 0;
+    var nav    = getprop('/controls/lighting/nav-lights') or 0;
+    var pos    = getprop('/controls/lighting/pos-lights') or 0;
+    var strobe = getprop('/controls/lighting/strobe') or 0;
+
+    var toggle_lights = ((beacon * nav * pos * strobe) == 0) ? 1 : 0;
+
+    setprop('/controls/lighting/beacon',     toggle_lights);
+    setprop('/controls/lighting/nav-lights', toggle_lights);
+    setprop('/controls/lighting/pos-lights', toggle_lights);
+    setprop('/controls/lighting/strobe',     toggle_lights);
+}
+
+var toggle_landing_lights = func() {
+    var taxi = getprop('/controls/lighting/taxi-light') or 0;
+
+    var toggle_lights = (taxi == 0) ? 1 : 0;
+
+    setprop('/controls/lighting/taxi-light', toggle_lights);
+}
+
+var acknowledge_master_caution = func() {
+    var is_alert = getprop('/instrumentation/my_aircraft/command_h/is_alert') or 0;
+    var is_ack = getprop('/instrumentation/my_aircraft/command_h/ack_alert') or 0;
+
+    # first click : alert remain (master caution no blinking and alert-sound disabled) :
+    if(is_alert and ! is_ack)
+    {
+        setprop('/instrumentation/my_aircraft/command_h/ack_alert', 1);
+    }
+    # second click : reinit
+    elsif(is_alert and is_ack)
+    {
+        setprop('/instrumentation/my_aircraft/command_h/is_alert', 0);
+        setprop('/instrumentation/my_aircraft/command_h/ack_alert', 0);
+    }
+}
 
 #===============================================================================
 #                                                                          TOOLS

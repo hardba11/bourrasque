@@ -339,7 +339,7 @@ ________________________________________________________________________________
           <property>/sim/current-view/internal</property>
         </not>
       </condition>
-      <property>/velocities/airspeed-kt</property>
+      <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
       <volume>
         <property>/position/altitude-ft</property>
         <factor>-0.000015</factor>
@@ -348,13 +348,13 @@ ________________________________________________________________________________
         <max>0.7</max>
       </volume>
       <volume>
-        <property>/velocities/airspeed-kt</property>
+        <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
         <factor>0.015</factor>
         <min>0.03</min>
         <max>0.55</max>
       </volume>
       <pitch>
-        <property>/velocities/airspeed-kt</property>
+        <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
         <factor>0.01</factor>
         <offset>0.75</offset>
       </pitch>
@@ -400,11 +400,11 @@ ________________________________________________________________________________
         </or>
       </condition>
       <volume>
-        <property>/velocities/airspeed-kt</property>
+        <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
         <factor>.0002</factor>
       </volume>
       <pitch>
-        <property>/velocities/airspeed-kt</property>
+        <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
         <factor>.0002</factor>
       </pitch>
     </rumble_gear_internal>

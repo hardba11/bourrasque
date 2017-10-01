@@ -15,7 +15,7 @@
       </condition>
       <expression>
         <table>
-          <property>/velocities/airspeed-kt</property>
+          <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
           <entry><ind>0</ind><dep>0.1</dep></entry>
           <entry><ind>5</ind><dep>0.9</dep></entry>
           <entry><ind>50</ind><dep>2</dep></entry>
@@ -43,7 +43,7 @@
       </condition>
       <expression>
         <table>
-          <property>/velocities/airspeed-kt</property>
+          <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
           <entry><ind>0</ind><dep>-0.8</dep></entry>
           <entry><ind>5</ind><dep>-1</dep></entry>
           <entry><ind>50</ind><dep>-2</dep></entry>
@@ -71,7 +71,7 @@
       </condition>
       <expression>
         <table>
-          <property>/velocities/airspeed-kt</property>
+          <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
           <entry><ind>0</ind><dep>0</dep></entry>
           <entry><ind>10</ind><dep>0.15</dep></entry>
           <entry><ind>50</ind><dep>0.3</dep></entry>

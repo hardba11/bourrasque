@@ -45,7 +45,7 @@ ________________________________________________________________________________
       <value>speed-with-throttle</value>
     </enable>
     <input>
-      <property>/velocities/airspeed-kt</property>
+      <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
     </input>
     <reference>
       <property>/autopilot/settings/target-speed-kt</property>

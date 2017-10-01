@@ -9,7 +9,7 @@
     <width>28</width>
     <height>8</height>
     <input>
-      <property>/velocities/airspeed-kt</property>
+      <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
     </input>
     <format>%4.0f</format>
     <box>true</box>
@@ -37,7 +37,7 @@
     <width>28</width>
     <height>8</height>
     <input>
-      <property>position/altitude-ft</property>
+      <property>/instrumentation/altimeter/indicated-altitude-ft</property>
     </input>
     <format>%6.0f</format>
     <halign>left</halign>

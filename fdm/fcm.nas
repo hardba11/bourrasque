@@ -109,7 +109,7 @@ var node_fcm_yaw          = props.globals.getNode("/controls/flight/fcm-rudder")
 var node_fcm_canard       = props.globals.getNode("/controls/flight/fcm-canard");
 var node_fcm_slat         = props.globals.getNode("/controls/flight/slats", 1);
 
-var node_airspeed         = props.globals.getNode("/velocities/airspeed-kt");
+var node_airspeed         = props.globals.getNode("/instrumentation/airspeed-indicator/true-speed-kt");
 var node_altitude         = props.globals.getNode("/instrumentation/altimeter/indicated-altitude-ft");
 var node_pitchrate        = props.globals.getNode("/orientation/pitch-rate-degps");
 var node_rollrate         = props.globals.getNode("/orientation/roll-rate-degps");

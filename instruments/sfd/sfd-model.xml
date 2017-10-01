@@ -118,7 +118,7 @@ changelog
         <command>nasal</command>
         <script>
           <![CDATA[
-instrument_sfd.event_click_acknowledge_master_caution();
+my_aircraft_functions.acknowledge_master_caution();
           ]]>
         </script>
       </binding>
@@ -131,7 +131,7 @@ instrument_sfd.event_click_acknowledge_master_caution();
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>tooltip-sfd-ack</tooltip-id>
-        <label>acknowledge master caution</label>
+        <label>acknowledge master caution (o)</label>
       </binding>
     </hovered>
   </animation>

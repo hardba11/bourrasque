@@ -654,7 +654,7 @@ ________________________________________________________________________________
     <object-name>iasladder</object-name>
     <transform>
       <subtype>textranslate</subtype>
-      <property>/velocities/airspeed-kt</property>
+      <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
       <interpolation>
         <entry><ind>0.0</ind><dep>0.0</dep></entry>
         <entry><ind>100.000</ind><dep>0.4536</dep></entry>
@@ -676,7 +676,7 @@ ________________________________________________________________________________
     </transform>
     <transform>
       <subtype>textranslate</subtype>
-      <property>/velocities/airspeed-kt</property>
+      <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
       <interpolation>
         <entry><ind>0.0</ind><dep>0.0</dep></entry>
         <entry><ind>100.000</ind><dep>0.0</dep></entry>
@@ -703,7 +703,7 @@ ________________________________________________________________________________
   <animation>
     <type>textranslate</type>
     <object-name>ias.d1000</object-name>
-    <property>/velocities/airspeed-kt</property>
+    <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
     <factor>0.0001</factor>
     <step>1000</step>
     <axis>
@@ -716,7 +716,7 @@ ________________________________________________________________________________
   <animation>
     <type>textranslate</type>
     <object-name>ias.d100</object-name>
-    <property>/velocities/airspeed-kt</property>
+    <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
     <factor>0.001</factor>
     <step>100</step>
     <axis>
@@ -730,7 +730,7 @@ ________________________________________________________________________________
   <animation>
     <type>textranslate</type>
     <object-name>ias.d10</object-name>
-    <property>/velocities/airspeed-kt</property>
+    <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
     <factor>0.01</factor>
     <step>10</step>
     <axis>
@@ -744,7 +744,7 @@ ________________________________________________________________________________
   <animation>
     <type>textranslate</type>
     <object-name>ias.d1</object-name>
-    <property>/velocities/airspeed-kt</property>
+    <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
     <factor>0.1</factor>
     <axis>
       <x>0</x>

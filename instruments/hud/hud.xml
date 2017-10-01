@@ -448,7 +448,7 @@ changelog
     <width>30</width>
     <height>8</height>
     <input>
-      <property>/velocities/airspeed-kt</property>
+      <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
     </input>
     <format>%4.0fkt</format>
     <halign>right</halign>
@@ -478,7 +478,7 @@ changelog
     <width>30</width>
     <height>8</height>
     <input>
-      <property>/velocities/airspeed-kt</property>
+      <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
     </input>
     <format>%4.0fkt</format>
     <halign>right</halign>

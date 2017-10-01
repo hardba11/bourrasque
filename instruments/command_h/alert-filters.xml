@@ -59,7 +59,7 @@
             <!-- inside, gears down and speed > 250 -->
             <property>sim/current-view/internal</property>
             <greater-than>
-              <property>/velocities/airspeed-kt</property>
+              <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
               <value>250</value>
             </greater-than>
             <equals>
@@ -73,7 +73,7 @@
             <!-- inside, gears up, ralt < 400 and speed < 250 -->
             <property>sim/current-view/internal</property>
             <less-than>
-              <property>/velocities/airspeed-kt</property>
+              <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
               <value>250</value>
             </less-than>
             <less-than>

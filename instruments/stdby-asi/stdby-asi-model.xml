@@ -30,8 +30,6 @@ changelog
     <object-name>asi.scale</object-name>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
-
   <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
   <effect>
     <inherits-from>Effects/model-transparent</inherits-from>
@@ -66,10 +64,6 @@ changelog
     </condition>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ emitting (enabled) -->
-
-  <!-- ~~~~~~~~~~~~~~~~~~ emitting (color) -->
-
   <!--
 ================================================================================
                                                          CONTROLS AND ANIMATIONS
@@ -87,7 +81,8 @@ changelog
     <condition>
       <property>sim/multiplay/generic/int[5]</property>
     </condition>
-    <property>/instrumentation/airspeed-indicator/indicated-speed-kt</property>
+    <!--property>/instrumentation/airspeed-indicator/indicated-speed-kt</property-->
+    <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
     <interpolation>
       <entry><ind>0</ind><dep>0</dep></entry>
       <entry><ind>40</ind><dep>16</dep></entry>

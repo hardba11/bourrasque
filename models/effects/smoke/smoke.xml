@@ -13,11 +13,11 @@
     <condition>
       <and>
         <greater-than>
-          <property>velocities/airspeed-kt</property>
+          <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
           <value>40</value>
         </greater-than>
         <less-than>
-          <property>velocities/airspeed-kt</property>
+          <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
           <value>400</value>
         </less-than>
         <less-than>

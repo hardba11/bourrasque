@@ -23,8 +23,8 @@ var event_click_hold_autopilot = func()
     var curr_alt = getprop('/instrumentation/altimeter/indicated-altitude-ft') or 5000;
     setprop('/autopilot/settings/target-altitude-ft', curr_alt);
 
-    # set AP speed as curent speed
-    var curr_speed = getprop('/velocities/airspeed-kt') or 300;
+    # set AP speed as current speed
+    var curr_speed = getprop('/instrumentation/airspeed-indicator/true-speed-kt') or 300;
     setprop('/autopilot/settings/target-speed-kt', curr_speed);
 
     # set AP heading as curent heading
