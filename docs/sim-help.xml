@@ -19,13 +19,17 @@ changelog
   <key><name>}</name><desc>autostart/autostop engines</desc></key>
   <key><name>k</name><desc>Extend Speedbrakes (4 positions)</desc></key>
   <key><name>j</name><desc>Retract Speedbrakes (4 positions)</desc></key>
-  <key><name>ctrl-a</name><desc>enable autopilot on Altitude</desc></key>
-  <key><name>ctrl-s</name><desc>enable autopilot on Speed</desc></key>
-  <key><name>ctrl-h</name><desc>enable autopilot on Heading (bug)</desc></key>
-  <key><name>ctrl-n</name><desc>enable autopilot on Heading (nav 1 radial)</desc></key>
-  <key><name>ctrl-p</name><desc>enable autopilot to keep current heading, altitude and speed</desc></key>
+  <key><name>ctrl-a</name><desc>Enable autopilot on Altitude</desc></key>
+  <key><name>ctrl-s</name><desc>Enable autopilot on Speed</desc></key>
+  <key><name>ctrl-h</name><desc>Enable autopilot on Heading (bug)</desc></key>
+  <key><name>ctrl-n</name><desc>Enable autopilot on Heading (nav 1 radial)</desc></key>
+  <key><name>ctrl-p</name><desc>Enable autopilot to keep current heading, altitude and speed</desc></key>
+  <key><name>ctrl-P</name><desc>Disable autopilot</desc></key>
   <key><name>m</name><desc>select previous mod</desc></key>
   <key><name>M</name><desc>select next mod</desc></key>
+  <key><name>l</name><desc>toggle landing lights</desc></key>
+  <key><name>L</name><desc>toggle lights</desc></key>
+  <key><name>o</name><desc>acknowledge master caution</desc></key>
 
   <text>Bourrasque take off rotation: 150kts, landing: 140kts - speedbrake 40% - aoa 5</text>
 
