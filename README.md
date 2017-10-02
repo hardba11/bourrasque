@@ -1,6 +1,7 @@
 <!--
 markdown README.md > md.html ; cat {hd.inc,md,ft.inc}.html > github.html
 http://i.imgur.com/a/ZXp2Q
+https://imgur.com/a/fFGwf
 -->
 
 ![Image](http://i.imgur.com/BJtiZIH.png)
@@ -94,4 +95,22 @@ wingmens scenario, contrail effects :
 wingmens scenario, landing light :
 
 ![Image](http://i.imgur.com/01Glvac.png)
+
+rain effects at differents speeds, taxi hud configuration (left image) :
+
+![Image](http://i.imgur.com/x6LSRkX.png)
+
+rain effects :
+
+![Image](http://i.imgur.com/5M5ORu5.png)
+
+refuelling ability :
+
+![Image](http://i.imgur.com/VrMoNWV.png)
+
+touchdown smoke effects :
+
+![Image](http://i.imgur.com/rwAqjdz.png)
+
+
 
