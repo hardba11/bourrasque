@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <!--
 description :
-    this file uses the 3d model ans defines animations of the model and objects
+    this file uses the 3d model and defines animations of the model and objects
     (mouvements, lightings)
     it loads if necessary the submodels files
 
@@ -13,39 +12,58 @@ changelog
 
 <PropertyList>
 
-  <name>magcompass</name>
-  <path>instrument_magcompass.ac</path>
+  <name>command_h</name>
+  <path>instrument_command_h.ac</path>
 
   <!--
 ================================================================================
                                                              OBJECTS DECLARATION
 ================================================================================
   -->
-
   <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
   <animation>
-    <object-name>magcompass.box</object-name>
-    <object-name>magcompass.poly</object-name>
-    <object-name>magcompass.ring</object-name>
+    <object-name>command_h.box</object-name>
+    <object-name>command_h.knob_hud</object-name>
+    <object-name>command_h.red</object-name>
+    <object-name>command_h.box-emit</object-name>
+    <object-name>command_h.red-emit</object-name>
+    <object-name>command_h.master_caution</object-name>
+    <object-name>command_h.master_caution-emit</object-name>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
-    <object-name>magcompass.box</object-name>
-    <object-name>magcompass.poly</object-name>
-    <object-name>magcompass.ring</object-name>
+    <object-name>command_h.box</object-name>
+    <object-name>command_h.knob_hud</object-name>
+    <object-name>command_h.red</object-name>
+    <object-name>command_h.box-emit</object-name>
+    <object-name>command_h.red-emit</object-name>
+    <object-name>command_h.master_caution</object-name>
+    <object-name>command_h.master_caution-emit</object-name>
   </effect>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
+  <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
+  <animation>
+    <type>select</type>
+    <object-name>command_h.knob_hud</object-name>
+    <object-name>command_h.red</object-name>
+    <object-name>command_h.box-emit</object-name>
+    <object-name>command_h.red-emit</object-name>
+    <condition>
+      <false />
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (enabled) -->
   <animation>
     <type>material</type>
-    <object-name>magcompass.ring</object-name>
+    <object-name>command_h.master_caution-emit</object-name>
     <emission>
-      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
-      <red>0.8</red>
-      <green>0.2</green>
-      <blue>0.2</blue>
+      <factor>2</factor>
+      <red>1</red>
+      <green>0</green>
+      <blue>0</blue>
     </emission>
     <condition>
       <property>sim/multiplay/generic/int[5]</property>
@@ -58,16 +76,16 @@ changelog
 ================================================================================
   -->
 
-  <!-- ~~~~~~~~~~~~~~~~~~ animation compass ring -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation master caution -->
   <animation>
-    <type>rotate</type>
-    <object-name>magcompass.ring</object-name>
-    <property>/instrumentation/magnetic-compass/indicated-heading-deg</property>
-    <axis>
-      <x>0</x>
-      <y>0</y>
-      <z>1</z>
-    </axis>
+    <type>select</type>
+    <object-name>command_h.master_caution-emit</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <property>/instrumentation/my_aircraft/command_h/blink_alert</property>
+      </and>
+    </condition>
   </animation>
 
   <!--
@@ -78,7 +96,7 @@ changelog
   <text>
     <name>textosg</name>
     <type type="string">literal</type>
-    <text type="string">Mag compass</text>
+    <text type="string">Hud panel</text>
     <draw-text type="bool">true</draw-text>
     <font>Helvetica.txf</font>
     <character-size type="double">0.016</character-size>
@@ -92,7 +110,7 @@ changelog
     </font-resolution>
     <alignment>center-center</alignment>
     <offsets>
-      <x-m>.05</x-m>
+      <x-m>.02</x-m>
       <y-m>0</y-m>
       <z-m>0</z-m>
     </offsets>
@@ -116,3 +134,4 @@ changelog
   </animation>
 
 </PropertyList>
+

@@ -721,41 +721,6 @@ ________________________________________________________________________________
     </offsets>
   </model>
 
-<!-- USED FOR DEVELOPMENT -->
-  <!--animation>
-    <type>translate</type>
-    <object-name>fuel-pilot</object-name>
-    <property>/debug1</property>
-    <factor>1</factor>
-    <axis>
-      <x>1</x>
-      <y>0</y>
-      <z>0</z>
-    </axis>
-  </animation>
-  <animation>
-    <type>translate</type>
-    <object-name>fuel-pilot</object-name>
-    <property>/debug2</property>
-    <factor>1</factor>
-    <axis>
-      <x>0</x>
-      <y>1</y>
-      <z>0</z>
-    </axis>
-  </animation>
-  <animation>
-    <type>translate</type>
-    <object-name>fuel-pilot</object-name>
-    <property>/debug3</property>
-    <factor>1</factor>
-    <axis>
-      <x>0</x>
-      <y>0</y>
-      <z>1</z>
-    </axis>
-  </animation-->
-
   <!--
 ________________________________________________________________________________
                                                                    COMMAND PANEL
@@ -824,6 +789,55 @@ ________________________________________________________________________________
       <property>sim/multiplay/generic/int[11]</property>
     </condition>
   </model>
+
+<!--
+________________________________________________________________________________
+                                                                 COMMAND HEAD UP
+  -->
+  <model>
+    <name>command_h-copilot</name>
+    <path>instruments/command_h/command_h-backseat-model.xml</path>
+    <offsets>
+      <x-m>-2.5</x-m>
+      <y-m>0</y-m>
+      <z-m>1.02</z-m>
+    </offsets>
+  </model>
+
+<!-- USED FOR DEVELOPMENT -->
+  <!--animation>
+    <type>translate</type>
+    <object-name>command_h-copilot</object-name>
+    <property>/debug1</property>
+    <factor>1</factor>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>command_h-copilot</object-name>
+    <property>/debug2</property>
+    <factor>1</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>command_h-copilot</object-name>
+    <property>/debug3</property>
+    <factor>1</factor>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation-->
 
 <!--
 ________________________________________________________________________________

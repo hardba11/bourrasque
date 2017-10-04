@@ -31,6 +31,7 @@ changelog
     <object-name>pare_brise_int</object-name>
     <object-name>pare_brise</object-name>
     <object-name>perche_ravitaillement</object-name>
+    <object-name>cockpit-accessoires</object-name>
     <!-- ~~~~~~~~~~~~~~~~~~ mobiles parts - gouvernes -->
     <object-name>aileron_L</object-name>
     <object-name>aileron_R</object-name>
@@ -53,7 +54,8 @@ changelog
     <object-name>canopy</object-name>
     <object-name>canopy_plexi</object-name>
     <object-name>canopy_plexi_int</object-name>
-    <object-name>canopy.accessoires</object-name>
+    <object-name>canopy-accessoires</object-name>
+    <object-name>canopy-poignees</object-name>
   </animation>
 
   <effect>
@@ -112,7 +114,7 @@ changelog
     <object-name>trappe_jambe_train_L</object-name>
     <object-name>trappe_jambe_train_R</object-name>
     <object-name>canopy</object-name>
-    <object-name>canopy.accessoires</object-name>
+    <object-name>canopy-accessoires</object-name>
     <property-base>sim/model/livery</property-base>
     <texture-prop>texture</texture-prop>
     <texture>texture_bourrasque.png</texture>
@@ -392,13 +394,14 @@ ________________________________________________________________________________
     <name>block_canopy</name>
     <object-name>canopy</object-name>
     <object-name>canopy_plexi</object-name>
-    <object-name>canopy.accessoires</object-name>
+    <object-name>canopy-accessoires</object-name>
+    <object-name>canopy-poignees</object-name>
     <object-name>canopy_plexi_int</object-name>
   </animation>
   <!-- ~~~~~~~~~~~~~~~~~~ binding -->
   <animation>
     <type>pick</type>
-    <object-name>block_canopy</object-name>
+    <object-name>canopy-poignees</object-name>
     <visible>true</visible>
     <action>
       <button>0</button>
