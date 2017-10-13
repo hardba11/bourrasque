@@ -106,7 +106,7 @@ ________________________________________________________________________________
     <control-input  control="FLAP1" axis="/controls/flight/flaps" />
     <control-output control="FLAP1" prop="/surface-positions/left-flap-pos-norm" />
     <control-output control="FLAP1" prop="/surface-positions/right-flap-pos-norm" />
-    <control-speed  control="FLAP1" transition-time="12" />
+    <control-speed  control="FLAP1" transition-time="10" />
 
     <!-- ~~~~~~~~~~~~~~~~~~ slats -->
     <slat aoa="5" start=".1" end=".9" lift="1.3" drag="1.05" />
@@ -307,7 +307,7 @@ ________________________________________________________________________________
     <control-input  control="BRAKE" axis="/controls/gear/brake-left" />
     <control-input  control="BRAKE" axis="/controls/gear/brake-parking" />
     <control-output control="BRAKE" prop="/gear/gear[1]/brake-position-norm" />
-    <control-speed  control="BRAKE" transition-time=".5" />
+    <control-speed  control="BRAKE" transition-time=".3" />
     <control-input  control="EXTEND" axis="/controls/gear/gear-down" />
     <control-output control="EXTEND" prop="/gear/gear[1]/position-norm" />
     <control-speed  control="EXTEND" transition-time="8" />
@@ -320,7 +320,7 @@ ________________________________________________________________________________
     <control-input  control="BRAKE" axis="/controls/gear/brake-right" />
     <control-input  control="BRAKE" axis="/controls/gear/brake-parking" />
     <control-output control="BRAKE" prop="/gear/gear[2]/brake-position-norm" />
-    <control-speed  control="BRAKE" transition-time=".5" />
+    <control-speed  control="BRAKE" transition-time=".3" />
     <control-input  control="EXTEND" axis="/controls/gear/gear-down" />
     <control-output control="EXTEND" prop="/gear/gear[2]/position-norm" />
     <control-speed  control="EXTEND" transition-time="8" />
@@ -342,7 +342,7 @@ ________________________________________________________________________________
   <tank x="-3.0" y="0" z="1.0" jet="true" capacity="6308" />
 
   <!-- ~~~~~~~~~~~~~~~~~~ right wing tank -->
-  <tank x="-3" y="0" z="1.0" jet="true" capacity="6308" />
+  <tank x="-3.0" y="0" z="1.0" jet="true" capacity="6308" />
 
   <!-- ~~~~~~~~~~~~~~~~~~ left tail tank -->
   <tank x="-5.0" y="0" z="1.0" jet="true" capacity="1000" />

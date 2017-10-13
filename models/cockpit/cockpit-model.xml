@@ -367,11 +367,13 @@ ________________________________________________________________________________
 <!--
 ________________________________________________________________________________
                                                             HUD TARGET POSITIONS
+
+diameter = 2m,
+center : has to be the coords for view n=0 (see include/sim-view0-properties.xml)
   -->
   <model>
     <name>hud_target_positions</name>
     <path>instruments/hud_target_positions/hud_target_positions-model.xml</path>
-    <!-- diameter = 2m, center : has to be the coords for view n=0 -->
     <offsets>
       <x-m>-3.21</x-m>
       <y-m>0</y-m>

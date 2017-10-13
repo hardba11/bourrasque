@@ -233,9 +233,6 @@ changelog
     <instrument_pfd>
       <file type="string">instruments/pfd/pfd.nas</file>
     </instrument_pfd>
-    <instrument_sfd>
-      <file type="string">instruments/sfd/sfd.nas</file>
-    </instrument_sfd>
     <instrument_light>
       <file type="string">instruments/light/light.nas</file>
     </instrument_light>

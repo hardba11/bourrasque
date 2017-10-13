@@ -83,6 +83,14 @@ ________________________________________________________________________________
       <name>S</name>
       <binding><command>nasal</command><script /></binding>
     </key>
+
+
+    <key n="92">
+      <name>ltr</name>
+      <binding><command>nasal</command><script /></binding>
+    </key>
+
+
     <key n="99">
       <name>c</name>
       <binding><command>nasal</command><script /></binding>
