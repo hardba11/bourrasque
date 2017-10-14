@@ -130,6 +130,7 @@ sub main
         #print join ' - ', ($no_phase, $lat, $lng, $alt, $hdg) ;
 
         $hdg += 90 ; $hdg %= 360 ;
+        $alt *= 3.28 ;
 
         if($no_phase == 1)
         {
@@ -162,7 +163,7 @@ sub main
     open(OUT, '>', $FILENAME_OUT_XML) or die ;
     print OUT @out ;
     close(OUT) ;
-
+    print "$FILENAME_OUT_XML generated, copy it in the fgdata/ai/ directory.\n" ;
 }
 
 #===============================================================================
