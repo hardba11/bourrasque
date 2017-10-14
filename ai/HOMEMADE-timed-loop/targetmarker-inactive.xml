@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+  <path>smallmarker.ac</path>
+
+  <nasal>
+    <load>
+    <![CDATA[
+props.globals.initNode("/mach-loop-timer/color-red", 1, "DOUBLE");
+props.globals.initNode("/mach-loop-timer/color-green", 0.35, "DOUBLE");
+    ]]>
+    </load>
+    <unload>
+    </unload>
+  </nasal>
+
+  <animation>
+    <type>noshadow</type>
+    <object-name>marker1</object-name>
+  </animation>
+
+  <animation>
+    <type>alpha-test</type>
+    <alpha-factor>0.01</alpha-factor>
+  </animation>
+
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <condition>
+      <property>/sim/rendering/rembrandt/enabled</property>
+    </condition>
+    <object-name>marker1</object-name> 
+  </effect>
+
+  <animation>
+    <type>material</type>
+    <object-name>marker1</object-name>
+    <emission>
+      <red-prop>/mach-loop-timer/color-red</red-prop>
+      <green-prop>/mach-loop-timer/color-green</green-prop>
+      <blue>0</blue>
+    </emission>
+  </animation>
+
+</PropertyList>

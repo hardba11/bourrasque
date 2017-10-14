@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+  <path>smallmarker.ac</path>
+
+  <nasal>
+    <load>
+    <![CDATA[
+srand(); # set seed for random generator
+
+props.globals.initNode("/mach-loop-timer/maxid", 0, "INT");
+
+var root = cmdarg();
+var rootindex = root.getIndex();
+var markerPath = "/ai/models/aircraft["~ rootindex ~"]/";
+var id = getprop("/mach-loop-timer/maxid");
+var waypointPath = "/mach-loop-timer/waypoint[" ~ id ~ "]/";
+setprop("/mach-loop-timer/maxid", id + 1);
+
+props.globals.initNode(waypointPath ~"passed", 0, "BOOL");
+setprop(waypointPath ~"passed", 0);
+props.globals.initNode("/mach-loop-timer/color-red", 1, "DOUBLE");
+props.globals.initNode("/mach-loop-timer/color-green", 0.35, "DOUBLE");
+props.globals.initNode(waypointPath~"loaded", 1, "BOOL");
+setprop(waypointPath ~"loaded", 1);
+
+var greenFlash = func()
+{
+    settimer(func(){ interpolate("/mach-loop-timer/color-red", 1, 0.6); }, 0.2);
+    interpolate("/mach-loop-timer/color-red", 0.35, 0.2);
+}
+
+var redFlash = func()
+{
+    settimer(func(){ interpolate("/mach-loop-timer/color-green", 1, 1.2); interpolate("/mach-loop-timer/color-red", 1, 1.2); }, 0.2);
+    interpolate("/mach-loop-timer/color-green", 0.15, 0.2);
+    interpolate("/mach-loop-timer/color-red", 0.95, 0.2);
+}
+
+var miss = 0;
+var markerCoord = geo.Coord.new();
+markerCoord.set_latlon(
+    getprop(markerPath ~"position/latitude-deg"),
+    getprop(markerPath ~"position/longitude-deg"),
+    getprop(markerPath ~"position/altitude-ft")
+);
+
+var planeCoord = geo.Coord.new();
+props.globals.initNode("/mach-loop-timer/starttime", 0, "DOUBLE");
+
+var distLoop = maketimer(0.1,
+    func()
+    {
+        if(distLoop == nil) return;
+
+        if(getprop("/mach-loop-timer/starttime") > 0)
+        {
+            planeCoord.set_latlon(
+                getprop("/position/latitude-deg"),
+                getprop("/position/longitude-deg"),
+                getprop("/position/altitude-ft")
+            );
+            var dist = markerCoord.direct_distance_to(planeCoord);
+            var ubody = getprop("/velocities/uBody-fps");
+            var vbody = getprop("/velocities/vBody-fps");
+            var wbody = getprop("/velocities/wBody-fps");
+            var velocity = 0.3048 * math.sqrt(ubody * ubody + vbody * vbody + wbody * wbody);
+
+            var time1 = dist / velocity / 8;
+            var looptime = time1;
+            if(time1 < 0.1) looptime = 0.0001;
+            if(time1 > 20) looptime = 19 + 2 * rand();
+
+            if(dist < 500)
+            {
+                if(getprop(waypointPath ~"passed") == 0) miss = 1;
+                if(dist < 100)
+                {
+                    setprop(waypointPath ~"passed", 1);
+                    greenFlash();
+                    miss = 0;
+                }
+            }
+            else
+            {
+                if(miss)
+                {
+                    redFlash();
+                    screen.log.write("You missed a waypoint!");
+                    print("You missed a waypoint!");
+                    miss = 0;
+                }
+            }
+            distLoop.restart(looptime);
+        }
+    }
+);
+distLoop.singleShot = 1;
+var listenStarttime = setlistener("/mach-loop-timer/starttime", func(){ distLoop.restart(0); });
+distLoop.restart(10 * rand());
+    ]]>
+    </load>
+    <unload>
+    <![CDATA[
+settimer(
+    func()
+    {
+        setprop(waypointPath ~"loaded", 0);
+        var wayptsNode = props.globals.getNode("/mach-loop-timer");
+        var allClear = 1;
+        forindex(var i; wayptsNode.getChildren("waypoint"))
+        {
+            if(getprop("/mach-loop-timer/waypoint["~ i ~"]/loaded")) allClear = 0;
+        }
+        if(allClear) setprop("/mach-loop-timer/maxid", 0);
+        removelistener(listenStarttime);
+        distLoop.stop();
+        distLoop = nil;
+    },
+    0.8 * rand());
+    ]]>
+    </unload>
+  </nasal>
+
+  <animation>
+    <type>noshadow</type>
+    <object-name>marker1</object-name>
+  </animation>
+
+  <animation>
+    <type>alpha-test</type>
+    <alpha-factor>0.01</alpha-factor>
+  </animation>
+
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <condition>
+      <property>/sim/rendering/rembrandt/enabled</property>
+    </condition>
+    <object-name>marker1</object-name> 
+  </effect>
+
+  <animation>
+    <type>material</type>
+    <object-name>marker1</object-name>
+    <emission>
+      <red-prop>/mach-loop-timer/color-red</red-prop>
+      <green-prop>/mach-loop-timer/color-green</green-prop>
+      <blue>0</blue>
+    </emission>
+  </animation>
+
+</PropertyList>
+

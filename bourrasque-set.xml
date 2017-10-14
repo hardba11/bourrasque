@@ -263,6 +263,10 @@ changelog
       <file type="string">models/lights/lights.nas</file>
     </lights>
 
+    <tools>
+      <file type="string">tools/trace-loop/trace-loop.nas</file>
+    </tools>
+
     <liveries>
       <file>Aircraft/bourrasque/models/aircraft/select_liveries.nas</file>
     </liveries>

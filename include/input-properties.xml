@@ -83,14 +83,6 @@ ________________________________________________________________________________
       <name>S</name>
       <binding><command>nasal</command><script /></binding>
     </key>
-
-
-    <key n="92">
-      <name>ltr</name>
-      <binding><command>nasal</command><script /></binding>
-    </key>
-
-
     <key n="99">
       <name>c</name>
       <binding><command>nasal</command><script /></binding>
@@ -118,6 +110,34 @@ ________________________________________________________________________________
     <key n="364">
       <name>keypad insert</name>
       <binding><command>nasal</command><script /></binding>
+    </key>
+
+  <!--
+________________________________________________________________________________
+                                                                           TOOLS
+  -->
+    <!-- ~~~~~~~~~~~~~~~~~~ loop recording -->
+    <key n="92">
+      <name>ltr</name>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+tools.event_change_phase();
+          ]]>
+        </script>
+      </binding>
+    </key>
+    <key n="124">
+      <name>shift-ltr</name>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+tools.event_reinit_loop();
+          ]]>
+        </script>
+      </binding>
     </key>
 
   <!--

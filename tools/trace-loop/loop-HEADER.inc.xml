@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<PropertyList>
+  <scenario>
+    <name>HOMEMADE-timed-loop</name>
+    <description>
+       HOMEMADE timed loop (thanks to FGUK Mach Loop developpers !)
+    </description>
+    <nasal>
+      <load>
+      <![CDATA[
+props.globals.initNode("/mach-loop-timer/starttime", 0, "DOUBLE");
+props.globals.initNode("/mach-loop-timer/lineup-green1", 0.0, "DOUBLE");
+props.globals.initNode("/mach-loop-timer/lineup-green2", 0.2, "DOUBLE");
+props.globals.initNode("/mach-loop-timer/lineup-green3", 0.4, "DOUBLE");
+var yellowGuide = func()
+{
+    interpolate("/mach-loop-timer/lineup-green1", 0.8, 0.6);
+    settimer(func {
+        interpolate("/mach-loop-timer/lineup-green1", 0, 0.6);
+        interpolate("/mach-loop-timer/lineup-green2", 0.8, 0.6);
+        }
+    , 0.6);
+    settimer(func {
+        interpolate("/mach-loop-timer/lineup-green2", 0.2, 0.6);
+        interpolate("/mach-loop-timer/lineup-green3", 0.8, 0.6);
+        }
+    , 1.2);
+    settimer(func {
+        interpolate("/mach-loop-timer/lineup-green3", 0.4, 0.6);
+        }
+    , 1.8);
+}
+var loop = maketimer(0.1, 
+    func()
+    {
+        if(loop == nil) return;
+        yellowGuide();
+        loop.restart(4.4);
+    });
+loop.singleShot = 1;
+loop.start();
+      ]]>
+      </load>
+      <unload>
+      <![CDATA[
+loop.stop();
+loop = nil;
+      ]]>
+      </unload>
+    </nasal>
+
+

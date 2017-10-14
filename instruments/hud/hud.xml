@@ -264,10 +264,10 @@ changelog
 
   <!--
 ================================================================================
-                                                                         BEARING
+                                                                         HEADING
 ================================================================================
 -->
-  <!-- ~~~~~~~~~~~~~~~~~~ bearing top center for APP, VFR mode -->
+  <!-- ~~~~~~~~~~~~~~~~~~ heading top center for APP, VFR mode -->
   <label>
     <name>Heading Label top</name>
     <x>-9</x>
@@ -293,7 +293,7 @@ changelog
       </or>
     </condition>
   </label>
-  <!-- ~~~~~~~~~~~~~~~~~~ bearing middle center for NAV mode -->
+  <!-- ~~~~~~~~~~~~~~~~~~ heading middle center for NAV mode -->
   <label>
     <name>Heading Label middle</name>
     <x>-9</x>
@@ -316,7 +316,7 @@ changelog
     </condition>
   </label>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ bearing tape top for VFR mode -->
+  <!-- ~~~~~~~~~~~~~~~~~~ heading tape top for VFR mode -->
   <tape>
     <name>Gyrocompass</name>
     <input>
@@ -355,7 +355,7 @@ changelog
       </or>
     </condition>
   </tape>
-  <!-- ~~~~~~~~~~~~~~~~~~ bearing tape middle for NAV mode -->
+  <!-- ~~~~~~~~~~~~~~~~~~ heading tape middle for NAV mode -->
   <tape>
     <name>Gyrocompass middle</name>
     <input>
@@ -394,7 +394,7 @@ changelog
       </or>
     </condition>
   </tape>
-  <!-- ~~~~~~~~~~~~~~~~~~ bearing tape bottom for TAXI mode -->
+  <!-- ~~~~~~~~~~~~~~~~~~ heading tape bottom for TAXI mode -->
   <tape>
     <name>Gyrocompass bottom</name>
     <input>
