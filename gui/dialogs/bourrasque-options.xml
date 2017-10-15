@@ -300,6 +300,15 @@ fdm.fast_start();
         <value>tank2000L</value>
       </binding>
     </button>
+    <button>
+      <row>1</row><col>4</col>
+      <legend>full</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/wing-tanks</property>
+        <value>tank1250L+tank2000L</value>
+      </binding>
+    </button>
     <text>
       <row>2</row><col>0</col>
       <label>center tank</label>

@@ -8,7 +8,7 @@
 
         <name type="string">rafale C01</name>
         <texture>liveries/texture_bourrasque_C01.png</texture>
-        <texture-tank>texture_tanks.png</texture-tank>
+        <texture-tank>texture_tanks_black.png</texture-tank>
 
       </livery>
     </model>

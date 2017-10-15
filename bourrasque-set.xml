@@ -25,8 +25,11 @@ changelog
     <description type="string">Bourrasque</description>
 
     <author type="string">hardball SLK</author>
-    <aircraft-version type="string">2017-10-01</aircraft-version>
-    <status>alpha</status>
+    <aircraft-version type="string">2017-10-15</aircraft-version>
+
+    <minimum-fg-version type="string">2017.1.1</minimum-fg-version>
+
+    <status type="string">alpha</status>
     <tags>
       <tag>jet</tag>
       <tag>retractable-gear</tag>

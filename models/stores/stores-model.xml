@@ -28,8 +28,10 @@ changelog
     <object-name>center-tank2000L</object-name>
     <object-name>center-tank1250L</object-name>
     <object-name>wing-pylons</object-name>
+    <object-name>wing-ext-pylons</object-name>
     <object-name>wing-tanks2000L</object-name>
     <object-name>wing-tanks1250L</object-name>
+    <object-name>wing-ext-tanks1250L</object-name>
   </animation>
 
   <effect>
@@ -38,8 +40,10 @@ changelog
     <object-name>center-tank2000L</object-name>
     <object-name>center-tank1250L</object-name>
     <object-name>wing-pylons</object-name>
+    <object-name>wing-ext-pylons</object-name>
     <object-name>wing-tanks2000L</object-name>
     <object-name>wing-tanks1250L</object-name>
+    <object-name>wing-ext-tanks1250L</object-name>
   </effect>
 
   <animation>
@@ -48,8 +52,10 @@ changelog
     <object-name>center-tank2000L</object-name>
     <object-name>center-tank1250L</object-name>
     <object-name>wing-pylons</object-name>
+    <object-name>wing-ext-pylons</object-name>
     <object-name>wing-tanks2000L</object-name>
     <object-name>wing-tanks1250L</object-name>
+    <object-name>wing-ext-tanks1250L</object-name>
     <property-base>sim/model/livery</property-base>
     <texture-prop>texture-tank</texture-prop>
     <texture-tank>texture_tanks.png</texture-tank>
@@ -117,6 +123,17 @@ ________________________________________________________________________________
       </not>
     </condition>
   </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~ ext pylons -->
+  <animation>
+    <type>select</type>
+    <object-name>wing-ext-pylons</object-name>
+    <condition>
+      <equals>
+        <property>sim/multiplay/generic/string[1]</property>
+        <value type="string">tank1250L+tank2000L</value>
+      </equals>
+    </condition>
+  </animation>
   <!-- ~~~~~~~~~~~~~~~~~~ tanks 1250 l -->
   <animation>
     <type>select</type>
@@ -133,9 +150,26 @@ ________________________________________________________________________________
     <type>select</type>
     <object-name>wing-tanks2000L</object-name>
     <condition>
+      <or>
+        <equals>
+          <property>sim/multiplay/generic/string[1]</property>
+          <value type="string">tank2000L</value>
+        </equals>
+        <equals>
+          <property>sim/multiplay/generic/string[1]</property>
+          <value type="string">tank1250L+tank2000L</value>
+        </equals>
+      </or>
+    </condition>
+  </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~ tanks 2000 l -->
+  <animation>
+    <type>select</type>
+    <object-name>wing-ext-tanks1250L</object-name>
+    <condition>
       <equals>
         <property>sim/multiplay/generic/string[1]</property>
-        <value type="string">tank2000L</value>
+        <value type="string">tank1250L+tank2000L</value>
       </equals>
     </condition>
   </animation>
