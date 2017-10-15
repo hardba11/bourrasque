@@ -1,0 +1,703 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PropertyList>
+  <scenario>
+    <name>LFLG-timed-loop</name>
+    <description>
+       LFLG timed loop (thanks to FGUK Mach Loop developpers !)
+    </description>
+    <nasal>
+      <load>
+      <![CDATA[
+props.globals.initNode("/mach-loop-timer/starttime", 0, "DOUBLE");
+props.globals.initNode("/mach-loop-timer/lineup-green1", 0.0, "DOUBLE");
+props.globals.initNode("/mach-loop-timer/lineup-green2", 0.2, "DOUBLE");
+props.globals.initNode("/mach-loop-timer/lineup-green3", 0.4, "DOUBLE");
+var yellowGuide = func()
+{
+    interpolate("/mach-loop-timer/lineup-green1", 0.8, 0.6);
+    settimer(func {
+        interpolate("/mach-loop-timer/lineup-green1", 0, 0.6);
+        interpolate("/mach-loop-timer/lineup-green2", 0.8, 0.6);
+        }
+    , 0.6);
+    settimer(func {
+        interpolate("/mach-loop-timer/lineup-green2", 0.2, 0.6);
+        interpolate("/mach-loop-timer/lineup-green3", 0.8, 0.6);
+        }
+    , 1.2);
+    settimer(func {
+        interpolate("/mach-loop-timer/lineup-green3", 0.4, 0.6);
+        }
+    , 1.8);
+}
+var loop = maketimer(0.1, 
+    func()
+    {
+        if(loop == nil) return;
+        yellowGuide();
+        loop.restart(4.4);
+    });
+loop.singleShot = 1;
+loop.start();
+      ]]>
+      </load>
+      <unload>
+      <![CDATA[
+loop.stop();
+loop = nil;
+      ]]>
+      </unload>
+    </nasal>
+
+
+
+    <entry>
+      <name>Line01</name>
+      <model type="string">AI/HOMEMADE-timed-loop/lineupmarker.xml</model>
+      <latitude type="double">45.23840037232955</latitude>
+      <longitude type="double">5.875630249168251</longitude>
+      <altitude type="double">1187.36</altitude>
+      <heading type="double">133</heading>
+    </entry>
+
+    <entry>
+      <name>Line02</name>
+      <model type="string">AI/HOMEMADE-timed-loop/lineupmarker.xml</model>
+      <latitude type="double">45.25064273298526</latitude>
+      <longitude type="double">5.892010786468969</longitude>
+      <altitude type="double">1098.8</altitude>
+      <heading type="double">135</heading>
+    </entry>
+
+    <entry>
+      <name>Line03</name>
+      <model type="string">AI/HOMEMADE-timed-loop/lineupmarker.xml</model>
+      <latitude type="double">45.26117376827333</latitude>
+      <longitude type="double">5.912180216868593</longitude>
+      <altitude type="double">2040.16</altitude>
+      <heading type="double">159</heading>
+    </entry>
+
+    <entry>
+      <name>Line04</name>
+      <model type="string">AI/HOMEMADE-timed-loop/lineupmarker.xml</model>
+      <latitude type="double">45.26066544581479</latitude>
+      <longitude type="double">5.936473861748369</longitude>
+      <altitude type="double">4362.4</altitude>
+      <heading type="double">206</heading>
+    </entry>
+
+    <entry>
+      <name>Line05</name>
+      <model type="string">AI/HOMEMADE-timed-loop/lineupmarker.xml</model>
+      <latitude type="double">45.24733632153507</latitude>
+      <longitude type="double">5.955026185831039</longitude>
+      <altitude type="double">4988.88</altitude>
+      <heading type="double">247</heading>
+    </entry>
+
+    <entry>
+      <name>Line06</name>
+      <model type="string">AI/HOMEMADE-timed-loop/lineupmarker.xml</model>
+      <latitude type="double">45.22853263503903</latitude>
+      <longitude type="double">5.959554844437139</longitude>
+      <altitude type="double">5395.6</altitude>
+      <heading type="double">266</heading>
+    </entry>
+
+    <entry>
+      <name>Line07</name>
+      <model type="string">AI/HOMEMADE-timed-loop/lineupmarker.xml</model>
+      <latitude type="double">45.20930314900994</latitude>
+      <longitude type="double">5.959012424873407</longitude>
+      <altitude type="double">5772.8</altitude>
+      <heading type="double">277</heading>
+    </entry>
+
+    <entry>
+      <name>Line08</name>
+      <model type="string">AI/HOMEMADE-timed-loop/lineupmarker.xml</model>
+      <latitude type="double">45.19051139091198</latitude>
+      <longitude type="double">5.953106601200824</longitude>
+      <altitude type="double">6786.32</altitude>
+      <heading type="double">286</heading>
+    </entry>
+
+    <entry>
+      <name>Start-Marker</name>
+      <model type="string">AI/HOMEMADE-timed-loop/startmarker.xml</model>
+      <latitude type="double">45.17256557402753</latitude>
+      <longitude type="double">5.945105779860009</longitude>
+      <altitude type="double">8380.4</altitude>
+      <heading type="double">286</heading>
+    </entry>
+    <entry>
+      <callsign>Start</callsign>
+      <name>Start</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker-inactive.xml</model>
+      <latitude type="double">45.17256557402753</latitude>
+      <longitude type="double">5.945105779860009</longitude>
+      <altitude type="double">8380.4</altitude>
+      <heading type="double">286</heading>
+    </entry>
+
+    <entry>
+      <name>1</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">45.15378235785625</latitude>
+      <longitude type="double">5.941372229813626</longitude>
+      <altitude type="double">9718.64</altitude>
+      <heading type="double">262</heading>
+    </entry>
+
+    <entry>
+      <name>2</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">45.13514393340809</latitude>
+      <longitude type="double">5.949271517822452</longitude>
+      <altitude type="double">9820.32</altitude>
+      <heading type="double">250</heading>
+    </entry>
+
+    <entry>
+      <name>3</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">45.11610740317589</latitude>
+      <longitude type="double">5.952177376108848</longitude>
+      <altitude type="double">9613.68</altitude>
+      <heading type="double">282</heading>
+    </entry>
+
+    <entry>
+      <name>4</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">45.09998636446419</latitude>
+      <longitude type="double">5.938753151568276</longitude>
+      <altitude type="double">7970.4</altitude>
+      <heading type="double">319</heading>
+    </entry>
+
+    <entry>
+      <name>5</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">45.09067132008375</latitude>
+      <longitude type="double">5.917185612066456</longitude>
+      <altitude type="double">4952.8</altitude>
+      <heading type="double">336</heading>
+    </entry>
+
+    <entry>
+      <name>6</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">45.08236809272497</latitude>
+      <longitude type="double">5.892900756699819</longitude>
+      <altitude type="double">2814.24</altitude>
+      <heading type="double">327</heading>
+    </entry>
+
+    <entry>
+      <name>7</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">45.06965242896869</latitude>
+      <longitude type="double">5.871907899546955</longitude>
+      <altitude type="double">2220.56</altitude>
+      <heading type="double">314</heading>
+    </entry>
+
+    <entry>
+      <name>8</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">45.05608875797299</latitude>
+      <longitude type="double">5.851930326621135</longitude>
+      <altitude type="double">1977.84</altitude>
+      <heading type="double">327</heading>
+    </entry>
+
+    <entry>
+      <name>9</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">45.04689306371318</latitude>
+      <longitude type="double">5.827844471307479</longitude>
+      <altitude type="double">2545.28</altitude>
+      <heading type="double">314</heading>
+    </entry>
+
+    <entry>
+      <name>10</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">45.02943468845816</latitude>
+      <longitude type="double">5.824269437036217</longitude>
+      <altitude type="double">3824.48</altitude>
+      <heading type="double">240</heading>
+    </entry>
+
+    <entry>
+      <name>11</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">45.01690201869482</latitude>
+      <longitude type="double">5.843624058773918</longitude>
+      <altitude type="double">5451.36</altitude>
+      <heading type="double">209</heading>
+    </entry>
+
+    <entry>
+      <name>12</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">45.01382854585778</latitude>
+      <longitude type="double">5.869566309946618</longitude>
+      <altitude type="double">6504.24</altitude>
+      <heading type="double">173</heading>
+    </entry>
+
+    <entry>
+      <name>13</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">45.01197272426704</latitude>
+      <longitude type="double">5.896293218992092</longitude>
+      <altitude type="double">4910.16</altitude>
+      <heading type="double">188</heading>
+    </entry>
+
+    <entry>
+      <name>14</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">45.01021689195702</latitude>
+      <longitude type="double">5.923861728693714</longitude>
+      <altitude type="double">4631.36</altitude>
+      <heading type="double">184</heading>
+    </entry>
+
+    <entry>
+      <name>15</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">45.00058637206769</latitude>
+      <longitude type="double">5.94507479185997</longitude>
+      <altitude type="double">6074.56</altitude>
+      <heading type="double">242</heading>
+    </entry>
+
+    <entry>
+      <name>16</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">44.9842555411438</latitude>
+      <longitude type="double">5.959231484566042</longitude>
+      <altitude type="double">6402.56</altitude>
+      <heading type="double">232</heading>
+    </entry>
+
+    <entry>
+      <name>17</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">44.96636506830991</latitude>
+      <longitude type="double">5.963723823805111</longitude>
+      <altitude type="double">4241.04</altitude>
+      <heading type="double">267</heading>
+    </entry>
+
+    <entry>
+      <name>18</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">44.94730161806323</latitude>
+      <longitude type="double">5.968268561972985</longitude>
+      <altitude type="double">3647.36</altitude>
+      <heading type="double">259</heading>
+    </entry>
+
+    <entry>
+      <name>19</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">44.92840927186303</latitude>
+      <longitude type="double">5.964628231487625</longitude>
+      <altitude type="double">3562.08</altitude>
+      <heading type="double">295</heading>
+    </entry>
+
+    <entry>
+      <name>20</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">44.91203836629998</latitude>
+      <longitude type="double">5.949994774449805</longitude>
+      <altitude type="double">3138.96</altitude>
+      <heading type="double">305</heading>
+    </entry>
+
+    <entry>
+      <name>21</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">44.89399730933863</latitude>
+      <longitude type="double">5.945908145469406</longitude>
+      <altitude type="double">3922.88</altitude>
+      <heading type="double">258</heading>
+    </entry>
+
+    <entry>
+      <name>22</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">44.87573686640219</latitude>
+      <longitude type="double">5.953405136874678</longitude>
+      <altitude type="double">5185.68</altitude>
+      <heading type="double">250</heading>
+    </entry>
+
+    <entry>
+      <name>23</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">44.85943683308009</latitude>
+      <longitude type="double">5.965538081160068</longitude>
+      <altitude type="double">6983.12</altitude>
+      <heading type="double">212</heading>
+    </entry>
+
+    <entry>
+      <name>24</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">44.85511858921729</latitude>
+      <longitude type="double">5.992089535301297</longitude>
+      <altitude type="double">7219.28</altitude>
+      <heading type="double">186</heading>
+    </entry>
+
+    <entry>
+      <name>25</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">44.85448084949443</latitude>
+      <longitude type="double">6.019334282863026</longitude>
+      <altitude type="double">6753.52</altitude>
+      <heading type="double">170</heading>
+    </entry>
+
+    <entry>
+      <name>26</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">44.85820388216655</latitude>
+      <longitude type="double">6.045815600679315</longitude>
+      <altitude type="double">5526.8</altitude>
+      <heading type="double">169</heading>
+    </entry>
+
+    <entry>
+      <name>27</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">44.86281563650148</latitude>
+      <longitude type="double">6.072031025777656</longitude>
+      <altitude type="double">4487.04</altitude>
+      <heading type="double">159</heading>
+    </entry>
+
+    <entry>
+      <name>28</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">44.87104809581943</latitude>
+      <longitude type="double">6.096739513336273</longitude>
+      <altitude type="double">4805.2</altitude>
+      <heading type="double">152</heading>
+    </entry>
+
+    <entry>
+      <name>29</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">44.88028123902731</latitude>
+      <longitude type="double">6.120655545978769</longitude>
+      <altitude type="double">5139.76</altitude>
+      <heading type="double">156</heading>
+    </entry>
+
+    <entry>
+      <name>30</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">44.88472057761248</latitude>
+      <longitude type="double">6.146329661992697</longitude>
+      <altitude type="double">6756.8</altitude>
+      <heading type="double">173</heading>
+    </entry>
+
+    <entry>
+      <name>31</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">44.88710625142736</latitude>
+      <longitude type="double">6.171121613628938</longitude>
+      <altitude type="double">9685.84</altitude>
+      <heading type="double">170</heading>
+    </entry>
+
+    <entry>
+      <name>32</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">44.89248091403279</latitude>
+      <longitude type="double">6.195637068438946</longitude>
+      <altitude type="double">12014.64</altitude>
+      <heading type="double">149</heading>
+    </entry>
+
+    <entry>
+      <name>33</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">44.90601669896747</latitude>
+      <longitude type="double">6.215450197505421</longitude>
+      <altitude type="double">11676.8</altitude>
+      <heading type="double">131</heading>
+    </entry>
+
+    <entry>
+      <name>34</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">44.91925858387384</latitude>
+      <longitude type="double">6.234958282538815</longitude>
+      <altitude type="double">9948.24</altitude>
+      <heading type="double">147</heading>
+    </entry>
+
+    <entry>
+      <name>35</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">44.92914288489127</latitude>
+      <longitude type="double">6.258266595051587</longitude>
+      <altitude type="double">8439.44</altitude>
+      <heading type="double">152</heading>
+    </entry>
+
+    <entry>
+      <name>36</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">44.93402195822629</latitude>
+      <longitude type="double">6.28398415895436</longitude>
+      <altitude type="double">6933.92</altitude>
+      <heading type="double">171</heading>
+    </entry>
+
+    <entry>
+      <name>37</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">44.94778762977983</latitude>
+      <longitude type="double">6.297893634776678</longitude>
+      <altitude type="double">7704.72</altitude>
+      <heading type="double">85</heading>
+    </entry>
+
+    <entry>
+      <name>38</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">44.96719060379485</latitude>
+      <longitude type="double">6.296398358474756</longitude>
+      <altitude type="double">7990.08</altitude>
+      <heading type="double">94</heading>
+    </entry>
+
+    <entry>
+      <name>39</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">44.98636349097497</latitude>
+      <longitude type="double">6.298828023371649</longitude>
+      <altitude type="double">8865.84</altitude>
+      <heading type="double">93</heading>
+    </entry>
+
+    <entry>
+      <name>40</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">45.00471644672227</latitude>
+      <longitude type="double">6.299787068551688</longitude>
+      <altitude type="double">11191.36</altitude>
+      <heading type="double">87</heading>
+    </entry>
+
+    <entry>
+      <name>41</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">45.02246996462379</latitude>
+      <longitude type="double">6.291207884725605</longitude>
+      <altitude type="double">11256.96</altitude>
+      <heading type="double">54</heading>
+    </entry>
+
+    <entry>
+      <name>42</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">45.03585673738985</latitude>
+      <longitude type="double">6.272604802347548</longitude>
+      <altitude type="double">8885.52</altitude>
+      <heading type="double">20</heading>
+    </entry>
+
+    <entry>
+      <name>43</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">45.03781322237802</latitude>
+      <longitude type="double">6.246268548243122</longitude>
+      <altitude type="double">6386.16</altitude>
+      <heading type="double">358</heading>
+    </entry>
+
+    <entry>
+      <name>44</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">45.03670349087376</latitude>
+      <longitude type="double">6.219168986007205</longitude>
+      <altitude type="double">4254.16</altitude>
+      <heading type="double">358</heading>
+    </entry>
+
+    <entry>
+      <name>45</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">45.03799393841846</latitude>
+      <longitude type="double">6.191228983945809</longitude>
+      <altitude type="double">3811.36</altitude>
+      <heading type="double">6</heading>
+    </entry>
+
+    <entry>
+      <name>46</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">45.04055977624641</latitude>
+      <longitude type="double">6.16379238046063</longitude>
+      <altitude type="double">3535.84</altitude>
+      <heading type="double">7</heading>
+    </entry>
+
+    <entry>
+      <name>47</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">45.04307413076923</latitude>
+      <longitude type="double">6.136432119608336</longitude>
+      <altitude type="double">3893.36</altitude>
+      <heading type="double">6</heading>
+    </entry>
+
+    <entry>
+      <name>48</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">45.04583593716819</latitude>
+      <longitude type="double">6.109197458147568</longitude>
+      <altitude type="double">4769.12</altitude>
+      <heading type="double">14</heading>
+    </entry>
+
+    <entry>
+      <name>49</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">45.05439825773673</latitude>
+      <longitude type="double">6.084906046571687</longitude>
+      <altitude type="double">5608.8</altitude>
+      <heading type="double">39</heading>
+    </entry>
+
+    <entry>
+      <name>50</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">45.0695901000452</latitude>
+      <longitude type="double">6.067741099454346</longitude>
+      <altitude type="double">5920.4</altitude>
+      <heading type="double">59</heading>
+    </entry>
+
+    <entry>
+      <name>51</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">45.08686195807045</latitude>
+      <longitude type="double">6.054928385049762</longitude>
+      <altitude type="double">5913.84</altitude>
+      <heading type="double">66</heading>
+    </entry>
+
+    <entry>
+      <name>52</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">45.10457783887027</latitude>
+      <longitude type="double">6.043860630937398</longitude>
+      <altitude type="double">6687.92</altitude>
+      <heading type="double">67</heading>
+    </entry>
+
+    <entry>
+      <name>53</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">45.12237659625643</latitude>
+      <longitude type="double">6.037833792742153</longitude>
+      <altitude type="double">4241.04</altitude>
+      <heading type="double">97</heading>
+    </entry>
+
+    <entry>
+      <name>54</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">45.14103998833771</latitude>
+      <longitude type="double">6.044786865450365</longitude>
+      <altitude type="double">3056.96</altitude>
+      <heading type="double">100</heading>
+    </entry>
+
+    <entry>
+      <name>55</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">45.16069272166844</latitude>
+      <longitude type="double">6.043840764130611</longitude>
+      <altitude type="double">3276.72</altitude>
+      <heading type="double">80</heading>
+    </entry>
+
+    <entry>
+      <name>56</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">45.18003409482362</latitude>
+      <longitude type="double">6.038810537988859</longitude>
+      <altitude type="double">3496.48</altitude>
+      <heading type="double">83</heading>
+    </entry>
+
+    <entry>
+      <name>57</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">45.19933096790767</latitude>
+      <longitude type="double">6.040544666362509</longitude>
+      <altitude type="double">4106.56</altitude>
+      <heading type="double">98</heading>
+    </entry>
+
+    <entry>
+      <name>58</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">45.2180819198651</latitude>
+      <longitude type="double">6.041802740601716</longitude>
+      <altitude type="double">5894.16</altitude>
+      <heading type="double">78</heading>
+    </entry>
+
+    <entry>
+      <callsign>Finish</callsign>
+      <name>Finish</name>
+      <model type="string">AI/HOMEMADE-timed-loop/targetmarker-inactive.xml</model>
+      <latitude type="double">45.23428142188438</latitude>
+      <longitude type="double">6.031835783066805</longitude>
+      <altitude type="double">8921.6</altitude>
+      <heading type="double">45</heading>
+    </entry>
+    <entry>
+      <name>Finish-Marker</name>
+      <model type="string">AI/HOMEMADE-timed-loop/finishmarker.xml</model>
+      <latitude type="double">45.23428142188438</latitude>
+      <longitude type="double">6.031835783066805</longitude>
+      <altitude type="double">8921.6</altitude>
+      <heading type="double">45</heading>
+    </entry>
+
+    <entry>
+      <name>Exit01</name>
+      <model type="string">AI/HOMEMADE-timed-loop/lineupmarker.xml</model>
+      <latitude type="double">45.24042311831734</latitude>
+      <longitude type="double">6.007410831375319</longitude>
+      <altitude type="double">10810.88</altitude>
+      <heading type="double">357</heading>
+    </entry>
+
+    <entry>
+      <name>Exit02</name>
+      <model type="string">AI/HOMEMADE-timed-loop/lineupmarker.xml</model>
+      <latitude type="double">45.23697798285715</latitude>
+      <longitude type="double">5.980128997797434</longitude>
+      <altitude type="double">10482.88</altitude>
+      <heading type="double">347</heading>
+    </entry>
+
+  </scenario>
+</PropertyList>
