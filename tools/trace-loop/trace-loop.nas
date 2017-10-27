@@ -41,10 +41,11 @@ var loop_get_coords = func() {
         var lng = position.lon();
         var alt = position.alt();
         var hdg = getprop('/orientation/heading-deg') or 0;
+        var pitch = getprop('/orientation/model/pitch-deg') or 0;
         
-        append(buffer_coords, sprintf("%s:%s:%s:%d:%d", no_phase, lat, lng, alt, hdg));
+        append(buffer_coords, sprintf("%s:%s:%s:%d:%d:%d", no_phase, lat, lng, alt, hdg, pitch));
     }
-    settimer(loop_get_coords, 6);
+    settimer(loop_get_coords, 4);
 }
 
 setlistener('/sim/signals/fdm-initialized', loop_get_coords);

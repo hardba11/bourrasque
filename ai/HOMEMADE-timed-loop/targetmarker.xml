@@ -8,33 +8,33 @@
     <![CDATA[
 srand(); # set seed for random generator
 
-props.globals.initNode("/mach-loop-timer/maxid", 0, "INT");
+props.globals.initNode("/homemade-loop-timer/maxid", 0, "INT");
 
 var root = cmdarg();
 var rootindex = root.getIndex();
 var markerPath = "/ai/models/aircraft["~ rootindex ~"]/";
-var id = getprop("/mach-loop-timer/maxid");
-var waypointPath = "/mach-loop-timer/waypoint[" ~ id ~ "]/";
-setprop("/mach-loop-timer/maxid", id + 1);
+var id = getprop("/homemade-loop-timer/maxid");
+var waypointPath = "/homemade-loop-timer/waypoint[" ~ id ~ "]/";
+setprop("/homemade-loop-timer/maxid", id + 1);
 
 props.globals.initNode(waypointPath ~"passed", 0, "BOOL");
 setprop(waypointPath ~"passed", 0);
-props.globals.initNode("/mach-loop-timer/color-red", 1, "DOUBLE");
-props.globals.initNode("/mach-loop-timer/color-green", 0.35, "DOUBLE");
+props.globals.initNode("/homemade-loop-timer/color-red", 1, "DOUBLE");
+props.globals.initNode("/homemade-loop-timer/color-green", 0.35, "DOUBLE");
 props.globals.initNode(waypointPath~"loaded", 1, "BOOL");
 setprop(waypointPath ~"loaded", 1);
 
 var greenFlash = func()
 {
-    settimer(func(){ interpolate("/mach-loop-timer/color-red", 1, 0.6); }, 0.2);
-    interpolate("/mach-loop-timer/color-red", 0.35, 0.2);
+    settimer(func(){ interpolate("/homemade-loop-timer/color-red", 1, 0.6); }, 0.2);
+    interpolate("/homemade-loop-timer/color-red", 0.35, 0.2);
 }
 
 var redFlash = func()
 {
-    settimer(func(){ interpolate("/mach-loop-timer/color-green", 1, 1.2); interpolate("/mach-loop-timer/color-red", 1, 1.2); }, 0.2);
-    interpolate("/mach-loop-timer/color-green", 0.15, 0.2);
-    interpolate("/mach-loop-timer/color-red", 0.95, 0.2);
+    settimer(func(){ interpolate("/homemade-loop-timer/color-green", 1, 1.2); interpolate("/homemade-loop-timer/color-red", 1, 1.2); }, 0.2);
+    interpolate("/homemade-loop-timer/color-green", 0.15, 0.2);
+    interpolate("/homemade-loop-timer/color-red", 0.95, 0.2);
 }
 
 var miss = 0;
@@ -46,14 +46,14 @@ markerCoord.set_latlon(
 );
 
 var planeCoord = geo.Coord.new();
-props.globals.initNode("/mach-loop-timer/starttime", 0, "DOUBLE");
+props.globals.initNode("/homemade-loop-timer/starttime", 0, "DOUBLE");
 
 var distLoop = maketimer(0.1,
     func()
     {
         if(distLoop == nil) return;
 
-        if(getprop("/mach-loop-timer/starttime") > 0)
+        if(getprop("/homemade-loop-timer/starttime") > 0)
         {
             planeCoord.set_latlon(
                 getprop("/position/latitude-deg"),
@@ -96,7 +96,7 @@ var distLoop = maketimer(0.1,
     }
 );
 distLoop.singleShot = 1;
-var listenStarttime = setlistener("/mach-loop-timer/starttime", func(){ distLoop.restart(0); });
+var listenStarttime = setlistener("/homemade-loop-timer/starttime", func(){ distLoop.restart(0); });
 distLoop.restart(10 * rand());
     ]]>
     </load>
@@ -106,13 +106,13 @@ settimer(
     func()
     {
         setprop(waypointPath ~"loaded", 0);
-        var wayptsNode = props.globals.getNode("/mach-loop-timer");
+        var wayptsNode = props.globals.getNode("/homemade-loop-timer");
         var allClear = 1;
         forindex(var i; wayptsNode.getChildren("waypoint"))
         {
-            if(getprop("/mach-loop-timer/waypoint["~ i ~"]/loaded")) allClear = 0;
+            if(getprop("/homemade-loop-timer/waypoint["~ i ~"]/loaded")) allClear = 0;
         }
-        if(allClear) setprop("/mach-loop-timer/maxid", 0);
+        if(allClear) setprop("/homemade-loop-timer/maxid", 0);
         removelistener(listenStarttime);
         distLoop.stop();
         distLoop = nil;
@@ -144,8 +144,8 @@ settimer(
     <type>material</type>
     <object-name>marker1</object-name>
     <emission>
-      <red-prop>/mach-loop-timer/color-red</red-prop>
-      <green-prop>/mach-loop-timer/color-green</green-prop>
+      <red-prop>/homemade-loop-timer/color-red</red-prop>
+      <green-prop>/homemade-loop-timer/color-green</green-prop>
       <blue>0</blue>
     </emission>
   </animation>

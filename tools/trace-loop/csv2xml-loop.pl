@@ -5,6 +5,21 @@
 # description :
 #   csv loop to xml scenario
 
+# csv columns :
+#   0 : phase identification
+#   1 : latitude
+#   2 : longitude
+#   3 : altitude (feet)
+#   4 : heading
+#   5 : pitch (deg)
+#
+# phases identification :
+#   0: "disabled",
+#   1: "recording entrance",
+#   2: "recording loop",
+#   3: "recording exit",
+#   4: "dumped",
+
 use Term::ANSIColor ;
 
 #===============================================================================
@@ -24,6 +39,7 @@ my $TPL_ENTRANCE = '
       <longitude type="double">%s</longitude>
       <altitude type="double">%s</altitude>
       <heading type="double">%s</heading>
+      <roll type="double">%s</roll>
     </entry>
 ' ;
 
@@ -35,6 +51,7 @@ my $TPL_START1 = '
       <longitude type="double">%s</longitude>
       <altitude type="double">%s</altitude>
       <heading type="double">%s</heading>
+      <roll type="double">%s</roll>
     </entry>' ;
 my $TPL_START2 = '
     <entry>
@@ -45,6 +62,7 @@ my $TPL_START2 = '
       <longitude type="double">%s</longitude>
       <altitude type="double">%s</altitude>
       <heading type="double">%s</heading>
+      <roll type="double">%s</roll>
     </entry>
 ' ;
 
@@ -56,6 +74,7 @@ my $TPL_LOOP = '
       <longitude type="double">%s</longitude>
       <altitude type="double">%s</altitude>
       <heading type="double">%s</heading>
+      <roll type="double">%s</roll>
     </entry>
 ' ;
 
@@ -68,6 +87,7 @@ my $TPL_FINISH1 = '
       <longitude type="double">%s</longitude>
       <altitude type="double">%s</altitude>
       <heading type="double">%s</heading>
+      <roll type="double">%s</roll>
     </entry>' ;
 my $TPL_FINISH2 = '
     <entry>
@@ -77,6 +97,7 @@ my $TPL_FINISH2 = '
       <longitude type="double">%s</longitude>
       <altitude type="double">%s</altitude>
       <heading type="double">%s</heading>
+      <roll type="double">%s</roll>
     </entry>
 ' ;
 
@@ -88,34 +109,28 @@ my $TPL_EXIT = '
       <longitude type="double">%s</longitude>
       <altitude type="double">%s</altitude>
       <heading type="double">%s</heading>
+      <roll type="double">%s</roll>
     </entry>
 ' ;
 
-#    0: "disabled",
-#    1: "recording entrance",
-#    2: "recording loop",
-#    3: "recording exit",
-#    4: "dumped",
-
-#===============================================================================
-#                                                       VARIABLES INITIALISATION
-
 #===============================================================================
 #                                                                      FUNCTIONS
+
 sub main
 {
     @out = ();
 
-    open(IN, $FILENAME_INC_HEADER_XML) or die ;
-    @header = <IN> ;
-    close(IN) ;
-    open(IN, $FILENAME_INC_FOOTER_XML) or die ;
-    @footer = <IN> ;
-    close(IN) ;
+    open(IN, $FILENAME_INC_HEADER_XML)
+        or die "unable to open file '$FILENAME_INC_HEADER_XML' : EXIT\n" ;
+    @header = <IN> ; close(IN) ;
 
-    open(IN, $FILENAME_IN_CSV) or die ;
-    @data = <IN> ;
-    close(IN) ;
+    open(IN, $FILENAME_INC_FOOTER_XML)
+        or die "unable to open file '$FILENAME_INC_FOOTER_XML' : EXIT\n" ;
+    @footer = <IN> ; close(IN) ;
+
+    open(IN, $FILENAME_IN_CSV)
+        or die "unable to open file '$FILENAME_IN_CSV' : EXIT\n" ;
+    @data = <IN> ; close(IN) ;
 
     push @out, @header ;
 
@@ -126,33 +141,32 @@ sub main
     for(@data)
     {
         chomp ;
-        ($no_phase, $lat, $lng, $alt, $hdg) = split(':') ;
-        #print join ' - ', ($no_phase, $lat, $lng, $alt, $hdg) ;
+        ($no_phase, $lat, $lng, $alt, $hdg, $roll) = split(':') ;
 
         $hdg += 90 ; $hdg %= 360 ;
         $alt *= 3.28 ;
 
         if($no_phase == 1)
         {
-            push @out, sprintf($TPL_ENTRANCE, ++$index_entrance, $lat, $lng, $alt, $hdg) ;
+            push @out, sprintf($TPL_ENTRANCE, ++$index_entrance, $lat, $lng, $alt, $hdg, $roll) ;
         }
         elsif(($no_phase == 2) && ($previous_no_phase == 1))
         {
-            push @out, sprintf($TPL_START1, $lat, $lng, $alt, $hdg) ;
-            push @out, sprintf($TPL_START2, $lat, $lng, $alt, $hdg) ;
+            push @out, sprintf($TPL_START1, $lat, $lng, $alt, $hdg, $roll) ;
+            push @out, sprintf($TPL_START2, $lat, $lng, $alt, $hdg, $roll) ;
         }
         elsif($no_phase == 2)
         {
-            push @out, sprintf($TPL_LOOP, ++$index_loop, $lat, $lng, $alt, $hdg) ;
+            push @out, sprintf($TPL_LOOP, ++$index_loop, $lat, $lng, $alt, $hdg, $roll) ;
         }
         elsif(($no_phase == 3) && ($previous_no_phase == 2))
         {
-            push @out, sprintf($TPL_FINISH1, $lat, $lng, $alt, $hdg) ;
-            push @out, sprintf($TPL_FINISH2, $lat, $lng, $alt, $hdg) ;
+            push @out, sprintf($TPL_FINISH1, $lat, $lng, $alt, $hdg, $roll) ;
+            push @out, sprintf($TPL_FINISH2, $lat, $lng, $alt, $hdg, $roll) ;
         }
         elsif($no_phase == 3)
         {
-            push @out, sprintf($TPL_EXIT, ++$index_exit, $lat, $lng, $alt, $hdg) ;
+            push @out, sprintf($TPL_EXIT, ++$index_exit, $lat, $lng, $alt, $hdg, $roll) ;
         }
 
         $previous_no_phase = $no_phase ;
@@ -163,17 +177,13 @@ sub main
     open(OUT, '>', $FILENAME_OUT_XML) or die ;
     print OUT @out ;
     close(OUT) ;
-    print "$FILENAME_OUT_XML generated, copy it in the fgdata/ai/ directory.\n" ;
+    print "file '$FILENAME_OUT_XML' generated, copy it in the fgdata/ai/ directory.\n" ;
 }
 
 #===============================================================================
 #                                                                           MAIN
 
-main();
+main() ;
 
 ### EOF
-
-
-
-
 

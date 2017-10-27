@@ -6,8 +6,8 @@
   <nasal>
     <load>
     <![CDATA[
-props.globals.initNode("/mach-loop-timer/color-red", 1, "DOUBLE");
-props.globals.initNode("/mach-loop-timer/color-green", 0.35, "DOUBLE");
+props.globals.initNode("/homemade-loop-timer/color-red", 1, "DOUBLE");
+props.globals.initNode("/homemade-loop-timer/color-green", 0.35, "DOUBLE");
     ]]>
     </load>
     <unload>
@@ -36,8 +36,8 @@ props.globals.initNode("/mach-loop-timer/color-green", 0.35, "DOUBLE");
     <type>material</type>
     <object-name>marker1</object-name>
     <emission>
-      <red-prop>/mach-loop-timer/color-red</red-prop>
-      <green-prop>/mach-loop-timer/color-green</green-prop>
+      <red-prop>/homemade-loop-timer/color-red</red-prop>
+      <green-prop>/homemade-loop-timer/color-green</green-prop>
       <blue>0</blue>
     </emission>
   </animation>
