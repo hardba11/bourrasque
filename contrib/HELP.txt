@@ -20,6 +20,8 @@ keyboard shortcuts :
 - V : previous view
 - ctrl-v : default view (pilot)
 - tab : mouse mode : pointer, view, stick
+- < : change phase for record loop
+- > : reinit record loop
 
 
 mouse functionnalities

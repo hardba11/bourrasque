@@ -1,7 +1,5 @@
 <!--
 markdown README.md > md.html ; cat {hd.inc,md,ft.inc}.html > github.html
-http://i.imgur.com/a/ZXp2Q
-https://imgur.com/a/fFGwf
 -->
 
 ![Image](http://i.imgur.com/BJtiZIH.png)
@@ -36,7 +34,9 @@ Still in development but fully usable.
 - ground equipments, external stores (fuel tanks)
 - multiplayer back-seat : fly as passenger !
 - 2 wingmen AI demo
+- timed loop AI demo over French Alps (takeoff LFLG : Grenoble le Versoud)
 - refuelling ability (enable in menu and see : http://wiki.flightgear.org/Howto:Aerial_refueling)
+- tool to record a timed loop
 
 ## gallery
 
@@ -47,6 +47,10 @@ reheat effects, different colors depending on the time :
 ground equipment, crew, canopy animation, tanks :
 
 ![Image](http://i.imgur.com/GcW1Q70.png)
+
+ground equipment, tanks :
+
+![Image](http://i.imgur.com/KHg7CUz.png)
 
 suspension, 3d shadow, strobe lights :
 
@@ -68,6 +72,10 @@ hud showing target position and informations, vfr hud configuration :
 
 ![Image](http://i.imgur.com/fnMhXxE.png)
 
+LFLG timed loop :
+
+![Image](http://i.imgur.com/hd3LKso.png)
+
 digital livery :
 
 ![Image](http://i.imgur.com/eLH2UKu.png)
@@ -87,6 +95,10 @@ flecktarn livery :
 desert livery :
 
 ![Image](http://i.imgur.com/UkyhrAb.png)
+
+tiger livery :
+
+![Image](http://i.imgur.com/aPbeYro.png)
 
 wingmens scenario, contrail effects :
 
@@ -112,5 +124,8 @@ touchdown smoke effects :
 
 ![Image](http://i.imgur.com/rwAqjdz.png)
 
+4 tanks configuration :
+
+![Image](http://i.imgur.com/BVkJ6aO.png)
 
 
