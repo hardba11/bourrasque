@@ -28,7 +28,7 @@
     <object-name>marker1</object-name>
     <emission>
       <red>1</red>
-      <green-prop>/mach-loop-timer/lineup-green1</green-prop>
+      <green-prop>/homemade-loop-timer/lineup-green1</green-prop>
       <blue>0</blue>
     </emission>
   </animation>
@@ -38,7 +38,7 @@
     <object-name>marker2</object-name>
     <emission>
       <red>1</red>
-      <green-prop>/mach-loop-timer/lineup-green2</green-prop>
+      <green-prop>/homemade-loop-timer/lineup-green2</green-prop>
       <blue>0</blue>
     </emission>
   </animation>
@@ -48,7 +48,7 @@
     <object-name>marker3</object-name>
     <emission>
       <red>1</red>
-      <green-prop>/mach-loop-timer/lineup-green3</green-prop>
+      <green-prop>/homemade-loop-timer/lineup-green3</green-prop>
       <blue>0</blue>
     </emission>
   </animation>

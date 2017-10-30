@@ -39,8 +39,6 @@ changelog
     <object-name>hsi.hdg_ring-emit</object-name>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
-
   <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
   <effect>
     <inherits-from>Effects/model-transparent</inherits-from>

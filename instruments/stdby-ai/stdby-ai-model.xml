@@ -24,7 +24,7 @@ changelog
 
   <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
   <animation>
-    <object-name>ai-box</object-name>
+    <object-name>ai.box</object-name>
     <object-name>ai.ball</object-name>
     <object-name>ai.ball-emit</object-name>
     <object-name>ai.face</object-name>
@@ -45,7 +45,7 @@ changelog
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
-    <object-name>ai-box</object-name>
+    <object-name>ai.box</object-name>
     <object-name>ai.ball</object-name>
     <object-name>ai.ball-emit</object-name>
     <object-name>ai.face</object-name>

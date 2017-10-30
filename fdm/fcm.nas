@@ -70,28 +70,28 @@ var taxi_reduction_of_efficiency_for_altitude = 1;
 var taxi_reduction_of_efficiency_for_speed    = 1;
 
 # APP
-var app_optimal_altitude                      = 0;      # 100000
-var app_optimal_speed                         = 90;     # 100
-var app_range_altitude                        = 1;      # 1
-var app_range_speed                           = 100;    # 20
-var app_reduction_of_efficiency_for_altitude  = 1;      # 3
-var app_reduction_of_efficiency_for_speed     = 1.5;    # 2
+var app_optimal_altitude                      = 0;
+var app_optimal_speed                         = 90;
+var app_range_altitude                        = 1;
+var app_range_speed                           = 100;
+var app_reduction_of_efficiency_for_altitude  = 1;
+var app_reduction_of_efficiency_for_speed     = 1.5;
 
 # NAV
 var nav_optimal_altitude                      = 0;
-var nav_optimal_speed                         = 200;
+var nav_optimal_speed                         = 100;
 var nav_range_altitude                        = 20000;
-var nav_range_speed                           = 400;
+var nav_range_speed                           = 600;
 var nav_reduction_of_efficiency_for_altitude  = 10;
-var nav_reduction_of_efficiency_for_speed     = 20;
+var nav_reduction_of_efficiency_for_speed     = 25;
 
 # VFR
 var vfr_optimal_altitude                      = 0;
 var vfr_optimal_speed                         = 500;
 var vfr_range_altitude                        = 30000;
 var vfr_range_speed                           = 300;
-var vfr_reduction_of_efficiency_for_altitude  = 2;
-var vfr_reduction_of_efficiency_for_speed     = 2;
+var vfr_reduction_of_efficiency_for_altitude  = 1.6;
+var vfr_reduction_of_efficiency_for_speed     = 1.2;
 
 
 #===============================================================================
