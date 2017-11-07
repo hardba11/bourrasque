@@ -76,6 +76,14 @@ var event_click_info = func()
     setprop('instrumentation/my_aircraft/nd/inputs/data', infos_displayed);
 }
 
+var event_click_radar = func()
+{
+    var infos_displayed = getprop('instrumentation/my_aircraft/nd/inputs/inputs/tfc') or 0;
+    infos_displayed = (infos_displayed) ? 0 : 1;
+
+    setprop('instrumentation/my_aircraft/nd/inputs/inputs/tfc', infos_displayed);
+}
+
 var event_click_true_north = func()
 {
     var is_true_north = getprop('/instrumentation/my_aircraft/nd/inputs/true-north') or 0;

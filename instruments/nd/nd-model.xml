@@ -70,7 +70,6 @@ changelog
   <animation>
     <type>select</type>
     <object-name>hud.void1-emit</object-name>
-    <object-name>nd.rdr-emit</object-name>
     <condition>
       <false />
     </condition>
@@ -517,6 +516,50 @@ instrument_nd.event_click_info();
       <and>
         <property>sim/multiplay/generic/int[5]</property>
         <property>/instrumentation/nav[0]/slaved-to-gps</property>
+      </and>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control radar -->
+  <animation>
+    <type>pick</type>
+    <object-name>nd.rdr</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+instrument_nd.event_click_radar();
+          ]]>
+        </script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-nd-radar</tooltip-id>
+        <label>Toggle radar</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation radar -->
+  <animation>
+    <type>select</type>
+    <object-name>nd.rdr-emit</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <equals>
+          <property>/instrumentation/my_aircraft/nd/inputs/inputs/tfc</property>
+          <value>1</value>
+        </equals>
       </and>
     </condition>
   </animation>

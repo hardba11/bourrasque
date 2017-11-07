@@ -96,6 +96,10 @@ desert livery :
 
 ![Image](http://i.imgur.com/UkyhrAb.png)
 
+flight gear livery :
+
+![Image](http://i.imgur.com/n13LXzK.png)
+
 tiger livery :
 
 ![Image](http://i.imgur.com/aPbeYro.png)

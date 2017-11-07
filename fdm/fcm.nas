@@ -87,11 +87,11 @@ var nav_reduction_of_efficiency_for_speed     = 25;
 
 # VFR
 var vfr_optimal_altitude                      = 0;
-var vfr_optimal_speed                         = 500;
+var vfr_optimal_speed                         = 400;
 var vfr_range_altitude                        = 30000;
-var vfr_range_speed                           = 300;
-var vfr_reduction_of_efficiency_for_altitude  = 1.6;
-var vfr_reduction_of_efficiency_for_speed     = 1.2;
+var vfr_range_speed                           = 400;
+var vfr_reduction_of_efficiency_for_altitude  = 1.2;
+var vfr_reduction_of_efficiency_for_speed     = 1.1;
 
 
 #===============================================================================
