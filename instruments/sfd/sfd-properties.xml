@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- DEFINITION OF ALIASES OR INTERNAL PROPERTIES -->
+
+<!-- /instrumentation/my_aircraft/sfd/ -->
+<PropertyList>
+
+  <!-- data used to control instrument -->
+  <controls>
+    <display_sfd_screen type="string">EICAS</display_sfd_screen>
+    <radar_range type="int">10</radar_range>
+  </controls>
+
+</PropertyList>
+
