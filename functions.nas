@@ -222,7 +222,7 @@ var set_mod = func(current_mod) {
     setprop('/sim/model/click', (getprop('/sim/model/click') ? 0 : 1));
 }
 
-var toggle_lights = func() {
+var event_toggle_lights = func() {
     var beacon = getprop('/controls/lighting/beacon') or 0;
     var nav    = getprop('/controls/lighting/nav-lights') or 0;
     var pos    = getprop('/controls/lighting/pos-lights') or 0;
@@ -236,7 +236,7 @@ var toggle_lights = func() {
     setprop('/controls/lighting/strobe',     toggle_lights);
 }
 
-var toggle_landing_lights = func() {
+var event_toggle_landing_lights = func() {
     var taxi = getprop('/controls/lighting/taxi-light') or 0;
 
     var toggle_lights = (taxi == 0) ? 1 : 0;
@@ -244,7 +244,7 @@ var toggle_landing_lights = func() {
     setprop('/controls/lighting/taxi-light', toggle_lights);
 }
 
-var acknowledge_master_caution = func() {
+var event_acknowledge_master_caution = func() {
     var is_alert = getprop('/instrumentation/my_aircraft/command_h/is_alert') or 0;
     var is_ack = getprop('/instrumentation/my_aircraft/command_h/ack_alert') or 0;
 
@@ -260,6 +260,22 @@ var acknowledge_master_caution = func() {
         setprop('/instrumentation/my_aircraft/command_h/ack_alert', 0);
     }
 }
+
+var event_swap_sfd_screen = func() {
+    var current_screen = getprop('/instrumentation/my_aircraft/sfd/controls/display_sfd_screen') or '';
+
+    # first click : alert remain (master caution no blinking and alert-sound disabled) :
+    if(current_screen == 'EICAS')
+    {
+        setprop('/instrumentation/my_aircraft/sfd/controls/display_sfd_screen', 'RADAR');
+    }
+    # second click : reinit
+    elsif(current_screen == 'RADAR')
+    {
+        setprop('/instrumentation/my_aircraft/sfd/controls/display_sfd_screen', 'EICAS');
+    }
+}
+
 
 #===============================================================================
 #                                                                          TOOLS

@@ -242,9 +242,12 @@ changelog
     <instrument_hud_target_positions>
       <file type="string">instruments/hud_target_positions/hud_target_positions.nas</file>
     </instrument_hud_target_positions>
-    <instrument_sfd_canvas>
-      <file type="string">instruments/sfd/sfd_canvas.nas</file>
-    </instrument_sfd_canvas>
+    <instrument_sfd_eicas>
+      <file type="string">instruments/sfd/sfd_eicas.nas</file>
+    </instrument_sfd_eicas>
+    <instrument_sfd_radar>
+      <file type="string">instruments/sfd/sfd_radar.nas</file>
+    </instrument_sfd_radar>
     <instrument_fuel_canvas>
       <file type="string">instruments/fuel/fuel_canvas.nas</file>
     </instrument_fuel_canvas>

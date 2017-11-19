@@ -28,8 +28,11 @@ changelog
     <object-name>sfd.vis</object-name>
     <object-name>sfd.buttons</object-name>
     <object-name>sfd.ack</object-name>
+    <object-name>sfd.swap-screen</object-name>
+    <object-name>sfd.radar-range</object-name>
     <object-name>sfd.cadre-emit</object-name>
-    <object-name>sfd_canvas_screen</object-name>
+    <object-name>sfd_canvas_screen_radar</object-name>
+    <object-name>sfd_canvas_screen_eicas</object-name>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
@@ -46,10 +49,13 @@ changelog
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
     <object-name>sfd.cadre</object-name>
     <object-name>sfd.screen.off</object-name>
-    <object-name>sfd_canvas_screen</object-name>
+    <object-name>sfd_canvas_screen_radar</object-name>
+    <object-name>sfd_canvas_screen_eicas</object-name>
     <object-name>sfd.vis</object-name>
     <object-name>sfd.buttons</object-name>
     <object-name>sfd.ack</object-name>
+    <object-name>sfd.swap-screen</object-name>
+    <object-name>sfd.radar-range</object-name>
     <object-name>sfd.cadre-emit</object-name>
   </effect>
 
@@ -70,7 +76,8 @@ changelog
 
   <animation>
     <type>material</type>
-    <object-name>sfd_canvas_screen</object-name>
+    <object-name>sfd_canvas_screen_radar</object-name>
+    <object-name>sfd_canvas_screen_eicas</object-name>
     <condition>
       <greater-than>
         <property>/controls/lighting/instruments-norm</property>
@@ -86,7 +93,8 @@ changelog
   </animation>
   <animation>
     <type>material</type>
-    <object-name>sfd_canvas_screen</object-name>
+    <object-name>sfd_canvas_screen_radar</object-name>
+    <object-name>sfd_canvas_screen_eicas</object-name>
     <condition>
       <equals>
         <property>/controls/lighting/instruments-norm</property>
@@ -118,7 +126,7 @@ changelog
         <command>nasal</command>
         <script>
           <![CDATA[
-my_aircraft_functions.acknowledge_master_caution();
+my_aircraft_functions.event_acknowledge_master_caution();
           ]]>
         </script>
       </binding>
@@ -134,6 +142,107 @@ my_aircraft_functions.acknowledge_master_caution();
         <label>acknowledge master caution (o)</label>
       </binding>
     </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control swap screens -->
+  <animation>
+    <type>pick</type>
+    <object-name>sfd.swap-screen</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_swap_sfd_screen();
+          ]]>
+        </script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-sfd-swp</tooltip-id>
+        <label>swap screens</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control radar range -->
+  <animation>
+    <type>pick</type>
+    <object-name>sfd.radar-range</object-name>
+    <action>
+      <button>3</button>
+      <binding>
+        <command>property-cycle</command>
+        <wrap type="bool">0</wrap>
+        <property>/instrumentation/my_aircraft/sfd/controls/radar_range</property>
+        <value>10</value>
+        <value>20</value>
+        <value>40</value>
+        <value>80</value>
+        <value>160</value>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>4</button>
+      <binding>
+        <command>property-cycle</command>
+        <wrap type="bool">0</wrap>
+        <property>/instrumentation/my_aircraft/sfd/controls/radar_range</property>
+        <value>160</value>
+        <value>80</value>
+        <value>40</value>
+        <value>20</value>
+        <value>10</value>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-sfd-range</tooltip-id>
+        <label>Set range %3d</label>
+        <property>/instrumentation/my_aircraft/sfd/controls/radar_range</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation screen eicas -->
+  <animation>
+    <type>select</type>
+    <object-name>sfd_canvas_screen_eicas</object-name>
+    <condition>
+      <equals>
+        <property>/instrumentation/my_aircraft/sfd/controls/display_sfd_screen</property>
+        <value>EICAS</value>
+      </equals>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation screen radar -->
+  <animation>
+    <type>select</type>
+    <object-name>sfd_canvas_screen_radar</object-name>
+    <condition>
+      <equals>
+        <property>/instrumentation/my_aircraft/sfd/controls/display_sfd_screen</property>
+        <value>RADAR</value>
+      </equals>
+    </condition>
   </animation>
 
   <!--

@@ -48,6 +48,7 @@ changelog
     <chrono                 include="../instruments/chrono/chrono-properties.xml" />
     <nd                     include="../instruments/nd/nd-properties.xml" />
     <pfd                    include="../instruments/pfd/pfd-properties.xml" />
+    <sfd                    include="../instruments/sfd/sfd-properties.xml" />
     <fuel                   include="../instruments/fuel/fuel-properties.xml" />
     <command_h              include="../instruments/command_h/command_h-properties.xml" />
   </my_aircraft>

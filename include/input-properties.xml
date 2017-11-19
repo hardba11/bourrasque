@@ -314,7 +314,7 @@ settimer(func() { my_aircraft_functions.load_current_view(); }, 0.5);
       <desc>toggle lights</desc>
       <binding>
         <command>nasal</command>
-        <script>my_aircraft_functions.toggle_lights()</script>
+        <script>my_aircraft_functions.event_toggle_lights()</script>
       </binding>
     </key>
     <key n="108">
@@ -322,7 +322,7 @@ settimer(func() { my_aircraft_functions.load_current_view(); }, 0.5);
       <desc>toggle landing lights</desc>
       <binding>
         <command>nasal</command>
-        <script>my_aircraft_functions.toggle_landing_lights()</script>
+        <script>my_aircraft_functions.event_toggle_landing_lights()</script>
       </binding>
     </key>
 
@@ -332,7 +332,7 @@ settimer(func() { my_aircraft_functions.load_current_view(); }, 0.5);
       <desc>ack master caution</desc>
       <binding>
         <command>nasal</command>
-        <script>my_aircraft_functions.acknowledge_master_caution()</script>
+        <script>my_aircraft_functions.event_acknowledge_master_caution()</script>
       </binding>
     </key>
 
