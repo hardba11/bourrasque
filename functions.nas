@@ -7,13 +7,14 @@ var I_DISPLAY_MODE_NUM  = 1;
 var I_ND_CENTERED       = 2;
 var I_HELMET            = 3;
 var I_COPILOT_HEAD      = 4;
-var I_AP_SPEED          = 5;
-var I_AP_ALT            = 6;
+var I_SFD               = 5;
+var I_AP_SPEED          = 6;
+var I_AP_ALT            = 7;
 var SETTINGS_MODS = [
-    ["TAXI", 0, 1, 37, -25, 10, 0],
-    ["APP",  0, 1,  0,   0, 200, 1500],
-    ["NAV",  1, 0,  0,  17, 500, 40000],
-    ["VFR",  2, 1,  0,  37, 600, 3000],
+    ["TAXI", 0, 1, 37, -25, "EICAS", 10, 0],
+    ["APP",  0, 1,  0,   0, "EICAS", 200, 1500],
+    ["NAV",  1, 0,  0,  17, "RADAR", 500, 40000],
+    ["VFR",  2, 1,  0,  37, "RADAR", 600, 3000],
 ];
 
 
@@ -126,14 +127,14 @@ var view_panel_radio = func() {
 
 var throttle_mouse = func() {
     # throttle only if center mouse button pressed
-    if(! getprop("/devices/status/mice/mouse[0]/button[1]"))
+    if(! getprop('/devices/status/mice/mouse[0]/button[1]'))
     {
         return;
     }
 
     var delta = cmdarg().getNode("offset").getValue() * -4;
-    var thr0_value = getprop("/controls/engines/engine[0]/throttle") or 0;
-    var thr1_value = getprop("/controls/engines/engine[1]/throttle") or 0;
+    var thr0_value = getprop('/controls/engines/engine[0]/throttle') or 0;
+    var thr1_value = getprop('/controls/engines/engine[1]/throttle') or 0;
 
     var new_thr0_value = thr0_value + delta;
     var new_thr1_value = thr1_value + delta;
@@ -142,16 +143,16 @@ var throttle_mouse = func() {
         new_thr0_value = -new_thr0_value;
         new_thr1_value = -new_thr1_value;
     }
-    setprop("/controls/engines/engine[0]/throttle", new_thr0_value);
-    setprop("/controls/engines/engine[1]/throttle", new_thr1_value);
+    setprop('/controls/engines/engine[0]/throttle', new_thr0_value);
+    setprop('/controls/engines/engine[1]/throttle', new_thr1_value);
 }
 
 var inc_throttle = func() {
 
-    var locked = getprop("/autopilot/locks/speed");
+    var locked = getprop('/autopilot/locks/speed');
     if(locked)
     {
-        var node = props.globals.getNode("/autopilot/settings/target-speed-kt", 1);
+        var node = props.globals.getNode('/autopilot/settings/target-speed-kt', 1);
         if(node.getValue() == nil)
         {
             node.setValue(0.0);
@@ -164,30 +165,30 @@ var inc_throttle = func() {
     }
     else
     {
-        var thr0_value = getprop("/controls/engines/engine[0]/throttle") or 0;
-        var thr1_value = getprop("/controls/engines/engine[1]/throttle") or 0;
+        var thr0_value = getprop('/controls/engines/engine[0]/throttle') or 0;
+        var thr1_value = getprop('/controls/engines/engine[1]/throttle') or 0;
 
         var new_thr0_value = thr0_value + arg[0];
         var new_thr1_value = thr1_value + arg[0];
 
         new_thr0_value = (new_thr0_value < -1.0) ? -1.0 : (new_thr0_value > 1.0) ? 1.0 : new_thr0_value;
         new_thr1_value = (new_thr1_value < -1.0) ? -1.0 : (new_thr1_value > 1.0) ? 1.0 : new_thr1_value;
-        setprop("/controls/engines/engine[0]/throttle", new_thr0_value);
-        setprop("/controls/engines/engine[1]/throttle", new_thr1_value);
+        setprop('/controls/engines/engine[0]/throttle', new_thr0_value);
+        setprop('/controls/engines/engine[1]/throttle', new_thr1_value);
     }
 }
 
 var center_flight_controls = func() {
-    setprop("/controls/flight/elevator", 0);
-    setprop("/controls/flight/aileron", 0);
-    setprop("/controls/flight/rudder", 0);
-    setprop("/controls/flight/elevator-trim", 0);
-    setprop("/controls/flight/aileron-trim", 0);
-    setprop("/controls/flight/rudder-trim", 0);
+    setprop('/controls/flight/elevator', 0);
+    setprop('/controls/flight/aileron', 0);
+    setprop('/controls/flight/rudder', 0);
+    setprop('/controls/flight/elevator-trim', 0);
+    setprop('/controls/flight/aileron-trim', 0);
+    setprop('/controls/flight/rudder-trim', 0);
 }
 
 var change_mod = func(inc) {
-    var current_mod = getprop("/instrumentation/my_aircraft/nd/controls/mode") or "VFR";
+    var current_mod = getprop('/instrumentation/my_aircraft/nd/controls/mode') or 'VFR';
     var chosen_mod_number = 0;
 
     foreach(var mod ; SETTINGS_MODS)
@@ -212,13 +213,14 @@ var set_mod = func(current_mod) {
         }
         chosen_mod_number += 1;
     }
-    setprop('/instrumentation/my_aircraft/nd/controls/mode',           SETTINGS_MODS[chosen_mod_number][I_MODE]);
-    setprop('/instrumentation/my_aircraft/nd/inputs/display-mode-num', SETTINGS_MODS[chosen_mod_number][I_DISPLAY_MODE_NUM]);
-    setprop('/instrumentation/my_aircraft/nd/inputs/nd-centered',      SETTINGS_MODS[chosen_mod_number][I_ND_CENTERED]);
-    setprop('/controls/pax/helmet',                                    SETTINGS_MODS[chosen_mod_number][I_HELMET]);
-    setprop('/controls/pax/copilot-head',                              SETTINGS_MODS[chosen_mod_number][I_COPILOT_HEAD]);
-#    setprop('/autopilot/settings/target-speed-kt',                     SETTINGS_MODS[chosen_mod_number][I_AP_SPEED]);
-#    setprop('/autopilot/settings/target-altitude-ft',                  SETTINGS_MODS[chosen_mod_number][I_AP_ALT]);
+    setprop('/instrumentation/my_aircraft/nd/controls/mode',                SETTINGS_MODS[chosen_mod_number][I_MODE]);
+    setprop('/instrumentation/my_aircraft/nd/inputs/display-mode-num',      SETTINGS_MODS[chosen_mod_number][I_DISPLAY_MODE_NUM]);
+    setprop('/instrumentation/my_aircraft/nd/inputs/nd-centered',           SETTINGS_MODS[chosen_mod_number][I_ND_CENTERED]);
+    setprop('/controls/pax/helmet',                                         SETTINGS_MODS[chosen_mod_number][I_HELMET]);
+    setprop('/controls/pax/copilot-head',                                   SETTINGS_MODS[chosen_mod_number][I_COPILOT_HEAD]);
+    setprop('/instrumentation/my_aircraft/sfd/controls/display_sfd_screen', SETTINGS_MODS[chosen_mod_number][I_SFD]);
+#    setprop('/autopilot/settings/target-speed-kt',                          SETTINGS_MODS[chosen_mod_number][I_AP_SPEED]);
+#    setprop('/autopilot/settings/target-altitude-ft',                       SETTINGS_MODS[chosen_mod_number][I_AP_ALT]);
     setprop('/sim/model/click', (getprop('/sim/model/click') ? 0 : 1));
 }
 
