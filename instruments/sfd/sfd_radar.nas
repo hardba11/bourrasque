@@ -9,7 +9,7 @@ var resolution_y = 1024;
 var pixel_range = 620;
 var margin_top = 120;
 
-var radar_range = getprop("/instrumentation/my_aircraft/sfd/controls/radar_range") or 20;
+var radar_range = getprop("/instrumentation/my_aircraft/sfd/controls/radar_range") or 10;
 
 
 #===============================================================================

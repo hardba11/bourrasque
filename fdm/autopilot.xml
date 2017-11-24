@@ -264,8 +264,8 @@ ________________________________________________________________________________
       <gamma>0.0</gamma>
       <Ti>4.0</Ti>
       <Td>0.0001</Td>
-      <u_min>-15.0</u_min>
-      <u_max>30.0</u_max>
+      <u_min>-25.0</u_min>
+      <u_max>40.0</u_max>
     </config>
   </pid-controller>
   
@@ -292,8 +292,8 @@ ________________________________________________________________________________
       <gamma>0.0</gamma>
       <Ti>5.0</Ti>
       <Td>0.0001</Td>
-      <u_min>-0.25</u_min>
-      <u_max>0.25</u_max>
+      <u_min>-0.3</u_min>
+      <u_max>0.3</u_max>
     </config>
   </pid-controller>
   
@@ -312,8 +312,8 @@ ________________________________________________________________________________
     </enable>
     <input>/orientation/pitch-deg</input>
     <output>/autopilot/internal/target-pitch-deg</output>
-    <min>-15.0</min>
-    <max>30.0</max>
+    <min>-25.0</min>
+    <max>35.0</max>
   </filter>
   
   <filter>
