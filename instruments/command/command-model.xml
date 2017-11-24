@@ -23,42 +23,44 @@ changelog
   <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
   <animation>
     <object-name>command.box</object-name>
-    <object-name>command.parkbrake</object-name>
-    <object-name>command.gears</object-name>
-    <object-name>command.canopy</object-name>
     <object-name>command.box-emit</object-name>
-    <object-name>command.parkbrake-emit</object-name>
+    <object-name>command.canopy</object-name>
+    <object-name>command.gears</object-name>
     <object-name>command.gears-emit</object-name>
+    <object-name>command.hook</object-name>
+    <object-name>command.launchbar</object-name>
+    <object-name>command.parkbrake</object-name>
+    <object-name>command.parkbrake-emit</object-name>
   </animation>
-
-  <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
 
   <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
   <effect>
     <inherits-from>Effects/model-transparent</inherits-from>
     <object-name>command.box-emit</object-name>
-    <object-name>command.parkbrake-emit</object-name>
     <object-name>command.gears-emit</object-name>
+    <object-name>command.parkbrake-emit</object-name>
   </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
     <object-name>command.box</object-name>
-    <object-name>command.parkbrake</object-name>
-    <object-name>command.gears</object-name>
-    <object-name>command.canopy</object-name>
     <object-name>command.box-emit</object-name>
-    <object-name>command.parkbrake-emit</object-name>
+    <object-name>command.canopy</object-name>
+    <object-name>command.gears</object-name>
     <object-name>command.gears-emit</object-name>
+    <object-name>command.hook</object-name>
+    <object-name>command.launchbar</object-name>
+    <object-name>command.parkbrake</object-name>
+    <object-name>command.parkbrake-emit</object-name>
   </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
   <animation>
     <type>material</type>
     <object-name>command.box-emit</object-name>
-    <object-name>command.parkbrake-emit</object-name>
     <object-name>command.gears-emit</object-name>
+    <object-name>command.parkbrake-emit</object-name>
     <emission>
       <factor-prop>/controls/lighting/instruments-norm</factor-prop>
       <red>0.8</red>
@@ -74,6 +76,8 @@ changelog
   <animation>
     <type>material</type>
     <object-name>command.lightParkbrake</object-name>
+    <object-name>command.lightHook</object-name>
+    <object-name>command.lightLBar</object-name>
     <emission>
       <factor>2</factor>
       <red>1</red>
@@ -169,7 +173,7 @@ changelog
     </axis>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation lights gears lever -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation lights gears -->
   <animation>
     <type>select</type>
     <object-name>command.lightGear</object-name>
@@ -215,7 +219,6 @@ changelog
       </less-than>
     </condition>
   </animation>
-
 
   <!-- ~~~~~~~~~~~~~~~~~~~~~~ control park brake lever -->
   <animation>
@@ -264,7 +267,7 @@ changelog
     </axis>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation lights park brake lever -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation lights park brake -->
   <animation>
     <type>select</type>
     <object-name>command.lightParkbrake</object-name>
@@ -272,6 +275,99 @@ changelog
       <and>
         <property>sim/multiplay/generic/int[5]</property>
         <property>/controls/gear/brake-parking</property>
+      </and>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control hook lever -->
+  <animation>
+    <type>pick</type>
+    <object-name>command.hook</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>/controls/gear/tailhook</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-command-hook</tooltip-id>
+        <label>Hook (;)</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation hook lever -->
+  <animation>
+    <type>rotate</type>
+    <object-name>command.hook</object-name>
+    <property>/gear/tailhook/position-norm</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>0.001</ind><dep>0</dep></entry>
+      <entry><ind>0.01</ind><dep>80</dep></entry>
+      <entry><ind>1</ind><dep>81</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0</x-m>
+      <y-m>-0.0255</y-m>
+      <z-m>0.0889</z-m>
+    </center>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation lights hook -->
+  <animation>
+    <type>select</type>
+    <object-name>command.lightHook</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <property>/controls/gear/tailhook</property>
+      </and>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control launch bar -->
+  <animation>
+    <type>pick</type>
+    <object-name>command.launchbar</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>/controls/gear/launchbar</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-command-launchbar</tooltip-id>
+        <label>Toggle Launchbar (])</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation lights launch bar -->
+  <animation>
+    <type>select</type>
+    <object-name>command.lightLBar</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <property>/controls/gear/launchbar</property>
       </and>
     </condition>
   </animation>

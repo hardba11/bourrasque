@@ -56,6 +56,9 @@ changelog
     <object-name>canopy_plexi_int</object-name>
     <object-name>canopy-accessoires</object-name>
     <object-name>canopy-poignees</object-name>
+    <!-- ~~~~~~~~~~~~~~~~~~ hook -->
+    <object-name>root_hook</object-name>
+    <object-name>hook</object-name>
   </animation>
 
   <effect>
@@ -90,6 +93,8 @@ changelog
     <object-name>trappe_jambe_train_L</object-name>
     <object-name>trappe_jambe_train_R</object-name>
     <object-name>canopy</object-name>
+    <object-name>root_hook</object-name>
+    <object-name>hook</object-name>
   </effect>
 
   <animation>
@@ -115,6 +120,8 @@ changelog
     <object-name>trappe_jambe_train_R</object-name>
     <object-name>canopy</object-name>
     <object-name>canopy-accessoires</object-name>
+    <object-name>root_hook</object-name>
+    <object-name>hook</object-name>
     <property-base>sim/model/livery</property-base>
     <texture-prop>texture</texture-prop>
     <texture>texture_bourrasque.png</texture>
@@ -614,6 +621,29 @@ ________________________________________________________________________________
     </condition>
   </animation>
 
+  <!--
+________________________________________________________________________________
+                                                                            HOOK
+  -->
+  <animation>
+    <type>rotate</type>
+    <object-name>hook</object-name>
+    <property>/gear/tailhook/position-norm</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>0</dep></entry>
+      <entry><ind>0.2</ind><dep>70</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>3.475</x-m>
+      <y-m>0</y-m>
+      <z-m>-0.416</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
 
 </PropertyList>
 

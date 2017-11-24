@@ -35,6 +35,14 @@ changelog
   <key><name>ctrl-n</name><desc>Enable autopilot on Heading (nav 1 radial)</desc></key>
   <key><name>ctrl-p</name><desc>Enable autopilot to keep current heading, altitude and speed</desc></key>
   <key><name>ctrl-P</name><desc>Disable autopilot</desc></key>
+  <key><name>[</name><desc>Catapult launch (carrier)</desc></key>
+  <key><name>]</name><desc>Toggle Launch-bar (carrier)</desc></key>
+  <key><name>;</name><desc>Toggle Hook (carrier)</desc></key>
+  <key><name>&lt;</name><desc>change phase for record loop</desc></key>
+  <key><name>&gt;</name><desc>reinit record loop</desc></key>
+
+
+
 
   <text>Bourrasque take off rotation: 150kts, landing: 140kts - speedbrake 40% - aoa 5</text>
 

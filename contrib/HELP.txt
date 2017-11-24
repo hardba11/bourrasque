@@ -22,7 +22,9 @@ keyboard shortcuts :
 - tab : mouse mode : pointer, view, stick
 - < : change phase for record loop
 - > : reinit record loop
-
+- [ : Catapult launch (carrier)
+- ] : Toggle Launch-bar (carrier)
+- ; : Toggle Hook (carrier)
 
 mouse functionnalities
 ======================

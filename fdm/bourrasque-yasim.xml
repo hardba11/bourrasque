@@ -285,6 +285,16 @@ ________________________________________________________________________________
                                                                            GEARS
   -->
 
+  <!-- ~~~~~~~~~~~~~~~~~~ carrier catapult launch -->
+  <hook x="-3.5" y="0.0" z="-1.0" length="2" down-angle="80" up-angle="-2">
+    <control-input axis="/controls/gear/tailhook" control="HEXTEND"/>
+    <control-speed control="HEXTEND" transition-time="3"/>
+  </hook>
+  <launchbar x="2.6" y="0" z="-1.7" length="0.3">
+    <control-input axis="/controls/gear/launchbar" control="LEXTEND"/>
+    <control-speed control="LEXTEND" transition-time="0.5"/>
+  </launchbar>
+
   <!-- ~~~~~~~~~~~~~~~~~~ front gear -->
   <gear x="2.75" y="0" z="-1.7"
       compression=".9" spring=".5" damp=".6"

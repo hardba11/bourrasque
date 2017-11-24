@@ -806,7 +806,7 @@ changelog
     </input>
   </gauge>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ throttle 0 -->
+  <!-- ~~~~~~~~~~~~~~~~~~ throttle 0 for TAXI and APP mode -->
   <gauge>
     <name>throttle0</name>
     <x>-100</x>
@@ -836,7 +836,7 @@ changelog
       </or>
     </condition>
   </gauge>
-  <!-- ~~~~~~~~~~~~~~~~~~ throttle 1 -->
+  <!-- ~~~~~~~~~~~~~~~~~~ throttle 1 for TAXI and APP mode -->
   <gauge>
     <name>throttle1</name>
     <x>-100</x>
@@ -867,6 +867,66 @@ changelog
     </condition>
   </gauge>
 
+  <!-- ~~~~~~~~~~~~~~~~~~ throttle 0 for NAV and VFR mode -->
+  <gauge>
+    <name>throttle0-thumb</name>
+    <x>-100</x>
+    <y>-85</y>
+    <width>5</width>
+    <height>20</height>
+    <option>vertical</option>
+    <option>left</option>
+    <option>notext</option>
+    <major-divisions>90</major-divisions>
+    <input>
+      <property>/controls/engines/engine[0]/throttle</property>
+      <factor>100</factor>
+      <max>100.0</max>
+      <min>0.0</min>
+    </input>
+    <condition>
+      <or>
+        <equals>
+          <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+          <value>NAV</value>
+        </equals>
+        <equals>
+          <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+          <value>VFR</value>
+        </equals>
+      </or>
+    </condition>
+  </gauge>
+  <!-- ~~~~~~~~~~~~~~~~~~ throttle 1 for NAV and VFR mode -->
+  <gauge>
+    <name>throttle1-thumb</name>
+    <x>-100</x>
+    <y>-85</y>
+    <width>5</width>
+    <height>20</height>
+    <option>vertical</option>
+    <option>right</option>
+    <option>notext</option>
+    <major-divisions>90</major-divisions>
+    <input>
+      <property>/controls/engines/engine[1]/throttle</property>
+      <factor>100</factor>
+      <max>100.0</max>
+      <min>0.0</min>
+    </input>
+    <condition>
+      <or>
+        <equals>
+          <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+          <value>NAV</value>
+        </equals>
+        <equals>
+          <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+          <value>VFR</value>
+        </equals>
+      </or>
+    </condition>
+  </gauge>
   <!--
 ================================================================================
                                                                   AVIONICS INFOS
@@ -1030,6 +1090,39 @@ changelog
       </greater-than>
     </condition>
     <format>spdbrk %1.0f</format>
+    <halign>right</halign>
+  </label>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ hook -->
+  <label>
+    <name>Hook</name>
+    <x>-56</x>
+    <y>-46</y>
+    <width>15</width>
+    <height>6</height>
+    <condition>
+      <greater-than>
+        <property>/controls/gear/tailhook</property>
+        <value>0</value>
+      </greater-than>
+    </condition>
+    <format>hook</format>
+    <halign>right</halign>
+  </label>
+  <!-- ~~~~~~~~~~~~~~~~~~ launch bar -->
+  <label>
+    <name>Launch Bar</name>
+    <x>-78</x>
+    <y>-46</y>
+    <width>15</width>
+    <height>6</height>
+    <condition>
+      <greater-than>
+        <property>/controls/gear/launchbar</property>
+        <value>0</value>
+      </greater-than>
+    </condition>
+    <format>L-Bar</format>
     <halign>right</halign>
   </label>
 
