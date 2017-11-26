@@ -44,11 +44,11 @@ reheat effects, different colors depending on the time :
 
 ![Image](http://i.imgur.com/4IjCBz8.png)
 
-ground equipment, crew, canopy animation, tanks :
+ground equipment, crew, canopy animation, 1250l tanks :
 
 ![Image](http://i.imgur.com/GcW1Q70.png)
 
-ground equipment, tanks :
+ground equipment, 1250l tanks :
 
 ![Image](http://i.imgur.com/KHg7CUz.png)
 
@@ -71,6 +71,16 @@ enlightened cockpit, takeoff/approach hud configuration :
 hud showing target position and informations, vfr hud configuration :
 
 ![Image](http://i.imgur.com/fnMhXxE.png)
+
+radar on SFD :
+
+![Image](http://i.imgur.com/ifILq7h.png)
+
+https://imgur.com/RbwwA3M PA
+
+map displayed on knee-tablet, overlay text for each instrument :
+
+![Image](http://i.imgur.com/wyg5tS6.png)
 
 LFLG timed loop :
 
@@ -103,6 +113,10 @@ flight gear livery :
 tiger livery :
 
 ![Image](http://i.imgur.com/aPbeYro.png)
+
+carrier takeoff and landing capacity :
+
+![Image](http://i.imgur.com/RbwwA3M.png)
 
 wingmens scenario, contrail effects :
 
