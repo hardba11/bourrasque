@@ -24,18 +24,19 @@ Still in development but fully usable.
 - autostart/autostop and fast start shortcuts
 - hud + mini-hud + hud canvas
 - sounds (engines, wind, rain, avionics, gears)
-- reheat (enable ALS)
+- refuelling ability (enable in menu and see : http://wiki.flightgear.org/Howto:Aerial_refueling)
+- carrier landing and takeoff ability
+- choice of liveries
+- ground equipments, external stores (fuel tanks)
+- multiplayer back-seat : fly as passenger !
+- reheat effects (enable ALS)
 - 3d shadow (enable ALS)
 - instruments adjustable lighting
 - atmosphere effects : wingtips, contrails
 - light effects : landing lights, flashlight (enable ALS)
 - rain effects : raindrops on canopy and fuselage, particles on ground
-- choice of liveries
-- ground equipments, external stores (fuel tanks)
-- multiplayer back-seat : fly as passenger !
 - 2 wingmen AI demo
 - timed loop AI demo over French Alps (takeoff LFLG : Grenoble le Versoud)
-- refuelling ability (enable in menu and see : http://wiki.flightgear.org/Howto:Aerial_refueling)
 - tool to record a timed loop
 
 ## gallery
@@ -82,6 +83,14 @@ map displayed on knee-tablet, overlay text for each instrument :
 
 ![Image](http://i.imgur.com/wyg5tS6.png)
 
+carrier takeoff and landing capacity :
+
+![Image](http://i.imgur.com/RbwwA3M.png)
+
+refuelling ability :
+
+![Image](http://i.imgur.com/VrMoNWV.png)
+
 LFLG timed loop :
 
 ![Image](http://i.imgur.com/hd3LKso.png)
@@ -114,11 +123,7 @@ tiger livery :
 
 ![Image](http://i.imgur.com/aPbeYro.png)
 
-carrier takeoff and landing capacity :
-
-![Image](http://i.imgur.com/RbwwA3M.png)
-
-wingmens scenario, contrail effects :
+wingmens scenario, contrail effects, 2000l tanks :
 
 ![Image](http://i.imgur.com/SP9jPdX.png)
 
@@ -133,10 +138,6 @@ rain effects at differents speeds, taxi hud configuration (left image) :
 rain effects :
 
 ![Image](http://i.imgur.com/5M5ORu5.png)
-
-refuelling ability :
-
-![Image](http://i.imgur.com/VrMoNWV.png)
 
 touchdown smoke effects :
 
