@@ -20,12 +20,14 @@ Still in development but fully usable.
 - other animations : opening canopy, retracting gears, lights, gears suspension
 - choice of liveries
 - ground equipments, external stores (fuel tanks)
+
 3D cockpit
 - usable and clickable instruments with tooltips : VOR, PFD, Nav Display, hsi, asi, etc
 - instruments adjustable lighting
 - autostart/autostop and fast start shortcuts
 - hud + mini-hud + hud canvas
 - a lot of instruments shortcuts
+
 Systems
 - autopilot
 - 4 mods (TAXI, APP, NAV, VFR) changing hud and fly-by-wire laws
@@ -33,6 +35,7 @@ Systems
 - refuelling ability (enable in menu and see : http://wiki.flightgear.org/Howto:Aerial_refueling)
 - carrier landing and takeoff ability
 - multiplayer back-seat : fly as passenger !
+
 Effects
 - sounds (engines, wind, rain, avionics, gears)
 - reheat effects (enable ALS)
@@ -40,9 +43,11 @@ Effects
 - atmosphere effects : wingtips, contrails
 - light effects : landing lights, flashlight (enable ALS)
 - rain effects : raindrops on canopy and fuselage, particles on ground
+
 AI scenario
 - 2 wingmen AI demo
 - timed loop AI demo over French Alps (takeoff LFLG : Grenoble le Versoud)
+
 Tools
 - tool to record a timed loop
 
@@ -88,7 +93,7 @@ map displayed on knee-tablet, overlay text for each instrument :
 
 ![Image](http://i.imgur.com/wyg5tS6.png)
 
-carrier takeoff and landing capacity :
+carrier takeoff and landing capacity, mini-hud :
 
 ![Image](http://i.imgur.com/RbwwA3M.png)
 
