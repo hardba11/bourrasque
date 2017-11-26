@@ -198,19 +198,23 @@ settimer(func() { my_aircraft_functions.load_current_view(); }, 1);
     <!-- ~~~~~~~~~~~~~~~~~~ carrier -->
     <key n="91">
       <name>[</name>
-      <desc>catapult launch</desc>
+      <desc>toggle catapult launch</desc>
       <binding>
-        <command>property-assign</command>
+        <command>property-toggle</command>
         <property>/controls/gear/catapult-launch-cmd</property>
-        <value type="bool">true</value>
       </binding>
     </key>
     <key n="93">
       <name>]</name>
-      <desc>launch-bar toogle</desc>
+      <desc>toggle launch-bar and reinit catapult</desc>
       <binding>
         <command>property-toggle</command>
         <property>/controls/gear/launchbar</property>
+      </binding>
+      <binding>
+        <command>property-assign</command>
+        <property>/controls/gear/catapult-launch-cmd</property>
+        <value type="bool">0</value>
       </binding>
     </key>
     <key n="59">

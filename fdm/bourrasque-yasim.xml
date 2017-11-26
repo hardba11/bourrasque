@@ -290,7 +290,7 @@ ________________________________________________________________________________
     <control-input axis="/controls/gear/tailhook" control="HEXTEND"/>
     <control-speed control="HEXTEND" transition-time="3"/>
   </hook>
-  <launchbar x="2.6" y="0" z="-1.7" length="0.3">
+  <launchbar x="8" y="0" z="-1.7" length="1.5">
     <control-input axis="/controls/gear/launchbar" control="LEXTEND"/>
     <control-speed control="LEXTEND" transition-time="0.5"/>
   </launchbar>

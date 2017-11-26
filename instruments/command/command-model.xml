@@ -347,6 +347,11 @@ changelog
         <property>/controls/gear/launchbar</property>
       </binding>
       <binding>
+        <command>property-assign</command>
+        <property>/controls/gear/catapult-launch-cmd</property>
+        <value type="bool">0</value>
+      </binding>
+      <binding>
         <command>property-toggle</command>
         <property>sim/model/click</property>
       </binding>
