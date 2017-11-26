@@ -758,6 +758,57 @@ ________________________________________________________________________________
   </model>
 
   <!--
+________________________________________________________________________________
+                                                                          TABLET
+  -->
+  <model>
+    <name>tablet-pilot</name>
+    <path>instruments/tablet/tablet-model.xml</path>
+    <offsets>
+      <x-m>-3.6</x-m>
+      <y-m>.14</y-m>
+      <z-m>.6</z-m>
+      <heading-deg>-10</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-70</pitch-deg>
+    </offsets>
+  </model>
+<!-- USED FOR DEVELOPMENT -->
+  <!--animation>
+    <type>translate</type>
+    <object-name>tablet-pilot</object-name>
+    <property>/debug1</property>
+    <factor>1</factor>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>tablet-pilot</object-name>
+    <property>/debug2</property>
+    <factor>1</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>tablet-pilot</object-name>
+    <property>/debug3</property>
+    <factor>1</factor>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation-->
+
+  <!--
 ================================================================================
                                                                PLACEMENT COPILOT
 ================================================================================
@@ -805,41 +856,6 @@ ________________________________________________________________________________
       <z-m>1.02</z-m>
     </offsets>
   </model>
-
-<!-- USED FOR DEVELOPMENT -->
-  <!--animation>
-    <type>translate</type>
-    <object-name>command_h-copilot</object-name>
-    <property>/debug1</property>
-    <factor>1</factor>
-    <axis>
-      <x>1</x>
-      <y>0</y>
-      <z>0</z>
-    </axis>
-  </animation>
-  <animation>
-    <type>translate</type>
-    <object-name>command_h-copilot</object-name>
-    <property>/debug2</property>
-    <factor>1</factor>
-    <axis>
-      <x>0</x>
-      <y>1</y>
-      <z>0</z>
-    </axis>
-  </animation>
-  <animation>
-    <type>translate</type>
-    <object-name>command_h-copilot</object-name>
-    <property>/debug3</property>
-    <factor>1</factor>
-    <axis>
-      <x>0</x>
-      <y>0</y>
-      <z>1</z>
-    </axis>
-  </animation-->
 
 <!--
 ________________________________________________________________________________
@@ -1174,7 +1190,7 @@ ________________________________________________________________________________
                                                                    COMMAND PANEL
   -->
   <model>
-    <name>command-pilot</name>
+    <name>command-copilot</name>
     <path>instruments/command/command-model.xml</path>
     <offsets>
       <x-m>-2.3127</x-m>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- DEFINITION OF ALIASES OR INTERNAL PROPERTIES -->
+
+<!-- /instrumentation/my_aircraft/tablet/ -->
+<PropertyList>
+
+  <!-- data used to control instrument -->
+  <controls>
+    <serviceable type="bool">0</serviceable>
+    <zoom type="int">8</zoom> <!-- 7 - 13 -->
+    <brightness type="float">0.1</brightness>
+  </controls>
+
+</PropertyList>
+

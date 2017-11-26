@@ -235,8 +235,8 @@ ________________________________________________________________________________
     <output>
       <property>/autopilot/internal/target-climb-rate-fpm</property>
     </output>
-    <min>-4000</min>
-    <max>4000</max>
+    <min>-6000</min>
+    <max>6000</max>
   </filter>
 
   <pid-controller>

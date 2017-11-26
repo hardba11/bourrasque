@@ -51,6 +51,7 @@ changelog
     <sfd                    include="../instruments/sfd/sfd-properties.xml" />
     <fuel                   include="../instruments/fuel/fuel-properties.xml" />
     <command_h              include="../instruments/command_h/command_h-properties.xml" />
+    <tablet                 include="../instruments/tablet/tablet-properties.xml" />
   </my_aircraft>
 
   <radar>

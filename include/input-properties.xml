@@ -195,6 +195,7 @@ settimer(func() { my_aircraft_functions.load_current_view(); }, 1);
       </mod-up>
     </key>
 
+    <!-- ~~~~~~~~~~~~~~~~~~ carrier -->
     <key n="91">
       <name>[</name>
       <desc>catapult launch</desc>

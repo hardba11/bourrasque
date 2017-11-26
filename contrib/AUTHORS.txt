@@ -6,6 +6,7 @@ authors
 
 - hardball SLK
 - itouchpod for the autopilot
+- viggen and m2000-5 developpers for the canvas map
 
 
 thanks to

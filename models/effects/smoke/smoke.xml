@@ -14,7 +14,7 @@
       <and>
         <greater-than>
           <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
-          <value>40</value>
+          <value>50</value>
         </greater-than>
         <less-than>
           <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
@@ -24,6 +24,14 @@
           <property>/position/altitude-ft</property>
           <value>19000</value>
         </less-than>
+        <equals>
+          <property>sim/multiplay/generic/int[8]</property>
+          <value>0</value>
+        </equals>
+        <equals>
+          <property>sim/multiplay/generic/int[9]</property>
+          <value>0</value>
+        </equals>
       </and>
     </condition>
     

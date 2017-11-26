@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+description :
+    this file uses the 3d model ans defines animations of the model and objects
+    (mouvements, lightings)
+    it loads if necessary the submodels files
+
+changelog
+- 2017-11-25 : create
+
+TODO
+pb pour centrer map
+
+afficher texte :
+- /position/latitude-string
+- /position/longitude-string
+- /position/altitude-agl-m
+- /orientation/heading-deg
+- /instrumentation/my_aircraft/tablet/controls/zoom
+
+-->
+
+<PropertyList>
+
+  <name>tablet</name>
+  <path>instrument_tablet.ac</path>
+
+  <!--
+================================================================================
+                                                             OBJECTS DECLARATION
+================================================================================
+  -->
+  <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
+  <animation>
+    <object-name>tablet.box</object-name>
+    <object-name>tablet.map_screen</object-name>
+    <object-name>tablet.screen.off</object-name>
+    <object-name>tablet.on</object-name>
+    <object-name>tablet.bright_down</object-name>
+    <object-name>tablet.bright_up</object-name>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
+  <animation>
+    <type>select</type>
+    <object-name>tablet.screen.off</object-name>
+    <condition>
+      <not><property>/instrumentation/my_aircraft/tablet/controls/serviceable</property></not>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ effects -->
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
+    <object-name>tablet.box</object-name>
+    <object-name>tablet.map_screen</object-name>
+    <object-name>tablet.screen.off</object-name>
+    <object-name>tablet.on</object-name>
+    <object-name>tablet.bright_down</object-name>
+    <object-name>tablet.bright_up</object-name>
+  </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
+  <animation>
+    <type>material</type>
+    <object-name>tablet.map_screen</object-name>
+    <emission>
+      <factor-prop>/instrumentation/my_aircraft/tablet/controls/brightness</factor-prop>
+      <red>1</red>
+      <green>1</green>
+      <blue>1</blue>
+    </emission>
+  </animation>
+
+  <!--
+================================================================================
+                                                         CONTROLS AND ANIMATIONS
+================================================================================
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control on/off -->
+  <animation>
+    <type>pick</type>
+    <object-name>tablet.on</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/my_aircraft/tablet/controls/serviceable</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-tablet-on</tooltip-id>
+        <label>on/off tablet</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control zoom -->
+  <animation>
+    <type>pick</type>
+    <object-name>tablet.map_screen</object-name>
+    <action>
+      <button>3</button>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/my_aircraft/tablet/controls/zoom</property>
+        <step>-1</step>
+        <min>7</min>
+        <max>13</max>
+        <wrap>0</wrap>
+      </binding>
+    </action>
+    <action>
+      <button>4</button>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/my_aircraft/tablet/controls/zoom</property>
+        <step>1</step>
+        <min>7</min>
+        <max>13</max>
+        <wrap>0</wrap>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-tablet-map-zoom</tooltip-id>
+        <label>zoom in/out map %3d</label>
+        <property>/instrumentation/my_aircraft/tablet/controls/zoom</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control brightness -->
+  <animation>
+    <type>pick</type>
+    <object-name>tablet.bright_up</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/my_aircraft/tablet/controls/brightness</property>
+        <step>.1</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>0</wrap>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-tablet-brightness-up</tooltip-id>
+        <label>up brightness</label>
+      </binding>
+    </hovered>
+  </animation>
+  <animation>
+    <type>pick</type>
+    <object-name>tablet.bright_down</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/my_aircraft/tablet/controls/brightness</property>
+        <step>-.1</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>0</wrap>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-tablet-brightness-down</tooltip-id>
+        <label>down brightness</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!--
+================================================================================
+                                                                        TEXT OSG
+================================================================================
+  -->
+  <text>
+    <name>textosg</name>
+    <type type="string">literal</type>
+    <text type="string">Tablet</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.016</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>yz-plane</axis-alignment>
+    <max-height>0.06</max-height>
+    <max-width>0.08</max-width>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+      <x-m>.02</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </offsets>
+  </text>
+
+  <animation>
+    <type>material</type>
+    <object-name>textosg</object-name>
+    <emission>
+      <red>0.2</red>
+      <green>1</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>select</type>
+    <object-name>textosg</object-name>
+    <condition>
+      <property>sim/panel-hotspots</property>
+    </condition>
+  </animation>
+
+</PropertyList>
