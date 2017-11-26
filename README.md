@@ -14,29 +14,36 @@ Thanks to its hud-showing-target-position feature, it's easy to find an aircraft
 ## features
 Still in development but fully usable.
 
+3D model
 - detailed model
 - animated controls (ailerons, elevons, slats, canard)
 - other animations : opening canopy, retracting gears, lights, gears suspension
+- choice of liveries
+- ground equipments, external stores (fuel tanks)
+3D cockpit
 - usable and clickable instruments with tooltips : VOR, PFD, Nav Display, hsi, asi, etc
+- instruments adjustable lighting
+- autostart/autostop and fast start shortcuts
+- hud + mini-hud + hud canvas
+- a lot of instruments shortcuts
+Systems
 - autopilot
 - 4 mods (TAXI, APP, NAV, VFR) changing hud and fly-by-wire laws
 - start/stop procedure
-- autostart/autostop and fast start shortcuts
-- hud + mini-hud + hud canvas
-- sounds (engines, wind, rain, avionics, gears)
 - refuelling ability (enable in menu and see : http://wiki.flightgear.org/Howto:Aerial_refueling)
 - carrier landing and takeoff ability
-- choice of liveries
-- ground equipments, external stores (fuel tanks)
 - multiplayer back-seat : fly as passenger !
+Effects
+- sounds (engines, wind, rain, avionics, gears)
 - reheat effects (enable ALS)
 - 3d shadow (enable ALS)
-- instruments adjustable lighting
 - atmosphere effects : wingtips, contrails
 - light effects : landing lights, flashlight (enable ALS)
 - rain effects : raindrops on canopy and fuselage, particles on ground
+AI scenario
 - 2 wingmen AI demo
 - timed loop AI demo over French Alps (takeoff LFLG : Grenoble le Versoud)
+Tools
 - tool to record a timed loop
 
 ## gallery
@@ -49,7 +56,7 @@ ground equipment, crew, canopy animation, 1250l tanks :
 
 ![Image](http://i.imgur.com/GcW1Q70.png)
 
-ground equipment, 1250l tanks :
+fuel truck and EPU ground equipment, 1250l tanks :
 
 ![Image](http://i.imgur.com/KHg7CUz.png)
 
@@ -76,8 +83,6 @@ hud showing target position and informations, vfr hud configuration :
 radar on SFD :
 
 ![Image](http://i.imgur.com/ifILq7h.png)
-
-https://imgur.com/RbwwA3M PA
 
 map displayed on knee-tablet, overlay text for each instrument :
 
