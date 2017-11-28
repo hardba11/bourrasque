@@ -12,8 +12,10 @@ print("*** LOADING instrument_tablet_map - tablet_map.nas ... ***");
 #var makeUrl  = string.compileTemplate('http://{server}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg');
 #var servers = ["otile1", "otile2", "otile3", "otile4"];
 
-var width = 576;
-var height = 768;
+#var width = 576;
+#var height = 768;
+var width = 1024;
+var height = 1024;
 
 var MAP = {
     canvas_settings: {
@@ -33,8 +35,12 @@ var MAP = {
 
         # data used to create array of tiles
         m.tile_size = 256;
-        m.num_tiles = [3, 4];
+        m.num_tiles = [5, 5];
         m.type = "map";
+        m.center_tile_offset = [
+            (m.num_tiles[0] - 1) / 2,
+            (m.num_tiles[1] - 1) / 2
+        ];
 
         # my aircraft data and settings
         m.myHeadingProp = props.globals.getNode("orientation/heading-deg");
@@ -57,43 +63,43 @@ var MAP = {
 
         # text
         m.txt_zoom = m.root.createChild("text", "txt_zoom")
-            .setTranslation(40, 60)
+            .setTranslation(200, 70)
             .setAlignment("left-bottom")
             .setFont("LiberationFonts/LiberationSansNarrow-Bold.ttf")
-            .setFontSize(32)
-            .setColor(1, 0, 0, 1)
+            .setFontSize(46)
+            .setColor(.8, 0, 0, 1)
             .setText("txt_zoom")
             .set("z-index", 1);
         m.txt_coords_lat = m.root.createChild("text", "txt_coords_lat")
-            .setTranslation(30, 650)
+            .setTranslation(180, 850)
             .setAlignment("left-bottom")
             .setFont("LiberationFonts/LiberationSansNarrow-Bold.ttf")
-            .setFontSize(32)
-            .setColor(1, 0, 0, 1)
+            .setFontSize(46)
+            .setColor(.8, 0, 0, 1)
             .setText("txt_coords_lat")
             .set("z-index", 1);
         m.txt_coords_lng = m.root.createChild("text", "txt_coords_lng")
-            .setTranslation(30, 690)
+            .setTranslation(180, 900)
             .setAlignment("left-bottom")
             .setFont("LiberationFonts/LiberationSansNarrow-Bold.ttf")
-            .setFontSize(32)
-            .setColor(1, 0, 0, 1)
+            .setFontSize(46)
+            .setColor(.8, 0, 0, 1)
             .setText("txt_coords_lng")
             .set("z-index", 1);
         m.txt_hdg = m.root.createChild("text", "txt_hdg")
-            .setTranslation(30, 730)
-            .setAlignment("left-bottom")
-            .setFont("LiberationFonts/LiberationSansNarrow-Bold.ttf")
-            .setFontSize(26)
-            .setColor(1, 0, 0, 1)
-            .setText("txt_hdg")
-            .set("z-index", 1);
-        m.txt_alt = m.root.createChild("text", "txt_alt")
-            .setTranslation(330, 690)
+            .setTranslation(180, 950)
             .setAlignment("left-bottom")
             .setFont("LiberationFonts/LiberationSansNarrow-Bold.ttf")
             .setFontSize(32)
-            .setColor(1, 0, 0, 1)
+            .setColor(.8, 0, 0, 1)
+            .setText("txt_hdg")
+            .set("z-index", 1);
+        m.txt_alt = m.root.createChild("text", "txt_alt")
+            .setTranslation(600, 900)
+            .setAlignment("left-bottom")
+            .setFont("LiberationFonts/LiberationSansNarrow-Bold.ttf")
+            .setFontSize(46)
+            .setColor(.8, 0, 0, 1)
             .setText("txt_alt")
             .set("z-index", 1);
 
@@ -102,10 +108,6 @@ var MAP = {
         m.root.setCenter(width / 2, height / 2); # center of the canvas
 
         # simple aircraft icon at current position/center of the map
-        m.center_tile_offset = [
-            (m.num_tiles[0] - 1) / 2,
-            (m.num_tiles[1] - 1) / 2
-        ];
         m.svg_symbol = m.root.createChild("group");
         canvas.parsesvg(m.svg_symbol, m.filename);
         m.svg_symbol.setScale(0.03);
@@ -155,10 +157,11 @@ var MAP = {
             lat = me.myCoord.lat();
             lon = me.myCoord.lon();
 
+            # getting tile number (x, y) from lat/lng
             var n = math.pow(2, me.zoom);
             var offset = [
-                (n * ((lon + 180) / 360)) - me.center_tile_offset[0],
-                (1 - math.ln(math.tan(lat * D2R) + 1 / math.cos(lat * D2R)) / math.pi) / 2 * n - me.center_tile_offset[1]
+                (n * (lon + 180) / 360) - me.center_tile_offset[0],
+                ((1 - math.ln(math.tan(lat * D2R) + (1 / math.cos(lat * D2R))) / math.pi) / 2 * n) - me.center_tile_offset[1]
             ];
             var tile_index = [int(offset[0]), int(offset[1])];
             var ox = tile_index[0] - offset[0];
@@ -174,11 +177,17 @@ var MAP = {
                 {
                     if(me.use_front)
                     {
-                        me.tiles_back[x][y].setTranslation(int((ox + x) * me.tile_size + 0.5), int((oy + y) * me.tile_size + 0.5));
+                        me.tiles_back[x][y].setTranslation(
+                            int(((ox + x) * me.tile_size) + .5),
+                            int(((oy + y) * me.tile_size) + .5)
+                        );
                     }
                     else
                     {
-                        me.tiles_front[x][y].setTranslation(int((ox + x) * me.tile_size + 0.5), int((oy + y) * me.tile_size + 0.5));
+                        me.tiles_front[x][y].setTranslation(
+                            int(((ox + x) * me.tile_size) + .5),
+                            int(((oy + y) * me.tile_size) + .5)
+                        );
                     }
                 }
             }
@@ -196,8 +205,8 @@ var MAP = {
                         var server_name = me.servers[server_index];
                         var pos = {
                             z: me.zoom,
-                            x: int(offset[0] + x),
-                            y: int(offset[1] + y),
+                            x: tile_index[0] + x,
+                            y: tile_index[1] + y,
                             type: me.type,
                             server: server_name
                         };
@@ -239,6 +248,7 @@ var MAP = {
 var init = setlistener("/sim/signals/fdm-initialized", func() {
     removelistener(init); # only call once
     var tablet_map = MAP.new({"node": "tablet.map_screen"});
+    #var tablet_map = MAP.new({"node": "tablet.test"});
     tablet_map.update();
 });
 

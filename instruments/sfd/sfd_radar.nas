@@ -82,8 +82,8 @@ var draw_piste = func(element)
 #
 var update_piste = func(element, my_heading, my_alt, target_heading, target_alt, target_speed, pixel_range, radar_range)
 {
-    var vector_x = ((target_speed * pixel_range / radar_range) / 120) * math.sin((target_heading - my_heading) * D2R);
-    var vector_y = ((target_speed * pixel_range / radar_range) / 120) * math.cos((target_heading - my_heading) * D2R);
+    var vector_x = ((target_speed * pixel_range / radar_range) / 240) * math.sin((target_heading - my_heading) * D2R);
+    var vector_y = ((target_speed * pixel_range / radar_range) / 240) * math.cos((target_heading - my_heading) * D2R);
 
     if((target_alt - 1000 ) < my_alt)
     {

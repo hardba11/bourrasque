@@ -8,16 +8,6 @@ description :
 changelog
 - 2017-11-25 : create
 
-TODO
-pb pour centrer map
-
-afficher texte :
-- /position/latitude-string
-- /position/longitude-string
-- /position/altitude-agl-m
-- /orientation/heading-deg
-- /instrumentation/my_aircraft/tablet/controls/zoom
-
 -->
 
 <PropertyList>
