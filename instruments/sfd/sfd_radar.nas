@@ -74,7 +74,7 @@ var draw_piste = func(element)
 
 #-------------------------------------------------------------------------------
 #                                                                   update_piste
-# this function updates piste
+# this function updates piste - length of vector = distance in 15s
 #   
 # params :
 # - element  : canvas object created by createChild()
@@ -235,7 +235,7 @@ var SFD_RADAR = {
     },
     update: func()
     {
-        var show_targets = getprop("/instrumentation/my_aircraft/hud_target_positions/controls/enabled") or 0;
+        var show_targets     = getprop("/instrumentation/my_aircraft/hud_target_positions/controls/enabled") or 0;
         var displayed_on_sfd = getprop("/instrumentation/my_aircraft/sfd/controls/display_sfd_screen") or '';
 
         if((show_targets == 1) and (displayed_on_sfd == 'RADAR'))
@@ -270,7 +270,7 @@ var SFD_RADAR = {
 
                 if(target_in_range
                     and is_valid
-                    and math.abs(target_bearing - my_heading) < 140)
+                    and math.abs(target_bearing - my_heading) < 70)
                 {
                     var target_range   = list_obj[i].getNode("radar/range-nm").getValue() or 0;
 

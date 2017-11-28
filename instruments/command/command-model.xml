@@ -26,6 +26,8 @@ changelog
     <object-name>command.box-emit</object-name>
     <object-name>command.canopy</object-name>
     <object-name>command.gears</object-name>
+    <object-name>command.gears_up</object-name>
+    <object-name>command.gears_down</object-name>
     <object-name>command.gears-emit</object-name>
     <object-name>command.hook</object-name>
     <object-name>command.launchbar</object-name>
@@ -39,6 +41,8 @@ changelog
     <object-name>command.box-emit</object-name>
     <object-name>command.gears-emit</object-name>
     <object-name>command.parkbrake-emit</object-name>
+    <object-name>command.gears_up</object-name>
+    <object-name>command.gears_down</object-name>
   </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
@@ -98,8 +102,7 @@ changelog
   <!-- ~~~~~~~~~~~~~~~~~~~~~~ control gears lever up -->
   <animation>
     <type>pick</type>
-    <object-name>command.gears</object-name>
-    <object-name>command.gears-emit</object-name>
+    <object-name>command.gears_up</object-name>
     <action>
       <button>0</button>
       <repeatable>false</repeatable>
@@ -131,8 +134,7 @@ changelog
   <!-- ~~~~~~~~~~~~~~~~~~~~~~ control gears lever down -->
   <animation>
     <type>pick</type>
-    <object-name>command.gears</object-name>
-    <object-name>command.gears-emit</object-name>
+    <object-name>command.gears_down</object-name>
     <action>
       <button>0</button>
       <repeatable>false</repeatable>
@@ -156,6 +158,8 @@ changelog
     <type>rotate</type>
     <object-name>command.gears</object-name>
     <object-name>command.gears-emit</object-name>
+    <object-name>command.gears_up</object-name>
+    <object-name>command.gears_down</object-name>
     <property>controls/gear/gear-down</property>
     <interpolation>
       <entry><ind>1</ind><dep>0</dep></entry>
