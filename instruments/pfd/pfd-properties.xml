@@ -16,7 +16,7 @@
     <target-alt      alias="/autopilot/settings/target-altitude-ft" />
     <target-speed-kt alias="/autopilot/settings/target-speed-kt" />
     <target-vs       alias="/autopilot/settings/vertical-speed-fpm" />
-    <target-nav1     alias="/autopilot/settings/vertical-speed-fpm" />
+    <target-nav1 />
 
     <hold-blink      type="bool">0</hold-blink>
     <disengage-blink type="bool">0</disengage-blink>

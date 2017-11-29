@@ -21,7 +21,6 @@ r = 37
   -->
 
   <animation>
-
     <!-- Objets opaques -->
     <object-name>tete</object-name>
     <object-name>corps</object-name>
@@ -35,6 +34,22 @@ r = 37
     <object-name>jambeG</object-name>
     <object-name>jambeD</object-name>
   </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ effects -->
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
+    <object-name>tete</object-name>
+    <object-name>corps</object-name>
+    <object-name>bras</object-name>
+    <object-name>avantbras</object-name>
+    <object-name>main</object-name>
+    <object-name>brasD</object-name>
+    <object-name>avantbrasD</object-name>
+    <object-name>mainD</object-name>
+    <object-name>lunettes</object-name>
+    <object-name>jambeG</object-name>
+    <object-name>jambeD</object-name>
+  </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ full pilot block without legs -->
   <animation>

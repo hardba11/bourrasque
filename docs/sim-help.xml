@@ -41,10 +41,13 @@ changelog
   <key><name>&lt;</name><desc>change phase for record loop</desc></key>
   <key><name>&gt;</name><desc>reinit record loop</desc></key>
 
-
-
-
-  <text>Bourrasque take off rotation: 150kts, landing: 140kts - speedbrake 40% - aoa 5</text>
+  <text>
+- take off rotation: 150kts
+- landing: 130kts / speedbrake 40% / aoa 10
+- taxi speed : 20-30 kt
+- max speed below FL 100 : 250 Kt
+- set altimeter to 1013 hPa over 5000 ft
+  </text>
 
 </PropertyList>
 

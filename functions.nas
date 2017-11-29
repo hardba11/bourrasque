@@ -11,10 +11,10 @@ var I_SFD               = 5;
 var I_AP_SPEED          = 6;
 var I_AP_ALT            = 7;
 var SETTINGS_MODS = [
-    ["TAXI", 0, 1, 37, -25, "EICAS", 10, 0],
-    ["APP",  0, 1,  0,   0, "EICAS", 200, 1500],
+    ["TAXI", 0, 1, 37, -25, "EICAS", 20, 0],
+    ["APP",  0, 1,  0,   0, "EICAS", 250, 1500],
     ["NAV",  1, 0,  0,  17, "RADAR", 500, 40000],
-    ["VFR",  2, 1,  0,  37, "RADAR", 600, 3000],
+    ["VFR",  2, 1,  0,  37, "RADAR", 800, 3000],
 ];
 
 
@@ -219,8 +219,16 @@ var set_mod = func(current_mod) {
     setprop('/controls/pax/helmet',                                         SETTINGS_MODS[chosen_mod_number][I_HELMET]);
     setprop('/controls/pax/copilot-head',                                   SETTINGS_MODS[chosen_mod_number][I_COPILOT_HEAD]);
     setprop('/instrumentation/my_aircraft/sfd/controls/display_sfd_screen', SETTINGS_MODS[chosen_mod_number][I_SFD]);
-#    setprop('/autopilot/settings/target-speed-kt',                          SETTINGS_MODS[chosen_mod_number][I_AP_SPEED]);
-#    setprop('/autopilot/settings/target-altitude-ft',                       SETTINGS_MODS[chosen_mod_number][I_AP_ALT]);
+    var is_ap_alt_locked = getprop('/autopilot/locks/altitude') or '';
+    if(is_ap_alt_locked == '') # altitude-hold
+    {
+        setprop('/autopilot/settings/target-altitude-ft',                   SETTINGS_MODS[chosen_mod_number][I_AP_ALT]);
+    }
+    var is_ap_speed_locked = getprop('/autopilot/locks/speed') or '';
+    if(is_ap_speed_locked == '') # speed-with-throttle
+    {
+        setprop('/autopilot/settings/target-speed-kt',                      SETTINGS_MODS[chosen_mod_number][I_AP_SPEED]);
+    }
     setprop('/sim/model/click', (getprop('/sim/model/click') ? 0 : 1));
 }
 
