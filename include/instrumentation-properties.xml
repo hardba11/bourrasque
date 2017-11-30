@@ -55,7 +55,7 @@ changelog
   </my_aircraft>
 
   <radar>
-    <range type="int">60</range>
+    <range type="int">160</range>
     <minimized type="bool">0</minimized>
 
     <!-- http://wiki.flightgear.org/index.php/TCAS -->
@@ -93,7 +93,7 @@ changelog
   <tcas>
     <serviceable type="bool">true</serviceable>
     <inputs>
-      <mode type="int">2</mode>       <!-- 0=off, 1=standby, 2=TA-only, 3=auto(TA/RA) -->
+      <mode type="int">0</mode>       <!-- 0=off, 1=standby, 2=TA-only, 3=auto(TA/RA) -->
     </inputs>
     <speaker>
       <max-dist>2</max-dist>
