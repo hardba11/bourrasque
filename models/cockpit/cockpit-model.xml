@@ -404,8 +404,8 @@ ________________________________________________________________________________
     <path>instruments/magcompass/magcompass-model.xml</path>
     <offsets>
       <x-m>-4.012</x-m>
-      <y-m>-.178</y-m>
-      <z-m>.85</z-m>
+      <y-m>-.15</y-m>
+      <z-m>.87</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
       <pitch-deg>-30</pitch-deg>
@@ -765,48 +765,14 @@ ________________________________________________________________________________
     <name>tablet-pilot</name>
     <path>instruments/tablet/tablet-model.xml</path>
     <offsets>
-      <x-m>-3.6</x-m>
-      <y-m>.14</y-m>
-      <z-m>.6</z-m>
+      <x-m>-3.62</x-m>
+      <y-m>.16</y-m>
+      <z-m>.62</z-m>
       <heading-deg>-10</heading-deg>
       <roll-deg>0</roll-deg>
-      <pitch-deg>-70</pitch-deg>
+      <pitch-deg>-60</pitch-deg>
     </offsets>
   </model>
-<!-- USED FOR DEVELOPMENT -->
-  <!--animation>
-    <type>translate</type>
-    <object-name>tablet-pilot</object-name>
-    <property>/debug1</property>
-    <factor>1</factor>
-    <axis>
-      <x>1</x>
-      <y>0</y>
-      <z>0</z>
-    </axis>
-  </animation>
-  <animation>
-    <type>translate</type>
-    <object-name>tablet-pilot</object-name>
-    <property>/debug2</property>
-    <factor>1</factor>
-    <axis>
-      <x>0</x>
-      <y>1</y>
-      <z>0</z>
-    </axis>
-  </animation>
-  <animation>
-    <type>translate</type>
-    <object-name>tablet-pilot</object-name>
-    <property>/debug3</property>
-    <factor>1</factor>
-    <axis>
-      <x>0</x>
-      <y>0</y>
-      <z>1</z>
-    </axis>
-  </animation-->
 
   <!--
 ================================================================================
@@ -1218,6 +1184,57 @@ ________________________________________________________________________________
       <pitch-deg>-100</pitch-deg>
     </offsets>
   </model>
+
+  <!--
+________________________________________________________________________________
+                                                                          TABLET
+  -->
+  <model>
+    <name>tablet-copilot</name>
+    <path>instruments/tablet/tablet-model.xml</path>
+    <offsets>
+      <x-m>-2.15</x-m>
+      <y-m>.16</y-m>
+      <z-m>.68</z-m>
+      <heading-deg>-10</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-60</pitch-deg>
+    </offsets>
+  </model>
+<!-- USED FOR DEVELOPMENT -->
+  <!--animation>
+    <type>translate</type>
+    <object-name>tablet-copilot</object-name>
+    <property>/debug1</property>
+    <factor>1</factor>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>tablet-copilot</object-name>
+    <property>/debug2</property>
+    <factor>1</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>tablet-copilot</object-name>
+    <property>/debug3</property>
+    <factor>1</factor>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation-->
 
 </PropertyList>
 

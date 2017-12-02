@@ -237,6 +237,7 @@ TODO :
     <object-name>AP-lat</object-name>
     <object-name>AP-vert</object-name>
     <object-name>Ralt</object-name>
+    <object-name>Mach</object-name>
     <emission>
       <factor-prop>/controls/lighting/instruments-norm</factor-prop>
       <red>0</red>
@@ -251,7 +252,6 @@ TODO :
     <object-name>AP-vert-armed</object-name>
     <object-name>CRSlabel</object-name>
     <object-name>HDGlabel</object-name>
-    <object-name>Mach</object-name>
     <emission>
       <factor-prop>/controls/lighting/instruments-norm</factor-prop>
       <red>1</red>
@@ -845,7 +845,7 @@ ________________________________________________________________________________
     <alignment>center-center</alignment>
     <axis-alignment>yz-plane</axis-alignment>
     <type type="string">text-value</type>
-    <property>/autopilot/locks/heading</property>
+    <property>/instrumentation/my_aircraft/pfd/inputs/autopilot/locks/heading</property>
     <font>helvetica_bold.txf</font>
     <character-size>0.007</character-size>
     <character-aspect-ratio type="double">1.4</character-aspect-ratio>
@@ -866,7 +866,7 @@ ________________________________________________________________________________
     <alignment>center-center</alignment>
     <axis-alignment>yz-plane</axis-alignment>
     <type type="string">text-value</type>
-    <property>/autopilot/locks/altitude</property>
+    <property>/instrumentation/my_aircraft/pfd/inputs/autopilot/locks/altitude</property>
     <font>helvetica_bold.txf</font>
     <character-size>0.007</character-size>
     <character-aspect-ratio type="double">1.4</character-aspect-ratio>

@@ -2,6 +2,25 @@ print("*** LOADING instrument_pfd - pfd.nas ... ***");
 
 # namespace : instrument_pfd
 
+var autopilot_to_label = {
+    '': '-',
+#/autopilot/locks/heading
+    'dg-heading-hold': 'HDG',
+    'true-heading-hold': 'TRU',
+    'nav1-hold': 'NAV',
+    'wing-leveler': 'LVL',
+#/autopilot/locks/speed
+    'speed-with-throttle': 'A/T',
+    'speed-with-pitch-trim': 'PTCH',
+# /autopilot/locks/altitude
+    'vertical-speed-hold': 'VS',
+    'altitude-hold': 'ALT',
+    'pitch-hold': 'PTCH',
+    'aoa-hold': 'AOA',
+    'agl-hold': 'AGL',
+    'gs1-hold': 'GS',
+};
+
 var pfd = func()
 {
     # hide heading bug if object out of the pfd's box
@@ -9,6 +28,20 @@ var pfd = func()
     heading_bug_error_deg = math.abs(heading_bug_error_deg);
     var display_heading_bug = (heading_bug_error_deg > 80) ? 0 : 1;
     setprop('/instrumentation/my_aircraft/pfd/controls/display-heading-bug', display_heading_bug);
+
+    # update label
+    setprop(
+        '/instrumentation/my_aircraft/pfd/inputs/autopilot/locks/heading',
+        autopilot_to_label[getprop('/autopilot/locks/heading')]
+    );
+    setprop(
+        '/instrumentation/my_aircraft/pfd/inputs/autopilot/locks/speed',
+        autopilot_to_label[getprop('/autopilot/locks/speed')]
+    );
+    setprop(
+        '/instrumentation/my_aircraft/pfd/inputs/autopilot/locks/altitude',
+        autopilot_to_label[getprop('/autopilot/locks/altitude')]
+    );
 
     settimer(pfd, 1);
 }

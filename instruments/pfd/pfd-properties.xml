@@ -8,6 +8,15 @@
   <!-- data used for display : captors -->
   <inputs>
     <heading-bug-error-deg          alias="/autopilot/internal/heading-bug-error-deg" />
+
+    <autopilot>
+      <locks>
+        <heading type="string"></heading>
+        <speed type="string"></speed>
+        <altitude type="string"></altitude>
+      </locks>
+    </autopilot>
+
   </inputs>
 
   <!-- data used to control instrument -->
