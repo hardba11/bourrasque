@@ -8,7 +8,7 @@
   <!-- data used to control instrument -->
   <controls>
     <display_sfd_screen type="string">EICAS</display_sfd_screen>
-    <radar_range type="int">10</radar_range>
+    <radar_range type="int">40</radar_range>
   </controls>
 
 </PropertyList>

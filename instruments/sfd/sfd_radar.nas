@@ -9,7 +9,7 @@ var resolution_y = 1024;
 var pixel_range = 620;
 var margin_top = 120;
 
-var radar_range = getprop("/instrumentation/my_aircraft/sfd/controls/radar_range") or 10;
+var radar_range = getprop("/instrumentation/my_aircraft/sfd/controls/radar_range") or 40;
 
 
 #===============================================================================
@@ -242,7 +242,7 @@ var SFD_RADAR = {
         {
 
 # RECUPERATION DES DONNEES : NOTRE AVION
-            var radar_range = getprop("/instrumentation/my_aircraft/sfd/controls/radar_range") or 20;
+            var radar_range = getprop("/instrumentation/my_aircraft/sfd/controls/radar_range") or 40;
             var my_speed    = getprop("/instrumentation/airspeed-indicator/true-speed-kt");
             var my_heading  = getprop("/orientation/heading-deg");
             var my_alt      = getprop("/instrumentation/altimeter/indicated-altitude-ft");
@@ -267,12 +267,13 @@ var SFD_RADAR = {
                 var target_bearing  = list_obj[i].getNode("radar/bearing-deg").getValue() or 0;
                 var target_in_range = list_obj[i].getNode("radar/in-range").getValue() or 0;
                 var is_valid        = list_obj[i].getNode("valid").getValue() or 0;
+                var target_range    = list_obj[i].getNode("radar/range-nm").getValue() or 0;
 
                 if(target_in_range
                     and is_valid
-                    and math.abs(target_bearing - my_heading) < 70)
+                    and math.abs(target_bearing - my_heading) < 70
+                    and target_range < radar_range)
                 {
-                    var target_range   = list_obj[i].getNode("radar/range-nm").getValue() or 0;
 
                     var target_data = {};
                     target_data.target_heading = list_obj[i].getNode("orientation/true-heading-deg").getValue() or 0;

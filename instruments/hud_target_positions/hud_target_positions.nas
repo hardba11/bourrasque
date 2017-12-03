@@ -134,6 +134,7 @@ var HUD = {
             var velocity       = getprop("/instrumentation/airspeed-indicator/true-speed-kt");
             var my_heading_deg = getprop("/orientation/heading-deg");
             var my_aoa_deg     = getprop("/orientation/alpha-deg");
+            var radar_range    = getprop("/instrumentation/my_aircraft/sfd/controls/radar_range") or 40;
 
             var coord_y_pitch  = pitch_deg * DEG2PIXEL;
             var coord_y_aoa    = my_aoa_deg * DEG2PIXEL;
@@ -165,10 +166,12 @@ var HUD = {
                 var target_callsign    = list_obj[i].getNode("callsign").getValue() or 0;
                 var target_in_range    = list_obj[i].getNode("radar/in-range").getValue() or 0;
                 var is_valid           = list_obj[i].getNode("valid").getValue() or 0;
+                var target_range       = list_obj[i].getNode("radar/range-nm").getValue() or 1000;
 
                 if(target_in_range
                     and is_valid
-                    and math.abs(target_bearing_deg - my_heading_deg) < 40)
+                    and math.abs(target_bearing_deg - my_heading_deg) < 40
+                    and target_range < radar_range)
                 {
                     var target_data = {};
 
@@ -176,7 +179,6 @@ var HUD = {
                     var target_heading_deg           = list_obj[i].getNode("orientation/true-heading-deg").getValue() or 0;
                     var target_altitude              = list_obj[i].getNode("position/altitude-ft").getValue() or 0;
                     var target_airspeed              = list_obj[i].getNode("velocities/true-airspeed-kt").getValue() or 0;
-                    var target_range                 = list_obj[i].getNode("radar/range-nm").getValue() or 0;
 
                     var relative_bearing_deg         = target_bearing_deg + my_heading_deg;
                     var bearing_deg                  = target_bearing_deg - my_heading_deg;
@@ -204,7 +206,7 @@ var HUD = {
                         target_data.text_info        = sprintf("%d ft / %d kt", target_altitude, target_airspeed);
                     }
                     target_data.coord_x              = coord_x;
-                    target_data.coord_y              = -(coord_y - coord_y_pitch);
+                    target_data.coord_y              = -(coord_y - coord_y_pitch) + 7;  # 7: dirt hack to correct position
                     target_data.relative_heading_deg = relative_heading_deg;
 
                     append(targets_datas, target_data);
