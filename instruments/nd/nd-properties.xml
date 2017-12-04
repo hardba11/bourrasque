@@ -5,7 +5,6 @@
 <!-- /instrumentation/my_aircraft/nd/ -->
 <PropertyList>
 
-  <!-- data used for display : captors -->
   <inputs>
     <range-nm         type="int">40</range-nm>
     <arpt             type="bool">1</arpt>

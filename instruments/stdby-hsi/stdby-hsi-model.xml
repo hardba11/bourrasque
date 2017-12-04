@@ -24,18 +24,16 @@ changelog
 
   <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
   <animation>
-    <object-name>hsi.adf_needle</object-name>
+    <object-name>hsi.vor_needle</object-name>
     <object-name>hsi.crs_needle</object-name>
     <object-name>hsi.dev_needle</object-name>
     <object-name>hsi.box</object-name>
-    <object-name>hsi.gsneedle</object-name>
     <object-name>hsi.knob</object-name>
     <object-name>hsi.hdg_ring</object-name>
     <object-name>hsi.box-emit</object-name>
-    <object-name>hsi.adf_needle-emit</object-name>
+    <object-name>hsi.vor_needle-emit</object-name>
     <object-name>hsi.crs_needle-emit</object-name>
     <object-name>hsi.dev_needle-emit</object-name>
-    <object-name>hsi.gsneedle-emit</object-name>
     <object-name>hsi.hdg_ring-emit</object-name>
   </animation>
 
@@ -43,28 +41,25 @@ changelog
   <effect>
     <inherits-from>Effects/model-transparent</inherits-from>
     <object-name>hsi.box-emit</object-name>
-    <object-name>hsi.adf_needle-emit</object-name>
+    <object-name>hsi.vor_needle-emit</object-name>
     <object-name>hsi.crs_needle-emit</object-name>
     <object-name>hsi.dev_needle-emit</object-name>
-    <object-name>hsi.gsneedle-emit</object-name>
     <object-name>hsi.hdg_ring-emit</object-name>
   </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
-    <object-name>hsi.adf_needle</object-name>
+    <object-name>hsi.vor_needle</object-name>
     <object-name>hsi.crs_needle</object-name>
     <object-name>hsi.dev_needle</object-name>
     <object-name>hsi.box</object-name>
-    <object-name>hsi.gsneedle</object-name>
     <object-name>hsi.knob</object-name>
     <object-name>hsi.hdg_ring</object-name>
     <object-name>hsi.box-emit</object-name>
-    <object-name>hsi.adf_needle-emit</object-name>
+    <object-name>hsi.vor_needle-emit</object-name>
     <object-name>hsi.crs_needle-emit</object-name>
     <object-name>hsi.dev_needle-emit</object-name>
-    <object-name>hsi.gsneedle-emit</object-name>
     <object-name>hsi.hdg_ring-emit</object-name>
   </effect>
 
@@ -72,10 +67,9 @@ changelog
   <animation>
     <type>material</type>
     <object-name>hsi.box-emit</object-name>
-    <object-name>hsi.adf_needle-emit</object-name>
+    <object-name>hsi.vor_needle-emit</object-name>
     <object-name>hsi.crs_needle-emit</object-name>
     <object-name>hsi.dev_needle-emit</object-name>
-    <object-name>hsi.gsneedle-emit</object-name>
     <object-name>hsi.hdg_ring-emit</object-name>
     <object-name>hsi.knob</object-name>
     <emission>
@@ -89,44 +83,23 @@ changelog
     </condition>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ emitting (enabled) -->
-
-  <!-- ~~~~~~~~~~~~~~~~~~ emitting (color) -->
-
   <!--
 ================================================================================
                                                          CONTROLS AND ANIMATIONS
 ================================================================================
   -->
 
-  <!-- ~~~~~~~~~~~~~~~~~~ animation heading ring -->
+  <!-- ~~~~~~~~~~~~~~~~~~ animation heading -->
   <animation>
     <type>rotate</type>
     <object-name>hsi.hdg_ring</object-name>
     <object-name>hsi.hdg_ring-emit</object-name>
-    <condition>
-      <property>sim/multiplay/generic/int[5]</property>
-    </condition>
-    <property>/instrumentation/my_aircraft/nd/outputs/indicated-heading</property>
-    <axis>
-      <x>1</x>
-      <y>0</y>
-      <z>0</z>
-    </axis>
-    <center>
-      <x-m>0</x-m>
-      <y-m>0</y-m>
-      <z-m>0</z-m>
-    </center>
-  </animation>
-
-  <!-- ~~~~~~~~~~~~~~~~~~ animation nav needle / heading -->
-  <animation>
-    <type>rotate</type>
     <object-name>hsi.crs_needle</object-name>
     <object-name>hsi.crs_needle-emit</object-name>
     <object-name>hsi.dev_needle</object-name>
     <object-name>hsi.dev_needle-emit</object-name>
+    <object-name>hsi.vor_needle</object-name>
+    <object-name>hsi.vor_needle-emit</object-name>
     <condition>
       <property>sim/multiplay/generic/int[5]</property>
     </condition>
@@ -192,41 +165,15 @@ changelog
     </center>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ animation gs needle (translate) -->
-  <animation>
-    <type>translate</type>
-    <object-name>hsi.gsneedle</object-name>
-    <object-name>hsi.gsneedle-emit</object-name>
-    <condition>
-      <property>sim/multiplay/generic/int[5]</property>
-    </condition>
-    <property>/instrumentation/nav[0]/gs-needle-deflection</property>
-    <interpolation>
-      <entry><ind>-10.0</ind><dep>-0.01</dep></entry>
-      <entry><ind>0.0</ind><dep>0.0</dep></entry>
-      <entry><ind>10.0</ind><dep>0.01</dep></entry>
-    </interpolation>
-    <axis>
-      <x>0</x>
-      <y>0</y>
-      <z>1</z>
-    </axis>
-    <center>
-      <x-m>0</x-m>
-      <y-m>0</y-m>
-      <z-m>0</z-m>
-    </center>
-  </animation>
-
-  <!-- ~~~~~~~~~~~~~~~~~~ animation adf needle (translate) -->
+  <!-- ~~~~~~~~~~~~~~~~~~ animation adf needle (rotate) -->
   <animation>
     <type>rotate</type>
-    <object-name>hsi.adf_needle</object-name>
-    <object-name>hsi.adf_needle-emit</object-name>
+    <object-name>hsi.vor_needle</object-name>
+    <object-name>hsi.vor_needle-emit</object-name>
     <condition>
       <property>sim/multiplay/generic/int[5]</property>
     </condition>
-    <property>/instrumentation/adf/indicated-bearing-deg</property>
+    <property>/instrumentation/nav[0]/heading-deg</property>
     <axis>
       <x>-1</x>
       <y>0</y>

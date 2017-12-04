@@ -43,7 +43,7 @@ changelog
 
   <text>
 - take off rotation: 150kts
-- landing: 130kts / speedbrake 40% / aoa 10
+- landing: 130kts / speedbrake 40% / aoa 8
 - taxi speed : 20-30 kt
 - max speed below FL 100 : 250 Kt
 - set altimeter to 1013 hPa over 5000 ft

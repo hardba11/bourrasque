@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <!--
+
+    List of probe and boom tankers containing the following properties
+
+    name    - Name to appear in GUI
+
+    type    - either "probe" or "boom"
+
+    model   - Model to use
+
+    pattern-length-nm  - race-track pattern length (default 50nm)
+
+    speed-kts - default airspeed (default 250kts)
+
+    max-fuel-transfer-lbs-min - The maximum fuel transfer rate for the contact
+    point in lbs/min.  Note that the refueling system will use the minimum
+    of this and /systems/refuel/max-fuel-transfer-lbs-min.  Default 6000.
+
+    contact - 1 or more contact points. Each contact point contains x-m, y-m,
+              z-m elements defaulting to 0, and defining the contact point offset
+              from the aircraft center. Default is a single contact at (0,0,0).
+              +x is forward, +y is right (facing forward), +z is up.
+  -->
+  <tanker>
+    <name>KA6-D</name>
+    <type>probe</type>
+    <model>Models/Geometry/KA6-D/KA6-D.xml</model>
+    <contact>
+      <x-m>-14</x-m>
+      <z-m>-1.7</z-m>
+    </contact>
+  </tanker>
+
+  <tanker>
+    <name>A4-F</name>
+    <type>probe</type>
+    <model>Models/Geometry/A4-F/a4-f-tanker.xml</model>
+    <speed-kts>250</speed-kts>
+    <!--
+      According to sources Douglas D-704 refueling store can provide fuel at
+      180-220 gallons/min, 1224 - 1360 lbs/min.
+    -->
+    <max-fuel-transfer-lbs-min type="double">1300</max-fuel-transfer-lbs-min>
+    <contact>
+      <x-m>-12.5</x-m>
+      <z-m>-2</z-m>
+    </contact>
+  </tanker>
+
+  <tanker>
+    <name>A330-MRTT</name>
+    <type>probe</type>
+    <model>AI/Aircraft/A330-MRTT/A330-MRTT.xml</model>
+    <speed-kts>255</speed-kts>
+    <!-- Cobham 905E pods, transferring 450 US Gallons/minute of fuel -->
+    <max-fuel-transfer-lbs-min type="double">2700</max-fuel-transfer-lbs-min>
+    <contact>
+      <x-m>-36</x-m>
+      <y-m>-19</y-m>
+      <z-m>-6</z-m>
+    </contact>
+    <contact>
+      <x-m>-36</x-m>
+      <y-m>19</y-m>
+      <z-m>-6</z-m>
+    </contact>
+  </tanker>
+
+  <tanker>
+    <name>KC-135</name>
+    <type>boom</type>
+    <model>Models/Geometry/KC135/KC135.xml</model>
+    <max-fuel-transfer-lbs-min type="double">6500</max-fuel-transfer-lbs-min>
+    <contact>
+      <x-m>-22</x-m>
+      <z-m>-5.8</z-m>
+    </contact>
+  </tanker>
+
+
+
+  <tanker>
+    <name>Rafale buddy-buddy</name>
+    <type>probe</type>
+    <model>AI/Aircraft/dassault-rafale-M/dassault-rafale-M.xml</model>
+    <speed-kts>250</speed-kts>
+    <max-fuel-transfer-lbs-min type="double">1500</max-fuel-transfer-lbs-min>
+    <contact>
+      <x-m>-15</x-m>
+      <z-m>-2</z-m>
+    </contact>
+  </tanker>
+
+</PropertyList>

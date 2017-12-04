@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <model>
+    <path>AI/Aircraft/dassault-rafale-M/model/rafale-tanker.xml</path>
+    <offsets>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+      <pitch-deg>0</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>contrail</name>
+    <path>AI/Aircraft/dassault-rafale-M/effects/contrail.xml</path>
+    <offsets>
+      <x-m>20</x-m>
+      <y-m>0</y-m>
+      <z-m>0.35</z-m>
+    </offsets>
+  </model>
+
+
+
+
+  <multiplay>
+    <refuel>
+      <type>probe</type>
+    </refuel>
+  </multiplay>
+
+</PropertyList>

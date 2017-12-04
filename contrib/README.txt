@@ -63,13 +63,12 @@ Known bugs :(
 - not yet trim !
 - as I only got a mouse, flying with joystick could be difficult because no test done
 - some interior sounds triggered when view change
-- instability on ground when turning too fast and too short
-- strobe enabled even if main electric on OFF
 - hud/minihud not shown as expected during starting
 - heading bug and radial on ND, PFD, stdby-hsi, if mag or true north choosen
 - uvmap tanks
 - strobe doesnt work yet in MP
 - ND and instrument animations in MP backseat
+- 3D shadow not always on the ground
 
 
 How to help for developpment ?

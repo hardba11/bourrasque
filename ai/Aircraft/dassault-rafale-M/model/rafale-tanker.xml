@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+ 
+  <path>rafale-tanker.ac</path>
+
+  <animation>
+    <enable-hot>false</enable-hot>
+  </animation>
+
+  <animation>
+    <object-name>pare_brise</object-name>
+    <object-name>canopy_plexi</object-name>
+    <object-name>cockpit</object-name>
+    <object-name>drogue</object-name>
+    <object-name>fuselage</object-name>
+    <object-name>lunettes</object-name>
+    <object-name>pilot</object-name>
+    <object-name>siege</object-name>
+    <object-name>tanks</object-name>
+    <object-name>tuyeres</object-name>
+<!--
+    <object-name>light_anticoll</object-name>
+    <object-name>light_form</object-name>
+    <object-name>light_nav_green</object-name>
+    <object-name>light_nav_red</object-name>
+    <object-name>light_pos</object-name>
+    <object-name>light_strobe</object-name>
+-->
+  </animation>
+
+
+  <effect>
+    <inherits-from>AI/Aircraft/dassault-rafale-M/effects/glass</inherits-from>
+    <object-name>pare_brise</object-name>
+    <object-name>canopy_plexi</object-name>
+  </effect>
+
+
+
+  <multiplay>
+    <refuel>
+      <type>probe</type>
+    </refuel>
+    <tanker>true</tanker>
+  </multiplay>
+
+</PropertyList>
