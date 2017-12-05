@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+description :
+    this file uses the 3d model ans defines animations of the model and objects
+    (mouvements, lightings)
+    it loads if necessary the submodels files
+
+changelog
+- 2016-10-22 : create
+
+-->
+
+<PropertyList>
+
+  <name>turn</name>
+  <path>instrument_turn.ac</path>
+
+  <!--
+================================================================================
+                                                             OBJECTS DECLARATION
+================================================================================
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
+  <animation>
+    <object-name>turn.box</object-name>
+    <object-name>turn.indexes</object-name>
+    <object-name>turn.needle</object-name>
+    <object-name>turn.slip-skid-ball</object-name>
+    <object-name>turn.slip-skid-indexes</object-name>
+    <object-name>turn.box-emit</object-name>
+    <object-name>turn.indexes-emit</object-name>
+    <object-name>turn.needle-emit</object-name>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ effects -->
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
+    <object-name>turn.box</object-name>
+    <object-name>turn.indexes</object-name>
+    <object-name>turn.needle</object-name>
+    <object-name>turn.slip-skid-ball</object-name>
+    <object-name>turn.slip-skid-indexes</object-name>
+    <object-name>turn.box-emit</object-name>
+    <object-name>turn.indexes-emit</object-name>
+    <object-name>turn.needle-emit</object-name>
+  </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
+  <animation>
+    <type>material</type>
+    <object-name>turn.box-emit</object-name>
+    <object-name>turn.indexes-emit</object-name>
+    <object-name>turn.needle-emit</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.8</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+    <condition>
+      <property>sim/multiplay/generic/int[5]</property>
+    </condition>
+  </animation>
+
+  <!--
+================================================================================
+                                                         CONTROLS AND ANIMATIONS
+================================================================================
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation compass ring -->
+  <animation>
+    <type>rotate</type>
+    <object-name>turn.slip-skid-ball</object-name>
+    <property>instrumentation/slip-skid-ball/indicated-slip-skid</property>
+    <factor>10</factor>
+    <min-deg>-11</min-deg>
+    <max-deg>11</max-deg>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0.0244</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>turn.needle</object-name>
+    <object-name>turn.needle-emit</object-name>
+    <property>/instrumentation/turn-indicator/indicated-turn-rate</property>
+    <!-- based on 1.08 indicated-turn-rate corresponding to a standard
+      360 turn in 2 minutes at cruise configuration (FL 320 M0.72)-->
+    <factor>26.4</factor>
+    <min-deg>-50</min-deg>
+    <max-deg>50</max-deg>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!--
+================================================================================
+                                                                        TEXT OSG
+================================================================================
+  -->
+  <text>
+    <name>textosg</name>
+    <type type="string">literal</type>
+    <text type="string">turn indicator</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.016</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>yz-plane</axis-alignment>
+    <max-height>0.06</max-height>
+    <max-width>0.08</max-width>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+      <x-m>.05</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </offsets>
+  </text>
+
+  <animation>
+    <type>material</type>
+    <object-name>textosg</object-name>
+    <emission>
+      <red>0.2</red>
+      <green>1</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>select</type>
+    <object-name>textosg</object-name>
+    <condition>
+      <property>sim/panel-hotspots</property>
+    </condition>
+  </animation>
+
+</PropertyList>

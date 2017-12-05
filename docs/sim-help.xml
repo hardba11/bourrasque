@@ -47,6 +47,7 @@ changelog
 - taxi speed : 20-30 kt
 - max speed below FL 100 : 250 Kt
 - set altimeter to 1013 hPa over 5000 ft
+- carrier take off : engage launch bar (]), unlock parkbrakes (B), throttle 80%, catapult ([)
   </text>
 
 </PropertyList>

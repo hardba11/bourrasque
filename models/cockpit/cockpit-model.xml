@@ -412,6 +412,58 @@ ________________________________________________________________________________
     </offsets>
   </model>
 
+  <!--
+________________________________________________________________________________
+                                                                  TURN INDICATOR
+  -->
+  <model>
+    <name>turn-pilot</name>
+    <path>instruments/turn/turn-model.xml</path>
+    <offsets>
+      <x-m>-3.99</x-m>
+      <y-m>.15</y-m>
+      <z-m>.875</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-30</pitch-deg>
+    </offsets>
+  </model>
+
+<!-- USED FOR DEVELOPMENT -->
+  <!--animation>
+    <type>translate</type>
+    <object-name>turn-pilot</object-name>
+    <property>/debug1</property>
+    <factor>1</factor>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>turn-pilot</object-name>
+    <property>/debug2</property>
+    <factor>1</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>turn-pilot</object-name>
+    <property>/debug3</property>
+    <factor>1</factor>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation-->
+
 <!--
 ________________________________________________________________________________
                                                                      NAV DISPLAY
@@ -523,7 +575,7 @@ ________________________________________________________________________________
     <path>instruments/stdby-hsi/stdby-hsi-model.xml</path>
     <offsets>
       <x-m>-3.885</x-m>
-      <y-m>.055</y-m>
+      <y-m>.06</y-m>
       <z-m>0.46</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
@@ -540,7 +592,7 @@ ________________________________________________________________________________
     <path>instruments/stdby-asi/stdby-asi-model.xml</path>
     <offsets>
       <x-m>-3.885</x-m>
-      <y-m>-.055</y-m>
+      <y-m>-.06</y-m>
       <z-m>0.46</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
@@ -883,7 +935,7 @@ ________________________________________________________________________________
     <path>instruments/stdby-ai/stdby-ai-model.xml</path>
     <offsets>
       <x-m>-2.48</x-m>
-      <y-m>-.07</y-m>
+      <y-m>-.06</y-m>
       <z-m>0.60</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
@@ -917,7 +969,7 @@ ________________________________________________________________________________
     <path>instruments/stdby-alt/stdby-alt-model.xml</path>
     <offsets>
       <x-m>-2.48</x-m>
-      <y-m>.07</y-m>
+      <y-m>.06</y-m>
       <z-m>0.60</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
@@ -934,7 +986,7 @@ ________________________________________________________________________________
     <path>instruments/stdby-hsi/stdby-hsi-model.xml</path>
     <offsets>
       <x-m>-2.42</x-m>
-      <y-m>.05</y-m>
+      <y-m>.06</y-m>
       <z-m>0.5</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
@@ -951,7 +1003,7 @@ ________________________________________________________________________________
     <path>instruments/stdby-asi/stdby-asi-model.xml</path>
     <offsets>
       <x-m>-2.42</x-m>
-      <y-m>-.05</y-m>
+      <y-m>-.06</y-m>
       <z-m>0.5</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
@@ -1201,40 +1253,7 @@ ________________________________________________________________________________
       <pitch-deg>-60</pitch-deg>
     </offsets>
   </model>
-<!-- USED FOR DEVELOPMENT -->
-  <!--animation>
-    <type>translate</type>
-    <object-name>tablet-copilot</object-name>
-    <property>/debug1</property>
-    <factor>1</factor>
-    <axis>
-      <x>1</x>
-      <y>0</y>
-      <z>0</z>
-    </axis>
-  </animation>
-  <animation>
-    <type>translate</type>
-    <object-name>tablet-copilot</object-name>
-    <property>/debug2</property>
-    <factor>1</factor>
-    <axis>
-      <x>0</x>
-      <y>1</y>
-      <z>0</z>
-    </axis>
-  </animation>
-  <animation>
-    <type>translate</type>
-    <object-name>tablet-copilot</object-name>
-    <property>/debug3</property>
-    <factor>1</factor>
-    <axis>
-      <x>0</x>
-      <y>0</y>
-      <z>1</z>
-    </axis>
-  </animation-->
+
 
 </PropertyList>
 
