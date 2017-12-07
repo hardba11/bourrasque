@@ -21,10 +21,12 @@ bourrasque-set.xml
  |    |    |-- models/effects/interior/interior-flashlight.eff
  |    |    |-- models/effects/interior/interior-shadow.eff
  |    |    |-- models/pilot/copilot.xml
+ |    |    |    |-- models/effects/interior/interior-flashlight.eff
  |    |    |    `-- models/pilot/pilot.ac
  |    |    |         |-- models/pilot/pilot.png
  |    |    |         `-- models/pilot/transp.png
  |    |    |-- models/pilot/pilot.xml
+ |    |    |    |-- models/effects/interior/interior-flashlight.eff
  |    |    |    `-- models/pilot/pilot.ac
  |    |    |         |-- models/pilot/pilot.png
  |    |    |         `-- models/pilot/transp.png
@@ -168,10 +170,19 @@ bourrasque-set.xml
  |    |    |    `-- instruments/stdby-hsi/instrument_stdby-hsi.ac
  |    |    |         |-- instruments/stdby-hsi/texture_instrument_hsi-emit.png
  |    |    |         `-- instruments/stdby-hsi/texture_instrument_hsi.png
- |    |    `-- instruments/transponder/ctl92-model.xml
+ |    |    |-- instruments/tablet/tablet-model.xml
+ |    |    |    |-- models/effects/interior/interior-flashlight.eff
+ |    |    |    `-- instruments/tablet/instrument_tablet.ac
+ |    |    |         `-- instruments/tablet/texture_instrument_tablet.png
+ |    |    |-- instruments/transponder/ctl92-model.xml
+ |    |    |    |-- models/effects/interior/interior-flashlight.eff
+ |    |    |    `-- instruments/transponder/ctl92.ac
+ |    |    |         `-- instruments/transponder/ctl-92.png
+ |    |    `-- instruments/turn/turn-model.xml
  |    |         |-- models/effects/interior/interior-flashlight.eff
- |    |         `-- instruments/transponder/ctl92.ac
- |    |              `-- instruments/transponder/ctl-92.png
+ |    |         `-- instruments/turn/instrument_turn.ac
+ |    |              |-- instruments/turn/texture_instrument_turn-emit.png
+ |    |              `-- instruments/turn/texture_instrument_turn.png
  |    |-- models/effects/contrail/contrail.xml
  |    |-- models/effects/load/load.xml
  |    |-- models/effects/rain/rain_exhaust.xml
@@ -272,7 +283,9 @@ bourrasque-set.xml
  |    |-- include/../instruments/hud_target_positions/hud_target_positions-properties.xml
  |    |-- include/../instruments/magcompass/magcompass-properties.xml
  |    |-- include/../instruments/nd/nd-properties.xml
- |    `-- include/../instruments/pfd/pfd-properties.xml
+ |    |-- include/../instruments/pfd/pfd-properties.xml
+ |    |-- include/../instruments/sfd/sfd-properties.xml
+ |    `-- include/../instruments/tablet/tablet-properties.xml
  |-- include/sim-flight-recorder.xml
  |    `-- /Aircraft/Generic/flightrecorder/generic-jet.xml
  |         |-- /Aircraft/Generic/flightrecorder/components/controls.xml
@@ -303,7 +316,9 @@ bourrasque-set.xml
  |-- instruments/light/light.nas
  |-- instruments/nd/nd.nas
  |-- instruments/pfd/pfd.nas
- |-- instruments/sfd/sfd_canvas.nas
+ |-- instruments/sfd/sfd_eicas.nas
+ |-- instruments/sfd/sfd_radar.nas
+ |-- instruments/tablet/tablet_map.nas
  |-- models/effects/rain/rain-drops-filters.xml
  |-- models/effects/shadow/3d-shadow-filters.xml
  |-- models/lights/lights.nas

@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 
 <PropertyList>
- 
+
   <path>rafale-tanker.ac</path>
 
   <animation>
@@ -20,6 +20,7 @@
     <object-name>tanks</object-name>
     <object-name>tuyeres</object-name>
 <!--
+TODO: add objects to model and add effects
     <object-name>light_anticoll</object-name>
     <object-name>light_form</object-name>
     <object-name>light_nav_green</object-name>
@@ -29,14 +30,11 @@
 -->
   </animation>
 
-
   <effect>
     <inherits-from>AI/Aircraft/dassault-rafale-M/effects/glass</inherits-from>
     <object-name>pare_brise</object-name>
     <object-name>canopy_plexi</object-name>
   </effect>
-
-
 
   <multiplay>
     <refuel>

@@ -4,7 +4,7 @@
 
   <particlesystem>
     <name>left-tyre-smoke-landing</name><!--particlesystem-->
-    <texture>smoke.png</texture>
+    <texture>touchdown.png</texture>
     <emissive>false</emissive>
     <lighting>false</lighting>
 

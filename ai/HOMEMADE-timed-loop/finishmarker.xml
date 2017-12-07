@@ -1,8 +1,9 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
+
 <PropertyList>
 
   <path>largemarker.ac</path>
- 
+
   <nasal>
     <load>
     <![CDATA[
@@ -82,7 +83,7 @@ var distLoop = maketimer(0.1,
                     var file = io.open(getprop("/sim/fg-home") ~"/HOMEMADE-loop-times.log", "w");
                     var mins = getprop("/sim/time/real/minute");
                     var secs = getprop("/sim/time/real/second");
-                    var newTime = 
+                    var newTime =
                         getprop("/sim/time/real/day") ~"."~
                         getprop("/sim/time/real/month") ~"."~
                         getprop("/sim/time/real/year") ~", "~
@@ -143,7 +144,7 @@ distLoop = nil;
     <condition>
       <property>/sim/rendering/rembrandt/enabled</property>
     </condition>
-    <object-name>marker1</object-name> 
+    <object-name>marker1</object-name>
   </effect>
 
   <animation>

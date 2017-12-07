@@ -1,4 +1,5 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
+
 <PropertyList>
 
   <path>largemarker.ac</path>
@@ -146,7 +147,7 @@ machCheck = nil;
     <condition>
       <property>/sim/rendering/rembrandt/enabled</property>
     </condition>
-    <object-name>marker1</object-name> 
+    <object-name>marker1</object-name>
   </effect>
 
   <animation>

@@ -3,7 +3,7 @@
   <scenario>
     <name>LFLG-timed-loop</name>
     <description>
-       HOMEMADE timed loop (thanks to FGUK Mach Loop developpers !)
+      HOMEMADE timed loop (thanks to FGUK Mach Loop developpers !)
     </description>
     <nasal>
       <load>
@@ -30,13 +30,11 @@ var yellowGuide = func()
         }
     , 1.8);
 }
-var loop = maketimer(0.1, 
-    func()
-    {
+var loop = maketimer(0.1, func() {
         if(loop == nil) return;
         yellowGuide();
         loop.restart(4.4);
-    });
+});
 loop.singleShot = 1;
 loop.start();
       ]]>
