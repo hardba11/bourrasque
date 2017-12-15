@@ -17,6 +17,12 @@ changelog
   <name>aircraft</name>
   <path>bourrasque.ac</path>
 
+  <multiplay>
+    <refuel>
+      <type>probe</type>
+    </refuel>
+  </multiplay>
+
   <!--
 ================================================================================
                                                                     OBJECTS LIST
@@ -62,7 +68,7 @@ changelog
   </animation>
 
   <effect>
-    <inherits-from>Effects/glass</inherits-from>
+    <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-glass</inherits-from>
     <object-name>pare_brise_int</object-name>
     <object-name>canopy_plexi_int</object-name>
   </effect>

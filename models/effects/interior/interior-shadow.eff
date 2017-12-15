@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <PropertyList>
   <name>interior-shadow</name>
   <inherits-from>Effects/model-interior</inherits-from>
@@ -7,19 +8,18 @@
     <texture n="4">
       <type>cubemap</type>
       <images>
-        <positive-x>Models/Effects/interior/0004.png</positive-x> <!-- px (tail) rotate 90 deg from N or S to W -->
-        <negative-x>Models/Effects/interior/0002.png</negative-x> <!-- nx (nose) rotate 90 deg from N or S to E -->
-        <positive-y>Models/Effects/interior/0001.png</positive-y> <!-- py (starboard/right) from N do not rotate -->
-        <negative-y>Models/Effects/interior/0003.png</negative-y> <!-- ny (port/left) from N rotate 180 deg to S -->
-        <positive-z>Models/Effects/interior/0006.png</positive-z> <!-- pz (top) rotate 90 deg from N or S to W -->
-        <negative-z>Models/Effects/interior/0005.png</negative-z> <!-- nz (bottom) rotate 90 deg from N or S to W -->
+        <positive-x>models/effects/interior/0004.png</positive-x> <!-- px (tail) rotate 90 deg from N or S to W -->
+        <negative-x>models/effects/interior/0002.png</negative-x> <!-- nx (nose) rotate 90 deg from N or S to E -->
+        <positive-y>models/effects/interior/0001.png</positive-y> <!-- py (starboard/right) from N do not rotate -->
+        <negative-y>models/effects/interior/0003.png</negative-y> <!-- ny (port/left) from N rotate 180 deg to S -->
+        <positive-z>models/effects/interior/0006.png</positive-z> <!-- pz (top) rotate 90 deg from N or S to W -->
+        <negative-z>models/effects/interior/0005.png</negative-z> <!-- nz (bottom) rotate 90 deg from N or S to W -->
       </images>
     </texture>
-
     <!-- the cube center must be the same as the camera x,y,z in blend -->
     <opacity-cube-center type="vec3d" n="0">-3.25 0 1.13</opacity-cube-center>
     <opacity-cube-scale type="vec3d" n="0"> 1.5 0.5 0.7</opacity-cube-scale>
     <opacity-cube-angle type="float">0.0</opacity-cube-angle>
-
   </parameters>
+
 </PropertyList>

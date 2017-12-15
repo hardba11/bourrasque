@@ -14,6 +14,10 @@ PROPERTY-PATH : PropertyList > environment
 
   <!-- used for rain effects -->
   <aircraft-effects>
+    <fog-level type="float">.05</fog-level>
+    <frost-level type="float">.05</frost-level>
+    <overlay-alpha type="float">.2</overlay-alpha>
+    <use-overlay type="bool">1</use-overlay>
     <splash-vector-x type="float" userarchive="n">0</splash-vector-x>
     <splash-vector-y type="float" userarchive="n">0</splash-vector-y>
     <splash-vector-z type="float" userarchive="n">0</splash-vector-z>
