@@ -238,6 +238,7 @@ TODO :
     <object-name>AP-vert</object-name>
     <object-name>Ralt</object-name>
     <object-name>Mach</object-name>
+    <object-name>VSI-annun</object-name>
     <emission>
       <factor-prop>/controls/lighting/instruments-norm</factor-prop>
       <red>0</red>
@@ -273,7 +274,6 @@ TODO :
     <object-name>Nav-id</object-name>
     <object-name>CRSannun</object-name>
     <object-name>HDGannun</object-name>
-    <object-name>VSI-annun</object-name>
     <object-name>SPD-annun</object-name>
     <object-name>VSI-tgt</object-name>
     <emission>
@@ -532,18 +532,18 @@ ________________________________________________________________________________
   <text>
     <name>VSI-annun</name>
     <offsets>
-      <x-m>0.01</x-m>
-      <y-m>0.057</y-m>
-      <z-m>-0.040</z-m>
+      <x-m>0.026</x-m>
+      <y-m>0.062</y-m>
+      <z-m>0.005</z-m>
     </offsets>
-    <alignment>left-center</alignment>
+    <alignment>right-center</alignment>
     <axis-alignment>yz-plane</axis-alignment>
     <type>number-value</type>
     <property>/autopilot/internal/vert-speed-fpm</property>
-    <format>%-.0f</format>
+    <format>%-.0f ft/m</format>
     <truncate>true</truncate>
     <font>helvetica_bold.txf</font>
-    <character-size>0.005</character-size>
+    <character-size>0.007</character-size>
     <character-aspect-ratio type="double">1.3</character-aspect-ratio>
     <font-resolution>
       <width type="int">64</width>
@@ -634,8 +634,8 @@ ________________________________________________________________________________
     <format>%03.0f</format>
     <truncate>true</truncate>
     <font>helvetica_bold.txf</font>
-    <character-size>0.008</character-size>
-    <character-aspect-ratio type="double">1.3</character-aspect-ratio>
+    <character-size>0.01</character-size>
+    <character-aspect-ratio type="double">1.2</character-aspect-ratio>
     <font-resolution>
       <width type="int">64</width>
       <height type="int">64</height>
@@ -755,7 +755,7 @@ ________________________________________________________________________________
 
   <!-- ~~~~~~~~~~~~~~~~~~ text mach -->
   <text>
-    <name>mach</name>
+    <name>Mach</name>
     <offsets>
       <x-m>0.01</x-m>
       <y-m>-0.058</y-m>
@@ -767,7 +767,29 @@ ________________________________________________________________________________
     <property>/velocities/mach</property>
     <format>%.3fM</format>
     <font>helvetica_bold.txf</font>
-    <character-size>0.006</character-size>
+    <character-size>0.007</character-size>
+    <character-aspect-ratio type="double">1.3</character-aspect-ratio>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+  </text>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ text radio alt -->
+  <text>
+    <name>Ralt</name>
+    <offsets>
+      <x-m>0.01</x-m>
+      <y-m>0.037</y-m>
+      <z-m>0.010</z-m>
+    </offsets>
+    <alignment>right-center</alignment>
+    <axis-alignment>yz-plane</axis-alignment>
+    <type>number-value</type>
+    <property>/position/altitude-agl-ft</property>
+    <format>%3.0f R</format>
+    <font>helvetica_bold.txf</font>
+    <character-size>0.007</character-size>
     <character-aspect-ratio type="double">1.3</character-aspect-ratio>
     <font-resolution>
       <width type="int">64</width>
@@ -1073,8 +1095,8 @@ instrument_pfd.event_click_hold_autopilot();
         <property>/autopilot/settings/target-altitude-ft</property>
         <step>1000</step>
         <min>0</min>
-        <max>50000</max>
-        <wrap>1</wrap>
+        <max>40000</max>
+        <wrap>0</wrap>
       </binding>
       <binding>
         <command>property-toggle</command>
@@ -1379,8 +1401,8 @@ instrument_pfd.event_click_hold_autopilot();
         <command>property-adjust</command>
         <property>/autopilot/settings/vertical-speed-fpm</property>
         <factor>100</factor>
-        <min>0</min>
-        <max>2000</max>
+        <min>-9000</min>
+        <max>9000</max>
       </binding>
       <binding>
         <command>property-toggle</command>
@@ -1400,18 +1422,18 @@ instrument_pfd.event_click_hold_autopilot();
   <text>
     <name>VSI-tgt</name>
     <offsets>
-      <x-m>0.01</x-m>
-      <y-m>0.048</y-m>
+      <x-m>0.12</x-m>
+      <y-m>0.007</y-m>
       <z-m>0.005</z-m>
     </offsets>
-    <alignment>left-center</alignment>
+    <alignment>right-center</alignment>
     <axis-alignment>yz-plane</axis-alignment>
     <type type="string">number-value</type>
         <property>/autopilot/settings/vertical-speed-fpm</property>
-    <format>VS %4.0f</format>
+    <format>%4.0f</format>
     <truncate>true</truncate>
     <font>helvetica_bold.txf</font>
-    <character-size>0.0055</character-size>
+    <character-size>0.006</character-size>
     <character-aspect-ratio type="double">1.3</character-aspect-ratio>
     <font-resolution>
       <width type="int">64</width>
@@ -1544,26 +1566,6 @@ ________________________________________________________________________________
     <font>helvetica_bold.txf</font>
     <character-size>0.007</character-size>
     <character-aspect-ratio type="double">1.2</character-aspect-ratio>
-    <font-resolution>
-      <width type="int">64</width>
-      <height type="int">64</height>
-    </font-resolution>
-  </text>
-  <text>
-    <name>Ralt</name>
-    <offsets>
-      <x-m>0.01</x-m>
-      <y-m>0.025</y-m>
-      <z-m>0.010</z-m>
-    </offsets>
-    <alignment>left-center</alignment>
-    <axis-alignment>yz-plane</axis-alignment>
-    <type>number-value</type>
-    <property>/autopilot/settings/minimums</property>
-    <format>%3.0f RA</format>
-    <font>helvetica_bold.txf</font>
-    <character-size>0.005</character-size>
-    <character-aspect-ratio type="double">1.3</character-aspect-ratio>
     <font-resolution>
       <width type="int">64</width>
       <height type="int">64</height>
