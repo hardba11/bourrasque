@@ -32,11 +32,10 @@ changelog
     <target-speed-kt type="int">300</target-speed-kt>
     <target-speed-mach type="double">0.40</target-speed-mach>
     <target-altitude-ft type="int">3000</target-altitude-ft>
-    <vertical-speed-fpm type="int">0</vertical-speed-fpm>
+    <vertical-speed-fpm type="int">5000</vertical-speed-fpm>
     <!--minimums type="int">150</minimums-->
     <target-roll-deg type="double">0</target-roll-deg>
     <target-pitch-deg type="double">0</target-pitch-deg>
-    <vertical-speed-fpm type="int">0</vertical-speed-fpm>
     <nav-source type="string">NAV1</nav-source>
     <bank-limit type="int">30</bank-limit>
     <changeover type="bool">0</changeover>

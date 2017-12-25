@@ -74,15 +74,6 @@ TODO :
     <object-name>vsi.needle</object-name>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
-  <animation>
-    <type>select</type>
-    <object-name>pfd.vs-emit</object-name>
-    <condition>
-      <false />
-    </condition>
-  </animation>
-
   <animation>
     <type>select</type>
     <object-name>PFD.screen.off</object-name>
@@ -231,6 +222,33 @@ TODO :
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (color) -->
   <animation>
+    <name>green-emit</name>
+    <type>material</type>
+    <object-name>AP-status</object-name>
+    <object-name>AP-lat</object-name>
+    <object-name>AP-vert</object-name>
+    <object-name>Ralt</object-name>
+    <object-name>Mach</object-name>
+    <object-name>VSI-annun</object-name>
+    <condition>
+      <greater-than>
+        <property>/controls/lighting/instruments-norm</property>
+        <value>0.1</value>
+      </greater-than>
+    </condition>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0</red>
+      <green>1</green>
+      <blue>0</blue>
+    </emission>
+    <ambient>
+      <red>0</red>
+      <green>1</green>
+      <blue>0</blue>
+    </ambient>
+  </animation>
+  <animation>
     <name>green</name>
     <type>material</type>
     <object-name>AP-status</object-name>
@@ -239,12 +257,49 @@ TODO :
     <object-name>Ralt</object-name>
     <object-name>Mach</object-name>
     <object-name>VSI-annun</object-name>
+    <condition>
+      <equals>
+        <property>/controls/lighting/instruments-norm</property>
+        <value>0</value>
+      </equals>
+    </condition>
     <emission>
-      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <factor>1</factor>
       <red>0</red>
       <green>1</green>
       <blue>0</blue>
     </emission>
+    <ambient>
+      <red>0</red>
+      <green>1</green>
+      <blue>0</blue>
+    </ambient>
+  </animation>
+
+  <animation>
+    <name>white-emit</name>
+    <type>material</type>
+    <object-name>AP-lat-armed</object-name>
+    <object-name>AP-vert-armed</object-name>
+    <object-name>CRSlabel</object-name>
+    <object-name>HDGlabel</object-name>
+    <condition>
+      <greater-than>
+        <property>/controls/lighting/instruments-norm</property>
+        <value>0.1</value>
+      </greater-than>
+    </condition>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>1</red>
+      <green>1</green>
+      <blue>1</blue>
+    </emission>
+    <ambient>
+      <red>1</red>
+      <green>1</green>
+      <blue>1</blue>
+    </ambient>
   </animation>
   <animation>
     <name>white</name>
@@ -253,12 +308,58 @@ TODO :
     <object-name>AP-vert-armed</object-name>
     <object-name>CRSlabel</object-name>
     <object-name>HDGlabel</object-name>
+    <condition>
+      <equals>
+        <property>/controls/lighting/instruments-norm</property>
+        <value>0</value>
+      </equals>
+    </condition>
     <emission>
-      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <factor>1</factor>
       <red>1</red>
       <green>1</green>
       <blue>1</blue>
     </emission>
+    <ambient>
+      <red>1</red>
+      <green>1</green>
+      <blue>1</blue>
+    </ambient>
+  </animation>
+
+  <animation>
+    <name>magenta-emit</name>
+    <type>material</type>
+    <object-name>ALT-annun</object-name>
+    <object-name>ALT-min</object-name>
+    <object-name>IAS-annun</object-name>
+    <object-name>MACH-annun</object-name>
+    <object-name>HDG-annun</object-name>
+    <object-name>Valt-display</object-name>
+    <object-name>Nav-src</object-name>
+    <object-name>Nav-dst</object-name>
+    <object-name>Nav-id</object-name>
+    <object-name>CRSannun</object-name>
+    <object-name>HDGannun</object-name>
+    <object-name>SPD-annun</object-name>
+    <object-name>VSI-tgt</object-name>
+    <condition>
+      <greater-than>
+        <property>/controls/lighting/instruments-norm</property>
+        <value>0.1</value>
+      </greater-than>
+    </condition>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>1</red>
+      <green>0</green>
+      <blue>1</blue>
+    </emission>
+    <ambient>
+      <red>1</red>
+      <green>0</green>
+      <blue>1</blue>
+    </ambient>
   </animation>
   <animation>
     <name>magenta</name>
@@ -276,12 +377,23 @@ TODO :
     <object-name>HDGannun</object-name>
     <object-name>SPD-annun</object-name>
     <object-name>VSI-tgt</object-name>
+    <condition>
+      <equals>
+        <property>/controls/lighting/instruments-norm</property>
+        <value>0</value>
+      </equals>
+    </condition>
     <emission>
-      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <factor>1</factor>
       <red>1</red>
       <green>0</green>
       <blue>1</blue>
     </emission>
+    <ambient>
+      <red>1</red>
+      <green>0</green>
+      <blue>1</blue>
+    </ambient>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (enabled) -->
@@ -500,9 +612,9 @@ ________________________________________________________________________________
     <object-name>vsi.needle</object-name>
     <property>autopilot/internal/vert-speed-fpm</property>
     <interpolation>
-      <entry><ind>-4000.0</ind><dep>-73.33</dep></entry>
+      <entry><ind>-9000.0</ind><dep>-90</dep></entry>
       <entry><ind>0.0</ind><dep>0.0</dep></entry>
-      <entry><ind>4000</ind><dep>73.33</dep></entry>
+      <entry><ind>9000</ind><dep>90</dep></entry>
     </interpolation>
     <axis>
       <x>-1</x>
@@ -1155,7 +1267,8 @@ instrument_pfd.event_click_hold_autopilot();
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>tooltip-pfd-ap-set-alt</tooltip-id>
-        <label>Set A/P altitude</label>
+        <label>Set A/P altitude %d</label>
+        <property>/autopilot/settings/target-altitude-ft</property>
       </binding>
     </hovered>
   </animation>
@@ -1302,7 +1415,8 @@ instrument_pfd.event_click_hold_autopilot();
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>tooltip-pfd-ap-set-speed</tooltip-id>
-        <label>Set A/P speed</label>
+        <label>Set A/P speed %d</label>
+        <property>/autopilot/settings/target-speed-kt</property>
       </binding>
     </hovered>
   </animation>
@@ -1413,7 +1527,8 @@ instrument_pfd.event_click_hold_autopilot();
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>tooltip-pfd-ap-set-vs</tooltip-id>
-        <label>Set A/P vertical speed</label>
+        <label>Set A/P vertical speed %d</label>
+        <property>/autopilot/settings/vertical-speed-fpm</property>
       </binding>
     </hovered>
   </animation>
@@ -1429,7 +1544,7 @@ instrument_pfd.event_click_hold_autopilot();
     <alignment>right-center</alignment>
     <axis-alignment>yz-plane</axis-alignment>
     <type type="string">number-value</type>
-        <property>/autopilot/settings/vertical-speed-fpm</property>
+    <property>/autopilot/settings/vertical-speed-fpm</property>
     <format>%4.0f</format>
     <truncate>true</truncate>
     <font>helvetica_bold.txf</font>
@@ -1441,20 +1556,47 @@ instrument_pfd.event_click_hold_autopilot();
     </font-resolution>
   </text>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ visibility text vsi set -->
-  <!--
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control vspeed ARM -->
+  <animation>
+    <type>pick</type>
+    <object-name>pfd.vs</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-cycle</command>
+        <property>/autopilot/locks/altitude</property>
+        <value type="string">vertical-speed-hold</value>
+        <value type="string"></value>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-pfd-ap-vspeed</tooltip-id>
+        <label>Toggle Vspeed</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation vspeed ARM -->
   <animation>
     <type>select</type>
-    <object-name>VSI-tgt</object-name>
+    <object-name>pfd.vs-emit</object-name>
     <condition>
-      <equals>
-        <property>/autopilot/locks/altitude</property>
-        <value>VS</value>
-      </equals>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <equals>
+          <property>/autopilot/locks/altitude</property>
+          <value>vertical-speed-hold</value>
+        </equals>
+      </and>
     </condition>
   </animation>
-  -->
-
 
   <!--
 ________________________________________________________________________________

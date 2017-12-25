@@ -48,7 +48,7 @@ ________________________________________________________________________________
       <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
     </input>
     <reference>
-      <property>/autopilot/settings/target-speed-kt</property>
+      <property>/instrumentation/my_aircraft/pfd/controls/target-speed-kt</property>
     </reference>
     <output>
       <property>/controls/engines/engine[0]/throttle</property>
@@ -207,7 +207,30 @@ ________________________________________________________________________________
                                                                         VERTICAL
   -->
 
-  <!-- ~~~~~~~~~~~~~~~~~~ altitude -->
+  <filter>
+    <name>vspeed max</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <gain>-1</gain>
+    <input>1</input>
+    <reference>
+      <property>/instrumentation/my_aircraft/pfd/controls/target-vs</property>
+      <abs type="bool">true</abs>
+    </reference>
+    <output>/instrumentation/my_aircraft/pfd/controls/vs-max</output>
+  </filter>
+  <filter>
+    <name>vspeed min</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <gain>1</gain>
+    <input>1</input>
+    <reference>
+      <property>/instrumentation/my_aircraft/pfd/controls/target-vs</property>
+      <abs type="bool">true</abs>
+    </reference>
+    <output>/instrumentation/my_aircraft/pfd/controls/vs-min</output>
+  </filter>
   <predict-simple>
     <name>Altitude 5 Seconds Ahead</name>
     <debug>false</debug>
@@ -217,6 +240,7 @@ ________________________________________________________________________________
     <filter-gain>0.0</filter-gain>
   </predict-simple>
   
+  <!-- ~~~~~~~~~~~~~~~~~~ altitude -->
   <filter>
     <name>Altitude Capture/Hold Difference</name>
     <debug>false</debug>
@@ -229,16 +253,19 @@ ________________________________________________________________________________
       <property>/autopilot/internal/altitude-5-sec-ahead</property>
     </input>
     <reference>
-      <property>/autopilot/settings/target-altitude-ft</property>
+      <property>/instrumentation/my_aircraft/pfd/controls/target-alt</property>
     </reference>
     <gain>-8</gain>
     <output>
       <property>/autopilot/internal/target-climb-rate-fpm</property>
     </output>
-    <min>-6000</min>
-    <max>6000</max>
+    <min>
+      <property>/instrumentation/my_aircraft/pfd/controls/vs-min</property>
+    </min>
+    <max>
+      <property>/instrumentation/my_aircraft/pfd/controls/vs-max</property>
+    </max>
   </filter>
-
   <pid-controller>
     <name>Altitude Capture/Hold</name>
     <debug>false</debug>
@@ -248,14 +275,14 @@ ________________________________________________________________________________
     </enable>
     <input>
       <property>/autopilot/internal/vert-speed-fpm</property>
-      <scale>0.16667</scale>
+      <scale>0.16667</scale> <!-- feet per minute to feet per second-->
     </input>
     <reference>
       <property>/autopilot/internal/target-climb-rate-fpm</property>
-      <scale>0.16667</scale>
+      <scale>0.16667</scale> <!-- feet per minute to feet per second-->
     </reference>
     <output>
-      <property>autopilot/internal/target-pitch-deg</property>
+      <property>/autopilot/internal/target-pitch-deg</property>
     </output>
     <config>
       <Kp>0.01</Kp>
@@ -269,12 +296,69 @@ ________________________________________________________________________________
     </config>
   </pid-controller>
   
+  <!-- ~~~~~~~~~~~~~~~~~~ vspeed -->
+  <filter>
+    <name>Altitude Capture/Hold Difference</name>
+    <debug>false</debug>
+    <type>gain</type>
+    <gain>1</gain>
+    <enable>
+      <property>/autopilot/locks/altitude</property>
+      <value>vertical-speed-hold</value>
+    </enable>
+    <input>
+      <property>/instrumentation/my_aircraft/pfd/controls/target-vs</property>
+    </input>
+    <output>
+      <property>/autopilot/internal/target-climb-rate-fpm</property>
+    </output>
+  </filter>
+  <pid-controller>
+    <name>Vertical Speed/Hold</name>
+    <debug>false</debug>
+    <enable>
+      <property>/autopilot/locks/altitude</property>
+      <value>vertical-speed-hold</value>
+    </enable>
+    <input>
+      <property>/autopilot/internal/vert-speed-fpm</property>
+      <scale>0.16667</scale> <!-- feet per minute to feet per second-->
+    </input>
+    <reference>
+      <property>/autopilot/internal/target-climb-rate-fpm</property>
+      <scale>0.16667</scale> <!-- feet per minute to feet per second-->
+    </reference>
+    <output>
+      <property>/autopilot/internal/target-pitch-deg</property>
+    </output>
+    <config>
+      <Kp>0.05</Kp>
+      <beta>1.0</beta>
+      <alpha>0.1</alpha>
+      <gamma>0.0</gamma>
+      <Ti>4.0</Ti>
+      <Td>0.0001</Td>
+      <u_min>-25.0</u_min>
+      <u_max>40.0</u_max>
+    </config>
+  </pid-controller>
+
   <pid-controller>
     <name>System Command: Pitch</name>
     <debug>false</debug>
     <enable>
-      <property>/autopilot/locks/altitude</property>
-      <value>altitude-hold</value>
+      <condition>
+        <or>
+          <equals>
+            <property>/autopilot/locks/altitude</property>
+            <value>altitude-hold</value>
+          </equals>
+          <equals>
+            <property>/autopilot/locks/altitude</property>
+            <value>vertical-speed-hold</value>
+          </equals>
+        </or>
+      </condition>
     </enable>
     <input>
       <property>/orientation/pitch-deg</property>
@@ -304,10 +388,16 @@ ________________________________________________________________________________
     <gain>1</gain>
     <enable>
       <condition>
-        <not-equals>
-          <property>/autopilot/locks/altitude</property>
-          <value>altitude-hold</value>
-        </not-equals>
+        <not>
+          <equals>
+            <property>/autopilot/locks/altitude</property>
+            <value>altitude-hold</value>
+          </equals>
+          <equals>
+            <property>/autopilot/locks/altitude</property>
+            <value>vertical-speed-hold</value>
+          </equals>
+        </not>
       </condition>
     </enable>
     <input>/orientation/pitch-deg</input>
@@ -321,8 +411,18 @@ ________________________________________________________________________________
     <debug>false</debug>
     <type>noise-spike</type>
     <enable>
-      <property>/autopilot/locks/altitude</property>
-      <value>altitude-hold</value>
+      <condition>
+        <or>
+          <equals>
+            <property>/autopilot/locks/altitude</property>
+            <value>altitude-hold</value>
+          </equals>
+          <equals>
+            <property>/autopilot/locks/altitude</property>
+            <value>vertical-speed-hold</value>
+          </equals>
+        </or>
+      </condition>
     </enable>
     <input>controls/flight/elevator-ap</input>
     <output>controls/flight/elevator</output>
