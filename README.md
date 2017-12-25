@@ -47,6 +47,7 @@ Effects
 AI scenario
 - 2 wingmen AI demo
 - timed loop AI demo over French Alps (takeoff LFLG : Grenoble le Versoud)
+- add a new tanker beside the A330MRTT
 
 Tools
 - tool to record a timed loop
@@ -101,9 +102,13 @@ refuelling ability :
 
 ![Image](http://i.imgur.com/VrMoNWV.png)
 
-LFLG timed loop :
+LFLG timed loop (need a copy to AI/ to install) :
 
 ![Image](http://i.imgur.com/hd3LKso.png)
+
+tanker (need a copy to AI/ to install) :
+
+![Image](http://i.imgur.com/dRmWRNU.png)
 
 digital livery :
 
@@ -133,6 +138,14 @@ tiger livery :
 
 ![Image](http://i.imgur.com/aPbeYro.png)
 
+B01 livery :
+
+![Image](http://i.imgur.com/rDbDqhg.png)
+
+C01 livery :
+
+![Image](http://i.imgur.com/zO8a4Ht.png)
+
 wingmens scenario, contrail effects, 2000l tanks :
 
 ![Image](http://i.imgur.com/SP9jPdX.png)
@@ -145,9 +158,13 @@ rain effects at differents speeds, taxi hud configuration (left image) :
 
 ![Image](http://i.imgur.com/x6LSRkX.png)
 
-rain effects :
+wheels rain effects :
 
 ![Image](http://i.imgur.com/5M5ORu5.png)
+
+exhaust rain effects when rotating :
+
+![Image](http://i.imgur.com/btLqZXL.png)
 
 touchdown smoke effects :
 
