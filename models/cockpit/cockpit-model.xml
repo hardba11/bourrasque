@@ -824,6 +824,16 @@ ________________________________________________________________________________
       <roll-deg>0</roll-deg>
       <pitch-deg>-60</pitch-deg>
     </offsets>
+    <condition>
+      <or>
+        <property>sim/multiplay/generic/int[10]</property>
+        <greater-than>
+          <property>/velocities/groundspeed-kt</property>
+          <value>2</value>
+        </greater-than>
+      </or>
+    </condition>
+
   </model>
 
   <!--
@@ -1252,6 +1262,9 @@ ________________________________________________________________________________
       <roll-deg>0</roll-deg>
       <pitch-deg>-60</pitch-deg>
     </offsets>
+    <condition>
+      <property>sim/multiplay/generic/int[11]</property>
+    </condition>
   </model>
 
 
