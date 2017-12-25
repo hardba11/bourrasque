@@ -1207,7 +1207,7 @@ instrument_pfd.event_click_hold_autopilot();
         <property>/autopilot/settings/target-altitude-ft</property>
         <step>1000</step>
         <min>0</min>
-        <max>40000</max>
+        <max>50000</max>
         <wrap>0</wrap>
       </binding>
       <binding>
@@ -1224,7 +1224,7 @@ instrument_pfd.event_click_hold_autopilot();
         <step>-1000</step>
         <min>0</min>
         <max>50000</max>
-        <wrap>1</wrap>
+        <wrap>0</wrap>
       </binding>
       <binding>
         <command>property-toggle</command>
@@ -1240,7 +1240,7 @@ instrument_pfd.event_click_hold_autopilot();
         <step>100</step>
         <min>0</min>
         <max>50000</max>
-        <wrap>1</wrap>
+        <wrap>0</wrap>
       </binding>
       <binding>
         <command>property-toggle</command>
@@ -1256,7 +1256,7 @@ instrument_pfd.event_click_hold_autopilot();
         <step>-100</step>
         <min>0</min>
         <max>50000</max>
-        <wrap>1</wrap>
+        <wrap>0</wrap>
       </binding>
       <binding>
         <command>property-toggle</command>
@@ -1356,7 +1356,7 @@ instrument_pfd.event_click_hold_autopilot();
         <step>10</step>
         <min>0</min>
         <max>2000</max>
-        <wrap>1</wrap>
+        <wrap>0</wrap>
       </binding>
       <binding>
         <command>property-toggle</command>
@@ -1372,7 +1372,7 @@ instrument_pfd.event_click_hold_autopilot();
         <step>-10</step>
         <min>0</min>
         <max>2000</max>
-        <wrap>1</wrap>
+        <wrap>0</wrap>
       </binding>
       <binding>
         <command>property-toggle</command>
@@ -1388,7 +1388,7 @@ instrument_pfd.event_click_hold_autopilot();
         <step>1</step>
         <min>0</min>
         <max>2000</max>
-        <wrap>1</wrap>
+        <wrap>0</wrap>
       </binding>
       <binding>
         <command>property-toggle</command>
@@ -1404,7 +1404,7 @@ instrument_pfd.event_click_hold_autopilot();
         <step>-1</step>
         <min>0</min>
         <max>2000</max>
-        <wrap>1</wrap>
+        <wrap>0</wrap>
       </binding>
       <binding>
         <command>property-toggle</command>
