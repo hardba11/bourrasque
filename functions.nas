@@ -178,13 +178,73 @@ var inc_throttle = func() {
     }
 }
 
+var inc_elevator = func() {
+
+    var lock_alt = getprop('/autopilot/locks/altitude') or '';
+    if(lock_alt == 'altitude-hold')
+    {
+        var node = props.globals.getNode('/autopilot/settings/target-altitude-ft', 1);
+        if(node.getValue() == nil)
+        {
+            node.setValue(0.0);
+        }
+        node.setValue(node.getValue() + arg[1]);
+        if(node.getValue() < 0)
+        {
+            node.setValue(0);
+        }
+        else if(node.getValue() > 40000)
+        {
+            node.setValue(40000);
+        }
+    }
+    else
+    {
+        var elevator_value = getprop('/controls/flight/elevator') or 0;
+        var new_elevator_value = elevator_value + arg[0];
+
+        new_elevator_value = (new_elevator_value < -1.0) ? -1.0 : (new_elevator_value > 1.0) ? 1.0 : new_elevator_value;
+        setprop('/controls/flight/elevator', new_elevator_value);
+    }
+}
+
+var inc_aileron = func() {
+
+    var lock_hdg = getprop('/autopilot/locks/heading') or '';
+    if(lock_hdg == 'dg-heading-hold')
+    {
+        var node = props.globals.getNode('/autopilot/settings/heading-bug-deg', 1);
+        if(node.getValue() == nil)
+        {
+            node.setValue(0.0);
+        }
+        node.setValue(node.getValue() + arg[1]);
+        if(node.getValue() < 0)
+        {
+            node.setValue(node.getValue() + 360.0);
+        }
+        else if(node.getValue()> 360.0)
+        {
+            node.setValue(node.getValue() - 360.0);
+        }
+    }
+    else
+    {
+        var aileron_value = getprop('/controls/flight/aileron') or 0;
+        var new_aileron_value = aileron_value + arg[0];
+
+        new_aileron_value = (new_aileron_value < -1.0) ? -1.0 : (new_aileron_value > 1.0) ? 1.0 : new_aileron_value;
+        setprop('/controls/flight/aileron', new_aileron_value);
+    }
+}
+
 var center_flight_controls = func() {
     setprop('/controls/flight/elevator', 0);
     setprop('/controls/flight/aileron', 0);
     setprop('/controls/flight/rudder', 0);
-    setprop('/controls/flight/elevator-trim', 0);
-    setprop('/controls/flight/aileron-trim', 0);
-    setprop('/controls/flight/rudder-trim', 0);
+    #setprop('/controls/flight/elevator-trim', 0);
+    #setprop('/controls/flight/aileron-trim', 0);
+    #setprop('/controls/flight/rudder-trim', 0);
 }
 
 var change_mod = func(inc) {

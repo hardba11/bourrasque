@@ -1514,7 +1514,7 @@ instrument_pfd.event_click_hold_autopilot();
       <binding>
         <command>property-adjust</command>
         <property>/autopilot/settings/vertical-speed-fpm</property>
-        <factor>100</factor>
+        <factor>-100</factor>
         <min>-9000</min>
         <max>9000</max>
       </binding>

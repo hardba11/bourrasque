@@ -806,6 +806,60 @@ changelog
     </input>
   </gauge>
 
+  <!-- ~~~~~~~~~~~~~~~~~~ trim positions
+  <gauge>
+    <name>roll gauge</name>
+    <x>40</x>
+    <y>68</y>
+    <width>25</width>
+    <height>4</height>
+    <option>top</option>
+    <option>horizontal</option>
+    <option>notext</option>
+    <major-divisions>50</major-divisions>
+    <minor-divisions>0</minor-divisions>
+    <input>
+      <property>/controls/flight/aileron-trim</property>
+      <max>1.0</max>
+      <min>-1.0</min>
+    </input>
+  </gauge>
+  <gauge>
+    <name>pitch gauge</name>
+    <x>33</x>
+    <y>55</y>
+    <width>5</width>
+    <height>25</height>
+    <option>vertical</option>
+    <option>left</option>
+    <option>notext</option>
+    <major-divisions>50</major-divisions>
+    <minor-divisions>0</minor-divisions>
+    <input>
+      <property>/controls/flight/elevator-trim</property>
+      <factor>-1</factor>
+      <max>1.0</max>
+      <min>-1.0</min>
+    </input>
+  </gauge>
+  <gauge>
+    <name>yaw gauge</name>
+    <x>40</x>
+    <y>64</y>
+    <width>25</width>
+    <height>3</height>
+    <option>horizontal</option>
+    <option>bottom</option>
+    <option>notext</option>
+    <major-divisions>50</major-divisions>
+    <minor-divisions>0</minor-divisions>
+    <input>
+      <property>/controls/flight/rudder-trim</property>
+      <max>1.0</max>
+      <min>-1.0</min>
+    </input>
+  </gauge> -->
+
   <!-- ~~~~~~~~~~~~~~~~~~ throttle 0 for TAXI and APP mode -->
   <gauge>
     <name>throttle0</name>

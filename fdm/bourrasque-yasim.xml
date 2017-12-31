@@ -146,7 +146,6 @@ ________________________________________________________________________________
     <control-output control="SPOILER" prop="/surface-positions/speedbrake-pos-norm" />
     <control-speed  control="SPOILER" transition-time="2" />
 
-
   </hstab>
 
   <mstab

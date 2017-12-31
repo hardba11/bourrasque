@@ -31,6 +31,14 @@ ________________________________________________________________________________
       <name>ctrl-g</name>
       <binding><command>nasal</command><script /></binding>
     </key>
+    <key n="10">
+      <name>Enter</name>
+      <binding><command>nasal</command><script /></binding>
+    </key>
+    <key n="13">
+      <name>Keypad Enter</name>
+      <binding><command>nasal</command><script /></binding>
+    </key>
     <key n="20">
       <name>ctrl-t</name>
       <binding><command>nasal</command><script /></binding>
@@ -55,20 +63,12 @@ ________________________________________________________________________________
       <name>$</name>
       <binding><command>nasal</command><script /></binding>
     </key>
-    <key n="64">
-      <name>@</name>
-      <binding><command>nasal</command><script /></binding>
-    </key>
-    <key n="10">
-      <name>Enter</name>
-      <binding><command>nasal</command><script /></binding>
-    </key>
-    <key n="13">
-      <name>Enter</name>
-      <binding><command>nasal</command><script /></binding>
-    </key>
     <key n="48">
       <name>0</name>
+      <binding><command>nasal</command><script /></binding>
+    </key>
+    <key n="64">
+      <name>@</name>
       <binding><command>nasal</command><script /></binding>
     </key>
     <key n="78">
@@ -103,12 +103,8 @@ ________________________________________________________________________________
       <name>F6</name>
       <binding><command>nasal</command><script /></binding>
     </key>
-    <key n="10">
-      <name>keypad enter</name>
-      <binding><command>nasal</command><script /></binding>
-    </key>
-    <key n="364">
-      <name>keypad insert</name>
+    <key n="360">
+      <name>PageUp</name>
       <binding><command>nasal</command><script /></binding>
     </key>
 
@@ -382,41 +378,50 @@ ________________________________________________________________________________
       </binding>
     </key>
 
-    <!-- ~~~~~~~~~~~~~~~~~~ arrows -->
-    <key n="356">
-      <name>left arrow</name>
-      <desc>move aileron left</desc>
+    <!-- ~~~~~~~~~~~~~~~~~~ pitch / trim / ap alt -->
+
+    <key n="359">
+      <name>elevator up</name>
+      <desc>decrease elevator or autopilot altitude</desc>
       <repeatable type="bool">true</repeatable>
       <binding>
-        <command>property-adjust</command>
-        <property>/controls/flight/aileron</property>
-        <step type="double">-0.05</step>
+        <command>nasal</command>
+        <script>my_aircraft_functions.inc_elevator(-0.05, 1)</script>
       </binding>
+      <mod-ctrl>
+        <desc>trim up</desc>
+        <binding>
+          <command>property-adjust</command>
+          <property>/controls/flight/elevator-trim</property>
+          <step type="double">-0.002</step>
+        </binding>
+      </mod-ctrl>
       <mod-shift>
-        <desc>look left</desc>
+        <desc>look backwards</desc>
         <binding>
           <command>property-assign</command>
           <property>/sim/current-view/goal-heading-offset-deg</property>
-          <property>/sim/view/config/left-direction-deg</property>
+          <property>/sim/view/config/back-direction-deg</property>
         </binding>
       </mod-shift>
-      <mod-ctrl>
-        <desc>move aileron rudder</desc>
-        <binding>
-          <command>property-adjust</command>
-          <property>/controls/flight/rudder</property>
-          <step type="double">-0.05</step>
-        </binding>
-      </mod-ctrl>
     </key>
+
     <key n="357">
-      <name>up arrow</name>
+      <name>elevator down</name>
       <desc>increase elevator or autopilot altitude</desc>
       <repeatable type="bool">true</repeatable>
       <binding>
         <command>nasal</command>
-        <script>controls.incElevator(0.05, -100)</script>
+        <script>my_aircraft_functions.inc_elevator(0.05, -1)</script>
       </binding>
+      <mod-ctrl>
+        <desc>trim down</desc>
+        <binding>
+          <command>property-adjust</command>
+          <property>/controls/flight/elevator-trim</property>
+          <step type="double">0.002</step>
+        </binding>
+      </mod-ctrl>
       <mod-shift>
         <desc>look forward</desc>
         <binding>
@@ -426,15 +431,51 @@ ________________________________________________________________________________
         </binding>
       </mod-shift>
     </key>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ roll / trim / ap hdg -->
+
+    <key n="356">
+      <name>left arrow</name>
+      <desc>move aileron left</desc>
+      <repeatable type="bool">true</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>my_aircraft_functions.inc_aileron(-0.05, -1)</script>
+      </binding>
+      <mod-ctrl>
+        <desc>trim left</desc>
+        <binding>
+          <command>property-adjust</command>
+          <property>/controls/flight/aileron-trim</property>
+          <step type="double">-0.002</step>
+        </binding>
+      </mod-ctrl>
+      <mod-shift>
+        <desc>look left</desc>
+        <binding>
+          <command>property-assign</command>
+          <property>/sim/current-view/goal-heading-offset-deg</property>
+          <property>/sim/view/config/left-direction-deg</property>
+        </binding>
+      </mod-shift>
+    </key>
+
     <key n="358">
       <name>right arrow</name>
       <desc>move aileron right (or adjust AP heading.)</desc>
       <repeatable type="bool">true</repeatable>
       <binding>
-        <command>property-adjust</command>
-        <property>/controls/flight/aileron</property>
-        <step type="double">0.05</step>
+        <command>nasal</command>
+        <script>my_aircraft_functions.inc_aileron(0.05, 1)</script>
       </binding>
+      <mod-ctrl>
+        <desc>trim right</desc>
+        <binding>
+          <command>property-adjust</command>
+          <property>/controls/flight/aileron-trim</property>
+          <step type="double">0.002</step>
+        </binding>
+      </mod-ctrl>
       <mod-shift>
         <desc>look right</desc>
         <binding>
@@ -443,31 +484,67 @@ ________________________________________________________________________________
           <property>/sim/view/config/right-direction-deg</property>
         </binding>
       </mod-shift>
+    </key>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ rudder / trim -->
+
+    <key n="363">
+      <name>Keypad 1</name>
+      <desc>rudder left</desc>
+      <repeatable type="bool">true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/controls/flight/rudder</property>
+        <step type="double">-0.05</step>
+      </binding>
       <mod-ctrl>
-        <desc>move aileron rudder</desc>
+        <desc>trim rudder left</desc>
         <binding>
           <command>property-adjust</command>
-          <property>/controls/flight/rudder</property>
-          <step type="double">0.05</step>
+          <property>/controls/flight/rudder-trim</property>
+          <step type="double">-0.001</step>
         </binding>
       </mod-ctrl>
     </key>
-    <key n="359">
-      <name>down arrow</name>
-      <desc>decrease elevator or autopilot altitude</desc>
+
+    <key n="361">
+      <name>Keypad 3</name>
+      <desc>rudder right</desc>
+      <repeatable type="bool">true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/controls/flight/rudder</property>
+        <step type="double">0.05</step>
+      </binding>
+      <mod-ctrl>
+        <desc>trim rudder right</desc>
+        <binding>
+          <command>property-adjust</command>
+          <property>/controls/flight/rudder-trim</property>
+          <step type="double">0.001</step>
+        </binding>
+      </mod-ctrl>
+    </key>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ throttle / ap speed -->
+    <key n="43">
+      <name>Keypad +</name>
+      <desc>increase throttle or autopilot speed</desc>
       <repeatable type="bool">true</repeatable>
       <binding>
         <command>nasal</command>
-        <script>controls.incElevator(-0.05, 100)</script>
+        <script>my_aircraft_functions.inc_throttle(0.01, 1)</script>
       </binding>
-      <mod-shift>
-        <desc>look backwards</desc>
-        <binding>
-          <command>property-assign</command>
-          <property>/sim/current-view/goal-heading-offset-deg</property>
-          <property>/sim/view/config/back-direction-deg</property>
-        </binding>
-      </mod-shift>
+    </key>
+
+    <key n="364">
+      <name>Keypad 0</name>
+      <desc>decrease throttle or autopilot speed</desc>
+      <repeatable type="bool">true</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>my_aircraft_functions.inc_throttle(-0.01, -1)</script>
+      </binding>
     </key>
 
   </keyboard>
