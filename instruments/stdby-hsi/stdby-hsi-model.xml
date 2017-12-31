@@ -24,54 +24,59 @@ changelog
 
   <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
   <animation>
-    <object-name>hsi.vor_needle</object-name>
+    <object-name>hsi.box</object-name>
     <object-name>hsi.crs_needle</object-name>
     <object-name>hsi.dev_needle</object-name>
-    <object-name>hsi.box</object-name>
-    <object-name>hsi.knob</object-name>
+    <object-name>hsi.vor_needle</object-name>
     <object-name>hsi.hdg_ring</object-name>
-    <object-name>hsi.box-emit</object-name>
-    <object-name>hsi.vor_needle-emit</object-name>
+    <object-name>hsi.knob</object-name>
+    <object-name>hsi.scale</object-name>
     <object-name>hsi.crs_needle-emit</object-name>
     <object-name>hsi.dev_needle-emit</object-name>
+    <object-name>hsi.vor_needle-emit</object-name>
     <object-name>hsi.hdg_ring-emit</object-name>
+    <object-name>hsi.knob-emit</object-name>
+    <object-name>hsi.scale-emit</object-name>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
   <effect>
     <inherits-from>Effects/model-transparent</inherits-from>
-    <object-name>hsi.box-emit</object-name>
-    <object-name>hsi.vor_needle-emit</object-name>
     <object-name>hsi.crs_needle-emit</object-name>
     <object-name>hsi.dev_needle-emit</object-name>
+    <object-name>hsi.vor_needle-emit</object-name>
     <object-name>hsi.hdg_ring-emit</object-name>
+    <object-name>hsi.knob-emit</object-name>
+    <object-name>hsi.scale-emit</object-name>
   </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
-    <object-name>hsi.vor_needle</object-name>
+    <object-name>hsi.box</object-name>
     <object-name>hsi.crs_needle</object-name>
     <object-name>hsi.dev_needle</object-name>
-    <object-name>hsi.box</object-name>
-    <object-name>hsi.knob</object-name>
+    <object-name>hsi.vor_needle</object-name>
     <object-name>hsi.hdg_ring</object-name>
-    <object-name>hsi.box-emit</object-name>
-    <object-name>hsi.vor_needle-emit</object-name>
+    <object-name>hsi.knob</object-name>
+    <object-name>hsi.scale</object-name>
     <object-name>hsi.crs_needle-emit</object-name>
     <object-name>hsi.dev_needle-emit</object-name>
+    <object-name>hsi.vor_needle-emit</object-name>
     <object-name>hsi.hdg_ring-emit</object-name>
+    <object-name>hsi.knob-emit</object-name>
+    <object-name>hsi.scale-emit</object-name>
   </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
   <animation>
     <type>material</type>
-    <object-name>hsi.box-emit</object-name>
-    <object-name>hsi.vor_needle-emit</object-name>
     <object-name>hsi.crs_needle-emit</object-name>
     <object-name>hsi.dev_needle-emit</object-name>
+    <object-name>hsi.vor_needle-emit</object-name>
     <object-name>hsi.hdg_ring-emit</object-name>
-    <object-name>hsi.knob</object-name>
+    <object-name>hsi.knob-emit</object-name>
+    <object-name>hsi.scale-emit</object-name>
     <emission>
       <factor-prop>/controls/lighting/instruments-norm</factor-prop>
       <red>0.8</red>
@@ -267,6 +272,25 @@ changelog
         <property>/instrumentation/nav[0]/radials/selected-deg</property>
       </binding>
     </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation radial -->
+  <animation>
+    <type>rotate</type>
+    <object-name>hsi.knob</object-name>
+    <object-name>hsi.knob-emit</object-name>
+    <property>/instrumentation/nav[0]/radials/selected-deg</property>
+    <factor>3</factor>
+    <center>
+      <x-m>.0142</x-m>
+      <y-m>-.0310</y-m>
+      <z-m>-.0339</z-m>
+    </center>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
   </animation>
 
   <!--

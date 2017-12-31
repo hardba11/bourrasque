@@ -93,7 +93,7 @@ ________________________________________________________________________________
     <stall aoa="21" width="8" peak="1.3" />
 
     <!-- ~~~~~~~~~~~~~~~~~~ ailerons : ROLL -->
-    <flap0 start=".5" end="1" lift="1.5" drag="1" />
+    <flap0 start=".5" end="1" lift="1.5" drag="0.2" />
     <control-input  control="FLAP0" axis="/controls/flight/fcm-aileron"  split="true" />
     <control-input  control="FLAP0" axis="/controls/flight/aileron-trim" split="true" />
     <control-output control="FLAP0" prop="/surface-positions/aileron-pos-norm" />
@@ -132,11 +132,20 @@ ________________________________________________________________________________
     <stall aoa="40" width="2" peak="1.2" />
 
     <!-- ~~~~~~~~~~~~~~~~~~ elevator : PITCH -->
-    <flap0 start=".1" end="1" lift="1.8" drag="1" />
+    <flap0 start=".1" end="1" lift="1.8" drag="0.5" />
     <control-input  control="FLAP0" axis="/controls/flight/fcm-elevator" />
     <control-input  control="FLAP0" axis="/controls/flight/elevator-trim" />
     <control-output control="FLAP0" prop="/surface-positions/elevator-pos-norm" />
     <control-speed  control="FLAP0" transition-time="0" />
+
+    <!-- ~~~~~~~~~~~~~~~~~~ spoilers -->
+
+<!-- TODO -->
+    <spoiler start=".6" end=".8" lift="-0.2" drag="1.5" />
+    <control-input  control="SPOILER" axis="/controls/flight/speedbrake" />
+    <control-output control="SPOILER" prop="/surface-positions/speedbrake-pos-norm" />
+    <control-speed  control="SPOILER" transition-time="2" />
+
 
   </hstab>
 
