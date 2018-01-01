@@ -371,11 +371,18 @@ ________________________________________________________________________________
     <!-- ~~~~~~~~~~~~~~~~~~ center -->
     <key n="53">
       <name>keypad 5</name>
-      <desc>center aileron, elevator, rudder and all trim</desc>
+      <desc>center aileron, elevator, rudder</desc>
       <binding>
         <command>nasal</command>
         <script>my_aircraft_functions.center_flight_controls()</script>
       </binding>
+      <mod-ctrl>
+        <desc>center all trim</desc>
+        <binding>
+        <command>nasal</command>
+        <script>my_aircraft_functions.center_flight_controls_trim()</script>
+        </binding>
+      </mod-ctrl>
     </key>
 
     <!-- ~~~~~~~~~~~~~~~~~~ pitch / trim / ap alt -->
