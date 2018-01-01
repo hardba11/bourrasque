@@ -25,7 +25,7 @@ print("*** LOADING fdm - systems.nas ... ***");
 
 var elapsed_loops = [0, 0];
 #var loops_until_start = 100;
-var loops_until_start = 200; # = 20s
+var loops_until_start = 200; # = 20s /!\ depends settimer
 
 #===============================================================================
 #                                                                      FUNCTIONS
@@ -39,6 +39,8 @@ var systems_loop = func()
     var avionics_enabled    = getprop('/instrumentation/my_aircraft/electricals/controls/bus-avionics') or 0;
     var engines_enabled     = getprop('/instrumentation/my_aircraft/electricals/controls/bus-engines') or 0;
     var commands_enabled    = getprop('/instrumentation/my_aircraft/electricals/controls/bus-commands') or 0;
+
+    var is_epu              = getprop('/sim/model/ground-equipment-p') or 0;
 
     var is_bus_avionics_on  = getprop('/systems/electrical/bus/avionics') or 0;
     var is_bus_engines_on   = getprop('/systems/electrical/bus/engines') or 0;
@@ -145,7 +147,7 @@ var systems_loop = func()
 
     if((master_switch == 0)
         or ((master_switch == 2) and (nb_engine_stopped == 2))
-        or (master_switch == 3))
+        or ((master_switch == 3) and (is_epu == 0)))
     {
         is_bus_avionics_on = 0;
         is_bus_engines_on  = 0;
