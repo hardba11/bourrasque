@@ -150,10 +150,6 @@ changelog
         <name>rain-drops-filters</name>
         <path>models/effects/rain/rain-drops-filters.xml</path>
       </property-rule>
-      <property-rule n="102">
-        <name>alert-filters</name>
-        <path>instruments/command_h/alert-filters.xml</path>
-      </property-rule>
       <!-- ~~~~~~~~~~~~~~~~~~ autopilot -->
       <autopilot>
         <path>fdm/autopilot.xml</path>
@@ -258,6 +254,9 @@ changelog
     <instrument_command_h>
       <file type="string">instruments/command_h/command_h.nas</file>
     </instrument_command_h>
+    <instrument_command_h_canvas>
+      <file type="string">instruments/command_h/alert_panel_canvas.nas</file>
+    </instrument_command_h_canvas>
     <instrument_chrono>
       <file type="string">instruments/chrono/chrono.nas</file>
     </instrument_chrono>

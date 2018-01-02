@@ -105,7 +105,6 @@ var event_click_true_north = func()
     }
 }
 
-
 setlistener('sim/signals/fdm-initialized', nd);
 
 

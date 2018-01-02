@@ -214,6 +214,3 @@ var init = setlistener("/sim/signals/fdm-initialized", func() {
 });
 
 
-
-
-

@@ -27,8 +27,16 @@ changelog
     <object-name>command_h.red</object-name>
     <object-name>command_h.box-emit</object-name>
     <object-name>command_h.red-emit</object-name>
-    <object-name>command_h.master_caution</object-name>
-    <object-name>command_h.master_caution-emit</object-name>
+    <object-name>alert_panel_canvas_screen</object-name>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
+  <animation>
+    <type>select</type>
+    <object-name>command_h.screen.off</object-name>
+    <condition>
+      <not><property>sim/multiplay/generic/int[5]</property></not>
+    </condition>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
@@ -39,8 +47,7 @@ changelog
     <object-name>command_h.red</object-name>
     <object-name>command_h.box-emit</object-name>
     <object-name>command_h.red-emit</object-name>
-    <object-name>command_h.master_caution</object-name>
-    <object-name>command_h.master_caution-emit</object-name>
+    <object-name>alert_panel_canvas_screen</object-name>
   </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
@@ -57,21 +64,15 @@ changelog
       <property>sim/multiplay/generic/int[5]</property>
     </condition>
   </animation>
-
-  <!-- ~~~~~~~~~~~~~~~~~~ emitting (enabled) -->
   <animation>
     <type>material</type>
-    <object-name>command_h.red-emit</object-name>
-    <object-name>command_h.master_caution-emit</object-name>
+    <object-name>alert_panel_canvas_screen</object-name>
     <emission>
-      <factor>2</factor>
+      <factor>1</factor>
       <red>1</red>
-      <green>0</green>
-      <blue>0</blue>
+      <green>1</green>
+      <blue>1</blue>
     </emission>
-    <condition>
-      <property>sim/multiplay/generic/int[5]</property>
-    </condition>
   </animation>
 
   <!--
@@ -143,18 +144,6 @@ changelog
           <property>/sim/hud/current-color</property>
           <value>1</value>
         </equals>
-      </and>
-    </condition>
-  </animation>
-
-  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation master caution -->
-  <animation>
-    <type>select</type>
-    <object-name>command_h.master_caution-emit</object-name>
-    <condition>
-      <and>
-        <property>sim/multiplay/generic/int[5]</property>
-        <property>/instrumentation/my_aircraft/command_h/blink_alert</property>
       </and>
     </condition>
   </animation>
