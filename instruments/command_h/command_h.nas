@@ -80,7 +80,7 @@ var checking_aircraft_status = func()
     # ENG1
     if(engine0_status == 2)
         {}
-    elsif(((is_engine0_stopped == 1) or (is_engine0_stopping == 1) and (is_on_ground == 0))
+    elsif(((is_engine0_stopped == 1) or (is_engine0_stopping == 1)) and (is_on_ground == 0))
         { engine0_status = 2; engine0_alert_blink = 1; }
     elsif((is_engine0_stopped == 1) or (is_engine0_stopping == 1))
         { engine0_status = 1; }
@@ -90,7 +90,7 @@ var checking_aircraft_status = func()
     # ENG2
     if(engine1_status == 2)
         {}
-    elsif(((is_engine1_stopped == 1) or (is_engine1_stopping == 1) and (is_on_ground == 0))
+    elsif(((is_engine1_stopped == 1) or (is_engine1_stopping == 1)) and (is_on_ground == 0))
         { engine1_status = 2; engine1_alert_blink = 1; }
     elsif((is_engine1_stopped == 1) or (is_engine1_stopping == 1))
         { engine1_status = 1; }
