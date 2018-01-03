@@ -127,13 +127,13 @@ var WARN_PANEL = {
             .setColor(0, 0, 0, 1)
             .setText("AARF");
 
-        m.lbl81 = m.my_group.createChild("text", "lbl81")
+        m.avcs = m.my_group.createChild("text", "AVCS")
             .setTranslation(960, 50)
             .setAlignment("center-bottom")
             .setFont("LiberationFonts/LiberationSansNarrow-Bold.ttf")
             .setFontSize(36)
             .setColor(0, 0, 0, 1)
-            .setText("");
+            .setText("AVCS");
         m.lbl82 = m.my_group.createChild("text", "lbl82")
             .setTranslation(960, 120)
             .setAlignment("center-bottom")
@@ -256,6 +256,15 @@ var WARN_PANEL = {
         elsif(reheat1_status == 1)  { me.rht2.setColor(1, 1, 0, alpha); }
         elsif(reheat1_status == 2)  { me.rht2.setColor(1, 0, 0, alpha); }
 
+        var bingo_status      = getprop('/instrumentation/my_aircraft/command_h/panel_status/bingo/status') or 0;
+        var bingo_warn_blink  = getprop('/instrumentation/my_aircraft/command_h/panel_status/bingo/warn_blink') or 0;
+        var bingo_alert_blink = getprop('/instrumentation/my_aircraft/command_h/panel_status/bingo/alert_blink') or 0;
+        if((bingo_warn_blink == 1) or (bingo_alert_blink == 1)) { alpha = getprop('/instrumentation/my_aircraft/command_h/blink_alert') or 0; }
+        else { alpha = 1; }
+        if(bingo_status == 0)     { me.bngo.setColor(0, 0, 0, alpha); }
+        elsif(bingo_status == 1)  { me.bngo.setColor(1, 1, 0, alpha); }
+        elsif(bingo_status == 2)  { me.bngo.setColor(1, 0, 0, alpha); }
+
         var air_refuel_status      = getprop('/instrumentation/my_aircraft/command_h/panel_status/air_refuel/status') or 0;
         var air_refuel_warn_blink  = getprop('/instrumentation/my_aircraft/command_h/panel_status/air_refuel/warn_blink') or 0;
         var air_refuel_alert_blink = getprop('/instrumentation/my_aircraft/command_h/panel_status/air_refuel/alert_blink') or 0;
@@ -264,6 +273,15 @@ var WARN_PANEL = {
         if(air_refuel_status == 0)     { me.aarf.setColor(0, 0, 0, alpha); }
         elsif(air_refuel_status == 1)  { me.aarf.setColor(1, 1, 0, alpha); }
         elsif(air_refuel_status == 2)  { me.aarf.setColor(1, 0, 0, alpha); }
+
+        var avionics_status      = getprop('/instrumentation/my_aircraft/command_h/panel_status/avionics/status') or 0;
+        var avionics_warn_blink  = getprop('/instrumentation/my_aircraft/command_h/panel_status/avionics/warn_blink') or 0;
+        var avionics_alert_blink = getprop('/instrumentation/my_aircraft/command_h/panel_status/avionics/alert_blink') or 0;
+        if((avionics_warn_blink == 1) or (avionics_alert_blink == 1)) { alpha = getprop('/instrumentation/my_aircraft/command_h/blink_alert') or 0; }
+        else { alpha = 1; }
+        if(avionics_status == 0)     { me.avcs.setColor(0, 0, 0, alpha); }
+        elsif(avionics_status == 1)  { me.avcs.setColor(1, 1, 0, alpha); }
+        elsif(avionics_status == 2)  { me.avcs.setColor(1, 0, 0, alpha); }
 
         settimer(func() { me.update(); }, .1);
 

@@ -879,9 +879,9 @@ ________________________________________________________________________________
     <name>command_h-copilot</name>
     <path>instruments/command_h/command_h-backseat-model.xml</path>
     <offsets>
-      <x-m>-2.5</x-m>
+      <x-m>-2.48</x-m>
       <y-m>0</y-m>
-      <z-m>1.02</z-m>
+      <z-m>1.04</z-m>
     </offsets>
   </model>
 

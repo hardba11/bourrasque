@@ -97,18 +97,25 @@ var FUEL_CANVAS = {
         m.my_group = m.my_container.createChild("group");
 
         m.total_fuel_text = m.my_group.createChild("text", "total_fuel_text")
-            .setTranslation(200, 90)
+            .setTranslation(200, 80)
             .setAlignment("center-bottom")
             .setFont("LiberationFonts/LiberationSansNarrow-Bold.ttf")
             .setFontSize(42)
             .setColor(1, 1, 1, 1)
             .setText("");
         m.time_remaining_text = m.my_group.createChild("text", "time_remaining_text")
-            .setTranslation(200, 140)
+            .setTranslation(200, 120)
             .setAlignment("center-bottom")
             .setFont("LiberationFonts/LiberationSansNarrow-Bold.ttf")
             .setFontSize(42)
             .setColor(1, 1, 1, 1)
+            .setText("");
+        m.bingo_text = m.my_group.createChild("text", "bingo_text")
+            .setTranslation(490, 160)
+            .setAlignment("right-bottom")
+            .setFont("LiberationFonts/LiberationSansNarrow-Bold.ttf")
+            .setFontSize(42)
+            .setColor(1, 0, 1, 1)
             .setText("");
 
         m.left_fuel_text = m.my_group.createChild("text", "left_fuel_text")
@@ -162,6 +169,11 @@ var FUEL_CANVAS = {
         var level_6   = getprop('/consumables/fuel/tank[6]/level-m3') or 0;
         var level_7   = getprop('/consumables/fuel/tank[7]/level-m3') or 0;
 
+        var bingo_choose            = getprop('/instrumentation/my_aircraft/fuel/bingo/choose') or 0;
+        var bingo_distance_minute   = getprop('/instrumentation/my_aircraft/fuel/bingo/distance_minute') or 0;
+        var bingo_distance_nm       = getprop('/instrumentation/my_aircraft/fuel/bingo/distance_nm') or 0;
+        var bingo_text = (bingo_choose == 0) ? bingo_distance_minute ~' min' : bingo_distance_nm ~' NM';
+
         var level_left   = level_2 + level_4 + level_6;
         var level_center = level_0 + level_1;
         var level_right  = level_3 + level_5 + level_7;
@@ -185,6 +197,7 @@ var FUEL_CANVAS = {
         me.left_fuel_text.setText(sprintf("%.1f", level_left * 805));
         me.center_fuel_text.setText(sprintf("%.1f", level_center * 805));
         me.right_fuel_text.setText(sprintf("%.1f", level_right * 805));
+        me.bingo_text.setText(sprintf("bingo : %s", bingo_text));
 
         var capacity_0   = getprop('/consumables/fuel/tank[0]/capacity-m3') or 0;
         var capacity_1   = getprop('/consumables/fuel/tank[1]/capacity-m3') or 0;
@@ -203,7 +216,7 @@ var FUEL_CANVAS = {
         update_gauge(me.center_gauge, 0, -t_center * 250, color_gauge);
         update_gauge(me.right_gauge, 0, -t_right * 250, color_gauge);
 
-        settimer(func() { me.update(); }, 1);
+        settimer(func() { me.update(); }, .5);
     }
 };
 

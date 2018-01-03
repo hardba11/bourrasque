@@ -31,7 +31,6 @@ changelog
     <object-name>ai.face-emit</object-name>
     <object-name>ai.rollneedle</object-name>
     <object-name>ai.rollneedle-emit</object-name>
-    <object-name>ai.support</object-name>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
@@ -52,7 +51,6 @@ changelog
     <object-name>ai.face-emit</object-name>
     <object-name>ai.rollneedle</object-name>
     <object-name>ai.rollneedle-emit</object-name>
-    <object-name>ai.support</object-name>
   </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->

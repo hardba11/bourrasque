@@ -295,6 +295,25 @@ var set_mod = func(current_mod) {
     setprop('/sim/model/click', (getprop('/sim/model/click') ? 0 : 1));
 }
 
+var inc_bingo = func(inc) {
+    var bingo_choose          = getprop('/instrumentation/my_aircraft/fuel/bingo/choose') or 0;
+    var bingo_distance_minute = getprop('/instrumentation/my_aircraft/fuel/bingo/distance_minute') or 0;
+    var bingo_distance_nm     = getprop('/instrumentation/my_aircraft/fuel/bingo/distance_nm') or 0;
+
+    if(bingo_choose == 0)
+    {
+        var new_bingo_distance_minute = bingo_distance_minute + inc;
+        new_bingo_distance_minute = (new_bingo_distance_minute < 0) ? 0 : (new_bingo_distance_minute > 300) ? 300 : new_bingo_distance_minute;
+        setprop('/instrumentation/my_aircraft/fuel/bingo/distance_minute', new_bingo_distance_minute);
+    }
+    else
+    {
+        var new_bingo_distance_nm = bingo_distance_nm + inc;
+        new_bingo_distance_nm = (new_bingo_distance_nm < 0) ? 0 : (new_bingo_distance_nm > 500) ? 500 : new_bingo_distance_nm;
+        setprop('/instrumentation/my_aircraft/fuel/bingo/distance_nm', new_bingo_distance_nm);
+    }
+}
+
 var event_toggle_lights = func() {
     var beacon = getprop('/controls/lighting/beacon') or 0;
     var nav    = getprop('/controls/lighting/nav-lights') or 0;

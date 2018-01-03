@@ -25,7 +25,6 @@ changelog
   <animation>
     <object-name>sfd.cadre</object-name>
     <object-name>sfd.screen.off</object-name>
-    <object-name>sfd.vis</object-name>
     <object-name>sfd.buttons</object-name>
     <object-name>sfd.ack</object-name>
     <object-name>sfd.swap-screen</object-name>
@@ -33,6 +32,8 @@ changelog
     <object-name>sfd.cadre-emit</object-name>
     <object-name>sfd_canvas_screen_radar</object-name>
     <object-name>sfd_canvas_screen_eicas</object-name>
+    <object-name>sfd.set_bingo</object-name>
+    <object-name>sfd.swap_bingo</object-name>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
@@ -51,12 +52,13 @@ changelog
     <object-name>sfd.screen.off</object-name>
     <object-name>sfd_canvas_screen_radar</object-name>
     <object-name>sfd_canvas_screen_eicas</object-name>
-    <object-name>sfd.vis</object-name>
     <object-name>sfd.buttons</object-name>
     <object-name>sfd.ack</object-name>
     <object-name>sfd.swap-screen</object-name>
     <object-name>sfd.radar-range</object-name>
     <object-name>sfd.cadre-emit</object-name>
+    <object-name>sfd.set_bingo</object-name>
+    <object-name>sfd.swap_bingo</object-name>
   </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
@@ -217,6 +219,102 @@ my_aircraft_functions.event_swap_sfd_screen();
         <tooltip-id>tooltip-sfd-range</tooltip-id>
         <label>Set range %3d</label>
         <property>/instrumentation/my_aircraft/sfd/controls/radar_range</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control bingo -->
+  <animation>
+    <type>pick</type>
+    <object-name>sfd.set_bingo</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.inc_bingo(100);
+          ]]>
+        </script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.inc_bingo(-100);
+          ]]>
+        </script>
+      </binding>
+    </action>
+    <action>
+      <button>3</button>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.inc_bingo(1);
+          ]]>
+        </script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>4</button>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.inc_bingo(-1);
+          ]]>
+        </script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-sfd-set-bingo</tooltip-id>
+        <label>Set bingo</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control swap bingo -->
+  <animation>
+    <type>pick</type>
+    <object-name>sfd.swap_bingo</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-cycle</command>
+        <wrap type="bool">1</wrap>
+        <property>/instrumentation/my_aircraft/fuel/bingo/choose</property>
+        <value>0</value>
+        <value>1</value>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-sfd-swap-bingo</tooltip-id>
+        <label>Swap bingo : minute or NM</label>
       </binding>
     </hovered>
   </animation>

@@ -29,7 +29,6 @@ TODO :
   <animation>
     <object-name>pfd.cadre</object-name>
     <object-name>pfd.cadre-emit</object-name>
-    <object-name>vis.001</object-name>
     <object-name>active.side</object-name>
     <object-name>alt.d1</object-name>
     <object-name>alt.d2</object-name>
@@ -93,7 +92,6 @@ TODO :
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
     <object-name>pfd.cadre</object-name>
     <object-name>pfd.cadre-emit</object-name>
-    <object-name>vis.001</object-name>
     <object-name>active.side</object-name>
     <object-name>alt.d1</object-name>
     <object-name>alt.d2</object-name>

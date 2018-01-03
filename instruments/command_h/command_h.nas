@@ -43,12 +43,15 @@ var checking_aircraft_status = func()
     var reheat1_status          = getprop('/instrumentation/my_aircraft/command_h/panel_status/reheat1/status') or 0;
     var reheat1_warn_blink      = getprop('/instrumentation/my_aircraft/command_h/panel_status/reheat1/warn_blink') or 0;
     var reheat1_alert_blink     = getprop('/instrumentation/my_aircraft/command_h/panel_status/reheat1/alert_blink') or 0;
-    var bingo_status            = 0;
-    var bingo_warn_blink        = 0;
-    var bingo_alert_blink       = 0;
+    var bingo_status            = getprop('/instrumentation/my_aircraft/command_h/panel_status/bingo/status') or 0;
+    var bingo_warn_blink        = getprop('/instrumentation/my_aircraft/command_h/panel_status/bingo/warn_blink') or 0;
+    var bingo_alert_blink       = getprop('/instrumentation/my_aircraft/command_h/panel_status/bingo/alert_blink') or 0;
     var air_refuel_status       = getprop('/instrumentation/my_aircraft/command_h/panel_status/air_refuel/status') or 0;
     var air_refuel_warn_blink   = getprop('/instrumentation/my_aircraft/command_h/panel_status/air_refuel/warn_blink') or 0;
     var air_refuel_alert_blink  = getprop('/instrumentation/my_aircraft/command_h/panel_status/air_refuel/alert_blink') or 0;
+    var avionics_status         = getprop('/instrumentation/my_aircraft/command_h/panel_status/avionics/status') or 0;
+    var avionics_warn_blink     = getprop('/instrumentation/my_aircraft/command_h/panel_status/avionics/warn_blink') or 0;
+    var avionics_alert_blink    = getprop('/instrumentation/my_aircraft/command_h/panel_status/avionics/alert_blink') or 0;
 
 # getting aircraft data :
 
@@ -64,6 +67,7 @@ var checking_aircraft_status = func()
     var is_engine1_reheat   = getprop('/engines/engine[1]/reheat') or 0;
     var is_hook_down        = getprop('/controls/gear/tailhook') or 0;
     var is_parkbrake        = getprop('/controls/gear/brake-parking') or 0;
+    var is_bus_avionics_on  = getprop('/systems/electrical/bus/avionics') or 0;
     var is_bus_commands_on  = getprop('/systems/electrical/bus/commands') or 0;
     var is_bingo            = 1;     # TODO
     var is_air_refuelling   = getprop('/systems/refuel/contact') or 0;
@@ -194,6 +198,16 @@ var checking_aircraft_status = func()
     else
         { air_refuel_status = 0; }
 
+    # AVCS
+    if(avionics_status == 2)
+        {}
+    elsif((is_bus_avionics_on == 0) and (is_on_ground == 0))
+        { hydraulics_status = 2; hydraulics_alert_blink = 1; }
+    elsif(is_bus_avionics_on == 0)
+        { avionics_status = 1; }
+    else
+        { avionics_status = 0; }
+
 
 # setting master caution :
 
@@ -224,7 +238,10 @@ var checking_aircraft_status = func()
         + bingo_warn_blink
         + bingo_alert_blink
         + air_refuel_warn_blink
-        + air_refuel_alert_blink;
+        + air_refuel_alert_blink
+        + avionics_warn_blink
+        + avionics_alert_blink
+    ;
     setprop('/instrumentation/my_aircraft/command_h/is_alert', ((nb_alert > 0) ? 1 : 0));
 
 # setting panel_status properties :
@@ -265,9 +282,15 @@ var checking_aircraft_status = func()
     setprop('/instrumentation/my_aircraft/command_h/panel_status/reheat1/status',           reheat1_status);
     setprop('/instrumentation/my_aircraft/command_h/panel_status/reheat1/warn_blink',       reheat1_warn_blink);
     setprop('/instrumentation/my_aircraft/command_h/panel_status/reheat1/alert_blink',      reheat1_alert_blink);
+    setprop('/instrumentation/my_aircraft/command_h/panel_status/bingo/status',             bingo_status);
+    setprop('/instrumentation/my_aircraft/command_h/panel_status/bingo/warn_blink',         bingo_warn_blink);
+    setprop('/instrumentation/my_aircraft/command_h/panel_status/bingo/alert_blink',        bingo_alert_blink);
     setprop('/instrumentation/my_aircraft/command_h/panel_status/air_refuel/status',        air_refuel_status);
     setprop('/instrumentation/my_aircraft/command_h/panel_status/air_refuel/warn_blink',    air_refuel_warn_blink);
     setprop('/instrumentation/my_aircraft/command_h/panel_status/air_refuel/alert_blink',   air_refuel_alert_blink);
+    setprop('/instrumentation/my_aircraft/command_h/panel_status/avionics/status',          avionics_status);
+    setprop('/instrumentation/my_aircraft/command_h/panel_status/avionics/warn_blink',      avionics_warn_blink);
+    setprop('/instrumentation/my_aircraft/command_h/panel_status/avionics/alert_blink',     avionics_alert_blink);
 
     settimer(checking_aircraft_status, 1);
 }

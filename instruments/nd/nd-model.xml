@@ -63,7 +63,6 @@ changelog
     <object-name>nd.vor2</object-name>
     <object-name>nd.vor2-emit</object-name>
     <object-name>nd.zoom</object-name>
-    <object-name>vis</object-name>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
@@ -149,7 +148,6 @@ changelog
     <object-name>nd.vor2</object-name>
     <object-name>nd.vor2-emit</object-name>
     <object-name>nd.zoom</object-name>
-    <object-name>vis</object-name>
   </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->

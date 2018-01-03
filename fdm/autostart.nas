@@ -170,6 +170,18 @@ var init = func() {
     do_electrical_bus_avionics(0);
     do_electrical_master_switch(0);
 
+    setprop('/controls/engines/engine[0]/throttle', 0);
+    setprop('/controls/engines/engine[1]/throttle', 0);
+
+    setprop('/controls/flight/elevator', 0);
+    setprop('/controls/flight/aileron', 0);
+    setprop('/controls/flight/rudder', 0);
+    setprop('/controls/flight/elevator-trim', 0);
+    setprop('/controls/flight/aileron-trim', 0);
+    setprop('/controls/flight/rudder-trim', 0);
+
+    setprop('/controls/flight/speedbrake', 0);
+
     setprop('/instrumentation/my_aircraft/engines/controls/engine[0]/is_starting', 0);
     setprop('/instrumentation/my_aircraft/engines/controls/engine[0]/is_stopping', 0);
     setprop('/instrumentation/my_aircraft/engines/controls/engine[1]/is_starting', 0);
@@ -254,6 +266,16 @@ var stop = func() {
     wait +=  1   ; settimer(func() { my_aircraft_functions.load_current_view(); },      wait);
     wait +=  3   ; settimer(func() { printf("stopped."); },                             wait);
     wait +=  1   ; settimer(func() { setprop('/sim/messages/pilot', "stopped"); },      wait);
+
+    setprop('/controls/engines/engine[0]/throttle', 0);
+    setprop('/controls/engines/engine[1]/throttle', 0);
+    setprop('/controls/flight/elevator', 0);
+    setprop('/controls/flight/aileron', 0);
+    setprop('/controls/flight/rudder', 0);
+    setprop('/controls/flight/elevator-trim', 0);
+    setprop('/controls/flight/aileron-trim', 0);
+    setprop('/controls/flight/rudder-trim', 0);
+    setprop('/controls/flight/speedbrake', 0);
 }
 
 var autostart = func() {

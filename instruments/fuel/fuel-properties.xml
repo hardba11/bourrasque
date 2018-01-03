@@ -11,5 +11,11 @@
   <fuel-left-tank-m3    type="float">0</fuel-left-tank-m3>
   <fuel-right-tank-m3   type="float">0</fuel-right-tank-m3>
 
+  <bingo>
+    <distance_minute type="int">60</distance_minute>
+    <distance_nm type="int">300</distance_nm>
+    <choose type="int">0</choose> <!-- 0=minute, 1=nm-->
+  </bingo>
+
 </PropertyList>
 
