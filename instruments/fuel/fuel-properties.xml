@@ -6,15 +6,20 @@
 
 <PropertyList>
 
-  <total-fuel-m3        type="float">0</total-fuel-m3>
   <fuel-center-tank-m3  type="float">0</fuel-center-tank-m3>
   <fuel-left-tank-m3    type="float">0</fuel-left-tank-m3>
   <fuel-right-tank-m3   type="float">0</fuel-right-tank-m3>
 
+  <h-remaining type="int">0</h-remaining>
+  <m-remaining type="int">0</m-remaining>
+  <s-remaining type="int">0</s-remaining>
+  <bingo-text type="string"></bingo-text>
+
   <bingo>
-    <distance_minute type="int">60</distance_minute>
-    <distance_nm type="int">300</distance_nm>
+    <distance_minute type="int">20</distance_minute>
+    <distance_nm type="int">50</distance_nm>
     <choose type="int">0</choose> <!-- 0=minute, 1=nm-->
+    <is_bingo_alert type="int">0</is_bingo_alert>
   </bingo>
 
 </PropertyList>

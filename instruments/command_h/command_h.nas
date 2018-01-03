@@ -69,7 +69,7 @@ var checking_aircraft_status = func()
     var is_parkbrake        = getprop('/controls/gear/brake-parking') or 0;
     var is_bus_avionics_on  = getprop('/systems/electrical/bus/avionics') or 0;
     var is_bus_commands_on  = getprop('/systems/electrical/bus/commands') or 0;
-    var is_bingo            = 1;     # TODO
+    var is_bingo            = getprop('/instrumentation/my_aircraft/fuel/bingo/is_bingo_alert') or 0;
     var is_air_refuelling   = getprop('/systems/refuel/contact') or 0;
     var groundspeed         = getprop('/velocities/groundspeed-kt') or 0;
     var canopy_position     = getprop('/sim/model/canopy-pos-norm') or 0;
@@ -190,7 +190,12 @@ var checking_aircraft_status = func()
         { reheat1_status = 0; }
 
     # BNGO
-    # TODO bingo
+    if(bingo_status == 2)
+        {}
+    elsif(is_bingo == 1)
+        { bingo_status = 2; bingo_alert_blink = 1; }
+    else
+        { bingo_status = 0; }
 
     # AARF
     if(is_air_refuelling == 1)

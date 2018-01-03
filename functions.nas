@@ -39,6 +39,8 @@ var DC2DF = func(DC)
     return (DC * 1.8) + 32;
 }
 
+var LBS2KG = 0.45359237;
+
 
 #===============================================================================
 #                                                                 VIEW ANIMATION
@@ -367,6 +369,8 @@ var event_acknowledge_master_caution = func() {
         setprop('/instrumentation/my_aircraft/command_h/panel_status/canopy/alert_blink',       0);
         setprop('/instrumentation/my_aircraft/command_h/panel_status/epu/warn_blink',           0);
         setprop('/instrumentation/my_aircraft/command_h/panel_status/epu/alert_blink',          0);
+        setprop('/instrumentation/my_aircraft/command_h/panel_status/bingo/warn_blink',         0);
+        setprop('/instrumentation/my_aircraft/command_h/panel_status/bingo/alert_blink',        0);
         setprop('/instrumentation/my_aircraft/command_h/panel_status/reheat0/warn_blink',       0);
         setprop('/instrumentation/my_aircraft/command_h/panel_status/reheat0/alert_blink',      0);
         setprop('/instrumentation/my_aircraft/command_h/panel_status/reheat1/warn_blink',       0);
@@ -387,6 +391,7 @@ var event_acknowledge_master_caution = func() {
         setprop('/instrumentation/my_aircraft/command_h/panel_status/speedbrake/status',        0);
         setprop('/instrumentation/my_aircraft/command_h/panel_status/parkbrake/status',         0);
         setprop('/instrumentation/my_aircraft/command_h/panel_status/canopy/status',            0);
+        setprop('/instrumentation/my_aircraft/command_h/panel_status/bingo/status',             0);
     }
 }
 

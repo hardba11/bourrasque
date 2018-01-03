@@ -233,7 +233,7 @@ my_aircraft_functions.event_swap_sfd_screen();
         <command>nasal</command>
         <script>
           <![CDATA[
-my_aircraft_functions.inc_bingo(100);
+my_aircraft_functions.inc_bingo(10);
           ]]>
         </script>
       </binding>
@@ -248,7 +248,7 @@ my_aircraft_functions.inc_bingo(100);
         <command>nasal</command>
         <script>
           <![CDATA[
-my_aircraft_functions.inc_bingo(-100);
+my_aircraft_functions.inc_bingo(-10);
           ]]>
         </script>
       </binding>

@@ -248,6 +248,9 @@ changelog
     <instrument_sfd_radar>
       <file type="string">instruments/sfd/sfd_radar.nas</file>
     </instrument_sfd_radar>
+    <instrument_fuel>
+      <file type="string">instruments/fuel/fuel.nas</file>
+    </instrument_fuel>
     <instrument_fuel_canvas>
       <file type="string">instruments/fuel/fuel_canvas.nas</file>
     </instrument_fuel_canvas>
