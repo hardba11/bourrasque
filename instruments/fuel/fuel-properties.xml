@@ -20,6 +20,7 @@
     <distance_nm type="int">50</distance_nm>
     <choose type="int">0</choose> <!-- 0=minute, 1=nm-->
     <is_bingo_alert type="int">0</is_bingo_alert>
+    <is_bingo_enabled type="bool">0</is_bingo_enabled>
   </bingo>
 
 </PropertyList>

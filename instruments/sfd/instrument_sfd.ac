@@ -3,7 +3,7 @@ MATERIAL "DefaultWhite" rgb 1.0000 1.0000 1.0000  amb 0.2000 0.2000 0.2000  emis
 MATERIAL "sfd" rgb 0.8000 0.8000 0.8000  amb 1.0000 1.0000 1.0000  emis 0.0000 0.0000 0.0000  spec 0.5000 0.5000 0.5000  shi 50 trans 0.0000
 OBJECT world
 name "Blender_export__instrument_sfd.ac"
-kids 11
+kids 12
 OBJECT poly
 name "sfd.ack"
 loc 0.0553146 0.2815548 -0.0713254
@@ -86,6 +86,25 @@ refs 4
 8 0.173843 0.536839
 9 0.279162 0.536839
 10 0.279162 0.537756
+kids 0
+OBJECT poly
+name "sfd.bingo_on-emit"
+loc 0.0671367 0.1410723 -0.1372961
+texture "texture_instrument_sfd-emit.png"
+texrep 1 1
+numvert 4
+-0.0412533 -0.1679741 0.2353657
+-0.0412533 -0.1679741 0.2222332
+-0.0428408 -0.1698698 0.2222332
+-0.0428408 -0.1698698 0.2353657
+numsurf 1
+SURF 0X10
+mat 1
+refs 4
+0 0.734794 0.699376
+3 0.729126 0.693268
+2 0.805318 0.693268
+1 0.799649 0.699376
 kids 0
 OBJECT poly
 name "sfd.buttons"

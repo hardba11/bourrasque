@@ -15,6 +15,7 @@ var fuel = func()
     var level_7                 = getprop('/consumables/fuel/tank[7]/level-m3') or 0;
     var ff0                     = getprop('/engines/engine[0]/fuel-flow-gph') or 0;
     var ff1                     = getprop('/engines/engine[1]/fuel-flow-gph') or 0;
+    var bingo_enabled           = getprop('/instrumentation/my_aircraft/fuel/bingo/is_bingo_enabled') or 0;
     var bingo_choose            = getprop('/instrumentation/my_aircraft/fuel/bingo/choose') or 0;
     var bingo_distance_minute   = getprop('/instrumentation/my_aircraft/fuel/bingo/distance_minute') or 0;
     var bingo_distance_nm       = getprop('/instrumentation/my_aircraft/fuel/bingo/distance_nm') or 0;
@@ -45,6 +46,8 @@ var fuel = func()
         is_bingo_alert = (bingo_distance_nm > (remaining_s / 3600 * 300)) ? 1 : 0;
         #print('bingo_distance_nm:'~ bingo_distance_nm ~' rmng_nm:'~ (remaining_s / 3600 * 300));
     }
+
+    is_bingo_alert = bingo_enabled ? is_bingo_alert : 0;
 
     setprop('/instrumentation/my_aircraft/fuel/fuel-left-tank-m3',      level_left);
     setprop('/instrumentation/my_aircraft/fuel/fuel-center-tank-m3',    level_center);

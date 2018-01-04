@@ -34,9 +34,9 @@ changelog
     <object-name>sfd_canvas_screen_eicas</object-name>
     <object-name>sfd.set_bingo</object-name>
     <object-name>sfd.swap_bingo</object-name>
+    <object-name>sfd.bingo_on-emit</object-name>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
   <animation>
     <type>select</type>
     <object-name>sfd.screen.off</object-name>
@@ -59,6 +59,7 @@ changelog
     <object-name>sfd.cadre-emit</object-name>
     <object-name>sfd.set_bingo</object-name>
     <object-name>sfd.swap_bingo</object-name>
+    <object-name>sfd.bingo_on-emit</object-name>
   </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
@@ -111,6 +112,17 @@ changelog
     </emission>
   </animation>
 
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (enabled) -->
+  <animation>
+    <type>material</type>
+    <object-name>sfd.bingo_on-emit</object-name>
+    <emission>
+      <factor>1</factor>
+      <red>0.9</red>
+      <green>0</green>
+      <blue>0</blue>
+    </emission>
+  </animation>
   <!--
 ================================================================================
                                                          CONTROLS AND ANIMATIONS
@@ -292,12 +304,23 @@ my_aircraft_functions.inc_bingo(-1);
     </hovered>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control swap bingo -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control bingo on and swap bingo min/NM -->
   <animation>
     <type>pick</type>
     <object-name>sfd.swap_bingo</object-name>
     <action>
       <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>/instrumentation/my_aircraft/fuel/bingo/is_bingo_enabled</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
       <binding>
         <command>property-cycle</command>
         <wrap type="bool">1</wrap>
@@ -314,9 +337,21 @@ my_aircraft_functions.inc_bingo(-1);
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>tooltip-sfd-swap-bingo</tooltip-id>
-        <label>Swap bingo : minute or NM</label>
+        <label>Enable bingo, MMB=Swap bingo : minute or NM</label>
       </binding>
     </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation bingo on -->
+  <animation>
+    <type>select</type>
+    <object-name>sfd.bingo_on-emit</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <property>/instrumentation/my_aircraft/fuel/bingo/is_bingo_enabled</property>
+      </and>
+    </condition>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation screen eicas -->
