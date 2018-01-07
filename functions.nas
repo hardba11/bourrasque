@@ -339,60 +339,7 @@ var event_toggle_landing_lights = func() {
 }
 
 var event_acknowledge_master_caution = func() {
-    var is_alert = getprop('/instrumentation/my_aircraft/command_h/is_alert') or 0;
-    var is_ack = getprop('/instrumentation/my_aircraft/command_h/ack_alert') or 0;
-
-    # before first click : alert (blinking and alert-sound) :
-
-    # first click : alert remain (no blinking and alert-sound disabled) :
-    if((is_alert == 1) and (is_ack == 0))
-    {
-        setprop('/instrumentation/my_aircraft/command_h/ack_alert', 1);
-
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/engine0/warn_blink',       0);
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/engine0/alert_blink',      0);
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/engine1/warn_blink',       0);
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/engine1/alert_blink',      0);
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/hydraulics/warn_blink',    0);
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/hydraulics/alert_blink',   0);
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/fuel/warn_blink',          0);
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/fuel/alert_blink',         0);
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/gear/warn_blink',          0);
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/gear/alert_blink',         0);
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/hook/warn_blink',          0);
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/hook/alert_blink',         0);
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/speedbrake/warn_blink',    0);
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/speedbrake/alert_blink',   0);
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/parkbrake/warn_blink',     0);
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/parkbrake/alert_blink',    0);
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/canopy/warn_blink',        0);
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/canopy/alert_blink',       0);
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/epu/warn_blink',           0);
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/epu/alert_blink',          0);
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/bingo/warn_blink',         0);
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/bingo/alert_blink',        0);
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/reheat0/warn_blink',       0);
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/reheat0/alert_blink',      0);
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/reheat1/warn_blink',       0);
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/reheat1/alert_blink',      0);
-    }
-    # second click : reinit
-    elsif(is_ack == 1)
-    {
-        setprop('/instrumentation/my_aircraft/command_h/is_alert', 0);
-        setprop('/instrumentation/my_aircraft/command_h/ack_alert', 0);
-
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/engine0/status',           0);
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/engine1/status',           0);
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/hydraulics/status',        0);
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/fuel/status',              0);
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/gear/status',              0);
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/hook/status',              0);
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/speedbrake/status',        0);
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/parkbrake/status',         0);
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/canopy/status',            0);
-        setprop('/instrumentation/my_aircraft/command_h/panel_status/bingo/status',             0);
-    }
+    setprop('/instrumentation/my_aircraft/command_h/ack_alert', 1);
 }
 
 var event_swap_sfd_screen = func() {

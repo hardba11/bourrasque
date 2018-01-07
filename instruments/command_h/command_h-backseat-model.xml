@@ -35,7 +35,15 @@ changelog
     <type>select</type>
     <object-name>command_h.screen.off</object-name>
     <condition>
-      <not><property>sim/multiplay/generic/int[5]</property></not>
+      <not>
+        <or>
+          <property>sim/multiplay/generic/int[5]</property>
+          <not-equals>
+            <property>/instrumentation/my_aircraft/electricals/controls/master-switch</property>
+            <value>0</value>
+          </not-equals>
+        </or>
+      </not>
     </condition>
   </animation>
 

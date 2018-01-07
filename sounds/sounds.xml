@@ -487,8 +487,7 @@ ________________________________________________________________________________
       <path>alert.wav</path>
       <mode>looped</mode>
       <condition>
-        <property>/instrumentation/my_aircraft/command_h/is_alert</property>
-        <not><property>/instrumentation/my_aircraft/command_h/ack_alert</property></not>
+        <property>/instrumentation/my_aircraft/command_h/sound_alert</property>
       </condition>
     </alert>
 

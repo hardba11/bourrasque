@@ -2,6 +2,12 @@ print("*** LOADING instrument_command_h_canvas - alert_panel_canvas.nas ... ***"
 
 # namespace : instrument_command_h_canvas
 
+var OK = 0;
+var INFO = 1;
+var CAUTION = 2;
+var WARN = 3;
+var ALERT = 4;
+
 #===============================================================================
 #                                                               CLASS WARN_PANEL
 var WARN_PANEL = {
@@ -146,145 +152,114 @@ var WARN_PANEL = {
     },
     update: func()
     {
-        var alpha = 0;
+        var blinking = getprop('/instrumentation/my_aircraft/command_h/blink_alert') or 0;
 
-        var engine0_status      = getprop('/instrumentation/my_aircraft/command_h/panel_status/engine0/status') or 0;
-        var engine0_warn_blink  = getprop('/instrumentation/my_aircraft/command_h/panel_status/engine0/warn_blink') or 0;
-        var engine0_alert_blink = getprop('/instrumentation/my_aircraft/command_h/panel_status/engine0/alert_blink') or 0;
-        if((engine0_warn_blink == 1) or (engine0_alert_blink == 1)) { alpha = getprop('/instrumentation/my_aircraft/command_h/blink_alert') or 0; }
-        else { alpha = 1; }
-        if(engine0_status == 0)     { me.eng1.setColor(0, 0, 0, alpha); }
-        elsif(engine0_status == 1)  { me.eng1.setColor(1, 1, 0, alpha); }
-        elsif(engine0_status == 2)  { me.eng1.setColor(1, 0, 0, alpha); }
+        var engine0_status = getprop('/instrumentation/my_aircraft/command_h/panel_status/engine0_status') or 0;
+        if(engine0_status == OK)         { me.eng1.setColor(0, 0, 0, 0); }
+        elsif(engine0_status == INFO)    { me.eng1.setColor(1, 1, 0, 1); }
+        elsif(engine0_status == CAUTION) { me.eng1.setColor(1, 1, 0, blinking); }
+        elsif(engine0_status == WARN)    { me.eng1.setColor(1, 0, 0, 1); }
+        elsif(engine0_status == ALERT)   { me.eng1.setColor(1, 0, 0, blinking); }
 
-        var engine1_status      = getprop('/instrumentation/my_aircraft/command_h/panel_status/engine1/status') or 0;
-        var engine1_warn_blink  = getprop('/instrumentation/my_aircraft/command_h/panel_status/engine1/warn_blink') or 0;
-        var engine1_alert_blink = getprop('/instrumentation/my_aircraft/command_h/panel_status/engine1/alert_blink') or 0;
-        if((engine1_warn_blink == 1) or (engine1_alert_blink == 1)) { alpha = getprop('/instrumentation/my_aircraft/command_h/blink_alert') or 0; }
-        else { alpha = 1; }
-        if(engine1_status == 0)     { me.eng2.setColor(0, 0, 0, alpha); }
-        elsif(engine1_status == 1)  { me.eng2.setColor(1, 1, 0, alpha); }
-        elsif(engine1_status == 2)  { me.eng2.setColor(1, 0, 0, alpha); }
+        var engine1_status = getprop('/instrumentation/my_aircraft/command_h/panel_status/engine1_status') or 0;
+        if(engine1_status == OK)         { me.eng2.setColor(0, 0, 0, 0); }
+        elsif(engine1_status == INFO)    { me.eng2.setColor(1, 1, 0, 1); }
+        elsif(engine1_status == CAUTION) { me.eng2.setColor(1, 1, 0, blinking); }
+        elsif(engine1_status == WARN)    { me.eng2.setColor(1, 0, 0, 1); }
+        elsif(engine1_status == ALERT)   { me.eng2.setColor(1, 0, 0, blinking); }
 
-        var hydraulics_status      = getprop('/instrumentation/my_aircraft/command_h/panel_status/hydraulics/status') or 0;
-        var hydraulics_warn_blink  = getprop('/instrumentation/my_aircraft/command_h/panel_status/hydraulics/warn_blink') or 0;
-        var hydraulics_alert_blink = getprop('/instrumentation/my_aircraft/command_h/panel_status/hydraulics/alert_blink') or 0;
-        if((hydraulics_warn_blink == 1) or (hydraulics_alert_blink == 1)) { alpha = getprop('/instrumentation/my_aircraft/command_h/blink_alert') or 0; }
-        else { alpha = 1; }
-        if(hydraulics_status == 0)     { me.hydr.setColor(0, 0, 0, alpha); }
-        elsif(hydraulics_status == 1)  { me.hydr.setColor(1, 1, 0, alpha); }
-        elsif(hydraulics_status == 2)  { me.hydr.setColor(1, 0, 0, alpha); }
+        var hydraulics_status = getprop('/instrumentation/my_aircraft/command_h/panel_status/hydraulics_status') or 0;
+        if(hydraulics_status == OK)         { me.hydr.setColor(0, 0, 0, 0); }
+        elsif(hydraulics_status == INFO)    { me.hydr.setColor(1, 1, 0, 1); }
+        elsif(hydraulics_status == CAUTION) { me.hydr.setColor(1, 1, 0, blinking); }
+        elsif(hydraulics_status == WARN)    { me.hydr.setColor(1, 0, 0, 1); }
+        elsif(hydraulics_status == ALERT)   { me.hydr.setColor(1, 0, 0, blinking); }
 
-        var fuel_status      = getprop('/instrumentation/my_aircraft/command_h/panel_status/fuel/status') or 0;
-        var fuel_warn_blink  = getprop('/instrumentation/my_aircraft/command_h/panel_status/fuel/warn_blink') or 0;
-        var fuel_alert_blink = getprop('/instrumentation/my_aircraft/command_h/panel_status/fuel/alert_blink') or 0;
-        if((fuel_warn_blink == 1) or (fuel_alert_blink == 1)) { alpha = getprop('/instrumentation/my_aircraft/command_h/blink_alert') or 0; }
-        else { alpha = 1; }
-        if(fuel_status == 0)     { me.fuel.setColor(0, 0, 0, alpha); }
-        elsif(fuel_status == 1)  { me.fuel.setColor(1, 1, 0, alpha); }
-        elsif(fuel_status == 2)  { me.fuel.setColor(1, 0, 0, alpha); }
+        var fuel_status = getprop('/instrumentation/my_aircraft/command_h/panel_status/fuel_status') or 0;
+        if(fuel_status == OK)         { me.fuel.setColor(0, 0, 0, 0); }
+        elsif(fuel_status == INFO)    { me.fuel.setColor(1, 1, 0, 1); }
+        elsif(fuel_status == CAUTION) { me.fuel.setColor(1, 1, 0, blinking); }
+        elsif(fuel_status == WARN)    { me.fuel.setColor(1, 0, 0, 1); }
+        elsif(fuel_status == ALERT)   { me.fuel.setColor(1, 0, 0, blinking); }
 
-        var gear_status      = getprop('/instrumentation/my_aircraft/command_h/panel_status/gear/status') or 0;
-        var gear_warn_blink  = getprop('/instrumentation/my_aircraft/command_h/panel_status/gear/warn_blink') or 0;
-        var gear_alert_blink = getprop('/instrumentation/my_aircraft/command_h/panel_status/gear/alert_blink') or 0;
-        if((gear_warn_blink == 1) or (gear_alert_blink == 1)) { alpha = getprop('/instrumentation/my_aircraft/command_h/blink_alert') or 0; }
-        else { alpha = 1; }
-        if(gear_status == 0)     { me.gear.setColor(0, 0, 0, alpha); }
-        elsif(gear_status == 1)  { me.gear.setColor(1, 1, 0, alpha); }
-        elsif(gear_status == 2)  { me.gear.setColor(1, 0, 0, alpha); }
+        var gear_status = getprop('/instrumentation/my_aircraft/command_h/panel_status/gear_status') or 0;
+        if(gear_status == OK)         { me.gear.setColor(0, 0, 0, 0); }
+        elsif(gear_status == INFO)    { me.gear.setColor(1, 1, 0, 1); }
+        elsif(gear_status == CAUTION) { me.gear.setColor(1, 1, 0, blinking); }
+        elsif(gear_status == WARN)    { me.gear.setColor(1, 0, 0, 1); }
+        elsif(gear_status == ALERT)   { me.gear.setColor(1, 0, 0, blinking); }
 
-        var hook_status      = getprop('/instrumentation/my_aircraft/command_h/panel_status/hook/status') or 0;
-        var hook_warn_blink  = getprop('/instrumentation/my_aircraft/command_h/panel_status/hook/warn_blink') or 0;
-        var hook_alert_blink = getprop('/instrumentation/my_aircraft/command_h/panel_status/hook/alert_blink') or 0;
-        if((hook_warn_blink == 1) or (hook_alert_blink == 1)) { alpha = getprop('/instrumentation/my_aircraft/command_h/blink_alert') or 0; }
-        else { alpha = 1; }
-        if(hook_status == 0)     { me.hook.setColor(0, 0, 0, alpha); }
-        elsif(hook_status == 1)  { me.hook.setColor(1, 1, 0, alpha); }
-        elsif(hook_status == 2)  { me.hook.setColor(1, 0, 0, alpha); }
+        var hook_status = getprop('/instrumentation/my_aircraft/command_h/panel_status/hook_status') or 0;
+        if(hook_status == OK)         { me.hook.setColor(0, 0, 0, 0); }
+        elsif(hook_status == INFO)    { me.hook.setColor(1, 1, 0, 1); }
+        elsif(hook_status == CAUTION) { me.hook.setColor(1, 1, 0, blinking); }
+        elsif(hook_status == WARN)    { me.hook.setColor(1, 0, 0, 1); }
+        elsif(hook_status == ALERT)   { me.hook.setColor(1, 0, 0, blinking); }
 
-        var speedbrake_status      = getprop('/instrumentation/my_aircraft/command_h/panel_status/speedbrake/status') or 0;
-        var speedbrake_warn_blink  = getprop('/instrumentation/my_aircraft/command_h/panel_status/speedbrake/warn_blink') or 0;
-        var speedbrake_alert_blink = getprop('/instrumentation/my_aircraft/command_h/panel_status/speedbrake/alert_blink') or 0;
-        if((speedbrake_warn_blink == 1) or (speedbrake_alert_blink == 1)) { alpha = getprop('/instrumentation/my_aircraft/command_h/blink_alert') or 0; }
-        else { alpha = 1; }
-        if(speedbrake_status == 0)     { me.spbk.setColor(0, 0, 0, alpha); }
-        elsif(speedbrake_status == 1)  { me.spbk.setColor(1, 1, 0, alpha); }
-        elsif(speedbrake_status == 2)  { me.spbk.setColor(1, 0, 0, alpha); }
+        var speedbrake_status = getprop('/instrumentation/my_aircraft/command_h/panel_status/speedbrake_status') or 0;
+        if(speedbrake_status == OK)         { me.spbk.setColor(0, 0, 0, 0); }
+        elsif(speedbrake_status == INFO)    { me.spbk.setColor(1, 1, 0, 1); }
+        elsif(speedbrake_status == CAUTION) { me.spbk.setColor(1, 1, 0, blinking); }
+        elsif(speedbrake_status == WARN)    { me.spbk.setColor(1, 0, 0, 1); }
+        elsif(speedbrake_status == ALERT)   { me.spbk.setColor(1, 0, 0, blinking); }
 
-        var parkbrake_status      = getprop('/instrumentation/my_aircraft/command_h/panel_status/parkbrake/status') or 0;
-        var parkbrake_warn_blink  = getprop('/instrumentation/my_aircraft/command_h/panel_status/parkbrake/warn_blink') or 0;
-        var parkbrake_alert_blink = getprop('/instrumentation/my_aircraft/command_h/panel_status/parkbrake/alert_blink') or 0;
-        if((parkbrake_warn_blink == 1) or (parkbrake_alert_blink == 1)) { alpha = getprop('/instrumentation/my_aircraft/command_h/blink_alert') or 0; }
-        else { alpha = 1; }
-        if(parkbrake_status == 0)     { me.pkbk.setColor(0, 0, 0, alpha); }
-        elsif(parkbrake_status == 1)  { me.pkbk.setColor(1, 1, 0, alpha); }
-        elsif(parkbrake_status == 2)  { me.pkbk.setColor(1, 0, 0, alpha); }
+        var parkbrake_status = getprop('/instrumentation/my_aircraft/command_h/panel_status/parkbrake_status') or 0;
+        if(parkbrake_status == OK)         { me.pkbk.setColor(0, 0, 0, 0); }
+        elsif(parkbrake_status == INFO)    { me.pkbk.setColor(1, 1, 0, 1); }
+        elsif(parkbrake_status == CAUTION) { me.pkbk.setColor(1, 1, 0, blinking); }
+        elsif(parkbrake_status == WARN)    { me.pkbk.setColor(1, 0, 0, 1); }
+        elsif(parkbrake_status == ALERT)   { me.pkbk.setColor(1, 0, 0, blinking); }
 
-        var canopy_status      = getprop('/instrumentation/my_aircraft/command_h/panel_status/canopy/status') or 0;
-        var canopy_warn_blink  = getprop('/instrumentation/my_aircraft/command_h/panel_status/canopy/warn_blink') or 0;
-        var canopy_alert_blink = getprop('/instrumentation/my_aircraft/command_h/panel_status/canopy/alert_blink') or 0;
-        if((canopy_warn_blink == 1) or (canopy_alert_blink == 1)) { alpha = getprop('/instrumentation/my_aircraft/command_h/blink_alert') or 0; }
-        else { alpha = 1; }
-        if(canopy_status == 0)     { me.cnpy.setColor(0, 0, 0, alpha); }
-        elsif(canopy_status == 1)  { me.cnpy.setColor(1, 1, 0, alpha); }
-        elsif(canopy_status == 2)  { me.cnpy.setColor(1, 0, 0, alpha); }
+        var canopy_status = getprop('/instrumentation/my_aircraft/command_h/panel_status/canopy_status') or 0;
+        if(canopy_status == OK)            { me.cnpy.setColor(0, 0, 0, 0); }
+        elsif(canopy_status == INFO)       { me.cnpy.setColor(1, 1, 0, 1); }
+        elsif(canopy_status == CAUTION)    { me.cnpy.setColor(1, 1, 0, blinking); }
+        elsif(canopy_status == WARN)       { me.cnpy.setColor(1, 0, 0, 1); }
+        elsif(canopy_status == ALERT)      { me.cnpy.setColor(1, 0, 0, blinking); }
 
-        var epu_status      = getprop('/instrumentation/my_aircraft/command_h/panel_status/epu/status') or 0;
-        var epu_warn_blink  = getprop('/instrumentation/my_aircraft/command_h/panel_status/epu/warn_blink') or 0;
-        var epu_alert_blink = getprop('/instrumentation/my_aircraft/command_h/panel_status/epu/alert_blink') or 0;
-        if((epu_warn_blink == 1) or (epu_alert_blink == 1)) { alpha = getprop('/instrumentation/my_aircraft/command_h/blink_alert') or 0; }
-        else { alpha = 1; }
-        if(epu_status == 0)     { me.epu.setColor(0, 0, 0, alpha); }
-        elsif(epu_status == 1)  { me.epu.setColor(1, 1, 0, alpha); }
-        elsif(epu_status == 2)  { me.epu.setColor(1, 0, 0, alpha); }
+        var epu_status = getprop('/instrumentation/my_aircraft/command_h/panel_status/epu_status') or 0;
+        if(epu_status == OK)            { me.epu.setColor(0, 0, 0, 0); }
+        elsif(epu_status == INFO)       { me.epu.setColor(1, 1, 0, 1); }
+        elsif(epu_status == CAUTION)    { me.epu.setColor(1, 1, 0, blinking); }
+        elsif(epu_status == WARN)       { me.epu.setColor(1, 0, 0, 1); }
+        elsif(epu_status == ALERT)      { me.epu.setColor(1, 0, 0, blinking); }
 
-        var reheat0_status      = getprop('/instrumentation/my_aircraft/command_h/panel_status/reheat0/status') or 0;
-        var reheat0_warn_blink  = getprop('/instrumentation/my_aircraft/command_h/panel_status/reheat0/warn_blink') or 0;
-        var reheat0_alert_blink = getprop('/instrumentation/my_aircraft/command_h/panel_status/reheat0/alert_blink') or 0;
-        if((reheat0_warn_blink == 1) or (reheat0_alert_blink == 1)) { alpha = getprop('/instrumentation/my_aircraft/command_h/blink_alert') or 0; }
-        else { alpha = 1; }
-        if(reheat0_status == 0)     { me.rht1.setColor(0, 0, 0, alpha); }
-        elsif(reheat0_status == 1)  { me.rht1.setColor(1, 1, 0, alpha); }
-        elsif(reheat0_status == 2)  { me.rht1.setColor(1, 0, 0, alpha); }
+        var reheat0_status = getprop('/instrumentation/my_aircraft/command_h/panel_status/reheat0_status') or 0;
+        if(reheat0_status == OK)         { me.rht1.setColor(0, 0, 0, 0); }
+        elsif(reheat0_status == INFO)    { me.rht1.setColor(1, 1, 0, 1); }
+        elsif(reheat0_status == CAUTION) { me.rht1.setColor(1, 1, 0, blinking); }
+        elsif(reheat0_status == WARN)    { me.rht1.setColor(1, 0, 0, 1); }
+        elsif(reheat0_status == ALERT)   { me.rht1.setColor(1, 0, 0, blinking); }
 
-        var reheat1_status      = getprop('/instrumentation/my_aircraft/command_h/panel_status/reheat1/status') or 0;
-        var reheat1_warn_blink  = getprop('/instrumentation/my_aircraft/command_h/panel_status/reheat1/warn_blink') or 0;
-        var reheat1_alert_blink = getprop('/instrumentation/my_aircraft/command_h/panel_status/reheat1/alert_blink') or 0;
-        if((reheat1_warn_blink == 1) or (reheat1_alert_blink == 1)) { alpha = getprop('/instrumentation/my_aircraft/command_h/blink_alert') or 0; }
-        else { alpha = 1; }
-        if(reheat1_status == 0)     { me.rht2.setColor(0, 0, 0, alpha); }
-        elsif(reheat1_status == 1)  { me.rht2.setColor(1, 1, 0, alpha); }
-        elsif(reheat1_status == 2)  { me.rht2.setColor(1, 0, 0, alpha); }
+        var reheat1_status = getprop('/instrumentation/my_aircraft/command_h/panel_status/reheat1_status') or 0;
+        if(reheat1_status == OK)         { me.rht2.setColor(0, 0, 0, 0); }
+        elsif(reheat1_status == INFO)    { me.rht2.setColor(1, 1, 0, 1); }
+        elsif(reheat1_status == CAUTION) { me.rht2.setColor(1, 1, 0, blinking); }
+        elsif(reheat1_status == WARN)    { me.rht2.setColor(1, 0, 0, 1); }
+        elsif(reheat1_status == ALERT)   { me.rht2.setColor(1, 0, 0, blinking); }
 
-        var bingo_status      = getprop('/instrumentation/my_aircraft/command_h/panel_status/bingo/status') or 0;
-        var bingo_warn_blink  = getprop('/instrumentation/my_aircraft/command_h/panel_status/bingo/warn_blink') or 0;
-        var bingo_alert_blink = getprop('/instrumentation/my_aircraft/command_h/panel_status/bingo/alert_blink') or 0;
-        if((bingo_warn_blink == 1) or (bingo_alert_blink == 1)) { alpha = getprop('/instrumentation/my_aircraft/command_h/blink_alert') or 0; }
-        else { alpha = 1; }
-        if(bingo_status == 0)     { me.bngo.setColor(0, 0, 0, alpha); }
-        elsif(bingo_status == 1)  { me.bngo.setColor(1, 1, 0, alpha); }
-        elsif(bingo_status == 2)  { me.bngo.setColor(1, 0, 0, alpha); }
+        var bingo_status = getprop('/instrumentation/my_aircraft/command_h/panel_status/bingo_status') or 0;
+        if(bingo_status == OK)         { me.bngo.setColor(0, 0, 0, 0); }
+        elsif(bingo_status == INFO)    { me.bngo.setColor(1, 1, 0, 1); }
+        elsif(bingo_status == CAUTION) { me.bngo.setColor(1, 1, 0, blinking); }
+        elsif(bingo_status == WARN)    { me.bngo.setColor(1, 0, 0, 1); }
+        elsif(bingo_status == ALERT)   { me.bngo.setColor(1, 0, 0, blinking); }
 
-        var air_refuel_status      = getprop('/instrumentation/my_aircraft/command_h/panel_status/air_refuel/status') or 0;
-        var air_refuel_warn_blink  = getprop('/instrumentation/my_aircraft/command_h/panel_status/air_refuel/warn_blink') or 0;
-        var air_refuel_alert_blink = getprop('/instrumentation/my_aircraft/command_h/panel_status/air_refuel/alert_blink') or 0;
-        if((air_refuel_warn_blink == 1) or (air_refuel_alert_blink == 1)) { alpha = getprop('/instrumentation/my_aircraft/command_h/blink_alert') or 0; }
-        else { alpha = 1; }
-        if(air_refuel_status == 0)     { me.aarf.setColor(0, 0, 0, alpha); }
-        elsif(air_refuel_status == 1)  { me.aarf.setColor(1, 1, 0, alpha); }
-        elsif(air_refuel_status == 2)  { me.aarf.setColor(1, 0, 0, alpha); }
+        var air_refuel_status = getprop('/instrumentation/my_aircraft/command_h/panel_status/air_refuel_status') or 0;
+        if(air_refuel_status == OK)         { me.aarf.setColor(0, 0, 0, 0); }
+        elsif(air_refuel_status == INFO)    { me.aarf.setColor(1, 1, 0, 1); }
+        elsif(air_refuel_status == CAUTION) { me.aarf.setColor(1, 1, 0, blinking); }
+        elsif(air_refuel_status == WARN)    { me.aarf.setColor(1, 0, 0, 1); }
+        elsif(air_refuel_status == ALERT)   { me.aarf.setColor(1, 0, 0, blinking); }
 
-        var avionics_status      = getprop('/instrumentation/my_aircraft/command_h/panel_status/avionics/status') or 0;
-        var avionics_warn_blink  = getprop('/instrumentation/my_aircraft/command_h/panel_status/avionics/warn_blink') or 0;
-        var avionics_alert_blink = getprop('/instrumentation/my_aircraft/command_h/panel_status/avionics/alert_blink') or 0;
-        if((avionics_warn_blink == 1) or (avionics_alert_blink == 1)) { alpha = getprop('/instrumentation/my_aircraft/command_h/blink_alert') or 0; }
-        else { alpha = 1; }
-        if(avionics_status == 0)     { me.avcs.setColor(0, 0, 0, alpha); }
-        elsif(avionics_status == 1)  { me.avcs.setColor(1, 1, 0, alpha); }
-        elsif(avionics_status == 2)  { me.avcs.setColor(1, 0, 0, alpha); }
+        var avionics_status = getprop('/instrumentation/my_aircraft/command_h/panel_status/avionics_status') or 0;
+        if(avionics_status == OK)         { me.avcs.setColor(0, 0, 0, 0); }
+        elsif(avionics_status == INFO)    { me.avcs.setColor(1, 1, 0, 1); }
+        elsif(avionics_status == CAUTION) { me.avcs.setColor(1, 1, 0, blinking); }
+        elsif(avionics_status == WARN)    { me.avcs.setColor(1, 0, 0, 1); }
+        elsif(avionics_status == ALERT)   { me.avcs.setColor(1, 0, 0, blinking); }
 
         settimer(func() { me.update(); }, .1);
-
     }
 };
 

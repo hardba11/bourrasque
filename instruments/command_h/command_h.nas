@@ -2,58 +2,44 @@ print("*** LOADING instrument_command_h - command_h.nas ... ***");
 
 # namespace : instrument_command_h
 
+#                       __________
+#  .------------------ |0         |
+#  |     .-----------> |    OK    |
+#  |     |     .-----> !__________!
+#  |     |     |        __________ 
+#  |     |    rules    |1         | <---------.
+#  |    rules  |       |   INFO   | <---.     |
+#  |     |     `-----> !__________!     |     |
+#  |     |              __________     mute   |
+#  |     |             |2         |     |    ack
+# rules  `-----------> | CAUTION* | ----'     |
+#  |                   !__________!           |
+#  |                    __________            |
+#  |                   |3         | ----------'
+#  |                   |   WARN   | <---------. 
+#  |                   !__________!           |
+#  |                    __________           ack
+#  |                   |4         |           |
+#  `-----------------> |  ALERT*  | ----------'
+#                      !__________!
+
+# STATUS are defined in command_h-properties.xml
+#   0 - OK : off
+#   1 - INFO : static yellow
+#   2 - CAUTION : blinking yellow - sound - clicking ack mute the sound
+#   3 - WARN : static red
+#   4 - ALERT : blinking red - sound - clicking ack mute the sound
+
+var OK = 0;
+var INFO = 1;
+var CAUTION = 2;
+var WARN = 3;
+var ALERT = 4;
+
 var checking_aircraft_status = func()
 {
-
-# getting panel_status properties :
-
-    var engine0_status          = getprop('/instrumentation/my_aircraft/command_h/panel_status/engine0/status') or 0;
-    var engine0_warn_blink      = getprop('/instrumentation/my_aircraft/command_h/panel_status/engine0/warn_blink') or 0;
-    var engine0_alert_blink     = getprop('/instrumentation/my_aircraft/command_h/panel_status/engine0/alert_blink') or 0;
-    var engine1_status          = getprop('/instrumentation/my_aircraft/command_h/panel_status/engine1/status') or 0;
-    var engine1_warn_blink      = getprop('/instrumentation/my_aircraft/command_h/panel_status/engine1/warn_blink') or 0;
-    var engine1_alert_blink     = getprop('/instrumentation/my_aircraft/command_h/panel_status/engine1/alert_blink') or 0;
-    var hydraulics_status       = getprop('/instrumentation/my_aircraft/command_h/panel_status/hydraulics/status') or 0;
-    var hydraulics_warn_blink   = getprop('/instrumentation/my_aircraft/command_h/panel_status/hydraulics/warn_blink') or 0;
-    var hydraulics_alert_blink  = getprop('/instrumentation/my_aircraft/command_h/panel_status/hydraulics/alert_blink') or 0;
-    var fuel_status             = getprop('/instrumentation/my_aircraft/command_h/panel_status/fuel/status') or 0;
-    var fuel_warn_blink         = getprop('/instrumentation/my_aircraft/command_h/panel_status/fuel/warn_blink') or 0;
-    var fuel_alert_blink        = getprop('/instrumentation/my_aircraft/command_h/panel_status/fuel/alert_blink') or 0;
-    var gear_status             = getprop('/instrumentation/my_aircraft/command_h/panel_status/gear/status') or 0;
-    var gear_warn_blink         = getprop('/instrumentation/my_aircraft/command_h/panel_status/gear/warn_blink') or 0;
-    var gear_alert_blink        = getprop('/instrumentation/my_aircraft/command_h/panel_status/gear/alert_blink') or 0;
-    var hook_status             = getprop('/instrumentation/my_aircraft/command_h/panel_status/hook/status') or 0;
-    var hook_warn_blink         = getprop('/instrumentation/my_aircraft/command_h/panel_status/hook/warn_blink') or 0;
-    var hook_alert_blink        = getprop('/instrumentation/my_aircraft/command_h/panel_status/hook/alert_blink') or 0;
-    var speedbrake_status       = getprop('/instrumentation/my_aircraft/command_h/panel_status/speedbrake/status') or 0;
-    var speedbrake_warn_blink   = getprop('/instrumentation/my_aircraft/command_h/panel_status/speedbrake/warn_blink') or 0;
-    var speedbrake_alert_blink  = getprop('/instrumentation/my_aircraft/command_h/panel_status/speedbrake/alert_blink') or 0;
-    var parkbrake_status        = getprop('/instrumentation/my_aircraft/command_h/panel_status/parkbrake/status') or 0;
-    var parkbrake_warn_blink    = getprop('/instrumentation/my_aircraft/command_h/panel_status/parkbrake/warn_blink') or 0;
-    var parkbrake_alert_blink   = getprop('/instrumentation/my_aircraft/command_h/panel_status/parkbrake/alert_blink') or 0;
-    var canopy_status           = getprop('/instrumentation/my_aircraft/command_h/panel_status/canopy/status') or 0;
-    var canopy_warn_blink       = getprop('/instrumentation/my_aircraft/command_h/panel_status/canopy/warn_blink') or 0;
-    var canopy_alert_blink      = getprop('/instrumentation/my_aircraft/command_h/panel_status/canopy/alert_blink') or 0;
-    var epu_status              = getprop('/instrumentation/my_aircraft/command_h/panel_status/epu/status') or 0;
-    var epu_warn_blink          = getprop('/instrumentation/my_aircraft/command_h/panel_status/epu/warn_blink') or 0;
-    var epu_alert_blink         = getprop('/instrumentation/my_aircraft/command_h/panel_status/epu/alert_blink') or 0;
-    var reheat0_status          = getprop('/instrumentation/my_aircraft/command_h/panel_status/reheat0/status') or 0;
-    var reheat0_warn_blink      = getprop('/instrumentation/my_aircraft/command_h/panel_status/reheat0/warn_blink') or 0;
-    var reheat0_alert_blink     = getprop('/instrumentation/my_aircraft/command_h/panel_status/reheat0/alert_blink') or 0;
-    var reheat1_status          = getprop('/instrumentation/my_aircraft/command_h/panel_status/reheat1/status') or 0;
-    var reheat1_warn_blink      = getprop('/instrumentation/my_aircraft/command_h/panel_status/reheat1/warn_blink') or 0;
-    var reheat1_alert_blink     = getprop('/instrumentation/my_aircraft/command_h/panel_status/reheat1/alert_blink') or 0;
-    var bingo_status            = getprop('/instrumentation/my_aircraft/command_h/panel_status/bingo/status') or 0;
-    var bingo_warn_blink        = getprop('/instrumentation/my_aircraft/command_h/panel_status/bingo/warn_blink') or 0;
-    var bingo_alert_blink       = getprop('/instrumentation/my_aircraft/command_h/panel_status/bingo/alert_blink') or 0;
-    var air_refuel_status       = getprop('/instrumentation/my_aircraft/command_h/panel_status/air_refuel/status') or 0;
-    var air_refuel_warn_blink   = getprop('/instrumentation/my_aircraft/command_h/panel_status/air_refuel/warn_blink') or 0;
-    var air_refuel_alert_blink  = getprop('/instrumentation/my_aircraft/command_h/panel_status/air_refuel/alert_blink') or 0;
-    var avionics_status         = getprop('/instrumentation/my_aircraft/command_h/panel_status/avionics/status') or 0;
-    var avionics_warn_blink     = getprop('/instrumentation/my_aircraft/command_h/panel_status/avionics/warn_blink') or 0;
-    var avionics_alert_blink    = getprop('/instrumentation/my_aircraft/command_h/panel_status/avionics/alert_blink') or 0;
-
-# getting aircraft data :
+    #---------------------------------------------------------------------------
+    # 1- GETTING AIRCRAFT INFORMATIONS :
 
     var is_engine0_stopped  = getprop('/engines/engine[0]/stopped') or 0;
     var is_engine1_stopped  = getprop('/engines/engine[1]/stopped') or 0;
@@ -79,223 +65,357 @@ var checking_aircraft_status = func()
     var airspeed            = getprop('/instrumentation/airspeed-indicator/true-speed-kt') or 0;
     var radar_altitude      = getprop('/position/altitude-agl-ft') or 0;
 
-# setting alert rules :
 
-    # ENG1
-    if(engine0_status == 2)
+    #---------------------------------------------------------------------------
+    # 2- GETTING CURRENT STATUS INFORMATIONS :
+
+    var engine0_status      = getprop('/instrumentation/my_aircraft/command_h/panel_status/engine0_status') or 0;
+    var engine1_status      = getprop('/instrumentation/my_aircraft/command_h/panel_status/engine1_status') or 0;
+    var hydraulics_status   = getprop('/instrumentation/my_aircraft/command_h/panel_status/hydraulics_status') or 0;
+    var fuel_status         = getprop('/instrumentation/my_aircraft/command_h/panel_status/fuel_status') or 0;
+    var gear_status         = getprop('/instrumentation/my_aircraft/command_h/panel_status/gear_status') or 0;
+    var hook_status         = getprop('/instrumentation/my_aircraft/command_h/panel_status/hook_status') or 0;
+    var speedbrake_status   = getprop('/instrumentation/my_aircraft/command_h/panel_status/speedbrake_status') or 0;
+    var parkbrake_status    = getprop('/instrumentation/my_aircraft/command_h/panel_status/parkbrake_status') or 0;
+    var canopy_status       = getprop('/instrumentation/my_aircraft/command_h/panel_status/canopy_status') or 0;
+    var epu_status          = getprop('/instrumentation/my_aircraft/command_h/panel_status/epu_status') or 0;
+    var reheat0_status      = getprop('/instrumentation/my_aircraft/command_h/panel_status/reheat0_status') or 0;
+    var reheat1_status      = getprop('/instrumentation/my_aircraft/command_h/panel_status/reheat1_status') or 0;
+    var bingo_status        = getprop('/instrumentation/my_aircraft/command_h/panel_status/bingo_status') or 0;
+    var air_refuel_status   = getprop('/instrumentation/my_aircraft/command_h/panel_status/air_refuel_status') or 0;
+    var avionics_status     = getprop('/instrumentation/my_aircraft/command_h/panel_status/avionics_status') or 0;
+
+
+    #---------------------------------------------------------------------------
+    # 3- ACKNOWLEDGE ALERTS (AND SOUND MUTE)
+    #
+    # if ack clicked :
+    #   - we change some status
+    #   - we mute sound
+    #   - we reinit ack (allow to be clicked again)
+    #
+    ack_alert = getprop('/instrumentation/my_aircraft/command_h/ack_alert') or 0;
+    if(ack_alert == 1)
+    {
+        if(engine0_status == CAUTION)    { engine0_status = INFO; }
+        elsif(engine0_status == WARN)    { engine0_status = INFO; }
+        elsif(engine0_status == ALERT)   { engine0_status = WARN; }
+
+        if(engine1_status == CAUTION)    { engine1_status = INFO; }
+        elsif(engine1_status == WARN)    { engine1_status = INFO; }
+        elsif(engine1_status == ALERT)   { engine1_status = WARN; }
+
+        if(hydraulics_status == CAUTION)    { hydraulics_status = INFO; }
+        elsif(hydraulics_status == WARN)    { hydraulics_status = INFO; }
+        elsif(hydraulics_status == ALERT)   { hydraulics_status = WARN; }
+
+        if(fuel_status == CAUTION)    { fuel_status = INFO; }
+        elsif(fuel_status == WARN)    { fuel_status = INFO; }
+        elsif(fuel_status == ALERT)   { fuel_status = WARN; }
+
+        if(gear_status == CAUTION)    { gear_status = INFO; }
+        elsif(gear_status == WARN)    { gear_status = INFO; }
+        elsif(gear_status == ALERT)   { gear_status = WARN; }
+
+        if(hook_status == CAUTION)    { hook_status = INFO; }
+        elsif(hook_status == WARN)    { hook_status = INFO; }
+        elsif(hook_status == ALERT)   { hook_status = WARN; }
+
+        if(speedbrake_status == CAUTION)    { speedbrake_status = INFO; }
+        elsif(speedbrake_status == WARN)    { speedbrake_status = INFO; }
+        elsif(speedbrake_status == ALERT)   { speedbrake_status = WARN; }
+
+        if(parkbrake_status == CAUTION)    { parkbrake_status = INFO; }
+        elsif(parkbrake_status == WARN)    { parkbrake_status = INFO; }
+        elsif(parkbrake_status == ALERT)   { parkbrake_status = WARN; }
+
+        if(canopy_status == CAUTION)    { canopy_status = INFO; }
+        elsif(canopy_status == WARN)    { canopy_status = INFO; }
+        elsif(canopy_status == ALERT)   { canopy_status = WARN; }
+
+        if(epu_status == CAUTION)    { epu_status = INFO; }
+        elsif(epu_status == WARN)    { epu_status = INFO; }
+        elsif(epu_status == ALERT)   { epu_status = WARN; }
+
+        if(reheat0_status == CAUTION)    { reheat0_status = INFO; }
+        elsif(reheat0_status == WARN)    { reheat0_status = INFO; }
+        elsif(reheat0_status == ALERT)   { reheat0_status = WARN; }
+
+        if(reheat1_status == CAUTION)    { reheat1_status = INFO; }
+        elsif(reheat1_status == WARN)    { reheat1_status = INFO; }
+        elsif(reheat1_status == ALERT)   { reheat1_status = WARN; }
+
+        if(bingo_status == CAUTION)    { bingo_status = INFO; }
+        elsif(bingo_status == WARN)    { bingo_status = INFO; }
+        elsif(bingo_status == ALERT)   { bingo_status = WARN; }
+
+        if(air_refuel_status == CAUTION)    { air_refuel_status = INFO; }
+        elsif(air_refuel_status == WARN)    { air_refuel_status = INFO; }
+        elsif(air_refuel_status == ALERT)   { air_refuel_status = WARN; }
+
+        if(avionics_status == CAUTION)    { avionics_status = INFO; }
+        elsif(avionics_status == WARN)    { avionics_status = INFO; }
+        elsif(avionics_status == ALERT)   { avionics_status = WARN; }
+
+        setprop('/instrumentation/my_aircraft/command_h/sound_alert', 0);
+        setprop('/instrumentation/my_aircraft/command_h/ack_alert', 0);
+    }
+
+
+    #---------------------------------------------------------------------------
+    # 4- DEFINTION OF ALERT RULES :
+    #
+    # the rules can't update status if ALERT or WARN
+    #
+
+    # alert rules for ENG1
+    if((engine0_status == ALERT) or (engine0_status == WARN))
         {}
     elsif(((is_engine0_stopped == 1) or (is_engine0_stopping == 1)) and (is_on_ground == 0))
-        { engine0_status = 2; engine0_alert_blink = 1; }
+        { engine0_status = ALERT }
     elsif((is_engine0_stopped == 1) or (is_engine0_stopping == 1))
-        { engine0_status = 1; }
+        { engine0_status = INFO; }
     else
-        { engine0_status = 0; }
+        { engine0_status = OK; }
+    setprop('/instrumentation/my_aircraft/command_h/panel_status/engine0_status', engine0_status);
 
-    # ENG2
-    if(engine1_status == 2)
+    # alert rules for ENG2
+    if((engine1_status == ALERT) or (engine1_status == WARN))
         {}
     elsif(((is_engine1_stopped == 1) or (is_engine1_stopping == 1)) and (is_on_ground == 0))
-        { engine1_status = 2; engine1_alert_blink = 1; }
+        { engine1_status = ALERT; }
     elsif((is_engine1_stopped == 1) or (is_engine1_stopping == 1))
-        { engine1_status = 1; }
+        { engine1_status = INFO; }
     else
-        { engine1_status = 0; }
+        { engine1_status = OK; }
+    setprop('/instrumentation/my_aircraft/command_h/panel_status/engine1_status', engine1_status);
 
-    # HYDR
-    if(hydraulics_status == 2)
+    # alert rules for HYDR
+    if((hydraulics_status == ALERT) or (hydraulics_status == WARN))
         {}
     elsif((is_bus_commands_on == 0) and (is_on_ground == 0))
-        { hydraulics_status = 2; hydraulics_alert_blink = 1; }
+        { hydraulics_status = ALERT; }
     elsif(is_bus_commands_on == 0)
-        { hydraulics_status = 1; }
+        { hydraulics_status = INFO; }
     else
-        { hydraulics_status = 0; }
+        { hydraulics_status = OK; }
+    setprop('/instrumentation/my_aircraft/command_h/panel_status/hydraulics_status', hydraulics_status);
 
-    # FUEL
-    if(fuel_status == 2)
+    # alert rules for FUEL
+    if((fuel_status == ALERT) or (fuel_status == WARN))
         {}
     elsif((is_fuel_connected == 1) and ((is_engine0_stopped == 0) or (is_engine1_stopped == 0)))
-        { fuel_status = 2; fuel_alert_blink = 1; }
+        { fuel_status = ALERT; }
     elsif(is_fuel_connected == 1)
-        { fuel_status = 1; }
+        { fuel_status = INFO; }
     else
-        { fuel_status = 0; }
+        { fuel_status = OK; }
+    setprop('/instrumentation/my_aircraft/command_h/panel_status/fuel_status', fuel_status);
 
-    # GEAR
-    if(gear_status == 2)
+    # alert rules for GEAR
+    if((gear_status == ALERT) or (gear_status == WARN))
         {}
     elsif((is_gear_down == 1) and (airspeed > 350))
-        { gear_status = 2; gear_alert_blink = 1; }
-    elsif(((is_gear_down == 1) and (airspeed > 270)) or ((is_gear_down == 0) and (airspeed < 200) and (radar_altitude < 1500)))
-        { gear_status = 1; gear_warn_blink = 1; }
+        { gear_status = ALERT; }
+    elsif((is_gear_down == 1) and (airspeed > 270))
+        { gear_status = CAUTION; }
+    elsif((is_gear_down == 1) and (airspeed < 270) and (gear_status == CAUTION))
+        { gear_status = INFO; }
+    elsif((is_gear_down == 0) and (airspeed < 200) and (radar_altitude < 1500))
+        { gear_status = CAUTION; }
+    elsif((is_gear_down == 0) and (airspeed < 200) and (radar_altitude < 1500) and (gear_status == CAUTION))
+        { gear_status = INFO; }
     elsif(is_gear_down == 1)
-        { gear_status = 1; gear_warn_blink = 0; }
+        { gear_status = INFO; }
     else
-        { gear_status = 0; gear_warn_blink = 0; }
+        { gear_status = OK; }
+    setprop('/instrumentation/my_aircraft/command_h/panel_status/gear_status', gear_status);
 
-    # HOOK
-    if(hook_status == 2)
+    # alert rules for HOOK
+    if((hook_status == ALERT) or (hook_status == WARN))
         {}
-    elsif((is_hook_down == 1) and (airspeed > 350))
-        { hook_status = 1; hook_warn_blink = 1; }
+    elsif((is_hook_down == 1) and (airspeed > 350) and (hook_status != INFO))
+        { hook_status = CAUTION; }
     elsif(is_hook_down == 1)
-        { hook_status = 1; }
+        { hook_status = INFO; }
     else
-        { hook_status = 0; }
+        { hook_status = OK; }
+    setprop('/instrumentation/my_aircraft/command_h/panel_status/hook_status', hook_status);
 
-    # SPBK
+    # alert rules for SPBK
     if(speedbrake_position > 0)
-        { speedbrake_status = 1; }
+        { speedbrake_status = INFO; }
     else
-        { speedbrake_status = 0; }
+        { speedbrake_status = OK; }
+    setprop('/instrumentation/my_aircraft/command_h/panel_status/speedbrake_status', speedbrake_status);
 
-    # PKBK
-    if((is_parkbrake == 1) and ((engine0_throttle > .3) or (engine1_throttle > .3)))
-        { parkbrake_status = 1; parkbrake_warn_blink = 1; }
+    # alert rules for PKBK
+    if((parkbrake_status == ALERT) or (parkbrake_status == WARN))
+        {}
+    elsif((is_parkbrake == 1) and (is_on_ground == 0))
+        { parkbrake_status = ALERT; }
+    elsif((is_parkbrake == 1) and ((engine0_throttle > .3) or (engine1_throttle > .3)))
+        { parkbrake_status = CAUTION; }
+    elsif((is_parkbrake == 1) and ((engine0_throttle < .3) or (engine1_throttle < .3)))
+        { parkbrake_status = INFO; }
     elsif(is_parkbrake == 1)
-        { parkbrake_status = 1; parkbrake_warn_blink = 0; }
+        { parkbrake_status = INFO; }
     else
-        { parkbrake_status = 0; parkbrake_warn_blink = 0; }
+        { parkbrake_status = OK; }
+    setprop('/instrumentation/my_aircraft/command_h/panel_status/parkbrake_status', parkbrake_status);
 
-    # CNPY
-    if(canopy_status == 2)
+    # alert rules for CNPY
+    if((canopy_status == ALERT) or (canopy_status == WARN))
         {}
     elsif((canopy_position > .7) and (groundspeed > 10))
-        { canopy_status = 2; canopy_alert_blink = 1; }
-    elsif(((canopy_position > .7) and (groundspeed > 10)) or ((canopy_position > .1) and (groundspeed > 30)))
-        { canopy_status = 1; canopy_warn_blink = 1; }
+        { canopy_status = ALERT; }
+    elsif((canopy_position > .7) and (groundspeed > 10) and (canopy_status != INFO))
+        { canopy_status = CAUTION; }
+    elsif((canopy_position > .1) and (groundspeed > 30) and (canopy_status != INFO))
+        { canopy_status = CAUTION; }
     elsif(canopy_position > .1)
-        { canopy_status = 1; canopy_warn_blink = 0; }
+        { canopy_status = INFO; }
     else
-        { canopy_status = 0; canopy_warn_blink = 0; }
+        { canopy_status = OK; }
+    setprop('/instrumentation/my_aircraft/command_h/panel_status/canopy_status', canopy_status);
 
-    # EPU
-    if((is_epu_connected == 1) and ((is_engine0_stopped == 0) or (is_engine1_stopped == 0)))
-        { epu_status = 2; epu_alert_blink = 1; }
+    # alert rules for EPU
+    if((epu_status == ALERT) or (epu_status == WARN))
+        {}
+    elsif((is_epu_connected == 1) and ((is_engine0_stopped == 0) or (is_engine1_stopped == 0)) and (is_parkbrake == 0))
+        { epu_status = ALERT; }
     elsif(is_epu_connected == 1)
-        { epu_status = 1; }
+        { epu_status = INFO; }
     else
-        { epu_status = 0; }
+        { epu_status = OK; }
+    setprop('/instrumentation/my_aircraft/command_h/panel_status/epu_status', epu_status);
 
-    # RHT1
+    # alert rules for RHT1
     if(is_engine0_reheat == 1)
-        { reheat0_status = 1; }
+        { reheat0_status = INFO; }
     else
-        { reheat0_status = 0; }
+        { reheat0_status = OK; }
+    setprop('/instrumentation/my_aircraft/command_h/panel_status/reheat0_status', reheat0_status);
 
-    # RHT2
+    # alert rules for RHT2
     if(is_engine1_reheat == 1)
-        { reheat1_status = 1; }
+        { reheat1_status = INFO; }
     else
-        { reheat1_status = 0; }
+        { reheat1_status = OK; }
+    setprop('/instrumentation/my_aircraft/command_h/panel_status/reheat1_status', reheat1_status);
 
-    # BNGO
-    if(bingo_status == 2)
+    # alert rules for BNGO
+    if((bingo_status == ALERT) or (bingo_status == WARN))
         {}
     elsif(is_bingo == 1)
-        { bingo_status = 2; bingo_alert_blink = 1; }
+        { bingo_status = ALERT; }
     else
-        { bingo_status = 0; }
+        { bingo_status = OK; }
+    setprop('/instrumentation/my_aircraft/command_h/panel_status/bingo_status', bingo_status);
 
-    # AARF
+    # alert rules for AARF
     if(is_air_refuelling == 1)
-        { air_refuel_status = 1; }
+        { air_refuel_status = INFO; }
     else
-        { air_refuel_status = 0; }
+        { air_refuel_status = OK; }
+    setprop('/instrumentation/my_aircraft/command_h/panel_status/air_refuel_status', air_refuel_status);
 
-    # AVCS
-    if(avionics_status == 2)
+    # alert rules for AVCS
+    if((avionics_status == ALERT) or (avionics_status == WARN))
         {}
     elsif((is_bus_avionics_on == 0) and (is_on_ground == 0))
-        { hydraulics_status = 2; hydraulics_alert_blink = 1; }
+        { hydraulics_status = ALERT; }
     elsif(is_bus_avionics_on == 0)
-        { avionics_status = 1; }
+        { avionics_status = INFO; }
     else
-        { avionics_status = 0; }
+        { avionics_status = OK; }
+    setprop('/instrumentation/my_aircraft/command_h/panel_status/avionics_status', avionics_status);
 
 
-# setting master caution :
+    #---------------------------------------------------------------------------
+    # 5- DETECT IF THERE IS A NOT-YET-ACKNOWLEDGED-ALERT (A SOUND WILL PLAY)
+    #
+    # a new alert will play a sound and init ack to allow
+    #
+    is_alert = (
+        (engine0_status == ALERT) or
+        (engine1_status == ALERT) or
+        (hydraulics_status == ALERT) or
+        (fuel_status == ALERT) or
+        (gear_status == ALERT) or
+        (hook_status == ALERT) or
+        (speedbrake_status == ALERT) or
+        (parkbrake_status == ALERT) or
+        (canopy_status == ALERT) or
+        (epu_status == ALERT) or
+        (reheat0_status == ALERT) or
+        (reheat1_status == ALERT) or
+        (bingo_status == ALERT) or
+        (air_refuel_status == ALERT) or
+        (avionics_status == ALERT)
+    );
+    is_warn = (
+        (engine0_status == WARN) or
+        (engine1_status == WARN) or
+        (hydraulics_status == WARN) or
+        (fuel_status == WARN) or
+        (gear_status == WARN) or
+        (hook_status == WARN) or
+        (speedbrake_status == WARN) or
+        (parkbrake_status == WARN) or
+        (canopy_status == WARN) or
+        (epu_status == WARN) or
+        (reheat0_status == WARN) or
+        (reheat1_status == WARN) or
+        (bingo_status == WARN) or
+        (air_refuel_status == WARN) or
+        (avionics_status == WARN)
+    );
+    is_caution = (
+        (engine0_status == CAUTION) or
+        (engine1_status == CAUTION) or
+        (hydraulics_status == CAUTION) or
+        (fuel_status == CAUTION) or
+        (gear_status == CAUTION) or
+        (hook_status == CAUTION) or
+        (speedbrake_status == CAUTION) or
+        (parkbrake_status == CAUTION) or
+        (canopy_status == CAUTION) or
+        (epu_status == CAUTION) or
+        (reheat0_status == CAUTION) or
+        (reheat1_status == CAUTION) or
+        (bingo_status == CAUTION) or
+        (air_refuel_status == CAUTION) or
+        (avionics_status == CAUTION)
+    );
+    is_info = (
+        (engine0_status == INFO) or
+        (engine1_status == INFO) or
+        (hydraulics_status == INFO) or
+        (fuel_status == INFO) or
+        (gear_status == INFO) or
+        (hook_status == INFO) or
+        (speedbrake_status == INFO) or
+        (parkbrake_status == INFO) or
+        (canopy_status == INFO) or
+        (epu_status == INFO) or
+        (reheat0_status == INFO) or
+        (reheat1_status == INFO) or
+        (bingo_status == INFO) or
+        (air_refuel_status == INFO) or
+        (avionics_status == INFO)
+    );
 
-    var nb_alert = engine0_warn_blink
-        + engine0_alert_blink
-        + engine1_warn_blink
-        + engine1_alert_blink
-        + hydraulics_warn_blink
-        + hydraulics_alert_blink
-        + fuel_warn_blink
-        + fuel_alert_blink
-        + gear_warn_blink
-        + gear_alert_blink
-        + hook_warn_blink
-        + hook_alert_blink
-        + speedbrake_warn_blink
-        + speedbrake_alert_blink
-        + parkbrake_warn_blink
-        + parkbrake_alert_blink
-        + canopy_warn_blink
-        + canopy_alert_blink
-        + epu_warn_blink
-        + epu_alert_blink
-        + reheat0_warn_blink
-        + reheat0_alert_blink
-        + reheat1_warn_blink
-        + reheat1_alert_blink
-        + bingo_warn_blink
-        + bingo_alert_blink
-        + air_refuel_warn_blink
-        + air_refuel_alert_blink
-        + avionics_warn_blink
-        + avionics_alert_blink
-    ;
-    setprop('/instrumentation/my_aircraft/command_h/is_alert', ((nb_alert > 0) ? 1 : 0));
-
-# setting panel_status properties :
-
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/engine0/status',           engine0_status);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/engine0/warn_blink',       engine0_warn_blink);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/engine0/alert_blink',      engine0_alert_blink);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/engine1/status',           engine1_status);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/engine1/warn_blink',       engine1_warn_blink);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/engine1/alert_blink',      engine1_alert_blink);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/hydraulics/status',        hydraulics_status);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/hydraulics/warn_blink',    hydraulics_warn_blink);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/hydraulics/alert_blink',   hydraulics_alert_blink);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/fuel/status',              fuel_status);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/fuel/warn_blink',          fuel_warn_blink);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/fuel/alert_blink',         fuel_alert_blink);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/gear/status',              gear_status);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/gear/warn_blink',          gear_warn_blink);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/gear/alert_blink',         gear_alert_blink);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/hook/status',              hook_status);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/hook/warn_blink',          hook_warn_blink);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/hook/alert_blink',         hook_alert_blink);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/speedbrake/status',        speedbrake_status);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/speedbrake/warn_blink',    speedbrake_warn_blink);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/speedbrake/alert_blink',   speedbrake_alert_blink);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/parkbrake/status',         parkbrake_status);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/parkbrake/warn_blink',     parkbrake_warn_blink);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/parkbrake/alert_blink',    parkbrake_alert_blink);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/canopy/status',            canopy_status);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/canopy/warn_blink',        canopy_warn_blink);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/canopy/alert_blink',       canopy_alert_blink);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/epu/status',               epu_status);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/epu/warn_blink',           epu_warn_blink);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/epu/alert_blink',          epu_alert_blink);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/reheat0/status',           reheat0_status);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/reheat0/warn_blink',       reheat0_warn_blink);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/reheat0/alert_blink',      reheat0_alert_blink);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/reheat1/status',           reheat1_status);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/reheat1/warn_blink',       reheat1_warn_blink);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/reheat1/alert_blink',      reheat1_alert_blink);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/bingo/status',             bingo_status);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/bingo/warn_blink',         bingo_warn_blink);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/bingo/alert_blink',        bingo_alert_blink);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/air_refuel/status',        air_refuel_status);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/air_refuel/warn_blink',    air_refuel_warn_blink);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/air_refuel/alert_blink',   air_refuel_alert_blink);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/avionics/status',          avionics_status);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/avionics/warn_blink',      avionics_warn_blink);
-    setprop('/instrumentation/my_aircraft/command_h/panel_status/avionics/alert_blink',     avionics_alert_blink);
+    if(is_alert or is_caution)
+    {
+        setprop('/instrumentation/my_aircraft/command_h/sound_alert', 1);
+        setprop('/instrumentation/my_aircraft/command_h/ack_alert', 0);
+    }
+    else
+    {
+        setprop('/instrumentation/my_aircraft/command_h/sound_alert', 0);
+        setprop('/instrumentation/my_aircraft/command_h/ack_alert', 0);
+    }
 
     settimer(checking_aircraft_status, 1);
 }

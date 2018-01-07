@@ -5,94 +5,26 @@
 <!-- /instrumentation/my_aircraft/command_h/ -->
 
 <PropertyList>
-
-  <is_alert type="int">0</is_alert>
-  <ack_alert type="int">0</ack_alert>
-  <blink_alert type="int">0</blink_alert>
+  <sound_alert type="int">0</sound_alert>   <!-- play a sound -->
+  <ack_alert type="int">0</ack_alert>       <!-- 1=btn clicked, nasal will process -->
+  <blink_alert type="int">0</blink_alert>   <!-- to creat blinking labels on instrument -->
 
   <panel_status>
-    <!--
-    status=
-        0: ok - off
-        1: warning - orange
-        2: alert - red
-    -->
-    <engine0>
-      <status type="int">0</status>
-      <warn_blink type="int">0</warn_blink>
-      <alert_blink type="int">0</alert_blink>
-    </engine0>
-    <engine1>
-      <status type="int">0</status>
-      <warn_blink type="int">0</warn_blink>
-      <alert_blink type="int">0</alert_blink>
-    </engine1>
-    <hydraulics>
-      <status type="int">0</status>
-      <warn_blink type="int">0</warn_blink>
-      <alert_blink type="int">0</alert_blink>
-    </hydraulics>
-    <fuel>
-      <status type="int">0</status>
-      <warn_blink type="int">0</warn_blink>
-      <alert_blink type="int">0</alert_blink>
-    </fuel>
-    <gear>
-      <status type="int">0</status>
-      <warn_blink type="int">0</warn_blink>
-      <alert_blink type="int">0</alert_blink>
-    </gear>
-    <hook>
-      <status type="int">0</status>
-      <warn_blink type="int">0</warn_blink>
-      <alert_blink type="int">0</alert_blink>
-    </hook>
-    <speedbrake>
-      <status type="int">0</status>
-      <warn_blink type="int">0</warn_blink>
-      <alert_blink type="int">0</alert_blink>
-    </speedbrake>
-    <parkbrake>
-      <status type="int">0</status>
-      <warn_blink type="int">0</warn_blink>
-      <alert_blink type="int">0</alert_blink>
-    </parkbrake>
-    <canopy>
-      <status type="int">0</status>
-      <warn_blink type="int">0</warn_blink>
-      <alert_blink type="int">0</alert_blink>
-    </canopy>
-    <epu>
-      <status type="int">0</status>
-      <warn_blink type="int">0</warn_blink>
-      <alert_blink type="int">0</alert_blink>
-    </epu>
-    <reheat0>
-      <status type="int">0</status>
-      <warn_blink type="int">0</warn_blink>
-      <alert_blink type="int">0</alert_blink>
-    </reheat0>
-    <reheat1>
-      <status type="int">0</status>
-      <warn_blink type="int">0</warn_blink>
-      <alert_blink type="int">0</alert_blink>
-    </reheat1>
-    <bingo>
-      <status type="int">0</status>
-      <warn_blink type="int">0</warn_blink>
-      <alert_blink type="int">0</alert_blink>
-    </bingo>
-    <air_refuel>
-      <status type="int">0</status>
-      <warn_blink type="int">0</warn_blink>
-      <alert_blink type="int">0</alert_blink>
-    </air_refuel>
-    <avionics>
-      <status type="int">0</status>
-      <warn_blink type="int">0</warn_blink>
-      <alert_blink type="int">0</alert_blink>
-    </avionics>
-
+    <engine0_status type="int">0</engine0_status>
+    <engine1_status type="int">0</engine1_status>
+    <hydraulics_status type="int">0</hydraulics_status>
+    <fuel_status type="int">0</fuel_status>
+    <gear_status type="int">0</gear_status>
+    <hook_status type="int">0</hook_status>
+    <speedbrake_status type="int">0</speedbrake_status>
+    <parkbrake_status type="int">0</parkbrake_status>
+    <canopy_status type="int">0</canopy_status>
+    <epu_status type="int">0</epu_status>
+    <reheat0_status type="int">0</reheat0_status>
+    <reheat1_status type="int">0</reheat1_status>
+    <bingo_status type="int">0</bingo_status>
+    <air_refuel_status type="int">0</air_refuel_status>
+    <avionics_status type="int">0</avionics_status>
   </panel_status>
 
   <message>

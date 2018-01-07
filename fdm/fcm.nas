@@ -282,8 +282,8 @@ var enable_commands = func(pitch, roll, yaw, slats, canard) {
 
     if(is_on == 0)
     {
-        pitch  = 1;
-        roll   = 1;
+        pitch  = 0;
+        roll   = 0;
         yaw    = 0;
         slats  = 0;
         canard = 1;
