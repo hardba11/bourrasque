@@ -180,21 +180,20 @@ var HUD = {
                     var target_altitude              = list_obj[i].getNode("position/altitude-ft").getValue() or 0;
                     var target_airspeed              = list_obj[i].getNode("velocities/true-airspeed-kt").getValue() or 0;
 
-                    var relative_bearing_deg         = target_bearing_deg + my_heading_deg;
                     var bearing_deg                  = target_bearing_deg - my_heading_deg;
                     var relative_heading_deg         = target_heading_deg - my_heading_deg;
 
                     var coord_x                      = bearing_deg * DEG2PIXEL;
                     var coord_y                      = target_elevation_deg * DEG2PIXEL;
 
-                    var relative_speed_M             = velocity        * math.cos((my_heading_deg - relative_bearing_deg) * D2R);
-                    var relative_speed_T             = target_airspeed * math.cos((target_heading_deg * D2R) - math.pi - (relative_bearing_deg * D2R));
+                    var relative_speed_M             = velocity        * math.cos(target_bearing_deg * D2R);
+                    var relative_speed_T             = target_airspeed * math.cos((my_heading_deg + target_bearing_deg - target_heading_deg + 180) * D2R);
                     var relative_speed               = relative_speed_T + relative_speed_M;
-                    var speed_y                      = (relative_speed == 0) ? 0 : math.log10(math.abs(relative_speed)) * 6;
+                    var speed_y                      = (sprintf("%d" ,relative_speed) == 0) ? 0 : math.log10(math.abs(sprintf("%d" ,relative_speed))) * 6;
                     var positive_or_negative         = (relative_speed >= 0) ? 1 : -1;
 
                     target_data.speed_bars_y         = positive_or_negative * speed_y;
-                    target_data.text_speed           = sprintf("%.1f", relative_speed);
+                    target_data.text_speed           = sprintf("%.1f", -relative_speed);
                     if(target_range > 5)
                     {
                         target_data.text_lbl         = sprintf("%s : %d nm", target_callsign, target_range);

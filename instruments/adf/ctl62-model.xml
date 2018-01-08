@@ -155,90 +155,8 @@ Syd Adams
   <animation>
     <type>pick</type>
     <object-name>CTL-62.pwr</object-name>
-    <action>
-      <button>1</button>
-      <repeatable>false</repeatable>
-      <binding>
-        <command>property-adjust</command>
-        <property>instrumentation/adf[0]/func-knob</property>
-        <step>-1</step>
-        <min>0</min>
-        <max>3</max>
-        <wrap>0</wrap>
-      </binding>
-      <binding>
-        <condition>
-          <greater-than>
-            <property>instrumentation/adf[0]/func-knob</property>
-            <value>0</value>
-          </greater-than>
-        </condition>
-        <command>property-assign</command>
-        <property>instrumentation/adf[0]/ident-audible</property>
-        <value>1</value>
-      </binding>
-      <binding>
-        <condition>
-          <equals>
-            <property>instrumentation/adf[0]/func-knob</property>
-            <value>0</value>
-          </equals>
-        </condition>
-        <command>property-assign</command>
-        <property>instrumentation/adf[0]/mode</property>
-        <value>off</value>
-      </binding>
-      <binding>
-        <condition>
-          <equals>
-            <property>instrumentation/adf[0]/func-knob</property>
-            <value>1</value>
-          </equals>
-        </condition>
-        <command>property-assign</command>
-        <property>instrumentation/adf[0]/mode</property>
-        <value>ant</value>
-      </binding>
-      <binding>
-        <condition>
-          <equals>
-            <property>instrumentation/adf[0]/func-knob</property>
-            <value>2</value>
-          </equals>
-        </condition>
-        <command>property-assign</command>
-        <property>instrumentation/adf[0]/mode</property>
-        <value>adf</value>
-      </binding>
-      <binding>
-        <condition>
-          <equals>
-            <property>instrumentation/adf[0]/func-knob</property>
-            <value>3</value>
-          </equals>
-        </condition>
-        <command>property-assign</command>
-        <property>instrumentation/adf[0]/mode</property>
-        <value>tone</value>
-      </binding>
-      <binding>
-        <command>property-toggle</command>
-        <property>sim/model/click</property>
-      </binding>
-    </action>
-    <hovered>
-      <binding>
-        <command>set-tooltip</command>
-        <tooltip-id>adf-swap-freq</tooltip-id>
-        <label>ADF mode: %s</label>
-        <property>instrumentation/adf[0]/mode</property>
-      </binding>
-    </hovered>
-  </animation>
 
-  <animation>
-    <type>pick</type>
-    <object-name>CTL-62.pwr</object-name>
+    <!-- LMB : increase -->
     <action>
       <button>0</button>
       <repeatable>false</repeatable>
@@ -251,6 +169,12 @@ Syd Adams
         <wrap>0</wrap>
       </binding>
       <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+
+      <!-- audible if not off -->
+      <binding>
         <condition>
           <greater-than>
             <property>instrumentation/adf[0]/func-knob</property>
@@ -261,6 +185,13 @@ Syd Adams
         <property>instrumentation/adf[0]/ident-audible</property>
         <value>1</value>
       </binding>
+
+      <!-- setting mode value from func-knob value
+          0: off
+          1: ant
+          2: adf
+          3: tone
+      -->
       <binding>
         <condition>
           <equals>
@@ -305,11 +236,98 @@ Syd Adams
         <property>instrumentation/adf[0]/mode</property>
         <value>tone</value>
       </binding>
+    </action>
+
+    <!-- MMB : decrease -->
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/adf[0]/func-knob</property>
+        <step>-1</step>
+        <min>0</min>
+        <max>3</max>
+        <wrap>0</wrap>
+      </binding>
       <binding>
         <command>property-toggle</command>
         <property>sim/model/click</property>
       </binding>
+
+      <!-- audible if not off -->
+      <binding>
+        <condition>
+          <greater-than>
+            <property>instrumentation/adf[0]/func-knob</property>
+            <value>0</value>
+          </greater-than>
+        </condition>
+        <command>property-assign</command>
+        <property>instrumentation/adf[0]/ident-audible</property>
+        <value>1</value>
+      </binding>
+
+      <!-- setting mode value from func-knob value
+          0: off
+          1: ant
+          2: adf
+          3: tone
+      -->
+      <binding>
+        <condition>
+          <equals>
+            <property>instrumentation/adf[0]/func-knob</property>
+            <value>0</value>
+          </equals>
+        </condition>
+        <command>property-assign</command>
+        <property>instrumentation/adf[0]/mode</property>
+        <value>off</value>
+      </binding>
+      <binding>
+        <condition>
+          <equals>
+            <property>instrumentation/adf[0]/func-knob</property>
+            <value>1</value>
+          </equals>
+        </condition>
+        <command>property-assign</command>
+        <property>instrumentation/adf[0]/mode</property>
+        <value>ant</value>
+      </binding>
+      <binding>
+        <condition>
+          <equals>
+            <property>instrumentation/adf[0]/func-knob</property>
+            <value>2</value>
+          </equals>
+        </condition>
+        <command>property-assign</command>
+        <property>instrumentation/adf[0]/mode</property>
+        <value>adf</value>
+      </binding>
+      <binding>
+        <condition>
+          <equals>
+            <property>instrumentation/adf[0]/func-knob</property>
+            <value>3</value>
+          </equals>
+        </condition>
+        <command>property-assign</command>
+        <property>instrumentation/adf[0]/mode</property>
+        <value>tone</value>
+      </binding>
     </action>
+
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>adf-swap-freq</tooltip-id>
+        <label>ADF mode: %s</label>
+        <property>instrumentation/adf[0]/mode</property>
+      </binding>
+    </hovered>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation power -->

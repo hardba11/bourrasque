@@ -252,10 +252,10 @@ var SFD_RADAR = {
             # recuperation des informations sur les targets
             # les donnees brutes sont dans list_mp_obj
             # les donnees filtrees et transformees qui serviront a l affichage sont dans targets_datas
-            var targets_are_mp = getprop("/instrumentation/my_aircraft/hud_target_positions/controls/targets_are_mp") or 0;
-            var list_mp_obj    = (targets_are_mp == 1) 
-                               ? props.globals.getNode("/ai/models").getChildren("multiplayer")
-                               : props.globals.getNode("/ai/models").getChildren("aircraft");
+            var targets_are_mp  = getprop("/instrumentation/my_aircraft/hud_target_positions/controls/targets_are_mp") or 0;
+            var list_mp_obj     = (targets_are_mp == 1)
+                                ? props.globals.getNode("/ai/models").getChildren("multiplayer")
+                                : props.globals.getNode("/ai/models").getChildren("aircraft");
             var list_obj = props.globals.getNode("/ai/models").getChildren("tanker");
 
             # ajout des objets target aux objets tanker

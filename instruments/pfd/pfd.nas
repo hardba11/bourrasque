@@ -4,12 +4,12 @@ print("*** LOADING instrument_pfd - pfd.nas ... ***");
 
 var autopilot_to_label = {
     '': '-',
-#/autopilot/locks/heading
+# /autopilot/locks/heading
     'dg-heading-hold': 'HDG',
     'true-heading-hold': 'TRU',
     'nav1-hold': 'NAV',
     'wing-leveler': 'LVL',
-#/autopilot/locks/speed
+# /autopilot/locks/speed
     'speed-with-throttle': 'A/T',
     'speed-with-pitch-trim': 'PTCH',
 # /autopilot/locks/altitude

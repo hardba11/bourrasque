@@ -225,7 +225,7 @@ var inc_aileron = func() {
         {
             node.setValue(node.getValue() + 360.0);
         }
-        else if(node.getValue()> 360.0)
+        elsif(node.getValue() > 360.0)
         {
             node.setValue(node.getValue() - 360.0);
         }

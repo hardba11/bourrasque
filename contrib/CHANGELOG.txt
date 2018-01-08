@@ -1,7 +1,27 @@
                   FLIGHTGEAR "BOURRASQUE" AIRCRAFT - CHANGELOG
 
 
-semaine 33-2017 :: amelioration des instruments
+semaine 01-2018 :: refonte du systeme d'alerte, bingo fuel
+semaine 52-2017 :: vertical speed autopilot, attribution des touches, trim, démarrage avec epu
+semaine 51-2017 :: bugfix
+semaine 50-2017 :: effets sur canopy interieur
+semaine 49-2017 :: nouvel instrument : turn indicator
+semaine 48-2017 :: 
+semaine 47-2017 :: capacité porte-avion catapultage/apontage, tablet carte
+semaine 46-2017 :: radar en canvas sur ecran sfd
+semaine 45-2017 :: nouvelles livrées
+semaine 44-2017 :: 
+semaine 43-2017 :: LFLG mach loop
+semaine 42-2017 :: 
+semaine 41-2017 :: livrée tiger, outil de création de mach loop, 3d : bidon
+semaine 40-2017 :: 
+semaine 39-2017 :: amélioration backseat, capacité de ravitaillement en vol
+semaine 38-2017 :: flight recorder, osg text
+semaine 37-2017 :: 
+semaine 36-2017 :: refonte chrono
+semaine 35-2017 :: refonte chrono
+semaine 34-2017 :: amelioration des effets
+semaine 33-2017 :: amelioration des instruments, ajout master caution, ajout fueltruck et epu
 semaine 32-2017 :: nouvel instrument fuel
 semaine 31-2017 :: nouvel instrument engine, nouvel instrument command headup, amélioration hud
 semaine 30-2017 :: nouvelles livrées, remplacement des instruments nav/com/adf/transponder

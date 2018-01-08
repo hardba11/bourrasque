@@ -23,13 +23,13 @@ Roadmap and releases
 
 
 
-| autopilot : add instruments + design [WIP : 4/5]
+| autopilot : add instruments + design [DONE : 5/5]
 | 
 | improve current yasim, create stability-system (fcm.nas) [DONE : 5/5]
 | 
-| add radar on hud - canvas [STDBY : 4/5]
+| add radar on hud - canvas [WIP : 4/5]
 | 
-| add radar on Nav Display [TODO : 0/5]
+| add radar on screen display [DONE : 5/5]
 |
 | instruments : mods [DONE : 5/5]
 | 
@@ -61,7 +61,7 @@ Roadmap and releases
 | 
 | add/modelize external tanks + gui [DONE : 5/5]
 | 
-| modelize instrument (gear/flaps/break panel and eicas) [WIP : 4/5]
+| modelize instrument (gear/flaps/break panel and eicas) [DONE : 5/5]
 | 
 +-------> FOURTH RELEASE : IMPROVED MODEL, SOUNDS AND EFFECT [01-01-2018]
 
@@ -71,7 +71,7 @@ Roadmap and releases
 | 
 | new yasim from scratch ?
 | 
-| start/stop procedure : nasal + sounds (basic then improved) [WIP : 4/5]
+| start/stop procedure : nasal + sounds (basic then improved) [DONE : 5/5]
 | 
 | add/improve instruments : PFD, Gload, GPS, message, aoa
 | 
