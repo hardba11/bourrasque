@@ -193,7 +193,7 @@ changelog
   <!-- for tests and settings -->
   <debug1 type="float">0</debug1>
   <debug2 type="float">0</debug2>
-  <debug3 type="float">0</debug3>
+  <debug3 type="int">0</debug3>
   <!--
   <debug4 type="float">0</debug4>
   <debug5 type="float">0</debug5>

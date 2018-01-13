@@ -75,6 +75,71 @@ var touchdown_smoke = func() {
     buffer_wow2 = wow_gear2;
 }
 
+
+# debug3
+# 0: desactive
+# 1: actif
+# top
+# 0: ne rien faire (ligne droite)
+# 1: debut ligne droite : lancer virage dans 60s
+# 2: virage en cours : detecter la fin
+# 3: attendre
+var top_hippo = 0;
+var leg_duration = 300;
+
+var hippo_turn = func() {
+    #print("+++ call hippo_turn");
+    setprop('/sim/messages/pilot', "starting turn.");
+    var ap_heading = sprintf('%d', getprop('/autopilot/settings/heading-bug-deg') or 0);
+
+    var new_heading = (ap_heading > 180) ? ap_heading - 180 : ap_heading + 180;
+    var tmp_heading = (ap_heading > 270) ? ap_heading - 90 : ap_heading + 270;
+
+    settimer(func() {
+        setprop('/autopilot/settings/heading-bug-deg', tmp_heading);
+    }, 0);
+    settimer(func() {
+        setprop('/autopilot/settings/heading-bug-deg', new_heading);
+        top_hippo = 2;
+    }, 5);
+}
+
+var hippo_loop = func() {
+    hippo_enabled = getprop('/debug3') or 0;
+    if(hippo_enabled == 1)
+    {
+        if(top_hippo == 0)
+        {
+            #print("+++ activation");
+            top_hippo = 1;
+        }
+        elsif(top_hippo == 1)
+        {
+            #print("+++ top droite");
+            setprop('/sim/messages/pilot', "starting hippodrom leg, turn in "~ leg_duration ~"s ...");
+            settimer(func() { setprop('/sim/messages/pilot', "turn in 5s ..."); }, (leg_duration - 5));
+            settimer(func() { hippo_turn(); }, leg_duration);
+            top_hippo = 3;
+        }
+        elsif(top_hippo == 2)
+        {
+            var heading_bug_error_deg = math.abs(sprintf('%d', getprop('/autopilot/internal/heading-bug-error-deg') or 0));
+            #print("+++ virage ... "~ heading_bug_error_deg);
+            if(heading_bug_error_deg < 2)
+            {
+                #print("+++ fin virage");
+                top_hippo = 1;
+            }
+        }
+    }
+    else
+    {
+        top_hippo = 0;
+    }
+    settimer(hippo_loop, 1);
+}
+setlistener('/sim/signals/fdm-initialized', hippo_loop);
+
 var bourrasque_loop = func() {
 
     # setting engine egt celcius from egt farenheit
@@ -93,6 +158,26 @@ var bourrasque_loop = func() {
 }
 
 setlistener('/sim/signals/fdm-initialized', bourrasque_loop);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -33,6 +33,35 @@ changelog
 
   <hrule />
 
+  <!-- ~~~~~~~~~~~~~~~~~~ hippodrome -->
+  <group>
+    <layout>table</layout>
+    <halign>left</halign>
+    <text>
+      <row>0</row><col>0</col>
+      <label>do hippodrome</label>
+    </text>
+    <button>
+      <row>0</row><col>1</col>
+      <legend>disable</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/debug3</property>
+        <value type="int">0</value>
+      </binding>
+    </button>
+    <button>
+      <row>0</row><col>2</col>
+      <legend>enable</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/debug3</property>
+        <value type="int">1</value>
+      </binding>
+    </button>
+
+  </group>
+
   <!-- ~~~~~~~~~~~~~~~~~~ flashlight -->
   <group>
     <layout>table</layout>

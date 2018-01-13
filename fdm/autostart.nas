@@ -365,6 +365,7 @@ var check_start_airborn = func() {
         fast_start();
         # unlock parkbrakes :
         setprop('/controls/gear/brake-parking', 0);
+
         # enable autopilot :
         settimer(func() { instrument_pfd.event_click_hold_autopilot();                    }, 2);
         settimer(func() { setprop('/sim/messages/pilot', "autopilot activated");          }, 2);
@@ -380,5 +381,5 @@ var check_start_airborn = func() {
     }
 }
 
-setlistener('/sim/signals/fdm-initialized', check_start_airborn);
-
+#setlistener('/sim/signals/fdm-initialized', check_start_airborn);
+check_start_airborn();
