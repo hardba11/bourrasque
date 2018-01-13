@@ -170,7 +170,7 @@ var HUD = {
 
                 if(target_in_range
                     and is_valid
-                    and math.abs(target_bearing_deg - my_heading_deg) < 40
+                    and math.abs(target_bearing_deg - my_heading_deg) < 50
                     and target_range < radar_range)
                 {
                     var target_data = {};

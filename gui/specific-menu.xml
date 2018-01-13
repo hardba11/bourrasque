@@ -17,8 +17,63 @@ changelog
     <menu n="101">
       <label>Bourrasque</label>
 
+
       <item n="0">
-        <label>Select Livery</label>
+        <label>Autostart</label>
+        <binding>
+        <command>nasal</command>
+          <script>
+            <![CDATA[
+fdm.autostart();
+          ]]>
+          </script>
+        </binding>
+      </item>
+
+      <item n="1">
+        <label>Autostop</label>
+        <binding>
+          <command>nasal</command>
+          <script>
+            <![CDATA[
+fdm.stop();
+            ]]>
+          </script>
+        </binding>
+      </item>
+
+      <item n="2">
+        <label>Fast Start</label>
+        <binding>
+          <command>nasal</command>
+          <script>
+            <![CDATA[
+fdm.fast_start();
+            ]]>
+          </script>
+        </binding>
+      </item>
+
+      <item n="3">
+        <label>Equipments ...</label>
+        <name>equipments</name>
+        <binding>
+          <command>dialog-show</command>
+          <dialog-name>bourrasque-equipments</dialog-name>
+        </binding>
+      </item>
+
+      <item n="4">
+        <label>Commands ...</label>
+        <name>commands</name>
+        <binding>
+          <command>dialog-show</command>
+          <dialog-name>bourrasque-commands</dialog-name>
+        </binding>
+      </item>
+
+      <item n="5">
+        <label>Select Livery ...</label>
         <binding>
           <command>nasal</command>
           <script>
@@ -29,8 +84,8 @@ aircraft.livery.dialog.toggle();
         </binding>
       </item>
 
-      <item n="1">
-        <label>Options</label>
+      <item n="6">
+        <label>Options ...</label>
         <name>options</name>
         <binding>
           <command>dialog-show</command>
@@ -39,6 +94,7 @@ aircraft.livery.dialog.toggle();
       </item>
 
     </menu>
+
   </default>
 
 </PropertyList>

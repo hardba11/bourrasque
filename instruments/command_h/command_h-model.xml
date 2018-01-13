@@ -112,7 +112,7 @@ changelog
       <binding>
         <command>property-adjust</command>
         <property>/sim/hud/color/brightness</property>
-        <factor>-.1</factor>
+        <factor>-.2</factor>
         <min>0</min>
         <max>1</max>
         <wrap>false</wrap>

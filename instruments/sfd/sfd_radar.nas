@@ -271,7 +271,7 @@ var SFD_RADAR = {
 
                 if(target_in_range
                     and is_valid
-                    and math.abs(target_bearing - my_heading) < 70
+                    and math.abs(target_bearing - my_heading) < 80
                     and target_range < radar_range)
                 {
 

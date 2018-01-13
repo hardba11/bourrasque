@@ -1506,15 +1506,66 @@ instrument_pfd.event_click_hold_autopilot();
 
   <!-- ~~~~~~~~~~~~~~~~~~~~~~ control target vs -->
   <animation>
-    <type>knob</type>
+    <type>pick</type>
     <object-name>pfd.set_vs</object-name>
     <action>
+      <button>0</button>
+      <repeatable>true</repeatable>
       <binding>
         <command>property-adjust</command>
         <property>/autopilot/settings/vertical-speed-fpm</property>
-        <factor>-100</factor>
+        <step>1000</step>
         <min>-9000</min>
         <max>9000</max>
+        <wrap>0</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/autopilot/settings/vertical-speed-fpm</property>
+        <step>-1000</step>
+        <min>-9000</min>
+        <max>9000</max>
+        <wrap>0</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>3</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/autopilot/settings/vertical-speed-fpm</property>
+        <step>100</step>
+        <min>-9000</min>
+        <max>9000</max>
+        <wrap>0</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>4</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/autopilot/settings/vertical-speed-fpm</property>
+        <step>-100</step>
+        <min>-9000</min>
+        <max>9000</max>
+        <wrap>0</wrap>
       </binding>
       <binding>
         <command>property-toggle</command>

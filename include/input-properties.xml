@@ -230,16 +230,9 @@ settimer(func() { my_aircraft_functions.load_current_view(); }, 1);
         <command>nasal</command>
         <script>
           <![CDATA[
-my_aircraft_functions.save_current_view();
-my_aircraft_functions.view_panel_command();
-settimer(func() { setprop('/controls/gear/gear-down', 1); }, 0.3);
-settimer(func() { my_aircraft_functions.load_current_view(); }, 0.5);
+my_aircraft_functions.event_control_gear(1, 1);
           ]]>
         </script>
-      </binding>
-      <binding>
-        <command>property-toggle</command>
-        <property>sim/model/lever_gear</property>
       </binding>
     </key>
     <key n="103">
@@ -249,21 +242,9 @@ settimer(func() { my_aircraft_functions.load_current_view(); }, 0.5);
         <command>nasal</command>
         <script>
           <![CDATA[
-my_aircraft_functions.save_current_view();
-my_aircraft_functions.view_panel_command();
-settimer(func() { setprop('/controls/gear/gear-down', 0); }, 0.3);
-settimer(func() { my_aircraft_functions.load_current_view(); }, 0.5);
+my_aircraft_functions.event_control_gear(0, 1);
           ]]>
         </script>
-        <condition>
-          <not>
-            <property>sim/multiplay/generic/float[11]</property>
-          </not>
-        </condition>
-      </binding>
-      <binding>
-        <command>property-toggle</command>
-        <property>sim/model/lever_gear</property>
       </binding>
     </key>
 

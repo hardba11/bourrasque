@@ -298,7 +298,7 @@ ________________________________________________________________________________
   
   <!-- ~~~~~~~~~~~~~~~~~~ vspeed -->
   <filter>
-    <name>Altitude Capture/Hold Difference</name>
+    <name>Altitude Capture/Hold Difference vspeed</name>
     <debug>false</debug>
     <type>gain</type>
     <gain>1</gain>
@@ -339,7 +339,7 @@ then adjust Kp until it reacts decently, but it may not be perfect.
 But, it should not oscilate.
 then, begin reducing Ti (which is time, not gain), until the steady state error is being corrected (the more time goes by, the more the integrator will output)
 I usually end up in around 1-10 ish, depending on the controller
-Then, you can adjust Td bringing it up very slightly, byut 0.00001 increments, which will make the controller more stable, and then very unstable, so I usually bring D up until the reaction begins to get oscilation, then I take it off a little.
+Then, you can adjust Td bringing it up very slightly, but 0.00001 increments, which will make the controller more stable, and then very unstable, so I usually bring D up until the reaction begins to get oscilation, then I take it off a little.
 remember that unlike normal PIDs used in most other programs, FG's  PID uses Ti and Td variables, so it's TIME, not a gain, like Kp is.
 less Ti is more I action
 more Td is more D action

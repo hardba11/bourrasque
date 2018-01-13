@@ -26,8 +26,6 @@ changelog
     <object-name>command.box-emit</object-name>
     <object-name>command.canopy</object-name>
     <object-name>command.gears</object-name>
-    <object-name>command.gears_up</object-name>
-    <object-name>command.gears_down</object-name>
     <object-name>command.gears-emit</object-name>
     <object-name>command.hook</object-name>
     <object-name>command.launchbar</object-name>
@@ -44,8 +42,6 @@ changelog
     <object-name>command.box-emit</object-name>
     <object-name>command.gears-emit</object-name>
     <object-name>command.parkbrake-emit</object-name>
-    <object-name>command.gears_up</object-name>
-    <object-name>command.gears_down</object-name>
     <object-name>command.aileronTrimNeedle-emit</object-name>
     <object-name>command.pitchTrimNeedle-emit</object-name>
     <object-name>command.rudderTrimNeedle-emit</object-name>
@@ -111,27 +107,20 @@ changelog
 ================================================================================
   -->
 
-  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control gears lever up -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control gears lever -->
   <animation>
     <type>pick</type>
-    <object-name>command.gears_up</object-name>
+    <object-name>command.gears</object-name>
     <action>
       <button>0</button>
       <repeatable>false</repeatable>
       <binding>
-        <command>property-assign</command>
-        <property>controls/gear/gear-down</property>
-        <value>0</value>
-        <condition>
-          <and>
-            <not><property>sim/multiplay/generic/float[11]</property></not>
-            <property>controls/gear/gear-down</property>
-          </and>
-        </condition>
-      </binding>
-      <binding>
-        <command>property-toggle</command>
-        <property>sim/model/lever_gear</property>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_control_gear(-1, 0);
+          ]]>
+        </script>
       </binding>
     </action>
     <hovered>
@@ -143,35 +132,11 @@ changelog
     </hovered>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control gears lever down -->
-  <animation>
-    <type>pick</type>
-    <object-name>command.gears_down</object-name>
-    <action>
-      <button>0</button>
-      <repeatable>false</repeatable>
-      <binding>
-        <command>property-assign</command>
-        <property>controls/gear/gear-down</property>
-        <value>1</value>
-        <condition>
-          <not><property>controls/gear/gear-down</property></not>
-        </condition>
-      </binding>
-      <binding>
-        <command>property-toggle</command>
-        <property>sim/model/lever_gear</property>
-      </binding>
-    </action>
-  </animation>
-
   <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation gears lever -->
   <animation>
     <type>rotate</type>
     <object-name>command.gears</object-name>
     <object-name>command.gears-emit</object-name>
-    <object-name>command.gears_up</object-name>
-    <object-name>command.gears_down</object-name>
     <property>controls/gear/gear-down</property>
     <interpolation>
       <entry><ind>1</ind><dep>0</dep></entry>

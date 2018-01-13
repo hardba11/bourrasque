@@ -19,7 +19,7 @@ changelog
 
   <multiplay>
     <refuel>
-      <type>probe</type>
+      <type type="string">probe</type>
     </refuel>
   </multiplay>
 

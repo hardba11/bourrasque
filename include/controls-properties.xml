@@ -40,6 +40,9 @@ changelog
     <copilot type="bool">1</copilot>
   </pax>
 
+  <refuel-pod>
+    <pipe-extended type="int">0</pipe-extended>
+  </refuel-pod>
 
   <lighting>
     <!-- set properties : lights off at start -->

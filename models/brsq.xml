@@ -62,6 +62,11 @@ livery_update.stop();
     <path>Aircraft/bourrasque/models/stores/stores-model.xml</path>
   </model>
 
+  <model>
+    <name>refuel_pod</name>
+    <path>Aircraft/bourrasque/models/stores/refuel_pod-model.xml</path>
+  </model>
+
   <!-- ~~~~~~~~~~~~~~~~~~ ground equipment -->
   <model>
     <name>ground_equipment</name>
@@ -276,6 +281,9 @@ livery_update.stop();
     <path>Aircraft/bourrasque/models/effects/shadow/3d-shadow.xml</path>
     <condition>
       <property>/sim/rendering/shaders/skydome</property>
+      <not>
+        <property>/sim/multiplay/online</property>
+      </not>
       <not>
         <equals>
           <property>/sim/model/name</property>

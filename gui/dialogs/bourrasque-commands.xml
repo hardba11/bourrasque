@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+################################################################################
+#
+#                      bourrasque commands dialogbox
+#
+################################################################################
+
+the dialogbox is autoloaded if in gui/dialog
+
+https://sourceforge.net/p/flightgear/fgdata/ci/next/tree/Docs/README.gui
+
+changelog
+- 2016-10-22 : create
+
+-->
+
+<PropertyList>
+
+  <name>bourrasque-commands</name>
+  <modal type="bool">false</modal>
+  <layout>vbox</layout>
+  <group>
+    <layout>hbox</layout><empty><stretch>1</stretch></empty>
+    <text><label>bourrasques's commands</label></text>
+    <empty><stretch>1</stretch></empty>
+    <button><pref-width>16</pref-width><pref-height>16</pref-height><legend />
+      <default>1</default><keynum>27</keynum><border>2</border>
+      <binding><command>dialog-close</command></binding>
+      <binding><command>dialog-apply</command></binding>
+    </button>
+  </group>
+
+  <hrule />
+
+  <!-- ~~~~~~~~~~~~~~~~~~ flashlight -->
+  <group>
+    <layout>table</layout>
+    <halign>left</halign>
+    <text>
+      <row>0</row><col>0</col>
+      <label>flashlight</label>
+    </text>
+    <button>
+      <row>0</row><col>1</col>
+      <legend>off</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/rendering/als-secondary-lights/use-flashlight</property>
+        <value>0</value>
+      </binding>
+    </button>
+    <button>
+      <row>0</row><col>2</col>
+      <legend>white</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/rendering/als-secondary-lights/use-flashlight</property>
+        <value>1</value>
+      </binding>
+    </button>
+    <button>
+      <row>0</row><col>3</col>
+      <legend>red</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/rendering/als-secondary-lights/use-flashlight</property>
+        <value>2</value>
+      </binding>
+    </button>
+  </group>
+
+  <hrule />
+
+  <!-- ~~~~~~~~~~~~~~~~~~ refuelling pod pipe -->
+  <group>
+    <layout>table</layout>
+    <halign>left</halign>
+    <text>
+      <row>0</row><col>0</col>
+      <label>refueling pipe</label>
+    </text>
+    <button>
+      <row>0</row><col>1</col>
+      <legend>retract</legend>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_control_pod_pipe(0);
+          ]]>
+        </script>
+      </binding>
+    </button>
+    <button>
+      <row>0</row><col>2</col>
+      <legend>extend</legend>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_control_pod_pipe(1);
+          ]]>
+        </script>
+      </binding>
+    </button>
+
+  </group>
+
+  <hrule />
+
+</PropertyList>
+

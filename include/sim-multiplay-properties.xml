@@ -33,7 +33,7 @@ PROPERTY-PATH : PropertyList > sim > multiplay
     <float                n="0"  alias="/sim/model/canopy-pos-norm" />
     <float                n="1"  alias="/sim/model/canards-pos-norm" />
     <float                n="2"  alias="/controls/lighting/formation-lights" />
-    <float                n="3"  alias="/position/altitude-agl-m" />
+    <!--float                n="3"  alias="/position/altitude-agl-m" /-->
     <float                n="4"  alias="/gear/gear[0]/rollspeed-ms" />
     <float                n="5"  alias="/gear/gear[1]/rollspeed-ms" />
     <float                n="6"  alias="/gear/gear[2]/rollspeed-ms" />
@@ -43,14 +43,17 @@ PROPERTY-PATH : PropertyList > sim > multiplay
     <float                n="10" alias="/gear/gear[0]/wow" />
     <float                n="11" alias="/gear/gear[1]/wow" />
     <float                n="12" alias="/gear/gear[2]/wow" />
+    <float                n="13" alias="/sim/model/store-refuel-pos-norm" />
 
     <string               n="0"  alias="/sim/model/center-tank" />
     <string               n="1"  alias="/sim/model/wing-tanks" />
+<!--
     <string               n="2"  alias="/sim/model/ground-equipment-e" />
     <string               n="3"  alias="/sim/model/ground-equipment-g" />
     <string               n="4"  alias="/sim/model/ground-equipment-s" />
     <string               n="5"  alias="/sim/model/ground-equipment-p" />
     <string               n="6"  alias="/sim/model/ground-equipment-f" />
+-->
   </generic>
 
 </PropertyList>

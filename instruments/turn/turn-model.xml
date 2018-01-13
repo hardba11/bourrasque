@@ -95,9 +95,7 @@ changelog
     <object-name>turn.needle</object-name>
     <object-name>turn.needle-emit</object-name>
     <property>/instrumentation/turn-indicator/indicated-turn-rate</property>
-    <!-- based on 1.08 indicated-turn-rate corresponding to a standard
-      360 turn in 2 minutes at cruise configuration (FL 320 M0.72)-->
-    <factor>26.4</factor>
+    <factor>37</factor>
     <min-deg>-50</min-deg>
     <max-deg>50</max-deg>
     <center>

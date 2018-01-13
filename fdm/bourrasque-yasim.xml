@@ -234,6 +234,12 @@ ________________________________________________________________________________
     <control-output control="FLAP0" prop="/sim/model/canards-pos-norm" /> <!-- alias for MP -->
     <control-speed  control="FLAP0" transition-time="2" />
   </mstab>
+  <!-- ~~~~~~~~~~~~~~~~~~ buddy buddy -->
+  <mstab x="0" y="0" z="0" length=".0001" chord=".0001" sweep=".0001" taper=".0001" dihedral="0" camber="0" incidence="0">
+    <control-input  control="FLAP0" axis="/controls/refuel-pod/pipe-extended" />
+    <control-output control="FLAP0" prop="/sim/model/store-refuel-pos-norm" />
+    <control-speed  control="FLAP0" transition-time="15" />
+  </mstab>
 
   <!--
 ================================================================================

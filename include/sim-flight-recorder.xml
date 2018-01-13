@@ -38,6 +38,11 @@ https://sourceforge.net/p/flightgear/fgdata/ci/next/tree/Docs/README.flightrecor
       <property type="string">/engines/engine[1]/reheat</property>
       <interpolation>linear</interpolation>
     </signal>
+    <signal>
+      <type>float</type>
+      <property type="string">/sim/model/store-refuel-pos-norm</property>
+      <interpolation>linear</interpolation>
+    </signal>
   </config>
 
 </PropertyList>

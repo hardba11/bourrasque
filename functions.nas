@@ -11,9 +11,9 @@ var I_SFD               = 5;
 var I_AP_SPEED          = 6;
 var I_AP_ALT            = 7;
 var SETTINGS_MODS = [
-    ["TAXI", 0, 1, 37, -25, "EICAS", 20, 0],
+    ["TAXI", 0, 1, 37, -25, "EICAS", 10, 0],
     ["APP",  0, 1,  0,   0, "EICAS", 250, 1500],
-    ["NAV",  1, 0,  0,  17, "RADAR", 500, 35000],
+    ["NAV",  1, 0,  0,  17, "RADAR", 450, 40000],
     ["VFR",  2, 1,  0,  37, "RADAR", 800, 3000],
 ];
 
@@ -357,6 +357,82 @@ var event_swap_sfd_screen = func() {
     }
 }
 
+var event_control_gear = func(down, animate_view) {
+
+    var is_on_ground = getprop('/gear/gear[1]/wow') or 0;
+    if(down == -1)
+    {
+        # down == -1 : toggle gears :
+        var is_down = getprop('/controls/gear/gear-down') or 0;
+        down = (is_down == 0) ? 1 : 0;
+    }
+
+    if((down == 1) and (is_on_ground == 0))
+    {
+        # down == 1 : extend gears :
+        if(animate_view == 1)
+        {
+            save_current_view();
+            view_panel_command();
+            settimer(func() { setprop('/controls/gear/gear-down', 1); setprop('sim/model/lever_gear', 1); }, 0.3);
+            settimer(func() { load_current_view(); }, 0.5);
+        }
+        else
+        {
+            setprop('/controls/gear/gear-down', 1);
+            setprop('sim/model/lever_gear', 1);
+        }
+        # retract refuel pod pipe
+        setprop('/controls/refuel-pod/pipe-extended', 0);
+    }
+    elsif((down == 0) and (is_on_ground == 0))
+    {
+        # down == 0 : retract gears :
+        if(animate_view == 1)
+        {
+            save_current_view();
+            view_panel_command();
+            settimer(func() { setprop('/controls/gear/gear-down', 0);  setprop('sim/model/lever_gear', 0); }, 0.3);
+            settimer(func() { load_current_view(); }, 0.5);
+        }
+        else
+        {
+            setprop('/controls/gear/gear-down', 0);
+            setprop('sim/model/lever_gear', 0);
+        }
+    }
+}
+
+var event_control_pod_pipe = func(extend) {
+
+    var is_gear_down = getprop('/controls/gear/gear-down') or 0;
+    var center_pod = getprop('/sim/model/center-tank') or '' ;
+    
+    if(center_pod == '4')
+    {
+        if(extend == -1)
+        {
+            # retract == -1 : toggle pipe :
+            var is_extended = getprop('/controls/refuel-pod/pipe-extended') or 0;
+            extend = (is_extended == 0) ? 1 : 0;
+        }
+
+        if((extend == 1) and (is_gear_down == 0))
+        {
+            # extend == 1 : extend pipe :
+            setprop('/controls/refuel-pod/pipe-extended', 1);
+            setprop('/refuel/contact', 1);
+            setprop('/tanker', 1);
+        }
+        elsif((extend == 0) and (is_gear_down == 0))
+        {
+            # extend == 0 : retract pipe :
+            setprop('/controls/refuel-pod/pipe-extended', 0);
+            setprop('/refuel/contact', 0);
+            setprop('/tanker', 0);
+        }
+    }
+}
 
 #===============================================================================
 #                                                                          TOOLS

@@ -487,7 +487,10 @@ ________________________________________________________________________________
       <path>alert.wav</path>
       <mode>looped</mode>
       <condition>
-        <property>/instrumentation/my_aircraft/command_h/sound_alert</property>
+        <and>
+          <property>/instrumentation/my_aircraft/command_h/sound_alert</property>
+          <property>sim/current-view/internal</property>
+        </and>
       </condition>
     </alert>
 

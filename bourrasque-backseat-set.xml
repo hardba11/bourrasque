@@ -26,7 +26,7 @@ changelog
     <variant-of type="string">bourrasque</variant-of>
 
     <author type="string">hardball SLK</author>
-    <aircraft-version type="string">20180102</aircraft-version>
+    <aircraft-version type="string">20180108</aircraft-version>
 
     <minimum-fg-version type="string">2017.1.1</minimum-fg-version>
 
@@ -67,15 +67,16 @@ changelog
       <lever_parkbrake type="bool">0</lever_parkbrake>
 
       <!-- for MP -->
-      <canopy-pos-norm     type="float">1</canopy-pos-norm>
-      <canards-pos-norm    type="float">0</canards-pos-norm>
-      <wing-tanks          type="string">none</wing-tanks>
-      <center-tank         type="string">none</center-tank>
-      <ground-equipment-e  type="string">1</ground-equipment-e> <!-- covers -->
-      <ground-equipment-g  type="string">1</ground-equipment-g> <!-- chocks -->
-      <ground-equipment-s  type="string">1</ground-equipment-s> <!-- scale -->
-      <ground-equipment-p  type="string">1</ground-equipment-p> <!-- power unit -->
-      <ground-equipment-f  type="string">1</ground-equipment-f> <!-- fuel truck-->
+      <canopy-pos-norm       type="float">1</canopy-pos-norm>
+      <canards-pos-norm      type="float">0</canards-pos-norm>
+      <store-refuel-pos-norm type="float">0</store-refuel-pos-norm>
+      <wing-tanks            type="string">none</wing-tanks>
+      <center-tank           type="string">none</center-tank>
+      <ground-equipment-e    type="string">1</ground-equipment-e> <!-- covers -->
+      <ground-equipment-g    type="string">1</ground-equipment-g> <!-- chocks -->
+      <ground-equipment-s    type="string">1</ground-equipment-s> <!-- scale -->
+      <ground-equipment-p    type="string">1</ground-equipment-p> <!-- power unit -->
+      <ground-equipment-f    type="string">1</ground-equipment-f> <!-- fuel truck-->
 
     </model>
 
@@ -138,7 +139,7 @@ changelog
 
   </sim>
 
-  <!-- smoke touchdown, data updated by bourrasque.nas -->
+  <!-- smoke touchdown, data updated by functions.nas -->
   <gear>
     <gear n="1">
       <tyre-smoke type="bool">0</tyre-smoke>
@@ -195,9 +196,6 @@ changelog
     <instrument_pfd>
       <file type="string">instruments/pfd/pfd.nas</file>
     </instrument_pfd>
-    <instrument_sfd>
-      <file type="string">instruments/sfd/sfd.nas</file>
-    </instrument_sfd>
     <instrument_light>
       <file type="string">instruments/light/light.nas</file>
     </instrument_light>
@@ -207,12 +205,24 @@ changelog
     <instrument_sfd_radar>
       <file type="string">instruments/sfd/sfd_radar.nas</file>
     </instrument_sfd_radar>
+    <instrument_fuel>
+      <file type="string">instruments/fuel/fuel.nas</file>
+    </instrument_fuel>
     <instrument_fuel_canvas>
       <file type="string">instruments/fuel/fuel_canvas.nas</file>
     </instrument_fuel_canvas>
+    <instrument_command_h>
+      <file type="string">instruments/command_h/command_h.nas</file>
+    </instrument_command_h>
+    <instrument_command_h_canvas>
+      <file type="string">instruments/command_h/alert_panel_canvas.nas</file>
+    </instrument_command_h_canvas>
     <instrument_chrono>
       <file type="string">instruments/chrono/chrono.nas</file>
     </instrument_chrono>
+    <instrument_tablet_map>
+      <file type="string">instruments/tablet/tablet_map.nas</file>
+    </instrument_tablet_map>
 
     <fdm>
       <file type="string">fdm/systems.nas</file>

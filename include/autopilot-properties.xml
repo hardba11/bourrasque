@@ -29,10 +29,10 @@ changelog
   <settings>
     <heading-bug-deg type="int">0</heading-bug-deg>
     <true-heading-deg type="int">0</true-heading-deg>
-    <target-speed-kt type="int">300</target-speed-kt>
+    <target-speed-kt type="int">250</target-speed-kt>
     <target-speed-mach type="double">0.40</target-speed-mach>
-    <target-altitude-ft type="int">3000</target-altitude-ft>
-    <vertical-speed-fpm type="int">5000</vertical-speed-fpm>
+    <target-altitude-ft type="int">1500</target-altitude-ft>
+    <vertical-speed-fpm type="int">6000</vertical-speed-fpm>
     <!--minimums type="int">150</minimums-->
     <target-roll-deg type="double">0</target-roll-deg>
     <target-pitch-deg type="double">0</target-pitch-deg>

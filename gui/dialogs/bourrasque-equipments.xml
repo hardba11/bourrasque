@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+################################################################################
+#
+#                      bourrasque equipment dialogbox
+#
+################################################################################
+
+the dialogbox is autoloaded if in gui/dialog
+
+https://sourceforge.net/p/flightgear/fgdata/ci/next/tree/Docs/README.gui
+
+changelog
+- 2016-10-22 : create
+
+-->
+
+<PropertyList>
+
+  <name>bourrasque-equipments</name>
+  <modal type="bool">false</modal>
+  <layout>vbox</layout>
+  <group>
+    <layout>hbox</layout><empty><stretch>1</stretch></empty>
+    <text><label>bourrasques's equipment</label></text>
+    <empty><stretch>1</stretch></empty>
+    <button><pref-width>16</pref-width><pref-height>16</pref-height><legend />
+      <default>1</default><keynum>27</keynum><border>2</border>
+      <binding><command>dialog-close</command></binding>
+      <binding><command>dialog-apply</command></binding>
+    </button>
+  </group>
+
+  <hrule />
+
+  <!-- ~~~~~~~~~~~~~~~~~~ ground equipment -->
+  <group>
+    <layout>table</layout>
+    <halign>left</halign>
+    <text>
+      <row>0</row><col>0</col>
+      <label>ground equipment</label>
+    </text>
+
+    <text>
+      <row>1</row><col>0</col>
+      <label>covers</label>
+    </text>
+    <button>
+      <row>1</row><col>1</col>
+      <legend>remove</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/ground-equipment-e</property>
+        <value>0</value>
+      </binding>
+    </button>
+    <button>
+      <row>1</row><col>2</col>
+      <legend>put</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/ground-equipment-e</property>
+        <value>1</value>
+      </binding>
+    </button>
+
+    <text>
+      <row>2</row><col>0</col>
+      <label>fuel truck</label>
+    </text>
+    <button>
+      <row>2</row><col>1</col>
+      <legend>remove</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/ground-equipment-f</property>
+        <value>0</value>
+      </binding>
+    </button>
+    <button>
+      <row>2</row><col>2</col>
+      <legend>put</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/ground-equipment-f</property>
+        <value>1</value>
+      </binding>
+    </button>
+
+    <text>
+      <row>3</row><col>0</col>
+      <label>epu</label>
+    </text>
+    <button>
+      <row>3</row><col>1</col>
+      <legend>remove</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/ground-equipment-p</property>
+        <value>0</value>
+      </binding>
+    </button>
+    <button>
+      <row>3</row><col>2</col>
+      <legend>put</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/ground-equipment-p</property>
+        <value>1</value>
+      </binding>
+    </button>
+
+    <text>
+      <row>4</row><col>0</col>
+      <label>scale</label>
+    </text>
+    <button>
+      <row>4</row><col>1</col>
+      <legend>remove</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/ground-equipment-s</property>
+        <value>0</value>
+      </binding>
+    </button>
+    <button>
+      <row>4</row><col>2</col>
+      <legend>put</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/ground-equipment-s</property>
+        <value>1</value>
+      </binding>
+    </button>
+
+    <text>
+      <row>5</row><col>0</col>
+      <label>shocks</label>
+    </text>
+    <button>
+      <row>5</row><col>1</col>
+      <legend>remove</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/ground-equipment-g</property>
+        <value>0</value>
+      </binding>
+    </button>
+    <button>
+      <row>5</row><col>2</col>
+      <legend>put</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/ground-equipment-g</property>
+        <value>1</value>
+      </binding>
+    </button>
+  </group>
+
+  <hrule />
+
+  <!-- ~~~~~~~~~~~~~~~~~~ probe -->
+  <group>
+    <layout>table</layout>
+    <halign>left</halign>
+    <text>
+      <row>0</row><col>0</col>
+      <label>refueling probe</label>
+    </text>
+    <button>
+      <row>0</row><col>1</col>
+      <legend>none</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/systems/refuel/serviceable</property>
+        <value>0</value>
+      </binding>
+    </button>
+    <button>
+      <row>0</row><col>2</col>
+      <legend>enabled</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/systems/refuel/serviceable</property>
+        <value>1</value>
+      </binding>
+    </button>
+
+  </group>
+
+  <hrule />
+
+  <!-- ~~~~~~~~~~~~~~~~~~ tanks -->
+  <group>
+    <layout>table</layout>
+    <halign>left</halign>
+    <text>
+      <row>1</row><col>0</col>
+      <label>wing tanks</label>
+    </text>
+    <button>
+      <row>1</row><col>1</col>
+      <legend>none</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/wing-tanks</property>
+        <value></value>
+      </binding>
+    </button>
+    <button>
+      <row>1</row><col>2</col>
+      <legend>1250 l</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/wing-tanks</property>
+        <value>1</value>
+      </binding>
+    </button>
+    <button>
+      <row>1</row><col>3</col>
+      <legend>2000 l</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/wing-tanks</property>
+        <value>2</value>
+      </binding>
+    </button>
+    <button>
+      <row>1</row><col>4</col>
+      <legend>full</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/wing-tanks</property>
+        <value>3</value>
+      </binding>
+    </button>
+
+    <text>
+      <row>2</row><col>0</col>
+      <label>center tank</label>
+    </text>
+    <button>
+      <row>2</row><col>1</col>
+      <legend>none</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/center-tank</property>
+        <value></value>
+      </binding>
+    </button>
+    <button>
+      <row>2</row><col>2</col>
+      <legend>1250 l</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/center-tank</property>
+        <value>1</value>
+      </binding>
+    </button>
+    <button>
+      <row>2</row><col>3</col>
+      <legend>2000 l</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/center-tank</property>
+        <value>2</value>
+      </binding>
+    </button>
+    <button>
+      <row>2</row><col>4</col>
+      <legend>refuelling pod</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/center-tank</property>
+        <value>4</value>
+      </binding>
+    </button>
+
+  </group>
+
+  <hrule />
+
+</PropertyList>
+

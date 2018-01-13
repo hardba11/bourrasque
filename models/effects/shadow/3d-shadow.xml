@@ -6,10 +6,10 @@
   <nopreview />
 
   <offsets>
-    <pitch-deg>.2</pitch-deg>
+    <pitch-deg>1.3</pitch-deg>
     <x-m>0</x-m>
     <y-m>0</y-m>
-    <z-m>-.09</z-m>
+    <z-m>-.45</z-m>
   </offsets>
 
   <animation>
@@ -21,6 +21,8 @@
     <object-name>shadow.center-tank2000L</object-name>
     <object-name>shadow.wing-tanks1250L</object-name>
     <object-name>shadow.wing-tanks2000L</object-name>
+    <object-name>shadow.wing-ext-tanks1250L</object-name>
+    <object-name>shadow.perche_ravitaillement</object-name>
   </animation>
 
   <effect>
@@ -32,6 +34,8 @@
     <object-name>shadow.center-tank2000L</object-name>
     <object-name>shadow.wing-tanks1250L</object-name>
     <object-name>shadow.wing-tanks2000L</object-name>
+    <object-name>shadow.wing-ext-tanks1250L</object-name>
+    <object-name>shadow.perche_ravitaillement</object-name>
   </effect>
   <animation>
     <type>noshadow</type>
@@ -42,6 +46,8 @@
     <object-name>shadow.center-tank2000L</object-name>
     <object-name>shadow.wing-tanks1250L</object-name>
     <object-name>shadow.wing-tanks2000L</object-name>
+    <object-name>shadow.wing-ext-tanks1250L</object-name>
+    <object-name>shadow.perche_ravitaillement</object-name>
   </animation>
 
   <animation>
@@ -77,7 +83,7 @@
       <and>
         <equals>
           <property>sim/multiplay/generic/string[0]</property>
-          <value type="string">tank1250L</value>
+          <value type="string">1</value>
         </equals>
         <less-than>
           <property>/sim/time/sun-angle-rad</property>
@@ -86,6 +92,7 @@
       </and>
     </condition>
   </animation>
+
   <animation>
     <type>select</type>
     <object-name>shadow.center-tank2000L</object-name>
@@ -93,7 +100,7 @@
       <and>
         <equals>
           <property>sim/multiplay/generic/string[0]</property>
-          <value type="string">tank2000L</value>
+          <value type="string">2</value>
         </equals>
         <less-than>
           <property>/sim/time/sun-angle-rad</property>
@@ -102,6 +109,7 @@
       </and>
     </condition>
   </animation>
+
   <animation>
     <type>select</type>
     <object-name>shadow.wing-tanks1250L</object-name>
@@ -109,7 +117,7 @@
       <and>
         <equals>
           <property>sim/multiplay/generic/string[1]</property>
-          <value type="string">tank1250L</value>
+          <value type="string">1</value>
         </equals>
         <less-than>
           <property>/sim/time/sun-angle-rad</property>
@@ -118,14 +126,38 @@
       </and>
     </condition>
   </animation>
+
   <animation>
     <type>select</type>
     <object-name>shadow.wing-tanks2000L</object-name>
     <condition>
       <and>
+        <or>
+          <equals>
+            <property>sim/multiplay/generic/string[1]</property>
+            <value type="string">2</value>
+          </equals>
+          <equals>
+            <property>sim/multiplay/generic/string[1]</property>
+            <value type="string">3</value>
+          </equals>
+        </or>
+        <less-than>
+          <property>/sim/time/sun-angle-rad</property>
+          <value>1.45</value>
+        </less-than>
+      </and>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>shadow.wing-ext-tanks1250L</object-name>
+    <condition>
+      <and>
         <equals>
           <property>sim/multiplay/generic/string[1]</property>
-          <value type="string">tank2000L</value>
+          <value type="string">3</value>
         </equals>
         <less-than>
           <property>/sim/time/sun-angle-rad</property>
@@ -134,6 +166,15 @@
       </and>
     </condition>
   </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>shadow.perche_ravitaillement</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[12]</property>
+    </condition>
+  </animation>
+
 
   <!-- ~~~~~~~~~~~~~~~~~~ front gear -->
   <!--animation>
@@ -190,6 +231,8 @@
     <object-name>shadow.center-tank2000L</object-name>
     <object-name>shadow.wing-tanks1250L</object-name>
     <object-name>shadow.wing-tanks2000L</object-name>
+    <object-name>shadow.wing-ext-tanks1250L</object-name>
+    <object-name>shadow.perche_ravitaillement</object-name>
     <property>/orientation/pitch-deg</property>
     <factor>-1</factor>
     <center>
@@ -213,6 +256,8 @@
     <object-name>shadow.center-tank2000L</object-name>
     <object-name>shadow.wing-tanks1250L</object-name>
     <object-name>shadow.wing-tanks2000L</object-name>
+    <object-name>shadow.wing-ext-tanks1250L</object-name>
+    <object-name>shadow.perche_ravitaillement</object-name>
     <property>/orientation/roll-deg</property>
     <factor>1</factor>
     <center>

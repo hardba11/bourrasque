@@ -214,10 +214,10 @@ var fast_start = func() {
     do_lighting_anticoll(1);
     do_lighting_landing(1);
     do_command_canopy(0);
-    settimer(func() { do_engines_started(); do_electrical_master_switch(2); }, 2);
+    settimer(func() { do_engines_started(); do_electrical_master_switch(1); }, 1);
 
     printf("started. Ready to fly !");
-    settimer(func() { setprop('/sim/messages/pilot', "started. Ready to fly !"); }, 6);
+    settimer(func() { setprop('/sim/messages/pilot', "started. Ready to fly !"); }, 3);
 }
 
 var stop = func() {
@@ -355,4 +355,30 @@ var toggle_autostart = func() {
         stop();
     }
 }
+
+var check_start_airborn = func() {
+    var is_onground = getprop('/sim/presets/onground') or 0;
+    if(! is_onground)
+    {
+        printf("starting airborn ...");
+        # starting :
+        fast_start();
+        # unlock parkbrakes :
+        setprop('/controls/gear/brake-parking', 0);
+        # enable autopilot :
+        settimer(func() { instrument_pfd.event_click_hold_autopilot();                    }, 2);
+        settimer(func() { setprop('/sim/messages/pilot', "autopilot activated");          }, 2);
+
+        # ack alerts :
+        settimer(func() { setprop('/instrumentation/my_aircraft/command_h/ack_alert', 1); }, 2.5);
+        settimer(func() { setprop('/instrumentation/my_aircraft/command_h/ack_alert', 1); }, 3.5);
+
+        # setting mod
+        my_aircraft_functions.set_mod("NAV");
+
+        settimer(func() { setprop('/sim/messages/pilot', "ready, you got the commands !"); }, 4);
+    }
+}
+
+setlistener('/sim/signals/fdm-initialized', check_start_airborn);
 

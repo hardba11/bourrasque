@@ -47,7 +47,7 @@ changelog
     <object-name>ground_equipment.flags</object-name>
     <condition>
       <equals>
-        <property>sim/multiplay/generic/string[2]</property>
+        <property>/sim/model/ground-equipment-e</property>
         <value type="string">1</value>
       </equals>
       <equals>
@@ -67,7 +67,7 @@ changelog
     <object-name>ground_equipment.gears</object-name>
     <condition>
       <equals>
-        <property>sim/multiplay/generic/string[3]</property>
+        <property>/sim/model/ground-equipment-g</property>
         <value type="string">1</value>
       </equals>
       <or>
@@ -99,7 +99,7 @@ changelog
     <object-name>ground_equipment.scale</object-name>
     <condition>
       <equals>
-        <property>sim/multiplay/generic/string[4]</property>
+        <property>/sim/model/ground-equipment-s</property>
         <value type="string">1</value>
       </equals>
       <or>
@@ -122,7 +122,7 @@ changelog
     <object-name>external-power-unit.wire</object-name>
     <condition>
       <equals>
-        <property>sim/multiplay/generic/string[5]</property>
+        <property>/sim/model/ground-equipment-p</property>
         <value type="string">1</value>
       </equals>
       <less-than>
@@ -140,7 +140,7 @@ changelog
     <object-name>fuel-truck.tank</object-name>
     <condition>
       <equals>
-        <property>sim/multiplay/generic/string[6]</property>
+        <property>/sim/model/ground-equipment-f</property>
         <value type="string">1</value>
       </equals>
       <less-than>

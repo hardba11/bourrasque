@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+################################################################################
+#
+#                          STORE : REFUEL POD MODEL
+#
+################################################################################
+
+changelog
+- 2017-03-22 : create
+
+
+
+perl -e 'for(reverse(1..11)){printf "
+  <animation>
+    <type>select</type>
+    <object-name>drogue.%03d</object-name>
+    <condition>
+      <equals>
+        <property>sim/multiplay/generic/string[0]</property>
+        <value type=\"string\">4</value>
+      </equals>
+      <greater-than>
+        <property>sim/multiplay/generic/float[13]</property>
+        <value type=\"float\">%5.3f</value>
+      </greater-than>
+    </condition>
+  </animation>
+", $_ + 1, $_ * 1 / 12 ;}'
+
+-->
+<PropertyList>
+
+  <path>refuel_pod.ac</path>
+  <nopreview />
+
+  <!--
+================================================================================
+                                                             OBJECTS DECLARATION
+================================================================================
+  -->
+
+  <animation>
+    <type>material</type>
+    <object-name>basket-folded</object-name>
+    <object-name>basket-unfolded</object-name>
+    <object-name>drogue.001</object-name>
+    <object-name>drogue.002</object-name>
+    <object-name>drogue.003</object-name>
+    <object-name>drogue.004</object-name>
+    <object-name>drogue.005</object-name>
+    <object-name>drogue.006</object-name>
+    <object-name>drogue.007</object-name>
+    <object-name>drogue.008</object-name>
+    <object-name>drogue.009</object-name>
+    <object-name>drogue.010</object-name>
+    <object-name>drogue.011</object-name>
+    <object-name>drogue.012</object-name>
+    <object-name>refuel_pod</object-name>
+  </animation>
+
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/aircraft/aircraft</inherits-from>
+    <object-name>basket-folded</object-name>
+    <object-name>basket-unfolded</object-name>
+    <object-name>drogue.001</object-name>
+    <object-name>drogue.002</object-name>
+    <object-name>drogue.003</object-name>
+    <object-name>drogue.004</object-name>
+    <object-name>drogue.005</object-name>
+    <object-name>drogue.006</object-name>
+    <object-name>drogue.007</object-name>
+    <object-name>drogue.008</object-name>
+    <object-name>drogue.009</object-name>
+    <object-name>drogue.010</object-name>
+    <object-name>drogue.011</object-name>
+    <object-name>drogue.012</object-name>
+    <object-name>refuel_pod</object-name>
+  </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ group -->
+  <animation>
+    <name>block_pipe</name>
+    <object-name>basket-folded</object-name>
+    <object-name>basket-unfolded</object-name>
+    <object-name>drogue.001</object-name>
+    <object-name>drogue.002</object-name>
+    <object-name>drogue.003</object-name>
+    <object-name>drogue.004</object-name>
+    <object-name>drogue.005</object-name>
+    <object-name>drogue.006</object-name>
+    <object-name>drogue.007</object-name>
+    <object-name>drogue.008</object-name>
+    <object-name>drogue.009</object-name>
+    <object-name>drogue.010</object-name>
+    <object-name>drogue.011</object-name>
+    <object-name>drogue.012</object-name>
+  </animation>
+
+  <!--
+================================================================================
+                                                         CONTROLS AND ANIMATIONS
+================================================================================
+  -->
+
+  <animation>
+    <type>select</type>
+    <object-name>refuel_pod</object-name>
+    <object-name>drogue.001</object-name>
+    <condition>
+      <equals>
+        <property>sim/multiplay/generic/string[0]</property>
+        <value type="string">4</value>
+      </equals>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ translate refuel pipe -->
+  <animation>
+    <type>translate</type>
+    <object-name>block_pipe</object-name>
+    <property>sim/multiplay/generic/float[13]</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>12</dep></entry>
+      <entry><ind>1.0</ind><dep>0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>-10</x>
+      <y>0</y>
+      <z></z>
+    </axis>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>block_pipe</object-name>
+    <property>sim/multiplay/generic/float[13]</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>1.2</dep></entry>
+      <entry><ind>0.7</ind><dep>0.55</dep></entry>
+      <entry><ind>0.9</ind><dep>0.2</dep></entry>
+      <entry><ind>1.0</ind><dep>0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ basket folded or unfolded -->
+  <animation>
+    <type>select</type>
+    <object-name>basket-folded</object-name>
+    <condition>
+      <equals>
+        <property>sim/multiplay/generic/string[0]</property>
+        <value type="string">4</value>
+      </equals>
+      <less-than>
+        <property>sim/multiplay/generic/float[13]</property>
+        <value type="float">0.083</value>
+      </less-than>
+    </condition>
+  </animation>
+  <animation>
+    <type>select</type>
+    <object-name>basket-unfolded</object-name>
+    <condition>
+      <equals>
+        <property>sim/multiplay/generic/string[0]</property>
+        <value type="string">4</value>
+      </equals>
+      <greater-than>
+        <property>sim/multiplay/generic/float[13]</property>
+        <value type="float">0.083</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ visibles part of refuel pipe -->
+  <animation>
+    <type>select</type>
+    <object-name>drogue.012</object-name>
+    <condition>
+      <equals>
+        <property>sim/multiplay/generic/string[0]</property>
+        <value type="string">4</value>
+      </equals>
+      <greater-than>
+        <property>sim/multiplay/generic/float[13]</property>
+        <value type="float">0.917</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>drogue.011</object-name>
+    <condition>
+      <equals>
+        <property>sim/multiplay/generic/string[0]</property>
+        <value type="string">4</value>
+      </equals>
+      <greater-than>
+        <property>sim/multiplay/generic/float[13]</property>
+        <value type="float">0.833</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>drogue.010</object-name>
+    <condition>
+      <equals>
+        <property>sim/multiplay/generic/string[0]</property>
+        <value type="string">4</value>
+      </equals>
+      <greater-than>
+        <property>sim/multiplay/generic/float[13]</property>
+        <value type="float">0.750</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>drogue.009</object-name>
+    <condition>
+      <equals>
+        <property>sim/multiplay/generic/string[0]</property>
+        <value type="string">4</value>
+      </equals>
+      <greater-than>
+        <property>sim/multiplay/generic/float[13]</property>
+        <value type="float">0.667</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>drogue.008</object-name>
+    <condition>
+      <equals>
+        <property>sim/multiplay/generic/string[0]</property>
+        <value type="string">4</value>
+      </equals>
+      <greater-than>
+        <property>sim/multiplay/generic/float[13]</property>
+        <value type="float">0.583</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>drogue.007</object-name>
+    <condition>
+      <equals>
+        <property>sim/multiplay/generic/string[0]</property>
+        <value type="string">4</value>
+      </equals>
+      <greater-than>
+        <property>sim/multiplay/generic/float[13]</property>
+        <value type="float">0.500</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>drogue.006</object-name>
+    <condition>
+      <equals>
+        <property>sim/multiplay/generic/string[0]</property>
+        <value type="string">4</value>
+      </equals>
+      <greater-than>
+        <property>sim/multiplay/generic/float[13]</property>
+        <value type="float">0.417</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>drogue.005</object-name>
+    <condition>
+      <equals>
+        <property>sim/multiplay/generic/string[0]</property>
+        <value type="string">4</value>
+      </equals>
+      <greater-than>
+        <property>sim/multiplay/generic/float[13]</property>
+        <value type="float">0.333</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>drogue.004</object-name>
+    <condition>
+      <equals>
+        <property>sim/multiplay/generic/string[0]</property>
+        <value type="string">4</value>
+      </equals>
+      <greater-than>
+        <property>sim/multiplay/generic/float[13]</property>
+        <value type="float">0.250</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>drogue.003</object-name>
+    <condition>
+      <equals>
+        <property>sim/multiplay/generic/string[0]</property>
+        <value type="string">4</value>
+      </equals>
+      <greater-than>
+        <property>sim/multiplay/generic/float[13]</property>
+        <value type="float">0.167</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>drogue.002</object-name>
+    <condition>
+      <equals>
+        <property>sim/multiplay/generic/string[0]</property>
+        <value type="string">4</value>
+      </equals>
+      <greater-than>
+        <property>sim/multiplay/generic/float[13]</property>
+        <value type="float">0.083</value>
+      </greater-than>
+    </condition>
+  </animation>
+
+
+
+
+</PropertyList>
+

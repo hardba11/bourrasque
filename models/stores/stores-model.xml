@@ -75,12 +75,16 @@ ________________________________________________________________________________
     <type>select</type>
     <object-name>center-pylon</object-name>
     <condition>
-      <not>
+      <or>
         <equals>
           <property>sim/multiplay/generic/string[0]</property>
-          <value type="string">none</value>
+          <value type="string">2</value>
         </equals>
-      </not>
+        <equals>
+          <property>sim/multiplay/generic/string[0]</property>
+          <value type="string">1</value>
+        </equals>
+      </or>
     </condition>
   </animation>
   <!-- ~~~~~~~~~~~~~~~~~~ tank 1250 l -->
@@ -90,7 +94,7 @@ ________________________________________________________________________________
     <condition>
       <equals>
         <property>sim/multiplay/generic/string[0]</property>
-        <value type="string">tank1250L</value>
+        <value type="string">1</value>
       </equals>
     </condition>
   </animation>
@@ -101,7 +105,7 @@ ________________________________________________________________________________
     <condition>
       <equals>
         <property>sim/multiplay/generic/string[0]</property>
-        <value type="string">tank2000L</value>
+        <value type="string">2</value>
       </equals>
     </condition>
   </animation>
@@ -118,7 +122,7 @@ ________________________________________________________________________________
       <not>
         <equals>
           <property>sim/multiplay/generic/string[1]</property>
-          <value type="string">none</value>
+          <value type="string"></value>
         </equals>
       </not>
     </condition>
@@ -130,7 +134,7 @@ ________________________________________________________________________________
     <condition>
       <equals>
         <property>sim/multiplay/generic/string[1]</property>
-        <value type="string">tank1250L+tank2000L</value>
+        <value type="string">3</value>
       </equals>
     </condition>
   </animation>
@@ -141,7 +145,7 @@ ________________________________________________________________________________
     <condition>
       <equals>
         <property>sim/multiplay/generic/string[1]</property>
-        <value type="string">tank1250L</value>
+        <value type="string">1</value>
       </equals>
     </condition>
   </animation>
@@ -153,23 +157,23 @@ ________________________________________________________________________________
       <or>
         <equals>
           <property>sim/multiplay/generic/string[1]</property>
-          <value type="string">tank2000L</value>
+          <value type="string">2</value>
         </equals>
         <equals>
           <property>sim/multiplay/generic/string[1]</property>
-          <value type="string">tank1250L+tank2000L</value>
+          <value type="string">3</value>
         </equals>
       </or>
     </condition>
   </animation>
-  <!-- ~~~~~~~~~~~~~~~~~~ tanks 2000 l -->
+  <!-- ~~~~~~~~~~~~~~~~~~ ext tanks 1250 l -->
   <animation>
     <type>select</type>
     <object-name>wing-ext-tanks1250L</object-name>
     <condition>
       <equals>
         <property>sim/multiplay/generic/string[1]</property>
-        <value type="string">tank1250L+tank2000L</value>
+        <value type="string">3</value>
       </equals>
     </condition>
   </animation>
