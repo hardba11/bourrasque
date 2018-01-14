@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+################################################################################
+#
+#             THIS FILE INITIALIZES SIM/VIEW 105 PROPERTY TREE
+#
+################################################################################
+
+PROPERTY-PATH : /sim/view[105]
+
+WARNING
+- view could be enabled by nasal - see bourrasque.nas
+
+-->
+
+<PropertyList>
+
+  <name type="string">tail cam view</name>
+  <enabled type="bool">false</enabled>
+  <type>lookfrom</type>
+  <internal type="bool">true</internal>
+  <config>
+    <from-model type="bool">true</from-model>
+    <from-model-idx type="int">0</from-model-idx>
+    <ground-level-nearplane-m type="double">0.5</ground-level-nearplane-m>
+    <default-field-of-view-deg type="double">104</default-field-of-view-deg>
+    <default-pitch-deg type="double">-12</default-pitch-deg>
+    <default-heading-deg type="double">0</default-heading-deg>
+    <dynamic-view type="bool">false</dynamic-view>
+    <limits>
+      <enabled type="bool">false</enabled>
+    </limits>
+    <x-offset-m type="double">0</x-offset-m>
+    <y-offset-m type="double">3.55</y-offset-m>
+    <z-offset-m type="double">5.86</z-offset-m>
+    <pitch-offset-deg type="double">-12</pitch-offset-deg>
+    <heading-offset-deg type="double">0</heading-offset-deg>
+  </config>
+  <dynamic>
+    <blend type="double">0</blend>
+  </dynamic>
+
+</PropertyList>
+
+

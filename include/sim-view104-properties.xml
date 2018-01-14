@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+################################################################################
+#
+#             THIS FILE INITIALIZES SIM/VIEW 104 PROPERTY TREE
+#
+################################################################################
+
+PROPERTY-PATH : /sim/view[104]
+
+WARNING
+- view could be enabled by nasal - see bourrasque.nas
+
+-->
+
+<PropertyList>
+
+  <name type="string">refuelling pod view</name>
+  <enabled type="bool">false</enabled>
+  <type>lookfrom</type>
+  <internal type="bool">true</internal>
+  <config>
+    <from-model type="bool">true</from-model>
+    <from-model-idx type="int">0</from-model-idx>
+    <ground-level-nearplane-m type="double">0.5</ground-level-nearplane-m>
+    <default-field-of-view-deg type="double">85</default-field-of-view-deg>
+    <default-pitch-deg type="double">-2</default-pitch-deg>
+    <default-heading-deg type="double">180</default-heading-deg>
+    <dynamic-view type="bool">false</dynamic-view>
+    <limits>
+      <enabled type="bool">false</enabled>
+    </limits>
+    <x-offset-m type="double">0</x-offset-m>
+    <y-offset-m type="double">-1.05</y-offset-m>
+    <z-offset-m type="double">-.09</z-offset-m>
+    <pitch-offset-deg type="double">-2</pitch-offset-deg>
+    <heading-offset-deg type="double">180</heading-offset-deg>
+  </config>
+  <dynamic>
+    <blend type="double">0</blend>
+  </dynamic>
+
+</PropertyList>
+
+

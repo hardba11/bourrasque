@@ -6,7 +6,7 @@
 #
 ################################################################################
 
-PROPERTY-PATH : PropertyList > sim > view[0]
+PROPERTY-PATH : /sim/view[0]
 
 -->
 

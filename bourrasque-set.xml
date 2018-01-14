@@ -128,6 +128,8 @@ changelog
     <view n="101"   include="include/sim-view101-properties.xml" />
     <view n="102"   include="include/sim-view102-properties.xml" />
     <view n="103"   include="include/sim-view103-properties.xml" />
+    <view n="104"   include="include/sim-view104-properties.xml" />
+    <view n="105"   include="include/sim-view105-properties.xml" />
 
     <!-- ~~~~~~~~~~~~~~~~~~ huds -->
     <hud            include="include/sim-hud-properties.xml" />

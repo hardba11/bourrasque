@@ -138,7 +138,38 @@ var hippo_loop = func() {
     }
     settimer(hippo_loop, 1);
 }
-setlistener('/sim/signals/fdm-initialized', hippo_loop);
+
+var bourrasque_slow_loop = func() {
+
+    # refueling cam if pod
+    var center_pod = getprop('/sim/model/center-tank') or '' ;
+    if(center_pod == '4')
+    {
+        setprop('/sim/view[104]/enabled', 1);
+        setprop('/sim/view[102]/enabled', 0);
+    }
+    else
+    {
+        setprop('/sim/view[104]/enabled', 0);
+        setprop('/sim/view[102]/enabled', 1);
+    }
+
+    # tail cam si backseat vide
+    var is_copilot = getprop('/controls/pax/copilot') or 0 ;
+    if(is_copilot == 1)
+    {
+        setprop('/sim/view[105]/enabled', 0);
+        setprop('/sim/view[103]/enabled', 1);
+    }
+    else
+    {
+        setprop('/sim/view[105]/enabled', 1);
+        setprop('/sim/view[103]/enabled', 0);
+    }
+
+    settimer(bourrasque_slow_loop, 5);
+}
+
 
 var bourrasque_loop = func() {
 
@@ -154,10 +185,14 @@ var bourrasque_loop = func() {
     # touchdown smoke
     touchdown_smoke();
 
-    settimer(bourrasque_loop, 0.1);
+    settimer(bourrasque_loop, .1);
 }
 
+
+
 setlistener('/sim/signals/fdm-initialized', bourrasque_loop);
+setlistener('/sim/signals/fdm-initialized', hippo_loop);
+setlistener('/sim/signals/fdm-initialized', bourrasque_slow_loop);
 
 
 

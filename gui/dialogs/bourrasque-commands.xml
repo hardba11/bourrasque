@@ -59,8 +59,9 @@ changelog
         <value type="int">1</value>
       </binding>
     </button>
-
   </group>
+
+  <hrule />
 
   <!-- ~~~~~~~~~~~~~~~~~~ flashlight -->
   <group>
@@ -133,7 +134,6 @@ my_aircraft_functions.event_control_pod_pipe(1);
         </script>
       </binding>
     </button>
-
   </group>
 
   <hrule />

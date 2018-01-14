@@ -6,7 +6,10 @@
 #
 ################################################################################
 
-PROPERTY-PATH : PropertyList > sim > view[101]
+PROPERTY-PATH : /sim/view[101]
+
+WARNING
+- view could be disabled by nasal - see bourrasque.nas
 
 -->
 
