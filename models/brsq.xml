@@ -275,7 +275,7 @@ livery_update.stop();
     </condition>
   </model>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ als 3d exterior shadow (hide if backseat) -->
+  <!-- ~~~~~~~~~~~~~~~~~~ als 3d exterior shadow (hide if backseat or MP) -->
   <model>
     <object-name>als-shadow</object-name>
     <path>Aircraft/bourrasque/models/effects/shadow/3d-shadow.xml</path>

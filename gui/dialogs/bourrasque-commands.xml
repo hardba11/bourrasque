@@ -45,18 +45,24 @@ changelog
       <row>0</row><col>1</col>
       <legend>disable</legend>
       <binding>
-        <command>property-assign</command>
-        <property>/debug3</property>
-        <value type="int">0</value>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_toggle_hippodrome(0);
+          ]]>
+        </script>
       </binding>
     </button>
     <button>
       <row>0</row><col>2</col>
       <legend>enable</legend>
       <binding>
-        <command>property-assign</command>
-        <property>/debug3</property>
-        <value type="int">1</value>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_toggle_hippodrome(1);
+          ]]>
+        </script>
       </binding>
     </button>
   </group>

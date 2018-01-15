@@ -76,38 +76,44 @@ var touchdown_smoke = func() {
 }
 
 
-# debug3
-# 0: desactive
-# 1: actif
+# /instrumentation/my_aircraft/pfd/controls/hippodrome
+# - 0: desactive
+# - 1: actif
 # top
-# 0: ne rien faire (ligne droite)
-# 1: debut ligne droite : lancer virage dans 60s
-# 2: virage en cours : detecter la fin
-# 3: attendre
+# - 0: ne rien faire (ligne droite)
+# - 1: debut ligne droite : lancer virage dans 300s
+# - 2: virage en cours : detecter la fin
+# - 3: attendre
 var top_hippo = 0;
-var leg_duration = 300;
+
 
 var hippo_turn = func() {
     #print("+++ call hippo_turn");
-    setprop('/sim/messages/pilot', "starting turn.");
-    var ap_heading = sprintf('%d', getprop('/autopilot/settings/heading-bug-deg') or 0);
 
-    var new_heading = (ap_heading > 180) ? ap_heading - 180 : ap_heading + 180;
-    var tmp_heading = (ap_heading > 270) ? ap_heading - 90 : ap_heading + 270;
+    hippo_enabled = getprop('/instrumentation/my_aircraft/pfd/controls/hippodrome') or 0;
+    if((hippo_enabled == 1) and (top_hippo == 3))
+    {
+        setprop('/sim/messages/pilot', "starting turn.");
+        var ap_heading = sprintf('%d', getprop('/autopilot/settings/heading-bug-deg') or 0);
 
-    settimer(func() {
-        setprop('/autopilot/settings/heading-bug-deg', tmp_heading);
-    }, 0);
-    settimer(func() {
-        setprop('/autopilot/settings/heading-bug-deg', new_heading);
-        top_hippo = 2;
-    }, 5);
+        var new_heading = (ap_heading > 180) ? ap_heading - 180 : ap_heading + 180;
+        var tmp_heading = (ap_heading > 270) ? ap_heading - 90 : ap_heading + 270;
+
+        settimer(func() {
+            setprop('/autopilot/settings/heading-bug-deg', tmp_heading);
+        }, 0);
+        settimer(func() {
+            setprop('/autopilot/settings/heading-bug-deg', new_heading);
+            top_hippo = 2;
+        }, 5);
+    }
 }
 
 var hippo_loop = func() {
-    hippo_enabled = getprop('/debug3') or 0;
+    hippo_enabled = getprop('/instrumentation/my_aircraft/pfd/controls/hippodrome') or 0;
     if(hippo_enabled == 1)
     {
+        var leg_duration = getprop('/instrumentation/my_aircraft/pfd/controls/hippodrome-leg-duration') or 30;
         if(top_hippo == 0)
         {
             #print("+++ activation");
@@ -116,8 +122,8 @@ var hippo_loop = func() {
         elsif(top_hippo == 1)
         {
             #print("+++ top droite");
-            setprop('/sim/messages/pilot', "starting hippodrom leg, turn in "~ leg_duration ~"s ...");
-            settimer(func() { setprop('/sim/messages/pilot', "turn in 5s ..."); }, (leg_duration - 5));
+            setprop('/sim/messages/pilot', "starting hippodrom leg, turn in "~ leg_duration ~"s.");
+            settimer(func() { setprop('/sim/messages/pilot', "turn in 10s."); }, (leg_duration - 10));
             settimer(func() { hippo_turn(); }, leg_duration);
             top_hippo = 3;
         }
@@ -141,33 +147,10 @@ var hippo_loop = func() {
 
 var bourrasque_slow_loop = func() {
 
-    # refueling cam if pod
-    var center_pod = getprop('/sim/model/center-tank') or '' ;
-    if(center_pod == '4')
-    {
-        setprop('/sim/view[104]/enabled', 1);
-        setprop('/sim/view[102]/enabled', 0);
-    }
-    else
-    {
-        setprop('/sim/view[104]/enabled', 0);
-        setprop('/sim/view[102]/enabled', 1);
-    }
+    my_aircraft_functions.event_choose_enabled_cams();
+    my_aircraft_functions.disable_hippodrome_if_ap_not_ok();
 
-    # tail cam si backseat vide
-    var is_copilot = getprop('/controls/pax/copilot') or 0 ;
-    if(is_copilot == 1)
-    {
-        setprop('/sim/view[105]/enabled', 0);
-        setprop('/sim/view[103]/enabled', 1);
-    }
-    else
-    {
-        setprop('/sim/view[105]/enabled', 1);
-        setprop('/sim/view[103]/enabled', 0);
-    }
-
-    settimer(bourrasque_slow_loop, 5);
+    settimer(bourrasque_slow_loop, 2);
 }
 
 

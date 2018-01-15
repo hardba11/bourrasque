@@ -53,6 +53,8 @@ TODO :
     <object-name>pfd.disengage-emit</object-name>
     <object-name>pfd.nav</object-name>
     <object-name>pfd.nav-emit</object-name>
+    <object-name>pfd.hippo</object-name>
+    <object-name>pfd.hippo-emit</object-name>
     <object-name>pfd.set_alt</object-name>
     <object-name>pfd.set_speed</object-name>
     <object-name>pfd.set_vs</object-name>
@@ -116,6 +118,8 @@ TODO :
     <object-name>pfd.disengage-emit</object-name>
     <object-name>pfd.nav</object-name>
     <object-name>pfd.nav-emit</object-name>
+    <object-name>pfd.hippo</object-name>
+    <object-name>pfd.hippo-emit</object-name>
     <object-name>pfd.set_alt</object-name>
     <object-name>pfd.set_speed</object-name>
     <object-name>pfd.set_vs</object-name>
@@ -402,6 +406,7 @@ TODO :
     <object-name>pfd.alt-emit</object-name>
     <object-name>pfd.vs-emit</object-name>
     <object-name>pfd.nav-emit</object-name>
+    <object-name>pfd.hippo-emit</object-name>
     <object-name>pfd.disengage-emit</object-name>
     <object-name>pfd.hold-emit</object-name>
     <emission>
@@ -1107,6 +1112,47 @@ ________________________________________________________________________________
           <property>/autopilot/locks/heading</property>
           <value>nav1-hold</value>
         </equals>
+      </and>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control hippodrome ARM -->
+  <animation>
+    <type>pick</type>
+    <object-name>pfd.hippo</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_toggle_hippodrome(-1);
+          ]]>
+        </script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-pfd-hippodrome</tooltip-id>
+        <label>Toggle A/P hippodrome</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation hippodrome ARM -->
+  <animation>
+    <type>select</type>
+    <object-name>pfd.hippo-emit</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <property>/instrumentation/my_aircraft/pfd/controls/hippodrome</property>
       </and>
     </condition>
   </animation>

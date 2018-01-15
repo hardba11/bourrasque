@@ -32,6 +32,9 @@
     <hold-blink      type="bool">0</hold-blink>
     <disengage-blink type="bool">0</disengage-blink>
 
+    <hippodrome type="bool">0</hippodrome>
+    <hippodrome-leg-duration type="int">300</hippodrome-leg-duration>
+
   </controls>
 
 </PropertyList>

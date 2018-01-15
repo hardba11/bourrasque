@@ -35,6 +35,8 @@ changelog
     <object-name>sfd.set_bingo</object-name>
     <object-name>sfd.swap_bingo</object-name>
     <object-name>sfd.bingo_on-emit</object-name>
+    <object-name>sfd.aar</object-name>
+    <object-name>sfd.aar-emit</object-name>
   </animation>
 
   <animation>
@@ -60,6 +62,8 @@ changelog
     <object-name>sfd.set_bingo</object-name>
     <object-name>sfd.swap_bingo</object-name>
     <object-name>sfd.bingo_on-emit</object-name>
+    <object-name>sfd.aar</object-name>
+    <object-name>sfd.aar-emit</object-name>
   </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
@@ -116,6 +120,7 @@ changelog
   <animation>
     <type>material</type>
     <object-name>sfd.bingo_on-emit</object-name>
+    <object-name>sfd.aar-emit</object-name>
     <emission>
       <factor>1</factor>
       <red>0.9</red>
@@ -350,6 +355,46 @@ my_aircraft_functions.inc_bingo(-1);
       <and>
         <property>sim/multiplay/generic/int[5]</property>
         <property>/instrumentation/my_aircraft/fuel/bingo/is_bingo_enabled</property>
+      </and>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control extend refuelpod pipe -->
+  <animation>
+    <type>pick</type>
+    <object-name>sfd.aar</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_control_pod_pipe(-1);
+          ]]>
+        </script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-sfd-aar</tooltip-id>
+        <label>Extend refuelpod pipe</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation extend refuelpod pipe -->
+  <animation>
+    <type>select</type>
+    <object-name>sfd.aar-emit</object-name>
+    <condition>
+      <and>
+        <property>sim/multiplay/generic/int[5]</property>
+        <property>/controls/refuel-pod/pipe-extended</property>
       </and>
     </condition>
   </animation>

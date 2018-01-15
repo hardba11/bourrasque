@@ -316,6 +316,42 @@ var inc_bingo = func(inc) {
     }
 }
 
+var disable_hippodrome_if_ap_not_ok = func() {
+    var is_hippodrome_enabled = getprop('/instrumentation/my_aircraft/pfd/controls/hippodrome') or 0;
+    var ap_heading_mode = getprop('/autopilot/locks/heading')  or '';
+    var ap_alt_mode     = getprop('/autopilot/locks/altitude') or '';
+    var ap_speed_mode   = getprop('/autopilot/locks/speed')    or '';
+    var is_ap_ok = ((ap_heading_mode == 'dg-heading-hold')
+        and (ap_alt_mode == 'altitude-hold')
+        and (ap_speed_mode == 'speed-with-throttle')
+    );
+
+    # disabling hippodrome if ap settings are not valid
+    if(! is_ap_ok)
+    {
+        setprop('/instrumentation/my_aircraft/pfd/controls/hippodrome', 0);
+    }
+}
+
+var event_toggle_hippodrome = func(do_enable) {
+    var is_hippodrome_enabled = getprop('/instrumentation/my_aircraft/pfd/controls/hippodrome') or 0;
+    var heading_bug_error_deg = math.abs(sprintf('%d', getprop('/autopilot/internal/heading-bug-error-deg') or 0));
+    if(do_enable == -1)
+    {
+        # do_enable == -1 : toggle hippodrome :
+        do_enable = (is_hippodrome_enabled == 0) ? 1 : 0;
+    }
+
+    # don't enable if turning
+    if(heading_bug_error_deg > 4)
+    {
+        do_enable = 0;
+    }
+
+    setprop('/instrumentation/my_aircraft/pfd/controls/hippodrome', do_enable);
+    disable_hippodrome_if_ap_not_ok();
+}
+
 var event_toggle_lights = func() {
     var beacon = getprop('/controls/lighting/beacon') or 0;
     var nav    = getprop('/controls/lighting/nav-lights') or 0;
@@ -432,6 +468,35 @@ var event_control_pod_pipe = func(extend) {
             setprop('/tanker', 0);
         }
     }
+}
+
+var event_choose_enabled_cams = func() {
+    # refueling cam if pod
+    var center_pod = getprop('/sim/model/center-tank') or '' ;
+    if(center_pod == '4')
+    {
+        setprop('/sim/view[104]/enabled', 1);
+        setprop('/sim/view[102]/enabled', 0);
+    }
+    else
+    {
+        setprop('/sim/view[104]/enabled', 0);
+        setprop('/sim/view[102]/enabled', 1);
+    }
+
+    # tail cam si backseat vide
+    var is_copilot = getprop('/controls/pax/copilot') or 0 ;
+    if(is_copilot == 1)
+    {
+        setprop('/sim/view[105]/enabled', 0);
+        setprop('/sim/view[103]/enabled', 1);
+    }
+    else
+    {
+        setprop('/sim/view[105]/enabled', 1);
+        setprop('/sim/view[103]/enabled', 0);
+    }
+
 }
 
 #===============================================================================
