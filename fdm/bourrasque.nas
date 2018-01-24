@@ -86,7 +86,6 @@ var touchdown_smoke = func() {
 # - 3: attendre
 var top_hippo = 0;
 
-
 var hippo_turn = func() {
     #print("+++ call hippo_turn");
 
@@ -153,7 +152,6 @@ var bourrasque_slow_loop = func() {
     settimer(bourrasque_slow_loop, 2);
 }
 
-
 var bourrasque_loop = func() {
 
     # setting engine egt celcius from egt farenheit
@@ -171,14 +169,109 @@ var bourrasque_loop = func() {
     settimer(bourrasque_loop, .1);
 }
 
+var mp_encode = func(list_of_values) {
+    var values_encoded = 0;
 
+    forindex(var index; list_of_values)
+    {
+        if((list_of_values[index] == 1) or (list_of_values[index] == 0))
+        {
+            values_encoded += list_of_values[index] * math.pow(2, index) ;
+        }
+    }
+    return values_encoded;
+}
+
+# 
+#         LOCAL                                 MULTIPLAY
+# .---------------------.                .----------------------.
+# |       MODEL         |                |         MODEL        |
+# |  - sim/model/prop1  |       <=>      |  - sim/model/prop1   |
+# |  - sim/model/prop2  |                |  - sim/model/prop2   |
+# +---------------------+                +----------------------+
+# | bourrasque-set.xml  |                | bourrasque-model.xml |
+# |  - /sim/model/prop1 |                |  - sim/model/prop1   | => /ai/.../multiplay[x]/sim/model/prop1
+# |  - /sim/model/prop2 |                |  - sim/model/prop2   |
+# !_____________________!                !______________________!
+#           |                                      ^
+#           V                                      |
+# .-------------------------.            .-------------------.
+# | bourrasque.nas::encode  |            | brsq.xml::decode  |
+# !_________________________!            !___________________!
+#           |                                      ^
+#           V                                      |
+#  .--------------------------------------------------------------.
+#  |                /sim/multiplay/generic/int[0]                 |
+#  !______________________________________________________________!
+# 
+
+var bourrasque_mp_loop_encode = func() {
+    # encoded in int[0] :
+    var beacon                  = getprop('/controls/lighting/beacon') or 0;
+    var nav_lights              = getprop('/controls/lighting/nav-lights') or 0;
+    var pos_lights              = getprop('/controls/lighting/pos-lights') or 0;
+    var strobe                  = getprop('/controls/lighting/strobe') or 0;
+    var taxi_light              = getprop('/controls/lighting/taxi-light') or 0;
+    var smoking                 = getprop('/sim/model/smoking') or 0;
+    setprop('/sim/multiplay/generic/int[0]', mp_encode([
+        beacon,
+        nav_lights,
+        pos_lights,
+        strobe,
+        taxi_light,
+        smoking]));
+
+    # encoded in int[1] :
+    var ground_equipment_e      = getprop('/sim/model/ground-equipment-e') or 0;
+    var ground_equipment_g      = getprop('/sim/model/ground-equipment-g') or 0;
+    var ground_equipment_s      = getprop('/sim/model/ground-equipment-s') or 0;
+    var ground_equipment_p      = getprop('/sim/model/ground-equipment-p') or 0;
+    var ground_equipment_f      = getprop('/sim/model/ground-equipment-f') or 0;
+    var wing_tanks_1250         = getprop('/sim/model/wing-tanks-1250') or 0;
+    var wing_tanks_2000         = getprop('/sim/model/wing-tanks-2000') or 0;
+    var center_tank_1250        = getprop('/sim/model/center-tank-1250') or 0;
+    var center_tank_2000        = getprop('/sim/model/center-tank-2000') or 0;
+    var center_refuel_pod       = getprop('/sim/model/center-refuel-pod') or 0;
+    var wing_pylons_smoke_pod   = getprop('/sim/model/wing-pylons-smoke-pod') or 0;
+    setprop('/sim/multiplay/generic/int[1]', mp_encode([
+        ground_equipment_e,
+        ground_equipment_g,
+        ground_equipment_s,
+        ground_equipment_p,
+        ground_equipment_f,
+        wing_tanks_1250,
+        wing_tanks_2000,
+        center_tank_1250,
+        center_tank_2000,
+        center_refuel_pod,
+        wing_pylons_smoke_pod]));
+
+    # encoded in int[2] :
+    var bus_avionics            = getprop('/systems/electrical/bus/avionics') or 0;
+    var bus_engines             = getprop('/systems/electrical/bus/engines') or 0;
+    var bus_command             = getprop('/systems/electrical/bus/commands') or 0;
+    var engine0_stopped         = getprop('/engines/engine[0]/stopped') or 0;
+    var engine1_stopped         = getprop('/engines/engine[1]/stopped') or 0;
+    var pax_pilot               = getprop('/controls/pax/pilot') or 0;
+    var pax_copilot             = getprop('/controls/pax/copilot') or 0;
+    var refuel_serviceable      = getprop('/systems/refuel/serviceable') or 0;
+    setprop('/sim/multiplay/generic/int[2]', mp_encode([
+        bus_avionics,
+        bus_engines,
+        bus_command,
+        engine0_stopped,
+        engine1_stopped,
+        pax_pilot,
+        pax_copilot,
+        refuel_serviceable]));
+
+    settimer(bourrasque_mp_loop_encode, 2);
+}
+bourrasque_mp_loop_encode();
 
 setlistener('/sim/signals/fdm-initialized', bourrasque_loop);
 setlistener('/sim/signals/fdm-initialized', hippo_loop);
 setlistener('/sim/signals/fdm-initialized', bourrasque_slow_loop);
-
-
-
 
 
 

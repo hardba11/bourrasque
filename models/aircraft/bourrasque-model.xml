@@ -21,6 +21,58 @@ changelog
     <refuel>
       <type type="string">probe</type>
     </refuel>
+
+    <!-- for MP : encoded and decoded : int 0|1 - init to 0 -->
+    <sim>
+      <model>
+        <ground-equipment-e    type="int">0</ground-equipment-e>  <!-- covers -->
+        <ground-equipment-g    type="int">0</ground-equipment-g>  <!-- chocks -->
+        <ground-equipment-s    type="int">0</ground-equipment-s>  <!-- scale -->
+        <ground-equipment-p    type="int">0</ground-equipment-p>  <!-- power unit -->
+        <ground-equipment-f    type="int">0</ground-equipment-f>  <!-- fuel truck-->
+        <wing-tanks-1250       type="int">0</wing-tanks-1250>
+        <wing-tanks-2000       type="int">0</wing-tanks-2000>
+        <center-tank-1250      type="int">0</center-tank-1250>
+        <center-tank-2000      type="int">0</center-tank-2000>
+        <center-refuel-pod     type="int">0</center-refuel-pod>
+        <wing-pylons-smoke-pod type="int">0</wing-pylons-smoke-pod>
+        <smoking               type="int">0</smoking>
+      </model>
+    </sim>
+
+    <controls>
+      <lighting>
+        <beacon type="int">0</beacon>
+        <nav-lights type="int">0</nav-lights>
+        <pos-lights type="int">0</pos-lights>
+        <strobe type="int">0</strobe>
+        <taxi-light type="int">0</taxi-light>
+      </lighting>
+      <pax>
+        <pilot type="int">0</pilot>
+        <copilot type="int">0</copilot>
+      </pax>
+    </controls>
+    <systems>
+      <electrical>
+        <bus>
+          <avionics type="int">0</avionics>
+          <engines type="int">0</engines>
+          <commands type="int">0</commands>
+        </bus>
+      </electrical>
+      <refuel>
+        <serviceable type="int">0</serviceable>
+      </refuel>
+    </systems>
+    <engines>
+      <engine n="0">
+        <stopped type="int">0</stopped>
+      </engine>
+      <engine n="1">
+        <stopped type="int">0</stopped>
+      </engine>
+    </engines>
   </multiplay>
 
   <!--
@@ -202,12 +254,12 @@ ________________________________________________________________________________
         <product>
           <value>-16</value>
           <sum>
-            <property>sim/multiplay/generic/int[7]</property>
+            <property>systems/electrical/bus/commands</property>
             <value>-1</value>
           </sum>
         </product>
         <product>
-          <property>sim/multiplay/generic/int[7]</property>
+          <property>systems/electrical/bus/commands</property>
           <property>surface-positions/left-aileron-pos-norm</property>
           <value>8</value>
         </product>
@@ -233,12 +285,12 @@ ________________________________________________________________________________
         <product>
           <value>-16</value>
           <sum>
-            <property>sim/multiplay/generic/int[7]</property>
+            <property>systems/electrical/bus/commands</property>
             <value>-1</value>
           </sum>
         </product>
         <product>
-          <property>sim/multiplay/generic/int[7]</property>
+          <property>systems/electrical/bus/commands</property>
           <property>surface-positions/right-aileron-pos-norm</property>
           <value>8</value>
         </product>
@@ -270,12 +322,12 @@ ________________________________________________________________________________
         <product>
           <value>-16</value>
           <sum>
-            <property>sim/multiplay/generic/int[7]</property>
+            <property>systems/electrical/bus/commands</property>
             <value>-1</value>
           </sum>
         </product>
         <product>
-          <property>sim/multiplay/generic/int[7]</property>
+          <property>systems/electrical/bus/commands</property>
           <property>surface-positions/elevator-pos-norm</property>
           <value>8</value>
         </product>
@@ -301,12 +353,12 @@ ________________________________________________________________________________
         <product>
           <value>-16</value>
           <sum>
-            <property>sim/multiplay/generic/int[7]</property>
+            <property>systems/electrical/bus/commands</property>
             <value>-1</value>
           </sum>
         </product>
         <product>
-          <property>sim/multiplay/generic/int[7]</property>
+          <property>systems/electrical/bus/commands</property>
           <property>surface-positions/elevator-pos-norm</property>
           <value>8</value>
         </product>
@@ -623,7 +675,7 @@ ________________________________________________________________________________
     <type>select</type>
     <object-name>perche_ravitaillement</object-name>
     <condition>
-      <property>sim/multiplay/generic/int[12]</property>
+      <property>systems/refuel/serviceable</property>
     </condition>
   </animation>
 

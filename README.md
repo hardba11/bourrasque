@@ -19,7 +19,7 @@ Still in development but fully usable.
 - animated controls (ailerons, elevons, slats, canard)
 - other animations : opening canopy, retracting gears, lights, gears suspension
 - choice of liveries
-- ground equipments, external stores (fuel tanks)
+- ground equipments, external stores (fuel tanks, smoke pods, refuelling pod)
 
 3D cockpit
 - usable and clickable instruments with tooltips : VOR, PFD, Nav Display, hsi, asi, etc
@@ -30,6 +30,7 @@ Still in development but fully usable.
 
 Systems
 - autopilot
+- automatic hippodrome driven by autopilot
 - 4 mods (TAXI, APP, NAV, VFR) changing hud and fly-by-wire laws
 - start/stop procedure
 - refuelling ability (enable in menu and see : http://wiki.flightgear.org/Howto:Aerial_refueling)
@@ -43,6 +44,7 @@ Effects
 - atmosphere effects : wingtips, contrails
 - light effects : landing lights, flashlight (enable ALS)
 - rain effects : raindrops on canopy and fuselage, particles on ground
+- smoke pods
 
 AI scenario
 - 2 wingmen AI demo

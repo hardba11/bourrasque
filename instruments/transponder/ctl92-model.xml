@@ -50,7 +50,7 @@ Syd Adams
     <object-name>C92freq.004</object-name>
     <object-name>C92mem.annun</object-name>
     <condition>
-      <property>sim/multiplay/generic/int[5]</property>
+      <property>systems/electrical/bus/avionics</property>
       <not>
         <equals>
           <property>instrumentation/transponder/inputs/knob-mode</property>

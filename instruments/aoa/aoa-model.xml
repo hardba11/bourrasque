@@ -56,7 +56,7 @@ description :
       <blue>0.2</blue>
     </emission>
     <condition>
-      <property>sim/multiplay/generic/int[5]</property>
+      <property>systems/electrical/bus/avionics</property>
     </condition>
   </animation>
 
@@ -72,7 +72,7 @@ description :
     <object-name>aoa.tape</object-name>
     <object-name>aoa.tape-emit</object-name>
     <condition>
-      <property>sim/multiplay/generic/int[5]</property>
+      <property>systems/electrical/bus/avionics</property>
     </condition>
     <property>/orientation/alpha-deg</property>
     <factor>0.0235</factor>

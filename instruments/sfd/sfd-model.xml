@@ -43,7 +43,7 @@ changelog
     <type>select</type>
     <object-name>sfd.screen.off</object-name>
     <condition>
-      <not><property>sim/multiplay/generic/int[5]</property></not>
+      <not><property>systems/electrical/bus/avionics</property></not>
     </condition>
   </animation>
 
@@ -77,7 +77,7 @@ changelog
       <blue>0.2</blue>
     </emission>
     <condition>
-      <property>sim/multiplay/generic/int[5]</property>
+      <property>systems/electrical/bus/avionics</property>
     </condition>
   </animation>
 
@@ -353,7 +353,7 @@ my_aircraft_functions.inc_bingo(-1);
     <object-name>sfd.bingo_on-emit</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
+        <property>systems/electrical/bus/avionics</property>
         <property>/instrumentation/my_aircraft/fuel/bingo/is_bingo_enabled</property>
       </and>
     </condition>
@@ -393,7 +393,7 @@ my_aircraft_functions.event_control_pod_pipe(-1);
     <object-name>sfd.aar-emit</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
+        <property>systems/electrical/bus/avionics</property>
         <property>/controls/refuel-pod/pipe-extended</property>
       </and>
     </condition>

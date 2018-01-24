@@ -80,7 +80,7 @@ changelog
       <blue>0.2</blue>
     </emission>
     <condition>
-      <property>sim/multiplay/generic/int[5]</property>
+      <property>systems/electrical/bus/avionics</property>
     </condition>
   </animation>
 
@@ -323,7 +323,7 @@ changelog
     <type>select</type>
     <object-name>electrical.bus1-diode</object-name>
     <condition>
-      <property>sim/multiplay/generic/int[5]</property>
+      <property>systems/electrical/bus/avionics</property>
     </condition>
   </animation>
 
@@ -332,7 +332,7 @@ changelog
     <type>select</type>
     <object-name>electrical.bus2-diode</object-name>
     <condition>
-      <property>sim/multiplay/generic/int[6]</property>
+      <property>systems/electrical/bus/engines</property>
     </condition>
   </animation>
 
@@ -341,7 +341,7 @@ changelog
     <type>select</type>
     <object-name>electrical.bus3-diode</object-name>
     <condition>
-      <property>sim/multiplay/generic/int[7]</property>
+      <property>systems/electrical/bus/commands</property>
     </condition>
   </animation>
 

@@ -48,7 +48,7 @@ changelog
       <blue>0.2</blue>
     </emission>
     <condition>
-      <property>sim/multiplay/generic/int[5]</property>
+      <property>systems/electrical/bus/avionics</property>
     </condition>
   </animation>
 

@@ -33,7 +33,7 @@ changelog
     <type>select</type>
     <object-name>fuel.screen.off</object-name>
     <condition>
-      <not><property>sim/multiplay/generic/int[5]</property></not>
+      <not><property>systems/electrical/bus/avionics</property></not>
     </condition>
   </animation>
 

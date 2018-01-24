@@ -144,5 +144,41 @@ my_aircraft_functions.event_control_pod_pipe(1);
 
   <hrule />
 
+  <!-- ~~~~~~~~~~~~~~~~~~ smoke from pod -->
+  <group>
+    <layout>table</layout>
+    <halign>left</halign>
+    <text>
+      <row>0</row><col>0</col>
+      <label>smoke</label>
+    </text>
+    <button>
+      <row>0</row><col>1</col>
+      <legend>off</legend>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_smoke(0);
+          ]]>
+        </script>
+      </binding>
+    </button>
+    <button>
+      <row>0</row><col>2</col>
+      <legend>white</legend>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_smoke(1);
+          ]]>
+        </script>
+      </binding>
+    </button>
+  </group>
+
+  <hrule />
+
 </PropertyList>
 

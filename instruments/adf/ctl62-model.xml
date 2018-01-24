@@ -65,7 +65,7 @@ Syd Adams
     <object-name>mem.annun</object-name>
     <object-name>stby.dec</object-name>
     <condition>
-      <property>sim/multiplay/generic/int[5]</property>
+      <property>systems/electrical/bus/avionics</property>
       <not>
         <equals>
           <property>instrumentation/adf[0]/func-knob</property>

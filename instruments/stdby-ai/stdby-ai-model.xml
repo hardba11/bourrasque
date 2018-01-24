@@ -66,7 +66,7 @@ changelog
       <blue>0.2</blue>
     </emission>
     <condition>
-      <property>sim/multiplay/generic/int[5]</property>
+      <property>systems/electrical/bus/avionics</property>
     </condition>
   </animation>
 
@@ -86,7 +86,7 @@ changelog
           <property>/controls/lighting/instruments-norm</property>
           <value>0</value>
         </greater-than>
-        <property>sim/multiplay/generic/int[5]</property>
+        <property>systems/electrical/bus/avionics</property>
       </and>
     </condition>
   </animation>
@@ -95,7 +95,7 @@ changelog
     <object-name>ai.ball</object-name>
     <object-name>ai.ball-emit</object-name>
     <condition>
-      <property>sim/multiplay/generic/int[5]</property>
+      <property>systems/electrical/bus/avionics</property>
     </condition>
     <transform>
       <property>/orientation/pitch-deg</property>
@@ -128,7 +128,7 @@ changelog
     <object-name>ai.rollneedle</object-name>
     <object-name>ai.rollneedle-emit</object-name>
     <condition>
-      <property>sim/multiplay/generic/int[5]</property>
+      <property>systems/electrical/bus/avionics</property>
     </condition>
     <property>/orientation/roll-deg</property>
     <axis>

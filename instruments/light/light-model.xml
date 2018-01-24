@@ -98,7 +98,7 @@ changelog
       <blue>0.2</blue>
     </emission>
     <condition>
-      <property>sim/multiplay/generic/int[5]</property>
+      <property>systems/electrical/bus/avionics</property>
     </condition>
   </animation>
 
@@ -118,7 +118,7 @@ changelog
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>sim/multiplay/generic/int[1]</property>
+        <property>controls/lighting/nav-lights</property>
       </binding>
       <binding>
         <command>property-toggle</command>
@@ -140,7 +140,7 @@ changelog
     <type>translate</type>
     <object-name>light.btn_1</object-name>
     <object-name>light.btn_1-emit</object-name>
-    <property>sim/multiplay/generic/int[1]</property>
+    <property>controls/lighting/nav-lights</property>
     <factor>0.002</factor>
     <axis>
       <x>-1</x>
@@ -153,9 +153,9 @@ changelog
     <type>textranslate</type>
     <object-name>light.btn_1-emit</object-name>
     <condition>
-      <property>sim/multiplay/generic/int[1]</property>
+      <property>controls/lighting/nav-lights</property>
     </condition>
-    <property>sim/multiplay/generic/int[1]</property>
+    <property>controls/lighting/nav-lights</property>
     <factor>.078</factor>
     <step>1</step>
     <axis>
@@ -168,7 +168,7 @@ changelog
     <type>material</type>
     <object-name>light.btn_1-emit</object-name>
     <condition>
-      <property>sim/multiplay/generic/int[1]</property>
+      <property>controls/lighting/nav-lights</property>
     </condition>
     <emission>
       <factor>1</factor>
@@ -183,8 +183,8 @@ changelog
     <object-name>light.btn_1-emit</object-name>
     <condition>
       <or>
-        <not><property>sim/multiplay/generic/int[1]</property></not>
-        <not><property>sim/multiplay/generic/int[5]</property></not>
+        <not><property>controls/lighting/nav-lights</property></not>
+        <not><property>systems/electrical/bus/avionics</property></not>
       </or>
     </condition>
     <emission>
@@ -200,9 +200,9 @@ changelog
     <object-name>light.btn_1-emit</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
-        <property>sim/multiplay/generic/int[7]</property>
-        <property>sim/multiplay/generic/int[1]</property>
+        <property>systems/electrical/bus/avionics</property>
+        <property>systems/electrical/bus/commands</property>
+        <property>controls/lighting/nav-lights</property>
       </and>
     </condition>
   </animation>
@@ -217,7 +217,7 @@ changelog
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>sim/multiplay/generic/int[2]</property>
+        <property>controls/lighting/pos-lights</property>
       </binding>
       <binding>
         <command>property-toggle</command>
@@ -239,7 +239,7 @@ changelog
     <type>translate</type>
     <object-name>light.btn_2</object-name>
     <object-name>light.btn_2-emit</object-name>
-    <property>sim/multiplay/generic/int[2]</property>
+    <property>controls/lighting/pos-lights</property>
     <factor>0.002</factor>
     <axis>
       <x>-1</x>
@@ -252,9 +252,9 @@ changelog
     <type>textranslate</type>
     <object-name>light.btn_2-emit</object-name>
     <condition>
-      <property>sim/multiplay/generic/int[2]</property>
+      <property>controls/lighting/pos-lights</property>
     </condition>
-    <property>sim/multiplay/generic/int[2]</property>
+    <property>controls/lighting/pos-lights</property>
     <factor>.078</factor>
     <step>1</step>
     <axis>
@@ -267,7 +267,7 @@ changelog
     <type>material</type>
     <object-name>light.btn_2-emit</object-name>
     <condition>
-      <property>sim/multiplay/generic/int[2]</property>
+      <property>controls/lighting/pos-lights</property>
     </condition>
     <emission>
       <factor>1</factor>
@@ -282,8 +282,8 @@ changelog
     <object-name>light.btn_2-emit</object-name>
     <condition>
       <or>
-        <not><property>sim/multiplay/generic/int[2]</property></not>
-        <not><property>sim/multiplay/generic/int[5]</property></not>
+        <not><property>controls/lighting/pos-lights</property></not>
+        <not><property>systems/electrical/bus/avionics</property></not>
       </or>
     </condition>
     <emission>
@@ -299,9 +299,9 @@ changelog
     <object-name>light.btn_2-emit</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
-        <property>sim/multiplay/generic/int[7]</property>
-        <property>sim/multiplay/generic/int[2]</property>
+        <property>systems/electrical/bus/avionics</property>
+        <property>systems/electrical/bus/commands</property>
+        <property>controls/lighting/pos-lights</property>
       </and>
     </condition>
   </animation>
@@ -316,7 +316,7 @@ changelog
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>sim/multiplay/generic/int[0]</property>
+        <property>controls/lighting/beacon</property>
       </binding>
       <binding>
         <command>property-toggle</command>
@@ -338,7 +338,7 @@ changelog
     <type>translate</type>
     <object-name>light.btn_3</object-name>
     <object-name>light.btn_3-emit</object-name>
-    <property>sim/multiplay/generic/int[0]</property>
+    <property>controls/lighting/beacon</property>
     <factor>0.002</factor>
     <axis>
       <x>-1</x>
@@ -351,9 +351,9 @@ changelog
     <type>textranslate</type>
     <object-name>light.btn_3-emit</object-name>
     <condition>
-      <property>sim/multiplay/generic/int[0]</property>
+      <property>controls/lighting/beacon</property>
     </condition>
-    <property>sim/multiplay/generic/int[0]</property>
+    <property>controls/lighting/beacon</property>
     <factor>.078</factor>
     <step>1</step>
     <axis>
@@ -366,7 +366,7 @@ changelog
     <type>material</type>
     <object-name>light.btn_3-emit</object-name>
     <condition>
-      <property>sim/multiplay/generic/int[0]</property>
+      <property>controls/lighting/beacon</property>
     </condition>
     <emission>
       <factor>1</factor>
@@ -381,8 +381,8 @@ changelog
     <object-name>light.btn_3-emit</object-name>
     <condition>
       <or>
-        <not><property>sim/multiplay/generic/int[0]</property></not>
-        <not><property>sim/multiplay/generic/int[5]</property></not>
+        <not><property>controls/lighting/beacon</property></not>
+        <not><property>systems/electrical/bus/avionics</property></not>
       </or>
     </condition>
     <emission>
@@ -398,9 +398,9 @@ changelog
     <object-name>light.btn_3-emit</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
-        <property>sim/multiplay/generic/int[7]</property>
-        <property>sim/multiplay/generic/int[0]</property>
+        <property>systems/electrical/bus/avionics</property>
+        <property>systems/electrical/bus/commands</property>
+        <property>controls/lighting/beacon</property>
       </and>
     </condition>
   </animation>
@@ -415,7 +415,7 @@ changelog
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>sim/multiplay/generic/int[3]</property>
+        <property>controls/lighting/strobe</property>
       </binding>
       <binding>
         <command>property-toggle</command>
@@ -437,7 +437,7 @@ changelog
     <type>translate</type>
     <object-name>light.btn_4</object-name>
     <object-name>light.btn_4-emit</object-name>
-    <property>sim/multiplay/generic/int[3]</property>
+    <property>controls/lighting/strobe</property>
     <factor>0.002</factor>
     <axis>
       <x>-1</x>
@@ -450,9 +450,9 @@ changelog
     <type>textranslate</type>
     <object-name>light.btn_4-emit</object-name>
     <condition>
-      <property>sim/multiplay/generic/int[3]</property>
+      <property>controls/lighting/strobe</property>
     </condition>
-    <property>sim/multiplay/generic/int[3]</property>
+    <property>controls/lighting/strobe</property>
     <factor>.078</factor>
     <step>1</step>
     <axis>
@@ -465,7 +465,7 @@ changelog
     <type>material</type>
     <object-name>light.btn_4-emit</object-name>
     <condition>
-      <property>sim/multiplay/generic/int[3]</property>
+      <property>controls/lighting/strobe</property>
     </condition>
     <emission>
       <factor>1</factor>
@@ -480,8 +480,8 @@ changelog
     <object-name>light.btn_4-emit</object-name>
     <condition>
       <or>
-        <not><property>sim/multiplay/generic/int[3]</property></not>
-        <not><property>sim/multiplay/generic/int[5]</property></not>
+        <not><property>controls/lighting/strobe</property></not>
+        <not><property>systems/electrical/bus/avionics</property></not>
       </or>
     </condition>
     <emission>
@@ -497,9 +497,9 @@ changelog
     <object-name>light.btn_4-emit</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
-        <property>sim/multiplay/generic/int[7]</property>
-        <property>sim/multiplay/generic/int[3]</property>
+        <property>systems/electrical/bus/avionics</property>
+        <property>systems/electrical/bus/commands</property>
+        <property>controls/lighting/strobe</property>
       </and>
     </condition>
   </animation>
@@ -514,7 +514,7 @@ changelog
       <repeatable>false</repeatable>
       <binding>
         <command>property-toggle</command>
-        <property>sim/multiplay/generic/int[4]</property>
+        <property>controls/lighting/taxi-light</property>
       </binding>
       <binding>
         <command>property-toggle</command>
@@ -536,7 +536,7 @@ changelog
     <type>translate</type>
     <object-name>light.btn_5</object-name>
     <object-name>light.btn_5-emit</object-name>
-    <property>sim/multiplay/generic/int[4]</property>
+    <property>controls/lighting/taxi-light</property>
     <factor>0.002</factor>
     <axis>
       <x>-1</x>
@@ -549,9 +549,9 @@ changelog
     <type>textranslate</type>
     <object-name>light.btn_5-emit</object-name>
     <condition>
-      <property>sim/multiplay/generic/int[4]</property>
+      <property>controls/lighting/taxi-light</property>
     </condition>
-    <property>sim/multiplay/generic/int[4]</property>
+    <property>controls/lighting/taxi-light</property>
     <factor>.078</factor>
     <step>1</step>
     <axis>
@@ -564,7 +564,7 @@ changelog
     <type>material</type>
     <object-name>light.btn_5-emit</object-name>
     <condition>
-      <property>sim/multiplay/generic/int[4]</property>
+      <property>controls/lighting/taxi-light</property>
     </condition>
     <emission>
       <factor>1</factor>
@@ -579,8 +579,8 @@ changelog
     <object-name>light.btn_5-emit</object-name>
     <condition>
       <or>
-        <not><property>sim/multiplay/generic/int[4]</property></not>
-        <not><property>sim/multiplay/generic/int[5]</property></not>
+        <not><property>controls/lighting/taxi-light</property></not>
+        <not><property>systems/electrical/bus/avionics</property></not>
       </or>
     </condition>
     <emission>
@@ -596,9 +596,9 @@ changelog
     <object-name>light.btn_5-emit</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
-        <property>sim/multiplay/generic/int[7]</property>
-        <property>sim/multiplay/generic/int[4]</property>
+        <property>systems/electrical/bus/avionics</property>
+        <property>systems/electrical/bus/commands</property>
+        <property>controls/lighting/taxi-light</property>
       </and>
     </condition>
   </animation>

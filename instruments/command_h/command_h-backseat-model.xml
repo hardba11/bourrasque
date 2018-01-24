@@ -37,7 +37,7 @@ changelog
     <condition>
       <not>
         <or>
-          <property>sim/multiplay/generic/int[5]</property>
+          <property>systems/electrical/bus/avionics</property>
           <not-equals>
             <property>/instrumentation/my_aircraft/electricals/controls/master-switch</property>
             <value>0</value>

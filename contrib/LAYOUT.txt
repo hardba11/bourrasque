@@ -21,6 +21,8 @@ ai/
 fdm/
     yasim and nasal which modifies aircraft behaviours
 
+models/
+    this part is used in multiplay environment
 models/aircraft/
     for 3D models : xml, ac, png
 models/aircraft/liveries/

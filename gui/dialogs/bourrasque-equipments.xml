@@ -203,36 +203,48 @@ changelog
       <row>1</row><col>1</col>
       <legend>none</legend>
       <binding>
-        <command>property-assign</command>
-        <property>/sim/model/wing-tanks</property>
-        <value></value>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_load_store("wing", "none");
+          ]]>
+        </script>
       </binding>
     </button>
     <button>
       <row>1</row><col>2</col>
       <legend>1250 l</legend>
       <binding>
-        <command>property-assign</command>
-        <property>/sim/model/wing-tanks</property>
-        <value>1</value>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_load_store("wing", "tank-1250");
+          ]]>
+        </script>
       </binding>
     </button>
     <button>
       <row>1</row><col>3</col>
       <legend>2000 l</legend>
       <binding>
-        <command>property-assign</command>
-        <property>/sim/model/wing-tanks</property>
-        <value>2</value>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_load_store("wing", "tank-2000");
+          ]]>
+        </script>
       </binding>
     </button>
     <button>
       <row>1</row><col>4</col>
       <legend>full</legend>
       <binding>
-        <command>property-assign</command>
-        <property>/sim/model/wing-tanks</property>
-        <value>3</value>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_load_store("wing", "tank-1250+tank-2000");
+          ]]>
+        </script>
       </binding>
     </button>
 
@@ -244,36 +256,77 @@ changelog
       <row>2</row><col>1</col>
       <legend>none</legend>
       <binding>
-        <command>property-assign</command>
-        <property>/sim/model/center-tank</property>
-        <value></value>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_load_store("center", "none");
+          ]]>
+        </script>
       </binding>
     </button>
     <button>
       <row>2</row><col>2</col>
       <legend>1250 l</legend>
       <binding>
-        <command>property-assign</command>
-        <property>/sim/model/center-tank</property>
-        <value>1</value>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_load_store("center", "tank-1250");
+          ]]>
+        </script>
       </binding>
     </button>
     <button>
       <row>2</row><col>3</col>
       <legend>2000 l</legend>
       <binding>
-        <command>property-assign</command>
-        <property>/sim/model/center-tank</property>
-        <value>2</value>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_load_store("center", "tank-2000");
+          ]]>
+        </script>
       </binding>
     </button>
     <button>
       <row>2</row><col>4</col>
       <legend>refuelling pod</legend>
       <binding>
-        <command>property-assign</command>
-        <property>/sim/model/center-tank</property>
-        <value>4</value>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_load_store("center", "refuel-pod");
+          ]]>
+        </script>
+      </binding>
+    </button>
+
+    <text>
+      <row>3</row><col>0</col>
+      <label>wing ext</label>
+    </text>
+    <button>
+      <row>3</row><col>1</col>
+      <legend>none</legend>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_load_store("wing-pylons", "none");
+          ]]>
+        </script>
+      </binding>
+    </button>
+    <button>
+      <row>3</row><col>2</col>
+      <legend>smokepod</legend>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_load_store("wing-pylons", "smoke-pod");
+          ]]>
+        </script>
       </binding>
     </button>
 

@@ -46,17 +46,14 @@ changelog
     <object-name>ground_equipment.engine</object-name>
     <object-name>ground_equipment.flags</object-name>
     <condition>
+      <property>sim/model/ground-equipment-e</property>
       <equals>
-        <property>/sim/model/ground-equipment-e</property>
-        <value type="string">1</value>
+        <property>engines/engine[0]/stopped</property>
+        <value type="int">1</value>
       </equals>
       <equals>
-        <property>sim/multiplay/generic/int[8]</property>
-        <value type="string">1</value>
-      </equals>
-      <equals>
-        <property>sim/multiplay/generic/int[9]</property>
-        <value type="string">1</value>
+        <property>engines/engine[1]/stopped</property>
+        <value type="int">1</value>
       </equals>
     </condition>
   </animation>
@@ -66,18 +63,15 @@ changelog
     <type>select</type>
     <object-name>ground_equipment.gears</object-name>
     <condition>
-      <equals>
-        <property>/sim/model/ground-equipment-g</property>
-        <value type="string">1</value>
-      </equals>
+      <property>sim/model/ground-equipment-g</property>
       <or>
         <less-than>
-          <property>/velocities/groundspeed-kt</property>
+          <property>velocities/groundspeed-kt</property>
           <value>2</value>
         </less-than>
         <equals>
-          <property>sim/multiplay/generic/int[8]</property>
-          <value type="string">1</value>
+          <property>engines/engine[0]/stopped</property>
+          <value type="int">1</value>
         </equals>
       </or>
     </condition>
@@ -98,18 +92,15 @@ changelog
     <type>select</type>
     <object-name>ground_equipment.scale</object-name>
     <condition>
-      <equals>
-        <property>/sim/model/ground-equipment-s</property>
-        <value type="string">1</value>
-      </equals>
+      <property>sim/model/ground-equipment-s</property>
       <or>
         <less-than>
-          <property>/velocities/groundspeed-kt</property>
+          <property>velocities/groundspeed-kt</property>
           <value>2</value>
         </less-than>
         <equals>
-          <property>sim/multiplay/generic/int[8]</property>
-          <value type="string">1</value>
+          <property>engines/engine[0]/stopped</property>
+          <value type="int">1</value>
         </equals>
       </or>
     </condition>
@@ -121,12 +112,9 @@ changelog
     <object-name>external-power-unit.box</object-name>
     <object-name>external-power-unit.wire</object-name>
     <condition>
-      <equals>
-        <property>/sim/model/ground-equipment-p</property>
-        <value type="string">1</value>
-      </equals>
+      <property>sim/model/ground-equipment-p</property>
       <less-than>
-        <property>/velocities/groundspeed-kt</property>
+        <property>velocities/groundspeed-kt</property>
         <value>2</value>
       </less-than>
     </condition>
@@ -139,12 +127,9 @@ changelog
     <object-name>fuel-truck.pipe</object-name>
     <object-name>fuel-truck.tank</object-name>
     <condition>
-      <equals>
-        <property>/sim/model/ground-equipment-f</property>
-        <value type="string">1</value>
-      </equals>
+      <property>sim/model/ground-equipment-f</property>
       <less-than>
-        <property>/velocities/groundspeed-kt</property>
+        <property>velocities/groundspeed-kt</property>
         <value>2</value>
       </less-than>
     </condition>

@@ -3,7 +3,7 @@
 <PropertyList>
   <filter>
     <type>gain</type>
-    <gain>.30475</gain>
+    <gain>.30478</gain>
     <input>/position/altitude-agl-ft</input>
     <reference>1</reference>
     <output>/position/altitude-agl-m</output>

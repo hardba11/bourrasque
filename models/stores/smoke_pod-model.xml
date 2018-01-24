@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PropertyList>
+
+  <path>smoke_pod.ac</path>
+  <nopreview />
+
+  <!--
+================================================================================
+                                                             OBJECTS DECLARATION
+================================================================================
+  -->
+
+  <animation>
+    <type>material</type>
+    <object-name>smoke-pod</object-name>
+  </animation>
+
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/aircraft/aircraft</inherits-from>
+    <object-name>smoke-pod</object-name>
+  </effect>
+
+
+  <!--
+================================================================================
+                                                         CONTROLS AND ANIMATIONS
+================================================================================
+  -->
+  <animation>
+    <type>select</type>
+    <object-name>smoke-pod</object-name>
+    <condition>
+      <property>sim/model/wing-pylons-smoke-pod</property>
+    </condition>
+  </animation>
+
+  <model>
+    <path>smoke.xml</path>
+    <condition>
+      <property>sim/model/smoking</property>
+    </condition>
+    <offsets>
+      <x-m>8</x-m>
+      <y-m>6</y-m>
+      <z-m>0</z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>smoke.xml</path>
+    <condition>
+      <property>sim/model/smoking</property>
+    </condition>
+    <offsets>
+      <x-m>8</x-m>
+      <y-m>-6</y-m>
+      <z-m>0</z-m>
+    </offsets>
+  </model>
+
+</PropertyList>

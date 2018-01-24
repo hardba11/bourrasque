@@ -81,10 +81,7 @@
     <object-name>shadow.center-tank1250L</object-name>
     <condition>
       <and>
-        <equals>
-          <property>sim/multiplay/generic/string[0]</property>
-          <value type="string">1</value>
-        </equals>
+        <property>sim/model/center-tank-1250</property>
         <less-than>
           <property>/sim/time/sun-angle-rad</property>
           <value>1.45</value>
@@ -98,10 +95,7 @@
     <object-name>shadow.center-tank2000L</object-name>
     <condition>
       <and>
-        <equals>
-          <property>sim/multiplay/generic/string[0]</property>
-          <value type="string">2</value>
-        </equals>
+        <property>sim/model/center-tank-2000</property>
         <less-than>
           <property>/sim/time/sun-angle-rad</property>
           <value>1.45</value>
@@ -115,10 +109,7 @@
     <object-name>shadow.wing-tanks1250L</object-name>
     <condition>
       <and>
-        <equals>
-          <property>sim/multiplay/generic/string[1]</property>
-          <value type="string">1</value>
-        </equals>
+        <property>sim/model/wing-tanks-1250</property>
         <less-than>
           <property>/sim/time/sun-angle-rad</property>
           <value>1.45</value>
@@ -132,16 +123,7 @@
     <object-name>shadow.wing-tanks2000L</object-name>
     <condition>
       <and>
-        <or>
-          <equals>
-            <property>sim/multiplay/generic/string[1]</property>
-            <value type="string">2</value>
-          </equals>
-          <equals>
-            <property>sim/multiplay/generic/string[1]</property>
-            <value type="string">3</value>
-          </equals>
-        </or>
+        <property>sim/model/wing-tanks-2000</property>
         <less-than>
           <property>/sim/time/sun-angle-rad</property>
           <value>1.45</value>
@@ -155,10 +137,8 @@
     <object-name>shadow.wing-ext-tanks1250L</object-name>
     <condition>
       <and>
-        <equals>
-          <property>sim/multiplay/generic/string[1]</property>
-          <value type="string">3</value>
-        </equals>
+        <property>sim/model/wing-tanks-1250</property>
+        <property>sim/model/wing-tanks-2000</property>
         <less-than>
           <property>/sim/time/sun-angle-rad</property>
           <value>1.45</value>
@@ -171,7 +151,13 @@
     <type>select</type>
     <object-name>shadow.perche_ravitaillement</object-name>
     <condition>
-      <property>sim/multiplay/generic/int[12]</property>
+      <and>
+        <property>systems/refuel/serviceable</property>
+        <less-than>
+          <property>/sim/time/sun-angle-rad</property>
+          <value>1.45</value>
+        </less-than>
+      </and>
     </condition>
   </animation>
 

@@ -30,7 +30,7 @@
           <value>0.1</value>
         </greater-than>
         <equals>
-          <property>sim/multiplay/generic/int[9]</property>
+          <property>engines/engine[1]/stopped</property>
           <value>0</value>
         </equals>
       </and>

@@ -41,6 +41,34 @@ when on stick mode
 some informations
 =================
 
+numpad layout
+-------------
+
+* hit key with the ctrl key
+** if autopilot is enabled
+___________________________________________________________________
+ 7              | 8              | 9              | +
+                | - pitch down   |                | - inc throttle
+                | - trim down*   |                | - inc speed**
+                | - decr alt**   |                |
+________________|________________|________________|
+ 4              | 5              | 6              |
+ - roll left    | - reinit P,R,Y | - roll right   |
+ - trim left*   | - reinit trim* | - trim right*  |
+ - hdg left**   |                | - hdg right**  |
+________________|________________|________________|________________
+ 1              | 2              | 3              | enter
+ - yaw left     | - pitch up     | - yaw right    |
+ - trim l yaw*  | - trim up*     | - trim r yaw*  |
+                | - incr alt**   |                |
+________________|________________|________________|
+ 0                               | .              |
+ - decr throttle                 |                |
+ - decr speed**                  |                |
+                                 |                |
+_________________________________|________________|________________
+
+
 instruments knobs
 -----------------
 
@@ -94,10 +122,24 @@ mods
 how-to
 ======
 
+in air start at 5000ft and 250kt
+--------------------------------
+
+launch flightgear adding 2 parameters : --altitude=5000 --vc=250
+aircraft will automatically fast start and enable autopilot
+
+
+fast start
+----------
+
+use the bourrasque menu
+
+
 autostart
 ---------
 
 use the bourrasque menu or } key
+
 
 start
 -----
@@ -122,13 +164,14 @@ lights panel : anti-collision [ON]
 lights panel : strobe [ON]
 lights panel : navigation [ON]
 lights panel : position [ON]
-lights panel : formation [ADJUST]
-lights panel : landing and taxi [ON]
+lights panel : formation [ON DEMAND]
+lights panel : landing and taxi [ON DEMAND]
 engine 0 started [WAIT]
 PFD : autopilot speed [ADJUST]
 PFD : autopilot alt [ADJUST]
 PFD : autopilot heading [ADJUST]
 ALT : hdg [ADJUST]
+
 
 taxi
 ----
@@ -137,6 +180,8 @@ command panel : canopy [HALF-CLOSE]
 nd : mod [TAXI]
 gui/equipment : shocks [REMOVE]
 command panel : parkbrake [RELEASE]
+
+transponder adjust [ON DEMAND]
 
 
 take off
@@ -147,11 +192,16 @@ nd : mod [APP]
 full thrust
 rotation: 150kts
 
-nav
----
+
+navigation
+----------
 
 nd : mod [NAV]
 ALT : hdg [1013 HPa]
+choose VOR frequency, choose radial
+nd : VOR1 [ENABLE]
+PFD : adjust autopilot [ON DEMAND]
+
 
 landing
 -------
@@ -163,6 +213,7 @@ hud flight director on runway threshold
 and hud flight director between -2deg and -4deg
 touchdown at 120kts
 nd : mod [TAXI]
+
 
 stop
 ----
@@ -194,5 +245,31 @@ PFD : autopilot speed [ADJUST]
 PFD : autopilot alt [ADJUST]
 PFD : autopilot heading [ADJUST]
 ALT : hdg [ADJUST]
+
+
+carrier take off
+----------------
+
+nd : mod [APP]
+engage launch bar (])
+unlock parkbrakes (B)
+throttle 80%, catapult ([)
+
+
+refuelling as a tanker
+----------------------
+
+an automatic hippodrome driven by autopilot is available
+
+gui/equipment : center pylon [refuel pod]
+the copilot proGo view will be disable and the view refuelling pod will be enabled
+
+PFD : autopilot speed [ADJUST to 200kt AND ENABLE]
+PFD : autopilot alt [ADJUST to 10000ft AND ENABLE]
+PFD : autopilot heading [ADJUST AND ENABLE]
+wait aircraft is stabilized
+PFD : autopilot hippodrome [ENABLE]
+SFD : aar [ENABLE] (extend the refuelling pod pipe)
+
 
 

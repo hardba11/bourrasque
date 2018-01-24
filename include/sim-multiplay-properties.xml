@@ -15,25 +15,17 @@ PROPERTY-PATH : PropertyList > sim > multiplay
   <!-- http://wiki.flightgear.org/Multiplayer_protocol#Multiplay_debug-level -->
   <!--debug-level>1</debug-level-->
 
+  <visibility-range-nm type="int">200</visibility-range-nm>
+
   <generic>
-    <int                  n="0"  alias="/controls/lighting/beacon" />
-    <int                  n="1"  alias="/controls/lighting/nav-lights" />
-    <int                  n="2"  alias="/controls/lighting/pos-lights" />
-    <int                  n="3"  alias="/controls/lighting/strobe" />
-    <int                  n="4"  alias="/controls/lighting/taxi-light" />
-    <int                  n="5"  alias="/systems/electrical/bus/avionics" />
-    <int                  n="6"  alias="/systems/electrical/bus/engines" />
-    <int                  n="7"  alias="/systems/electrical/bus/commands" />
-    <int                  n="8"  alias="/engines/engine[0]/stopped" />
-    <int                  n="9"  alias="/engines/engine[1]/stopped" />
-    <int                  n="10" alias="/controls/pax/pilot" />
-    <int                  n="11" alias="/controls/pax/copilot" />
-    <int                  n="12" alias="/systems/refuel/serviceable" />
+
+    <int                  n="0" />
+    <int                  n="1" />
+    <int                  n="2" />
 
     <float                n="0"  alias="/sim/model/canopy-pos-norm" />
     <float                n="1"  alias="/sim/model/canards-pos-norm" />
     <float                n="2"  alias="/controls/lighting/formation-lights" />
-    <!--float                n="3"  alias="/position/altitude-agl-m" /-->
     <float                n="4"  alias="/gear/gear[0]/rollspeed-ms" />
     <float                n="5"  alias="/gear/gear[1]/rollspeed-ms" />
     <float                n="6"  alias="/gear/gear[2]/rollspeed-ms" />
@@ -45,15 +37,6 @@ PROPERTY-PATH : PropertyList > sim > multiplay
     <float                n="12" alias="/gear/gear[2]/wow" />
     <float                n="13" alias="/sim/model/store-refuel-pos-norm" />
 
-    <string               n="0"  alias="/sim/model/center-tank" />
-    <string               n="1"  alias="/sim/model/wing-tanks" />
-<!--
-    <string               n="2"  alias="/sim/model/ground-equipment-e" />
-    <string               n="3"  alias="/sim/model/ground-equipment-g" />
-    <string               n="4"  alias="/sim/model/ground-equipment-s" />
-    <string               n="5"  alias="/sim/model/ground-equipment-p" />
-    <string               n="6"  alias="/sim/model/ground-equipment-f" />
--->
   </generic>
 
 </PropertyList>

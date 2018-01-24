@@ -25,7 +25,7 @@ changelog
     <description type="string">Bourrasque</description>
 
     <author type="string">hardball SLK</author>
-    <aircraft-version type="string">20180108</aircraft-version>
+    <aircraft-version type="string">20180116</aircraft-version>
 
     <minimum-fg-version type="string">2017.1.1</minimum-fg-version>
 
@@ -62,9 +62,8 @@ changelog
 
       <name type="string">bourrasque</name>
       <path type="string">Aircraft/bourrasque/models/brsq.xml</path>
-<!-- USED FOR DEVELOPMENT
-      <path>Aircraft/bourrasque/models/cockpit/cockpit-test-model.xml</path>
--->
+
+<!-- USED FOR DEVELOPMENT <path>Aircraft/bourrasque/models/cockpit/cockpit-test-model.xml</path> -->
 
       <livery>
         <file type="string">liveries/texture_bourrasque_gris_digital</file>
@@ -79,13 +78,20 @@ changelog
       <canopy-pos-norm       type="float">1</canopy-pos-norm>
       <canards-pos-norm      type="float">0</canards-pos-norm>
       <store-refuel-pos-norm type="float">0</store-refuel-pos-norm>
-      <wing-tanks            type="string"></wing-tanks>  <!-- 1=tank1250L 2=tank2000L 3=tank1250L+tank2000Ld-->
-      <center-tank           type="string"></center-tank> <!-- 1=tank1250L 2=tank2000L 4=refuelpod-->
-      <ground-equipment-e    type="string">1</ground-equipment-e> <!-- covers -->
-      <ground-equipment-g    type="string">1</ground-equipment-g> <!-- chocks -->
-      <ground-equipment-s    type="string">1</ground-equipment-s> <!-- scale -->
-      <ground-equipment-p    type="string">1</ground-equipment-p> <!-- power unit -->
-      <ground-equipment-f    type="string">1</ground-equipment-f> <!-- fuel truck-->
+
+      <!-- for MP : encoded and decoded -->
+      <ground-equipment-e    type="int">1</ground-equipment-e>  <!-- covers -->
+      <ground-equipment-g    type="int">1</ground-equipment-g>  <!-- chocks -->
+      <ground-equipment-s    type="int">1</ground-equipment-s>  <!-- scale -->
+      <ground-equipment-p    type="int">1</ground-equipment-p>  <!-- power unit -->
+      <ground-equipment-f    type="int">1</ground-equipment-f>  <!-- fuel truck-->
+      <wing-tanks-1250       type="int">0</wing-tanks-1250>
+      <wing-tanks-2000       type="int">0</wing-tanks-2000>
+      <center-tank-1250      type="int">0</center-tank-1250>
+      <center-tank-2000      type="int">0</center-tank-2000>
+      <center-refuel-pod     type="int">0</center-refuel-pod>
+      <wing-pylons-smoke-pod type="int">0</wing-pylons-smoke-pod>
+      <smoking               type="int">0</smoking>
 
     </model>
 
@@ -165,12 +171,6 @@ changelog
         <number>0</number>
       </tcas>
     </instrumentation>
-
-    <!--
-    <ai>
-      <scenario n="100">wingman_brsq_demo</scenario>
-    </ai>
-    -->
 
   </sim>
 
@@ -303,9 +303,9 @@ changelog
       <file>Aircraft/Generic/formation.nas</file>
     </formation>
 
-    <!--FailureMgr>
+    <FailureMgr>
       <enabled type="bool">0</enabled>
-    </FailureMgr-->
+    </FailureMgr>
     <towing>
       <enabled type="bool">0</enabled>
     </towing>

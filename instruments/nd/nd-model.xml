@@ -78,7 +78,7 @@ changelog
     <type>select</type>
     <object-name>nd.screen.off</object-name>
     <condition>
-      <not><property>sim/multiplay/generic/int[5]</property></not>
+      <not><property>systems/electrical/bus/avionics</property></not>
     </condition>
   </animation>
 
@@ -161,7 +161,7 @@ changelog
       <blue>0.2</blue>
     </emission>
     <condition>
-      <property>sim/multiplay/generic/int[5]</property>
+      <property>systems/electrical/bus/avionics</property>
     </condition>
   </animation>
 
@@ -192,7 +192,7 @@ changelog
       <blue>0</blue>
     </emission>
     <condition>
-      <property>sim/multiplay/generic/int[5]</property>
+      <property>systems/electrical/bus/avionics</property>
     </condition>
   </animation>
 
@@ -386,7 +386,7 @@ instrument_nd.event_click_info();
     <object-name>nd.info-emit</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
+        <property>systems/electrical/bus/avionics</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/inputs/arpt</property>
           <value>1</value>
@@ -428,7 +428,7 @@ instrument_nd.event_click_info();
     <object-name>nd.vor1-emit</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
+        <property>systems/electrical/bus/avionics</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/inputs/lh-vor-adf</property>
           <value>1</value>
@@ -470,7 +470,7 @@ instrument_nd.event_click_info();
     <object-name>nd.adf1-emit</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
+        <property>systems/electrical/bus/avionics</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/inputs/lh-vor-adf</property>
           <value>-1</value>
@@ -512,7 +512,7 @@ instrument_nd.event_click_info();
     <object-name>nd.slave_gps-emit</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
+        <property>systems/electrical/bus/avionics</property>
         <property>/instrumentation/nav[0]/slaved-to-gps</property>
       </and>
     </condition>
@@ -553,7 +553,7 @@ instrument_nd.event_click_radar();
     <object-name>nd.rdr-emit</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
+        <property>systems/electrical/bus/avionics</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/inputs/inputs/tfc</property>
           <value>1</value>
@@ -595,7 +595,7 @@ instrument_nd.event_click_radar();
     <object-name>nd.vor2-emit</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
+        <property>systems/electrical/bus/avionics</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/inputs/rh-vor-adf</property>
           <value>1</value>
@@ -637,7 +637,7 @@ instrument_nd.event_click_radar();
     <object-name>nd.adf2-emit</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
+        <property>systems/electrical/bus/avionics</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/inputs/rh-vor-adf</property>
           <value>-1</value>
@@ -681,7 +681,7 @@ instrument_nd.event_click_true_north();
     <object-name>nd.true_north-emit</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
+        <property>systems/electrical/bus/avionics</property>
         <property>/instrumentation/my_aircraft/nd/inputs/true-north</property>
       </and>
     </condition>
@@ -718,7 +718,7 @@ instrument_nd.event_click_true_north();
     <object-name>nd.app-emit</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
+        <property>systems/electrical/bus/avionics</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/inputs/display-mode-num</property>
           <value>0</value>
@@ -757,7 +757,7 @@ instrument_nd.event_click_true_north();
     <object-name>nd.vor-emit</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
+        <property>systems/electrical/bus/avionics</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/inputs/display-mode-num</property>
           <value>1</value>
@@ -797,7 +797,7 @@ instrument_nd.event_click_true_north();
     <object-name>nd.map-emit</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
+        <property>systems/electrical/bus/avionics</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/inputs/display-mode-num</property>
           <value>2</value>
@@ -837,7 +837,7 @@ instrument_nd.event_click_true_north();
     <object-name>nd.pln-emit</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
+        <property>systems/electrical/bus/avionics</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/inputs/display-mode-num</property>
           <value>3</value>
@@ -880,7 +880,7 @@ my_aircraft_functions.set_mod("TAXI");
     <object-name>hud.taxi-emit</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
+        <property>systems/electrical/bus/avionics</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/controls/mode</property>
           <value>TAXI</value>
@@ -919,7 +919,7 @@ my_aircraft_functions.set_mod("APP");
     <object-name>hud.app-emit</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
+        <property>systems/electrical/bus/avionics</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/controls/mode</property>
           <value>APP</value>
@@ -958,7 +958,7 @@ my_aircraft_functions.set_mod("NAV");
     <object-name>hud.nav-emit</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
+        <property>systems/electrical/bus/avionics</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/controls/mode</property>
           <value>NAV</value>
@@ -998,7 +998,7 @@ my_aircraft_functions.set_mod("VFR");
     <object-name>hud.vfr-emit</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
+        <property>systems/electrical/bus/avionics</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/controls/mode</property>
           <value>VFR</value>

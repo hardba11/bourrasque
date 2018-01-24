@@ -26,6 +26,8 @@ last version (beta) :
 - 3d shadow (enable ALS)
 - multiplayer back-seat
 - 2 wingmen AI demo
+- multiplayer tanker buddy-buddy
+- hippodrome autopilot driven
 
 enjoy ;)
 

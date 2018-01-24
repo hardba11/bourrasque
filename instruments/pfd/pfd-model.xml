@@ -79,7 +79,7 @@ TODO :
     <type>select</type>
     <object-name>PFD.screen.off</object-name>
     <condition>
-      <not><property>sim/multiplay/generic/int[5]</property></not>
+      <not><property>systems/electrical/bus/avionics</property></not>
     </condition>
   </animation>
 
@@ -151,7 +151,7 @@ TODO :
       <blue>0.2</blue>
     </emission>
     <condition>
-      <property>sim/multiplay/generic/int[5]</property>
+      <property>systems/electrical/bus/avionics</property>
     </condition>
   </animation>
 
@@ -1065,7 +1065,7 @@ ________________________________________________________________________________
     <object-name>pfd.hdg-emit</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
+        <property>systems/electrical/bus/avionics</property>
         <equals>
           <property>/autopilot/locks/heading</property>
           <value>dg-heading-hold</value>
@@ -1107,7 +1107,7 @@ ________________________________________________________________________________
     <object-name>pfd.nav-emit</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
+        <property>systems/electrical/bus/avionics</property>
         <equals>
           <property>/autopilot/locks/heading</property>
           <value>nav1-hold</value>
@@ -1151,7 +1151,7 @@ my_aircraft_functions.event_toggle_hippodrome(-1);
     <object-name>pfd.hippo-emit</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
+        <property>systems/electrical/bus/avionics</property>
         <property>/instrumentation/my_aircraft/pfd/controls/hippodrome</property>
       </and>
     </condition>
@@ -1192,7 +1192,7 @@ instrument_pfd.event_click_disengage_autopilot();
     <object-name>pfd.disengage-emit</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
+        <property>systems/electrical/bus/avionics</property>
         <property>/instrumentation/my_aircraft/pfd/controls/disengage-blink</property>
       </and>
     </condition>
@@ -1233,7 +1233,7 @@ instrument_pfd.event_click_hold_autopilot();
     <object-name>pfd.hold-emit</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
+        <property>systems/electrical/bus/avionics</property>
         <property>/instrumentation/my_aircraft/pfd/controls/hold-blink</property>
       </and>
     </condition>
@@ -1378,7 +1378,7 @@ instrument_pfd.event_click_hold_autopilot();
     <object-name>pfd.alt-emit</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
+        <property>systems/electrical/bus/avionics</property>
         <equals>
           <property>/autopilot/locks/altitude</property>
           <value type="string">altitude-hold</value>
@@ -1521,7 +1521,7 @@ instrument_pfd.event_click_hold_autopilot();
     <object-name>pfd.speed-emit</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
+        <property>systems/electrical/bus/avionics</property>
         <equals>
           <property>/autopilot/locks/speed</property>
           <value>speed-with-throttle</value>
@@ -1684,7 +1684,7 @@ instrument_pfd.event_click_hold_autopilot();
     <object-name>pfd.vs-emit</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
+        <property>systems/electrical/bus/avionics</property>
         <equals>
           <property>/autopilot/locks/altitude</property>
           <value>vertical-speed-hold</value>

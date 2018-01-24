@@ -14,8 +14,8 @@
     <object-name>als_light</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[4]</property>
-        <property>sim/multiplay/generic/int[7]</property>
+        <property>controls/lighting/taxi-light</property>
+        <property>systems/electrical/bus/commands</property>
         <equals>
           <property>gear/gear[0]/position-norm</property>
           <value>1</value>

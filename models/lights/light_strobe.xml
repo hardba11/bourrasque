@@ -15,7 +15,7 @@
     <condition>
       <and>
         <property>sim/model/lights/strobe/state</property>
-        <property>sim/multiplay/generic/int[7]</property>
+        <property>systems/electrical/bus/commands</property>
       </and>
     </condition>
   </animation>

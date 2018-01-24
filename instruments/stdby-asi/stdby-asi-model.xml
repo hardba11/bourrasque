@@ -60,7 +60,7 @@ changelog
       <blue>0.2</blue>
     </emission>
     <condition>
-      <property>sim/multiplay/generic/int[5]</property>
+      <property>systems/electrical/bus/avionics</property>
     </condition>
   </animation>
 
@@ -79,7 +79,7 @@ changelog
     <object-name>asi.mach_scale</object-name>
     <object-name>asi.mach_scale-emit</object-name>
     <condition>
-      <property>sim/multiplay/generic/int[5]</property>
+      <property>systems/electrical/bus/avionics</property>
     </condition>
     <!--property>/instrumentation/airspeed-indicator/indicated-speed-kt</property-->
     <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
@@ -117,7 +117,7 @@ changelog
     <object-name>asi.mach_scale</object-name>
     <object-name>asi.mach_scale-emit</object-name>
     <condition>
-      <property>sim/multiplay/generic/int[5]</property>
+      <property>systems/electrical/bus/avionics</property>
     </condition>
     <property>/velocities/mach</property>
     <interpolation>

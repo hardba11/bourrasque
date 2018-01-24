@@ -355,7 +355,7 @@ ________________________________________________________________________________
     <path>Aircraft/bourrasque/models/pilot/pilot.xml</path>
     <condition>
       <or>
-        <property>sim/multiplay/generic/int[10]</property>
+        <property>controls/pax/pilot</property>
         <greater-than>
           <property>/velocities/groundspeed-kt</property>
           <value>2</value>
@@ -373,7 +373,7 @@ center : has to be the coords for view n=0 (see include/sim-view0-properties.xml
   -->
   <model>
     <name>hud_target_positions</name>
-    <path>instruments/hud_target_positions/hud_target_positions-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/hud_target_positions/hud_target_positions-model.xml</path>
     <offsets>
       <x-m>-3.21</x-m>
       <y-m>0</y-m>
@@ -387,7 +387,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>command_h</name>
-    <path>instruments/command_h/command_h-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/command_h/command_h-model.xml</path>
     <offsets>
       <x-m>-3.889</x-m>
       <y-m>0</y-m>
@@ -401,7 +401,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>magcompass-pilot</name>
-    <path>instruments/magcompass/magcompass-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/magcompass/magcompass-model.xml</path>
     <offsets>
       <x-m>-4.012</x-m>
       <y-m>-.15</y-m>
@@ -418,7 +418,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>turn-pilot</name>
-    <path>instruments/turn/turn-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/turn/turn-model.xml</path>
     <offsets>
       <x-m>-3.99</x-m>
       <y-m>.15</y-m>
@@ -470,7 +470,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>nd-pilot</name>
-    <path>instruments/nd/nd-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/nd/nd-model.xml</path>
     <offsets>
       <x-m>-3.88</x-m>
       <y-m>0</y-m>
@@ -487,7 +487,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>pfd-pilot</name>
-    <path>instruments/pfd/pfd-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/pfd/pfd-model.xml</path>
     <offsets>
       <x-m>-3.93</x-m>
       <y-m>.205</y-m>
@@ -504,7 +504,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>sfd-pilot</name>
-    <path>instruments/sfd/sfd-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/sfd/sfd-model.xml</path>
     <offsets>
       <x-m>-3.93</x-m>
       <y-m>-.205</y-m>
@@ -521,7 +521,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>stdby-ai-pilot</name>
-    <path>instruments/stdby-ai/stdby-ai-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/stdby-ai/stdby-ai-model.xml</path>
     <offsets>
       <x-m>-3.935</x-m>
       <y-m>-.06</y-m>
@@ -538,7 +538,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>aoa-pilot</name>
-    <path>instruments/aoa/aoa-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/aoa/aoa-model.xml</path>
     <offsets>
       <x-m>-3.93</x-m>
       <y-m>0</y-m>
@@ -555,7 +555,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>stdby-alt-pilot</name>
-    <path>instruments/stdby-alt/stdby-alt-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/stdby-alt/stdby-alt-model.xml</path>
     <offsets>
       <x-m>-3.935</x-m>
       <y-m>.06</y-m>
@@ -572,7 +572,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>stdby-hsi-pilot</name>
-    <path>instruments/stdby-hsi/stdby-hsi-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/stdby-hsi/stdby-hsi-model.xml</path>
     <offsets>
       <x-m>-3.885</x-m>
       <y-m>.06</y-m>
@@ -589,7 +589,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>stdby-asi-pilot</name>
-    <path>instruments/stdby-asi/stdby-asi-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/stdby-asi/stdby-asi-model.xml</path>
     <offsets>
       <x-m>-3.885</x-m>
       <y-m>-.06</y-m>
@@ -606,7 +606,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>chrono-pilot</name>
-    <path>instruments/chrono/chrono-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/chrono/chrono-model.xml</path>
     <offsets>
       <x-m>-3.9035</x-m>
       <y-m>.40</y-m>
@@ -624,7 +624,7 @@ ________________________________________________________________________________
   <!-- ~~~~~~~~~~~~~~~~~~ com/nav 1 -->
   <model>
     <name>com-1-pilot</name>
-    <path>instruments/com/ctl22-model1.xml</path>
+    <path>Aircraft/bourrasque/instruments/com/ctl22-model1.xml</path>
     <offsets>
       <x-m>-3.83</x-m>
       <y-m>.365</y-m>
@@ -636,7 +636,7 @@ ________________________________________________________________________________
   </model>
   <model>
     <name>nav-1-pilot</name>
-    <path>instruments/nav/ctl32-model1.xml</path>
+    <path>Aircraft/bourrasque/instruments/nav/ctl32-model1.xml</path>
     <offsets>
       <x-m>-3.83</x-m>
       <y-m>.425</y-m>
@@ -650,7 +650,7 @@ ________________________________________________________________________________
   <!-- ~~~~~~~~~~~~~~~~~~ com/nav 2 -->
   <model>
     <name>com-2-pilot</name>
-    <path>instruments/com/ctl22-model2.xml</path>
+    <path>Aircraft/bourrasque/instruments/com/ctl22-model2.xml</path>
     <offsets>
       <x-m>-3.765</x-m>
       <y-m>.365</y-m>
@@ -662,7 +662,7 @@ ________________________________________________________________________________
   </model>
   <model>
     <name>nav-2-pilot</name>
-    <path>instruments/nav/ctl32-model2.xml</path>
+    <path>Aircraft/bourrasque/instruments/nav/ctl32-model2.xml</path>
     <offsets>
       <x-m>-3.765</x-m>
       <y-m>.425</y-m>
@@ -679,7 +679,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>transponder-pilot</name>
-    <path>instruments/transponder/ctl92-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/transponder/ctl92-model.xml</path>
     <offsets>
       <x-m>-3.7</x-m>
       <y-m>.365</y-m>
@@ -696,7 +696,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>adf-pilot</name>
-    <path>instruments/adf/ctl62-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/adf/ctl62-model.xml</path>
     <offsets>
       <x-m>-3.7</x-m>
       <y-m>.425</y-m>
@@ -713,7 +713,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>electricals-pilot</name>
-    <path>instruments/electricals/electricals-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/electricals/electricals-model.xml</path>
     <offsets>
       <x-m>-3.31</x-m>
       <y-m>.409</y-m>
@@ -730,7 +730,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>engine-0-pilot</name>
-    <path>instruments/engines/engine0-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/engines/engine0-model.xml</path>
     <offsets>
       <x-m>-3.214</x-m>
       <y-m>.368</y-m>
@@ -747,7 +747,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>engine-1-pilot</name>
-    <path>instruments/engines/engine1-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/engines/engine1-model.xml</path>
     <offsets>
       <x-m>-3.214</x-m>
       <y-m>.451</y-m>
@@ -764,7 +764,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>fuel-pilot</name>
-    <path>instruments/fuel/fuel-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/fuel/fuel-model.xml</path>
     <offsets>
       <x-m>-3.9035</x-m>
       <y-m>-.40</y-m>
@@ -781,7 +781,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>command-pilot</name>
-    <path>instruments/command/command-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/command/command-model.xml</path>
     <offsets>
       <x-m>-3.75</x-m>
       <y-m>-.419086</y-m>
@@ -798,7 +798,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>light-pilot</name>
-    <path>instruments/light/light-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/light/light-model.xml</path>
     <offsets>
       <x-m>-3.23</x-m>
       <y-m>-.42</y-m>
@@ -815,7 +815,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>tablet-pilot</name>
-    <path>instruments/tablet/tablet-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/tablet/tablet-model.xml</path>
     <offsets>
       <x-m>-3.62</x-m>
       <y-m>.16</y-m>
@@ -826,7 +826,7 @@ ________________________________________________________________________________
     </offsets>
     <condition>
       <or>
-        <property>sim/multiplay/generic/int[10]</property>
+        <property>controls/pax/pilot</property>
         <greater-than>
           <property>/velocities/groundspeed-kt</property>
           <value>2</value>
@@ -867,7 +867,7 @@ ________________________________________________________________________________
       <z-m type="float">.08</z-m>
     </offsets>
     <condition>
-      <property>sim/multiplay/generic/int[11]</property>
+      <property>controls/pax/copilot</property>
     </condition>
   </model>
 
@@ -877,7 +877,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>command_h-copilot</name>
-    <path>instruments/command_h/command_h-backseat-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/command_h/command_h-backseat-model.xml</path>
     <offsets>
       <x-m>-2.48</x-m>
       <y-m>0</y-m>
@@ -891,7 +891,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>nd-copilot</name>
-    <path>instruments/nd/nd-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/nd/nd-model.xml</path>
     <offsets>
       <x-m>-2.42</x-m>
       <y-m>0</y-m>
@@ -908,7 +908,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>pfd-copilot</name>
-    <path>instruments/pfd/pfd-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/pfd/pfd-model.xml</path>
     <offsets>
       <x-m>-2.44</x-m>
       <y-m>.23</y-m>
@@ -925,7 +925,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>sfd-copilot</name>
-    <path>instruments/sfd/sfd-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/sfd/sfd-model.xml</path>
     <offsets>
       <x-m>-2.44</x-m>
       <y-m>-.23</y-m>
@@ -942,7 +942,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>stdby-ai-copilot</name>
-    <path>instruments/stdby-ai/stdby-ai-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/stdby-ai/stdby-ai-model.xml</path>
     <offsets>
       <x-m>-2.48</x-m>
       <y-m>-.06</y-m>
@@ -959,7 +959,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>aoa-copilot</name>
-    <path>instruments/aoa/aoa-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/aoa/aoa-model.xml</path>
     <offsets>
       <x-m>-2.48</x-m>
       <y-m>0</y-m>
@@ -976,7 +976,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>stdby-alt-copilot</name>
-    <path>instruments/stdby-alt/stdby-alt-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/stdby-alt/stdby-alt-model.xml</path>
     <offsets>
       <x-m>-2.48</x-m>
       <y-m>.06</y-m>
@@ -993,7 +993,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>stdby-hsi-copilot</name>
-    <path>instruments/stdby-hsi/stdby-hsi-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/stdby-hsi/stdby-hsi-model.xml</path>
     <offsets>
       <x-m>-2.42</x-m>
       <y-m>.06</y-m>
@@ -1010,7 +1010,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>stdby-asi-copilot</name>
-    <path>instruments/stdby-asi/stdby-asi-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/stdby-asi/stdby-asi-model.xml</path>
     <offsets>
       <x-m>-2.42</x-m>
       <y-m>-.06</y-m>
@@ -1027,7 +1027,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>chrono-copilot</name>
-    <path>instruments/chrono/chrono-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/chrono/chrono-model.xml</path>
     <offsets>
       <x-m>-2.435</x-m>
       <y-m>.40</y-m>
@@ -1044,7 +1044,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>magcompass-copilot</name>
-    <path>instruments/magcompass/magcompass-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/magcompass/magcompass-model.xml</path>
     <offsets>
       <x-m>-2.445</x-m>
       <y-m>.48</y-m>
@@ -1062,7 +1062,7 @@ ________________________________________________________________________________
   <!-- ~~~~~~~~~~~~~~~~~~ com/nav 1 -->
   <model>
     <name>com-1-copilot</name>
-    <path>instruments/com/ctl22-model1.xml</path>
+    <path>Aircraft/bourrasque/instruments/com/ctl22-model1.xml</path>
     <offsets>
       <x-m>-2.35</x-m>
       <y-m>.365</y-m>
@@ -1074,7 +1074,7 @@ ________________________________________________________________________________
   </model>
   <model>
     <name>nav-1-copilot</name>
-    <path>instruments/nav/ctl32-model1.xml</path>
+    <path>Aircraft/bourrasque/instruments/nav/ctl32-model1.xml</path>
     <offsets>
       <x-m>-2.35</x-m>
       <y-m>.425</y-m>
@@ -1088,7 +1088,7 @@ ________________________________________________________________________________
   <!-- ~~~~~~~~~~~~~~~~~~ com/nav 2 -->
   <model>
     <name>com-2-copilot</name>
-    <path>instruments/com/ctl22-model2.xml</path>
+    <path>Aircraft/bourrasque/instruments/com/ctl22-model2.xml</path>
     <offsets>
       <x-m>-2.285</x-m>
       <y-m>.365</y-m>
@@ -1100,7 +1100,7 @@ ________________________________________________________________________________
   </model>
   <model>
     <name>nav-2-copilot</name>
-    <path>instruments/nav/ctl32-model2.xml</path>
+    <path>Aircraft/bourrasque/instruments/nav/ctl32-model2.xml</path>
     <offsets>
       <x-m>-2.285</x-m>
       <y-m>.425</y-m>
@@ -1117,7 +1117,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>transponder-copilot</name>
-    <path>instruments/transponder/ctl92-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/transponder/ctl92-model.xml</path>
     <offsets>
       <x-m>-2.22</x-m>
       <y-m>.365</y-m>
@@ -1134,7 +1134,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>adf-copilot</name>
-    <path>instruments/adf/ctl62-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/adf/ctl62-model.xml</path>
     <offsets>
       <x-m>-2.22</x-m>
       <y-m>.425</y-m>
@@ -1151,7 +1151,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>electricals-copilot</name>
-    <path>instruments/electricals/electricals-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/electricals/electricals-model.xml</path>
     <offsets>
       <x-m>-2.0</x-m>
       <y-m>.409</y-m>
@@ -1168,7 +1168,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>engine-0-copilot</name>
-    <path>instruments/engines/engine0-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/engines/engine0-model.xml</path>
     <offsets>
       <x-m>-1.9</x-m>
       <y-m>.368</y-m>
@@ -1185,7 +1185,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>engine-1-copilot</name>
-    <path>instruments/engines/engine1-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/engines/engine1-model.xml</path>
     <offsets>
       <x-m>-1.9</x-m>
       <y-m>.451</y-m>
@@ -1202,7 +1202,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>fuel-copilot</name>
-    <path>instruments/fuel/fuel-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/fuel/fuel-model.xml</path>
     <offsets>
       <x-m>-2.435</x-m>
       <y-m>-.42</y-m>
@@ -1219,7 +1219,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>command-copilot</name>
-    <path>instruments/command/command-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/command/command-model.xml</path>
     <offsets>
       <x-m>-2.3127</x-m>
       <y-m>-.4318</y-m>
@@ -1236,7 +1236,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>light-copilot</name>
-    <path>instruments/light/light-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/light/light-model.xml</path>
     <offsets>
       <x-m>-1.95</x-m>
       <y-m>-.427</y-m>
@@ -1253,7 +1253,7 @@ ________________________________________________________________________________
   -->
   <model>
     <name>tablet-copilot</name>
-    <path>instruments/tablet/tablet-model.xml</path>
+    <path>Aircraft/bourrasque/instruments/tablet/tablet-model.xml</path>
     <offsets>
       <x-m>-2.15</x-m>
       <y-m>.16</y-m>
@@ -1263,7 +1263,7 @@ ________________________________________________________________________________
       <pitch-deg>-60</pitch-deg>
     </offsets>
     <condition>
-      <property>sim/multiplay/generic/int[11]</property>
+      <property>controls/pax/copilot</property>
     </condition>
   </model>
 

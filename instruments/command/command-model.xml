@@ -80,7 +80,7 @@ changelog
       <blue>0.2</blue>
     </emission>
     <condition>
-      <property>sim/multiplay/generic/int[5]</property>
+      <property>systems/electrical/bus/avionics</property>
     </condition>
   </animation>
 
@@ -97,7 +97,7 @@ changelog
       <blue>0</blue>
     </emission>
     <condition>
-      <property>sim/multiplay/generic/int[5]</property>
+      <property>systems/electrical/bus/avionics</property>
     </condition>
   </animation>
 
@@ -160,7 +160,7 @@ my_aircraft_functions.event_control_gear(-1, 0);
     <object-name>command.lightGear</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
+        <property>systems/electrical/bus/avionics</property>
         <greater-than>
           <property>gear/gear[0]/position-norm</property>
           <value>0</value>
@@ -254,7 +254,7 @@ my_aircraft_functions.event_control_gear(-1, 0);
     <object-name>command.lightParkbrake</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
+        <property>systems/electrical/bus/avionics</property>
         <property>/controls/gear/brake-parking</property>
       </and>
     </condition>
@@ -310,7 +310,7 @@ my_aircraft_functions.event_control_gear(-1, 0);
     <object-name>command.lightHook</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
+        <property>systems/electrical/bus/avionics</property>
         <property>/controls/gear/tailhook</property>
       </and>
     </condition>
@@ -352,7 +352,7 @@ my_aircraft_functions.event_control_gear(-1, 0);
     <object-name>command.lightLBar</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
+        <property>systems/electrical/bus/avionics</property>
         <property>/controls/gear/launchbar</property>
       </and>
     </condition>

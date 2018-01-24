@@ -6,7 +6,7 @@
 
   <parameters>
     <texture n="2">
-      <image>models/effects/interior/interior-glass.png</image>
+      <image>Aircraft/bourrasque/models/effects/interior/interior-glass.png</image>
       <type>2d</type>
       <filter>linear-mipmap-linear</filter>
       <wrap-s>clamp</wrap-s>

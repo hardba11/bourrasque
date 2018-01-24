@@ -15,7 +15,7 @@ perl -e 'for(reverse(1..11)){printf "
     <object-name>drogue.%03d</object-name>
     <condition>
       <equals>
-        <property>sim/multiplay/generic/string[0]</property>
+        <property>sim/model/center-refuel-pod</property>
         <value type=\"string\">4</value>
       </equals>
       <greater-than>
@@ -106,10 +106,7 @@ perl -e 'for(reverse(1..11)){printf "
     <object-name>refuel_pod</object-name>
     <object-name>drogue.001</object-name>
     <condition>
-      <equals>
-        <property>sim/multiplay/generic/string[0]</property>
-        <value type="string">4</value>
-      </equals>
+      <property>sim/model/center-refuel-pod</property>
     </condition>
   </animation>
 
@@ -160,10 +157,7 @@ perl -e 'for(reverse(1..11)){printf "
     <type>select</type>
     <object-name>basket-folded</object-name>
     <condition>
-      <equals>
-        <property>sim/multiplay/generic/string[0]</property>
-        <value type="string">4</value>
-      </equals>
+      <property>sim/model/center-refuel-pod</property>
       <less-than>
         <property>sim/multiplay/generic/float[13]</property>
         <value type="float">0.083</value>
@@ -174,10 +168,7 @@ perl -e 'for(reverse(1..11)){printf "
     <type>select</type>
     <object-name>basket-unfolded</object-name>
     <condition>
-      <equals>
-        <property>sim/multiplay/generic/string[0]</property>
-        <value type="string">4</value>
-      </equals>
+      <property>sim/model/center-refuel-pod</property>
       <greater-than>
         <property>sim/multiplay/generic/float[13]</property>
         <value type="float">0.083</value>
@@ -190,10 +181,7 @@ perl -e 'for(reverse(1..11)){printf "
     <type>select</type>
     <object-name>drogue.012</object-name>
     <condition>
-      <equals>
-        <property>sim/multiplay/generic/string[0]</property>
-        <value type="string">4</value>
-      </equals>
+      <property>sim/model/center-refuel-pod</property>
       <greater-than>
         <property>sim/multiplay/generic/float[13]</property>
         <value type="float">0.917</value>
@@ -205,10 +193,7 @@ perl -e 'for(reverse(1..11)){printf "
     <type>select</type>
     <object-name>drogue.011</object-name>
     <condition>
-      <equals>
-        <property>sim/multiplay/generic/string[0]</property>
-        <value type="string">4</value>
-      </equals>
+      <property>sim/model/center-refuel-pod</property>
       <greater-than>
         <property>sim/multiplay/generic/float[13]</property>
         <value type="float">0.833</value>
@@ -220,10 +205,7 @@ perl -e 'for(reverse(1..11)){printf "
     <type>select</type>
     <object-name>drogue.010</object-name>
     <condition>
-      <equals>
-        <property>sim/multiplay/generic/string[0]</property>
-        <value type="string">4</value>
-      </equals>
+      <property>sim/model/center-refuel-pod</property>
       <greater-than>
         <property>sim/multiplay/generic/float[13]</property>
         <value type="float">0.750</value>
@@ -235,10 +217,7 @@ perl -e 'for(reverse(1..11)){printf "
     <type>select</type>
     <object-name>drogue.009</object-name>
     <condition>
-      <equals>
-        <property>sim/multiplay/generic/string[0]</property>
-        <value type="string">4</value>
-      </equals>
+      <property>sim/model/center-refuel-pod</property>
       <greater-than>
         <property>sim/multiplay/generic/float[13]</property>
         <value type="float">0.667</value>
@@ -250,10 +229,7 @@ perl -e 'for(reverse(1..11)){printf "
     <type>select</type>
     <object-name>drogue.008</object-name>
     <condition>
-      <equals>
-        <property>sim/multiplay/generic/string[0]</property>
-        <value type="string">4</value>
-      </equals>
+      <property>sim/model/center-refuel-pod</property>
       <greater-than>
         <property>sim/multiplay/generic/float[13]</property>
         <value type="float">0.583</value>
@@ -265,10 +241,7 @@ perl -e 'for(reverse(1..11)){printf "
     <type>select</type>
     <object-name>drogue.007</object-name>
     <condition>
-      <equals>
-        <property>sim/multiplay/generic/string[0]</property>
-        <value type="string">4</value>
-      </equals>
+      <property>sim/model/center-refuel-pod</property>
       <greater-than>
         <property>sim/multiplay/generic/float[13]</property>
         <value type="float">0.500</value>
@@ -280,10 +253,7 @@ perl -e 'for(reverse(1..11)){printf "
     <type>select</type>
     <object-name>drogue.006</object-name>
     <condition>
-      <equals>
-        <property>sim/multiplay/generic/string[0]</property>
-        <value type="string">4</value>
-      </equals>
+      <property>sim/model/center-refuel-pod</property>
       <greater-than>
         <property>sim/multiplay/generic/float[13]</property>
         <value type="float">0.417</value>
@@ -295,10 +265,7 @@ perl -e 'for(reverse(1..11)){printf "
     <type>select</type>
     <object-name>drogue.005</object-name>
     <condition>
-      <equals>
-        <property>sim/multiplay/generic/string[0]</property>
-        <value type="string">4</value>
-      </equals>
+      <property>sim/model/center-refuel-pod</property>
       <greater-than>
         <property>sim/multiplay/generic/float[13]</property>
         <value type="float">0.333</value>
@@ -310,10 +277,7 @@ perl -e 'for(reverse(1..11)){printf "
     <type>select</type>
     <object-name>drogue.004</object-name>
     <condition>
-      <equals>
-        <property>sim/multiplay/generic/string[0]</property>
-        <value type="string">4</value>
-      </equals>
+      <property>sim/model/center-refuel-pod</property>
       <greater-than>
         <property>sim/multiplay/generic/float[13]</property>
         <value type="float">0.250</value>
@@ -325,10 +289,7 @@ perl -e 'for(reverse(1..11)){printf "
     <type>select</type>
     <object-name>drogue.003</object-name>
     <condition>
-      <equals>
-        <property>sim/multiplay/generic/string[0]</property>
-        <value type="string">4</value>
-      </equals>
+      <property>sim/model/center-refuel-pod</property>
       <greater-than>
         <property>sim/multiplay/generic/float[13]</property>
         <value type="float">0.167</value>
@@ -340,19 +301,13 @@ perl -e 'for(reverse(1..11)){printf "
     <type>select</type>
     <object-name>drogue.002</object-name>
     <condition>
-      <equals>
-        <property>sim/multiplay/generic/string[0]</property>
-        <value type="string">4</value>
-      </equals>
+      <property>sim/model/center-refuel-pod</property>
       <greater-than>
         <property>sim/multiplay/generic/float[13]</property>
         <value type="float">0.083</value>
       </greater-than>
     </condition>
   </animation>
-
-
-
 
 </PropertyList>
 

@@ -53,8 +53,8 @@ ________________________________________________________________________________
     <object-name>light_nav_green</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[1]</property>
-        <property>sim/multiplay/generic/int[7]</property>
+        <property>controls/lighting/nav-lights</property>
+        <property>systems/electrical/bus/commands</property>
       </and>
     </condition>
   </animation>
@@ -78,8 +78,8 @@ ________________________________________________________________________________
     <object-name>light_nav_red</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[1]</property>
-        <property>sim/multiplay/generic/int[7]</property>
+        <property>controls/lighting/nav-lights</property>
+        <property>systems/electrical/bus/commands</property>
       </and>
     </condition>
   </animation>
@@ -102,8 +102,8 @@ ________________________________________________________________________________
     <object-name>light_pos</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[2]</property>
-        <property>sim/multiplay/generic/int[7]</property>
+        <property>controls/lighting/pos-lights</property>
+        <property>systems/electrical/bus/commands</property>
       </and>
     </condition>
   </animation>
@@ -127,7 +127,7 @@ ________________________________________________________________________________
     <condition>
       <and>
         <property>controls/lighting/beacon</property>
-        <property>sim/multiplay/generic/int[7]</property>
+        <property>systems/electrical/bus/commands</property>
       </and>
     </condition>
   </animation>
@@ -157,7 +157,7 @@ ________________________________________________________________________________
     <condition>
       <and>
         <property>controls/lighting/strobe</property>
-        <property>sim/multiplay/generic/int[7]</property>
+        <property>systems/electrical/bus/commands</property>
       </and>
     </condition>
   </animation>
@@ -176,7 +176,7 @@ ________________________________________________________________________________
       <factor-prop>sim/multiplay/generic/float[2]</factor-prop>
     </emission>
     <condition>
-      <property>sim/multiplay/generic/int[7]</property>
+      <property>systems/electrical/bus/commands</property>
     </condition>
   </animation>
 

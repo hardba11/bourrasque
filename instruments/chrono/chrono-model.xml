@@ -55,7 +55,7 @@ description :
     <object-name>chrono.et-01.00</object-name>
     <object-name>chrono.et-10.00</object-name>
     <condition>
-      <property>sim/multiplay/generic/int[5]</property>
+      <property>systems/electrical/bus/avionics</property>
     </condition>
   </animation>
 
@@ -99,7 +99,7 @@ description :
       <blue>0.2</blue>
     </emission>
     <condition>
-      <property>sim/multiplay/generic/int[5]</property>
+      <property>systems/electrical/bus/avionics</property>
     </condition>
   </animation>
 
@@ -315,7 +315,7 @@ instrument_chrono.event_click_et_knob_reset();
       <z>0</z>
     </axis>
     <condition>
-      <property>sim/multiplay/generic/int[5]</property>
+      <property>systems/electrical/bus/avionics</property>
     </condition>
   </animation>
 
@@ -324,7 +324,7 @@ instrument_chrono.event_click_et_knob_reset();
     <type>select</type>
     <object-name>chrono.colon</object-name>
     <condition>
-      <property>sim/multiplay/generic/int[5]</property>
+      <property>systems/electrical/bus/avionics</property>
       <property>instrumentation/my_aircraft/chrono/outputs/colon</property>
     </condition>
   </animation>

@@ -68,7 +68,7 @@ Syd Adams
     <object-name>stby.006</object-name>
     <object-name>stby.dec</object-name>
     <condition>
-      <property>sim/multiplay/generic/int[5]</property>
+      <property>systems/electrical/bus/avionics</property>
       <property>instrumentation/comm[0]/serviceable</property>
     </condition>
   </animation>

@@ -26,7 +26,7 @@ changelog
     <variant-of type="string">bourrasque</variant-of>
 
     <author type="string">hardball SLK</author>
-    <aircraft-version type="string">20180108</aircraft-version>
+    <aircraft-version type="string">20180116</aircraft-version>
 
     <minimum-fg-version type="string">2017.1.1</minimum-fg-version>
 
@@ -70,13 +70,20 @@ changelog
       <canopy-pos-norm       type="float">1</canopy-pos-norm>
       <canards-pos-norm      type="float">0</canards-pos-norm>
       <store-refuel-pos-norm type="float">0</store-refuel-pos-norm>
-      <wing-tanks            type="string">none</wing-tanks>
-      <center-tank           type="string">none</center-tank>
-      <ground-equipment-e    type="string">1</ground-equipment-e> <!-- covers -->
-      <ground-equipment-g    type="string">1</ground-equipment-g> <!-- chocks -->
-      <ground-equipment-s    type="string">1</ground-equipment-s> <!-- scale -->
-      <ground-equipment-p    type="string">1</ground-equipment-p> <!-- power unit -->
-      <ground-equipment-f    type="string">1</ground-equipment-f> <!-- fuel truck-->
+
+      <!-- for MP : encoded and decoded -->
+      <ground-equipment-e    type="int">1</ground-equipment-e>  <!-- covers -->
+      <ground-equipment-g    type="int">1</ground-equipment-g>  <!-- chocks -->
+      <ground-equipment-s    type="int">1</ground-equipment-s>  <!-- scale -->
+      <ground-equipment-p    type="int">1</ground-equipment-p>  <!-- power unit -->
+      <ground-equipment-f    type="int">1</ground-equipment-f>  <!-- fuel truck-->
+      <wing-tanks-1250       type="int">0</wing-tanks-1250>
+      <wing-tanks-2000       type="int">0</wing-tanks-2000>
+      <center-tank-1250      type="int">0</center-tank-1250>
+      <center-tank-2000      type="int">0</center-tank-2000>
+      <center-refuel-pod     type="int">0</center-refuel-pod>
+      <wing-pylons-smoke-pod type="int">0</wing-pylons-smoke-pod>
+      <smoking               type="int">0</smoking>
 
     </model>
 
@@ -115,6 +122,8 @@ changelog
     <view n="0"     include="include/sim-view0-backseat-properties.xml" />
     <view n="102"   include="include/sim-view102-properties.xml" />
     <view n="103"   include="include/sim-view103-properties.xml" />
+    <view n="104"   include="include/sim-view104-properties.xml" />
+    <view n="105"   include="include/sim-view105-properties.xml" />
 
     <!-- ~~~~~~~~~~~~~~~~~~ multiplay -->
     <multiplay      include="include/sim-multiplay-properties.xml" />
@@ -225,6 +234,7 @@ changelog
     </instrument_tablet_map>
 
     <fdm>
+      <file type="string">fdm/bourrasque.nas</file>
       <file type="string">fdm/systems.nas</file>
     </fdm>
 

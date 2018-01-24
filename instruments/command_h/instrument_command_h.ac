@@ -1,13 +1,13 @@
 AC3Db
 MATERIAL "DefaultWhite" rgb 1.0000 1.0000 1.0000  amb 0.2000 0.2000 0.2000  emis 0.0000 0.0000 0.0000  spec 0.5000 0.5000 0.5000  shi 10 trans 0.0000
-MATERIAL "command_h" rgb 0.8000 0.8000 0.8000  amb 1.0000 1.0000 1.0000  emis 0.0000 0.0000 0.0000  spec 0.5000 0.5000 0.5000  shi 50 trans 0.0000
+MATERIAL "command_h-canvas" rgb 0.8000 0.8000 0.8000  amb 1.0000 1.0000 1.0000  emis 0.0000 0.0000 0.0000  spec 0.5000 0.5000 0.5000  shi 50 trans 0.0000
 OBJECT world
 name "Blender_export__instrument_command_h.ac"
 kids 7
 OBJECT poly
 name "alert_panel_canvas_screen"
 loc 0.0001851 0.0027168 0.0000000
-texture "texture_instrument_command_h.png"
+texture "texture_instrument_command_h-canvas.png"
 texrep 1 1
 numvert 4
 0.0065493 -0.0317139 0.0980272

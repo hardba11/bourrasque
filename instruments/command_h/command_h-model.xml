@@ -37,7 +37,7 @@ changelog
     <condition>
       <not>
         <or>
-          <property>sim/multiplay/generic/int[5]</property>
+          <property>systems/electrical/bus/avionics</property>
           <not-equals>
             <property>/instrumentation/my_aircraft/electricals/controls/master-switch</property>
             <value>0</value>
@@ -69,7 +69,7 @@ changelog
       <blue>0.2</blue>
     </emission>
     <condition>
-      <property>sim/multiplay/generic/int[5]</property>
+      <property>systems/electrical/bus/avionics</property>
     </condition>
   </animation>
   <animation>
@@ -94,7 +94,7 @@ changelog
       <blue>0</blue>
     </emission>
     <condition>
-      <property>sim/multiplay/generic/int[5]</property>
+      <property>systems/electrical/bus/avionics</property>
     </condition>
   </animation>
 
@@ -162,7 +162,7 @@ changelog
     <object-name>command_h.red-emit</object-name>
     <condition>
       <and>
-        <property>sim/multiplay/generic/int[5]</property>
+        <property>systems/electrical/bus/avionics</property>
         <equals>
           <property>/sim/hud/current-color</property>
           <value>1</value>

@@ -13,10 +13,9 @@
     <type>select</type>
     <object-name>als_light</object-name>
     <condition>
-      <!--property>controls/lighting/pos-lights</property-->
       <and>
-        <property>sim/multiplay/generic/int[2]</property>
-        <property>sim/multiplay/generic/int[7]</property>
+        <property>controls/lighting/pos-lights</property>
+        <property>systems/electrical/bus/commands</property>
       </and>
     </condition>
   </animation>

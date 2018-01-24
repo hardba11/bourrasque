@@ -374,6 +374,20 @@ var event_toggle_landing_lights = func() {
     setprop('/controls/lighting/taxi-light', toggle_lights);
 }
 
+var event_smoke = func(do_enable) {
+    var is_smokepod_installed = getprop('/sim/model/wing-pylons-smoke-pod') or 0;
+    var is_smoking = getprop('/sim/model/smoking') or 0;
+
+    if(is_smokepod_installed == 1)
+    {
+        if(do_enable == -1)
+        {
+            do_enable = (is_smoking == 0) ? 1 : 0;
+        }
+        setprop('/sim/model/smoking', do_enable);
+    }
+}
+
 var event_acknowledge_master_caution = func() {
     setprop('/instrumentation/my_aircraft/command_h/ack_alert', 1);
 }
@@ -442,9 +456,9 @@ var event_control_gear = func(down, animate_view) {
 var event_control_pod_pipe = func(extend) {
 
     var is_gear_down = getprop('/controls/gear/gear-down') or 0;
-    var center_pod = getprop('/sim/model/center-tank') or '' ;
+    var center_pod = getprop('/sim/model/center-refuel-pod') or 0 ;
     
-    if(center_pod == '4')
+    if(center_pod == 1)
     {
         if(extend == -1)
         {
@@ -472,8 +486,8 @@ var event_control_pod_pipe = func(extend) {
 
 var event_choose_enabled_cams = func() {
     # refueling cam if pod
-    var center_pod = getprop('/sim/model/center-tank') or '' ;
-    if(center_pod == '4')
+    var center_pod = getprop('/sim/model/center-refuel-pod') or 0 ;
+    if(center_pod == 1)
     {
         setprop('/sim/view[104]/enabled', 1);
         setprop('/sim/view[102]/enabled', 0);
@@ -497,6 +511,71 @@ var event_choose_enabled_cams = func() {
         setprop('/sim/view[103]/enabled', 0);
     }
 
+}
+
+var event_load_store = func(place, load) {
+    if(place == "wing")
+    {
+        if(load == "none")
+        {
+            setprop('/sim/model/wing-tanks-1250', 0);
+            setprop('/sim/model/wing-tanks-2000', 0);
+        }
+        elsif(load == "tank-1250")
+        {
+            setprop('/sim/model/wing-tanks-1250', 1);
+            setprop('/sim/model/wing-tanks-2000', 0);
+        }
+        elsif(load == "tank-2000")
+        {
+            setprop('/sim/model/wing-tanks-1250', 0);
+            setprop('/sim/model/wing-tanks-2000', 1);
+        }
+        elsif(load == "tank-1250+tank-2000")
+        {
+            setprop('/sim/model/wing-tanks-1250', 1);
+            setprop('/sim/model/wing-tanks-2000', 1);
+        }
+    }
+    elsif(place == "center")
+    {
+        if(load == "none")
+        {
+            setprop('/sim/model/center-tank-1250', 0);
+            setprop('/sim/model/center-tank-2000', 0);
+            setprop('/sim/model/center-refuel-pod', 0);
+        }
+        elsif(load == "tank-1250")
+        {
+            setprop('/sim/model/center-tank-1250', 1);
+            setprop('/sim/model/center-tank-2000', 0);
+            setprop('/sim/model/center-refuel-pod', 0);
+        }
+        elsif(load == "tank-2000")
+        {
+            setprop('/sim/model/center-tank-1250', 0);
+            setprop('/sim/model/center-tank-2000', 1);
+            setprop('/sim/model/center-refuel-pod', 0);
+        }
+        elsif(load == "refuel-pod")
+        {
+            setprop('/sim/model/center-tank-1250', 0);
+            setprop('/sim/model/center-tank-2000', 0);
+            setprop('/sim/model/center-refuel-pod', 1);
+        }
+    }
+    elsif(place == "wing-pylons")
+    {
+        if(load == "none")
+        {
+            setprop('/sim/model/wing-pylons-smoke-pod', 0);
+            setprop('/sim/model/smoking', 0);
+        }
+        elsif(load == "smoke-pod")
+        {
+            setprop('/sim/model/wing-pylons-smoke-pod', 1);
+        }
+    }
 }
 
 #===============================================================================
