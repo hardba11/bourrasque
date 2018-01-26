@@ -45,6 +45,7 @@ changelog
     <object-name>piston_train_principal_R</object-name>
     <object-name>roue_train_principal_R</object-name>
     <object-name>projecteur_train</object-name>
+    <object-name>projecteur_train_mirroir</object-name>
     <object-name>essieu_train</object-name>
     <object-name>essieu_train_principal_L</object-name>
     <object-name>essieu_train_principal_L</object-name>
@@ -56,8 +57,38 @@ changelog
     <object-name>piston_train</object-name>
     <object-name>piston_train_principal_L</object-name>
     <object-name>piston_train_principal_R</object-name>
-    <object-name>projecteur_train</object-name>
   </effect>
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/aircraft/mirror</inherits-from>
+    <object-name>projecteur_train_mirroir</object-name>
+  </effect>
+
+  <animation>
+    <type>material</type>
+    <object-name>projecteur_train</object-name>
+    <emission>
+      <factor>2</factor>
+      <red>.3</red>
+      <green>.3</green>
+      <blue>1</blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>projecteur_train</object-name>
+    <condition>
+      <and>
+        <property>controls/lighting/taxi-light</property>
+        <property>systems/electrical/bus/commands</property>
+        <equals>
+          <property>gear/gear[0]/position-norm</property>
+          <value>1</value>
+        </equals>
+      </and>
+    </condition>
+  </animation>
+
 
   <!-- ~~~~~~~~~~~~~~~~~~ front gear blocks -->
   <animation>
@@ -74,6 +105,7 @@ changelog
     <object-name>essieu_train</object-name>
     <object-name>roue_train</object-name>
     <object-name>projecteur_train</object-name>
+    <object-name>projecteur_train_mirroir</object-name>
   </animation>
   <animation>
     <name>block_roue_train</name>
@@ -95,14 +127,6 @@ changelog
   </animation>
   <animation>
     <name>block_roue_train_principal_L</name>
-    <object-name>compas_jambe_train_principal_L</object-name>
-    <object-name>compas_piston_train_principal_L</object-name>
-    <object-name>piston_train_principal_L</object-name>
-    <object-name>essieu_train_principal_L</object-name>
-    <object-name>roue_train_principal_L</object-name>
-  </animation>
-  <animation>
-    <name>block_roue_train_principal_L</name>
     <object-name>piston_train_principal_L</object-name>
     <object-name>essieu_train_principal_L</object-name>
     <object-name>roue_train_principal_L</object-name>
@@ -113,14 +137,6 @@ changelog
   <animation>
     <name>block_jambe_train_principal_R</name>
     <object-name>jambe_train_principal_R</object-name>
-    <object-name>compas_jambe_train_principal_R</object-name>
-    <object-name>compas_piston_train_principal_R</object-name>
-    <object-name>piston_train_principal_R</object-name>
-    <object-name>essieu_train_principal_R</object-name>
-    <object-name>roue_train_principal_R</object-name>
-  </animation>
-  <animation>
-    <name>block_roue_train_principal_R</name>
     <object-name>compas_jambe_train_principal_R</object-name>
     <object-name>compas_piston_train_principal_R</object-name>
     <object-name>piston_train_principal_R</object-name>
@@ -149,7 +165,7 @@ ________________________________________________________________________________
     <object-name>verin_jambe_train</object-name>
     <object-name>piston_verin_jambe_train</object-name>
     <object-name>jambe_train</object-name>
-    <object-name>projecteur_train</object-name>
+    <object-name>projecteur_train_mirroir</object-name>
     <object-name>compas_jambe_train</object-name>
     <object-name>compas_piston_train</object-name>
     <object-name>piston_train</object-name>
@@ -420,7 +436,7 @@ ________________________________________________________________________________
     <object-name>block_roue_train_principal_L</object-name>
     <property>gear/gear[1]/compression-norm</property>
     <interpolation>
-      <entry><ind>0.0</ind><dep>-0.12</dep></entry>   <!-- airborn -->
+      <entry><ind>0.0</ind><dep>-0.15</dep></entry>   <!-- airborn -->
       <entry><ind>0.08</ind><dep>-0.04</dep></entry>  <!-- ground -->
       <entry><ind>0.2</ind><dep>0.06</dep></entry>    <!-- compressed -->
     </interpolation>
@@ -575,7 +591,7 @@ ________________________________________________________________________________
     <object-name>block_roue_train_principal_R</object-name>
     <property>gear/gear[2]/compression-norm</property>
     <interpolation>
-      <entry><ind>0.0</ind><dep>-0.12</dep></entry>   <!-- airborn -->
+      <entry><ind>0.0</ind><dep>-0.15</dep></entry>   <!-- airborn -->
       <entry><ind>0.08</ind><dep>-0.04</dep></entry>  <!-- ground -->
       <entry><ind>0.2</ind><dep>0.06</dep></entry>    <!-- compressed -->
     </interpolation>

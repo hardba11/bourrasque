@@ -618,6 +618,7 @@ changelog
         <value>.33</value>
         <value>.66</value>
         <value>1</value>
+        <wrap>false</wrap>
       </binding>
       <binding>
         <command>property-toggle</command>
@@ -634,6 +635,7 @@ changelog
         <value>.66</value>
         <value>.33</value>
         <value>0</value>
+        <wrap>false</wrap>
       </binding>
       <binding>
         <command>property-toggle</command>

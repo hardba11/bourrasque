@@ -204,6 +204,19 @@ var mp_encode = func(list_of_values) {
 #  |                /sim/multiplay/generic/int[0]                 |
 #  !______________________________________________________________!
 # 
+# 
+#  encoding 6 bool properties to 1 integer
+#    +---------------------- property
+#    |   +------------------ property
+#    |   |   +-------------- property
+#    |   |   |   +---------- property
+#    |   |   |   |   +------ property
+#    |   |   |   |   |   +-- property
+#    v   v   v   v   v   v
+#    1   0   1   0   1   1 
+#   32  16   8   4   2   1 
+#  ----------------------------
+#   32     + 8     + 2 + 1 = 43
 
 var bourrasque_mp_loop_encode = func() {
     # encoded in int[0] :

@@ -26,15 +26,15 @@ print("*** LOADING instrument_command_h - command_h.nas ... ***");
 # STATUS are defined in command_h-properties.xml
 #   0 - OK : off
 #   1 - INFO : static yellow
-#   2 - CAUTION : blinking yellow - sound - clicking ack mute the sound
+#   2 - CAUTION : blinking yellow - sound* - clicking ack mute the sound
 #   3 - WARN : static red
-#   4 - ALERT : blinking red - sound - clicking ack mute the sound
+#   4 - ALERT : blinking red - sound* - clicking ack mute the sound
 
-var OK = 0;
-var INFO = 1;
+var OK      = 0;
+var INFO    = 1;
 var CAUTION = 2;
-var WARN = 3;
-var ALERT = 4;
+var WARN    = 3;
+var ALERT   = 4;
 
 var checking_aircraft_status = func()
 {

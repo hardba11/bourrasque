@@ -36,6 +36,7 @@ Systems
 - refuelling ability (enable in menu and see : http://wiki.flightgear.org/Howto:Aerial_refueling)
 - carrier landing and takeoff ability
 - multiplayer back-seat : fly as passenger !
+- if you start in the air, brsq starts automatically systems and engines and enables autopilot
 
 Effects
 - sounds (engines, wind, rain, avionics, gears)
@@ -46,7 +47,7 @@ Effects
 - rain effects : raindrops on canopy and fuselage, particles on ground
 - smoke pods
 
-AI scenario
+AI scenario (need to copy files in your FGDATA directory - see README)
 - 2 wingmen AI demo
 - timed loop AI demo over French Alps (takeoff LFLG : Grenoble le Versoud)
 - add a new tanker beside the A330MRTT
