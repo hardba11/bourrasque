@@ -63,6 +63,8 @@ changelog
       <name type="string">bourrasque</name>
       <path type="string">Aircraft/bourrasque/models/brsq.xml</path>
 
+      <constant type="int">1</constant>
+
 <!-- USED FOR DEVELOPMENT <path>Aircraft/bourrasque/models/cockpit/cockpit-test-model.xml</path> -->
 
       <livery>
@@ -195,11 +197,11 @@ changelog
   <!-- for tests and settings -->
   <debug1 type="float">0</debug1>
   <debug2 type="float">0</debug2>
-  <debug3 type="int">0</debug3>
-  <!--
+  <debug3 type="float">0</debug3>
   <debug4 type="float">0</debug4>
   <debug5 type="float">0</debug5>
   <debug6 type="float">0</debug6>
+  <!--
   -->
 
   <!-- ~~~~~~~~~~~~~~~~~~ AI -->

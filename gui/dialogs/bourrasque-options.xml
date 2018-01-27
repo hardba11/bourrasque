@@ -131,5 +131,44 @@ changelog
 
   <hrule />
 
+  <!-- ~~~~~~~~~~~~~~~~~~ hippodrome leg duration -->
+  <group>
+    <layout>table</layout>
+    <halign>left</halign>
+    <text>
+      <row>0</row><col>0</col>
+      <label>hippodrome leg</label>
+    </text>
+    <button>
+      <row>0</row><col>1</col>
+      <legend>2 min</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/instrumentation/my_aircraft/pfd/controls/hippodrome-leg-duration</property>
+        <value type="int">120</value>
+      </binding>
+    </button>
+    <button>
+      <row>0</row><col>2</col>
+      <legend>5 min</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/instrumentation/my_aircraft/pfd/controls/hippodrome-leg-duration</property>
+        <value type="int">300</value>
+      </binding>
+    </button>
+    <button>
+      <row>0</row><col>3</col>
+      <legend>10 min</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/instrumentation/my_aircraft/pfd/controls/hippodrome-leg-duration</property>
+        <value type="int">600</value>
+      </binding>
+    </button>
+  </group>
+
+  <hrule />
+
 </PropertyList>
 

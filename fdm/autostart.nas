@@ -116,26 +116,32 @@ var do_ground_equipment = func(value) {
 var do_comm0 = func(value) { # 0/1
     printf("  comm0");
     setprop('/instrumentation/comm[0]/serviceable', value);
+    setprop('/sim/model/click', (getprop('/sim/model/click') ? 0 : 1));
 }
 var do_comm1 = func(value) { # 0/1
     printf("  comm1");
     setprop('/instrumentation/comm[1]/serviceable', value);
+    setprop('/sim/model/click', (getprop('/sim/model/click') ? 0 : 1));
 }
 var do_nav0 = func(value) { # 0/1
     printf("  nav0");
     setprop('/instrumentation/nav[0]/serviceable', value);
+    setprop('/sim/model/click', (getprop('/sim/model/click') ? 0 : 1));
 }
 var do_nav1 = func(value) { # 0/1
     printf("  nav1");
     setprop('/instrumentation/nav[1]/serviceable', value);
+    setprop('/sim/model/click', (getprop('/sim/model/click') ? 0 : 1));
 }
 var do_adf0 = func(value) { # 0/2
     printf("  adf0");
     setprop('/instrumentation/adf[0]/func-knob', value);
+    setprop('/sim/model/click', (getprop('/sim/model/click') ? 0 : 1));
 }
 var do_transponder = func(value) { # 0/4
     printf("  transponder");
     setprop('/instrumentation/transponder/inputs/knob-mode', value);
+    setprop('/sim/model/click', (getprop('/sim/model/click') ? 0 : 1));
 }
 
 var flashlight = func(n) {
@@ -217,7 +223,7 @@ var fast_start = func() {
     settimer(func() { do_engines_started(); do_electrical_master_switch(1); }, 1);
 
     printf("started. Ready to fly !");
-    settimer(func() { setprop('/sim/messages/pilot', "started. Ready to fly !"); }, 3);
+    settimer(func() { setprop('/sim/messages/pilot', "started. Ready to fly !"); }, 1);
 }
 
 var stop = func() {
@@ -367,12 +373,12 @@ var check_start_airborn = func() {
         setprop('/controls/gear/brake-parking', 0);
 
         # enable autopilot :
-        settimer(func() { instrument_pfd.event_click_hold_autopilot();                    }, 2);
-        settimer(func() { setprop('/sim/messages/pilot', "autopilot activated");          }, 2);
+        settimer(func() { instrument_pfd.event_click_hold_autopilot();                    }, 1);
+        settimer(func() { setprop('/sim/messages/pilot', "autopilot activated");          }, 1);
 
         # ack alerts :
-        settimer(func() { setprop('/instrumentation/my_aircraft/command_h/ack_alert', 1); }, 2.5);
-        settimer(func() { setprop('/instrumentation/my_aircraft/command_h/ack_alert', 1); }, 3.5);
+        settimer(func() { setprop('/instrumentation/my_aircraft/command_h/ack_alert', 1); }, 2);
+        settimer(func() { setprop('/instrumentation/my_aircraft/command_h/ack_alert', 1); }, 3);
 
         # setting mod
         my_aircraft_functions.set_mod("NAV");
