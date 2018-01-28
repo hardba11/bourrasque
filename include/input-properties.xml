@@ -103,10 +103,6 @@ ________________________________________________________________________________
       <name>F6</name>
       <binding><command>nasal</command><script /></binding>
     </key>
-    <key n="360">
-      <name>PageUp</name>
-      <binding><command>nasal</command><script /></binding>
-    </key>
 
   <!--
 ________________________________________________________________________________
@@ -156,9 +152,9 @@ instrument_pfd.event_click_hold_autopilot();
         <binding>
           <command>nasal</command>
           <script>
-          <![CDATA[
+            <![CDATA[
 instrument_pfd.event_click_disengage_autopilot();
-          ]]>
+            ]]>
           </script>
         </binding>
       </mod-shift>
@@ -170,25 +166,19 @@ instrument_pfd.event_click_disengage_autopilot();
       <desc>toggle parking brake on or off</desc>
       <binding>
         <command>nasal</command>
-        <script />
-      </binding>
-      <mod-up>
-        <binding>
-          <command>nasal</command>
-          <script>
+        <script>
           <![CDATA[
 my_aircraft_functions.save_current_view();
 my_aircraft_functions.view_panel_command();
 settimer(func() { setprop('/controls/gear/brake-parking', (getprop('/controls/gear/brake-parking') ? 0 : 1)); }, 0.3);
 settimer(func() { my_aircraft_functions.load_current_view(); }, 1);
           ]]>
-          </script>
-        </binding>
-        <binding>
-          <command>property-toggle</command>
-          <property>sim/model/lever_parkbrake</property>
-        </binding>
-      </mod-up>
+        </script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/lever_parkbrake</property>
+      </binding>
     </key>
 
     <!-- ~~~~~~~~~~~~~~~~~~ carrier -->
@@ -294,7 +284,11 @@ my_aircraft_functions.event_control_gear(0, 1);
       <desc>next mod</desc>
       <binding>
         <command>nasal</command>
-        <script>my_aircraft_functions.change_mod(1)</script>
+        <script>
+          <![CDATA[
+my_aircraft_functions.change_mod(1);
+          ]]>
+        </script>
       </binding>
     </key>
     <key n="109">
@@ -302,7 +296,11 @@ my_aircraft_functions.event_control_gear(0, 1);
       <desc>previous mod</desc>
       <binding>
         <command>nasal</command>
-        <script>my_aircraft_functions.change_mod(-1)</script>
+        <script>
+          <![CDATA[
+my_aircraft_functions.change_mod(-1);
+          ]]>
+        </script>
       </binding>
     </key>
 
@@ -312,7 +310,11 @@ my_aircraft_functions.event_control_gear(0, 1);
       <desc>engines autostart</desc>
       <binding>
         <command>nasal</command>
-        <script>fdm.toggle_autostart()</script>
+        <script>
+          <![CDATA[
+fdm.toggle_autostart();
+          ]]>
+        </script>
       </binding>
     </key>
 
@@ -322,7 +324,11 @@ my_aircraft_functions.event_control_gear(0, 1);
       <desc>toggle lights</desc>
       <binding>
         <command>nasal</command>
-        <script>my_aircraft_functions.event_toggle_lights()</script>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_toggle_lights();
+          ]]>
+        </script>
       </binding>
     </key>
     <key n="108">
@@ -330,7 +336,11 @@ my_aircraft_functions.event_control_gear(0, 1);
       <desc>toggle landing lights</desc>
       <binding>
         <command>nasal</command>
-        <script>my_aircraft_functions.event_toggle_landing_lights()</script>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_toggle_landing_lights();
+          ]]>
+        </script>
       </binding>
     </key>
 
@@ -340,7 +350,11 @@ my_aircraft_functions.event_control_gear(0, 1);
       <desc>ack master caution</desc>
       <binding>
         <command>nasal</command>
-        <script>my_aircraft_functions.event_acknowledge_master_caution()</script>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_acknowledge_master_caution();
+          ]]>
+        </script>
       </binding>
     </key>
 
@@ -355,13 +369,21 @@ ________________________________________________________________________________
       <desc>center aileron, elevator, rudder</desc>
       <binding>
         <command>nasal</command>
-        <script>my_aircraft_functions.center_flight_controls()</script>
+        <script>
+          <![CDATA[
+my_aircraft_functions.center_flight_controls();
+          ]]>
+        </script>
       </binding>
       <mod-ctrl>
         <desc>center all trim</desc>
         <binding>
         <command>nasal</command>
-        <script>my_aircraft_functions.center_flight_controls_trim()</script>
+        <script>
+          <![CDATA[
+my_aircraft_functions.center_flight_controls_trim();
+          ]]>
+        </script>
         </binding>
       </mod-ctrl>
     </key>
@@ -374,7 +396,11 @@ ________________________________________________________________________________
       <repeatable type="bool">true</repeatable>
       <binding>
         <command>nasal</command>
-        <script>my_aircraft_functions.inc_elevator(-0.05, 1)</script>
+        <script>
+          <![CDATA[
+my_aircraft_functions.inc_elevator(-0.05, 1);
+          ]]>
+        </script>
       </binding>
       <mod-ctrl>
         <desc>trim up</desc>
@@ -400,7 +426,11 @@ ________________________________________________________________________________
       <repeatable type="bool">true</repeatable>
       <binding>
         <command>nasal</command>
-        <script>my_aircraft_functions.inc_elevator(0.05, -1)</script>
+        <script>
+          <![CDATA[
+my_aircraft_functions.inc_elevator(0.05, -1);
+          ]]>
+        </script>
       </binding>
       <mod-ctrl>
         <desc>trim down</desc>
@@ -428,7 +458,11 @@ ________________________________________________________________________________
       <repeatable type="bool">true</repeatable>
       <binding>
         <command>nasal</command>
-        <script>my_aircraft_functions.inc_aileron(-0.05, -1)</script>
+        <script>
+          <![CDATA[
+my_aircraft_functions.inc_aileron(-0.05, -1);
+          ]]>
+        </script>
       </binding>
       <mod-ctrl>
         <desc>trim left</desc>
@@ -454,7 +488,11 @@ ________________________________________________________________________________
       <repeatable type="bool">true</repeatable>
       <binding>
         <command>nasal</command>
-        <script>my_aircraft_functions.inc_aileron(0.05, 1)</script>
+        <script>
+          <![CDATA[
+my_aircraft_functions.inc_aileron(0.05, 1);
+          ]]>
+        </script>
       </binding>
       <mod-ctrl>
         <desc>trim right</desc>
@@ -521,7 +559,11 @@ ________________________________________________________________________________
       <repeatable type="bool">true</repeatable>
       <binding>
         <command>nasal</command>
-        <script>my_aircraft_functions.inc_throttle(0.01, 1)</script>
+        <script>
+          <![CDATA[
+my_aircraft_functions.inc_throttle(0.01, 1);
+          ]]>
+        </script>
       </binding>
     </key>
 
@@ -531,12 +573,50 @@ ________________________________________________________________________________
       <repeatable type="bool">true</repeatable>
       <binding>
         <command>nasal</command>
-        <script>my_aircraft_functions.inc_throttle(-0.01, -1)</script>
+        <script>
+          <![CDATA[
+my_aircraft_functions.inc_throttle(-0.01, -1);
+          ]]>
+        </script>
       </binding>
     </key>
 
-  </keyboard>
+  <!--
+________________________________________________________________________________
+                                                                           VIEWS
+  -->
+    <key n="362">
+      <name>Home</name>
+      <desc>toggle view left</desc>
+      <repeatable type="bool">false</repeatable>
+      <binding n="0">
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.toggle_view_cockpit_left_or_right('left');
+          ]]>
+        </script>
+        <property />
+      </binding>
+    </key>
 
+    <key n="360">
+      <name>PageUp</name>
+      <desc>toggle view right</desc>
+      <repeatable type="bool">false</repeatable>
+      <binding n="0">
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.toggle_view_cockpit_left_or_right('right');
+          ]]>
+        </script>
+        <property />
+      </binding>
+    </key>
+
+
+  </keyboard>
   <!--
 ================================================================================
                                                                   MOUSE SETTINGS
@@ -554,7 +634,11 @@ ________________________________________________________________________________
       <button n="3"> <!-- scroll up adjust throttle if AP disabled, adjust speed if AP enabled -->
         <binding>
           <command>nasal</command>
-          <script>my_aircraft_functions.inc_throttle(0.01, 1)</script>
+          <script>
+            <![CDATA[
+my_aircraft_functions.inc_throttle(0.01, 1);
+            ]]>
+          </script>
           <offset>0</offset>
           <property />
           <step />
@@ -564,7 +648,11 @@ ________________________________________________________________________________
       <button n="4"> <!-- scroll down adjust throttle if AP disabled, adjust speed if AP enabled -->
         <binding>
           <command>nasal</command>
-          <script>my_aircraft_functions.inc_throttle(-0.01, -1)</script>
+          <script>
+            <![CDATA[
+my_aircraft_functions.inc_throttle(-0.01, -1);
+            ]]>
+          </script>
           <offset>0</offset>
           <property />
           <step />
@@ -647,7 +735,11 @@ ________________________________________________________________________________
         <!-- middle button pressed: control throttle -->
         <binding>
           <command>nasal</command>
-          <script>my_aircraft_functions.throttle_mouse()</script>
+          <script>
+            <![CDATA[
+my_aircraft_functions.throttle_mouse();
+            ]]>
+          </script>
         </binding>
 
       </y-axis>

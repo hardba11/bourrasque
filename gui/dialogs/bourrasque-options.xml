@@ -42,7 +42,7 @@ changelog
       <label>hud helper</label>
     </text>
     <checkbox>
-      <row>0</row><col>1</col>
+      <row>1</row><col>0</col>
       <x>150</x>
       <y>200</y>
       <width>12</width>
@@ -54,12 +54,12 @@ changelog
       </binding>
     </checkbox>
     <text>
-      <row>0</row><col>2</col>
+      <row>1</row><col>1</col>
       <halign>left</halign>
       <label>show targets positions</label>
     </text>
     <checkbox>
-      <row>1</row><col>1</col>
+      <row>2</row><col>0</col>
       <x>150</x>
       <y>200</y>
       <width>12</width>
@@ -71,7 +71,7 @@ changelog
       </binding>
     </checkbox>
     <text>
-      <row>1</row><col>2</col>
+      <row>2</row><col>1</col>
       <halign>left</halign>
       <label>show multiplayers targets (AI if unchecked)</label>
     </text>
@@ -89,6 +89,7 @@ changelog
     </text>
     <button>
       <row>0</row><col>1</col>
+      <pref-width>70</pref-width><pref-height>20</pref-height>
       <legend>away</legend>
       <binding>
         <command>property-assign</command>
@@ -98,6 +99,7 @@ changelog
     </button>
     <button>
       <row>0</row><col>2</col>
+      <pref-width>70</pref-width><pref-height>20</pref-height>
       <legend>seated</legend>
       <binding>
         <command>property-assign</command>
@@ -111,6 +113,7 @@ changelog
     </text>
     <button>
       <row>1</row><col>1</col>
+      <pref-width>70</pref-width><pref-height>20</pref-height>
       <legend>away</legend>
       <binding>
         <command>property-assign</command>
@@ -120,6 +123,7 @@ changelog
     </button>
     <button>
       <row>1</row><col>2</col>
+      <pref-width>70</pref-width><pref-height>20</pref-height>
       <legend>seated</legend>
       <binding>
         <command>property-assign</command>

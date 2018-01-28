@@ -48,6 +48,29 @@ var current_fov = 0;
 var current_heading = 0;
 var current_pitch = 0;
 
+var is_view_cockpit_left_or_right = 0;
+var toggle_view_cockpit_left_or_right = func(left_or_right)
+{
+    if(is_view_cockpit_left_or_right)
+    {
+        is_view_cockpit_left_or_right = 0;
+        load_current_view();
+    }
+    else
+    {
+        save_current_view();
+        if(left_or_right == 'left')
+        {
+            view_cockpit_left();
+        }
+        elsif(left_or_right == 'right')
+        {
+            view_cockpit_right();
+        }
+        is_view_cockpit_left_or_right = 1;
+    }
+}
+
 var save_current_view = func() {
     var view_number = getprop('/sim/current-view/view-number') or 0;
     if(view_number == 0)
@@ -119,6 +142,25 @@ var view_panel_radio = func() {
         setprop('/sim/current-view/field-of-view', 40);
         setprop('/sim/current-view/goal-heading-offset-deg', 325);
         setprop('/sim/current-view/goal-pitch-offset-deg', -45);
+    }
+}
+
+var view_cockpit_left = func() {
+    var view_number = getprop('/sim/current-view/view-number') or 0;
+    if(view_number == 0)
+    {
+        setprop('/sim/current-view/field-of-view', 40);
+        setprop('/sim/current-view/goal-heading-offset-deg', 11.6);
+        setprop('/sim/current-view/goal-pitch-offset-deg', -25);
+    }
+}
+var view_cockpit_right = func() {
+    var view_number = getprop('/sim/current-view/view-number') or 0;
+    if(view_number == 0)
+    {
+        setprop('/sim/current-view/field-of-view', 40);
+        setprop('/sim/current-view/goal-heading-offset-deg', -11.6);
+        setprop('/sim/current-view/goal-pitch-offset-deg', -25);
     }
 }
 

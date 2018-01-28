@@ -91,17 +91,26 @@ var event_click_true_north = func()
     setprop('/instrumentation/my_aircraft/nd/inputs/true-north', is_true_north);
 
     var indicated_heading = props.globals.getNode("/instrumentation/my_aircraft/nd/outputs/indicated-heading");
+    var heading_bug = props.globals.getNode("/instrumentation/my_aircraft/nd/outputs/heading-bug-deg");
     if(is_true_north)
     {
         indicated_heading.unalias();
         var indicated_true_heading = props.globals.getNode("/orientation/heading-deg");
         indicated_heading.alias(indicated_true_heading);
+
+        heading_bug.unalias();
+        var indicated_true_heading = props.globals.getNode("/instrumentation/my_aircraft/nd/outputs/true-heading-bug-deg");
+        heading_bug.alias(indicated_true_heading);
     }
     else
     {
         indicated_heading.unalias();
         var indicated_mag_heading = props.globals.getNode("/orientation/heading-magnetic-deg");
         indicated_heading.alias(indicated_mag_heading);
+
+        heading_bug.unalias();
+        var indicated_true_heading = props.globals.getNode("/autopilot/settings/heading-bug-deg");
+        heading_bug.alias(indicated_true_heading);
     }
 }
 

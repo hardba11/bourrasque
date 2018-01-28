@@ -38,154 +38,127 @@ changelog
     <layout>table</layout>
     <halign>left</halign>
     <text>
-      <row>0</row><col>0</col>
+      <row>0</row><col>1</col>
       <label>ground equipment</label>
     </text>
 
-    <text>
+    <checkbox>
       <row>1</row><col>0</col>
+      <x>50</x>
+      <y>200</y>
+      <width>12</width>
+      <height>12</height>
+      <property>/sim/model/ground-equipment-e</property>
+      <binding>
+        <command>property-toggle</command>
+        <property>/sim/model/ground-equipment-e</property>
+      </binding>
+    </checkbox>
+    <text>
+      <row>1</row><col>1</col>
+      <halign>left</halign>
       <label>covers</label>
     </text>
-    <button>
-      <row>1</row><col>1</col>
-      <legend>remove</legend>
-      <binding>
-        <command>property-assign</command>
-        <property>/sim/model/ground-equipment-e</property>
-        <value>0</value>
-      </binding>
-    </button>
-    <button>
-      <row>1</row><col>2</col>
-      <legend>put</legend>
-      <binding>
-        <command>property-assign</command>
-        <property>/sim/model/ground-equipment-e</property>
-        <value>1</value>
-      </binding>
-    </button>
 
-    <text>
+    <checkbox>
       <row>2</row><col>0</col>
+      <x>50</x>
+      <y>200</y>
+      <width>12</width>
+      <height>12</height>
+      <property>/sim/model/ground-equipment-f</property>
+      <binding>
+        <command>property-toggle</command>
+        <property>/sim/model/ground-equipment-f</property>
+      </binding>
+    </checkbox>
+    <text>
+      <row>2</row><col>1</col>
+      <halign>left</halign>
       <label>fuel truck</label>
     </text>
-    <button>
-      <row>2</row><col>1</col>
-      <legend>remove</legend>
-      <binding>
-        <command>property-assign</command>
-        <property>/sim/model/ground-equipment-f</property>
-        <value>0</value>
-      </binding>
-    </button>
-    <button>
-      <row>2</row><col>2</col>
-      <legend>put</legend>
-      <binding>
-        <command>property-assign</command>
-        <property>/sim/model/ground-equipment-f</property>
-        <value>1</value>
-      </binding>
-    </button>
 
-    <text>
+
+    <checkbox>
       <row>3</row><col>0</col>
+      <x>50</x>
+      <y>200</y>
+      <width>12</width>
+      <height>12</height>
+      <property>/sim/model/ground-equipment-p</property>
+      <binding>
+        <command>property-toggle</command>
+        <property>/sim/model/ground-equipment-p</property>
+      </binding>
+    </checkbox>
+    <text>
+      <row>3</row><col>1</col>
+      <halign>left</halign>
       <label>epu</label>
     </text>
-    <button>
-      <row>3</row><col>1</col>
-      <legend>remove</legend>
-      <binding>
-        <command>property-assign</command>
-        <property>/sim/model/ground-equipment-p</property>
-        <value>0</value>
-      </binding>
-    </button>
-    <button>
-      <row>3</row><col>2</col>
-      <legend>put</legend>
-      <binding>
-        <command>property-assign</command>
-        <property>/sim/model/ground-equipment-p</property>
-        <value>1</value>
-      </binding>
-    </button>
 
-    <text>
+
+    <checkbox>
       <row>4</row><col>0</col>
+      <x>50</x>
+      <y>200</y>
+      <width>12</width>
+      <height>12</height>
+      <property>/sim/model/ground-equipment-s</property>
+      <binding>
+        <command>property-toggle</command>
+        <property>/sim/model/ground-equipment-s</property>
+      </binding>
+    </checkbox>
+    <text>
+      <row>4</row><col>1</col>
+      <halign>left</halign>
       <label>scale</label>
     </text>
-    <button>
-      <row>4</row><col>1</col>
-      <legend>remove</legend>
-      <binding>
-        <command>property-assign</command>
-        <property>/sim/model/ground-equipment-s</property>
-        <value>0</value>
-      </binding>
-    </button>
-    <button>
-      <row>4</row><col>2</col>
-      <legend>put</legend>
-      <binding>
-        <command>property-assign</command>
-        <property>/sim/model/ground-equipment-s</property>
-        <value>1</value>
-      </binding>
-    </button>
 
-    <text>
+
+    <checkbox>
       <row>5</row><col>0</col>
+      <x>50</x>
+      <y>200</y>
+      <width>12</width>
+      <height>12</height>
+      <property>/sim/model/ground-equipment-g</property>
+      <binding>
+        <command>property-toggle</command>
+        <property>/sim/model/ground-equipment-g</property>
+      </binding>
+    </checkbox>
+    <text>
+      <row>5</row><col>1</col>
+      <halign>left</halign>
       <label>shocks</label>
     </text>
-    <button>
-      <row>5</row><col>1</col>
-      <legend>remove</legend>
-      <binding>
-        <command>property-assign</command>
-        <property>/sim/model/ground-equipment-g</property>
-        <value>0</value>
-      </binding>
-    </button>
-    <button>
-      <row>5</row><col>2</col>
-      <legend>put</legend>
-      <binding>
-        <command>property-assign</command>
-        <property>/sim/model/ground-equipment-g</property>
-        <value>1</value>
-      </binding>
-    </button>
   </group>
-
   <hrule />
 
   <!-- ~~~~~~~~~~~~~~~~~~ probe -->
   <group>
     <layout>table</layout>
     <halign>left</halign>
-    <text>
+
+    <checkbox>
       <row>0</row><col>0</col>
+      <x>50</x>
+      <y>200</y>
+      <width>12</width>
+      <height>12</height>
+      <property>/systems/refuel/serviceable</property>
+      <binding>
+        <command>property-toggle</command>
+        <property>/systems/refuel/serviceable</property>
+      </binding>
+    </checkbox>
+    <text>
+      <row>0</row><col>1</col>
+      <halign>left</halign>
       <label>refueling probe</label>
     </text>
-    <button>
-      <row>0</row><col>1</col>
-      <legend>none</legend>
-      <binding>
-        <command>property-assign</command>
-        <property>/systems/refuel/serviceable</property>
-        <value>0</value>
-      </binding>
-    </button>
-    <button>
-      <row>0</row><col>2</col>
-      <legend>enabled</legend>
-      <binding>
-        <command>property-assign</command>
-        <property>/systems/refuel/serviceable</property>
-        <value>1</value>
-      </binding>
-    </button>
 
   </group>
 
@@ -196,11 +169,12 @@ changelog
     <layout>table</layout>
     <halign>left</halign>
     <text>
-      <row>1</row><col>0</col>
+      <row>0</row><col>0</col>
       <label>wing tanks</label>
     </text>
     <button>
-      <row>1</row><col>1</col>
+      <row>1</row><col>0</col>
+      <pref-width>70</pref-width><pref-height>20</pref-height>
       <legend>none</legend>
       <binding>
         <command>nasal</command>
@@ -212,7 +186,8 @@ my_aircraft_functions.event_load_store("wing", "none");
       </binding>
     </button>
     <button>
-      <row>1</row><col>2</col>
+      <row>2</row><col>0</col>
+      <pref-width>70</pref-width><pref-height>20</pref-height>
       <legend>1250 l</legend>
       <binding>
         <command>nasal</command>
@@ -224,7 +199,8 @@ my_aircraft_functions.event_load_store("wing", "tank-1250");
       </binding>
     </button>
     <button>
-      <row>1</row><col>3</col>
+      <row>3</row><col>0</col>
+      <pref-width>70</pref-width><pref-height>20</pref-height>
       <legend>2000 l</legend>
       <binding>
         <command>nasal</command>
@@ -236,7 +212,8 @@ my_aircraft_functions.event_load_store("wing", "tank-2000");
       </binding>
     </button>
     <button>
-      <row>1</row><col>4</col>
+      <row>4</row><col>0</col>
+      <pref-width>70</pref-width><pref-height>20</pref-height>
       <legend>full</legend>
       <binding>
         <command>nasal</command>
@@ -249,11 +226,12 @@ my_aircraft_functions.event_load_store("wing", "tank-1250+tank-2000");
     </button>
 
     <text>
-      <row>2</row><col>0</col>
+      <row>0</row><col>1</col>
       <label>center tank</label>
     </text>
     <button>
-      <row>2</row><col>1</col>
+      <row>1</row><col>1</col>
+      <pref-width>70</pref-width><pref-height>20</pref-height>
       <legend>none</legend>
       <binding>
         <command>nasal</command>
@@ -265,7 +243,8 @@ my_aircraft_functions.event_load_store("center", "none");
       </binding>
     </button>
     <button>
-      <row>2</row><col>2</col>
+      <row>2</row><col>1</col>
+      <pref-width>70</pref-width><pref-height>20</pref-height>
       <legend>1250 l</legend>
       <binding>
         <command>nasal</command>
@@ -277,7 +256,8 @@ my_aircraft_functions.event_load_store("center", "tank-1250");
       </binding>
     </button>
     <button>
-      <row>2</row><col>3</col>
+      <row>3</row><col>1</col>
+      <pref-width>70</pref-width><pref-height>20</pref-height>
       <legend>2000 l</legend>
       <binding>
         <command>nasal</command>
@@ -289,8 +269,9 @@ my_aircraft_functions.event_load_store("center", "tank-2000");
       </binding>
     </button>
     <button>
-      <row>2</row><col>4</col>
-      <legend>refuelling pod</legend>
+      <row>4</row><col>1</col>
+      <pref-width>70</pref-width><pref-height>20</pref-height>
+      <legend>aar pod</legend>
       <binding>
         <command>nasal</command>
         <script>
@@ -302,11 +283,12 @@ my_aircraft_functions.event_load_store("center", "refuel-pod");
     </button>
 
     <text>
-      <row>3</row><col>0</col>
+      <row>0</row><col>2</col>
       <label>wing ext</label>
     </text>
     <button>
-      <row>3</row><col>1</col>
+      <row>1</row><col>2</col>
+      <pref-width>70</pref-width><pref-height>20</pref-height>
       <legend>none</legend>
       <binding>
         <command>nasal</command>
@@ -318,8 +300,9 @@ my_aircraft_functions.event_load_store("wing-pylons", "none");
       </binding>
     </button>
     <button>
-      <row>3</row><col>2</col>
-      <legend>smokepod</legend>
+      <row>2</row><col>2</col>
+      <pref-width>70</pref-width><pref-height>20</pref-height>
+      <legend>smoke</legend>
       <binding>
         <command>nasal</command>
         <script>

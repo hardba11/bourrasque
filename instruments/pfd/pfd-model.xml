@@ -284,7 +284,8 @@ TODO :
     <object-name>AP-lat-armed</object-name>
     <object-name>AP-vert-armed</object-name>
     <object-name>CRSlabel</object-name>
-    <object-name>HDGlabel</object-name>
+    <object-name>HDGlabel-mag</object-name>
+    <object-name>HDGlabel-true</object-name>
     <condition>
       <greater-than>
         <property>/controls/lighting/instruments-norm</property>
@@ -309,7 +310,8 @@ TODO :
     <object-name>AP-lat-armed</object-name>
     <object-name>AP-vert-armed</object-name>
     <object-name>CRSlabel</object-name>
-    <object-name>HDGlabel</object-name>
+    <object-name>HDGlabel-mag</object-name>
+    <object-name>HDGlabel-true</object-name>
     <condition>
       <equals>
         <property>/controls/lighting/instruments-norm</property>
@@ -713,18 +715,18 @@ ________________________________________________________________________________
     </condition>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ label heading bug -->
+  <!-- ~~~~~~~~~~~~~~~~~~ label heading bug mag -->
   <text>
-    <name>HDGlabel</name>
+    <name>HDGlabel-mag</name>
     <offsets>
       <x-m>0.005</x-m>
-      <y-m>-0.059</y-m>
-      <z-m>-0.013</z-m>
+      <y-m>0</y-m>
+      <z-m>-0.026</z-m>
     </offsets>
     <alignment>center-center</alignment>
     <axis-alignment>yz-plane</axis-alignment>
     <type>literal</type>
-    <text>HDG mag</text>
+    <text>hdg MAG</text>
     <font>helvetica_bold.txf</font>
     <character-size>0.006</character-size>
     <character-aspect-ratio type="double">1.3</character-aspect-ratio>
@@ -734,18 +736,57 @@ ________________________________________________________________________________
     </font-resolution>
   </text>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ text heading bug -->
+  <!-- ~~~~~~~~~~~~~~~~~~ visibility label heading bug mag -->
+  <animation>
+    <type>select</type>
+    <object-name>HDGlabel-mag</object-name>
+    <condition>
+      <not><property>/instrumentation/my_aircraft/nd/inputs/true-north</property></not>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ label heading bug mag true -->
+  <text>
+    <name>HDGlabel-true</name>
+    <offsets>
+      <x-m>0.005</x-m>
+      <y-m>0</y-m>
+      <z-m>-0.026</z-m>
+    </offsets>
+    <alignment>center-center</alignment>
+    <axis-alignment>yz-plane</axis-alignment>
+    <type>literal</type>
+    <text>hdg TRU</text>
+    <font>helvetica_bold.txf</font>
+    <character-size>0.006</character-size>
+    <character-aspect-ratio type="double">1.3</character-aspect-ratio>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+  </text>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ visibility label heading bug true -->
+  <animation>
+    <type>select</type>
+    <object-name>HDGlabel-true</object-name>
+    <condition>
+      <property>/instrumentation/my_aircraft/nd/inputs/true-north</property>
+    </condition>
+  </animation>
+
+   <!-- ~~~~~~~~~~~~~~~~~~ text heading bug -->
   <text>
     <name>HDGannun</name>
     <offsets>
       <x-m>0.005</x-m>
-      <y-m>-0.059</y-m>
-      <z-m>-0.020</z-m>
+      <y-m>-.003</y-m>
+      <z-m>.001</z-m>
     </offsets>
     <alignment>center-center</alignment>
     <axis-alignment>yz-plane</axis-alignment>
     <type type="string">number-value</type>
-    <property>/autopilot/settings/heading-bug-deg</property>
+    <property>/instrumentation/my_aircraft/nd/outputs/heading-bug-deg</property>
     <format>%03.0f</format>
     <truncate>true</truncate>
     <font>helvetica_bold.txf</font>
