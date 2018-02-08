@@ -48,7 +48,7 @@ changelog
       <blue>0.2</blue>
     </emission>
     <condition>
-      <property>systems/electrical/bus/avionics</property>
+      <property>/systems/electrical/bus/avionics</property>
     </condition>
   </animation>
 

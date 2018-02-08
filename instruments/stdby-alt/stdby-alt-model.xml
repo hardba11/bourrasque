@@ -76,7 +76,7 @@ changelog
       <blue>0.2</blue>
     </emission>
     <condition>
-      <property>systems/electrical/bus/avionics</property>
+      <property>/systems/electrical/bus/avionics</property>
     </condition>
   </animation>
   <animation>
@@ -100,7 +100,7 @@ changelog
       <blue>0.8</blue>
     </emission>
     <condition>
-      <property>systems/electrical/bus/avionics</property>
+      <property>/systems/electrical/bus/avionics</property>
     </condition>
   </animation>
 
@@ -115,7 +115,7 @@ changelog
     <type>textranslate</type>
     <object-name>alt.atxt10000</object-name>
     <condition>
-      <property>systems/electrical/bus/avionics</property>
+      <property>/systems/electrical/bus/avionics</property>
     </condition>
     <property>/instrumentation/altimeter/indicated-altitude-ft</property>
     <factor>0.00001</factor>
@@ -133,7 +133,7 @@ changelog
     <type>textranslate</type>
     <object-name>alt.atxt1000</object-name>
     <condition>
-      <property>systems/electrical/bus/avionics</property>
+      <property>/systems/electrical/bus/avionics</property>
     </condition>
     <property>/instrumentation/altimeter/indicated-altitude-ft</property>
     <factor>0.0001</factor>
@@ -151,7 +151,7 @@ changelog
     <type>textranslate</type>
     <object-name>alt.atxt100</object-name>
     <condition>
-      <property>systems/electrical/bus/avionics</property>
+      <property>/systems/electrical/bus/avionics</property>
     </condition>
     <property>/instrumentation/altimeter/indicated-altitude-ft</property>
     <factor>0.001</factor>
@@ -169,7 +169,7 @@ changelog
     <type>textranslate</type>
     <object-name>alt.atxt10</object-name>
     <condition>
-      <property>systems/electrical/bus/avionics</property>
+      <property>/systems/electrical/bus/avionics</property>
     </condition>
     <property>/instrumentation/altimeter/indicated-altitude-ft</property>
     <factor>0.01</factor>
@@ -185,7 +185,7 @@ changelog
     <type>textranslate</type>
     <object-name>alt.kpa1000</object-name>
     <condition>
-      <property>systems/electrical/bus/avionics</property>
+      <property>/systems/electrical/bus/avionics</property>
     </condition>
     <property>/instrumentation/altimeter/setting-kpa</property>
     <factor>0.0001</factor>
@@ -202,7 +202,7 @@ changelog
     <type>textranslate</type>
     <object-name>alt.kpa100</object-name>
     <condition>
-      <property>systems/electrical/bus/avionics</property>
+      <property>/systems/electrical/bus/avionics</property>
     </condition>
     <property>/instrumentation/altimeter/setting-kpa</property>
     <factor>0.001</factor>
@@ -219,7 +219,7 @@ changelog
     <type>textranslate</type>
     <object-name>alt.kpa10</object-name>
     <condition>
-      <property>systems/electrical/bus/avionics</property>
+      <property>/systems/electrical/bus/avionics</property>
     </condition>
     <property>/instrumentation/altimeter/setting-kpa</property>
     <factor>0.01</factor>
@@ -236,7 +236,7 @@ changelog
     <type>textranslate</type>
     <object-name>alt.kpa1</object-name>
     <condition>
-      <property>systems/electrical/bus/avionics</property>
+      <property>/systems/electrical/bus/avionics</property>
     </condition>
     <property>/instrumentation/altimeter/setting-kpa</property>
     <factor>0.1</factor>
@@ -253,7 +253,7 @@ changelog
     <type>textranslate</type>
     <object-name>alt.in1000</object-name>
     <condition>
-      <property>systems/electrical/bus/avionics</property>
+      <property>/systems/electrical/bus/avionics</property>
     </condition>
     <property>/instrumentation/altimeter/setting-inhg</property>
     <factor>0.01</factor>
@@ -270,7 +270,7 @@ changelog
     <type>textranslate</type>
     <object-name>alt.in100</object-name>
     <condition>
-      <property>systems/electrical/bus/avionics</property>
+      <property>/systems/electrical/bus/avionics</property>
     </condition>
     <property>/instrumentation/altimeter/setting-inhg</property>
     <factor>0.1</factor>
@@ -287,7 +287,7 @@ changelog
     <type>textranslate</type>
     <object-name>alt.in10</object-name>
     <condition>
-      <property>systems/electrical/bus/avionics</property>
+      <property>/systems/electrical/bus/avionics</property>
     </condition>
     <property>/instrumentation/altimeter/setting-inhg</property>
     <factor>1.0</factor>
@@ -305,7 +305,7 @@ changelog
     <type>textranslate</type>
     <object-name>alt.in1</object-name>
     <condition>
-      <property>systems/electrical/bus/avionics</property>
+      <property>/systems/electrical/bus/avionics</property>
     </condition>
     <property>/instrumentation/altimeter/setting-inhg</property>
     <factor>10.0</factor>
@@ -323,7 +323,7 @@ changelog
     <type>rotate</type>
     <object-name>alt.needle</object-name>
     <condition>
-      <property>systems/electrical/bus/avionics</property>
+      <property>/systems/electrical/bus/avionics</property>
     </condition>
     <property>/instrumentation/altimeter/indicated-altitude-ft</property>
     <factor>0.36</factor>
@@ -344,7 +344,7 @@ changelog
     <type>pick</type>
     <object-name>alt.knob</object-name>
     <condition>
-      <property>systems/electrical/bus/avionics</property>
+      <property>/systems/electrical/bus/avionics</property>
     </condition>
     <action>
       <button>0</button>

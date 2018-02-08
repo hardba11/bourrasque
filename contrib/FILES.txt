@@ -16,29 +16,6 @@ bourrasque-set.xml
  |    |    `-- models/aircraft/bourrasque.ac
  |    |         `-- models/aircraft/texture_bourrasque.png
  |    |-- models/cockpit/cockpit-model.xml
- |    |    |-- models/effects/aircraft/piston.eff
- |    |    |-- models/effects/glass/glass.eff
- |    |    |-- models/effects/interior/interior-flashlight.eff
- |    |    |-- models/effects/interior/interior-shadow.eff
- |    |    |-- models/pilot/copilot.xml
- |    |    |    |-- models/effects/interior/interior-flashlight.eff
- |    |    |    `-- models/pilot/pilot.ac
- |    |    |         |-- models/pilot/pilot.png
- |    |    |         `-- models/pilot/transp.png
- |    |    |-- models/pilot/pilot.xml
- |    |    |    |-- models/effects/interior/interior-flashlight.eff
- |    |    |    `-- models/pilot/pilot.ac
- |    |    |         |-- models/pilot/pilot.png
- |    |    |         `-- models/pilot/transp.png
- |    |    |-- models/siege/siege-model.xml
- |    |    |    |-- models/effects/interior/interior-flashlight.eff
- |    |    |    |-- models/effects/interior/interior-shadow.eff
- |    |    |    `-- models/siege/siege.ac
- |    |    |         `-- models/siege/texture_seat.png
- |    |    |-- Effects/model-transparent.eff
- |    |    |-- models/cockpit/cockpit.ac
- |    |    |    |-- models/cockpit/texture_cockpit.png
- |    |    |    `-- models/cockpit/texture_commands.png
  |    |    |-- instruments/adf/ctl62-model.xml
  |    |    |    |-- models/effects/interior/interior-flashlight.eff
  |    |    |    `-- instruments/adf/ctl62.ac
@@ -71,11 +48,13 @@ bourrasque-set.xml
  |    |    |-- instruments/command_h/command_h-backseat-model.xml
  |    |    |    |-- models/effects/interior/interior-flashlight.eff
  |    |    |    `-- instruments/command_h/instrument_command_h.ac
+ |    |    |         |-- instruments/command_h/texture_instrument_command_h-canvas.png
  |    |    |         |-- instruments/command_h/texture_instrument_command_h-emit.png
  |    |    |         `-- instruments/command_h/texture_instrument_command_h.png
  |    |    |-- instruments/command_h/command_h-model.xml
  |    |    |    |-- models/effects/interior/interior-flashlight.eff
  |    |    |    `-- instruments/command_h/instrument_command_h.ac
+ |    |    |         |-- instruments/command_h/texture_instrument_command_h-canvas.png
  |    |    |         |-- instruments/command_h/texture_instrument_command_h-emit.png
  |    |    |         `-- instruments/command_h/texture_instrument_command_h.png
  |    |    |-- instruments/electricals/electricals-model.xml
@@ -179,11 +158,34 @@ bourrasque-set.xml
  |    |    |    |-- models/effects/interior/interior-flashlight.eff
  |    |    |    `-- instruments/transponder/ctl92.ac
  |    |    |         `-- instruments/transponder/ctl-92.png
- |    |    `-- instruments/turn/turn-model.xml
- |    |         |-- models/effects/interior/interior-flashlight.eff
- |    |         `-- instruments/turn/instrument_turn.ac
- |    |              |-- instruments/turn/texture_instrument_turn-emit.png
- |    |              `-- instruments/turn/texture_instrument_turn.png
+ |    |    |-- instruments/turn/turn-model.xml
+ |    |    |    |-- models/effects/interior/interior-flashlight.eff
+ |    |    |    `-- instruments/turn/instrument_turn.ac
+ |    |    |         |-- instruments/turn/texture_instrument_turn-emit.png
+ |    |    |         `-- instruments/turn/texture_instrument_turn.png
+ |    |    |-- models/effects/aircraft/piston.eff
+ |    |    |-- models/effects/glass/glass.eff
+ |    |    |-- models/effects/interior/interior-flashlight.eff
+ |    |    |-- models/effects/interior/interior-shadow.eff
+ |    |    |-- models/pilot/copilot.xml
+ |    |    |    |-- models/effects/interior/interior-flashlight.eff
+ |    |    |    `-- models/pilot/pilot.ac
+ |    |    |         |-- models/pilot/pilot.png
+ |    |    |         `-- models/pilot/transp.png
+ |    |    |-- models/pilot/pilot.xml
+ |    |    |    |-- models/effects/interior/interior-flashlight.eff
+ |    |    |    `-- models/pilot/pilot.ac
+ |    |    |         |-- models/pilot/pilot.png
+ |    |    |         `-- models/pilot/transp.png
+ |    |    |-- models/siege/siege-model.xml
+ |    |    |    |-- models/effects/interior/interior-flashlight.eff
+ |    |    |    |-- models/effects/interior/interior-shadow.eff
+ |    |    |    `-- models/siege/siege.ac
+ |    |    |         `-- models/siege/texture_seat.png
+ |    |    |-- Effects/model-transparent.eff
+ |    |    `-- models/cockpit/cockpit.ac
+ |    |         |-- models/cockpit/texture_cockpit.png
+ |    |         `-- models/cockpit/texture_commands.png
  |    |-- models/effects/contrail/contrail.xml
  |    |-- models/effects/load/load.xml
  |    |-- models/effects/rain/rain_exhaust.xml
@@ -228,6 +230,7 @@ bourrasque-set.xml
  |    |         |-- models/engine/reheat_inner_tuyere.png
  |    |         `-- models/engine/texture_engine.png
  |    |-- models/gears/gears-model.xml
+ |    |    |-- models/effects/aircraft/mirror.eff
  |    |    |-- models/effects/aircraft/piston.eff
  |    |    `-- models/gears/gears.ac
  |    |         `-- models/gears/texture_gears.png
@@ -261,6 +264,11 @@ bourrasque-set.xml
  |    |    |-- models/effects/aircraft/aircraft.eff
  |    |    `-- models/stores/refuel_pod.ac
  |    |         `-- models/stores/texture_refuel_pod.png
+ |    |-- models/stores/smoke_pod-model.xml
+ |    |    |-- models/effects/aircraft/aircraft.eff
+ |    |    |-- models/stores/smoke.xml
+ |    |    `-- models/stores/smoke_pod.ac
+ |    |         `-- models/stores/texture_smoke_pod.png
  |    `-- models/stores/stores-model.xml
  |         |-- models/effects/aircraft/aircraft.eff
  |         `-- models/stores/stores.ac

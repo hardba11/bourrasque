@@ -43,7 +43,10 @@ changelog
     <type>select</type>
     <object-name>sfd.screen.off</object-name>
     <condition>
-      <not><property>systems/electrical/bus/avionics</property></not>
+      <or>
+        <not><property>systems/electrical/bus/avionics</property></not>
+        <equals><property>/sim/aircraft</property><value>bourrasque-backseat</value></equals>
+       </or>
     </condition>
   </animation>
 

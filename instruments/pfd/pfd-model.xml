@@ -79,7 +79,10 @@ TODO :
     <type>select</type>
     <object-name>PFD.screen.off</object-name>
     <condition>
-      <not><property>systems/electrical/bus/avionics</property></not>
+      <or>
+        <not><property>systems/electrical/bus/avionics</property></not>
+        <equals><property>/sim/aircraft</property><value>bourrasque-backseat</value></equals>
+       </or>
     </condition>
   </animation>
 
@@ -775,7 +778,7 @@ ________________________________________________________________________________
     </condition>
   </animation>
 
-   <!-- ~~~~~~~~~~~~~~~~~~ text heading bug -->
+  <!-- ~~~~~~~~~~~~~~~~~~ text heading bug -->
   <text>
     <name>HDGannun</name>
     <offsets>

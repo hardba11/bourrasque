@@ -35,16 +35,16 @@ var loops_until_start = 200; # = 20s /!\ depends settimer
 # this function check engines stats and manage engines
 var systems_loop = func()
 {
-    var master_switch       = getprop('/instrumentation/my_aircraft/electricals/controls/master-switch') or 0;
-    var avionics_enabled    = getprop('/instrumentation/my_aircraft/electricals/controls/bus-avionics') or 0;
-    var engines_enabled     = getprop('/instrumentation/my_aircraft/electricals/controls/bus-engines') or 0;
-    var commands_enabled    = getprop('/instrumentation/my_aircraft/electricals/controls/bus-commands') or 0;
+    var master_switch       = getprop("/instrumentation/my_aircraft/electricals/controls/master-switch") or 0;
+    var avionics_enabled    = getprop("/instrumentation/my_aircraft/electricals/controls/bus-avionics") or 0;
+    var engines_enabled     = getprop("/instrumentation/my_aircraft/electricals/controls/bus-engines") or 0;
+    var commands_enabled    = getprop("/instrumentation/my_aircraft/electricals/controls/bus-commands") or 0;
 
-    var is_epu              = getprop('/sim/model/ground-equipment-p') or 0;
+    var is_epu              = getprop("/sim/model/ground-equipment-p") or 0;
 
-    var is_bus_avionics_on  = getprop('/systems/electrical/bus/avionics') or 0;
-    var is_bus_engines_on   = getprop('/systems/electrical/bus/engines') or 0;
-    var is_bus_commands_on  = getprop('/systems/electrical/bus/commands') or 0;
+    var is_bus_avionics_on  = getprop("/systems/electrical/bus/avionics") or 0;
+    var is_bus_engines_on   = getprop("/systems/electrical/bus/engines") or 0;
+    var is_bus_commands_on  = getprop("/systems/electrical/bus/commands") or 0;
 
     var nb_engine_stopped = 0;
 
@@ -52,13 +52,13 @@ var systems_loop = func()
 
     foreach(var engine_id ; ['0', '1'])
     {
-        var n1 = getprop('/engines/engine['~ engine_id ~']/n1') or 0;
+        var n1 = getprop("/engines/engine["~ engine_id ~"]/n1") or 0;
 
-        var is_stopped  = getprop('/engines/engine['~ engine_id ~']/stopped') or 0;
-        var is_fuelon   = getprop('/instrumentation/my_aircraft/engines/controls/engine['~ engine_id ~']/fuel-on') or 0;
-        var is_pump     = getprop('/instrumentation/my_aircraft/engines/controls/engine['~ engine_id ~']/pump') or 0;
-        var is_starting = getprop('/instrumentation/my_aircraft/engines/controls/engine['~ engine_id ~']/is_starting') or 0;
-        var is_stopping = getprop('/instrumentation/my_aircraft/engines/controls/engine['~ engine_id ~']/is_stopping') or 0;
+        var is_stopped  = getprop("/engines/engine["~ engine_id ~"]/stopped") or 0;
+        var is_fuelon   = getprop("/instrumentation/my_aircraft/engines/controls/engine["~ engine_id ~"]/fuel-on") or 0;
+        var is_pump     = getprop("/instrumentation/my_aircraft/engines/controls/engine["~ engine_id ~"]/pump") or 0;
+        var is_starting = getprop("/instrumentation/my_aircraft/engines/controls/engine["~ engine_id ~"]/is_starting") or 0;
+        var is_stopping = getprop("/instrumentation/my_aircraft/engines/controls/engine["~ engine_id ~"]/is_stopping") or 0;
 
         ### STAT CHANGES
 
@@ -67,13 +67,11 @@ var systems_loop = func()
             # etat stoppe
             n1 = 0;
             elapsed_loops[engine_id] = 0;
-            #printf("STOPPED");
         }
         elsif((is_stopped == 0) and (is_stopping == 0) and (is_starting == 0))
         {
             # etat demarre
             elapsed_loops[engine_id] = loops_until_start;
-            #printf("STARTED");
         }
         elsif((is_stopped == 0) and (is_stopping == 1) and (is_starting == 0))
         {
@@ -81,7 +79,6 @@ var systems_loop = func()
             elapsed_loops[engine_id] -= 1;
             # diminuer n1 progressivement
             n1 = n1 * elapsed_loops[engine_id] / loops_until_start;
-            #printf("STOPPING");
             if(elapsed_loops[engine_id] <= 0)
             {
                 is_stopped = 1;
@@ -94,7 +91,6 @@ var systems_loop = func()
             elapsed_loops[engine_id] += 1;
             # augmenter n1 progressivement
             n1 = n1 * elapsed_loops[engine_id] / loops_until_start;
-            #printf("STARTING");
             if(elapsed_loops[engine_id] > loops_until_start)
             {
                 is_stopped = 0;
@@ -112,7 +108,6 @@ var systems_loop = func()
         {
             # lancer l'arret si plus d'alimentation
             is_stopping = 1;
-            #printf("LAUNCH STOPPING ...");
         }
 
         if((is_starting == 1)
@@ -124,22 +119,20 @@ var systems_loop = func()
         {
             # demande de demarrage, engine eteint et demarrable :
             is_stopping = 0;
-            #printf("LAUNCH STARTING ...");
         }
         elsif(is_starting == 1)
         {
             # demande de demarrage, engine eteint et non demarrable :
             is_starting = 0;
-            #printf("STARTING NOT POSSIBLE ...");
         }
 
         nb_engine_stopped += is_stopped;
 
-        setprop('/engines/engine['~ engine_id ~']/n1-true', n1);
-        setprop('/engines/engine['~ engine_id ~']/out-of-fuel', is_stopped);
-        setprop('/engines/engine['~ engine_id ~']/stopped', is_stopped);
-        setprop('/instrumentation/my_aircraft/engines/controls/engine['~ engine_id ~']/is_starting', is_starting);
-        setprop('/instrumentation/my_aircraft/engines/controls/engine['~ engine_id ~']/is_stopping', is_stopping);
+        setprop("/engines/engine["~ engine_id ~"]/n1-true", n1);
+        setprop("/engines/engine["~ engine_id ~"]/out-of-fuel", is_stopped);
+        setprop("/engines/engine["~ engine_id ~"]/stopped", is_stopped);
+        setprop("/instrumentation/my_aircraft/engines/controls/engine["~ engine_id ~"]/is_starting", is_starting);
+        setprop("/instrumentation/my_aircraft/engines/controls/engine["~ engine_id ~"]/is_stopping", is_stopping);
 
     } # END foreach engine
 
@@ -159,13 +152,13 @@ var systems_loop = func()
         is_bus_engines_on  = (engines_enabled  == 1) ? 1 : 0;
         is_bus_commands_on = (commands_enabled == 1) ? 1 : 0;
     }
-    setprop('/systems/electrical/bus/avionics', is_bus_avionics_on);
-    setprop('/systems/electrical/bus/engines',  is_bus_engines_on);
-    setprop('/systems/electrical/bus/commands', is_bus_commands_on);
+    setprop("/systems/electrical/bus/avionics", is_bus_avionics_on);
+    setprop("/systems/electrical/bus/engines",  is_bus_engines_on);
+    setprop("/systems/electrical/bus/commands", is_bus_commands_on);
 
     settimer(systems_loop, .1);
 }
 
-setlistener('/sim/signals/fdm-initialized', systems_loop);
+setlistener("/sim/signals/fdm-initialized", systems_loop);
 
 

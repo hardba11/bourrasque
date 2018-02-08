@@ -11,10 +11,10 @@ beacon.switch(0);
 
 var lights = func()
 {
-    strobe.switch(getprop('/controls/lighting/strobe'));
-    beacon.switch(getprop('/controls/lighting/beacon'));
+    strobe.switch(getprop("/controls/lighting/strobe"));
+    beacon.switch(getprop("/controls/lighting/beacon"));
     settimer(lights, 2);
 }
 
-setlistener('sim/signals/fdm-initialized', lights);
+setlistener("sim/signals/fdm-initialized", lights);
 

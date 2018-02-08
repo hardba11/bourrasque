@@ -44,13 +44,13 @@ var _list = setlistener("sim/signals/fdm-initialized", func() {
     var NDCpt = ND.new("instrumentation/my_aircraft/nd/inputs", myCockpit_switches);
 
     nd_display = canvas.new({
-        "name":       "ND",
-        "size":       [1024, 1024],
-        "view":       [1024, 1024],
-        "mipmapping": 1
+        'name':       'ND',
+        'size':       [1024, 1024],
+        'view':       [1024, 1024],
+        'mipmapping': 1
     });
 
-    nd_display.addPlacement({"node": "nd.screen"});
+    nd_display.addPlacement({'node': 'nd.screen'});
     var group = nd_display.createGroup();
     NDCpt.newMFD(group, nd_display);
     NDCpt.update();
@@ -62,33 +62,33 @@ var nd = func()
 {
     # simplier to animate with integer than string
     var nd_display_mode = ['APP', 'VOR', 'MAP', 'PLAN'];
-    setprop('instrumentation/my_aircraft/nd/inputs/display-mode', nd_display_mode[getprop('instrumentation/my_aircraft/nd/inputs/display-mode-num')]);
-    settimer(nd, 0.5);
+    setprop("instrumentation/my_aircraft/nd/inputs/display-mode", nd_display_mode[getprop("instrumentation/my_aircraft/nd/inputs/display-mode-num")]);
+    settimer(nd, .5);
 }
 
 var event_click_info = func()
 {
-    var infos_displayed = getprop('instrumentation/my_aircraft/nd/inputs/arpt') or 0;
+    var infos_displayed = getprop("instrumentation/my_aircraft/nd/inputs/arpt") or 0;
     infos_displayed = (infos_displayed) ? 0 : 1;
 
-    setprop('instrumentation/my_aircraft/nd/inputs/arpt', infos_displayed);
-    setprop('instrumentation/my_aircraft/nd/inputs/sta',  infos_displayed);
-    setprop('instrumentation/my_aircraft/nd/inputs/data', infos_displayed);
+    setprop("instrumentation/my_aircraft/nd/inputs/arpt", infos_displayed);
+    setprop("instrumentation/my_aircraft/nd/inputs/sta",  infos_displayed);
+    setprop("instrumentation/my_aircraft/nd/inputs/data", infos_displayed);
 }
 
 var event_click_radar = func()
 {
-    var infos_displayed = getprop('instrumentation/my_aircraft/nd/inputs/inputs/tfc') or 0;
+    var infos_displayed = getprop("instrumentation/my_aircraft/nd/inputs/inputs/tfc") or 0;
     infos_displayed = (infos_displayed) ? 0 : 1;
 
-    setprop('instrumentation/my_aircraft/nd/inputs/inputs/tfc', infos_displayed);
+    setprop("instrumentation/my_aircraft/nd/inputs/inputs/tfc", infos_displayed);
 }
 
 var event_click_true_north = func()
 {
-    var is_true_north = getprop('/instrumentation/my_aircraft/nd/inputs/true-north') or 0;
+    var is_true_north = getprop("/instrumentation/my_aircraft/nd/inputs/true-north") or 0;
     is_true_north = (is_true_north) ? 0 : 1;
-    setprop('/instrumentation/my_aircraft/nd/inputs/true-north', is_true_north);
+    setprop("/instrumentation/my_aircraft/nd/inputs/true-north", is_true_north);
 
     var indicated_heading = props.globals.getNode("/instrumentation/my_aircraft/nd/outputs/indicated-heading");
     var heading_bug = props.globals.getNode("/instrumentation/my_aircraft/nd/outputs/heading-bug-deg");
@@ -114,7 +114,7 @@ var event_click_true_north = func()
     }
 }
 
-setlistener('sim/signals/fdm-initialized', nd);
+setlistener("sim/signals/fdm-initialized", nd);
 
 
 

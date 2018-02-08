@@ -278,7 +278,7 @@ var modify_stability = func(input) {
 #                                                                enable_commands
 # this function is used when the engine is started
 var enable_commands = func(pitch, roll, yaw, slats, canard) {
-    var is_on = getprop('/systems/electrical/bus/commands') or 0;
+    var is_on = getprop("/systems/electrical/bus/commands") or 0;
 
     if(is_on == 0)
     {
@@ -351,7 +351,7 @@ var fcm_loop = func() {
     #range_speed                             = getprop('/systems/fcm/range_speed') or 0;
     #optimal_altitude                        = getprop('/systems/fcm/optimal_altitude') or 0;
     #range_altitude                          = getprop('/systems/fcm/optimal_altitude') or 0;
-    var mod = getprop('/instrumentation/my_aircraft/nd/controls/mode');
+    var mod = getprop("/instrumentation/my_aircraft/nd/controls/mode");
     if(mod == 'TAXI')
     {
         optimal_altitude                     = taxi_optimal_altitude;
@@ -407,12 +407,12 @@ var fcm_loop = func() {
     # in manual mode, the stability is improved (more precise on the center
     # of the controls and depends on speed, altitude, configuration)
 
-    if(getprop("/autopilot/locks/altitude") != "altitude-hold")
+    if(getprop("/autopilot/locks/altitude") != 'altitude-hold')
     {
         output_pitch = modify_stability(output_pitch);
     }
-    if((getprop("/autopilot/locks/heading") != "dg-heading-hold")
-        and (getprop("/autopilot/locks/heading") != "nav1-hold"))
+    if((getprop("/autopilot/locks/heading") != 'dg-heading-hold')
+        and (getprop("/autopilot/locks/heading") != 'nav1-hold'))
     {
         output_roll  = modify_stability(output_roll);
     }
@@ -442,6 +442,6 @@ var fcm_loop = func() {
     settimer(fcm_loop, .1);
 }
 
-setlistener('/sim/signals/fdm-initialized', fcm_loop);
+setlistener("/sim/signals/fdm-initialized", fcm_loop);
 
 

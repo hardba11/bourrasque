@@ -74,7 +74,7 @@ description :
     <condition>
       <property>systems/electrical/bus/avionics</property>
     </condition>
-    <property>/orientation/alpha-deg</property>
+    <property>orientation/alpha-deg</property>
     <factor>0.0235</factor>
     <axis>
       <x>0</x>

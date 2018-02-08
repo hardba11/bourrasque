@@ -407,7 +407,7 @@ my_aircraft_functions.inc_elevator(-0.05, 1);
         <binding>
           <command>property-adjust</command>
           <property>/controls/flight/elevator-trim</property>
-          <step type="double">-0.002</step>
+          <step type="double">-0.001</step>
         </binding>
       </mod-ctrl>
       <mod-shift>
@@ -437,7 +437,7 @@ my_aircraft_functions.inc_elevator(0.05, -1);
         <binding>
           <command>property-adjust</command>
           <property>/controls/flight/elevator-trim</property>
-          <step type="double">0.002</step>
+          <step type="double">0.001</step>
         </binding>
       </mod-ctrl>
       <mod-shift>
@@ -469,7 +469,7 @@ my_aircraft_functions.inc_aileron(-0.05, -1);
         <binding>
           <command>property-adjust</command>
           <property>/controls/flight/aileron-trim</property>
-          <step type="double">-0.002</step>
+          <step type="double">-0.001</step>
         </binding>
       </mod-ctrl>
       <mod-shift>
@@ -499,7 +499,7 @@ my_aircraft_functions.inc_aileron(0.05, 1);
         <binding>
           <command>property-adjust</command>
           <property>/controls/flight/aileron-trim</property>
-          <step type="double">0.002</step>
+          <step type="double">0.001</step>
         </binding>
       </mod-ctrl>
       <mod-shift>

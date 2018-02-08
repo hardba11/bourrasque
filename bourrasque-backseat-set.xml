@@ -57,6 +57,8 @@ changelog
       <path type="string">Aircraft/bourrasque/models/brsq-backseat.xml</path>
       <variant type="string">bourrasque</variant>
 
+      <constant type="int">1</constant>
+
       <livery>
         <file type="string">liveries/texture_bourrasque_gris_digital</file>
       </livery>
@@ -195,7 +197,7 @@ changelog
       <file>Aircraft/Generic/DualControl/copilot-dual-control.nas</file>
     </dual_control>
 
-    <my_aircraft_functions>
+    <!--my_aircraft_functions>
       <file type="string">functions.nas</file>
     </my_aircraft_functions>
 
@@ -240,7 +242,7 @@ changelog
 
     <lights>
       <file type="string">models/lights/lights.nas</file>
-    </lights>
+    </lights-->
 
     <FailureMgr>
       <enabled type="bool">0</enabled>

@@ -7,17 +7,24 @@ print("*** LOADING instrument_hud - hud.nas ... ***");
 
 # namespace : instrument_hud
 
+var clipping_left   = -130;
+var clipping_right  =  130;
+var clipping_top    =   95;
+var clipping_bottom =  -95;
+
 # this function will display hud #1 (standard) or hud #4 (mini-hud).
 var minihud_loop = func()
 {
     var hud_number     = getprop("/sim/hud/current-path");
-    #var is_internal    = getprop("/sim/current-view/internal");
     var is_pilot       = getprop("/sim/current-view/view-number") == 0;
 
     var is_on          = getprop("/systems/electrical/bus/avionics");
 
     var heading_offset = getprop("/sim/current-view/heading-offset-deg");
     var pitch_offset   = getprop("/sim/current-view/pitch-offset-deg");
+
+    var x_offset       = getprop("/sim/current-view/x-offset-m");
+    var y_offset       = getprop("/sim/current-view/y-offset-m");
     
     var x = math.sin(heading_offset * math.pi / 180);
     var y = math.sin(pitch_offset * math.pi / 180);
@@ -47,11 +54,12 @@ var minihud_loop = func()
                 # head centered, normal hud is displayed
                 hud_number = 1;
                 setprop("/sim/hud/current-path", hud_number);
-                setprop("/sim/hud/clipping/left",   -130);
-                setprop("/sim/hud/clipping/right",   130);
-                setprop("/sim/hud/clipping/top",      95);
-                setprop("/sim/hud/clipping/bottom",  -95);
             }
+            setprop("/sim/hud/clipping/left",   (clipping_left - (x_offset * 1000)));
+            setprop("/sim/hud/clipping/right",  (clipping_right - (x_offset * 1000)));
+            setprop("/sim/hud/clipping/top",    (clipping_top - ((y_offset -1.10) * 1000)));
+            setprop("/sim/hud/clipping/bottom", (clipping_bottom - ((y_offset -1.10) * 1000)));
+
             # if too much G, and dynamic cockpit view enabled, the bottom of
             # the hud is hidden
             var is_dynamic_view = getprop("/sim/current-view/dynamic-view");
@@ -84,15 +92,15 @@ var minihud_loop = func()
         setprop("/sim/hud/visibility["~ hud_number ~"]", 0);
     }
 
-    settimer(minihud_loop, 0.5);
+    settimer(minihud_loop, 0.2);
 }
 var hud_number = getprop("/sim/hud/current-path");
 if(hud_number == 1)
 {
-    setprop("/sim/hud/clipping/left",   -130);
-    setprop("/sim/hud/clipping/right",   130);
-    setprop("/sim/hud/clipping/top",      95);
-    setprop("/sim/hud/clipping/bottom",  -95);
+    setprop("/sim/hud/clipping/left",   clipping_left);
+    setprop("/sim/hud/clipping/right",  clipping_right);
+    setprop("/sim/hud/clipping/top",    clipping_top);
+    setprop("/sim/hud/clipping/bottom", clipping_bottom);
 }
 elsif(hud_number == 4)
 {
@@ -102,5 +110,5 @@ elsif(hud_number == 4)
     setprop("/sim/hud/clipping/bottom", -2000);
 }
 
-setlistener('/sim/signals/fdm-initialized', minihud_loop);
+setlistener("/sim/signals/fdm-initialized", minihud_loop);
 
