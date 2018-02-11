@@ -37,6 +37,8 @@ PROPERTY-PATH : PropertyList > sim > multiplay
     <float                n="12" alias="/gear/gear[2]/wow" />
     <float                n="13" alias="/sim/model/store-refuel-pos-norm" />
 
+    <string               n="0"  alias="/sim/model/smoking-color" />
+
   </generic>
 
 </PropertyList>

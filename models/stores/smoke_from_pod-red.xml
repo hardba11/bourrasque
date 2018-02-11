@@ -2,7 +2,7 @@
 <PropertyList>
   <particlesystem>
     <name>smoke</name>
-    <texture>smoke.png</texture>
+    <texture>smoke_from_pod.png</texture>
     <emissive type="bool">false</emissive>
     <lighting type="bool">false</lighting>
     <attach>world</attach>
@@ -29,7 +29,7 @@
     </shooter>
     <counter>
       <particles-per-sec>
-        <value>300</value>
+        <value>200</value>
         <spread>0</spread>
       </particles-per-sec>
     </counter>
@@ -41,36 +41,36 @@
             <value>1.0</value>
           </red>
           <green>
-            <value>1.0</value>
+            <value>0.0</value>
           </green>
           <blue>
-            <value>0.9</value>
+            <value>0.0</value>
           </blue>
           <alpha>
-            <value>0.5</value>
+            <value>0.3</value>
           </alpha>
         </color>
         <size>
-          <value>1.5</value>
+          <value>.5</value>
         </size>
       </start>
       <end>
         <color>
           <red>
-            <value>0.9</value>
+            <value>1.0</value>
           </red>
           <green>
-            <value>0.9</value>
+            <value>0.0</value>
           </green>
           <blue>
-            <value>0.9</value>
+            <value>0.0</value>
           </blue>
           <alpha>
-            <value>0.1</value>
+            <value>0.01</value>
           </alpha>
         </color>
         <size>
-          <value>3</value>
+          <value>18</value>
         </size>
       </end>
       <life-sec>

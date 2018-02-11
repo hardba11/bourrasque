@@ -94,6 +94,7 @@ changelog
       <center-refuel-pod     type="int">0</center-refuel-pod>
       <wing-pylons-smoke-pod type="int">0</wing-pylons-smoke-pod>
       <smoking               type="int">0</smoking>
+      <smoking-color         type="string">white</smoking-color>
 
     </model>
 

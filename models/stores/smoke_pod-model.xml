@@ -35,25 +35,94 @@
   </animation>
 
   <model>
-    <path>smoke.xml</path>
+    <path>smoke_from_pod-white.xml</path>
     <condition>
       <property>sim/model/smoking</property>
+      <equals>
+        <property>sim/model/smoking-color</property>
+        <value>white</value>
+      </equals>
     </condition>
     <offsets>
-      <x-m>8</x-m>
-      <y-m>6</y-m>
+      <x-m>7</x-m>
+      <y-m>5.9</y-m>
+      <z-m>0</z-m>
+    </offsets>
+  </model>
+  <model>
+    <path>smoke_from_pod-white.xml</path>
+    <condition>
+      <property>sim/model/smoking</property>
+      <equals>
+        <property>sim/model/smoking-color</property>
+        <value>white</value>
+      </equals>
+    </condition>
+    <offsets>
+      <x-m>7</x-m>
+      <y-m>-5.9</y-m>
       <z-m>0</z-m>
     </offsets>
   </model>
 
   <model>
-    <path>smoke.xml</path>
+    <path>smoke_from_pod-red.xml</path>
     <condition>
       <property>sim/model/smoking</property>
+      <equals>
+        <property>sim/model/smoking-color</property>
+        <value>red</value>
+      </equals>
     </condition>
     <offsets>
-      <x-m>8</x-m>
-      <y-m>-6</y-m>
+      <x-m>7</x-m>
+      <y-m>5.9</y-m>
+      <z-m>0</z-m>
+    </offsets>
+  </model>
+  <model>
+    <path>smoke_from_pod-red.xml</path>
+    <condition>
+      <property>sim/model/smoking</property>
+      <equals>
+        <property>sim/model/smoking-color</property>
+        <value>red</value>
+      </equals>
+    </condition>
+    <offsets>
+      <x-m>7</x-m>
+      <y-m>-5.9</y-m>
+      <z-m>0</z-m>
+    </offsets>
+  </model>
+
+  <model>
+    <path>smoke_from_pod-blue.xml</path>
+    <condition>
+      <property>sim/model/smoking</property>
+      <equals>
+        <property>sim/model/smoking-color</property>
+        <value>blue</value>
+      </equals>
+    </condition>
+    <offsets>
+      <x-m>7</x-m>
+      <y-m>5.9</y-m>
+      <z-m>0</z-m>
+    </offsets>
+  </model>
+  <model>
+    <path>smoke_from_pod-blue.xml</path>
+    <condition>
+      <property>sim/model/smoking</property>
+      <equals>
+        <property>sim/model/smoking-color</property>
+        <value>blue</value>
+      </equals>
+    </condition>
+    <offsets>
+      <x-m>7</x-m>
+      <y-m>-5.9</y-m>
       <z-m>0</z-m>
     </offsets>
   </model>

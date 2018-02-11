@@ -221,9 +221,9 @@ var checking_aircraft_status = func()
         { gear_status = CAUTION; }
     elsif((is_gear_down == 1) and (airspeed < 270) and (gear_status == CAUTION))
         { gear_status = INFO; }
-    elsif((is_gear_down == 0) and (airspeed < 200) and (radar_altitude < 1500))
+    elsif((is_gear_down == 0) and (airspeed < 200) and (radar_altitude < 1500) and (gear_status != INFO))
         { gear_status = CAUTION; }
-    elsif((is_gear_down == 0) and (airspeed < 200) and (radar_altitude < 1500) and (gear_status == CAUTION))
+    elsif((is_gear_down == 0) and (airspeed < 200) and (radar_altitude < 1500))
         { gear_status = INFO; }
     elsif(is_gear_down == 1)
         { gear_status = INFO; }

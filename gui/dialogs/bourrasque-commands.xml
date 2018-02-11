@@ -166,6 +166,23 @@ my_aircraft_functions.event_smoke(0);
     </button>
     <button>
       <row>0</row><col>2</col>
+      <legend>blue</legend>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_smoke(1);
+          ]]>
+        </script>
+      </binding>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/smoking-color</property>
+        <value>blue</value>
+      </binding>
+    </button>
+    <button>
+      <row>0</row><col>3</col>
       <legend>white</legend>
       <binding>
         <command>nasal</command>
@@ -174,6 +191,28 @@ my_aircraft_functions.event_smoke(0);
 my_aircraft_functions.event_smoke(1);
           ]]>
         </script>
+      </binding>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/smoking-color</property>
+        <value>white</value>
+      </binding>
+    </button>
+    <button>
+      <row>0</row><col>4</col>
+      <legend>red</legend>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_smoke(1);
+          ]]>
+        </script>
+      </binding>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/model/smoking-color</property>
+        <value>red</value>
       </binding>
     </button>
   </group>

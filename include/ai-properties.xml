@@ -17,7 +17,7 @@ changelog
   <models>
 
     <!-- wingman 0 : Bravo Lima -->
-    <wingman>
+    <wingman n="0">
       <gear>
         <gear>
           <compression-norm alias="/gear/gear[0]/compression-norm" />
@@ -35,16 +35,9 @@ changelog
       <sim>
         <multiplay>
           <generic>
-            <int                  n="0"  alias="/controls/lighting/beacon" />
-            <int                  n="1"  alias="/controls/lighting/nav-lights" />
-            <int                  n="2"  alias="/controls/lighting/pos-lights" />
-            <int                  n="3"  alias="/controls/lighting/strobe" />
-            <int                  n="4"  alias="/controls/lighting/taxi-light" />
-            <int                  n="5"  alias="/systems/electrical/bus/avionics" />
-            <int                  n="6"  alias="/systems/electrical/bus/engines" />
-            <int                  n="7"  alias="/systems/electrical/bus/commands" />
-            <int                  n="8"  alias="/engines/engine[0]/stopped" />
-            <int                  n="9"  alias="/engines/engine[1]/stopped" />
+            <int                  n="0"  alias="/sim/multiplay/generic/int[0]" />
+            <int                  n="1"  alias="/sim/multiplay/generic/int[1]" />
+            <int                  n="2"  alias="/sim/multiplay/generic/int[2]" />
             <float                n="0"  alias="/sim/model/canopy-pos-norm" />
             <float                n="1"  alias="/sim/model/canards-pos-norm" />
             <float                n="2"  alias="/controls/lighting/formation-lights" />
@@ -58,8 +51,6 @@ changelog
             <float                n="10" alias="/gear/gear[0]/wow" />
             <float                n="11" alias="/gear/gear[1]/wow" />
             <float                n="12" alias="/gear/gear[2]/wow" />
-            <string               n="0"  alias="/sim/model/center-tank" />
-            <string               n="1"  alias="/sim/model/wing-tanks" />
           </generic>
         </multiplay>
         <model>
@@ -68,13 +59,14 @@ changelog
             <texture alias="/sim/model/livery/texture" />
             <texture-tank alias="/sim/model/livery/texture-tank" />
           </livery>
+          <smoking-color type="string">red</smoking-color>
         </model>
       </sim>
     </wingman>
 
 
     <!-- wingman 1 : Bravo Kilo -->
-    <wingman>
+    <wingman n="1">
       <gear>
         <gear>
           <compression-norm alias="/gear/gear[0]/compression-norm" />
@@ -92,16 +84,9 @@ changelog
       <sim>
         <multiplay>
           <generic>
-            <int                  n="0"  alias="/controls/lighting/beacon" />
-            <int                  n="1"  alias="/controls/lighting/nav-lights" />
-            <int                  n="2"  alias="/controls/lighting/pos-lights" />
-            <int                  n="3"  alias="/controls/lighting/strobe" />
-            <int                  n="4"  alias="/controls/lighting/taxi-light" />
-            <int                  n="5"  alias="/systems/electrical/bus/avionics" />
-            <int                  n="6"  alias="/systems/electrical/bus/engines" />
-            <int                  n="7"  alias="/systems/electrical/bus/commands" />
-            <int                  n="8"  alias="/engines/engine[0]/stopped" />
-            <int                  n="9"  alias="/engines/engine[1]/stopped" />
+            <int                  n="0"  alias="/sim/multiplay/generic/int[0]" />
+            <int                  n="1"  alias="/sim/multiplay/generic/int[1]" />
+            <int                  n="2"  alias="/sim/multiplay/generic/int[2]" />
             <float                n="0"  alias="/sim/model/canopy-pos-norm" />
             <float                n="1"  alias="/sim/model/canards-pos-norm" />
             <float                n="2"  alias="/controls/lighting/formation-lights" />
@@ -115,8 +100,6 @@ changelog
             <float                n="10" alias="/gear/gear[0]/wow" />
             <float                n="11" alias="/gear/gear[1]/wow" />
             <float                n="12" alias="/gear/gear[2]/wow" />
-            <string               n="0"  alias="/sim/model/center-tank" />
-            <string               n="1"  alias="/sim/model/wing-tanks" />
           </generic>
         </multiplay>
         <model>
@@ -125,6 +108,7 @@ changelog
             <texture alias="/sim/model/livery/texture" />
             <texture-tank alias="/sim/model/livery/texture-tank" />
           </livery>
+          <smoking-color type="string">blue</smoking-color>
         </model>
       </sim>
     </wingman>
