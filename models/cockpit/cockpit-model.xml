@@ -130,6 +130,7 @@ changelog
     <object-name>stdby-alt-pilot</object-name>
     <object-name>stdby-hsi-pilot</object-name>
     <object-name>stdby-asi-pilot</object-name>
+    <object-name>stdby-vsi-pilot</object-name>
     <object-name>command_h</object-name>
     <object-name>fuel-pilot</object-name>
     <object-name>com-1-pilot</object-name>
@@ -149,6 +150,7 @@ changelog
     <object-name>stdby-alt-copilot</object-name>
     <object-name>stdby-hsi-copilot</object-name>
     <object-name>stdby-asi-copilot</object-name>
+    <object-name>stdby-vsi-copilot</object-name>
     <object-name>fuel-copilot</object-name>
     <object-name>com-1-copilot</object-name>
     <object-name>nav-1-copilot</object-name>
@@ -534,11 +536,11 @@ ________________________________________________________________________________
 
   <!--
 ________________________________________________________________________________
-                                                                 ANGLE OF ATTACK
+                                                STANDBY VERTICAL SPEED INDICATOR
   -->
   <model>
-    <name>aoa-pilot</name>
-    <path>Aircraft/bourrasque/instruments/aoa/aoa-model.xml</path>
+    <name>stdby-vsi-pilot</name>
+    <path>Aircraft/bourrasque/instruments/stdby-vsi/stdby-vsi-model.xml</path>
     <offsets>
       <x-m>-3.93</x-m>
       <y-m>0</y-m>
@@ -577,6 +579,23 @@ ________________________________________________________________________________
       <x-m>-3.885</x-m>
       <y-m>.06</y-m>
       <z-m>0.46</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-30</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                                 ANGLE OF ATTACK
+  -->
+  <model>
+    <name>aoa-pilot</name>
+    <path>Aircraft/bourrasque/instruments/aoa/aoa-model.xml</path>
+    <offsets>
+      <x-m>-3.88</x-m>
+      <y-m>0</y-m>
+      <z-m>.463</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
       <pitch-deg>-30</pitch-deg>
@@ -958,8 +977,8 @@ ________________________________________________________________________________
                                                                  ANGLE OF ATTACK
   -->
   <model>
-    <name>aoa-copilot</name>
-    <path>Aircraft/bourrasque/instruments/aoa/aoa-model.xml</path>
+    <name>stdby-vsi-copilot</name>
+    <path>Aircraft/bourrasque/instruments/stdby-vsi/stdby-vsi-model.xml</path>
     <offsets>
       <x-m>-2.48</x-m>
       <y-m>0</y-m>
@@ -997,6 +1016,24 @@ ________________________________________________________________________________
     <offsets>
       <x-m>-2.42</x-m>
       <y-m>.06</y-m>
+      <z-m>0.5</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-30</pitch-deg>
+    </offsets>
+  </model>
+
+
+  <!--
+________________________________________________________________________________
+                                                                 ANGLE OF ATTACK
+  -->
+  <model>
+    <name>aoa-copilot</name>
+    <path>Aircraft/bourrasque/instruments/aoa/aoa-model.xml</path>
+    <offsets>
+      <x-m>-2.42</x-m>
+      <y-m>0</y-m>
       <z-m>0.5</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
