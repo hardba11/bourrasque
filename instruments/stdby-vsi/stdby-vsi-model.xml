@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+description :
+    this file uses the 3d model ans defines animations of the model and objects
+    (mouvements, lightings)
+    it loads if necessary the submodels files
+-->
+
+<PropertyList>
+
+  <name>stdby-vsi</name>
+  <path>instrument_stdby-vsi.ac</path>
+
+  <!--
+================================================================================
+                                                             OBJECTS DECLARATION
+================================================================================
+  -->
+  <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
+  <animation>
+    <object-name>stdby-vsi.box</object-name>
+    <object-name>stdby-vsi.scale</object-name>
+    <object-name>stdby-vsi.mark-emit</object-name>
+    <object-name>stdby-vsi.scale-emit</object-name>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>stdby-vsi.mark-emit</object-name>
+    <object-name>stdby-vsi.scale-emit</object-name>
+  </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ effects -->
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
+    <object-name>stdby-vsi.box</object-name>
+    <object-name>stdby-vsi.scale</object-name>
+    <object-name>stdby-vsi.mark-emit</object-name>
+    <object-name>stdby-vsi.scale-emit</object-name>
+  </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
+  <animation>
+    <type>material</type>
+    <object-name>stdby-vsi.mark-emit</object-name>
+    <object-name>stdby-vsi.scale-emit</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.8</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+    <condition>
+      <property>systems/electrical/bus/avionics</property>
+    </condition>
+  </animation>
+
+  <!--
+================================================================================
+                                                         CONTROLS AND ANIMATIONS
+================================================================================
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation scale -->
+  <animation>
+    <type>rotate</type>
+    <object-name>stdby-vsi.scale</object-name>
+    <object-name>stdby-vsi.scale-emit</object-name>
+    <condition>
+      <property>systems/electrical/bus/avionics</property>
+    </condition>
+    <property>autopilot/internal/vert-speed-fpm</property>
+    <interpolation>
+      <entry><ind>-9000.0</ind><dep>-90</dep></entry>
+      <entry><ind>0.0</ind><dep>0.0</dep></entry>
+      <entry><ind>9000</ind><dep>90</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-.0479</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!--
+================================================================================
+                                                                        TEXT OSG
+================================================================================
+  -->
+  <text>
+    <name>textosg</name>
+    <type type="string">literal</type>
+    <text type="string">VSI</text>
+    <draw-text type="bool">true</draw-text>
+    <font>Helvetica.txf</font>
+    <character-size type="double">0.016</character-size>
+    <character-aspect-ratio type="double">1.0</character-aspect-ratio>
+    <axis-alignment>yz-plane</axis-alignment>
+    <max-height>0.06</max-height>
+    <max-width>0.08</max-width>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+    <alignment>center-center</alignment>
+    <offsets>
+      <x-m>.02</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </offsets>
+  </text>
+
+  <animation>
+    <type>material</type>
+    <object-name>textosg</object-name>
+    <emission>
+      <red>0.2</red>
+      <green>1</green>
+      <blue>0.2</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>select</type>
+    <object-name>textosg</object-name>
+    <condition>
+      <property>sim/panel-hotspots</property>
+    </condition>
+  </animation>
+
+</PropertyList>
