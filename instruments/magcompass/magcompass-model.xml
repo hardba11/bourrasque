@@ -25,7 +25,7 @@ changelog
   <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
   <animation>
     <object-name>magcompass.box</object-name>
-    <object-name>magcompass.poly</object-name>
+    <object-name>magcompass.box-emit</object-name>
     <object-name>magcompass.ring</object-name>
   </animation>
 
@@ -33,7 +33,7 @@ changelog
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
     <object-name>magcompass.box</object-name>
-    <object-name>magcompass.poly</object-name>
+    <object-name>magcompass.box-emit</object-name>
     <object-name>magcompass.ring</object-name>
   </effect>
 
@@ -41,6 +41,7 @@ changelog
   <animation>
     <type>material</type>
     <object-name>magcompass.ring</object-name>
+    <object-name>magcompass.box-emit</object-name>
     <emission>
       <factor-prop>/controls/lighting/instruments-norm</factor-prop>
       <red>0.8</red>

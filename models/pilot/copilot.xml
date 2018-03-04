@@ -220,7 +220,7 @@ ________________________________________________________________________________
                                                                        RIGHT ARM
   -->
 
-  <!-- ~~~~~~~~~~~~~~~~~~ rotating shoulder -->
+  <!-- ~~~~~~~~~~~~~~~~~~ rotating shoulder
   <animation>
     <type>rotate</type>
     <object-name>bloc_brasD</object-name>
@@ -252,8 +252,8 @@ ________________________________________________________________________________
       <y>0</y>
       <z>0</z>
     </axis>
-  </animation>
-  <!-- ~~~~~~~~~~~~~~~~~~ rotating elbow -->
+  </animation> -->
+  <!-- ~~~~~~~~~~~~~~~~~~ rotating elbow
   <animation>
     <type>rotate</type>
     <object-name>bloc_avantbrasD</object-name>
@@ -301,8 +301,8 @@ ________________________________________________________________________________
       <y>0</y>
       <z>1</z>
     </axis>
-  </animation>
-  <!-- ~~~~~~~~~~~~~~~~~~ rotating wrist -->
+  </animation> -->
+  <!-- ~~~~~~~~~~~~~~~~~~ rotating wrist
   <animation>
     <type>rotate</type>
     <object-name>mainD</object-name>
@@ -350,14 +350,14 @@ ________________________________________________________________________________
       <y>0</y>
       <z>1</z>
     </axis>
-  </animation>
+  </animation> -->
 
   <!--
 ________________________________________________________________________________
                                                                         LEFT ARM
   -->
 
-  <!-- ~~~~~~~~~~~~~~~~~~ rotating shoulder -->
+  <!-- ~~~~~~~~~~~~~~~~~~ rotating shoulder
   <animation>
     <type>rotate</type>
     <object-name>bloc_brasG</object-name>
@@ -389,9 +389,9 @@ ________________________________________________________________________________
       <y>0</y>
       <z>0</z>
     </axis>
-  </animation>
+  </animation> -->
 
-  <!-- ~~~~~~~~~~~~~~~~~~ rotating elbow -->
+  <!-- ~~~~~~~~~~~~~~~~~~ rotating elbow
   <animation>
     <type>rotate</type>
     <object-name>bloc_avantbrasG</object-name>
@@ -407,9 +407,9 @@ ________________________________________________________________________________
       <y>1</y>
       <z>0</z>
     </axis>
-  </animation>
+  </animation> -->
 
-  <!-- ~~~~~~~~~~~~~~~~~~ rotating wrist -->
+  <!-- ~~~~~~~~~~~~~~~~~~ rotating wrist
   <animation>
     <type>rotate</type>
     <object-name>main</object-name>
@@ -457,7 +457,7 @@ ________________________________________________________________________________
       <y>0</y>
       <z>1</z>
     </axis>
-  </animation>
+  </animation> -->
 
   <!--
 ________________________________________________________________________________

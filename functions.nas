@@ -17,6 +17,23 @@ var SETTINGS_MODS = [
     ['VFR',  2, 1,  0,  37, 'RADAR', 800, 3000],
 ];
 
+var SETTINGS_PANEL_VIEW_LEFT = [
+    ['fov', 'heading', 'pitch', 'z', 'x', 'y'],
+    [40, 11.6, -25, -3.21, 0, 1.10],
+    [30.52, 0, -35, -3.21, 0, 0.99],
+    [33.86, 45, -55, -3.45, -0.21, 0.99],
+    [33.86, 90, -70, -3.21, -0.23, 0.92],
+    [30.52, 0, -35, -3.21, 0, 0.99],
+];
+
+var SETTINGS_PANEL_VIEW_RIGHT = [
+    ['fov', 'heading', 'pitch', 'z', 'x', 'y'],
+    [40, -11.6, -25, -3.21, 0, 1.10],
+    [30.52, 0, -35, -3.21, 0, 0.99],
+    [33.86, -45, -55, -3.45, 0.21, 0.99],
+    [33.86, -87, -70, -3.21, 0.23, 0.92],
+    [30.52, 0, -35, -3.21, 0, 0.99],
+];
 
 #===============================================================================
 #                                                                    CONVERSIONS
@@ -47,27 +64,63 @@ var LBS2KG = 0.45359237;
 var current_fov = 0;
 var current_heading = 0;
 var current_pitch = 0;
+var current_z = 0;
+var current_x = 0;
+var current_y = 0;
 
-var is_view_cockpit_left_or_right = 0;
-var toggle_view_cockpit_left_or_right = func(left_or_right)
+var view_cockpit_panels_number = 0;
+var view_cockpit_panels = func(inc)
 {
-    if(is_view_cockpit_left_or_right)
-    {
-        is_view_cockpit_left_or_right = 0;
-        load_current_view();
-    }
-    else
+    var view_number = getprop("/sim/current-view/view-number") or 0;
+    if((view_number == 0) and (view_cockpit_panels_number == 0))
     {
         save_current_view();
-        if(left_or_right == 'left')
+    }
+
+    # inc positif : on fait defiler les vues de droite :
+    if((view_number == 0) and (inc > 0))
+    {
+        view_cockpit_panels_number += 1;
+        if(view_cockpit_panels_number >= size(SETTINGS_PANEL_VIEW_RIGHT))
         {
-            view_cockpit_left();
         }
-        elsif(left_or_right == 'right')
+        elsif(view_cockpit_panels_number > 0)
         {
-            view_cockpit_right();
+            setprop("/sim/current-view/field-of-view",           SETTINGS_PANEL_VIEW_RIGHT[view_cockpit_panels_number][0]);
+            setprop("/sim/current-view/goal-heading-offset-deg", SETTINGS_PANEL_VIEW_RIGHT[view_cockpit_panels_number][1]);
+            setprop("/sim/current-view/goal-pitch-offset-deg",   SETTINGS_PANEL_VIEW_RIGHT[view_cockpit_panels_number][2]);
+            setprop("/sim/current-view/z-offset-m",              SETTINGS_PANEL_VIEW_RIGHT[view_cockpit_panels_number][3]);
+            setprop("/sim/current-view/x-offset-m",              SETTINGS_PANEL_VIEW_RIGHT[view_cockpit_panels_number][4]);
+            setprop("/sim/current-view/y-offset-m",              SETTINGS_PANEL_VIEW_RIGHT[view_cockpit_panels_number][5]);
         }
-        is_view_cockpit_left_or_right = 1;
+        else
+        {
+            view_cockpit_panels_number = 0;
+            load_current_view();
+        }
+    }
+
+    # inc negatif : on fait defiler les vues de gauche :
+    elsif((view_number == 0) and (inc < 0))
+    {
+        view_cockpit_panels_number -= 1;
+        if(-view_cockpit_panels_number >= size(SETTINGS_PANEL_VIEW_LEFT))
+        {
+        }
+        elsif(view_cockpit_panels_number < 0)
+        {
+            setprop("/sim/current-view/field-of-view",           SETTINGS_PANEL_VIEW_LEFT[-view_cockpit_panels_number][0]);
+            setprop("/sim/current-view/goal-heading-offset-deg", SETTINGS_PANEL_VIEW_LEFT[-view_cockpit_panels_number][1]);
+            setprop("/sim/current-view/goal-pitch-offset-deg",   SETTINGS_PANEL_VIEW_LEFT[-view_cockpit_panels_number][2]);
+            setprop("/sim/current-view/z-offset-m",              SETTINGS_PANEL_VIEW_LEFT[-view_cockpit_panels_number][3]);
+            setprop("/sim/current-view/x-offset-m",              SETTINGS_PANEL_VIEW_LEFT[-view_cockpit_panels_number][4]);
+            setprop("/sim/current-view/y-offset-m",              SETTINGS_PANEL_VIEW_LEFT[-view_cockpit_panels_number][5]);
+        }
+        else
+        {
+            view_cockpit_panels_number = 0;
+            load_current_view();
+        }
     }
 }
 
@@ -78,6 +131,9 @@ var save_current_view = func() {
         current_fov     = getprop("/sim/current-view/field-of-view") or 0;
         current_heading = getprop("/sim/current-view/heading-offset-deg") or 0;
         current_pitch   = getprop("/sim/current-view/pitch-offset-deg") or 0;
+        current_z       = getprop("/sim/current-view/z-offset-m") or 0;
+        current_x       = getprop("/sim/current-view/x-offset-m") or 0;
+        current_y       = getprop("/sim/current-view/y-offset-m") or 0;
     }
 }
 var load_current_view = func() {
@@ -87,6 +143,10 @@ var load_current_view = func() {
         setprop("/sim/current-view/field-of-view", current_fov);
         setprop("/sim/current-view/goal-heading-offset-deg", current_heading);
         setprop("/sim/current-view/goal-pitch-offset-deg", current_pitch);
+        setprop("/sim/current-view/z-offset-m", current_z);
+        setprop("/sim/current-view/x-offset-m", 0);
+        setprop("/sim/current-view/y-offset-m", current_y);
+
     }
 }
 
@@ -144,26 +204,6 @@ var view_panel_radio = func() {
         setprop("/sim/current-view/goal-pitch-offset-deg", -45);
     }
 }
-
-var view_cockpit_left = func() {
-    var view_number = getprop("/sim/current-view/view-number") or 0;
-    if(view_number == 0)
-    {
-        setprop("/sim/current-view/field-of-view", 40);
-        setprop("/sim/current-view/goal-heading-offset-deg", 11.6);
-        setprop("/sim/current-view/goal-pitch-offset-deg", -25);
-    }
-}
-var view_cockpit_right = func() {
-    var view_number = getprop("/sim/current-view/view-number") or 0;
-    if(view_number == 0)
-    {
-        setprop("/sim/current-view/field-of-view", 40);
-        setprop("/sim/current-view/goal-heading-offset-deg", -11.6);
-        setprop("/sim/current-view/goal-pitch-offset-deg", -25);
-    }
-}
-
 
 #===============================================================================
 #                                                                         INPUTS
@@ -619,6 +659,12 @@ var event_load_store = func(place, load) {
         }
     }
 }
+
+var event_brake = func(do_enable) {
+    setprop("/controls/gear/brake-left", do_enable);
+    setprop("/controls/gear/brake-right", do_enable);
+}
+
 
 #===============================================================================
 #                                                                          TOOLS

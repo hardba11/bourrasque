@@ -44,8 +44,8 @@
       </equals>
     </condition>
     <offsets>
-      <x-m>7</x-m>
-      <y-m>5.9</y-m>
+      <x-m>5.1</x-m>
+      <y-m>5.3</y-m>
       <z-m>0</z-m>
     </offsets>
   </model>
@@ -59,8 +59,8 @@
       </equals>
     </condition>
     <offsets>
-      <x-m>7</x-m>
-      <y-m>-5.9</y-m>
+      <x-m>5.1</x-m>
+      <y-m>-5.3</y-m>
       <z-m>0</z-m>
     </offsets>
   </model>
@@ -75,8 +75,8 @@
       </equals>
     </condition>
     <offsets>
-      <x-m>7</x-m>
-      <y-m>5.9</y-m>
+      <x-m>5.1</x-m>
+      <y-m>5.3</y-m>
       <z-m>0</z-m>
     </offsets>
   </model>
@@ -90,8 +90,8 @@
       </equals>
     </condition>
     <offsets>
-      <x-m>7</x-m>
-      <y-m>-5.9</y-m>
+      <x-m>5.1</x-m>
+      <y-m>-5.3</y-m>
       <z-m>0</z-m>
     </offsets>
   </model>
@@ -106,8 +106,8 @@
       </equals>
     </condition>
     <offsets>
-      <x-m>7</x-m>
-      <y-m>5.9</y-m>
+      <x-m>5.1</x-m>
+      <y-m>5.3</y-m>
       <z-m>0</z-m>
     </offsets>
   </model>
@@ -121,8 +121,8 @@
       </equals>
     </condition>
     <offsets>
-      <x-m>7</x-m>
-      <y-m>-5.9</y-m>
+      <x-m>5.1</x-m>
+      <y-m>-5.3</y-m>
       <z-m>0</z-m>
     </offsets>
   </model>

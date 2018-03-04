@@ -13,6 +13,7 @@ keyboard shortcuts :
 - ctrl-h : enable autopilot on Heading (bug)
 - ctrl-n : enable autopilot on Heading (nav 1 radial)
 - ctrl-p : enable autopilot to keep current heading, altitude and speed
+- ctrl-P : disable autopilot
 - m : select previous mod
 - M : select next mod
 - } : autostart
@@ -48,7 +49,7 @@ numpad layout
 ** if autopilot is enabled
 ___________________________________________________________________
  7              | 8              | 9              | +
-                | - pitch down   |                | - inc throttle
+ - view panels  | - pitch down   | - view panels  | - inc throttle
                 | - trim down*   |                | - inc speed**
                 | - decr alt**   |                |
 ________________|________________|________________|

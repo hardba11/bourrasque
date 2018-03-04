@@ -41,17 +41,17 @@
             <value>1.0</value>
           </red>
           <green>
-            <value>0.0</value>
+            <value>0.2</value>
           </green>
           <blue>
-            <value>0.0</value>
+            <value>0.2</value>
           </blue>
           <alpha>
-            <value>0.3</value>
+            <value>0.1</value>
           </alpha>
         </color>
         <size>
-          <value>.5</value>
+          <value>.7</value>
         </size>
       </start>
       <end>
@@ -60,17 +60,17 @@
             <value>1.0</value>
           </red>
           <green>
-            <value>0.0</value>
+            <value>0.2</value>
           </green>
           <blue>
-            <value>0.0</value>
+            <value>0.2</value>
           </blue>
           <alpha>
-            <value>0.01</value>
+            <value>0.001</value>
           </alpha>
         </color>
         <size>
-          <value>18</value>
+          <value>25</value>
         </size>
       </end>
       <life-sec>

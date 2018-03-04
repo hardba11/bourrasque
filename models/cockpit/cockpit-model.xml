@@ -963,7 +963,7 @@ ________________________________________________________________________________
     <name>stdby-ai-copilot</name>
     <path>Aircraft/bourrasque/instruments/stdby-ai/stdby-ai-model.xml</path>
     <offsets>
-      <x-m>-2.48</x-m>
+      <x-m>-2.47</x-m>
       <y-m>-.06</y-m>
       <z-m>0.60</z-m>
       <heading-deg>0</heading-deg>
@@ -974,13 +974,13 @@ ________________________________________________________________________________
 
   <!--
 ________________________________________________________________________________
-                                                                 ANGLE OF ATTACK
+                                                STANDBY VERTICAL SPEED INDICATOR
   -->
   <model>
     <name>stdby-vsi-copilot</name>
     <path>Aircraft/bourrasque/instruments/stdby-vsi/stdby-vsi-model.xml</path>
     <offsets>
-      <x-m>-2.48</x-m>
+      <x-m>-2.47</x-m>
       <y-m>0</y-m>
       <z-m>0.60</z-m>
       <heading-deg>0</heading-deg>
@@ -997,7 +997,7 @@ ________________________________________________________________________________
     <name>stdby-alt-copilot</name>
     <path>Aircraft/bourrasque/instruments/stdby-alt/stdby-alt-model.xml</path>
     <offsets>
-      <x-m>-2.48</x-m>
+      <x-m>-2.47</x-m>
       <y-m>.06</y-m>
       <z-m>0.60</z-m>
       <heading-deg>0</heading-deg>
