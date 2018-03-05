@@ -130,16 +130,17 @@ Syd Adams
 ================================================================================
   -->
 
-  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control and animation power and mods -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control power and mods -->
   <animation>
-    <type>knob</type>
+    <type>pick</type>
     <object-name>CTL-92.pwr</object-name>
     <action>
+      <button>0</button>
+      <repeatable>true</repeatable>
       <binding>
         <command>property-cycle</command>
         <property>instrumentation/transponder/inputs/knob-mode</property>
         <wrap>0</wrap>
-        <!-- don't wrap at the ends -->
         <value>0</value>
         <value>1</value>
         <value>4</value>
@@ -150,6 +151,63 @@ Syd Adams
         <property>sim/model/click</property>
       </binding>
     </action>
+    <action>
+      <button>1</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-cycle</command>
+        <property>instrumentation/transponder/inputs/knob-mode</property>
+        <wrap>0</wrap>
+        <value>5</value>
+        <value>4</value>
+        <value>1</value>
+        <value>0</value>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>3</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-cycle</command>
+        <property>instrumentation/transponder/inputs/knob-mode</property>
+        <wrap>0</wrap>
+        <value>0</value>
+        <value>1</value>
+        <value>4</value>
+        <value>5</value>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>4</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-cycle</command>
+        <property>instrumentation/transponder/inputs/knob-mode</property>
+        <wrap>0</wrap>
+        <value>5</value>
+        <value>4</value>
+        <value>1</value>
+        <value>0</value>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation power and mods -->
+  <animation>
+    <type>rotate</type>
+    <object-name>CTL-92.pwr</object-name>
     <property>instrumentation/transponder/inputs/knob-mode</property>
     <interpolation>
       <entry><ind>0</ind><dep>0.0</dep></entry>  <!-- OFF -->
