@@ -479,4 +479,123 @@ ________________________________________________________________________________
     </axis>
   </animation>
 
+  <!--
+________________________________________________________________________________
+                                                               FORCES ON COPILOT
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ roll effects -->
+  <animation>
+    <type>rotate</type>
+    <object-name>bloc_pilote</object-name>
+    <property>/fdm/yasim/accelerations/a-y</property>
+    <interpolation>
+      <entry><ind>-12</ind><dep>3</dep></entry>
+      <entry><ind>-10</ind><dep>2</dep></entry>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>10</ind><dep>-2</dep></entry>
+      <entry><ind>12</ind><dep>-3</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0.3</z-m>
+    </center>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>bloc_tete</object-name>
+    <property>/fdm/yasim/accelerations/a-y</property>
+    <interpolation>
+      <entry><ind>-12</ind><dep>4</dep></entry>
+      <entry><ind>-10</ind><dep>2</dep></entry>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>10</ind><dep>-2</dep></entry>
+      <entry><ind>12</ind><dep>-4</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-3.13</x-m>
+      <y-m>-0.03</y-m>
+      <z-m>1</z-m>
+    </center>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ acceleration effects -->
+  <animation>
+    <type>rotate</type>
+    <object-name>bloc_pilote</object-name>
+    <property>/fdm/yasim/accelerations/a-x</property>
+    <interpolation>
+      <entry><ind>-30</ind><dep>-4</dep></entry>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>30</ind><dep>2</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-3.404</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>bloc_tete</object-name>
+    <property>/fdm/yasim/accelerations/a-x</property>
+    <interpolation>
+      <entry><ind>-30</ind><dep>-6</dep></entry>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>30</ind><dep>3</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-3.13</x-m>
+      <y-m>-0.03</y-m>
+      <z-m>1</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ Gs effects -->
+  <animation>
+    <type>translate</type>
+    <object-name>bloc_pilote</object-name>
+    <object-name>jambeG</object-name>
+    <object-name>jambeD</object-name>
+    <property>/fdm/yasim/accelerations/a-z</property>
+    <interpolation>
+      <entry><ind>-150</ind><dep>.03</dep></entry>
+      <entry><ind>-90</ind><dep>.02</dep></entry>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>90</ind><dep>-.02</dep></entry>
+      <entry><ind>150</ind><dep>-.03</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+
 </PropertyList>
