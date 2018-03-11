@@ -25,28 +25,34 @@ changelog
   <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
   <animation>
     <object-name>hsi.box</object-name>
+    <object-name>hsi.bug</object-name>
     <object-name>hsi.crs_needle</object-name>
     <object-name>hsi.dev_needle</object-name>
     <object-name>hsi.vor_needle</object-name>
     <object-name>hsi.hdg_ring</object-name>
-    <object-name>hsi.knob</object-name>
+    <object-name>hsi.knob_course</object-name>
+    <object-name>hsi.knob_hdg</object-name>
     <object-name>hsi.scale</object-name>
+    <object-name>hsi.bug-emit</object-name>
     <object-name>hsi.crs_needle-emit</object-name>
     <object-name>hsi.dev_needle-emit</object-name>
     <object-name>hsi.vor_needle-emit</object-name>
     <object-name>hsi.hdg_ring-emit</object-name>
-    <object-name>hsi.knob-emit</object-name>
+    <object-name>hsi.knob_course-emit</object-name>
+    <object-name>hsi.knob_hdg-emit</object-name>
     <object-name>hsi.scale-emit</object-name>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
   <effect>
     <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>hsi.bug-emit</object-name>
     <object-name>hsi.crs_needle-emit</object-name>
     <object-name>hsi.dev_needle-emit</object-name>
     <object-name>hsi.vor_needle-emit</object-name>
     <object-name>hsi.hdg_ring-emit</object-name>
-    <object-name>hsi.knob-emit</object-name>
+    <object-name>hsi.knob_course-emit</object-name>
+    <object-name>hsi.knob_hdg-emit</object-name>
     <object-name>hsi.scale-emit</object-name>
   </effect>
 
@@ -54,28 +60,34 @@ changelog
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
     <object-name>hsi.box</object-name>
+    <object-name>hsi.bug</object-name>
     <object-name>hsi.crs_needle</object-name>
     <object-name>hsi.dev_needle</object-name>
     <object-name>hsi.vor_needle</object-name>
     <object-name>hsi.hdg_ring</object-name>
-    <object-name>hsi.knob</object-name>
+    <object-name>hsi.knob_course</object-name>
+    <object-name>hsi.knob_hdg</object-name>
     <object-name>hsi.scale</object-name>
+    <object-name>hsi.bug-emit</object-name>
     <object-name>hsi.crs_needle-emit</object-name>
     <object-name>hsi.dev_needle-emit</object-name>
     <object-name>hsi.vor_needle-emit</object-name>
     <object-name>hsi.hdg_ring-emit</object-name>
-    <object-name>hsi.knob-emit</object-name>
+    <object-name>hsi.knob_course-emit</object-name>
+    <object-name>hsi.knob_hdg-emit</object-name>
     <object-name>hsi.scale-emit</object-name>
   </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
   <animation>
     <type>material</type>
+    <object-name>hsi.bug-emit</object-name>
     <object-name>hsi.crs_needle-emit</object-name>
     <object-name>hsi.dev_needle-emit</object-name>
     <object-name>hsi.vor_needle-emit</object-name>
     <object-name>hsi.hdg_ring-emit</object-name>
-    <object-name>hsi.knob-emit</object-name>
+    <object-name>hsi.knob_course-emit</object-name>
+    <object-name>hsi.knob_hdg-emit</object-name>
     <object-name>hsi.scale-emit</object-name>
     <emission>
       <factor-prop>/controls/lighting/instruments-norm</factor-prop>
@@ -111,6 +123,27 @@ changelog
     <property>/instrumentation/my_aircraft/nd/outputs/indicated-heading</property>
     <axis>
       <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation heading bug -->
+  <animation>
+    <type>rotate</type>
+    <object-name>hsi.bug</object-name>
+    <object-name>hsi.bug-emit</object-name>
+    <condition>
+      <property>systems/electrical/bus/avionics</property>
+    </condition>
+    <property>/autopilot/internal/heading-bug-error-deg</property>
+    <axis>
+      <x>-1</x>
       <y>0</y>
       <z>0</z>
     </axis>
@@ -191,11 +224,11 @@ changelog
     </center>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ control radial -->
+  <!-- ~~~~~~~~~~~~~~~~~~ control radial knob -->
   <!-- left/middle click = +-30 // wheel = +-1 -->
   <animation>
     <type>pick</type>
-    <object-name>hsi.knob</object-name>
+    <object-name>hsi.knob_course</object-name>
     <condition>
       <property>systems/electrical/bus/avionics</property>
     </condition>
@@ -274,11 +307,11 @@ changelog
     </hovered>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ animation radial -->
+  <!-- ~~~~~~~~~~~~~~~~~~ animation radial knob -->
   <animation>
     <type>rotate</type>
-    <object-name>hsi.knob</object-name>
-    <object-name>hsi.knob-emit</object-name>
+    <object-name>hsi.knob_course</object-name>
+    <object-name>hsi.knob_course-emit</object-name>
     <property>/instrumentation/nav[0]/radials/selected-deg</property>
     <factor>3</factor>
     <center>
@@ -293,6 +326,104 @@ changelog
     </axis>
   </animation>
 
+  <!-- ~~~~~~~~~~~~~~~~~~ control heading bug knob -->
+  <!-- left/middle click = +-30 // wheel = +-1 -->
+  <animation>
+    <type>pick</type>
+    <object-name>hsi.knob_hdg</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/autopilot/settings/heading-bug-deg</property>
+        <step>30</step>
+        <min>0</min>
+        <max>360</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/autopilot/settings/heading-bug-deg</property>
+        <step>-30</step>
+        <min>0</min>
+        <max>360</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>3</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/autopilot/settings/heading-bug-deg</property>
+        <step>1</step>
+        <min>0</min>
+        <max>360</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>4</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/autopilot/settings/heading-bug-deg</property>
+        <step>-1</step>
+        <min>0</min>
+        <max>360</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-stdby-hsi-set-bug</tooltip-id>
+        <label>Set heading-bug %3d</label>
+        <mapping>heading</mapping>
+        <property>/autopilot/settings/heading-bug-deg</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation heading bug knob -->
+  <animation>
+    <type>rotate</type>
+    <object-name>hsi.knob_hdg</object-name>
+    <object-name>hsi.knob_hdg-emit</object-name>
+    <property>/autopilot/settings/heading-bug-deg</property>
+    <factor>3</factor>
+    <center>
+      <x-m>.0144</x-m>
+      <y-m>.0312</y-m>
+      <z-m>-.0339</z-m>
+    </center>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
   <!--
 ================================================================================
                                                                         TEXT OSG
