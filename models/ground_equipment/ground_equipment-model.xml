@@ -135,5 +135,19 @@ changelog
     </condition>
   </animation>
 
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control fuel quantity -->
+  <animation>
+    <type>pick</type>
+    <object-name>fuel-truck.tank</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>dialog-show</command>
+        <dialog-name>bourrasque-fuel</dialog-name>
+      </binding>
+    </action>
+  </animation>
+
+
 </PropertyList>
 

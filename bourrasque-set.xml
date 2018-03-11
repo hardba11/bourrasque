@@ -128,7 +128,7 @@ changelog
 
       <splash-title>loading brsq ...</splash-title>
     </startup>
-    <fuel-fraction>0.1</fuel-fraction>
+    <fuel-fraction type="float">0.1</fuel-fraction>
     <virtual-cockpit archive="y">true</virtual-cockpit>
     <allow-toggle-cockpit archive="y">true</allow-toggle-cockpit>
 

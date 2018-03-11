@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+################################################################################
+#
+#                      bourrasque options dialogbox
+#
+################################################################################
+
+the dialogbox is autoloaded if in gui/dialog
+
+https://sourceforge.net/p/flightgear/fgdata/ci/next/tree/Docs/README.gui
+
+changelog
+- 2016-10-22 : create
+
+-->
+
+<PropertyList>
+
+  <name>bourrasque-fuel</name>
+  <modal type="bool">false</modal>
+  <layout>vbox</layout>
+  <group>
+    <layout>hbox</layout><empty><stretch>1</stretch></empty>
+    <text><label>bourrasques's fuel</label></text>
+    <empty><stretch>1</stretch></empty>
+    <button><pref-width>16</pref-width><pref-height>16</pref-height><legend />
+      <default>1</default><keynum>27</keynum><border>2</border>
+      <binding><command>dialog-close</command></binding>
+      <binding><command>dialog-apply</command></binding>
+    </button>
+  </group>
+
+  <hrule />
+
+  <!-- ~~~~~~~~~~~~~~~~~~ canvas hud helper -->
+  <group>
+    <layout>table</layout>
+
+    <text>
+      <pref-width>150</pref-width>
+      <label>level-norm</label>
+      <row>0</row><col>0</col>
+      <halign>left</halign>
+      <format>fuel fraction : %0.2f / 1.00</format>
+      <live>true</live>
+      <property>/sim/fuel-fraction</property>
+    </text>
+
+    <slider>
+      <name>fuel-fraction</name>
+      <row>1</row><col>0</col>
+      <pref-width>150</pref-width>
+      <min>0</min>
+      <max>1</max>
+      <step>.05</step>
+      <property>/sim/fuel-fraction</property>
+      <binding>
+        <command>dialog-apply</command>
+        <object-name>fuel-fraction</object-name>
+      </binding>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+var level_norm = getprop("/sim/fuel-fraction") or 0;
+setprop("/consumables/fuel/tank[0]/level-norm", level_norm);
+setprop("/consumables/fuel/tank[1]/level-norm", level_norm);
+setprop("/consumables/fuel/tank[2]/level-norm", level_norm);
+setprop("/consumables/fuel/tank[3]/level-norm", level_norm);
+setprop("/consumables/fuel/tank[4]/level-norm", level_norm);
+setprop("/consumables/fuel/tank[5]/level-norm", level_norm);
+setprop("/consumables/fuel/tank[6]/level-norm", level_norm);
+setprop("/consumables/fuel/tank[7]/level-norm", level_norm);
+          ]]>
+        </script>
+      </binding>
+    </slider>
+
+  </group>
+
+  <hrule />
+
+</PropertyList>
+

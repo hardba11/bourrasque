@@ -93,6 +93,15 @@ aircraft.livery.dialog.toggle();
         </binding>
       </item>
 
+      <item n="7">
+        <label>Fuel ...</label>
+        <name>fuel</name>
+        <binding>
+          <command>dialog-show</command>
+          <dialog-name>bourrasque-fuel</dialog-name>
+        </binding>
+      </item>
+
     </menu>
 
   </default>
