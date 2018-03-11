@@ -31,8 +31,8 @@ WARNING
       <enabled type="bool">false</enabled>
     </limits>
     <x-offset-m type="double">-.2</x-offset-m>
-    <y-offset-m type="double">1.2</y-offset-m>
-    <z-offset-m type="double">-2.5</z-offset-m>
+    <y-offset-m type="double">1.23</y-offset-m>
+    <z-offset-m type="double">-2.46</z-offset-m>
     <pitch-offset-deg type="double">1.5</pitch-offset-deg>
     <heading-offset-deg type="double">178</heading-offset-deg>
   </config>

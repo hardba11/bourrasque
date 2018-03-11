@@ -30,9 +30,9 @@ WARNING
     <limits>
       <enabled type="bool">false</enabled>
     </limits>
-    <x-offset-m type="double">.2</x-offset-m>
-    <y-offset-m type="double">1.15</y-offset-m>
-    <z-offset-m type="double">-3.95</z-offset-m>
+    <x-offset-m type="double">.18</x-offset-m>
+    <y-offset-m type="double">1.13</y-offset-m>
+    <z-offset-m type="double">-3.93</z-offset-m>
     <pitch-offset-deg type="double">1</pitch-offset-deg>
     <heading-offset-deg type="double">170</heading-offset-deg>
   </config>
