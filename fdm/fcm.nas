@@ -407,7 +407,8 @@ var fcm_loop = func() {
     # in manual mode, the stability is improved (more precise on the center
     # of the controls and depends on speed, altitude, configuration)
 
-    if(getprop("/autopilot/locks/altitude") != 'altitude-hold')
+    if((getprop("/autopilot/locks/altitude") != 'altitude-hold')
+        and (getprop("/autopilot/locks/altitude") != 'vertical-speed-hold'))
     {
         output_pitch = modify_stability(output_pitch);
     }
