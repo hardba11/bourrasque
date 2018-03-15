@@ -270,7 +270,11 @@
 		<name>IT-CONTROLLER: ALTITUDE V/S MAX</name>
 		<type>gain</type>
 		<gain>1.0</gain>
-		<input>/instrumentation/my_aircraft/pfd/controls/target-vs</input>
+		<input>
+			<expression>
+				<abs><property>/instrumentation/my_aircraft/pfd/controls/target-vs</property></abs>
+			</expression>
+		</input>
 		<output>/autopilot/internal/max-vs</output>
 		<min>100</min>
 		<max>9000</max>
