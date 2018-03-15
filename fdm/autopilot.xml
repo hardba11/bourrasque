@@ -267,6 +267,16 @@
  <!-- =============================================================== -->
 
 	<filter>
+		<name>IT-CONTROLLER: ALTITUDE V/S MAX</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input>/instrumentation/my_aircraft/pfd/controls/target-vs</input>
+		<output>/autopilot/internal/max-vs</output>
+		<min>100</min>
+		<max>9000</max>
+	</filter>
+	
+	<filter>
 		<name>ALTITUDE CAPTURE/HOLD</name>
 		<debug>false</debug>
 		<type>gain</type>
@@ -285,8 +295,13 @@
 		<output>
 			<property>/autopilot/internal/target-fpm-alt</property>
 		</output>
-		<min>-2000</min>
-		<max>2000</max>
+		<min>
+			<property>/autopilot/internal/max-vs</property>
+			<scale>-1</scale>
+		</min>
+		<max>
+			<property>/autopilot/internal/max-vs</property>
+		</max>
 	</filter>
 
 	<filter>
@@ -302,7 +317,7 @@
 				</table>
 			</expression>
 		</input>
-		<output>/autopilot/internal/vs-kp</output>
+		<output>/autopilot/internal/kp-vs</output>
 	</filter>
  
 	<pid-controller>
@@ -348,7 +363,7 @@
 		</output>
 		<config>
 			<Kp>
-				<property>/autopilot/internal/vs-kp</property>
+				<property>/autopilot/internal/kp-vs</property>
 			</Kp>
 			<Ti>2.0</Ti>
 			<Td>0.0001</Td>
@@ -663,7 +678,59 @@
 			<u_max>0.86</u_max>
 		</config>
 	</pid-controller>
+	
+ <!-- =============================================================== -->
+ <!-- FDM Interface                                                   -->
+ <!-- =============================================================== -->
+
+	<filter>
+		<name>System Command: FCM Roll</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input> <!-- Directly connect output to the FDM when AP is on -->
+			<condition>
+				<or>
+					<equals>
+						<property>/autopilot/locks/heading</property>
+						<value>dg-heading-hold</value>
+					</equals>
+					<equals>
+						<property>/autopilot/locks/heading</property>
+						<value>nav1-hold</value>
+					</equals>
+				</or>
+			</condition>
+			<property>/controls/flight/aileron</property>
+		</input>
+		<input> <!-- Otherwise connect FCM to FDM -->
+			<property>/controls/flight/fcm-aileron</property>
+		</input>
+		<output>/controls/flight/fdm-aileron</output>
+	</filter>
+	
+	<filter>
+		<name>System Command: FCM Pitch</name>
+		<type>gain</type>
+		<gain>1.0</gain>
+		<input> <!-- Directly connect output to the FDM when AP is on -->
+			<condition>
+				<or>
+					<equals>
+						<property>/autopilot/locks/altitude</property>
+						<value>vertical-speed-hold</value>
+					</equals>
+					<equals>
+						<property>/autopilot/locks/altitude</property>
+						<value>altitude-hold</value>
+					</equals>
+				</or>
+			</condition>
+			<property>/controls/flight/elevator</property>
+		</input>
+		<input> <!-- Otherwise connect FCM to FDM -->
+			<property>/controls/flight/fcm-elevator</property>
+		</input>
+		<output>/controls/flight/fdm-elevator</output>
+	</filter>
 
 </PropertyList>
-
-

@@ -17,10 +17,12 @@ changelog
 
   <flight>
     <!-- new properties used by fcm.nas and yasim -->
-    <fcm-elevator>1</fcm-elevator>
-    <fcm-aileron>1</fcm-aileron>
-    <fcm-rudder>1</fcm-rudder>
+    <fcm-elevator>0</fcm-elevator>
+    <fcm-aileron>0</fcm-aileron>
+    <fcm-rudder>0</fcm-rudder>
     <fcm-canard>0</fcm-canard>
+    <fdm-elevator>0</fdm-elevator>
+    <fdm-aileron>0</fdm-aileron>
   </flight>
 
   <gear>

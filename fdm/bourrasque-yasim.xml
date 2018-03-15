@@ -94,7 +94,7 @@ ________________________________________________________________________________
 
     <!-- ~~~~~~~~~~~~~~~~~~ ailerons : ROLL -->
     <flap0 start=".5" end="1" lift="1.5" drag="0.2" />
-    <control-input  control="FLAP0" axis="/controls/flight/fcm-aileron"  split="true" />
+    <control-input  control="FLAP0" axis="/controls/flight/fdm-aileron"  split="true" />
     <control-input  control="FLAP0" axis="/controls/flight/aileron-trim" split="true" />
     <control-output control="FLAP0" prop="/surface-positions/aileron-pos-norm" />
     <control-output control="FLAP0" prop="/surface-positions/left-aileron-pos-norm"  side="left" />
@@ -133,7 +133,7 @@ ________________________________________________________________________________
 
     <!-- ~~~~~~~~~~~~~~~~~~ elevator : PITCH -->
     <flap0 start=".1" end="1" lift="1.8" drag="0.5" />
-    <control-input  control="FLAP0" axis="/controls/flight/fcm-elevator" />
+    <control-input  control="FLAP0" axis="/controls/flight/fdm-elevator" />
     <control-input  control="FLAP0" axis="/controls/flight/elevator-trim" />
     <control-output control="FLAP0" prop="/surface-positions/elevator-pos-norm" />
     <control-speed  control="FLAP0" transition-time="0" />
