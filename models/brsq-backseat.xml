@@ -14,6 +14,7 @@ changelog
   <nasal>
     <load>
       <![CDATA[
+# NASAL EXECUTED IN MULTIPLAYER MODE
 var livery_update = aircraft.livery_update.new("Aircraft/bourrasque/models/aircraft/liveries");
 cmdarg().getNode("sim/model/ac-type", 1).setValue("bourrasque-backseat");
 

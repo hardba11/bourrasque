@@ -8,17 +8,27 @@ print("*** LOADING fdm - fcm.nas ... ***");
 #                                           vvvvvvvvvvvvvvvvvvvvvvvvv
 #
 # .--------------------------------------.
-# |      control (mouse & joystick)      |---------------+
-# '--------------------------------------'               |
-#                   .                                    V
-#                   .                               input values (/controls/flight/*)
-#                   .                          .--------------------.
-#          (systeme initial)                   |        fcm         |
-#                   .                          '--------------------'
-#                   .                               output values (/controls/flight/fcm-*)
-#                   V                                    |
-# .--------------------------------------.               |
-# |   yasim / fdm (aircraft behaviour)   |<--------------+
+# |      control (mouse & joystick)      |--------------+
+# '--------------------------------------'              |
+#     .                                                 V
+#     .                                            input values (/controls/flight/*)
+#     .                                       .--------------------.
+#  (default fg settings)                      |        fcm         |
+#     .                                       '--------------------'
+#     .                                            output values (/controls/flight/fcm-*)
+#     .                                                 |
+#     .                                                 |
+#     .   .--------------------------.                  |
+#     .   |       AUTOPILOT          |                  |
+#     .   |                          |                  |
+#     .   | if AP disabled fcm = fdm |<-----------------+
+#     .   |                          |
+#     .   '--------------------------'
+#     .        output values (/controls/flight/fdm-*)
+#     .             |
+#     V             V
+# .--------------------------------------.
+# |   yasim / fdm (aircraft behaviour)   |
 # '--------------------------------------'
 #              output values (/surface-positions/*, /sim/model/*)
 #                   |

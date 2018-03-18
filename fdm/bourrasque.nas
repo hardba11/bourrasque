@@ -4,7 +4,7 @@ print("*** LOADING fdm - bourrasque.nas ... ***");
 
 # description :
 # - mise a jour de proprietes communes (sur l"arbre de propriete original : pas
-#   d"alias)
+#   d'alias)
 # - modification et calculs sur des proprietes
 #
 
@@ -179,7 +179,7 @@ var mp_encode = func(list_of_values) {
     {
         if((list_of_values[index] == 1) or (list_of_values[index] == 0))
         {
-            values_encoded += list_of_values[index] * math.pow(2, index) ;
+            values_encoded += list_of_values[index] * math.pow(2, index);
         }
     }
     return values_encoded;

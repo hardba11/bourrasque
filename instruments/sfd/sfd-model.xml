@@ -46,7 +46,7 @@ changelog
       <or>
         <not><property>systems/electrical/bus/avionics</property></not>
         <equals><property>/sim/aircraft</property><value>bourrasque-backseat</value></equals>
-       </or>
+      </or>
     </condition>
   </animation>
 

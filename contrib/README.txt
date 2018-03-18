@@ -46,12 +46,6 @@ for the best experience I recommend :
 3/ launch
 ---------
 
-choose launch from terminal or graphical user interface (gui)
-
-edit, change the paths and launch flightgear from a terminal :
-    - on Windows : run_fgfs_with_bourrasque.bat
-    - on Linux : chmod 0700 run_fgfs_with_bourrasque.sh && ./run_fgfs_with_bourrasque.sh
-OR
 launch flightgear from a gui and select the aircraft : bourrasque
 
 enjoy ;)
@@ -60,14 +54,12 @@ enjoy ;)
 Known bugs :(
 =============
 
-- not yet trim !
 - as I only got a mouse, flying with joystick could be difficult because no test done
 - some interior sounds triggered when view change
 - hud/minihud not shown as expected during starting
-- heading bug and radial on ND, PFD, stdby-hsi, if mag or true north choosen
-- uvmap tanks
+- heading bug on ND if mag or true north choosen
 - strobe doesnt work yet in MP
-- ND and instrument animations in MP backseat
+- instruments animations in MP backseat
 - 3D shadow not always on the ground
 
 

@@ -189,7 +189,7 @@ var HUD = {
                     var relative_speed_M             = velocity        * math.cos(target_bearing_deg * D2R);
                     var relative_speed_T             = target_airspeed * math.cos((my_heading_deg + target_bearing_deg - target_heading_deg + 180) * D2R);
                     var relative_speed               = relative_speed_T + relative_speed_M;
-                    var speed_y                      = (sprintf('%d' ,relative_speed) == 0) ? 0 : math.log10(math.abs(sprintf('%d', relative_speed))) * 6;
+                    var speed_y                      = (sprintf('%d', relative_speed) == 0) ? 0 : math.log10(math.abs(sprintf('%d', relative_speed))) * 6;
                     var positive_or_negative         = (relative_speed >= 0) ? 1 : -1;
 
                     target_data.speed_bars_y         = positive_or_negative * speed_y;

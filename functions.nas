@@ -540,7 +540,7 @@ var event_control_gear = func(down, animate_view) {
 var event_control_pod_pipe = func(extend) {
 
     var is_gear_down = getprop("/controls/gear/gear-down") or 0;
-    var center_pod = getprop("/sim/model/center-refuel-pod") or 0 ;
+    var center_pod = getprop("/sim/model/center-refuel-pod") or 0;
     
     if(center_pod == 1)
     {
@@ -570,7 +570,7 @@ var event_control_pod_pipe = func(extend) {
 
 var event_choose_enabled_cams = func() {
     # refueling cam if pod
-    var center_pod = getprop("/sim/model/center-refuel-pod") or 0 ;
+    var center_pod = getprop("/sim/model/center-refuel-pod") or 0;
     if(center_pod == 1)
     {
         setprop("/sim/view[104]/enabled", 1);
@@ -583,7 +583,7 @@ var event_choose_enabled_cams = func() {
     }
 
     # tail cam si backseat vide
-    var is_copilot = getprop("/controls/pax/copilot") or 0 ;
+    var is_copilot = getprop("/controls/pax/copilot") or 0;
     if(is_copilot == 1)
     {
         setprop("/sim/view[105]/enabled", 0);

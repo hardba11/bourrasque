@@ -4,7 +4,9 @@
 memo
 ====
 
-keyboard shortcuts :
+keyboard shortcuts
+------------------
+
 - c : open/close canopy, you can click on the canopy to half-open it
 - k : Extend Speedbrakes (5 positions)
 - j : Retract Speedbrakes (5 positions)
@@ -26,11 +28,12 @@ keyboard shortcuts :
 - [ : Catapult launch (carrier)
 - ] : Toggle Launch-bar (carrier)
 - ; : Toggle Hook (carrier)
+- NUMPAD : see below
 
 mouse functionnalities
-======================
+----------------------
 
-when on stick mode
+when on stick mode (cross cursor - hit TAB to change)
 - pitch : vertical axis (no MMB pressed)
 - roll : horizontal axis (no buttons pressed)
 - yaw : horizontal axis (LMB or MMB pressed)
@@ -38,9 +41,6 @@ when on stick mode
 - throttle : scroll UP/DOWN
 - view : vertical/horizontal axis (RMB pressed)
 
-
-some informations
-=================
 
 numpad layout
 -------------
@@ -70,45 +70,54 @@ ________________|________________|________________|
 _________________________________|________________|________________
 
 
-instruments knobs
------------------
+instruments knobs behaviours
+----------------------------
 
 using knobs with mouse :
-- LMB clic   = +10 or +30
-- MMB clic   = -10 or -30
+- LMB clic   = +10 or +30 or +100
+- MMB clic   = -10 or -30 or -100
 - scroll UP  = +1
 - scroll DWN = -1
 
-instruments
------------
+
+some informations
+=================
+
+list of instruments
+-------------------
 
 right panel :
 - on the left : engine 0 instrument
 - on the right : engine 1 instrument
 - electrical instrument
-- joystick
+- stick
 - transponder
+- adf
 - nav/com 2
 - nav/com 1
+- clock
 
 front panel :
 - screen on the right : primary function display : speed, altitude, attitude indicator, AP settings (PFD)
 - screen on center : navigation display : navigation information, heading, vor (ND)
 - screen on the left : secondary function display : engines informations (SFD)
 - compass
+- turn indicator
 
 bottom panel :
 - standby attitude indicator (AI)
-- angle of attack indicator (AOA)
+- standby vertical speed indicator (VSI)
 - standby altitude indicator (ALT)
 - standby air speed indicator (ASI)
+- angle of attack indicator (AOA)
 - standby horizontal situation indicator (HSI)
 
 left panel :
-- clock
-- command panel : canopy, gears, parkbrake
+- fuel screen
+- command panel : canopy, gears, parkbrake, arrestor hook
 - throttle stick
 - lights panel
+
 
 mods
 ----
@@ -145,13 +154,25 @@ use the bourrasque menu or } key
 start
 -----
 
+FUEL TRUCK : click to adjust fuel quantity [ON DEMAND]
+gui/equipment : fuel truck [REMOVE]
 gui/equipment : covers [REMOVE]
 gui/equipment : scale [REMOVE]
-electrical instrument : switch [BAT]
+command panel : canopy [HALF-CLOSE]
+electrical instrument : switch [BAT or EPU]
 electrical instrument : avionics [ON]
 lights panel : instrument light [ADJUST]
+radio : NAV1 [ON]
+radio : COM1 [ON]
+radio : NAV2 [ON]
+radio : COM2 [ON]
+radio : ADF  [ON]
+radio : TRANSPONDER [ON]
 nav/com : frequency [ADJUST]
-request autorization
+
+contact tower, request autorization to start engines
+
+transponder adjust squawk [ON DEMAND]
 electrical instrument : engines [ON]
 engine 0 instrument : cut [ON]
 engine 0 instrument : pump [ON]
@@ -167,29 +188,33 @@ lights panel : navigation [ON]
 lights panel : position [ON]
 lights panel : formation [ON DEMAND]
 lights panel : landing and taxi [ON DEMAND]
-engine 0 started [WAIT]
-PFD : autopilot speed [ADJUST]
-PFD : autopilot alt [ADJUST]
-PFD : autopilot heading [ADJUST]
-ALT : hdg [ADJUST]
-
+engine 1 started [WAIT]
+electrical instrument : cmd [ON]
+gui/equipment : epu [REMOVE]
 
 taxi
 ----
 
-command panel : canopy [HALF-CLOSE]
-nd : mod [TAXI]
+contact tower, request autorization to taxi
+
+ND : mod [TAXI]
 gui/equipment : shocks [REMOVE]
 command panel : parkbrake [RELEASE]
-
-transponder adjust [ON DEMAND]
+brake [TEST]
 
 
 take off
 --------
 
+contact tower, request autorization to enter on runway
+
 command panel : canopy [CLOSE]
-nd : mod [APP]
+ND : mod [APP]
+PFD : autopilot speed [ADJUST 200kt]
+PFD : autopilot alt [ADJUST]
+PFD : autopilot heading [ADJUST]
+HSI : NAV1 radial [ADJUST]
+
 full thrust
 rotation: 150kts
 
@@ -197,10 +222,10 @@ rotation: 150kts
 navigation
 ----------
 
-nd : mod [NAV]
+ND : mod [NAV]
 ALT : hdg [1013 HPa]
 choose VOR frequency, choose radial
-nd : VOR1 [ENABLE]
+ND : VOR1 [ENABLE]
 PFD : adjust autopilot [ON DEMAND]
 
 
@@ -219,33 +244,35 @@ nd : mod [TAXI]
 stop
 ----
 
-gui/equipment : covers [REMOVE]
-gui/equipment : scale [REMOVE]
+command panel : parkbrake [BRAKE]
+gui/equipment : shocks [PUT]
+command panel : canopy [HALF-CLOSE]
 electrical instrument : switch [BAT]
-electrical instrument : avionics [ON]
-lights panel : instrument light [ADJUST]
-nav/com : frequency [ADJUST]
-request autorization
-electrical instrument : engines [ON]
-engine 0 instrument : cut [ON]
-engine 0 instrument : pump [ON]
-engine 0 instrument : start [PUSH]
-engine 0 started [WAIT]
-electrical instrument : switch [ALT]
-engine 1 instrument : cut [ON]
-engine 1 instrument : pump [ON]
-engine 1 instrument : start [PUSH]
-lights panel : anti-collision [ON]
-lights panel : strobe [ON]
-lights panel : navigation [ON]
-lights panel : position [ON]
-lights panel : formation [ADJUST]
-lights panel : landing and taxi [ON]
-engine 0 started [WAIT]
-PFD : autopilot speed [ADJUST]
-PFD : autopilot alt [ADJUST]
-PFD : autopilot heading [ADJUST]
-ALT : hdg [ADJUST]
+engine 0 instrument : cut [OFF]
+engine 0 instrument : pump [OFF]
+engine 1 instrument : cut [OFF]
+engine 1 instrument : pump [OFF]
+engine 0 stopped [WAIT]
+engine 1 stopped [WAIT]
+electrical instrument : engines [OFF]
+lights panel : landing and taxi [OFF]
+lights panel : formation [OFF]
+lights panel : anti-collision [OFF]
+lights panel : strobe [OFF]
+lights panel : navigation [OFF]
+lights panel : position [OFF]
+radio : NAV1 [OFF]
+radio : COM1 [OFF]
+radio : NAV2 [OFF]
+radio : COM2 [OFF]
+radio : ADF  [OFF]
+radio : TRANSPONDER [OFF]
+electrical instrument : cmd [OFF]
+electrical instrument : avionics [OFF]
+lights panel : instrument light [OFF]
+gui/equipment : scale [PUT]
+gui/equipment : covers [PUT]
+gui/equipment : fuel truck [PUT]
 
 
 carrier take off

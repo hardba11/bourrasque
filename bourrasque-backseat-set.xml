@@ -26,11 +26,11 @@ changelog
     <variant-of type="string">bourrasque</variant-of>
 
     <author type="string">hardball SLK</author>
-    <aircraft-version type="string">20180116</aircraft-version>
+    <aircraft-version type="string">20180317</aircraft-version>
 
     <minimum-fg-version type="string">2017.1.1</minimum-fg-version>
 
-    <status type="string">alpha</status>
+    <status type="string">beta</status>
     <tags>
       <tag>jet</tag>
       <tag>retractable-gear</tag>
@@ -40,7 +40,7 @@ changelog
 
     <rating>
       <FDM type="int">2</FDM>
-      <systems type="int">0</systems>
+      <systems type="int">2</systems>
       <cockpit type="int">4</cockpit>
       <model type="int">4</model>
     </rating>
