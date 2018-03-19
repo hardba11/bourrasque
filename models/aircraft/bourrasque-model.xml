@@ -29,7 +29,8 @@ changelog
         <ground-equipment-g    type="int">0</ground-equipment-g>  <!-- chocks -->
         <ground-equipment-s    type="int">0</ground-equipment-s>  <!-- scale -->
         <ground-equipment-p    type="int">0</ground-equipment-p>  <!-- power unit -->
-        <ground-equipment-f    type="int">0</ground-equipment-f>  <!-- fuel truck-->
+        <ground-equipment-f    type="int">0</ground-equipment-f>  <!-- fuel truck -->
+        <carrier-equipment     type="int">0</carrier-equipment>   <!-- launch bar + tail hook -->
         <wing-tanks-1250       type="int">0</wing-tanks-1250>
         <wing-tanks-2000       type="int">0</wing-tanks-2000>
         <center-tank-1250      type="int">0</center-tank-1250>
@@ -685,6 +686,16 @@ ________________________________________________________________________________
 ________________________________________________________________________________
                                                                             HOOK
   -->
+
+  <animation>
+    <type>select</type>
+    <object-name>root_hook</object-name>
+    <object-name>hook</object-name>
+    <condition>
+      <property>sim/model/carrier-equipment</property>
+    </condition>
+  </animation>
+
   <animation>
     <type>rotate</type>
     <object-name>hook</object-name>

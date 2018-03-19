@@ -160,6 +160,24 @@ changelog
       <label>refueling probe</label>
     </text>
 
+    <checkbox>
+      <row>1</row><col>0</col>
+      <x>50</x>
+      <y>200</y>
+      <width>12</width>
+      <height>12</height>
+      <property>/sim/model/carrier-equipment</property>
+      <binding>
+        <command>property-toggle</command>
+        <property>/sim/model/carrier-equipment</property>
+      </binding>
+    </checkbox>
+    <text>
+      <row>1</row><col>1</col>
+      <halign>left</halign>
+      <label>carrier equipment</label>
+    </text>
+
   </group>
 
   <hrule />

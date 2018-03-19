@@ -271,6 +271,7 @@ var bourrasque_mp_loop_encode = func() {
     var pax_pilot               = getprop("/controls/pax/pilot") or 0;
     var pax_copilot             = getprop("/controls/pax/copilot") or 0;
     var refuel_serviceable      = getprop("/systems/refuel/serviceable") or 0;
+    var carrier_equipment       = getprop("/sim/model/carrier-equipment") or 0;
     setprop("/sim/multiplay/generic/int[2]", mp_encode([
         bus_avionics,
         bus_engines,
@@ -279,7 +280,8 @@ var bourrasque_mp_loop_encode = func() {
         engine1_stopped,
         pax_pilot,
         pax_copilot,
-        refuel_serviceable]));
+        refuel_serviceable,
+        carrier_equipment]));
 
     settimer(bourrasque_mp_loop_encode, 2);
 }

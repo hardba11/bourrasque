@@ -62,6 +62,7 @@ var obj_engine1_stopped         = cmdarg().getNode("engines/engine[1]/stopped", 
 var obj_pax_pilot               = cmdarg().getNode("controls/pax/pilot", 1);
 var obj_pax_copilot             = cmdarg().getNode("controls/pax/copilot", 1);
 var obj_refuel_serviceable      = cmdarg().getNode("systems/refuel/serviceable", 1);
+var obj_carrier_equipment       = cmdarg().getNode("sim/model/carrier-equipment", 1);
 
 var bourrasque_mp_loop_decode = func() {
     #print('bourrasque_mp_loop_decode');
@@ -89,7 +90,7 @@ var bourrasque_mp_loop_decode = func() {
     obj_center_refuel_pod.setValue(list_of_values[9]);
     obj_wing_pylons_smoke_pod.setValue(list_of_values[10]);
 
-    var list_of_values = mp_decode(obj_in2.getValue(), [0, 0, 0, 0, 0, 0, 0, 0]);
+    var list_of_values = mp_decode(obj_in2.getValue(), [0, 0, 0, 0, 0, 0, 0, 0, 0]);
     # same order for each property : see bourrasque_mp_loop_encode()
     obj_bus_avionics.setValue(list_of_values[0]);
     obj_bus_engines.setValue(list_of_values[1]);
@@ -99,6 +100,7 @@ var bourrasque_mp_loop_decode = func() {
     obj_pax_pilot.setValue(list_of_values[5]);
     obj_pax_copilot.setValue(list_of_values[6]);
     obj_refuel_serviceable.setValue(list_of_values[7]);
+    obj_carrier_equipment.setValue(list_of_values[8]);
 
     settimer(bourrasque_mp_loop_decode, 2);
 }

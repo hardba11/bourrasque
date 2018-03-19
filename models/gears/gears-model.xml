@@ -49,6 +49,8 @@ changelog
     <object-name>essieu_train</object-name>
     <object-name>essieu_train_principal_L</object-name>
     <object-name>essieu_train_principal_L</object-name>
+    <object-name>catapulte_support</object-name>
+    <object-name>catapulte_tige</object-name>
   </animation>
 
   <effect>
@@ -106,6 +108,8 @@ changelog
     <object-name>roue_train</object-name>
     <object-name>projecteur_train</object-name>
     <object-name>projecteur_train_mirroir</object-name>
+    <object-name>catapulte_support</object-name>
+    <object-name>catapulte_tige</object-name>
   </animation>
   <animation>
     <name>block_roue_train</name>
@@ -179,6 +183,20 @@ ________________________________________________________________________________
     </condition>
   </animation>
 
+  <!-- ~~~~~~~~~~~~~~~~~~ hiding object if fully retracted -->
+  <animation>
+    <type>select</type>
+    <object-name>catapulte_support</object-name>
+    <object-name>catapulte_tige</object-name>
+    <condition>
+      <greater-than>
+        <property>gear/gear[0]/position-norm</property>
+        <value type="double">0</value>
+      </greater-than>
+      <property>/sim/model/carrier-equipment</property>
+    </condition>
+  </animation>
+
   <!-- ~~~~~~~~~~~~~~~~~~ rotating towards front : bloc verrin -->
   <animation>
     <type>rotate</type>
@@ -239,6 +257,59 @@ ________________________________________________________________________________
       <x-m>-2.59</x-m>
       <y-m>0</y-m>
       <z-m>-0.1</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ rotating launch bar -->
+  <animation>
+    <type>rotate</type>
+    <object-name>catapulte_tige</object-name>
+    <property>/controls/gear/launchbar</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>1</ind><dep>-50</dep></entry>
+    </interpolation>
+    <condition>
+      <equals>
+        <property>gear/gear[0]/position-norm</property>
+        <value type="double">1</value>
+      </equals>
+    </condition>
+    <center>
+      <x-m>-2.814</x-m>
+      <y-m>-.004</y-m>
+      <z-m>-1.081</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>catapulte_tige</object-name>
+    <property>gear/gear[0]/position-norm</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>90</dep></entry>
+      <entry><ind>.9</ind><dep>80</dep></entry>
+      <entry><ind>1</ind><dep>0</dep></entry>
+    </interpolation>
+    <condition>
+      <less-than>
+        <property>gear/gear[0]/position-norm</property>
+        <value type="double">1</value>
+      </less-than>
+    </condition>
+    <center>
+      <x-m>-2.814</x-m>
+      <y-m>-.004</y-m>
+      <z-m>-1.081</z-m>
     </center>
     <axis>
       <x>0</x>
