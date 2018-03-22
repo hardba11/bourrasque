@@ -28,6 +28,11 @@ PROPERTY-PATH : PropertyList > environment
   <!-- used for sounds effects -->
   <loud-sound type="float">1</loud-sound>
 
+  <!-- used for rain -->
+  <clouds>
+    <max-layer type="float" userarchive="n">0</max-layer>
+  </clouds>
+
 </PropertyList>
 
 

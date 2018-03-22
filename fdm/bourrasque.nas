@@ -148,6 +148,7 @@ var bourrasque_slow_loop = func() {
 
     my_aircraft_functions.event_choose_enabled_cams();
     my_aircraft_functions.disable_hippodrome_if_ap_not_ok();
+    #my_aircraft_functions.set_max_cloud_layer();
 
     settimer(bourrasque_slow_loop, 2);
 }

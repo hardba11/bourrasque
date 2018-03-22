@@ -300,12 +300,6 @@ ________________________________________________________________________________
       <entry><ind>.9</ind><dep>80</dep></entry>
       <entry><ind>1</ind><dep>0</dep></entry>
     </interpolation>
-    <condition>
-      <less-than>
-        <property>gear/gear[0]/position-norm</property>
-        <value type="double">1</value>
-      </less-than>
-    </condition>
     <center>
       <x-m>-2.814</x-m>
       <y-m>-.004</y-m>

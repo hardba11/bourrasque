@@ -208,6 +208,23 @@ var view_panel_radio = func() {
 }
 
 #===============================================================================
+#                                                                    ENVIRONMENT
+# NOT YET USED, NEED DEBUG
+var set_max_cloud_layer = func() {
+    var node_clouds = props.globals.getNode("/environment/clouds/");
+    var max_cloud_layer_alt = 0 ; 
+    foreach(var item ; node_clouds.getChildren())
+    {
+        if(item.getName() == 'layer')
+        {
+            var elevation_ft = item.getNode("elevation-ft").getValue();
+            max_cloud_layer_alt = (elevation_ft > max_cloud_layer_alt) ? elevation_ft : max_cloud_layer_alt;
+        }
+    }
+    setprop("/environment/clouds/max-layer", max_cloud_layer_alt);
+}
+
+#===============================================================================
 #                                                                         INPUTS
 # used in include/input-properties.xml
 
@@ -524,6 +541,8 @@ var event_control_gear = func(down, animate_view) {
         # down == 0 : retract gears :
         if(animate_view == 1)
         {
+            setprop("/controls/gear/launchbar", 0);
+            setprop("/controls/gear/catapult-launch-cmd", 0);
             save_current_view();
             view_panel_command();
             settimer(func() { setprop("/controls/gear/gear-down", 0); setprop("sim/model/lever_gear", 0); }, 0.3);
@@ -531,6 +550,8 @@ var event_control_gear = func(down, animate_view) {
         }
         else
         {
+            setprop("/controls/gear/launchbar", 0);
+            setprop("/controls/gear/catapult-launch-cmd", 0);
             setprop("/controls/gear/gear-down", 0);
             setprop("sim/model/lever_gear", 0);
         }
