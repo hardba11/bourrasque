@@ -16,7 +16,7 @@ changelog
 <PropertyList>
 
   <flight>
-    <!-- new properties used by fcm.nas and yasim -->
+    <!-- init properties used by fcm.nas and yasim -->
     <fcm-elevator>0</fcm-elevator>
     <fcm-aileron>0</fcm-aileron>
     <fcm-rudder>0</fcm-rudder>
@@ -57,6 +57,10 @@ changelog
     <formation-lights type="float">0</formation-lights>
     <instruments-norm type="float">0</instruments-norm>
   </lighting>
+
+  <launch>
+    <mass type="int">0</mass>
+  </launch>
 
 </PropertyList>
 

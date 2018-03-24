@@ -508,6 +508,61 @@ var event_swap_sfd_screen = func() {
     }
 }
 
+var event_launch = func() {
+    var is_carrier_equiped = getprop("/sim/model/carrier-equipment") or 0;
+    var state_launchbar = getprop("/gear/launchbar/state") or 0; # Disengaged, Engaged, Launching, Completed
+    if((is_carrier_equiped == 1) and (state_launchbar == 'Engaged'))
+    {
+        # catapult launching command
+        setprop("/controls/gear/catapult-launch-cmd", 1);
+        # reinit some values after launch (~2 seconds)
+        settimer(func() { 
+            setprop("/controls/launch/mass", 0);
+            setprop("/controls/gear/launchbar", 0); 
+            setprop("/controls/gear/catapult-launch-cmd", 0);
+        }, 2);
+    }
+}
+
+var event_toggle_launchbar = func(do_enable) {
+    var is_carrier_equiped = getprop("/sim/model/carrier-equipment") or 0;
+    if(is_carrier_equiped == 1)
+    {
+        var is_launchbar_enabled = getprop("/controls/gear/launchbar") or 0;
+        if(do_enable == -1)
+        {
+            do_enable = (is_launchbar_enabled == 0) ? 1 : 0;
+        }
+
+        # if engaged, bend aircraft
+        if(do_enable == 1)
+        {
+            setprop("/controls/gear/launchbar", do_enable);
+        }
+        else
+        {
+            setprop("/controls/gear/catapult-launch-cmd", 0);
+            setprop("/controls/gear/launchbar", do_enable);
+        }
+    }
+    else
+    {
+        setprop("/controls/gear/catapult-launch-cmd", 0);
+        setprop("/controls/gear/launchbar", 0);
+        setprop("/controls/launch/mass", 0);
+    }
+
+    var state_launchbar = getprop("/gear/launchbar/state") or 0; # Disengaged, Engaged, Launching, Completed
+    if(state_launchbar == 'Engaged')
+    {
+        setprop("/controls/launch/mass", 9000);
+    }
+    else
+    {
+        setprop("/controls/launch/mass", 0);
+    }
+}
+
 var event_control_gear = func(down, animate_view) {
 
     var is_on_ground = getprop("/gear/gear[1]/wow") or 0;

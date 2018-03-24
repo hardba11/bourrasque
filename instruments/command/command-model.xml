@@ -324,13 +324,12 @@ my_aircraft_functions.event_control_gear(-1, 0);
       <button>0</button>
       <repeatable>false</repeatable>
       <binding>
-        <command>property-toggle</command>
-        <property>/controls/gear/launchbar</property>
-      </binding>
-      <binding>
-        <command>property-assign</command>
-        <property>/controls/gear/catapult-launch-cmd</property>
-        <value type="bool">0</value>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_toggle_launchbar(-1);
+          ]]>
+        </script>
       </binding>
       <binding>
         <command>property-toggle</command>

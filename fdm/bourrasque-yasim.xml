@@ -237,7 +237,7 @@ ________________________________________________________________________________
   <!-- ~~~~~~~~~~~~~~~~~~ buddy buddy -->
   <mstab x="0" y="0" z="0" length=".0001" chord=".0001" sweep=".0001" taper=".0001" dihedral="0" camber="0" incidence="0">
     <control-input  control="FLAP0" axis="/controls/refuel-pod/pipe-extended" />
-    <control-output control="FLAP0" prop="/sim/model/store-refuel-pos-norm" />
+    <control-output control="FLAP0" prop="/sim/model/store-refuel-pos-norm" /> <!-- alias for MP -->
     <control-speed  control="FLAP0" transition-time="15" />
   </mstab>
 
@@ -296,7 +296,8 @@ ________________________________________________________________________________
     <control-input axis="/controls/gear/tailhook" control="HEXTEND" />
     <control-speed control="HEXTEND" transition-time="3" />
   </hook>
-  <launchbar x="8" y="0" z="-1.7" length="1.5">
+  <!--launchbar x="8" y="0" z="-1.7" length="1.5"-->
+  <launchbar x="10" y="0" z="0" length="10">
     <control-input axis="/controls/gear/launchbar" control="LEXTEND" />
     <control-speed control="LEXTEND" transition-time="0.5" />
   </launchbar>
@@ -391,6 +392,9 @@ ________________________________________________________________________________
 
   <!-- ~~~~~~~~~~~~~~~~~~ trim ballast -->
   <ballast x="5" y="0" z="1.0" mass="2000" />
+
+
+  <weight x="6" y="0" z="-2" size="1" mass-prop="/controls/launch/mass" />
 
 </airplane>
 

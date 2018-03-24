@@ -10,11 +10,11 @@
     <type>scale</type>
     <object-name>reheat_outside_box</object-name>
     <property>sim/multiplay/generic/float[8]</property>
-    <x-min>0.1</x-min>
-    <y-min>0.5</y-min>
-    <z-min>0.5</z-min>
-    <y-max>1</y-max>
-    <z-max>1</z-max>
+    <x-min>.1</x-min>
+    <y-min>.5</y-min>
+    <z-min>.5</z-min>
+    <y-max>.9</y-max>
+    <z-max>.9</z-max>
     <x-factor>1.7</x-factor>
     <y-factor>1</y-factor>
     <z-factor>1</z-factor>
@@ -24,8 +24,8 @@
     <type>translate</type>
     <object-name>reheat_outside_box</object-name>
     <property>sim/multiplay/generic/float[8]</property>
-    <factor>1.5</factor>
-    <offset-m>-1.5</offset-m>
+    <factor>.8</factor>
+    <offset-m>-.8</offset-m>
     <axis>
       <x>1</x>
       <y>0</y>
