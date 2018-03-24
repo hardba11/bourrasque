@@ -117,7 +117,6 @@ ________________________________________________________________________________
 
   <animation>
     <type>material</type>
-    <object-name>reheat_inner_tuyere</object-name>
     <object-name>reheat_inner_bruleur</object-name>
     <emission>
       <red>1</red>
@@ -129,6 +128,104 @@ ________________________________________________________________________________
       <factor>10</factor>
       <offset>-9</offset>
     </transparency>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>reheat_inner_tuyere</object-name>
+    <ambient>
+     <red>.6</red>
+     <green>.5</green>
+     <blue>1</blue>
+    </ambient>
+    <diffuse>
+     <red>.6</red>
+     <green>.5</green>
+     <blue>1</blue>
+    </diffuse>
+    <emission>
+     <red>.6</red>
+     <green>.5</green>
+     <blue>1</blue>
+    </emission>
+    <transparency>
+      <alpha-prop>/controls/engines/engine[0]/throttle</alpha-prop>
+      <factor>10</factor>
+      <offset>-9</offset>
+    </transparency>
+    <condition>
+      <greater-than>
+        <property>/sim/time/sun-angle-rad</property>
+        <value>1.7</value>
+      </greater-than>
+      <property>/sim/rendering/shaders/skydome</property>
+    </condition>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>reheat_inner_tuyere</object-name>
+    <ambient>
+     <red>1</red>
+     <green>.4</green>
+     <blue>0</blue>
+    </ambient>
+    <diffuse>
+     <red>1</red>
+     <green>.4</green>
+     <blue>.7</blue>
+    </diffuse>
+    <emission>
+     <red>1</red>
+     <green>.4</green>
+     <blue>.7</blue>
+    </emission>
+    <transparency>
+      <alpha-prop>/controls/engines/engine[0]/throttle</alpha-prop>
+      <factor>10</factor>
+      <offset>-9</offset>
+    </transparency>
+    <condition>
+      <less-than>
+        <property>/sim/time/sun-angle-rad</property>
+        <value>1.45</value>
+      </less-than>
+      <property>/sim/rendering/shaders/skydome</property>
+    </condition>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>reheat_inner_tuyere</object-name>
+    <ambient>
+     <red>1</red>
+     <green>.4</green>
+     <blue>.7</blue>
+    </ambient>
+    <diffuse>
+     <red>1</red>
+     <green>.4</green>
+     <blue>.7</blue>
+    </diffuse>
+    <emission>
+     <red>1</red>
+     <green>.4</green>
+     <blue>.7</blue>
+    </emission>
+    <transparency>
+      <alpha-prop>/controls/engines/engine[0]/throttle</alpha-prop>
+      <factor>10</factor>
+      <offset>-9</offset>
+    </transparency>
+    <condition>
+      <less-than>
+        <property>/sim/time/sun-angle-rad</property>
+        <value>1.7</value>
+      </less-than>
+      <greater-than>
+        <property>/sim/time/sun-angle-rad</property>
+        <value>1.45</value>
+      </greater-than>
+      <property>/sim/rendering/shaders/skydome</property>
+    </condition>
   </animation>
 
   <animation>

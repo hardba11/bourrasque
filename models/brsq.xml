@@ -266,6 +266,15 @@ livery_update.stop();
 
   <!-- ~~~~~~~~~~~~~~~~~~ als reheat -->
   <model>
+    <name>left reheat inside</name>
+    <path>Aircraft/bourrasque/models/effects/reheat/reheat_inside0.xml</path>
+    <offsets>
+      <x-m>4.1</x-m>
+      <y-m>-.52</y-m>
+      <z-m>.32</z-m>
+    </offsets>
+  </model>
+  <model>
     <name>left reheat outside white</name>
     <path>Aircraft/bourrasque/models/effects/reheat/reheat_outside0_color_white.xml</path>
     <offsets>
@@ -318,6 +327,15 @@ livery_update.stop();
     </condition>
   </model>
 
+  <model>
+    <name>right reheat inside</name>
+    <path>Aircraft/bourrasque/models/effects/reheat/reheat_inside1.xml</path>
+    <offsets>
+      <x-m>4.1</x-m>
+      <y-m>.52</y-m>
+      <z-m>.32</z-m>
+    </offsets>
+  </model>
   <model>
     <name>right reheat outside white</name>
     <path>Aircraft/bourrasque/models/effects/reheat/reheat_outside1_color_white.xml</path>

@@ -10,27 +10,14 @@
     <type>scale</type>
     <object-name>reheat_outside_box</object-name>
     <property>sim/multiplay/generic/float[8]</property>
-    <x-min>0.1</x-min>
-    <y-min>0.5</y-min>
-    <z-min>0.5</z-min>
+    <x-min>0.3</x-min>
+    <y-min>0.55</y-min>
+    <z-min>0.55</z-min>
     <y-max>1</y-max>
     <z-max>1</z-max>
-    <x-factor>1.7</x-factor>
-    <y-factor>1</y-factor>
-    <z-factor>1</z-factor>
-  </animation>
-
-  <animation>
-    <type>translate</type>
-    <object-name>reheat_outside_box</object-name>
-    <property>sim/multiplay/generic/float[8]</property>
-    <factor>1.5</factor>
-    <offset-m>-1.5</offset-m>
-    <axis>
-      <x>1</x>
-      <y>0</y>
-      <z>0</z>
-    </axis>
+    <x-factor>.5</x-factor>
+    <y-factor>.2</y-factor>
+    <z-factor>.2</z-factor>
   </animation>
 
   <animation>
@@ -40,7 +27,7 @@
       <and>
         <greater-than>
           <property>sim/multiplay/generic/float[8]</property>
-          <value>0.2</value>
+          <value>0.02</value>
         </greater-than>
         <equals>
           <property>engines/engine[0]/stopped</property>
@@ -51,7 +38,7 @@
   </animation>
 
   <effect>
-    <inherits-from>reheat_outside_color_blue</inherits-from>
+    <inherits-from>reheat_outside_color_orange</inherits-from>
     <object-name>reheat_outside_box</object-name>
   </effect>
 
