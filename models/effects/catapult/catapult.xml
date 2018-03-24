@@ -3,13 +3,16 @@
 <PropertyList>
 
   <particlesystem>
-    <name>left-tyre-smoke-landing</name>
-    <texture>touchdown.png</texture>
+    <name>catapult-vapour</name>
+    <texture>catapult.png</texture>
     <emissive>false</emissive>
     <lighting>false</lighting>
 
     <condition>
-      <property>/gear/gear[1]/tyre-smoke</property>
+      <equals>
+        <property>/gear/launchbar/state</property>
+        <value>Launching</value>
+      </equals>
     </condition>
 
     <attach>world</attach>
@@ -19,7 +22,7 @@
     </placer>
 
     <shooter>
-      <theta-min-deg>45</theta-min-deg> <!-- horiz angle : todo decaler vers l'exterieur -->
+      <theta-min-deg>45</theta-min-deg>
       <theta-max-deg>85</theta-max-deg>
       <phi-min-deg>-60</phi-min-deg>
       <phi-max-deg>60</phi-max-deg>
@@ -50,9 +53,9 @@
 
       <start>
         <color>
-          <red><value>.6</value></red>
-          <green><value>.6</value></green>
-          <blue><value>.6</value></blue>
+          <red><value>1</value></red>
+          <green><value>1</value></green>
+          <blue><value>1</value></blue>
           <alpha><value>.1</value></alpha>
         </color>
         <size>
@@ -61,10 +64,10 @@
       </start>
       <end>
         <color>
-          <red><value>.6</value></red>
-          <green><value>.6</value></green>
-          <blue><value>.6</value></blue>
-          <alpha><value>.02</value></alpha>
+          <red><value>1</value></red>
+          <green><value>1</value></green>
+          <blue><value>1</value></blue>
+          <alpha><value>.01</value></alpha>
         </color>
         <size>
           <value>5</value>
@@ -72,7 +75,7 @@
       </end>
 
       <life-sec>
-        <value>1</value>
+        <value>2</value>
       </life-sec>
       <mass-kg>0.025</mass-kg>
       <radius-m>0.175</radius-m>

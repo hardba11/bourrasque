@@ -3,7 +3,7 @@
 <PropertyList>
 
   <particlesystem>
-    <name>left-tyre-smoke-landing</name><!--particlesystem-->
+    <name>left-tyre-smoke-landing</name>
     <texture>touchdown.png</texture>
     <emissive>false</emissive>
     <lighting>false</lighting>

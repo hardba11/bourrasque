@@ -25,7 +25,7 @@
     <object-name>reheat_outside_box</object-name>
     <property>sim/multiplay/generic/float[9]</property>
     <factor>.8</factor>
-    <offset-m>-.8</offset-m>
+    <offset-m>-.7</offset-m>
     <axis>
       <x>1</x>
       <y>0</y>

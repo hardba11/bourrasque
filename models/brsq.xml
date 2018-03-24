@@ -541,5 +541,15 @@ livery_update.stop();
     </offsets>
   </model>
 
+  <!-- ~~~~~~~~~~~~~~~~~~ vapour catapult effects -->
+  <model>
+    <path>Aircraft/bourrasque/models/effects/catapult/catapult.xml</path>
+    <offsets>
+      <x-m type="float">-2.6</x-m>
+      <y-m type="float">0</y-m>
+      <z-m type="float">-1</z-m>
+    </offsets>
+  </model>
+
 </PropertyList>
 
