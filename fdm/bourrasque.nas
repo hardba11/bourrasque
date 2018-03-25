@@ -2,12 +2,6 @@ print("*** LOADING fdm - bourrasque.nas ... ***");
 
 # namespace : fdm
 
-# description :
-# - mise a jour de proprietes communes (sur l"arbre de propriete original : pas
-#   d'alias)
-# - modification et calculs sur des proprietes
-#
-
 var egtf2egtc = func() {
     setprop("/engines/engine[0]/egt", 0);
     var m0egt_degf = getprop("/engines/engine[0]/egt-degf");

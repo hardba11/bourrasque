@@ -2,6 +2,9 @@ print("*** LOADING fdm - autostart.nas ... ***");
 
 # namespace : fdm
 
+#===============================================================================
+#                                               INSTRUMENTS START/STOP FUNCTIONS
+
 var do_electrical_master_switch = func(value) {
     printf('  set master switch');
     setprop("/instrumentation/my_aircraft/electricals/controls/master-switch", value);
@@ -152,6 +155,12 @@ var flashlight = func(n) {
     }
 }
 
+#===============================================================================
+#                                                           START/STOP FUNCTIONS
+
+# avoid concurrent starting and stopping process
+var process_status = 'READY';
+
 var init = func() {
     #printf('init ...');
     do_lighting_landing(0);
@@ -197,151 +206,174 @@ var init = func() {
 var fast_start = func() {
     printf('fast_start ...');
 
-    do_ground_equipment(0);
-    do_electrical_master_switch(1);
-    do_electrical_bus_avionics(1);
-    do_electrical_bus_engines(1);
-    do_electrical_bus_commands(1);
-    do_engine0_pump(1);
-    do_engine0_fuel_on(1);
-    do_engine1_pump(1);
-    do_engine1_fuel_on(1);
-    do_comm0(1);
-    do_comm1(1);
-    do_nav0(1);
-    do_nav1(1);
-    do_adf0(2);
-    do_transponder(4);
-    do_lighting_instr(1);
-    do_lighting_form(1);
-    do_lighting_pos(1);
-    do_lighting_nav(1);
-    do_lighting_strobe(1);
-    do_lighting_anticoll(1);
-    do_lighting_landing(1);
-    do_command_canopy(0);
-    settimer(func() { do_engines_started(); do_electrical_master_switch(1); }, 1);
+    if(process_status == 'READY')
+    {
+        process_status = 'FASTAUTOSTARTING';
 
-    printf('started. Ready to fly !');
-    settimer(func() { setprop("/sim/messages/pilot", 'started. Ready to fly !'); }, 1);
+        do_ground_equipment(0);
+        do_electrical_master_switch(1);
+        do_electrical_bus_avionics(1);
+        do_electrical_bus_engines(1);
+        do_electrical_bus_commands(1);
+        do_engine0_pump(1);
+        do_engine0_fuel_on(1);
+        do_engine1_pump(1);
+        do_engine1_fuel_on(1);
+        do_comm0(1);
+        do_comm1(1);
+        do_nav0(1);
+        do_nav1(1);
+        do_adf0(2);
+        do_transponder(4);
+        do_lighting_instr(1);
+        do_lighting_form(1);
+        do_lighting_pos(1);
+        do_lighting_nav(1);
+        do_lighting_strobe(1);
+        do_lighting_anticoll(1);
+        do_lighting_landing(1);
+        do_command_canopy(0);
+        settimer(func() { 
+            do_engines_started();
+            do_electrical_master_switch(1);
+            process_status = 'READY';
+        }, 1);
+
+        printf('started. Ready to fly !');
+        settimer(func() { setprop("/sim/messages/pilot", 'started. Ready to fly !'); }, 1);
+    }
 }
 
 var stop = func() {
     printf('stop ...');
 
-    my_aircraft_functions.save_current_view();
+    if(process_status == 'READY')
+    {
+        process_status = 'AUTOSTOPPING';
 
-    var wait = 0;
-    wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_command(); },     wait);
-    wait +=  1   ; settimer(func() { do_command_brake_parking(1); },                    wait);
-    wait +=  2   ; settimer(func() { do_command_canopy(1); },                           wait);
-    wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_light(); },       wait);
-    wait +=  2   ; settimer(func() { do_lighting_landing(0); },                         wait);
-    wait +=  1   ; settimer(func() { do_lighting_form(.66); },                          wait);
-    wait +=   .2 ; settimer(func() { do_lighting_form(.33); },                          wait);
-    wait +=   .2 ; settimer(func() { do_lighting_form(0); },                            wait);
-    wait +=  1   ; settimer(func() { do_lighting_pos(0); },                             wait);
-    wait +=  1   ; settimer(func() { do_lighting_nav(0); },                             wait);
-    wait +=  1   ; settimer(func() { do_lighting_strobe(0); },                          wait);
-    wait +=  1   ; settimer(func() { do_lighting_anticoll(0); },                        wait);
-    wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_electrical(); },  wait);
-    wait +=  1   ; settimer(func() { do_electrical_master_switch(1); },                 wait);
-    wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_engines(); },     wait);
-    wait +=  1   ; settimer(func() { do_engine0_fuel_on(0); },                          wait);
-    wait +=  1   ; settimer(func() { do_engine1_fuel_on(0); },                          wait);
-    wait +=  1   ; settimer(func() { do_engine0_pump(0); },                             wait);
-    wait +=  1   ; settimer(func() { do_engine1_pump(0); },                             wait);
-    wait +=  2   ; settimer(func() { my_aircraft_functions.view_sfd(); },               wait);
-    wait +=  0.5 ; settimer(func() { my_aircraft_functions.view_panel_radio(); },       wait);
-    wait +=  1   ; settimer(func() { do_adf0(0); },                                     wait);
-    wait +=  1   ; settimer(func() { do_nav0(0); },                                     wait);
-    wait +=  1   ; settimer(func() { do_nav1(0); },                                     wait);
-    wait +=  1   ; settimer(func() { do_transponder(0); },                              wait);
-    wait +=  1   ; settimer(func() { do_comm0(0); },                                    wait);
-    wait +=  1   ; settimer(func() { do_comm1(0); },                                    wait);
-    wait +=  2   ; settimer(func() { my_aircraft_functions.view_panel_electrical(); },  wait);
-    wait +=  6   ; settimer(func() { do_electrical_bus_commands(0); },                  wait);
-    wait +=  1   ; settimer(func() { do_electrical_bus_engines(0); },                   wait);
-    wait +=  1   ; settimer(func() { flashlight(2); },                                  wait);
-    wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_light(); },       wait);
-    wait +=  1   ; settimer(func() { do_lighting_instr(0); },                           wait);
-    wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_electrical(); },  wait);
-    wait +=  1   ; settimer(func() { do_electrical_bus_avionics(0); },                  wait);
-    wait +=  1   ; settimer(func() { do_electrical_master_switch(0); },                 wait);
+        my_aircraft_functions.save_current_view();
 
-    wait +=  1   ; settimer(func() { my_aircraft_functions.load_current_view(); },      wait);
-    wait +=  3   ; settimer(func() { printf('stopped.'); },                             wait);
-    wait +=  1   ; settimer(func() { setprop("/sim/messages/pilot", 'stopped'); },      wait);
+        setprop("/controls/engines/engine[0]/throttle", 0);
+        setprop("/controls/engines/engine[1]/throttle", 0);
+        setprop("/controls/flight/elevator", 0);
+        setprop("/controls/flight/aileron", 0);
+        setprop("/controls/flight/rudder", 0);
+        setprop("/controls/flight/elevator-trim", 0);
+        setprop("/controls/flight/aileron-trim", 0);
+        setprop("/controls/flight/rudder-trim", 0);
+        setprop("/controls/flight/speedbrake", 0);
 
-    setprop("/controls/engines/engine[0]/throttle", 0);
-    setprop("/controls/engines/engine[1]/throttle", 0);
-    setprop("/controls/flight/elevator", 0);
-    setprop("/controls/flight/aileron", 0);
-    setprop("/controls/flight/rudder", 0);
-    setprop("/controls/flight/elevator-trim", 0);
-    setprop("/controls/flight/aileron-trim", 0);
-    setprop("/controls/flight/rudder-trim", 0);
-    setprop("/controls/flight/speedbrake", 0);
+        var wait = 0;
+        wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_command(); },     wait);
+        wait +=  1   ; settimer(func() { do_command_brake_parking(1); },                    wait);
+        wait +=  2   ; settimer(func() { do_command_canopy(1); },                           wait);
+        wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_light(); },       wait);
+        wait +=  2   ; settimer(func() { do_lighting_landing(0); },                         wait);
+        wait +=  1   ; settimer(func() { do_lighting_form(.66); },                          wait);
+        wait +=   .2 ; settimer(func() { do_lighting_form(.33); },                          wait);
+        wait +=   .2 ; settimer(func() { do_lighting_form(0); },                            wait);
+        wait +=  1   ; settimer(func() { do_lighting_pos(0); },                             wait);
+        wait +=  1   ; settimer(func() { do_lighting_nav(0); },                             wait);
+        wait +=  1   ; settimer(func() { do_lighting_strobe(0); },                          wait);
+        wait +=  1   ; settimer(func() { do_lighting_anticoll(0); },                        wait);
+        wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_electrical(); },  wait);
+        wait +=  1   ; settimer(func() { do_electrical_master_switch(1); },                 wait);
+        wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_engines(); },     wait);
+        wait +=  1   ; settimer(func() { do_engine0_fuel_on(0); },                          wait);
+        wait +=  1   ; settimer(func() { do_engine1_fuel_on(0); },                          wait);
+        wait +=  1   ; settimer(func() { do_engine0_pump(0); },                             wait);
+        wait +=  1   ; settimer(func() { do_engine1_pump(0); },                             wait);
+        wait +=  2   ; settimer(func() { my_aircraft_functions.view_sfd(); },               wait);
+        wait +=  0.5 ; settimer(func() { my_aircraft_functions.view_panel_radio(); },       wait);
+        wait +=  1   ; settimer(func() { do_adf0(0); },                                     wait);
+        wait +=  1   ; settimer(func() { do_nav0(0); },                                     wait);
+        wait +=  1   ; settimer(func() { do_nav1(0); },                                     wait);
+        wait +=  1   ; settimer(func() { do_transponder(0); },                              wait);
+        wait +=  1   ; settimer(func() { do_comm0(0); },                                    wait);
+        wait +=  1   ; settimer(func() { do_comm1(0); },                                    wait);
+        wait +=  2   ; settimer(func() { my_aircraft_functions.view_panel_electrical(); },  wait);
+        wait +=  6   ; settimer(func() { do_electrical_bus_commands(0); },                  wait);
+        wait +=  1   ; settimer(func() { do_electrical_bus_engines(0); },                   wait);
+        wait +=  1   ; settimer(func() { flashlight(2); },                                  wait);
+        wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_light(); },       wait);
+        wait +=  1   ; settimer(func() { do_lighting_instr(0); },                           wait);
+        wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_electrical(); },  wait);
+        wait +=  1   ; settimer(func() { do_electrical_bus_avionics(0); },                  wait);
+        wait +=  1   ; settimer(func() { do_electrical_master_switch(0); },                 wait);
+    
+        wait +=  1   ; settimer(func() { my_aircraft_functions.load_current_view(); },      wait);
+        wait +=  3   ; settimer(func() { printf('stopped.'); },                             wait);
+        wait +=  1   ; settimer(func() { setprop("/sim/messages/pilot", 'stopped'); },      wait);
+
+        wait +=  .1  ; settimer(func() { process_status = 'READY'; },                       wait);
+    }
 }
 
 var autostart = func() {
     printf('autostart ...');
 
-    init();
-    my_aircraft_functions.save_current_view();
+    if(process_status == 'READY')
+    {
+        process_status = 'AUTOSTARTING';
 
-    var wait = 0;
-    wait +=  1   ; settimer(func() { do_ground_equipment(0); },                         wait);
-    wait +=  1   ; settimer(func() { flashlight(2); },                                  wait);
-    wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_electrical(); },  wait);
-    wait +=  2   ; settimer(func() { do_electrical_master_switch(1); },                 wait);
-    wait +=  1   ; settimer(func() { do_electrical_bus_avionics(1); },                  wait);
-    wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_light(); },       wait);
-    wait +=  1.4 ; settimer(func() { do_lighting_instr(0.25); },                        wait);
-    wait +=   .2 ; settimer(func() { do_lighting_instr(0.5); },                         wait);
-    wait +=   .2 ; settimer(func() { do_lighting_instr(0.75); },                        wait);
-    wait +=   .2 ; settimer(func() { do_lighting_instr(1); },                           wait);
-    wait +=  1   ; settimer(func() { flashlight(0); },                                  wait);
-    wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_electrical(); },  wait);
-    wait +=  2   ; settimer(func() { do_electrical_bus_engines(1); },                   wait);
-    wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_engines(); },     wait);
-    wait +=  1   ; settimer(func() { do_engine0_fuel_on(1); },                          wait);
-    wait +=  1   ; settimer(func() { do_engine0_pump(1); },                             wait);
-    wait +=  1   ; settimer(func() { do_engine0_start(1); },                            wait);
-    wait +=  1   ; settimer(func() { my_aircraft_functions.view_sfd(); },               wait);
-    wait += 25   ; settimer(func() { my_aircraft_functions.view_panel_electrical(); },  wait);
-    wait +=  1   ; settimer(func() { do_electrical_master_switch(2); },                 wait);
-    wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_engines(); },     wait);
-    wait +=  1   ; settimer(func() { do_engine1_fuel_on(1); },                          wait);
-    wait +=  1   ; settimer(func() { do_engine1_pump(1); },                             wait);
-    wait +=  1   ; settimer(func() { do_engine1_start(1); },                            wait);
-    wait +=  1   ; settimer(func() { my_aircraft_functions.view_sfd(); },               wait);
-    wait +=  4   ; settimer(func() { my_aircraft_functions.view_panel_electrical(); },  wait);
-    wait +=  2   ; settimer(func() { do_electrical_bus_commands(1); },                  wait);
-    wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_command(); },     wait);
-    wait +=  2   ; settimer(func() { do_command_canopy(.6); },                          wait);
-    wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_light(); },       wait);
-    wait +=  2   ; settimer(func() { do_lighting_anticoll(1); },                        wait);
-    wait +=  1   ; settimer(func() { do_lighting_strobe(1); },                          wait);
-    wait +=  1   ; settimer(func() { do_lighting_nav(1); },                             wait);
-    wait +=  1   ; settimer(func() { do_lighting_pos(1); },                             wait);
-    wait +=  1   ; settimer(func() { do_lighting_form(.33); },                          wait);
-    wait +=   .2 ; settimer(func() { do_lighting_form(.66); },                          wait);
-    wait +=   .2 ; settimer(func() { do_lighting_form(1); },                            wait);
-    wait +=  1   ; settimer(func() { do_lighting_landing(1); },                         wait);
-    wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_command(); },     wait);
-    wait +=  1   ; settimer(func() { do_command_canopy(0); },                           wait);
-    wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_radio(); },       wait);
-    wait +=  1   ; settimer(func() { do_comm0(1); },                                    wait);
-    wait +=  1   ; settimer(func() { do_comm1(1); },                                    wait);
-    wait +=  1   ; settimer(func() { do_transponder(4); },                              wait);
-    wait +=  1   ; settimer(func() { do_nav0(1); },                                     wait);
-    wait +=  1   ; settimer(func() { do_nav1(1); },                                     wait);
-    wait +=  1   ; settimer(func() { do_adf0(2); },                                     wait);
+        init();
+        my_aircraft_functions.save_current_view();
 
-    wait +=  1   ; settimer(func() { my_aircraft_functions.load_current_view(); },      wait);
-    wait +=  3   ; settimer(func() { printf('started. Ready to fly !'); },              wait);
-    wait +=  1   ; settimer(func() { setprop("/sim/messages/pilot", 'started. Ready to fly !'); }, wait);
+        var wait = 0;
+        wait +=  1   ; settimer(func() { do_ground_equipment(0); },                         wait);
+        wait +=  1   ; settimer(func() { flashlight(2); },                                  wait);
+        wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_electrical(); },  wait);
+        wait +=  2   ; settimer(func() { do_electrical_master_switch(1); },                 wait);
+        wait +=  1   ; settimer(func() { do_electrical_bus_avionics(1); },                  wait);
+        wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_light(); },       wait);
+        wait +=  1.4 ; settimer(func() { do_lighting_instr(0.25); },                        wait);
+        wait +=   .2 ; settimer(func() { do_lighting_instr(0.5); },                         wait);
+        wait +=   .2 ; settimer(func() { do_lighting_instr(0.75); },                        wait);
+        wait +=   .2 ; settimer(func() { do_lighting_instr(1); },                           wait);
+        wait +=  1   ; settimer(func() { flashlight(0); },                                  wait);
+        wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_electrical(); },  wait);
+        wait +=  2   ; settimer(func() { do_electrical_bus_engines(1); },                   wait);
+        wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_engines(); },     wait);
+        wait +=  1   ; settimer(func() { do_engine0_fuel_on(1); },                          wait);
+        wait +=  1   ; settimer(func() { do_engine0_pump(1); },                             wait);
+        wait +=  1   ; settimer(func() { do_engine0_start(1); },                            wait);
+        wait +=  1   ; settimer(func() { my_aircraft_functions.view_sfd(); },               wait);
+        wait += 25   ; settimer(func() { my_aircraft_functions.view_panel_electrical(); },  wait);
+        wait +=  1   ; settimer(func() { do_electrical_master_switch(2); },                 wait);
+        wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_engines(); },     wait);
+        wait +=  1   ; settimer(func() { do_engine1_fuel_on(1); },                          wait);
+        wait +=  1   ; settimer(func() { do_engine1_pump(1); },                             wait);
+        wait +=  1   ; settimer(func() { do_engine1_start(1); },                            wait);
+        wait +=  1   ; settimer(func() { my_aircraft_functions.view_sfd(); },               wait);
+        wait +=  4   ; settimer(func() { my_aircraft_functions.view_panel_electrical(); },  wait);
+        wait +=  2   ; settimer(func() { do_electrical_bus_commands(1); },                  wait);
+        wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_command(); },     wait);
+        wait +=  2   ; settimer(func() { do_command_canopy(.6); },                          wait);
+        wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_light(); },       wait);
+        wait +=  2   ; settimer(func() { do_lighting_anticoll(1); },                        wait);
+        wait +=  1   ; settimer(func() { do_lighting_strobe(1); },                          wait);
+        wait +=  1   ; settimer(func() { do_lighting_nav(1); },                             wait);
+        wait +=  1   ; settimer(func() { do_lighting_pos(1); },                             wait);
+        wait +=  1   ; settimer(func() { do_lighting_form(.33); },                          wait);
+        wait +=   .2 ; settimer(func() { do_lighting_form(.66); },                          wait);
+        wait +=   .2 ; settimer(func() { do_lighting_form(1); },                            wait);
+        wait +=  1   ; settimer(func() { do_lighting_landing(1); },                         wait);
+        wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_command(); },     wait);
+        wait +=  1   ; settimer(func() { do_command_canopy(0); },                           wait);
+        wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_radio(); },       wait);
+        wait +=  1   ; settimer(func() { do_comm0(1); },                                    wait);
+        wait +=  1   ; settimer(func() { do_comm1(1); },                                    wait);
+        wait +=  1   ; settimer(func() { do_transponder(4); },                              wait);
+        wait +=  1   ; settimer(func() { do_nav0(1); },                                     wait);
+        wait +=  1   ; settimer(func() { do_nav1(1); },                                     wait);
+        wait +=  1   ; settimer(func() { do_adf0(2); },                                     wait);
+
+        wait +=  1   ; settimer(func() { my_aircraft_functions.load_current_view(); },      wait);
+        wait +=  3   ; settimer(func() { printf('started. Ready to fly !'); },              wait);
+        wait +=  1   ; settimer(func() { setprop("/sim/messages/pilot", 'started. Ready to fly !'); }, wait);
+
+        wait +=  .1  ; settimer(func() { process_status = 'READY'; },                       wait);
+    }
 }
 
 var toggle_autostart = func() {
@@ -362,30 +394,38 @@ var toggle_autostart = func() {
     }
 }
 
+#===============================================================================
+#                                                     AUTOMATIC AIRBORN STARTING
+
 var check_start_airborn = func() {
     var is_onground = getprop('/sim/presets/onground') or 0;
     if(! is_onground)
     {
         printf('starting airborn ...');
-        # starting :
+
+        # starting
         fast_start();
-        # unlock parkbrakes :
         setprop("/controls/gear/brake-parking", 0);
-
-        # enable autopilot :
-        settimer(func() { instrument_pfd.event_click_hold_autopilot();                    }, 1);
-        settimer(func() { setprop("/sim/messages/pilot", 'autopilot activated');          }, 1);
-
-        # ack alerts :
-        settimer(func() { setprop("/instrumentation/my_aircraft/command_h/ack_alert", 1); }, 2);
-        settimer(func() { setprop("/instrumentation/my_aircraft/command_h/ack_alert", 1); }, 3);
-
-        # setting mod
         my_aircraft_functions.set_mod('NAV');
 
-        settimer(func() { setprop("/sim/messages/pilot", 'ready, you got the commands !'); }, 4);
+        settimer(func() {
+            setprop("/instrumentation/my_aircraft/command_h/ack_alert", 1);
+            instrument_pfd.event_click_hold_autopilot();
+            var preset_alt = getprop("/sim/presets/altitude-ft") or 10000;
+            var preset_speed = getprop("/sim/presets/airspeed-kt") or 300;
+            var preset_hdg = getprop("/sim/presets/heading-deg") or 300;
+            setprop("/autopilot/settings/target-altitude-ft", preset_alt);
+            setprop("/autopilot/settings/target-speed-kt", preset_speed);
+            setprop("/autopilot/settings/heading-bug-deg", preset_hdg);
+        }, 2);
+
+        # enable autopilot :
+        settimer(func() {
+            setprop("/instrumentation/my_aircraft/command_h/ack_alert", 1);
+            setprop("/sim/messages/pilot", 'autopilot activated, aircraft ready, you got the commands !');
+        }, 3);
     }
 }
 
-#setlistener('/sim/signals/fdm-initialized", check_start_airborn);
 check_start_airborn();
+

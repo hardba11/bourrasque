@@ -190,6 +190,8 @@ changelog
       <path>/sim/model/smoking-color</path>
       <path>/instrumentation/my_aircraft/hud_target_positions/controls/enabled</path>
       <path>/instrumentation/my_aircraft/hud_target_positions/controls/targets_are_mp</path>
+      <path>controls/pax/copilot</path>
+      <path>/instrumentation/my_aircraft/pfd/controls/hippodrome-leg-duration</path>
       <path>/instrumentation/adf[0]/mode</path>
       <path>/instrumentation/adf[0]/frequencies/standby-khz</path>
       <path>/instrumentation/adf[0]/frequencies/selected-khz</path>
@@ -202,6 +204,7 @@ changelog
       <path>/instrumentation/nav[0]/volume</path>
       <path>/instrumentation/nav[0]/frequencies/standby-mhz</path>
       <path>/instrumentation/nav[0]/frequencies/selected-mhz</path>
+      <path>/instrumentation/nav[0]/radials/selected-deg</path>
       <path>/instrumentation/nav[1]/volume</path>
       <path>/instrumentation/nav[1]/frequencies/standby-mhz</path>
       <path>/instrumentation/nav[1]/frequencies/selected-mhz</path>
@@ -210,6 +213,7 @@ changelog
       <path>/instrumentation/my_aircraft/nd/inputs/lh-vor-adf</path>
       <path>/instrumentation/my_aircraft/nd/inputs/rh-vor-adf</path>
       <path>/instrumentation/nav[0]/slaved-to-gps</path>
+      <path>/autopilot/settings/heading-bug-deg</path>
       <path>/instrumentation/my_aircraft/nd/inputs/inputs/tfc</path>
       <path>/instrumentation/my_aircraft/nd/inputs/true-north</path>
       <path>/instrumentation/my_aircraft/sfd/controls/radar_range</path>
@@ -221,8 +225,6 @@ changelog
       <path>/consumables/fuel/tank[5]/level-norm</path>
       <path>/consumables/fuel/tank[6]/level-norm</path>
       <path>/consumables/fuel/tank[7]/level-norm</path>
-      <path>controls/pax/copilot</path>
-      <path>/instrumentation/my_aircraft/pfd/controls/hippodrome-leg-duration</path>
     </aircraft-data>
 
   </sim>
@@ -282,13 +284,16 @@ changelog
 ================================================================================
                                                                            NASAL
 ================================================================================
+
   -->
   <nasal>
 
+    <!-- ~~~~~~~~~~~~~~~~~~ common/shared functions (no loop here) -->
     <my_aircraft_functions>
       <file type="string">functions.nas</file>
     </my_aircraft_functions>
 
+    <!-- ~~~~~~~~~~~~~~~~~~ specific instrument stand alone nasal -->
     <instrument_hud>
       <file type="string">instruments/hud/hud.nas</file>
     </instrument_hud>
@@ -329,39 +334,44 @@ changelog
       <file type="string">instruments/tablet/tablet_map.nas</file>
     </instrument_tablet_map>
 
+    <!-- ~~~~~~~~~~~~~~~~~~ flight/commands/aircraft management -->
     <fdm>
+      <!-- aircraft properties update (loops) -->
       <file type="string">fdm/bourrasque.nas</file>
+      <!-- fly by wire (loops) -->
       <file type="string">fdm/fcm.nas</file>
+      <!-- aircraft electrical and engines systems (loops) -->
       <file type="string">fdm/systems.nas</file>
+      <!-- specific functions for starting/stopping aircraft -->
       <file type="string">fdm/autostart.nas</file>
     </fdm>
 
+    <!-- ~~~~~~~~~~~~~~~~~~ models and effects -->
     <lights>
       <file type="string">models/lights/lights.nas</file>
     </lights>
-
-    <tools>
-      <file type="string">tools/trace-loop/trace-loop.nas</file>
-    </tools>
-
     <liveries>
       <file>Aircraft/bourrasque/models/aircraft/select_liveries.nas</file>
     </liveries>
 
+    <!-- ~~~~~~~~~~~~~~~~~~ 3rd party scripts to improve functionnalities -->
     <aar>
       <file>Aircraft/Generic/aar.nas</file>
     </aar>
-
     <formation>
       <file>Aircraft/Generic/formation.nas</file>
     </formation>
-
     <FailureMgr>
       <enabled type="bool">0</enabled>
     </FailureMgr>
     <towing>
       <enabled type="bool">0</enabled>
     </towing>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ other tools -->
+    <tools>
+      <file type="string">tools/trace-loop/trace-loop.nas</file>
+    </tools>
 
   </nasal>
 
