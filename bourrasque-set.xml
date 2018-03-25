@@ -177,6 +177,54 @@ changelog
       </tcas>
     </instrumentation>
 
+    <!-- ~~~~~~~~~~~~~~~~~~ saving all properties between sessions -->
+    <aircraft-data>
+      <path>/systems/refuel/serviceable</path>
+      <path>/sim/model/carrier-equipment</path>
+      <path>/sim/model/wing-tanks-1250</path>
+      <path>/sim/model/wing-tanks-2000</path>
+      <path>/sim/model/center-tank-1250</path>
+      <path>/sim/model/center-tank-2000</path>
+      <path>/sim/model/center-refuel-pod</path>
+      <path>/sim/model/wing-pylons-smoke-pod</path>
+      <path>/sim/model/smoking-color</path>
+      <path>/instrumentation/my_aircraft/hud_target_positions/controls/enabled</path>
+      <path>/instrumentation/my_aircraft/hud_target_positions/controls/targets_are_mp</path>
+      <path>/instrumentation/adf[0]/mode</path>
+      <path>/instrumentation/adf[0]/frequencies/standby-khz</path>
+      <path>/instrumentation/adf[0]/frequencies/selected-khz</path>
+      <path>/instrumentation/comm[0]/volume</path>
+      <path>/instrumentation/comm[0]/frequencies/standby-mhz</path>
+      <path>/instrumentation/comm[0]/frequencies/selected-mhz</path>
+      <path>/instrumentation/comm[1]/volume</path>
+      <path>/instrumentation/comm[1]/frequencies/standby-mhz</path>
+      <path>/instrumentation/comm[1]/frequencies/selected-mhz</path>
+      <path>/instrumentation/nav[0]/volume</path>
+      <path>/instrumentation/nav[0]/frequencies/standby-mhz</path>
+      <path>/instrumentation/nav[0]/frequencies/selected-mhz</path>
+      <path>/instrumentation/nav[1]/volume</path>
+      <path>/instrumentation/nav[1]/frequencies/standby-mhz</path>
+      <path>/instrumentation/nav[1]/frequencies/selected-mhz</path>
+      <path>/instrumentation/my_aircraft/nd/inputs/arpt</path>
+      <path>/instrumentation/my_aircraft/nd/inputs/range-nm</path>
+      <path>/instrumentation/my_aircraft/nd/inputs/lh-vor-adf</path>
+      <path>/instrumentation/my_aircraft/nd/inputs/rh-vor-adf</path>
+      <path>/instrumentation/nav[0]/slaved-to-gps</path>
+      <path>/instrumentation/my_aircraft/nd/inputs/inputs/tfc</path>
+      <path>/instrumentation/my_aircraft/nd/inputs/true-north</path>
+      <path>/instrumentation/my_aircraft/sfd/controls/radar_range</path>
+      <path>/consumables/fuel/tank[0]/level-norm</path>
+      <path>/consumables/fuel/tank[1]/level-norm</path>
+      <path>/consumables/fuel/tank[2]/level-norm</path>
+      <path>/consumables/fuel/tank[3]/level-norm</path>
+      <path>/consumables/fuel/tank[4]/level-norm</path>
+      <path>/consumables/fuel/tank[5]/level-norm</path>
+      <path>/consumables/fuel/tank[6]/level-norm</path>
+      <path>/consumables/fuel/tank[7]/level-norm</path>
+      <path>controls/pax/copilot</path>
+      <path>/instrumentation/my_aircraft/pfd/controls/hippodrome-leg-duration</path>
+    </aircraft-data>
+
   </sim>
 
   <!-- smoke touchdown, data updated by functions.nas -->
