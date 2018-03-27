@@ -269,7 +269,7 @@ ________________________________________________________________________________
   <animation>
     <type>rotate</type>
     <object-name>catapulte_tige</object-name>
-    <property>/controls/gear/launchbar</property>
+    <property>/gear/gear[0]/launchbar-position-norm</property>
     <interpolation>
       <entry><ind>0</ind><dep>0</dep></entry>
       <entry><ind>1</ind><dep>-50</dep></entry>

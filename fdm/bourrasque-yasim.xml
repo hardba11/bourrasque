@@ -296,10 +296,10 @@ ________________________________________________________________________________
     <control-input axis="/controls/gear/tailhook" control="HEXTEND" />
     <control-speed control="HEXTEND" transition-time="3" />
   </hook>
-  <!--launchbar x="8" y="0" z="-1.7" length="1.5"-->
   <launchbar x="10" y="0" z="0" length="10">
     <control-input axis="/controls/gear/launchbar" control="LEXTEND" />
-    <control-speed control="LEXTEND" transition-time="0.5" />
+    <control-speed control="LEXTEND" transition-time="1" />
+    <control-output control="LEXTEND" prop="/gear/gear[0]/launchbar-position-norm" />
   </launchbar>
 
   <!-- ~~~~~~~~~~~~~~~~~~ front gear -->
@@ -394,7 +394,7 @@ ________________________________________________________________________________
   <ballast x="5" y="0" z="1.0" mass="2000" />
 
 
-  <weight x="6" y="0" z="-2" size="1" mass-prop="/controls/launch/mass" />
+  <!--weight x="6" y="0" z="-2" size="1" mass-prop="/controls/launch/mass" /-->
 
 </airplane>
 

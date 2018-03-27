@@ -22,6 +22,56 @@
     </offsets>
   </model>
 
+
+  <!-- ~~~~~~~~~~~~~~~~~~ als lights -->
+  <model>
+    <name>left light top</name>
+    <path>AI/Aircraft/dassault-rafale-M/effects/light_nav_left.xml</path>
+    <offsets>
+      <x-m type="float">3.5</x-m>
+      <y-m type="float">-5</y-m>
+      <z-m type="float">.05</z-m>
+    </offsets>
+  </model>
+  <model>
+    <name>left light bottom</name>
+    <path>AI/Aircraft/dassault-rafale-M/effects/light_nav_left.xml</path>
+    <offsets>
+      <x-m type="float">3.5</x-m>
+      <y-m type="float">-5</y-m>
+      <z-m type="float">-.12</z-m>
+    </offsets>
+  </model>
+  <model>
+    <name>right light top</name>
+    <path>AI/Aircraft/dassault-rafale-M/effects/light_nav_right.xml</path>
+    <offsets>
+      <x-m type="float">3.5</x-m>
+      <y-m type="float">5</y-m>
+      <z-m type="float">.05</z-m>
+    </offsets>
+  </model>
+  <model>
+    <name>right light bottom</name>
+    <path>AI/Aircraft/dassault-rafale-M/effects/light_nav_right.xml</path>
+    <offsets>
+      <x-m type="float">3.5</x-m>
+      <y-m type="float">5</y-m>
+      <z-m type="float">-.12</z-m>
+    </offsets>
+  </model>
+  <model>
+    <name>tail light</name>
+    <path>AI/Aircraft/dassault-rafale-M/effects/light_nav_tail.xml</path>
+    <offsets>
+      <x-m type="float">7.12</x-m>
+      <y-m type="float">0</y-m>
+      <z-m type="float">3.15</z-m>
+    </offsets>
+  </model>
+
+
+
   <multiplay>
     <refuel>
       <type>probe</type>

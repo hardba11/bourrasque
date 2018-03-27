@@ -58,10 +58,6 @@ changelog
     <instruments-norm type="float">0</instruments-norm>
   </lighting>
 
-  <launch>
-    <mass type="int">0</mass>
-  </launch>
-
 </PropertyList>
 
 

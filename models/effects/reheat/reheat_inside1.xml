@@ -10,12 +10,12 @@
     <type>scale</type>
     <object-name>reheat_outside_box</object-name>
     <property>sim/multiplay/generic/float[9]</property>
-    <x-min>0.3</x-min>
-    <y-min>0.55</y-min>
-    <z-min>0.55</z-min>
+    <x-min>.4</x-min>
+    <y-min>.55</y-min>
+    <z-min>.55</z-min>
     <y-max>1</y-max>
     <z-max>1</z-max>
-    <x-factor>.5</x-factor>
+    <x-factor>.8</x-factor>
     <y-factor>.2</y-factor>
     <z-factor>.2</z-factor>
   </animation>

@@ -88,7 +88,7 @@
     <type>probe</type>
     <model>AI/Aircraft/dassault-rafale-M/dassault-rafale-M.xml</model>
     <speed-kts>250</speed-kts>
-    <max-fuel-transfer-lbs-min type="double">1500</max-fuel-transfer-lbs-min>
+    <max-fuel-transfer-lbs-min type="double">2000</max-fuel-transfer-lbs-min>
     <contact>
       <x-m>-15</x-m>
       <z-m>-2</z-m>

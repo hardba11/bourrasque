@@ -231,6 +231,9 @@ changelog
 
   <!-- smoke touchdown, data updated by functions.nas -->
   <gear>
+    <gear n="0">
+      <launchbar-position-norm type="float">0</launchbar-position-norm>
+    </gear>
     <gear n="1">
       <tyre-smoke type="bool">0</tyre-smoke>
     </gear>

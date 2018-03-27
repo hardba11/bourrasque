@@ -168,8 +168,12 @@ changelog
       <height>12</height>
       <property>/sim/model/carrier-equipment</property>
       <binding>
-        <command>property-toggle</command>
-        <property>/sim/model/carrier-equipment</property>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_toggle_carrier_equipment(-1);
+          ]]>
+        </script>
       </binding>
     </checkbox>
     <text>

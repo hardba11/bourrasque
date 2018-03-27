@@ -58,12 +58,14 @@ var checking_aircraft_status = func()
     var is_bingo            = getprop("/instrumentation/my_aircraft/fuel/bingo/is_bingo_alert") or 0;
     var is_air_refuelling   = getprop("/systems/refuel/contact") or 0;
     var groundspeed         = getprop("/velocities/groundspeed-kt") or 0;
+    var wheelspeed          = getprop("/gear/gear[0]/rollspeed-ms") or 0;
     var canopy_position     = getprop("/sim/model/canopy-pos-norm") or 0;
     var speedbrake_position = getprop("/controls/flight/speedbrake") or 0;
     var engine0_throttle    = getprop("/controls/engines/engine[0]/throttle") or 0;
     var engine1_throttle    = getprop("/controls/engines/engine[1]/throttle") or 0;
     var airspeed            = getprop("/instrumentation/airspeed-indicator/true-speed-kt") or 0;
     var radar_altitude      = getprop("/position/altitude-agl-ft") or 0;
+    var state_launchbar     = getprop("/gear/launchbar/state") or 'Disengaged';
 
 
     #---------------------------------------------------------------------------
@@ -249,11 +251,13 @@ var checking_aircraft_status = func()
         { speedbrake_status = OK; }
     setprop("/instrumentation/my_aircraft/command_h/panel_status/speedbrake_status", speedbrake_status);
 
-    # alert rules for PKBK
+    # alert rules for PKBK 
     if((parkbrake_status == ALERT) or (parkbrake_status == WARN))
         {}
     elsif((is_parkbrake == 1) and (is_on_ground == 0))
         { parkbrake_status = ALERT; }
+    elsif((is_parkbrake == 1) and (state_launchbar != 'Disengaged'))
+        { parkbrake_status = CAUTION; }
     elsif((is_parkbrake == 1) and ((engine0_throttle > .3) or (engine1_throttle > .3)))
         { parkbrake_status = CAUTION; }
     elsif((is_parkbrake == 1) and ((engine0_throttle < .3) or (engine1_throttle < .3)))
@@ -267,11 +271,11 @@ var checking_aircraft_status = func()
     # alert rules for CNPY
     if((canopy_status == ALERT) or (canopy_status == WARN))
         {}
-    elsif((canopy_position > .7) and (groundspeed > 10))
+    elsif((canopy_position > .7) and (wheelspeed > 5))
         { canopy_status = ALERT; }
-    elsif((canopy_position > .7) and (groundspeed > 10) and (canopy_status != INFO))
+    elsif((canopy_position > .7) and (wheelspeed > 5) and (canopy_status != INFO))
         { canopy_status = CAUTION; }
-    elsif((canopy_position > .1) and (groundspeed > 30) and (canopy_status != INFO))
+    elsif((canopy_position > .1) and (groundspeed > 25) and (canopy_status != INFO))
         { canopy_status = CAUTION; }
     elsif(canopy_position > .1)
         { canopy_status = INFO; }

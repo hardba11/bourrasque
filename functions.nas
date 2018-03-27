@@ -483,6 +483,7 @@ var event_smoke = func(do_enable) {
     {
         if(do_enable == -1)
         {
+            # do_enable == -1 : toggle
             do_enable = (is_smoking == 0) ? 1 : 0;
         }
         setprop("/sim/model/smoking", do_enable);
@@ -508,58 +509,58 @@ var event_swap_sfd_screen = func() {
     }
 }
 
+var event_toggle_launchbar = func(do_enable) {
+    var is_carrier_equiped = getprop("/sim/model/carrier-equipment") or 0;
+    if(is_carrier_equiped != 1) { return; }
+
+    var is_launchbar_enabled = getprop("/controls/gear/launchbar") or 0;
+    if(do_enable == -1)
+    {
+        # do_enable == -1 : toggle
+        do_enable = (is_launchbar_enabled == 0) ? 1 : 0;
+    }
+
+    if(do_enable == 1)
+    {
+        # lower launchbar
+        setprop("/controls/gear/launchbar", 1);
+
+        # raise launchbar if could not have engaged
+        settimer(func() {
+            var state_launchbar = getprop("/gear/launchbar/state") or ''; # Disengaged, Engaged, Launching, Completed
+            if(state_launchbar != 'Engaged')
+            {
+                setprop("/controls/gear/catapult-launch-cmd", 0);
+                setprop("/controls/gear/launchbar", 0);
+            }
+        }, 1);
+    }
+    else
+    {
+        # raise launchbar unless engaged
+        var state_launchbar = getprop("/gear/launchbar/state") or ''; # Disengaged, Engaged, Launching, Completed
+        if(state_launchbar != 'Engaged')
+        {
+            setprop("/controls/gear/catapult-launch-cmd", 0);
+            setprop("/controls/gear/launchbar", 0);
+        }
+    }
+}
+
 var event_launch = func() {
     var is_carrier_equiped = getprop("/sim/model/carrier-equipment") or 0;
-    var state_launchbar = getprop("/gear/launchbar/state") or 0; # Disengaged, Engaged, Launching, Completed
-    if((is_carrier_equiped == 1) and (state_launchbar == 'Engaged'))
+    if(is_carrier_equiped != 1) { return; }
+
+    var state_launchbar = getprop("/gear/launchbar/state") or ''; # Disengaged, Engaged, Launching, Completed
+    if(state_launchbar == 'Engaged')
     {
         # catapult launching command
         setprop("/controls/gear/catapult-launch-cmd", 1);
         # reinit some values after launch (~2 seconds)
-        settimer(func() { 
-            setprop("/controls/launch/mass", 0);
+        settimer(func() {
             setprop("/controls/gear/launchbar", 0); 
             setprop("/controls/gear/catapult-launch-cmd", 0);
         }, 2);
-    }
-}
-
-var event_toggle_launchbar = func(do_enable) {
-    var is_carrier_equiped = getprop("/sim/model/carrier-equipment") or 0;
-    if(is_carrier_equiped == 1)
-    {
-        var is_launchbar_enabled = getprop("/controls/gear/launchbar") or 0;
-        if(do_enable == -1)
-        {
-            do_enable = (is_launchbar_enabled == 0) ? 1 : 0;
-        }
-
-        # if engaged, bend aircraft
-        if(do_enable == 1)
-        {
-            setprop("/controls/gear/launchbar", do_enable);
-        }
-        else
-        {
-            setprop("/controls/gear/catapult-launch-cmd", 0);
-            setprop("/controls/gear/launchbar", do_enable);
-        }
-    }
-    else
-    {
-        setprop("/controls/gear/catapult-launch-cmd", 0);
-        setprop("/controls/gear/launchbar", 0);
-        setprop("/controls/launch/mass", 0);
-    }
-
-    var state_launchbar = getprop("/gear/launchbar/state") or 0; # Disengaged, Engaged, Launching, Completed
-    if(state_launchbar == 'Engaged')
-    {
-        setprop("/controls/launch/mass", 9000);
-    }
-    else
-    {
-        setprop("/controls/launch/mass", 0);
     }
 }
 
@@ -580,8 +581,8 @@ var event_control_gear = func(down, animate_view) {
         {
             save_current_view();
             view_panel_command();
-            settimer(func() { setprop("/controls/gear/gear-down", 1); setprop("sim/model/lever_gear", 1); }, 0.3);
-            settimer(func() { load_current_view(); }, 0.5);
+            settimer(func() { setprop("/controls/gear/gear-down", 1); setprop("sim/model/lever_gear", 1); }, .3);
+            settimer(func() { load_current_view(); }, .5);
         }
         else
         {
@@ -670,7 +671,18 @@ var event_choose_enabled_cams = func() {
         setprop("/sim/view[105]/enabled", 1);
         setprop("/sim/view[103]/enabled", 0);
     }
+}
 
+var event_toggle_carrier_equipment = func(do_enable) {
+    var is_carrier_equiped = getprop("/sim/model/carrier-equipment") or 0;
+    if(do_enable == -1)
+    {
+        # do_enable == -1 : toggle
+        do_enable = (is_carrier_equiped == 0) ? 1 : 0;
+    }
+    setprop("/sim/model/carrier-equipment", do_enable);
+    setprop("/controls/gear/catapult-launch-cmd", do_enable);
+    setprop("/controls/gear/launchbar", do_enable);
 }
 
 var event_load_store = func(place, load) {

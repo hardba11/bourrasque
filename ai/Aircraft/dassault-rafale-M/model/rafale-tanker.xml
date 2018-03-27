@@ -19,9 +19,9 @@
     <object-name>siege</object-name>
     <object-name>tanks</object-name>
     <object-name>tuyeres</object-name>
+    <object-name>light_form</object-name>
 <!--
     <object-name>light_anticoll</object-name>
-    <object-name>light_form</object-name>
     <object-name>light_nav_green</object-name>
     <object-name>light_nav_red</object-name>
     <object-name>light_pos</object-name>
@@ -34,6 +34,16 @@
     <object-name>pare_brise</object-name>
     <object-name>canopy_plexi</object-name>
   </effect>
+
+  <animation>
+    <type>material</type>
+    <object-name>light_form</object-name>
+    <emission>
+      <red>0</red>
+      <green>1</green>
+      <blue>0</blue>
+    </emission>
+  </animation>
 
   <multiplay>
     <refuel>
