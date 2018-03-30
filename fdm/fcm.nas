@@ -355,12 +355,12 @@ var fcm_loop = func() {
 
     # mods change behaviour of FCM
     # USED FOR TUNNING WITHOUT RESTARTING fcm.nas, see system-properties.xml
-    #reduction_of_efficiency_for_speed       = getprop('/systems/fcm/reduction_of_efficiency_for_speed') or 0;
-    #reduction_of_efficiency_for_altitude    = getprop('/systems/fcm/reduction_of_efficiency_for_altitude') or 0;
-    #optimal_speed                           = getprop('/systems/fcm/optimal_speed') or 0;
-    #range_speed                             = getprop('/systems/fcm/range_speed') or 0;
-    #optimal_altitude                        = getprop('/systems/fcm/optimal_altitude') or 0;
-    #range_altitude                          = getprop('/systems/fcm/optimal_altitude') or 0;
+    #reduction_of_efficiency_for_speed       = getprop('/_debug/fcm/reduction_of_efficiency_for_speed') or 0;
+    #reduction_of_efficiency_for_altitude    = getprop('/_debug/fcm/reduction_of_efficiency_for_altitude') or 0;
+    #optimal_speed                           = getprop('/_debug/fcm/optimal_speed') or 0;
+    #range_speed                             = getprop('/_debug/fcm/range_speed') or 0;
+    #optimal_altitude                        = getprop('/_debug/fcm/optimal_altitude') or 0;
+    #range_altitude                          = getprop('/_debug/fcm/optimal_altitude') or 0;
     var mod = getprop("/instrumentation/my_aircraft/nd/controls/mode");
     if(mod == 'TAXI')
     {

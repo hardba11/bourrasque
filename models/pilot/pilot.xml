@@ -255,7 +255,6 @@ ________________________________________________________________________________
   <animation>
     <type>rotate</type>
     <object-name>mainD</object-name>
-    <!--property>/debug2</property-->
     <property>/controls/flight/aileron</property>
     <interpolation>
       <entry><ind>-1</ind><dep>10</dep></entry>
@@ -277,7 +276,6 @@ ________________________________________________________________________________
   <animation>
     <type>rotate</type>
     <object-name>bloc_avantbrasD</object-name>
-    <!--property>/debug1</property-->
     <property>/controls/flight/aileron</property>
     <interpolation>
       <entry><ind>-1</ind><dep>3</dep></entry>

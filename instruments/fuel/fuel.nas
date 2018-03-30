@@ -20,6 +20,7 @@ var fuel = func()
     var bingo_distance_minute   = getprop("/instrumentation/my_aircraft/fuel/bingo/distance_minute") or 0;
     var bingo_distance_nm       = getprop("/instrumentation/my_aircraft/fuel/bingo/distance_nm") or 0;
 
+    var nan_remaining = 0;
     var level_left   = level_2 + level_4 + level_6;
     var level_center = level_0 + level_1;
     var level_right  = level_3 + level_5 + level_7;
@@ -27,6 +28,8 @@ var fuel = func()
     var ff0_kg_s  = ff0 * 0.0508 / 60;
     var ff1_kg_s  = ff1 * 0.0508 / 60;
     var remaining_s = (level_tot * 805) / (ff0_kg_s + ff1_kg_s + 0.0000001);
+
+    if(remaining_s > (3600 * 24)) { nan_remaining = 1; }
 
     var h_remaining = math.floor(remaining_s / 3600);
     var m_remaining = math.floor(math.mod((remaining_s / 60), 60));
@@ -55,6 +58,7 @@ var fuel = func()
     setprop("/instrumentation/my_aircraft/fuel/s-remaining",            s_remaining);
     setprop("/instrumentation/my_aircraft/fuel/bingo-text",             bingo_text);
     setprop("/instrumentation/my_aircraft/fuel/bingo/is_bingo_alert",   is_bingo_alert);
+    setprop("/instrumentation/my_aircraft/fuel/nan-remaining",          nan_remaining);
 
     settimer(fuel, 1);
 }

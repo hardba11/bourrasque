@@ -32,6 +32,7 @@ var myCockpit_switches = {
     'toggle_true_north':    { path: '/true-north',   value: 1,     type: 'BOOL'  },
     'toggle_rangearc':      { path: '/rangearc',     value: 1,     type: 'BOOL'  },
     'toggle_track_heading': { path: '/hdg-trk',      value: 0,     type: 'BOOL'  },
+    'toggle_tacan':         { path: '/toggle_tacan', value: 0,     type: 'BOOL'  },
 };
 
 var _list = setlistener("sim/signals/fdm-initialized", func() {
@@ -63,6 +64,11 @@ var nd = func()
     # simplier to animate with integer than string
     var nd_display_mode = ['APP', 'VOR', 'MAP', 'PLAN'];
     setprop("instrumentation/my_aircraft/nd/inputs/display-mode", nd_display_mode[getprop("instrumentation/my_aircraft/nd/inputs/display-mode-num")]);
+
+    # coupling tacan with right adf (unused)
+    var rh = getprop("instrumentation/my_aircraft/nd/inputs/rh-vor-adf") or 0;
+    setprop("instrumentation/my_aircraft/nd/inputs/toggle_tacan", ((rh == -1) ? 1 : 0));
+
     settimer(nd, .5);
 }
 

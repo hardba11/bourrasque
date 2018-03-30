@@ -13,6 +13,7 @@
   <h-remaining type="int">0</h-remaining>
   <m-remaining type="int">0</m-remaining>
   <s-remaining type="int">0</s-remaining>
+  <nan-remaining type="bool">0</nan-remaining>
   <bingo-text type="string"></bingo-text>
 
   <bingo>

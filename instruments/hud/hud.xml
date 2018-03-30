@@ -60,6 +60,7 @@ changelog
     <enable-nadir>true</enable-nadir>
     <condition>
       <or>
+        <property>/_debug/instruments/hud_show_all</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/controls/mode</property>
           <value>VFR</value>
@@ -105,6 +106,7 @@ changelog
     <enable-nadir>true</enable-nadir>
     <condition>
       <or>
+        <property>/_debug/instruments/hud_show_all</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/controls/mode</property>
           <value>NAV</value>
@@ -150,6 +152,7 @@ changelog
     <enable-nadir>false</enable-nadir>
     <condition>
       <or>
+        <property>/_debug/instruments/hud_show_all</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/controls/mode</property>
           <value>APP</value>
@@ -195,6 +198,7 @@ changelog
     <enable-nadir>false</enable-nadir>
     <condition>
       <or>
+        <property>/_debug/instruments/hud_show_all</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/controls/mode</property>
           <value>TAXI</value>
@@ -225,6 +229,7 @@ changelog
     <option>bottom</option>
     <condition>
       <or>
+        <property>/_debug/instruments/hud_show_all</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/controls/mode</property>
           <value>NAV</value>
@@ -254,6 +259,7 @@ changelog
     <option>top</option>
     <condition>
       <or>
+        <property>/_debug/instruments/hud_show_all</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/controls/mode</property>
           <value>APP</value>
@@ -282,6 +288,7 @@ changelog
     <box>true</box>
     <condition>
       <or>
+        <property>/_debug/instruments/hud_show_all</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/controls/mode</property>
           <value>APP</value>
@@ -308,6 +315,7 @@ changelog
     <box>true</box>
     <condition>
       <or>
+        <property>/_debug/instruments/hud_show_all</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/controls/mode</property>
           <value>NAV</value>
@@ -348,6 +356,7 @@ changelog
     <tick-length>variable</tick-length>
     <condition>
       <or>
+        <property>/_debug/instruments/hud_show_all</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/controls/mode</property>
           <value>VFR</value>
@@ -387,6 +396,7 @@ changelog
     <tick-length>variable</tick-length>
     <condition>
       <or>
+        <property>/_debug/instruments/hud_show_all</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/controls/mode</property>
           <value>NAV</value>
@@ -427,6 +437,7 @@ changelog
     <tick-length>variable</tick-length>
     <condition>
       <or>
+        <property>/_debug/instruments/hud_show_all</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/controls/mode</property>
           <value>TAXI</value>
@@ -455,6 +466,7 @@ changelog
     <box>true</box>
     <condition>
       <or>
+        <property>/_debug/instruments/hud_show_all</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/controls/mode</property>
           <value>APP</value>
@@ -485,6 +497,7 @@ changelog
     <box>false</box>
     <condition>
       <or>
+        <property>/_debug/instruments/hud_show_all</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/controls/mode</property>
           <value>TAXI</value>
@@ -513,6 +526,7 @@ changelog
     </condition>
     <condition>
       <or>
+        <property>/_debug/instruments/hud_show_all</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/controls/mode</property>
           <value>NAV</value>
@@ -540,6 +554,7 @@ changelog
     <box>true</box>
     <condition>
       <or>
+        <property>/_debug/instruments/hud_show_all</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/controls/mode</property>
           <value>TAXI</value>
@@ -563,6 +578,7 @@ changelog
     <box>false</box>
     <condition>
       <or>
+        <property>/_debug/instruments/hud_show_all</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/controls/mode</property>
           <value>APP</value>
@@ -590,6 +606,7 @@ changelog
     <box>true</box>
     <condition>
       <or>
+        <property>/_debug/instruments/hud_show_all</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/controls/mode</property>
           <value>APP</value>
@@ -620,6 +637,7 @@ changelog
     <box>false</box>
     <condition>
       <or>
+        <property>/_debug/instruments/hud_show_all</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/controls/mode</property>
           <value>TAXI</value>
@@ -635,10 +653,13 @@ changelog
     <width>36</width>
     <height>8</height>
     <condition>
-      <greater-than>
-        <property>/instrumentation/altimeter/indicated-altitude-ft</property>
-        <value>20000</value>
-      </greater-than>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <greater-than>
+          <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+          <value>20000</value>
+        </greater-than>
+      </or>
     </condition>
     <input>
       <property>/instrumentation/altimeter/indicated-altitude-ft</property>
@@ -660,6 +681,7 @@ changelog
     </input>
     <condition>
       <or>
+        <property>/_debug/instruments/hud_show_all</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/controls/mode</property>
           <value>NAV</value>
@@ -679,7 +701,7 @@ changelog
   <label>
     <name>Ralt</name>
     <x>85</x>
-    <y>-28</y>
+    <y>-11</y>
     <width>18</width>
     <height>8</height>
     <input>
@@ -691,6 +713,7 @@ changelog
     <option>top</option>
     <condition>
       <or>
+        <property>/_debug/instruments/hud_show_all</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/controls/mode</property>
           <value>APP</value>
@@ -710,9 +733,9 @@ changelog
       <factor>.1</factor>
     </input>
     <x>80</x>
-    <y>-50</y>
-    <width>10</width>
-    <height>50</height>
+    <y>-35</y>
+    <width>15</width>
+    <height>55</height>
     <option>right</option>
     <option>vertical</option>
     <label-gap-width>8</label-gap-width>
@@ -735,6 +758,7 @@ changelog
     <tick-length>variable</tick-length>
     <condition>
       <or>
+        <property>/_debug/instruments/hud_show_all</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/controls/mode</property>
           <value>APP</value>
@@ -756,9 +780,9 @@ changelog
   <gauge>
     <name>roll gauge</name>
     <x>80</x>
-    <y>68</y>
+    <y>58</y>
     <width>25</width>
-    <height>4</height>
+    <height>5</height>
     <option>top</option>
     <option>horizontal</option>
     <option>notext</option>
@@ -772,12 +796,12 @@ changelog
   </gauge>
   <gauge>
     <name>pitch gauge</name>
-    <x>73</x>
-    <y>55</y>
+    <x>80</x>
+    <y>46</y>
     <width>5</width>
-    <height>25</height>
+    <height>24</height>
     <option>vertical</option>
-    <option>left</option>
+    <option>right</option>
     <option>notext</option>
     <major-divisions>50</major-divisions>
     <minor-divisions>0</minor-divisions>
@@ -791,7 +815,7 @@ changelog
   <gauge>
     <name>yaw gauge</name>
     <x>80</x>
-    <y>64</y>
+    <y>55</y>
     <width>25</width>
     <height>3</height>
     <option>horizontal</option>
@@ -825,6 +849,7 @@ changelog
     </input>
     <condition>
       <or>
+        <property>/_debug/instruments/hud_show_all</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/controls/mode</property>
           <value>TAXI</value>
@@ -855,6 +880,7 @@ changelog
     </input>
     <condition>
       <or>
+        <property>/_debug/instruments/hud_show_all</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/controls/mode</property>
           <value>TAXI</value>
@@ -886,6 +912,7 @@ changelog
     </input>
     <condition>
       <or>
+        <property>/_debug/instruments/hud_show_all</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/controls/mode</property>
           <value>NAV</value>
@@ -916,6 +943,7 @@ changelog
     </input>
     <condition>
       <or>
+        <property>/_debug/instruments/hud_show_all</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/controls/mode</property>
           <value>NAV</value>
@@ -934,99 +962,73 @@ changelog
 -->
   <!-- ~~~~~~~~~~~~~~~~~~ angle of attack -->
   <label>
-    <name>AoA VFR</name>
+    <name>AoA</name>
     <input>
       <property>/orientation/alpha-deg</property>
     </input>
-    <x>70</x>
-    <y>40</y>
+    <x>36</x>
+    <y>22</y>
     <width>30</width>
     <height>8</height>
     <halign>right</halign>
     <format>AoA %3.1f</format>
     <condition>
-      <and>
-        <or>
-          <equals>
-            <property>/instrumentation/my_aircraft/nd/controls/mode</property>
-            <value>VFR</value>
-          </equals>
-        </or>
-        <or>
-          <greater-than>
-            <property>/orientation/alpha-deg</property>
-            <value>2.0</value>
-          </greater-than>
-          <and>
-            <property>/controls/gear/gear-down</property>
-            <greater-than>
-              <property>/orientation/alpha-deg</property>
-              <value>-1.0</value>
-            </greater-than>
-          </and>
-        </or>
-      </and>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <equals>
+          <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+          <value>APP</value>
+        </equals>
+        <equals>
+          <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+          <value>NAV</value>
+        </equals>
+        <equals>
+          <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+          <value>VFR</value>
+        </equals>
+      </or>
     </condition>
   </label>
-  <label>
-    <name>AoA APP</name>
-    <input>
-      <property>/orientation/alpha-deg</property>
-    </input>
-    <x>50</x>
-    <y>10</y>
-    <width>30</width>
-    <height>8</height>
-    <halign>right</halign>
-    <format>AoA %3.1f</format>
-    <condition>
-      <and>
-        <or>
-          <equals>
-            <property>/instrumentation/my_aircraft/nd/controls/mode</property>
-            <value>APP</value>
-          </equals>
-        </or>
-        <or>
-          <greater-than>
-            <property>/orientation/alpha-deg</property>
-            <value>2.0</value>
-          </greater-than>
-          <and>
-            <property>/controls/gear/gear-down</property>
-            <greater-than>
-              <property>/orientation/alpha-deg</property>
-              <value>-1.0</value>
-            </greater-than>
-          </and>
-        </or>
-      </and>
-    </condition>
-  </label>
-  <gauge>
+
+  <tape>
     <name>aoa gauge</name>
-    <x>45</x>
-    <y>-45</y>
-    <width>12</width>
-    <height>50</height>
+    <x>55</x>
+    <y>-35</y>
+    <width>10</width>
+    <height>60</height>
+    <option>right</option>
     <option>vertical</option>
-    <option>left</option>
-    <major-divisions>10</major-divisions>
-    <minor-divisions>2</minor-divisions>
+    <label-gap-width>0</label-gap-width>
+    <major-divisions>5</major-divisions>
+    <minor-divisions>1</minor-divisions>
+    <display-span>20</display-span>
+    <tick-bottom>false</tick-bottom>
+    <tick-top>false</tick-top>
+    <tick-right>false</tick-right>
+    <tick-left>false</tick-left>
+    <cap-bottom>false</cap-bottom>
+    <cap-top>false</cap-top>
+    <cap-right>false</cap-right>
+    <cap-left>false</cap-left>
+    <marker-offset>3</marker-offset>
+    <enable-pointer>true</enable-pointer>
+    <pointer-type>fixed</pointer-type>
+    <tick-type>line</tick-type>
+    <tick-length>variable</tick-length>
     <input>
       <property>/orientation/alpha-deg</property>
       <factor>1</factor>
       <max>20.0</max>
-      <min>0.0</min>
+      <min>-5.0</min>
     </input>
     <condition>
-      <and>
-        <or>
-          <equals>
-            <property>/instrumentation/my_aircraft/nd/controls/mode</property>
-            <value>APP</value>
-          </equals>
-        </or>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <equals>
+          <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+          <value>APP</value>
+        </equals>
         <or>
           <greater-than>
             <property>/orientation/alpha-deg</property>
@@ -1040,9 +1042,9 @@ changelog
             </greater-than>
           </and>
         </or>
-      </and>
+      </or>
     </condition>
-  </gauge>
+  </tape>
 
   <!-- ~~~~~~~~~~~~~~~~~~ gears -->
   <label>
@@ -1052,7 +1054,10 @@ changelog
     <width>15</width>
     <height>6</height>
     <condition>
-      <property>/controls/gear/gear-down</property>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <property>/controls/gear/gear-down</property>
+      </or>
     </condition>
     <format>gears</format>
     <halign>right</halign>
@@ -1066,7 +1071,10 @@ changelog
     <width>15</width>
     <height>6</height>
     <condition>
-      <property>/controls/gear/brake-parking</property>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <property>/controls/gear/brake-parking</property>
+      </or>
     </condition>
     <format>brake</format>
     <halign>right</halign>
@@ -1084,10 +1092,13 @@ changelog
     <width>15</width>
     <height>6</height>
     <condition>
-      <greater-than>
-        <property>/controls/flight/speedbrake</property>
-        <value>0</value>
-      </greater-than>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <greater-than>
+          <property>/controls/flight/speedbrake</property>
+          <value>0</value>
+        </greater-than>
+      </or>
     </condition>
     <format>spdbrk %1.0f</format>
     <halign>right</halign>
@@ -1101,10 +1112,13 @@ changelog
     <width>15</width>
     <height>6</height>
     <condition>
-      <greater-than>
-        <property>/controls/gear/tailhook</property>
-        <value>0</value>
-      </greater-than>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <greater-than>
+          <property>/controls/gear/tailhook</property>
+          <value>0</value>
+        </greater-than>
+      </or>
     </condition>
     <format>hook</format>
     <halign>right</halign>
@@ -1117,10 +1131,13 @@ changelog
     <width>15</width>
     <height>6</height>
     <condition>
-      <greater-than>
-        <property>/controls/gear/launchbar</property>
-        <value>0</value>
-      </greater-than>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <greater-than>
+          <property>/controls/gear/launchbar</property>
+          <value>0</value>
+        </greater-than>
+      </or>
     </condition>
     <format>L-Bar</format>
     <halign>right</halign>
@@ -1134,14 +1151,19 @@ changelog
     <width>40</width>
     <height>10</height>
     <condition>
-      <equals>
-        <property>/instrumentation/my_aircraft/engines/controls/engine[0]/is_starting</property>
-        <value>1</value>
-      </equals>
-      <equals>
-        <property>/engines/engine[0]/stopped</property>
-        <value>1</value>
-      </equals>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <and>
+          <equals>
+            <property>/instrumentation/my_aircraft/engines/controls/engine[0]/is_starting</property>
+            <value>1</value>
+          </equals>
+          <equals>
+            <property>/engines/engine[0]/stopped</property>
+            <value>1</value>
+          </equals>
+        </and>
+      </or>
     </condition>
     <format>ENGINE 0 STARTING</format>
     <halign>center</halign>
@@ -1153,14 +1175,19 @@ changelog
     <width>40</width>
     <height>10</height>
     <condition>
-      <equals>
-        <property>/instrumentation/my_aircraft/engines/controls/engine[1]/is_starting</property>
-        <value>1</value>
-      </equals>
-      <equals>
-        <property>/engines/engine[1]/stopped</property>
-        <value>1</value>
-      </equals>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <and>
+          <equals>
+            <property>/instrumentation/my_aircraft/engines/controls/engine[1]/is_starting</property>
+            <value>1</value>
+          </equals>
+          <equals>
+            <property>/engines/engine[1]/stopped</property>
+            <value>1</value>
+          </equals>
+        </and>
+      </or>
     </condition>
     <format>ENGINE 1 STARTING</format>
     <halign>center</halign>
@@ -1173,14 +1200,19 @@ changelog
     <width>40</width>
     <height>10</height>
     <condition>
-      <equals>
-        <property>/engines/engine[0]/stopped</property>
-        <value>1</value>
-      </equals>
-      <equals>
-        <property>/instrumentation/my_aircraft/engines/controls/engine[0]/is_starting</property>
-        <value>0</value>
-      </equals>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <and>
+          <equals>
+            <property>/engines/engine[0]/stopped</property>
+            <value>1</value>
+          </equals>
+          <equals>
+            <property>/instrumentation/my_aircraft/engines/controls/engine[0]/is_starting</property>
+            <value>0</value>
+          </equals>
+        </and>
+      </or>
     </condition>
     <format>ENGINE 0 STOPPED</format>
     <halign>center</halign>
@@ -1192,14 +1224,19 @@ changelog
     <width>40</width>
     <height>10</height>
     <condition>
-      <equals>
-        <property>/engines/engine[1]/stopped</property>
-        <value>1</value>
-      </equals>
-      <equals>
-        <property>/instrumentation/my_aircraft/engines/controls/engine[1]/is_starting</property>
-        <value>0</value>
-      </equals>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <and>
+          <equals>
+            <property>/engines/engine[1]/stopped</property>
+            <value>1</value>
+          </equals>
+          <equals>
+            <property>/instrumentation/my_aircraft/engines/controls/engine[1]/is_starting</property>
+            <value>0</value>
+          </equals>
+        </and>
+      </or>
     </condition>
     <format>ENGINE 1 STOPPED</format>
     <halign>center</halign>
@@ -1213,10 +1250,13 @@ changelog
     <width>40</width>
     <height>10</height>
     <condition>
-      <equals>
-        <property>/instrumentation/my_aircraft/engines/controls/engine[0]/is_stopping</property>
-        <value>1</value>
-      </equals>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <equals>
+          <property>/instrumentation/my_aircraft/engines/controls/engine[0]/is_stopping</property>
+          <value>1</value>
+        </equals>
+      </or>
     </condition>
     <format>ENGINE 0 STOPPING</format>
     <halign>center</halign>
@@ -1228,10 +1268,13 @@ changelog
     <width>40</width>
     <height>10</height>
     <condition>
-      <equals>
-        <property>/instrumentation/my_aircraft/engines/controls/engine[1]/is_stopping</property>
-        <value>1</value>
-      </equals>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <equals>
+          <property>/instrumentation/my_aircraft/engines/controls/engine[1]/is_stopping</property>
+          <value>1</value>
+        </equals>
+      </or>
     </condition>
     <format>ENGINE 1 STOPPING</format>
     <halign>center</halign>
@@ -1253,6 +1296,7 @@ changelog
     <halign>left</halign>
     <condition>
       <or>
+        <property>/_debug/instruments/hud_show_all</property>
         <equals>
           <property>/instrumentation/my_aircraft/nd/controls/mode</property>
           <value>APP</value>
@@ -1279,10 +1323,13 @@ changelog
     <width>15</width>
     <height>6</height>
     <condition>
-      <equals>
-        <property>/sim/alarms/stall-warning</property>
-        <value>2</value>
-      </equals>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <equals>
+          <property>/sim/alarms/stall-warning</property>
+          <value>2</value>
+        </equals>
+      </or>
     </condition>
     <format>STALL ALERT !</format>
     <blinking>
@@ -1299,10 +1346,13 @@ changelog
     <width>15</width>
     <height>6</height>
     <condition>
-      <equals>
-        <property>/sim/alarms/stall-warning</property>
-        <value>1</value>
-      </equals>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <equals>
+          <property>/sim/alarms/stall-warning</property>
+          <value>1</value>
+        </equals>
+      </or>
     </condition>
     <format>STALL WARNING !</format>
     <blinking>
@@ -1317,20 +1367,23 @@ changelog
     <x>0</x>
     <y>0</y>
     <condition>
-      <and>
-        <equals>
-          <property>/controls/gear/gear-down</property>
-          <value>false</value>
-        </equals>
-        <less-than>
-          <property>/position/altitude-agl-ft</property>
-          <value>300</value>
-        </less-than>
-        <less-than>
-          <property>/instrumentation/vertical-speed-indicator/indicated-speed-kts</property>
-          <value>0</value>
-        </less-than>
-      </and>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <and>
+          <equals>
+            <property>/controls/gear/gear-down</property>
+            <value>false</value>
+          </equals>
+          <less-than>
+            <property>/position/altitude-agl-ft</property>
+            <value>300</value>
+          </less-than>
+          <less-than>
+            <property>/instrumentation/vertical-speed-indicator/indicated-speed-kts</property>
+            <value>0</value>
+          </less-than>
+        </and>
+      </or>
     </condition>
     <halign>center</halign>
     <format>PULL UP ! %5.0fft</format>
@@ -1350,24 +1403,27 @@ changelog
   <!-- ~~~~~~~~~~~~~~~~~~ GPS data if nav1 slave -->
   <label>
     <name>nav_data_gps_id</name>
-    <x>50</x>
-    <y>-60</y>
+    <x>40</x>
+    <y>-45</y>
     <width>20</width>
     <height>6</height>
     <condition>
-      <and>
-        <or>
-          <equals>
-            <property>/instrumentation/my_aircraft/nd/controls/mode</property>
-            <value>APP</value>
-          </equals>
-          <equals>
-            <property>/instrumentation/my_aircraft/nd/controls/mode</property>
-            <value>NAV</value>
-          </equals>
-        </or>
-        <property>/instrumentation/nav[0]/slaved-to-gps</property>
-      </and>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <and>
+          <or>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>APP</value>
+            </equals>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>NAV</value>
+            </equals>
+          </or>
+          <property>/instrumentation/nav[0]/slaved-to-gps</property>
+        </and>
+      </or>
     </condition>
     <format>GPS %s</format>
     <input>
@@ -1377,24 +1433,27 @@ changelog
   </label>
   <label>
     <name>nav_data_gps_bearing</name>
-    <x>50</x>
-    <y>-70</y>
+    <x>40</x>
+    <y>-55</y>
     <width>20</width>
     <height>6</height>
     <condition>
-      <and>
-        <or>
-          <equals>
-            <property>/instrumentation/my_aircraft/nd/controls/mode</property>
-            <value>APP</value>
-          </equals>
-          <equals>
-            <property>/instrumentation/my_aircraft/nd/controls/mode</property>
-            <value>NAV</value>
-          </equals>
-        </or>
-        <property>/instrumentation/nav[0]/slaved-to-gps</property>
-      </and>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <and>
+          <or>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>APP</value>
+            </equals>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>NAV</value>
+            </equals>
+          </or>
+          <property>/instrumentation/nav[0]/slaved-to-gps</property>
+        </and>
+      </or>
     </condition>
     <format>%.0f deg</format>
     <input>
@@ -1404,24 +1463,27 @@ changelog
   </label>
   <label>
     <name>nav_data_gps_eta</name>
-    <x>50</x>
-    <y>-80</y>
+    <x>40</x>
+    <y>-65</y>
     <width>20</width>
     <height>6</height>
     <condition>
-      <and>
-        <or>
-          <equals>
-            <property>/instrumentation/my_aircraft/nd/controls/mode</property>
-            <value>APP</value>
-          </equals>
-          <equals>
-            <property>/instrumentation/my_aircraft/nd/controls/mode</property>
-            <value>NAV</value>
-          </equals>
-        </or>
-        <property>/instrumentation/nav[0]/slaved-to-gps</property>
-      </and>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <and>
+          <or>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>APP</value>
+            </equals>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>NAV</value>
+            </equals>
+          </or>
+          <property>/instrumentation/nav[0]/slaved-to-gps</property>
+        </and>
+      </or>
     </condition>
     <format>eta %s</format>
     <input>
@@ -1431,24 +1493,27 @@ changelog
   </label>
   <label>
     <name>nav_data_gps_dist</name>
-    <x>50</x>
-    <y>-90</y>
+    <x>40</x>
+    <y>-75</y>
     <width>20</width>
     <height>6</height>
     <condition>
-      <and>
-        <or>
-          <equals>
-            <property>/instrumentation/my_aircraft/nd/controls/mode</property>
-            <value>APP</value>
-          </equals>
-          <equals>
-            <property>/instrumentation/my_aircraft/nd/controls/mode</property>
-            <value>NAV</value>
-          </equals>
-        </or>
-        <property>/instrumentation/nav[0]/slaved-to-gps</property>
-      </and>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <and>
+          <or>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>APP</value>
+            </equals>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>NAV</value>
+            </equals>
+          </or>
+          <property>/instrumentation/nav[0]/slaved-to-gps</property>
+        </and>
+      </or>
     </condition>
     <format>%.1f NM</format>
     <input>
@@ -1460,24 +1525,27 @@ changelog
   <!-- ~~~~~~~~~~~~~~~~~~ nav1 data if nav1 master -->
   <label>
     <name>nav_data_nav_id</name>
-    <x>50</x>
-    <y>-60</y>
+    <x>40</x>
+    <y>-45</y>
     <width>20</width>
     <height>6</height>
     <condition>
-      <and>
-        <or>
-          <equals>
-            <property>/instrumentation/my_aircraft/nd/controls/mode</property>
-            <value>APP</value>
-          </equals>
-          <equals>
-            <property>/instrumentation/my_aircraft/nd/controls/mode</property>
-            <value>NAV</value>
-          </equals>
-        </or>
-        <not><property>/instrumentation/nav[0]/slaved-to-gps</property></not>
-      </and>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <and>
+          <or>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>APP</value>
+            </equals>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>NAV</value>
+            </equals>
+          </or>
+          <not><property>/instrumentation/nav[0]/slaved-to-gps</property></not>
+        </and>
+      </or>
     </condition>
     <format>NAV %s</format>
     <input>
@@ -1487,24 +1555,27 @@ changelog
   </label>
   <label>
     <name>nav_data_nav_bearing</name>
-    <x>50</x>
-    <y>-70</y>
+    <x>40</x>
+    <y>-55</y>
     <width>20</width>
     <height>6</height>
     <condition>
-      <and>
-        <or>
-          <equals>
-            <property>/instrumentation/my_aircraft/nd/controls/mode</property>
-            <value>APP</value>
-          </equals>
-          <equals>
-            <property>/instrumentation/my_aircraft/nd/controls/mode</property>
-            <value>NAV</value>
-          </equals>
-        </or>
-        <not><property>/instrumentation/nav[0]/slaved-to-gps</property></not>
-      </and>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <and>
+          <or>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>APP</value>
+            </equals>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>NAV</value>
+            </equals>
+          </or>
+          <not><property>/instrumentation/nav[0]/slaved-to-gps</property></not>
+        </and>
+      </or>
     </condition>
     <format>%.0f deg</format>
     <input>
@@ -1514,24 +1585,27 @@ changelog
   </label>
   <label>
     <name>nav_data_nav_eta</name>
-    <x>50</x>
-    <y>-80</y>
+    <x>40</x>
+    <y>-65</y>
     <width>20</width>
     <height>6</height>
     <condition>
-      <and>
-        <or>
-          <equals>
-            <property>/instrumentation/my_aircraft/nd/controls/mode</property>
-            <value>APP</value>
-          </equals>
-          <equals>
-            <property>/instrumentation/my_aircraft/nd/controls/mode</property>
-            <value>NAV</value>
-          </equals>
-        </or>
-        <not><property>/instrumentation/nav[0]/slaved-to-gps</property></not>
-      </and>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <and>
+          <or>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>APP</value>
+            </equals>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>NAV</value>
+            </equals>
+          </or>
+          <not><property>/instrumentation/nav[0]/slaved-to-gps</property></not>
+        </and>
+      </or>
     </condition>
     <format>eta %.0f min</format>
     <input>
@@ -1541,28 +1615,61 @@ changelog
   </label>
   <label>
     <name>nav_data_nav_dist</name>
-    <x>50</x>
-    <y>-90</y>
+    <x>40</x>
+    <y>-75</y>
     <width>20</width>
     <height>6</height>
     <condition>
-      <and>
-        <or>
-          <equals>
-            <property>/instrumentation/my_aircraft/nd/controls/mode</property>
-            <value>APP</value>
-          </equals>
-          <equals>
-            <property>/instrumentation/my_aircraft/nd/controls/mode</property>
-            <value>NAV</value>
-          </equals>
-        </or>
-        <not><property>/instrumentation/nav[0]/slaved-to-gps</property></not>
-      </and>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <and>
+          <or>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>APP</value>
+            </equals>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>NAV</value>
+            </equals>
+          </or>
+          <not><property>/instrumentation/nav[0]/slaved-to-gps</property></not>
+        </and>
+      </or>
     </condition>
     <format>%.1f NM</format>
     <input>
       <property>/instrumentation/dme/indicated-distance-nm</property>
+    </input>
+    <halign>left</halign>
+  </label>
+  <label>
+    <name>nav_data_nav_kt</name>
+    <x>40</x>
+    <y>-85</y>
+    <width>20</width>
+    <height>6</height>
+    <condition>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <and>
+          <or>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>APP</value>
+            </equals>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>NAV</value>
+            </equals>
+          </or>
+          <not><property>/instrumentation/nav[0]/slaved-to-gps</property></not>
+        </and>
+      </or>
+    </condition>
+    <format>%.0f kt</format>
+    <input>
+      <property>/instrumentation/dme/indicated-ground-speed-kt</property>
     </input>
     <halign>left</halign>
   </label>

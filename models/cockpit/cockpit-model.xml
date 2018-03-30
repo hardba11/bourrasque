@@ -435,7 +435,7 @@ ________________________________________________________________________________
   <!--animation>
     <type>translate</type>
     <object-name>turn-pilot</object-name>
-    <property>/debug1</property>
+    <property>/_debug/float1</property>
     <factor>1</factor>
     <axis>
       <x>1</x>
@@ -446,7 +446,7 @@ ________________________________________________________________________________
   <animation>
     <type>translate</type>
     <object-name>turn-pilot</object-name>
-    <property>/debug2</property>
+    <property>/_debug/float2</property>
     <factor>1</factor>
     <axis>
       <x>0</x>
@@ -457,7 +457,7 @@ ________________________________________________________________________________
   <animation>
     <type>translate</type>
     <object-name>turn-pilot</object-name>
-    <property>/debug3</property>
+    <property>/_debug/float3</property>
     <factor>1</factor>
     <axis>
       <x>0</x>

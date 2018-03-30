@@ -20,6 +20,7 @@
     <true-north       type="bool">0</true-north>
     <rangearc         type="bool">1</rangearc>
     <hdg-trk          type="bool">0</hdg-trk>
+    <toggle_tacan     type="bool">0</toggle_tacan>
   </inputs>
 
   <controls>

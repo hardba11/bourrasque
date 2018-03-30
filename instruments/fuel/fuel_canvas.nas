@@ -177,7 +177,8 @@ var FUEL_CANVAS = {
         var level_right     = getprop("/instrumentation/my_aircraft/fuel/fuel-right-tank-m3") or 0;
         var h_remaining     = getprop("/instrumentation/my_aircraft/fuel/h-remaining") or 0;
         var m_remaining     = getprop("/instrumentation/my_aircraft/fuel/m-remaining") or 0;
-        var s_remaining     = getprop("/instrumentation/my_aircraft/fuel/m-remaining") or 0;
+        var s_remaining     = getprop("/instrumentation/my_aircraft/fuel/s-remaining") or 0;
+        var nan_remaining   = getprop("/instrumentation/my_aircraft/fuel/nan-remaining") or 0;
         var bingo_text      = getprop("/instrumentation/my_aircraft/fuel/bingo-text") or "";
         var capacity_0      = getprop("/consumables/fuel/tank[0]/capacity-m3") or 0;
         var capacity_1      = getprop("/consumables/fuel/tank[1]/capacity-m3") or 0;
@@ -193,7 +194,14 @@ var FUEL_CANVAS = {
         var t_right  = level_right  / (capacity_3 + capacity_5 + capacity_7);
 
         me.total_fuel_value.setText(sprintf('%.1f kg', level_tot * 805));
-        me.time_remaining_value.setText(sprintf('%02d:%02d:%02d', h_remaining, m_remaining, s_remaining));
+        if(nan_remaining)
+        {
+            me.time_remaining_value.setText('--:--:--');
+        }
+        else
+        {
+            me.time_remaining_value.setText(sprintf('%02d:%02d:%02d', h_remaining, m_remaining, s_remaining));
+        }
         me.left_fuel_value.setText(sprintf('%.1f', level_left * 805));
         me.center_fuel_value.setText(sprintf('%.1f', level_center * 805));
         me.right_fuel_value.setText(sprintf('%.1f', level_right * 805));
