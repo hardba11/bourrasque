@@ -25,34 +25,50 @@ changelog
   <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
   <animation>
     <object-name>hsi.box</object-name>
+    <object-name>hsi.lbl_vor1</object-name>
+    <object-name>hsi.lbl_vor2</object-name>
     <object-name>hsi.bug</object-name>
-    <object-name>hsi.crs_needle</object-name>
-    <object-name>hsi.dev_needle</object-name>
-    <object-name>hsi.vor_needle</object-name>
+    <object-name>hsi.crs1_needle</object-name>
+    <object-name>hsi.dev1_needle</object-name>
+    <object-name>hsi.vor1_needle</object-name>
+    <object-name>hsi.crs2_needle</object-name>
+    <object-name>hsi.dev2_needle</object-name>
+    <object-name>hsi.vor2_needle</object-name>
     <object-name>hsi.hdg_ring</object-name>
     <object-name>hsi.knob_course</object-name>
     <object-name>hsi.knob_hdg</object-name>
     <object-name>hsi.scale</object-name>
+    <object-name>hsi.box-emit</object-name>
     <object-name>hsi.bug-emit</object-name>
-    <object-name>hsi.crs_needle-emit</object-name>
-    <object-name>hsi.dev_needle-emit</object-name>
-    <object-name>hsi.vor_needle-emit</object-name>
+    <object-name>hsi.crs1_needle-emit</object-name>
+    <object-name>hsi.dev1_needle-emit</object-name>
+    <object-name>hsi.vor1_needle-emit</object-name>
+    <object-name>hsi.crs2_needle-emit</object-name>
+    <object-name>hsi.dev2_needle-emit</object-name>
+    <object-name>hsi.vor2_needle-emit</object-name>
     <object-name>hsi.hdg_ring-emit</object-name>
     <object-name>hsi.knob_course-emit</object-name>
     <object-name>hsi.knob_hdg-emit</object-name>
+    <object-name>hsi.knob_vor</object-name>
+    <object-name>hsi.knob_vor-emit</object-name>
     <object-name>hsi.scale-emit</object-name>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
   <effect>
     <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>hsi.box-emit</object-name>
     <object-name>hsi.bug-emit</object-name>
-    <object-name>hsi.crs_needle-emit</object-name>
-    <object-name>hsi.dev_needle-emit</object-name>
-    <object-name>hsi.vor_needle-emit</object-name>
+    <object-name>hsi.crs1_needle-emit</object-name>
+    <object-name>hsi.dev1_needle-emit</object-name>
+    <object-name>hsi.vor1_needle-emit</object-name>
+    <object-name>hsi.crs2_needle-emit</object-name>
+    <object-name>hsi.dev2_needle-emit</object-name>
+    <object-name>hsi.vor2_needle-emit</object-name>
     <object-name>hsi.hdg_ring-emit</object-name>
     <object-name>hsi.knob_course-emit</object-name>
     <object-name>hsi.knob_hdg-emit</object-name>
+    <object-name>hsi.knob_vor-emit</object-name>
     <object-name>hsi.scale-emit</object-name>
   </effect>
 
@@ -60,34 +76,50 @@ changelog
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
     <object-name>hsi.box</object-name>
+    <object-name>hsi.lbl_vor1</object-name>
+    <object-name>hsi.lbl_vor2</object-name>
     <object-name>hsi.bug</object-name>
-    <object-name>hsi.crs_needle</object-name>
-    <object-name>hsi.dev_needle</object-name>
-    <object-name>hsi.vor_needle</object-name>
+    <object-name>hsi.crs1_needle</object-name>
+    <object-name>hsi.dev1_needle</object-name>
+    <object-name>hsi.vor1_needle</object-name>
+    <object-name>hsi.crs2_needle</object-name>
+    <object-name>hsi.dev2_needle</object-name>
+    <object-name>hsi.vor2_needle</object-name>
     <object-name>hsi.hdg_ring</object-name>
     <object-name>hsi.knob_course</object-name>
     <object-name>hsi.knob_hdg</object-name>
+    <object-name>hsi.knob_vor</object-name>
     <object-name>hsi.scale</object-name>
+    <object-name>hsi.box-emit</object-name>
     <object-name>hsi.bug-emit</object-name>
-    <object-name>hsi.crs_needle-emit</object-name>
-    <object-name>hsi.dev_needle-emit</object-name>
-    <object-name>hsi.vor_needle-emit</object-name>
+    <object-name>hsi.crs1_needle-emit</object-name>
+    <object-name>hsi.dev1_needle-emit</object-name>
+    <object-name>hsi.vor1_needle-emit</object-name>
+    <object-name>hsi.crs2_needle-emit</object-name>
+    <object-name>hsi.dev2_needle-emit</object-name>
+    <object-name>hsi.vor2_needle-emit</object-name>
     <object-name>hsi.hdg_ring-emit</object-name>
     <object-name>hsi.knob_course-emit</object-name>
     <object-name>hsi.knob_hdg-emit</object-name>
+    <object-name>hsi.knob_vor-emit</object-name>
     <object-name>hsi.scale-emit</object-name>
   </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
   <animation>
     <type>material</type>
+    <object-name>hsi.box-emit</object-name>
     <object-name>hsi.bug-emit</object-name>
-    <object-name>hsi.crs_needle-emit</object-name>
-    <object-name>hsi.dev_needle-emit</object-name>
-    <object-name>hsi.vor_needle-emit</object-name>
+    <object-name>hsi.crs1_needle-emit</object-name>
+    <object-name>hsi.dev1_needle-emit</object-name>
+    <object-name>hsi.vor1_needle-emit</object-name>
+    <object-name>hsi.crs2_needle-emit</object-name>
+    <object-name>hsi.dev2_needle-emit</object-name>
+    <object-name>hsi.vor2_needle-emit</object-name>
     <object-name>hsi.hdg_ring-emit</object-name>
     <object-name>hsi.knob_course-emit</object-name>
     <object-name>hsi.knob_hdg-emit</object-name>
+    <object-name>hsi.knob_vor-emit</object-name>
     <object-name>hsi.scale-emit</object-name>
     <emission>
       <factor-prop>/controls/lighting/instruments-norm</factor-prop>
@@ -111,12 +143,18 @@ changelog
     <type>rotate</type>
     <object-name>hsi.hdg_ring</object-name>
     <object-name>hsi.hdg_ring-emit</object-name>
-    <object-name>hsi.crs_needle</object-name>
-    <object-name>hsi.crs_needle-emit</object-name>
-    <object-name>hsi.dev_needle</object-name>
-    <object-name>hsi.dev_needle-emit</object-name>
-    <object-name>hsi.vor_needle</object-name>
-    <object-name>hsi.vor_needle-emit</object-name>
+    <object-name>hsi.crs1_needle</object-name>
+    <object-name>hsi.crs1_needle-emit</object-name>
+    <object-name>hsi.dev1_needle</object-name>
+    <object-name>hsi.dev1_needle-emit</object-name>
+    <object-name>hsi.vor1_needle</object-name>
+    <object-name>hsi.vor1_needle-emit</object-name>
+    <object-name>hsi.crs2_needle</object-name>
+    <object-name>hsi.crs2_needle-emit</object-name>
+    <object-name>hsi.dev2_needle</object-name>
+    <object-name>hsi.dev2_needle-emit</object-name>
+    <object-name>hsi.vor2_needle</object-name>
+    <object-name>hsi.vor2_needle-emit</object-name>
     <condition>
       <property>systems/electrical/bus/avionics</property>
     </condition>
@@ -154,13 +192,13 @@ changelog
     </center>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ animation nav needle / radial (rotate) -->
+  <!-- ~~~~~~~~~~~~~~~~~~ animation vor1 needle / radial (rotate) -->
   <animation>
     <type>rotate</type>
-    <object-name>hsi.crs_needle</object-name>
-    <object-name>hsi.crs_needle-emit</object-name>
-    <object-name>hsi.dev_needle</object-name>
-    <object-name>hsi.dev_needle-emit</object-name>
+    <object-name>hsi.crs1_needle</object-name>
+    <object-name>hsi.crs1_needle-emit</object-name>
+    <object-name>hsi.dev1_needle</object-name>
+    <object-name>hsi.dev1_needle-emit</object-name>
     <condition>
       <property>systems/electrical/bus/avionics</property>
     </condition>
@@ -177,11 +215,11 @@ changelog
     </center>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ animation nav needle / radial (translate) -->
+  <!-- ~~~~~~~~~~~~~~~~~~ animation vor1 needle / radial (translate) -->
   <animation>
     <type>translate</type>
-    <object-name>hsi.dev_needle</object-name>
-    <object-name>hsi.dev_needle-emit</object-name>
+    <object-name>hsi.dev1_needle</object-name>
+    <object-name>hsi.dev1_needle-emit</object-name>
     <condition>
       <property>systems/electrical/bus/avionics</property>
     </condition>
@@ -203,11 +241,11 @@ changelog
     </center>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ animation adf needle (rotate) -->
+  <!-- ~~~~~~~~~~~~~~~~~~ animation vor1 needle (rotate) -->
   <animation>
     <type>rotate</type>
-    <object-name>hsi.vor_needle</object-name>
-    <object-name>hsi.vor_needle-emit</object-name>
+    <object-name>hsi.vor1_needle</object-name>
+    <object-name>hsi.vor1_needle-emit</object-name>
     <condition>
       <property>systems/electrical/bus/avionics</property>
     </condition>
@@ -224,13 +262,87 @@ changelog
     </center>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ control radial knob -->
+  <!-- ~~~~~~~~~~~~~~~~~~ animation vor2 needle / radial (rotate) -->
+  <animation>
+    <type>rotate</type>
+    <object-name>hsi.crs2_needle</object-name>
+    <object-name>hsi.crs2_needle-emit</object-name>
+    <object-name>hsi.dev2_needle</object-name>
+    <object-name>hsi.dev2_needle-emit</object-name>
+    <condition>
+      <property>systems/electrical/bus/avionics</property>
+    </condition>
+    <property>/instrumentation/nav[1]/radials/selected-deg</property>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation vor2 needle / radial (translate) -->
+  <animation>
+    <type>translate</type>
+    <object-name>hsi.dev2_needle</object-name>
+    <object-name>hsi.dev2_needle-emit</object-name>
+    <condition>
+      <property>systems/electrical/bus/avionics</property>
+    </condition>
+    <property>/instrumentation/nav[1]/heading-needle-deflection</property>
+    <interpolation>
+      <entry><ind>-10.0</ind><dep>-0.013</dep></entry>
+      <entry><ind>0.0</ind><dep>0.0</dep></entry>
+      <entry><ind>10.0</ind><dep>0.013</dep></entry>
+    </interpolation>
+    <axis>
+      <x>0</x>
+      <y>1.0</y>
+      <z>0.0</z>
+    </axis>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation vor2 needle (rotate) -->
+  <animation>
+    <type>rotate</type>
+    <object-name>hsi.vor2_needle</object-name>
+    <object-name>hsi.vor2_needle-emit</object-name>
+    <condition>
+      <property>systems/electrical/bus/avionics</property>
+    </condition>
+    <property>/instrumentation/nav[1]/heading-deg</property>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ control radial vor1 knob -->
   <!-- left/middle click = +-30 // wheel = +-1 -->
   <animation>
     <type>pick</type>
     <object-name>hsi.knob_course</object-name>
     <condition>
       <property>systems/electrical/bus/avionics</property>
+      <equals>
+        <property>/instrumentation/my_aircraft/stdby-hsi/controls/nav-selector</property>
+        <value type="int">1</value>
+      </equals>
     </condition>
     <action>
       <button>0</button>
@@ -300,11 +412,87 @@ changelog
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>tooltip-stdby-hsi-radial</tooltip-id>
-        <label>Nav1 Radial %3d</label>
-        <mapping>heading</mapping>
-        <property>/instrumentation/nav[0]/radials/selected-deg</property>
+        <label>Set Nav1 or Nav2 Radial</label>
       </binding>
     </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ control radial vor2 knob -->
+  <!-- left/middle click = +-30 // wheel = +-1 -->
+  <animation>
+    <type>pick</type>
+    <object-name>hsi.knob_course</object-name>
+    <condition>
+      <property>systems/electrical/bus/avionics</property>
+      <equals>
+        <property>/instrumentation/my_aircraft/stdby-hsi/controls/nav-selector</property>
+        <value type="int">2</value>
+      </equals>
+    </condition>
+    <action>
+      <button>0</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/nav[1]/radials/selected-deg</property>
+        <step>30</step>
+        <min>0</min>
+        <max>360</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>1</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/nav[1]/radials/selected-deg</property>
+        <step>-30</step>
+        <min>0</min>
+        <max>360</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>3</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/nav[1]/radials/selected-deg</property>
+        <step>1</step>
+        <min>0</min>
+        <max>360</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <action>
+      <button>4</button>
+      <repeatable>true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/nav[1]/radials/selected-deg</property>
+        <step>-1</step>
+        <min>0</min>
+        <max>360</max>
+        <wrap>1</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ animation radial knob -->
@@ -315,15 +503,93 @@ changelog
     <property>/instrumentation/nav[0]/radials/selected-deg</property>
     <factor>3</factor>
     <center>
-      <x-m>.0142</x-m>
-      <y-m>-.0310</y-m>
-      <z-m>-.0339</z-m>
+      <x-m>.0075</x-m>
+      <y-m>-.0339</y-m>
+      <z-m>-.0333</z-m>
     </center>
     <axis>
       <x>1</x>
       <y>0</y>
       <z>0</z>
     </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ animation vor select knob -->
+  <animation>
+    <type>rotate</type>
+    <object-name>hsi.knob_vor</object-name>
+    <object-name>hsi.knob_vor-emit</object-name>
+    <property>/instrumentation/my_aircraft/stdby-hsi/controls/nav-selector</property>
+    <interpolation>
+      <entry><ind>1</ind><dep>0</dep></entry>
+      <entry><ind>2</ind><dep>-90</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>.0075</x-m>
+      <y-m>-.0339</y-m>
+      <z-m>-.0333</z-m>
+    </center>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ control vor1 select knob -->
+  <animation>
+    <type>pick</type>
+    <object-name>hsi.lbl_vor1</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-assign</command>
+        <property>/instrumentation/my_aircraft/stdby-hsi/controls/nav-selector</property>
+        <value type="int">1</value>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-stdby-hsi-radial1</tooltip-id>
+        <label>Nav1 Radial %3d</label>
+        <mapping>heading</mapping>
+        <property>/instrumentation/nav[0]/radials/selected-deg</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ control vor2 select knob -->
+  <animation>
+    <type>pick</type>
+    <object-name>hsi.lbl_vor2</object-name>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-assign</command>
+        <property>/instrumentation/my_aircraft/stdby-hsi/controls/nav-selector</property>
+        <value type="int">2</value>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-stdby-hsi-radial2</tooltip-id>
+        <label>Nav2 Radial %3d</label>
+        <mapping>heading</mapping>
+        <property>/instrumentation/nav[1]/radials/selected-deg</property>
+      </binding>
+    </hovered>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ control heading bug knob -->

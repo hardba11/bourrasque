@@ -233,7 +233,7 @@ var fast_start = func() {
         do_lighting_anticoll(1);
         do_lighting_landing(1);
         do_command_canopy(0);
-        settimer(func() { 
+        settimer(func() {
             do_engines_started();
             do_electrical_master_switch(1);
             process_status = 'READY';

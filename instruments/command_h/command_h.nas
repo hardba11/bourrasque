@@ -251,7 +251,7 @@ var checking_aircraft_status = func()
         { speedbrake_status = OK; }
     setprop("/instrumentation/my_aircraft/command_h/panel_status/speedbrake_status", speedbrake_status);
 
-    # alert rules for PKBK 
+    # alert rules for PKBK
     if((parkbrake_status == ALERT) or (parkbrake_status == WARN))
         {}
     elsif((is_parkbrake == 1) and (is_on_ground == 0))

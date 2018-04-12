@@ -134,19 +134,19 @@ ________________________________________________________________________________
     <type>material</type>
     <object-name>reheat_inner_tuyere</object-name>
     <ambient>
-     <red>.6</red>
-     <green>.5</green>
-     <blue>1</blue>
+      <red>.6</red>
+      <green>.5</green>
+      <blue>1</blue>
     </ambient>
     <diffuse>
-     <red>.6</red>
-     <green>.5</green>
-     <blue>1</blue>
+      <red>.6</red>
+      <green>.5</green>
+      <blue>1</blue>
     </diffuse>
     <emission>
-     <red>.6</red>
-     <green>.5</green>
-     <blue>1</blue>
+      <red>.6</red>
+      <green>.5</green>
+      <blue>1</blue>
     </emission>
     <transparency>
       <alpha-prop>/controls/engines/engine[1]/throttle</alpha-prop>
@@ -165,19 +165,19 @@ ________________________________________________________________________________
     <type>material</type>
     <object-name>reheat_inner_tuyere</object-name>
     <ambient>
-     <red>1</red>
-     <green>.4</green>
-     <blue>0</blue>
+      <red>1</red>
+      <green>.4</green>
+      <blue>0</blue>
     </ambient>
     <diffuse>
-     <red>1</red>
-     <green>.4</green>
-     <blue>.7</blue>
+      <red>1</red>
+      <green>.4</green>
+      <blue>.7</blue>
     </diffuse>
     <emission>
-     <red>1</red>
-     <green>.4</green>
-     <blue>.7</blue>
+      <red>1</red>
+      <green>.4</green>
+      <blue>.7</blue>
     </emission>
     <transparency>
       <alpha-prop>/controls/engines/engine[1]/throttle</alpha-prop>
@@ -196,19 +196,19 @@ ________________________________________________________________________________
     <type>material</type>
     <object-name>reheat_inner_tuyere</object-name>
     <ambient>
-     <red>1</red>
-     <green>.4</green>
-     <blue>.7</blue>
+      <red>1</red>
+      <green>.4</green>
+      <blue>.7</blue>
     </ambient>
     <diffuse>
-     <red>1</red>
-     <green>.4</green>
-     <blue>.7</blue>
+      <red>1</red>
+      <green>.4</green>
+      <blue>.7</blue>
     </diffuse>
     <emission>
-     <red>1</red>
-     <green>.4</green>
-     <blue>.7</blue>
+      <red>1</red>
+      <green>.4</green>
+      <blue>.7</blue>
     </emission>
     <transparency>
       <alpha-prop>/controls/engines/engine[1]/throttle</alpha-prop>

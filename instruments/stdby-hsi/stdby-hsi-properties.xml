@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- DEFINITION OF ALIASES OR INTERNAL PROPERTIES -->
+
+<!-- /instrumentation/my_aircraft/stdby-hsi/ -->
+<PropertyList>
+
+  <!-- data used to control instrument -->
+  <controls>
+    <nav-selector type="int">1</nav-selector>
+  </controls>
+
+</PropertyList>
+

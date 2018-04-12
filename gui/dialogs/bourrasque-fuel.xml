@@ -64,6 +64,14 @@ changelog
         <script>
           <![CDATA[
 var level_norm = getprop("/sim/fuel-fraction") or 0;
+setprop("/consumables/fuel/tank[0]/selected", 1);
+setprop("/consumables/fuel/tank[1]/selected", 1);
+setprop("/consumables/fuel/tank[2]/selected", 1);
+setprop("/consumables/fuel/tank[3]/selected", 1);
+setprop("/consumables/fuel/tank[4]/selected", 1);
+setprop("/consumables/fuel/tank[5]/selected", 1);
+setprop("/consumables/fuel/tank[6]/selected", 1);
+setprop("/consumables/fuel/tank[7]/selected", 1);
 setprop("/consumables/fuel/tank[0]/level-norm", level_norm);
 setprop("/consumables/fuel/tank[1]/level-norm", level_norm);
 setprop("/consumables/fuel/tank[2]/level-norm", level_norm);

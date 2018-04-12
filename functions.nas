@@ -212,7 +212,7 @@ var view_panel_radio = func() {
 # NOT YET USED, NEED DEBUG
 var set_max_cloud_layer = func() {
     var node_clouds = props.globals.getNode("/environment/clouds/");
-    var max_cloud_layer_alt = 0 ; 
+    var max_cloud_layer_alt = 0;
     foreach(var item ; node_clouds.getChildren())
     {
         if(item.getName() == 'layer')
@@ -558,7 +558,7 @@ var event_launch = func() {
         setprop("/controls/gear/catapult-launch-cmd", 1);
         # reinit some values after launch (~2 seconds)
         settimer(func() {
-            setprop("/controls/gear/launchbar", 0); 
+            setprop("/controls/gear/launchbar", 0);
             setprop("/controls/gear/catapult-launch-cmd", 0);
         }, 2);
     }
