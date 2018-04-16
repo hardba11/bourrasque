@@ -44,7 +44,6 @@ changelog
     <electricals            include="../instruments/electricals/electricals-properties.xml" />
     <engines                include="../instruments/engines/engines-properties.xml" />
     <hud_target_positions   include="../instruments/hud_target_positions/hud_target_positions-properties.xml" />
-    <magcompass             include="../instruments/magcompass/magcompass-properties.xml" />
     <chrono                 include="../instruments/chrono/chrono-properties.xml" />
     <nd                     include="../instruments/nd/nd-properties.xml" />
     <pfd                    include="../instruments/pfd/pfd-properties.xml" />
@@ -52,6 +51,7 @@ changelog
     <fuel                   include="../instruments/fuel/fuel-properties.xml" />
     <command_h              include="../instruments/command_h/command_h-properties.xml" />
     <stdby-hsi              include="../instruments/stdby-hsi/stdby-hsi-properties.xml" />
+    <stdby-alt              include="../instruments/stdby-alt/stdby-alt-properties.xml" />
     <tablet                 include="../instruments/tablet/tablet-properties.xml" />
   </my_aircraft>
 

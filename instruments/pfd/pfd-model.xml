@@ -289,6 +289,7 @@ TODO :
     <object-name>CRSlabel</object-name>
     <object-name>HDGlabel-mag</object-name>
     <object-name>HDGlabel-true</object-name>
+    <object-name>lbl_std_atm</object-name>
     <condition>
       <greater-than>
         <property>/controls/lighting/instruments-norm</property>
@@ -315,6 +316,7 @@ TODO :
     <object-name>CRSlabel</object-name>
     <object-name>HDGlabel-mag</object-name>
     <object-name>HDGlabel-true</object-name>
+    <object-name>lbl_std_atm</object-name>
     <condition>
       <equals>
         <property>/controls/lighting/instruments-norm</property>
@@ -607,6 +609,34 @@ ________________________________________________________________________________
       <y>1</y>
       <z>0</z>
     </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ label std atmosphere -->
+  <text>
+    <name>lbl_std_atm</name>
+    <offsets>
+      <x-m>0.005</x-m>
+      <y-m>0.035</y-m>
+      <z-m>0.086</z-m>
+    </offsets>
+    <alignment>center-center</alignment>
+    <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">literal</type>
+    <text type="string">STD</text>
+    <font>helvetica_bold.txf</font>
+    <character-size>0.005</character-size>
+    <character-aspect-ratio type="double">1.4</character-aspect-ratio>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+  </text>
+  <animation>
+    <type>select</type>
+    <object-name>lbl_std_atm</object-name>
+    <condition>
+      <property>/instrumentation/my_aircraft/stdby-alt/controls/std-alt</property>
+    </condition>
   </animation>
 
   <!--

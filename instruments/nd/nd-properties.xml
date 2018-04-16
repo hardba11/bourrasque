@@ -28,9 +28,9 @@
   </controls>
 
   <outputs>
-    <indicated-heading   alias="/orientation/heading-magnetic-deg" />
+    <indicated-heading   alias="/orientation/heading-magnetic-deg" />   <!-- alias switched by nd.nas -->
     <heading-bug-deg     alias="/autopilot/settings/heading-bug-deg" /> <!-- alias switched by nd.nas -->
-    <true-heading-bug-deg type="float" /> <!-- calculated by bourrasque.nas -->
+    <true-heading-bug-deg type="float" />                               <!-- calculated by bourrasque.nas -->
   </outputs>
 
 </PropertyList>

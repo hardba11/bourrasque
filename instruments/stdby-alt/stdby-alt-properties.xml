@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- DEFINITION OF ALIASES OR INTERNAL PROPERTIES -->
+
+<!-- /instrumentation/my_aircraft/stdby-alt/ -->
+<PropertyList>
+
+  <!-- data used to control instrument -->
+  <controls>
+    <setting-inhg-previous type="float">0</setting-inhg-previous>
+    <std-alt type="bool">0</std-alt>
+  </controls>
+
+</PropertyList>
+

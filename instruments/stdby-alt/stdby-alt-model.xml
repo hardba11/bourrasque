@@ -26,6 +26,7 @@ changelog
   <animation>
     <object-name>alt.box</object-name>
     <object-name>alt.knob</object-name>
+    <object-name>alt.std_atm</object-name>
     <object-name>alt.needle</object-name>
     <object-name>alt.scale</object-name>
     <object-name>alt.kpa1</object-name>
@@ -47,6 +48,7 @@ changelog
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
     <object-name>alt.box</object-name>
     <object-name>alt.knob</object-name>
+    <object-name>alt.std_atm</object-name>
     <object-name>alt.needle</object-name>
     <object-name>alt.scale</object-name>
     <object-name>alt.kpa1</object-name>
@@ -67,6 +69,7 @@ changelog
   <animation>
     <type>material</type>
     <object-name>alt.knob</object-name>
+    <object-name>alt.std_atm</object-name>
     <object-name>alt.needle</object-name>
     <object-name>alt.scale</object-name>
     <emission>
@@ -102,6 +105,24 @@ changelog
     <condition>
       <property>/systems/electrical/bus/avionics</property>
     </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (color) -->
+  <animation>
+    <name>green-emit</name>
+    <type>material</type>
+    <object-name>lbl_std_atm</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0</red>
+      <green>1</green>
+      <blue>0</blue>
+    </emission>
+    <ambient>
+      <red>0</red>
+      <green>1</green>
+      <blue>0</blue>
+    </ambient>
   </animation>
 
   <!--
@@ -345,6 +366,7 @@ changelog
     <object-name>alt.knob</object-name>
     <condition>
       <property>/systems/electrical/bus/avionics</property>
+      <not><property>/instrumentation/my_aircraft/stdby-alt/controls/std-alt</property></not>
     </condition>
     <action>
       <button>0</button>
@@ -419,6 +441,79 @@ changelog
         <command>set-tooltip</command>
         <tooltip-id>tooltip-stdby-alt-setting-inhg</tooltip-id>
         <label>InHg settings</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ control and animation knob inhg/kpa -->
+  <!-- label -->
+  <text>
+    <name>lbl_std_atm</name>
+    <offsets>
+      <x-m>.01</x-m>
+      <y-m>.033</y-m>
+      <z-m>-.035</z-m>
+    </offsets>
+    <alignment>center-center</alignment>
+    <axis-alignment>yz-plane</axis-alignment>
+    <type type="string">literal</type>
+    <text type="string">STD</text>
+    <font>helvetica_bold.txf</font>
+    <character-size>0.005</character-size>
+    <character-aspect-ratio type="double">1.4</character-aspect-ratio>
+    <font-resolution>
+      <width type="int">64</width>
+      <height type="int">64</height>
+    </font-resolution>
+  </text>
+  <animation>
+    <type>select</type>
+    <object-name>lbl_std_atm</object-name>
+    <condition>
+      <property>/systems/electrical/bus/avionics</property>
+    </condition>
+  </animation>
+
+  <!-- push -->
+  <animation>
+    <type>translate</type>
+    <object-name>alt.std_atm</object-name>
+    <property>/instrumentation/my_aircraft/stdby-alt/controls/std-alt</property>
+    <factor>0.006</factor>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>pick</type>
+    <object-name>alt.std_atm</object-name>
+    <condition>
+      <property>/systems/electrical/bus/avionics</property>
+    </condition>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_toggle_std_atm(-1);
+          ]]>
+        </script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-stdby-alt-std-atm</tooltip-id>
+        <label>Swap std atm</label>
       </binding>
     </hovered>
   </animation>

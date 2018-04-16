@@ -755,6 +755,28 @@ var event_brake = func(do_enable) {
     setprop("/controls/gear/brake-right", do_enable);
 }
 
+var event_toggle_std_atm = func(do_enable) {
+    var is_std_atm = getprop("/instrumentation/my_aircraft/stdby-alt/controls/std-alt") or 0;
+    if(do_enable == -1)
+    {
+        # do_enable == -1 : toggle
+        do_enable = (is_std_atm == 0) ? 1 : 0;
+    }
+    if(do_enable == 1)
+    {
+        setprop("/instrumentation/my_aircraft/stdby-alt/controls/std-alt", 1);
+        var setting_inhg_previous = getprop("/instrumentation/altimeter/setting-inhg");
+        setprop("/instrumentation/my_aircraft/stdby-alt/controls/setting-inhg-previous", setting_inhg_previous);
+        setprop("/instrumentation/altimeter/setting-inhg", 29.92);
+    }
+    else
+    {
+        setprop("/instrumentation/my_aircraft/stdby-alt/controls/std-alt", 0);
+        var setting_inhg_previous = getprop("/instrumentation/my_aircraft/stdby-alt/controls/setting-inhg-previous");
+        setprop("/instrumentation/altimeter/setting-inhg", setting_inhg_previous);
+    }
+}
+
 
 #===============================================================================
 #                                                                          TOOLS
