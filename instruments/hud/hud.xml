@@ -279,7 +279,7 @@ changelog
     <x>-9</x>
     <y>68</y>
     <width>18</width>
-    <height>8</height>
+    <height>10</height>
     <input>
       <property>/instrumentation/my_aircraft/nd/outputs/indicated-heading</property>
     </input>
@@ -287,6 +287,10 @@ changelog
     <halign>center</halign>
     <box>true</box>
     <condition>
+      <equals>
+        <property>/instrumentation/my_aircraft/pfd/inputs/autopilot/locks/heading</property>
+        <value type="string">-</value>
+      </equals>
       <or>
         <property>/_debug/instruments/hud_show_all</property>
         <equals>
@@ -300,13 +304,45 @@ changelog
       </or>
     </condition>
   </label>
+  <label>
+    <name>Heading Label top A/P</name>
+    <x>-13</x>
+    <y>68</y>
+    <width>26</width>
+    <height>10</height>
+    <input>
+      <property>/instrumentation/my_aircraft/nd/outputs/indicated-heading</property>
+    </input>
+    <format>%3.0f</format>
+    <halign>center</halign>
+    <box>true</box>
+    <prefix>=</prefix>
+    <condition>
+      <not-equals>
+        <property>/instrumentation/my_aircraft/pfd/inputs/autopilot/locks/heading</property>
+        <value type="string">-</value>
+      </not-equals>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <equals>
+          <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+          <value>APP</value>
+        </equals>
+        <equals>
+          <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+          <value>VFR</value>
+        </equals>
+      </or>
+    </condition>
+  </label>
+
   <!-- ~~~~~~~~~~~~~~~~~~ heading middle center for NAV mode -->
   <label>
     <name>Heading Label middle</name>
     <x>-9</x>
     <y>15</y>
     <width>18</width>
-    <height>8</height>
+    <height>10</height>
     <input>
       <property>/instrumentation/my_aircraft/nd/outputs/indicated-heading</property>
     </input>
@@ -314,6 +350,37 @@ changelog
     <halign>center</halign>
     <box>true</box>
     <condition>
+      <equals>
+        <property>/instrumentation/my_aircraft/pfd/inputs/autopilot/locks/heading</property>
+        <value type="string">-</value>
+      </equals>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <equals>
+          <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+          <value>NAV</value>
+        </equals>
+      </or>
+    </condition>
+  </label>
+  <label>
+    <name>Heading Label middle A/P</name>
+    <x>-13</x>
+    <y>15</y>
+    <width>26</width>
+    <height>10</height>
+    <input>
+      <property>/instrumentation/my_aircraft/nd/outputs/indicated-heading</property>
+    </input>
+    <format>%3.0f</format>
+    <halign>center</halign>
+    <box>true</box>
+    <prefix>=</prefix>
+    <condition>
+      <not-equals>
+        <property>/instrumentation/my_aircraft/pfd/inputs/autopilot/locks/heading</property>
+        <value type="string">-</value>
+      </not-equals>
       <or>
         <property>/_debug/instruments/hud_show_all</property>
         <equals>
@@ -454,10 +521,10 @@ changelog
   <!-- ~~~~~~~~~~~~~~~~~~ airspeed in box for APP, NAV, VFR mode -->
   <label>
     <name>KIAS</name>
-    <x>-99</x>
+    <x>-109</x>
     <y>24</y>
-    <width>30</width>
-    <height>8</height>
+    <width>38</width>
+    <height>10</height>
     <input>
       <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
     </input>
@@ -465,6 +532,45 @@ changelog
     <halign>right</halign>
     <box>true</box>
     <condition>
+      <equals>
+        <property>/instrumentation/my_aircraft/pfd/inputs/autopilot/locks/speed</property>
+        <value type="string">-</value>
+      </equals>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <equals>
+          <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+          <value>APP</value>
+        </equals>
+        <equals>
+          <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+          <value>NAV</value>
+        </equals>
+        <equals>
+          <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+          <value>VFR</value>
+        </equals>
+      </or>
+    </condition>
+  </label>
+  <label>
+    <name>KIAS - AP</name>
+    <x>-109</x>
+    <y>24</y>
+    <width>38</width>
+    <height>10</height>
+    <input>
+      <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
+    </input>
+    <format>%4.0fkt</format>
+    <halign>right</halign>
+    <box>true</box>
+    <prefix>=</prefix>
+    <condition>
+      <not-equals>
+        <property>/instrumentation/my_aircraft/pfd/inputs/autopilot/locks/speed</property>
+        <value type="string">-</value>
+      </not-equals>
       <or>
         <property>/_debug/instruments/hud_show_all</property>
         <equals>
@@ -487,8 +593,8 @@ changelog
     <name>KIAS secondary</name>
     <x>-99</x>
     <y>24</y>
-    <width>30</width>
-    <height>8</height>
+    <width>38</width>
+    <height>10</height>
     <input>
       <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
     </input>
@@ -605,6 +711,45 @@ changelog
     <halign>right</halign>
     <box>true</box>
     <condition>
+      <equals>
+        <property>/instrumentation/my_aircraft/pfd/inputs/autopilot/locks/altitude</property>
+        <value type="string">-</value>
+      </equals>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <equals>
+          <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+          <value>APP</value>
+        </equals>
+        <equals>
+          <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+          <value>NAV</value>
+        </equals>
+        <equals>
+          <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+          <value>VFR</value>
+        </equals>
+      </or>
+    </condition>
+  </label>
+  <label>
+    <name>Altitude A/P</name>
+    <x>79</x>
+    <y>24</y>
+    <width>45</width>
+    <height>10</height>
+    <input>
+      <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+    </input>
+    <format>%6.0fft</format>
+    <halign>right</halign>
+    <box>true</box>
+    <prefix>=</prefix>
+    <condition>
+      <not-equals>
+        <property>/instrumentation/my_aircraft/pfd/inputs/autopilot/locks/altitude</property>
+        <value type="string">-</value>
+      </not-equals>
       <or>
         <property>/_debug/instruments/hud_show_all</property>
         <equals>

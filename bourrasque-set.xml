@@ -225,6 +225,9 @@ changelog
       <path>/consumables/fuel/tank[5]/level-norm</path>
       <path>/consumables/fuel/tank[6]/level-norm</path>
       <path>/consumables/fuel/tank[7]/level-norm</path>
+      <path>/instrumentation/my_aircraft/stdby-alt/controls/std-alt</path>
+      <path>/instrumentation/altimeter/setting-inhg</path>
+      <path>/instrumentation/my_aircraft/stdby-alt/controls/setting-inhg-previous</path>
     </aircraft-data>
 
   </sim>
