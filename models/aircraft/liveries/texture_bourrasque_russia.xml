@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+
+  <sim>
+    <model>
+      <livery>
+
+        <name type="string">russia</name>
+        <texture>liveries/texture_bourrasque_russia.png</texture>
+        <texture-tank>texture_tanks_russia.png</texture-tank>
+
+      </livery>
+    </model>
+  </sim>
+
+</PropertyList>
