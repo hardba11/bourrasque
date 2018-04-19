@@ -415,7 +415,7 @@ ________________________________________________________________________________
       <path>touchdown.wav</path>
       <mode>once</mode>
       <condition>
-        <property>/gear/gear[1]/wow</property>
+        <property>/gear/gear[1]/tyre-smoke</property>
       </condition>
       <volume>
         <max>0.2</max>
@@ -441,7 +441,7 @@ ________________________________________________________________________________
       <path>touchdown.wav</path>
       <mode>once</mode>
       <condition>
-        <property>/gear/gear[0]/wow</property>
+        <property>/gear/gear[0]/tyre-smoke</property>
       </condition>
       <volume>
         <max>0.2</max>

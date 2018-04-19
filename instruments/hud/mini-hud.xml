@@ -34,7 +34,7 @@
     <name>ft</name>
     <x>290</x>
     <y>200</y>
-    <width>28</width>
+    <width>38</width>
     <height>8</height>
     <input>
       <property>/instrumentation/altimeter/indicated-altitude-ft</property>

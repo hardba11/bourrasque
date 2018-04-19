@@ -313,10 +313,9 @@ changelog
     <input>
       <property>/instrumentation/my_aircraft/nd/outputs/indicated-heading</property>
     </input>
-    <format>%3.0f</format>
+    <format>%3.0f*</format>
     <halign>center</halign>
     <box>true</box>
-    <prefix>=</prefix>
     <condition>
       <not-equals>
         <property>/instrumentation/my_aircraft/pfd/inputs/autopilot/locks/heading</property>
@@ -372,10 +371,9 @@ changelog
     <input>
       <property>/instrumentation/my_aircraft/nd/outputs/indicated-heading</property>
     </input>
-    <format>%3.0f</format>
+    <format>%3.0f*</format>
     <halign>center</halign>
     <box>true</box>
-    <prefix>=</prefix>
     <condition>
       <not-equals>
         <property>/instrumentation/my_aircraft/pfd/inputs/autopilot/locks/heading</property>
@@ -562,10 +560,9 @@ changelog
     <input>
       <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
     </input>
-    <format>%4.0fkt</format>
+    <format>%4.0fkt*</format>
     <halign>right</halign>
     <box>true</box>
-    <prefix>=</prefix>
     <condition>
       <not-equals>
         <property>/instrumentation/my_aircraft/pfd/inputs/autopilot/locks/speed</property>
@@ -741,10 +738,9 @@ changelog
     <input>
       <property>/instrumentation/altimeter/indicated-altitude-ft</property>
     </input>
-    <format>%6.0fft</format>
+    <format>%6.0fft*</format>
     <halign>right</halign>
     <box>true</box>
-    <prefix>=</prefix>
     <condition>
       <not-equals>
         <property>/instrumentation/my_aircraft/pfd/inputs/autopilot/locks/altitude</property>
@@ -1124,10 +1120,22 @@ changelog
           <property>/instrumentation/my_aircraft/nd/controls/mode</property>
           <value>APP</value>
         </equals>
-        <equals>
-          <property>/instrumentation/my_aircraft/nd/controls/mode</property>
-          <value>NAV</value>
-        </equals>
+        <and>
+          <equals>
+            <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+            <value>NAV</value>
+          </equals>
+          <or>
+          <greater-than>
+            <property>/orientation/alpha-deg</property>
+            <value>1.5</value>
+          </greater-than>
+          <less-than>
+            <property>/orientation/alpha-deg</property>
+            <value>0</value>
+          </less-than>
+          </or>
+        </and>
         <equals>
           <property>/instrumentation/my_aircraft/nd/controls/mode</property>
           <value>VFR</value>

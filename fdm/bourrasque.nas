@@ -19,54 +19,54 @@ var egtf2egtc = func() {
     }
 }
 
+var vor_true_to_mag = func() {
+    var tru_orientation = getprop("/orientation/heading-deg") or 0;
+    var mag_orientation = getprop("/orientation/heading-magnetic-deg") or 0;
+
+    var nav1_tru = getprop("/instrumentation/nav[0]/heading-deg") or 0;
+    setprop("/instrumentation/nav[0]/heading-magnetic-deg", nav1_tru + (mag_orientation - tru_orientation));
+
+    var nav2_tru = getprop("/instrumentation/nav[1]/heading-deg") or 0;
+    setprop("/instrumentation/nav[1]/heading-magnetic-deg", nav2_tru + (mag_orientation - tru_orientation));
+}
+
+
 var loud_sound = func() {
     var is_internal = getprop("sim/current-view/internal") or 0;
     var canopy_position = getprop("sim/model/canopy-pos-norm") or 0;
     setprop("/environment/loud-sound", ((is_internal == 1) and (canopy_position == 0)) ? 0.2 : 1);
 }
 
-var is_smoke1   = 0;
-var buffer_wow1 = 1;
-var cycle_wow1  = 2;
-var is_smoke2   = 0;
-var buffer_wow2 = 1;
-var cycle_wow2  = 2;
+var is_smoke   = [0, 0, 0];
+var wow_gear   = [0, 0, 0];
+var buffer_wow = [0, 0, 0]; # keep value of wow between cycles
+var cycle_wow  = [0, 2, 2]; # number of nasal cycles for smoking
 var touchdown_smoke = func() {
-    var wow_gear1 = getprop("/gear/gear[1]/wow") or 0;
-    var wow_gear2 = getprop("/gear/gear[2]/wow") or 0;
+    var groundspeed  = getprop("/velocities/groundspeed-kt") or 0;
+    if(groundspeed > 80)
+    {
+        for(var i = 1; i <= 2; i += 1)
+        {
+            wow_gear[i] = getprop("/gear/gear["~i~"]/wow") or 0;
 
-    # if last wow value was 0 and current wow value is 1, begin smoke
-    if(! buffer_wow1 and wow_gear1 and is_smoke1 == 0) { is_smoke1 = 1; }
-    if(! buffer_wow2 and wow_gear2 and is_smoke2 == 0) { is_smoke2 = 1; }
+            # if last wow value was 0 (airborn last cycle) and current wow value is 1, begin smoke
+            if((buffer_wow[1] == 0) and (wow_gear[1] == 1) and (is_smoke[1] == 0)) { is_smoke[1] = 1; }
+            buffer_wow[i] = wow_gear[i];
 
-    if(is_smoke1 == 1)
-    {
-        # smoking during 2 cycles
-        if(cycle_wow1 > 0) { cycle_wow1 -= 1; }
-        else               { is_smoke1 = 0;   }
-        setprop("/gear/gear[1]/tyre-smoke", 1);
+            if(is_smoke[i] == 1)
+            {
+                # smoking during 2 cycles
+                if(cycle_wow[i] > 0) { cycle_wow[i] -= 1; }
+                else                 { is_smoke[i] = 0;   }
+            }
+            else
+            {
+                # end of cycle, stopping smoke and reinit
+                cycle_wow[i] = 2;
+            }
+            setprop("/gear/gear["~i~"]/tyre-smoke", is_smoke[i]);
+        }
     }
-    else
-    {
-        # end of cycle, stopping smoke and reinit
-        cycle_wow1 = 2;
-        setprop("/gear/gear[1]/tyre-smoke", 0);
-    }
-    if(is_smoke2 == 1)
-    {
-        # smoking during 2 cycles
-        if(cycle_wow2 > 0) { cycle_wow2 -= 1; }
-        else               { is_smoke2 = 0;   }
-        setprop("/gear/gear[2]/tyre-smoke", 1);
-    }
-    else
-    {
-        # end of cycle, stopping smoke and reinit
-        cycle_wow2 = 2;
-        setprop("/gear/gear[2]/tyre-smoke", 0);
-    }
-    buffer_wow1 = wow_gear1;
-    buffer_wow2 = wow_gear2;
 }
 
 
@@ -143,6 +143,7 @@ var bourrasque_slow_loop = func() {
     my_aircraft_functions.event_choose_enabled_cams();
     my_aircraft_functions.disable_hippodrome_if_ap_not_ok();
     #my_aircraft_functions.set_max_cloud_layer();
+    vor_true_to_mag();
 
     settimer(bourrasque_slow_loop, 2);
 }

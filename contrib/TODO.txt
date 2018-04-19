@@ -27,7 +27,7 @@ Roadmap and releases
 | 
 | improve current yasim, create stability-system (fcm.nas) [DONE : 5/5]
 | 
-| add radar on hud - canvas [WIP : 4/5]
+| add radar on hud - canvas [DONE : 5/5]
 | 
 | add radar on screen display [DONE : 5/5]
 |
@@ -39,17 +39,15 @@ Roadmap and releases
 
 | wingmen AI demo [DONE : 5/5]
 | 
-| multi-player [WIP : 4/5]
-| 
-| multi-player back seat [WIP : 4/5]
+| multi-player [DONE : 5/5]
 | 
 +-------> THIRD RELEASE : MULTIPLAYER READY [22-10-2017]
 
 
 
-| other liveries - textures HD + ambiant occlusion + lightmap + normalmap [STDBY : 2/5]
+| other liveries [DONE : 5/5]
 | 
-| add sounds : touchdown, buttons, pull up, warnings [WIP : 4/5]
+| add sounds : touchdown, buttons, pull up, warning [DONE : 5/5]
 | 
 | shadows effects [DONE : 5/5]
 | 
@@ -67,6 +65,14 @@ Roadmap and releases
 
 
 
+| textures HD + ambiant occlusion + lightmap + normalmap [STDBY : 2/5]
+| 
+| multi-player back seat [WIP : 3/5]
+| 
+| imporve radar on hud - canvas [WIP : 4/5]
+| 
+| improve sounds  [WIP : 4/5]
+| 
 | clean up files and directory and comments, improve doc [1/5] (table property + wiki)
 | 
 | new yasim from scratch ?

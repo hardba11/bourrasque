@@ -7,7 +7,7 @@ memo
 keyboard shortcuts
 ------------------
 
-- c : open/close canopy, you can click on the canopy to half-open it
+- c : open/close canopy, you can click on the canopy handles or on the canopy switch to half-open it
 - k : Extend Speedbrakes (5 positions)
 - j : Retract Speedbrakes (5 positions)
 - ctrl-a : enable autopilot on Altitude
@@ -23,8 +23,8 @@ keyboard shortcuts
 - V : previous view
 - ctrl-v : default view (pilot)
 - tab : mouse mode : pointer, view, stick
-- < : change phase for record loop
-- > : reinit record loop
+- < or \ : change phase for record loop
+- > or | : reinit record loop
 - [ : Catapult launch (carrier)
 - ] : Toggle Launch-bar (carrier)
 - ; : Toggle Hook (carrier)

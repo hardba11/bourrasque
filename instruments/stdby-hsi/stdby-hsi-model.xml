@@ -158,7 +158,7 @@ changelog
     <condition>
       <property>systems/electrical/bus/avionics</property>
     </condition>
-    <property>/instrumentation/my_aircraft/nd/outputs/indicated-heading</property>
+    <property>/orientation/heading-magnetic-deg</property>
     <axis>
       <x>1</x>
       <y>0</y>
@@ -249,7 +249,7 @@ changelog
     <condition>
       <property>systems/electrical/bus/avionics</property>
     </condition>
-    <property>/instrumentation/nav[0]/heading-deg</property>
+    <property>/instrumentation/nav[0]/heading-magnetic-deg</property>
     <axis>
       <x>-1</x>
       <y>0</y>
@@ -319,7 +319,7 @@ changelog
     <condition>
       <property>systems/electrical/bus/avionics</property>
     </condition>
-    <property>/instrumentation/nav[1]/heading-deg</property>
+    <property>/instrumentation/nav[1]/heading-magnetic-deg</property>
     <axis>
       <x>-1</x>
       <y>0</y>

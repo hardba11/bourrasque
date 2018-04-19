@@ -27,9 +27,11 @@ changelog
   </comm>
   <nav n="0">
     <serviceable type="bool">0</serviceable>
+    <heading-magnetic-deg type="float">0</heading-magnetic-deg>
   </nav>
   <nav n="1">
     <serviceable type="bool">0</serviceable>
+    <heading-magnetic-deg type="float">0</heading-magnetic-deg>
   </nav>
   <adf n="0">
     <func-knob type="int">0</func-knob>

@@ -41,10 +41,10 @@ var minihud_loop = func()
                 # head turned, mini hud is displayed
                 hud_number = 4;
                 setprop("/sim/hud/current-path", hud_number);
-                setprop("/sim/hud/clipping/left",   -2000);
-                setprop("/sim/hud/clipping/right",   2000);
-                setprop("/sim/hud/clipping/top",     2000);
-                setprop("/sim/hud/clipping/bottom", -2000);
+                setprop("/sim/hud/clipping/left",    200);
+                setprop("/sim/hud/clipping/right",   400);
+                setprop("/sim/hud/clipping/top",     400);
+                setprop("/sim/hud/clipping/bottom",  100);
             }
         }
         else
@@ -76,24 +76,27 @@ var minihud_loop = func()
         {
             hud_number = 4;
             setprop("/sim/hud/current-path", hud_number);
-            setprop("/sim/hud/clipping/left",   -2000);
-            setprop("/sim/hud/clipping/right",   2000);
-            setprop("/sim/hud/clipping/top",     2000);
-            setprop("/sim/hud/clipping/bottom", -2000);
+            setprop("/sim/hud/clipping/left",   200);
+            setprop("/sim/hud/clipping/right",  400);
+            setprop("/sim/hud/clipping/top",    400);
+            setprop("/sim/hud/clipping/bottom", 100);
         }
     }
 
     if(is_on)
     {
-        setprop("/sim/hud/visibility["~ hud_number ~"]", 1);
+        setprop("/sim/hud/visibility[1]", 1);
+        setprop("/sim/hud/visibility[4]", 1);
     }
     else
     {
-        setprop("/sim/hud/visibility["~ hud_number ~"]", 0);
+        setprop("/sim/hud/visibility[1]", 0);
+        setprop("/sim/hud/visibility[4]", 0);
     }
 
-    settimer(minihud_loop, 0.2);
+    settimer(minihud_loop, .2);
 }
+
 var hud_number = getprop("/sim/hud/current-path");
 if(hud_number == 1)
 {
@@ -104,10 +107,10 @@ if(hud_number == 1)
 }
 elsif(hud_number == 4)
 {
-    setprop("/sim/hud/clipping/left",   -2000);
-    setprop("/sim/hud/clipping/right",   2000);
-    setprop("/sim/hud/clipping/top",     2000);
-    setprop("/sim/hud/clipping/bottom", -2000);
+    setprop("/sim/hud/clipping/left",   200);
+    setprop("/sim/hud/clipping/right",  400);
+    setprop("/sim/hud/clipping/top",    400);
+    setprop("/sim/hud/clipping/bottom", 100);
 }
 
 setlistener("/sim/signals/fdm-initialized", minihud_loop);

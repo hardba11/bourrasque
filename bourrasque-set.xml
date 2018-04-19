@@ -232,7 +232,7 @@ changelog
 
   </sim>
 
-  <!-- smoke touchdown, data updated by functions.nas -->
+  <!-- smoke touchdown, data updated by bourrasque.nas -->
   <gear>
     <gear n="0">
       <launchbar-position-norm type="float">0</launchbar-position-norm>

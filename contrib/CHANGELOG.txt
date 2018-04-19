@@ -1,6 +1,8 @@
                   FLIGHTGEAR "BOURRASQUE" AIRCRAFT - CHANGELOG
 
 
+changelog now on git : see https://github.com/hardba11/bourrasque/commits/master
+
 semaine 01-2018 :: refonte du systeme d'alerte, bingo fuel
 semaine 52-2017 :: vertical speed autopilot, attribution des touches, trim, démarrage avec epu
 semaine 51-2017 :: bugfix
