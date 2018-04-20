@@ -157,7 +157,7 @@ var bourrasque_loop = func() {
     setprop("/instrumentation/altimeter/setting-kpa", (getprop("/instrumentation/altimeter/setting-inhg") * my_aircraft_functions.INHG2HPA));
 
     # setting true-heading-bug from mag-heading-bug
-    setprop("/instrumentation/my_aircraft/nd/outputs/true-heading-bug-deg", (getprop("/autopilot/settings/heading-bug-deg") + getprop("/environment/magnetic-variation-deg")));
+    setprop("/instrumentation/my_aircraft/nd/outputs/true-heading-bug-deg", math.mod(getprop("/autopilot/settings/heading-bug-deg") + getprop("/environment/magnetic-variation-deg"), 360));
 
     # setting sound factor if internal and canopy closed
     loud_sound();

@@ -1930,7 +1930,7 @@ changelog
     </input>
     <halign>left</halign>
   </label>
-  <label>
+  <!--label>
     <name>nav_data_nav2_eta</name>
     <x>40</x>
     <y>-65</y>
@@ -2028,6 +2028,6 @@ changelog
       <property>/instrumentation/dme[1]/indicated-ground-speed-kt</property>
     </input>
     <halign>left</halign>
-  </label>
+  </label-->
 </PropertyList>
 
