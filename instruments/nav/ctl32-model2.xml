@@ -96,17 +96,38 @@ Syd Adams
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
   <animation>
     <type>material</type>
+    <object-name>CTL-32</object-name>
+    <object-name>CTL-32.pwr</object-name>
+    <object-name>CTL-32.toggle</object-name>
+    <object-name>CTL-32.vol</object-name>
+    <object-name>freq.knob</object-name>
+    <object-name>freq1.knob</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.8</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+    <condition>
+      <property>systems/electrical/bus/avionics</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>material</type>
     <object-name>freq.001</object-name>
     <object-name>freq.002</object-name>
     <object-name>freq.003</object-name>
     <object-name>freq.004</object-name>
     <object-name>freq.005</object-name>
+    <object-name>stby.dec</object-name>
     <object-name>stby.001</object-name>
     <object-name>stby.002</object-name>
     <object-name>stby.003</object-name>
     <object-name>stby.dec</object-name>
     <object-name>stby.004</object-name>
     <object-name>stby.005</object-name>
+    <object-name>stby.dec</object-name>
     <condition>
       <greater-than>
         <property>/controls/lighting/instruments-norm</property>
@@ -127,12 +148,14 @@ Syd Adams
     <object-name>freq.003</object-name>
     <object-name>freq.004</object-name>
     <object-name>freq.005</object-name>
+    <object-name>stby.dec</object-name>
     <object-name>stby.001</object-name>
     <object-name>stby.002</object-name>
     <object-name>stby.003</object-name>
     <object-name>stby.dec</object-name>
     <object-name>stby.004</object-name>
     <object-name>stby.005</object-name>
+    <object-name>stby.dec</object-name>
     <condition>
       <equals>
         <property>/controls/lighting/instruments-norm</property>

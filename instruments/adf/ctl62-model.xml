@@ -96,6 +96,25 @@ Syd Adams
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
   <animation>
     <type>material</type>
+    <object-name>CTL-62</object-name>
+    <object-name>CTL-62.freq</object-name>
+    <object-name>CTL-62.freq1</object-name>
+    <object-name>CTL-62.pwr</object-name>
+    <object-name>CTL-62.toggle</object-name>
+    <object-name>CTL-62.vol</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.8</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+    <condition>
+      <property>systems/electrical/bus/avionics</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>material</type>
     <object-name>ADFfreq.001</object-name>
     <object-name>ADFfreq.002</object-name>
     <object-name>ADFfreq.003</object-name>
@@ -106,6 +125,8 @@ Syd Adams
     <object-name>ADFstby.003</object-name>
     <object-name>ADFstby.004</object-name>
     <object-name>ADFstby.005</object-name>
+    <object-name>freq.dec</object-name>
+    <object-name>stby.dec</object-name>
     <condition>
       <greater-than>
         <property>/controls/lighting/instruments-norm</property>
@@ -131,6 +152,8 @@ Syd Adams
     <object-name>ADFstby.003</object-name>
     <object-name>ADFstby.004</object-name>
     <object-name>ADFstby.005</object-name>
+    <object-name>freq.dec</object-name>
+    <object-name>stby.dec</object-name>
     <condition>
       <equals>
         <property>/controls/lighting/instruments-norm</property>
@@ -486,13 +509,11 @@ Syd Adams
       </binding>
     </action>
 
-
     <hovered>
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>adf-swap-freq</tooltip-id>
-        <label>ADF mode: %s</label>
-        <property>instrumentation/adf[0]/mode</property>
+        <label>ADF mode</label>
       </binding>
     </hovered>
   </animation>

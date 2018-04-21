@@ -26,39 +26,25 @@ changelog
   <animation>
     <object-name>ai.box</object-name>
     <object-name>ai.ball</object-name>
-    <object-name>ai.ball-emit</object-name>
     <object-name>ai.face</object-name>
-    <object-name>ai.face-emit</object-name>
     <object-name>ai.rollneedle</object-name>
-    <object-name>ai.rollneedle-emit</object-name>
   </animation>
-
-  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
-  <effect>
-    <inherits-from>Effects/model-transparent</inherits-from>
-    <object-name>ai.ball-emit</object-name>
-    <object-name>ai.face-emit</object-name>
-    <object-name>ai.rollneedle-emit</object-name>
-  </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
     <object-name>ai.box</object-name>
     <object-name>ai.ball</object-name>
-    <object-name>ai.ball-emit</object-name>
     <object-name>ai.face</object-name>
-    <object-name>ai.face-emit</object-name>
     <object-name>ai.rollneedle</object-name>
-    <object-name>ai.rollneedle-emit</object-name>
   </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
   <animation>
     <type>material</type>
-    <object-name>ai.ball-emit</object-name>
-    <object-name>ai.face-emit</object-name>
-    <object-name>ai.rollneedle-emit</object-name>
+    <object-name>ai.ball</object-name>
+    <object-name>ai.face</object-name>
+    <object-name>ai.rollneedle</object-name>
     <emission>
       <factor-prop>/controls/lighting/instruments-norm</factor-prop>
       <red>0.8</red>
@@ -78,22 +64,8 @@ changelog
 
   <!-- ~~~~~~~~~~~~~~~~~~ animation ai ball -->
   <animation>
-    <type>select</type>
-    <object-name>ai.ball-emit</object-name>
-    <condition>
-      <and>
-        <greater-than>
-          <property>/controls/lighting/instruments-norm</property>
-          <value>0</value>
-        </greater-than>
-        <property>systems/electrical/bus/avionics</property>
-      </and>
-    </condition>
-  </animation>
-  <animation>
     <type>texmultiple</type>
     <object-name>ai.ball</object-name>
-    <object-name>ai.ball-emit</object-name>
     <condition>
       <property>systems/electrical/bus/avionics</property>
     </condition>
@@ -126,7 +98,6 @@ changelog
   <animation>
     <type>rotate</type>
     <object-name>ai.rollneedle</object-name>
-    <object-name>ai.rollneedle-emit</object-name>
     <condition>
       <property>systems/electrical/bus/avionics</property>
     </condition>

@@ -94,6 +94,25 @@ Syd Adams
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
   <animation>
     <type>material</type>
+    <object-name>CTL-22</object-name>
+    <object-name>CTL-22.pwr</object-name>
+    <object-name>CTL-22.toggle</object-name>
+    <object-name>CTL-22.vol</object-name>
+    <object-name>freq.knob</object-name>
+    <object-name>freq1.knob</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.8</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+    <condition>
+      <property>systems/electrical/bus/avionics</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>material</type>
     <object-name>freq.001</object-name>
     <object-name>freq.002</object-name>
     <object-name>freq.003</object-name>
@@ -101,6 +120,7 @@ Syd Adams
     <object-name>freq.004</object-name>
     <object-name>freq.005</object-name>
     <object-name>freq.006</object-name>
+    <object-name>freq.dec</object-name>
     <object-name>stby.001</object-name>
     <object-name>stby.002</object-name>
     <object-name>stby.003</object-name>
@@ -108,6 +128,7 @@ Syd Adams
     <object-name>stby.004</object-name>
     <object-name>stby.005</object-name>
     <object-name>stby.006</object-name>
+    <object-name>stby.dec</object-name>
     <condition>
       <greater-than>
         <property>/controls/lighting/instruments-norm</property>
@@ -130,6 +151,7 @@ Syd Adams
     <object-name>freq.004</object-name>
     <object-name>freq.005</object-name>
     <object-name>freq.006</object-name>
+    <object-name>freq.dec</object-name>
     <object-name>stby.001</object-name>
     <object-name>stby.002</object-name>
     <object-name>stby.003</object-name>
@@ -137,6 +159,7 @@ Syd Adams
     <object-name>stby.004</object-name>
     <object-name>stby.005</object-name>
     <object-name>stby.006</object-name>
+    <object-name>stby.dec</object-name>
     <condition>
       <equals>
         <property>/controls/lighting/instruments-norm</property>
@@ -201,7 +224,7 @@ Syd Adams
     </interpolation>
     <center>
       <x-m>0.0</x-m>
-      <y-m>-0.0138</y-m>
+      <y-m>-0.0137</y-m>
       <z-m>-0.0183</z-m>
     </center>
     <axis>
@@ -244,7 +267,7 @@ Syd Adams
     <factor>300</factor>
     <center>
       <x-m>0.0</x-m>
-      <y-m>-0.0138</y-m>
+      <y-m>-0.0137</y-m>
       <z-m>-0.0183</z-m>
     </center>
     <axis>

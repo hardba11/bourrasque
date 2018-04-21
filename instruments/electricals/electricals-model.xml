@@ -37,16 +37,6 @@ changelog
     <object-name>electrical.bus3-diode</object-name>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
-  <effect>
-    <inherits-from>Effects/model-transparent</inherits-from>
-    <object-name>electrical.box-emit</object-name>
-    <object-name>electrical.bus1-emit</object-name>
-    <object-name>electrical.bus2-emit</object-name>
-    <object-name>electrical.bus3-emit</object-name>
-    <object-name>electrical.source-emit</object-name>
-  </effect>
-
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>

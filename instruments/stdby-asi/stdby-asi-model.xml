@@ -30,14 +30,6 @@ changelog
     <object-name>asi.scale</object-name>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
-  <effect>
-    <inherits-from>Effects/model-transparent</inherits-from>
-    <object-name>asi.mach_scale-emit</object-name>
-    <object-name>asi.needle-emit</object-name>
-    <object-name>asi.scale-emit</object-name>
-  </effect>
-
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
@@ -50,9 +42,9 @@ changelog
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
   <animation>
     <type>material</type>
-    <object-name>asi.mach_scale-emit</object-name>
-    <object-name>asi.needle-emit</object-name>
-    <object-name>asi.scale-emit</object-name>
+    <object-name>asi.mach_scale</object-name>
+    <object-name>asi.needle</object-name>
+    <object-name>asi.scale</object-name>
     <emission>
       <factor-prop>/controls/lighting/instruments-norm</factor-prop>
       <red>0.8</red>
@@ -75,9 +67,7 @@ changelog
   <animation>
     <type>rotate</type>
     <object-name>asi.needle</object-name>
-    <object-name>asi.needle-emit</object-name>
     <object-name>asi.mach_scale</object-name>
-    <object-name>asi.mach_scale-emit</object-name>
     <condition>
       <property>systems/electrical/bus/avionics</property>
     </condition>
@@ -115,7 +105,6 @@ changelog
   <animation>
     <type>rotate</type>
     <object-name>asi.mach_scale</object-name>
-    <object-name>asi.mach_scale-emit</object-name>
     <condition>
       <property>systems/electrical/bus/avionics</property>
     </condition>

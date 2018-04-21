@@ -85,29 +85,6 @@ changelog
     </condition>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
-  <effect>
-    <inherits-from>Effects/model-transparent</inherits-from>
-    <object-name>cadre-emit</object-name>
-    <object-name>hud.app-emit</object-name>
-    <object-name>hud.nav-emit</object-name>
-    <object-name>hud.taxi-emit</object-name>
-    <object-name>hud.vfr-emit</object-name>
-    <object-name>hud.void1-emit</object-name>
-    <object-name>nd.adf1-emit</object-name>
-    <object-name>nd.adf2-emit</object-name>
-    <object-name>nd.app-emit</object-name>
-    <object-name>nd.info-emit</object-name>
-    <object-name>nd.map-emit</object-name>
-    <object-name>nd.pln-emit</object-name>
-    <object-name>nd.rdr-emit</object-name>
-    <object-name>nd.true_north-emit</object-name>
-    <object-name>nd.slave_gps-emit</object-name>
-    <object-name>nd.vor-emit</object-name>
-    <object-name>nd.vor1-emit</object-name>
-    <object-name>nd.vor2-emit</object-name>
-  </effect>
-
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
@@ -156,6 +133,39 @@ changelog
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
   <animation>
     <type>material</type>
+    <object-name>nd.screen</object-name>
+    <condition>
+      <greater-than>
+        <property>/controls/lighting/instruments-norm</property>
+        <value>0.1</value>
+      </greater-than>
+    </condition>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>1</red>
+      <green>1</green>
+      <blue>1</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>nd.screen</object-name>
+    <condition>
+      <equals>
+        <property>/controls/lighting/instruments-norm</property>
+        <value>0</value>
+      </equals>
+    </condition>
+    <emission>
+      <factor>1</factor>
+      <red>1</red>
+      <green>1</green>
+      <blue>1</blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>material</type>
     <object-name>cadre-emit</object-name>
     <emission>
       <factor-prop>/controls/lighting/instruments-norm</factor-prop>
@@ -198,8 +208,6 @@ changelog
       <property>systems/electrical/bus/avionics</property>
     </condition>
   </animation>
-
-  <!-- ~~~~~~~~~~~~~~~~~~ emitting (color) -->
 
   <!--
 ================================================================================

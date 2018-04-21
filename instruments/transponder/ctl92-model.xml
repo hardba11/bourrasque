@@ -79,6 +79,26 @@ Syd Adams
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
   <animation>
     <type>material</type>
+    <object-name>CTL-92</object-name>
+    <object-name>CTL-92.knob</object-name>
+    <object-name>CTL-92.knob1</object-name>
+    <object-name>CTL-92.pwr</object-name>
+    <object-name>CTL-92.toggle</object-name>
+    <object-name>CTL-92.vol</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/instruments-norm</factor-prop>
+      <red>0.8</red>
+      <green>0.2</green>
+      <blue>0.2</blue>
+    </emission>
+    <condition>
+      <property>systems/electrical/bus/avionics</property>
+    </condition>
+  </animation>
+
+
+  <animation>
+    <type>material</type>
     <object-name>C92freq.001</object-name>
     <object-name>C92freq.002</object-name>
     <object-name>C92freq.003</object-name>
@@ -217,8 +237,8 @@ Syd Adams
     </interpolation>
     <center>
       <x-m>0.0</x-m>
-      <y-m>-0.014</y-m>
-      <z-m>-0.018</z-m>
+      <y-m>-0.0138</y-m>
+      <z-m>-0.0183</z-m>
     </center>
     <axis>
       <x>-1</x>

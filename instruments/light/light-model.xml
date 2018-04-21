@@ -50,19 +50,6 @@ changelog
     </condition>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
-  <effect>
-    <inherits-from>Effects/model-transparent</inherits-from>
-    <object-name>light.box-emit</object-name>
-    <object-name>light.btn_1-emit</object-name>
-    <object-name>light.btn_2-emit</object-name>
-    <object-name>light.btn_3-emit</object-name>
-    <object-name>light.btn_4-emit</object-name>
-    <object-name>light.btn_5-emit</object-name>
-    <object-name>light.knob_7-emit</object-name>
-    <object-name>light.knob_8-emit</object-name>
-  </effect>
-
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>

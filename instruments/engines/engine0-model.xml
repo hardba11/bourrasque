@@ -32,14 +32,6 @@ changelog
     <object-name>engines.start</object-name>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
-  <effect>
-    <inherits-from>Effects/model-transparent</inherits-from>
-    <object-name>engines.box-emit</object-name>
-    <object-name>engines.cutoff-emit</object-name>
-    <object-name>engines.pump-emit</object-name>
-  </effect>
-
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>

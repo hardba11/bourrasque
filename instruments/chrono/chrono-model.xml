@@ -21,6 +21,7 @@ description :
   <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
   <animation>
     <object-name>chrono.box</object-name>
+    <object-name>chrono.scale</object-name>
     <object-name>chrono.needle</object-name>
     <object-name>chrono.chr_btn</object-name>
     <object-name>chrono.mode_knob</object-name>
@@ -41,6 +42,14 @@ description :
     <object-name>chrono.mode_knob-emit</object-name>
     <object-name>chrono.et_knob-emit</object-name>
   </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ transparent
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>chrono.box-emit</object-name>
+    <object-name>chrono.mode_knob-emit</object-name>
+    <object-name>chrono.et_knob-emit</object-name>
+  </effect> -->
 
   <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
   <animation>
@@ -63,6 +72,8 @@ description :
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
     <object-name>chrono.box</object-name>
+    <object-name>chrono.box-emit</object-name>
+    <object-name>chrono.scale</object-name>
     <object-name>chrono.needle</object-name>
     <object-name>chrono.chr_btn</object-name>
     <object-name>chrono.mode_knob</object-name>
@@ -88,6 +99,7 @@ description :
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
   <animation>
     <type>material</type>
+    <object-name>chrono.scale</object-name>
     <object-name>chrono.box-emit</object-name>
     <object-name>chrono.mode_knob-emit</object-name>
     <object-name>chrono.et_knob-emit</object-name>

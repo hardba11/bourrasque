@@ -39,38 +39,20 @@ changelog
     <object-name>hsi.knob_hdg</object-name>
     <object-name>hsi.scale</object-name>
     <object-name>hsi.box-emit</object-name>
-    <object-name>hsi.bug-emit</object-name>
-    <object-name>hsi.crs1_needle-emit</object-name>
-    <object-name>hsi.dev1_needle-emit</object-name>
-    <object-name>hsi.vor1_needle-emit</object-name>
-    <object-name>hsi.crs2_needle-emit</object-name>
-    <object-name>hsi.dev2_needle-emit</object-name>
-    <object-name>hsi.vor2_needle-emit</object-name>
-    <object-name>hsi.hdg_ring-emit</object-name>
     <object-name>hsi.knob_course-emit</object-name>
     <object-name>hsi.knob_hdg-emit</object-name>
     <object-name>hsi.knob_vor</object-name>
     <object-name>hsi.knob_vor-emit</object-name>
-    <object-name>hsi.scale-emit</object-name>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
+  <!-- ~~~~~~~~~~~~~~~~~~ transparent
   <effect>
     <inherits-from>Effects/model-transparent</inherits-from>
     <object-name>hsi.box-emit</object-name>
-    <object-name>hsi.bug-emit</object-name>
-    <object-name>hsi.crs1_needle-emit</object-name>
-    <object-name>hsi.dev1_needle-emit</object-name>
-    <object-name>hsi.vor1_needle-emit</object-name>
-    <object-name>hsi.crs2_needle-emit</object-name>
-    <object-name>hsi.dev2_needle-emit</object-name>
-    <object-name>hsi.vor2_needle-emit</object-name>
-    <object-name>hsi.hdg_ring-emit</object-name>
     <object-name>hsi.knob_course-emit</object-name>
     <object-name>hsi.knob_hdg-emit</object-name>
     <object-name>hsi.knob_vor-emit</object-name>
-    <object-name>hsi.scale-emit</object-name>
-  </effect>
+  </effect> -->
 
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
@@ -88,39 +70,30 @@ changelog
     <object-name>hsi.hdg_ring</object-name>
     <object-name>hsi.knob_course</object-name>
     <object-name>hsi.knob_hdg</object-name>
-    <object-name>hsi.knob_vor</object-name>
     <object-name>hsi.scale</object-name>
     <object-name>hsi.box-emit</object-name>
-    <object-name>hsi.bug-emit</object-name>
-    <object-name>hsi.crs1_needle-emit</object-name>
-    <object-name>hsi.dev1_needle-emit</object-name>
-    <object-name>hsi.vor1_needle-emit</object-name>
-    <object-name>hsi.crs2_needle-emit</object-name>
-    <object-name>hsi.dev2_needle-emit</object-name>
-    <object-name>hsi.vor2_needle-emit</object-name>
-    <object-name>hsi.hdg_ring-emit</object-name>
     <object-name>hsi.knob_course-emit</object-name>
     <object-name>hsi.knob_hdg-emit</object-name>
+    <object-name>hsi.knob_vor</object-name>
     <object-name>hsi.knob_vor-emit</object-name>
-    <object-name>hsi.scale-emit</object-name>
   </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
   <animation>
     <type>material</type>
     <object-name>hsi.box-emit</object-name>
-    <object-name>hsi.bug-emit</object-name>
-    <object-name>hsi.crs1_needle-emit</object-name>
-    <object-name>hsi.dev1_needle-emit</object-name>
-    <object-name>hsi.vor1_needle-emit</object-name>
-    <object-name>hsi.crs2_needle-emit</object-name>
-    <object-name>hsi.dev2_needle-emit</object-name>
-    <object-name>hsi.vor2_needle-emit</object-name>
-    <object-name>hsi.hdg_ring-emit</object-name>
+    <object-name>hsi.bug</object-name>
+    <object-name>hsi.crs1_needle</object-name>
+    <object-name>hsi.dev1_needle</object-name>
+    <object-name>hsi.vor1_needle</object-name>
+    <object-name>hsi.crs2_needle</object-name>
+    <object-name>hsi.dev2_needle</object-name>
+    <object-name>hsi.vor2_needle</object-name>
+    <object-name>hsi.hdg_ring</object-name>
     <object-name>hsi.knob_course-emit</object-name>
     <object-name>hsi.knob_hdg-emit</object-name>
     <object-name>hsi.knob_vor-emit</object-name>
-    <object-name>hsi.scale-emit</object-name>
+    <object-name>hsi.scale</object-name>
     <emission>
       <factor-prop>/controls/lighting/instruments-norm</factor-prop>
       <red>0.8</red>
@@ -142,19 +115,12 @@ changelog
   <animation>
     <type>rotate</type>
     <object-name>hsi.hdg_ring</object-name>
-    <object-name>hsi.hdg_ring-emit</object-name>
     <object-name>hsi.crs1_needle</object-name>
-    <object-name>hsi.crs1_needle-emit</object-name>
     <object-name>hsi.dev1_needle</object-name>
-    <object-name>hsi.dev1_needle-emit</object-name>
     <object-name>hsi.vor1_needle</object-name>
-    <object-name>hsi.vor1_needle-emit</object-name>
     <object-name>hsi.crs2_needle</object-name>
-    <object-name>hsi.crs2_needle-emit</object-name>
     <object-name>hsi.dev2_needle</object-name>
-    <object-name>hsi.dev2_needle-emit</object-name>
     <object-name>hsi.vor2_needle</object-name>
-    <object-name>hsi.vor2_needle-emit</object-name>
     <condition>
       <property>systems/electrical/bus/avionics</property>
     </condition>
@@ -175,7 +141,6 @@ changelog
   <animation>
     <type>rotate</type>
     <object-name>hsi.bug</object-name>
-    <object-name>hsi.bug-emit</object-name>
     <condition>
       <property>systems/electrical/bus/avionics</property>
     </condition>
@@ -196,9 +161,7 @@ changelog
   <animation>
     <type>rotate</type>
     <object-name>hsi.crs1_needle</object-name>
-    <object-name>hsi.crs1_needle-emit</object-name>
     <object-name>hsi.dev1_needle</object-name>
-    <object-name>hsi.dev1_needle-emit</object-name>
     <condition>
       <property>systems/electrical/bus/avionics</property>
     </condition>
@@ -219,7 +182,6 @@ changelog
   <animation>
     <type>translate</type>
     <object-name>hsi.dev1_needle</object-name>
-    <object-name>hsi.dev1_needle-emit</object-name>
     <condition>
       <property>systems/electrical/bus/avionics</property>
     </condition>
@@ -245,7 +207,6 @@ changelog
   <animation>
     <type>rotate</type>
     <object-name>hsi.vor1_needle</object-name>
-    <object-name>hsi.vor1_needle-emit</object-name>
     <condition>
       <property>systems/electrical/bus/avionics</property>
     </condition>
@@ -266,9 +227,7 @@ changelog
   <animation>
     <type>rotate</type>
     <object-name>hsi.crs2_needle</object-name>
-    <object-name>hsi.crs2_needle-emit</object-name>
     <object-name>hsi.dev2_needle</object-name>
-    <object-name>hsi.dev2_needle-emit</object-name>
     <condition>
       <property>systems/electrical/bus/avionics</property>
     </condition>
@@ -289,7 +248,6 @@ changelog
   <animation>
     <type>translate</type>
     <object-name>hsi.dev2_needle</object-name>
-    <object-name>hsi.dev2_needle-emit</object-name>
     <condition>
       <property>systems/electrical/bus/avionics</property>
     </condition>
@@ -315,7 +273,6 @@ changelog
   <animation>
     <type>rotate</type>
     <object-name>hsi.vor2_needle</object-name>
-    <object-name>hsi.vor2_needle-emit</object-name>
     <condition>
       <property>systems/electrical/bus/avionics</property>
     </condition>

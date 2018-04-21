@@ -31,12 +31,13 @@ changelog
     <object-name>command.launchbar</object-name>
     <object-name>command.parkbrake</object-name>
     <object-name>command.parkbrake-emit</object-name>
+    <object-name>command.trim_scale</object-name>
     <object-name>command.aileronTrimNeedle-emit</object-name>
     <object-name>command.pitchTrimNeedle-emit</object-name>
     <object-name>command.rudderTrimNeedle-emit</object-name>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
+  <!-- ~~~~~~~~~~~~~~~~~~ transparent
   <effect>
     <inherits-from>Effects/model-transparent</inherits-from>
     <object-name>command.box-emit</object-name>
@@ -45,7 +46,7 @@ changelog
     <object-name>command.aileronTrimNeedle-emit</object-name>
     <object-name>command.pitchTrimNeedle-emit</object-name>
     <object-name>command.rudderTrimNeedle-emit</object-name>
-  </effect>
+  </effect> -->
 
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
@@ -59,6 +60,7 @@ changelog
     <object-name>command.launchbar</object-name>
     <object-name>command.parkbrake</object-name>
     <object-name>command.parkbrake-emit</object-name>
+    <object-name>command.trim_scale</object-name>
     <object-name>command.aileronTrimNeedle-emit</object-name>
     <object-name>command.pitchTrimNeedle-emit</object-name>
     <object-name>command.rudderTrimNeedle-emit</object-name>
@@ -70,6 +72,7 @@ changelog
     <object-name>command.box-emit</object-name>
     <object-name>command.gears-emit</object-name>
     <object-name>command.parkbrake-emit</object-name>
+    <object-name>command.trim_scale</object-name>
     <object-name>command.aileronTrimNeedle-emit</object-name>
     <object-name>command.pitchTrimNeedle-emit</object-name>
     <object-name>command.rudderTrimNeedle-emit</object-name>

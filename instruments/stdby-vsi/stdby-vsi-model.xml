@@ -20,31 +20,22 @@ description :
   <animation>
     <object-name>stdby-vsi.box</object-name>
     <object-name>stdby-vsi.scale</object-name>
-    <object-name>stdby-vsi.mark-emit</object-name>
-    <object-name>stdby-vsi.scale-emit</object-name>
+    <object-name>stdby-vsi.mark</object-name>
   </animation>
-
-  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
-  <effect>
-    <inherits-from>Effects/model-transparent</inherits-from>
-    <object-name>stdby-vsi.mark-emit</object-name>
-    <object-name>stdby-vsi.scale-emit</object-name>
-  </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
     <object-name>stdby-vsi.box</object-name>
     <object-name>stdby-vsi.scale</object-name>
-    <object-name>stdby-vsi.mark-emit</object-name>
-    <object-name>stdby-vsi.scale-emit</object-name>
+    <object-name>stdby-vsi.mark</object-name>
   </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
   <animation>
     <type>material</type>
-    <object-name>stdby-vsi.mark-emit</object-name>
-    <object-name>stdby-vsi.scale-emit</object-name>
+    <object-name>stdby-vsi.mark</object-name>
+    <object-name>stdby-vsi.scale</object-name>
     <emission>
       <factor-prop>/controls/lighting/instruments-norm</factor-prop>
       <red>0.8</red>
@@ -66,7 +57,6 @@ description :
   <animation>
     <type>rotate</type>
     <object-name>stdby-vsi.scale</object-name>
-    <object-name>stdby-vsi.scale-emit</object-name>
     <condition>
       <property>systems/electrical/bus/avionics</property>
     </condition>

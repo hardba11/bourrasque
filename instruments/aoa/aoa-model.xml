@@ -21,16 +21,7 @@ description :
     <object-name>aoa.box</object-name>
     <object-name>aoa.mask</object-name>
     <object-name>aoa.tape</object-name>
-    <object-name>aoa.mask-emit</object-name>
-    <object-name>aoa.tape-emit</object-name>
   </animation>
-
-  <!-- ~~~~~~~~~~~~~~~~~~ transparent -->
-  <effect>
-    <inherits-from>Effects/model-transparent</inherits-from>
-    <object-name>aoa.mask-emit</object-name>
-    <object-name>aoa.tape-emit</object-name>
-  </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
@@ -38,15 +29,13 @@ description :
     <object-name>aoa.box</object-name>
     <object-name>aoa.mask</object-name>
     <object-name>aoa.tape</object-name>
-    <object-name>aoa.mask-emit</object-name>
-    <object-name>aoa.tape-emit</object-name>
   </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
   <animation>
     <type>material</type>
-    <object-name>aoa.mask-emit</object-name>
-    <object-name>aoa.tape-emit</object-name>
+    <object-name>aoa.mask</object-name>
+    <object-name>aoa.tape</object-name>
     <emission>
       <factor-prop>/controls/lighting/instruments-norm</factor-prop>
       <red>0.8</red>
@@ -68,7 +57,6 @@ description :
   <animation>
     <type>textranslate</type>
     <object-name>aoa.tape</object-name>
-    <object-name>aoa.tape-emit</object-name>
     <condition>
       <property>systems/electrical/bus/avionics</property>
     </condition>

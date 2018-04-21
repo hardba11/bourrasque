@@ -25,10 +25,8 @@ changelog
   <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
   <animation>
     <object-name>turn.box</object-name>
-    <object-name>turn.indexes</object-name>
     <object-name>turn.needle</object-name>
     <object-name>turn.slip-skid-ball</object-name>
-    <object-name>turn.slip-skid-indexes</object-name>
     <object-name>turn.box-emit</object-name>
     <object-name>turn.indexes-emit</object-name>
     <object-name>turn.needle-emit</object-name>
@@ -38,10 +36,8 @@ changelog
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
     <object-name>turn.box</object-name>
-    <object-name>turn.indexes</object-name>
     <object-name>turn.needle</object-name>
     <object-name>turn.slip-skid-ball</object-name>
-    <object-name>turn.slip-skid-indexes</object-name>
     <object-name>turn.box-emit</object-name>
     <object-name>turn.indexes-emit</object-name>
     <object-name>turn.needle-emit</object-name>

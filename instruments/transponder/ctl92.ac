@@ -1,8 +1,8 @@
 AC3Db
 MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
-MATERIAL "dimlit" rgb 1 1 1 amb 1 1 1 emis 0.5 0.5 0.5 spec 0.5 0.5 0.5 shi 8 trans 0
+MATERIAL "dimlit" rgb 1 1 1 amb 1 1 1 emis 0 0 0 spec 0.5 0.5 0.5 shi 8 trans 0
 MATERIAL "Bezel" rgb 1 1 1 amb 1 1 1 emis 0.0 0.0 0.0 spec 0.5 0.5 0.5 shi 8 trans 0
-MATERIAL "lit" rgb 1 1 1 amb 1 1 1 emis 1 1 1 spec 0.5 0.5 0.5 shi 8 trans 0
+MATERIAL "lit" rgb 1 1 1 amb 1 1 1 emis 0 0 0 spec 0.5 0.5 0.5 shi 8 trans 0
 OBJECT world
 kids 21
 OBJECT poly
