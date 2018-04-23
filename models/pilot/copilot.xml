@@ -15,15 +15,19 @@
     <!-- Objets opaques -->
     <object-name>tete</object-name>
     <object-name>corps</object-name>
-    <object-name>bras</object-name>
-    <object-name>avantbras</object-name>
-    <object-name>main</object-name>
+    <object-name>brasG</object-name>
+    <object-name>avantbrasG</object-name>
+    <object-name>mainG</object-name>
     <object-name>brasD</object-name>
     <object-name>avantbrasD</object-name>
     <object-name>mainD</object-name>
     <object-name>lunettes</object-name>
-    <object-name>jambeG</object-name>
     <object-name>jambeD</object-name>
+    <object-name>molletD</object-name>
+    <object-name>piedD</object-name>
+    <object-name>jambeG</object-name>
+    <object-name>molletG</object-name>
+    <object-name>piedG</object-name>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
@@ -31,15 +35,19 @@
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
     <object-name>tete</object-name>
     <object-name>corps</object-name>
-    <object-name>bras</object-name>
-    <object-name>avantbras</object-name>
-    <object-name>main</object-name>
+    <object-name>brasG</object-name>
+    <object-name>avantbrasG</object-name>
+    <object-name>mainG</object-name>
     <object-name>brasD</object-name>
     <object-name>avantbrasD</object-name>
     <object-name>mainD</object-name>
     <object-name>lunettes</object-name>
-    <object-name>jambeG</object-name>
     <object-name>jambeD</object-name>
+    <object-name>molletD</object-name>
+    <object-name>piedD</object-name>
+    <object-name>jambeG</object-name>
+    <object-name>molletG</object-name>
+    <object-name>piedG</object-name>
   </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ specific copilot texture -->
@@ -47,15 +55,19 @@
     <type>material</type>
     <object-name>tete</object-name>
     <object-name>corps</object-name>
-    <object-name>bras</object-name>
-    <object-name>avantbras</object-name>
-    <object-name>main</object-name>
+    <object-name>brasG</object-name>
+    <object-name>avantbrasG</object-name>
+    <object-name>mainG</object-name>
     <object-name>brasD</object-name>
     <object-name>avantbrasD</object-name>
     <object-name>mainD</object-name>
     <texture>copilot.png</texture>
-    <object-name>jambeG</object-name>
     <object-name>jambeD</object-name>
+    <object-name>molletD</object-name>
+    <object-name>piedD</object-name>
+    <object-name>jambeG</object-name>
+    <object-name>molletG</object-name>
+    <object-name>piedG</object-name>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ full copilot block without legs -->
@@ -63,9 +75,9 @@
     <name>bloc_pilote</name>
     <object-name>tete</object-name>
     <object-name>corps</object-name>
-    <object-name>bras</object-name>
-    <object-name>avantbras</object-name>
-    <object-name>main</object-name>
+    <object-name>brasG</object-name>
+    <object-name>avantbrasG</object-name>
+    <object-name>mainG</object-name>
     <object-name>brasD</object-name>
     <object-name>avantbrasD</object-name>
     <object-name>mainD</object-name>
@@ -97,18 +109,47 @@
   <!-- ~~~~~~~~~~~~~~~~~~ left arm -->
   <animation>
     <name>bloc_brasG</name>
-    <object-name>bras</object-name>
-    <object-name>avantbras</object-name>
-    <object-name>main</object-name>
+    <object-name>brasG</object-name>
+    <object-name>avantbrasG</object-name>
+    <object-name>mainG</object-name>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ left forearm -->
   <animation>
     <name>bloc_avantbrasG</name>
-    <object-name>avantbras</object-name>
-    <object-name>main</object-name>
+    <object-name>avantbrasG</object-name>
+    <object-name>mainG</object-name>
   </animation>
 
+  <!-- ~~~~~~~~~~~~~~~~~~ right leg -->
+  <animation>
+    <name>bloc_jambeD</name>
+    <object-name>jambeD</object-name>
+    <object-name>molletD</object-name>
+    <object-name>piedD</object-name>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ right foreleg -->
+  <animation>
+    <name>bloc_molletD</name>
+    <object-name>molletD</object-name>
+    <object-name>piedD</object-name>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ left leg -->
+  <animation>
+    <name>bloc_jambeG</name>
+    <object-name>jambeG</object-name>
+    <object-name>molletG</object-name>
+    <object-name>piedG</object-name>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ left foreleg -->
+  <animation>
+    <name>bloc_molletG</name>
+    <object-name>molletG</object-name>
+    <object-name>piedG</object-name>
+  </animation>
   <!--
 ================================================================================
                                                                        ANIMATION
@@ -294,7 +335,7 @@ ________________________________________________________________________________
 
   <animation>
     <type>rotate</type>
-    <object-name>main</object-name>
+    <object-name>mainG</object-name>
     <property>sim/model/constant</property>
     <factor>-110</factor>
     <center>

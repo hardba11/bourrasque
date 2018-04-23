@@ -132,6 +132,7 @@ I also suggest you to use rate based control over degree based control. its more
           <property>/autopilot/locks/heading</property>
           <value>nav1-hold</value>
         </equals>
+        <not><property>/instrumentation/nav[0]/slaved-to-gps</property></not>
       </condition>
     </enable>
     <input>

@@ -24,15 +24,19 @@ r = 37
     <!-- Objets opaques -->
     <object-name>tete</object-name>
     <object-name>corps</object-name>
-    <object-name>bras</object-name>
-    <object-name>avantbras</object-name>
-    <object-name>main</object-name>
+    <object-name>brasG</object-name>
+    <object-name>avantbrasG</object-name>
+    <object-name>mainG</object-name>
     <object-name>brasD</object-name>
     <object-name>avantbrasD</object-name>
     <object-name>mainD</object-name>
     <object-name>lunettes</object-name>
-    <object-name>jambeG</object-name>
     <object-name>jambeD</object-name>
+    <object-name>molletD</object-name>
+    <object-name>piedD</object-name>
+    <object-name>jambeG</object-name>
+    <object-name>molletG</object-name>
+    <object-name>piedG</object-name>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
@@ -40,15 +44,19 @@ r = 37
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
     <object-name>tete</object-name>
     <object-name>corps</object-name>
-    <object-name>bras</object-name>
-    <object-name>avantbras</object-name>
-    <object-name>main</object-name>
+    <object-name>brasG</object-name>
+    <object-name>avantbrasG</object-name>
+    <object-name>mainG</object-name>
     <object-name>brasD</object-name>
     <object-name>avantbrasD</object-name>
     <object-name>mainD</object-name>
     <object-name>lunettes</object-name>
-    <object-name>jambeG</object-name>
     <object-name>jambeD</object-name>
+    <object-name>molletD</object-name>
+    <object-name>piedD</object-name>
+    <object-name>jambeG</object-name>
+    <object-name>molletG</object-name>
+    <object-name>piedG</object-name>
   </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ full pilot block without legs -->
@@ -56,9 +64,9 @@ r = 37
     <name>bloc_pilote</name>
     <object-name>tete</object-name>
     <object-name>corps</object-name>
-    <object-name>bras</object-name>
-    <object-name>avantbras</object-name>
-    <object-name>main</object-name>
+    <object-name>brasG</object-name>
+    <object-name>avantbrasG</object-name>
+    <object-name>mainG</object-name>
     <object-name>brasD</object-name>
     <object-name>avantbrasD</object-name>
     <object-name>mainD</object-name>
@@ -90,16 +98,46 @@ r = 37
   <!-- ~~~~~~~~~~~~~~~~~~ left arm -->
   <animation>
     <name>bloc_brasG</name>
-    <object-name>bras</object-name>
-    <object-name>avantbras</object-name>
-    <object-name>main</object-name>
+    <object-name>brasG</object-name>
+    <object-name>avantbrasG</object-name>
+    <object-name>mainG</object-name>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ left forearm -->
   <animation>
     <name>bloc_avantbrasG</name>
-    <object-name>avantbras</object-name>
-    <object-name>main</object-name>
+    <object-name>avantbrasG</object-name>
+    <object-name>mainG</object-name>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ right leg -->
+  <animation>
+    <name>bloc_jambeD</name>
+    <object-name>jambeD</object-name>
+    <object-name>molletD</object-name>
+    <object-name>piedD</object-name>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ right foreleg -->
+  <animation>
+    <name>bloc_molletD</name>
+    <object-name>molletD</object-name>
+    <object-name>piedD</object-name>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ left leg -->
+  <animation>
+    <name>bloc_jambeG</name>
+    <object-name>jambeG</object-name>
+    <object-name>molletG</object-name>
+    <object-name>piedG</object-name>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ left foreleg -->
+  <animation>
+    <name>bloc_molletG</name>
+    <object-name>molletG</object-name>
+    <object-name>piedG</object-name>
   </animation>
 
   <!--
@@ -342,7 +380,7 @@ ________________________________________________________________________________
   <!-- ~~~~~~~~~~~~~~~~~~ rotating wrist -->
   <animation>
     <type>rotate</type>
-    <object-name>main</object-name>
+    <object-name>mainG</object-name>
     <property>/controls/engines/engine[0]/throttle</property>
     <interpolation>
       <entry><ind>0</ind><dep>0</dep></entry>
@@ -352,6 +390,192 @@ ________________________________________________________________________________
       <x-m>-3.404</x-m>
       <y-m>-0.4346</y-m>
       <z-m>0.4685</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                               LEFT LEG / RUDDER
+  -->
+
+  <animation>
+    <type>rotate</type>
+    <object-name>bloc_jambeG</object-name>
+    <property>surface-positions/rudder-pos-norm</property>
+    <interpolation>
+      <entry><ind>-1</ind><dep>5</dep></entry>
+      <entry><ind>0</ind><dep>2</dep></entry>
+      <entry><ind>1</ind><dep>-1</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-3.3001</x-m>
+      <y-m>0</y-m>
+      <z-m>0.3583</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>bloc_molletG</object-name>
+    <property>surface-positions/rudder-pos-norm</property>
+    <interpolation>
+      <entry><ind>-1</ind><dep>-4</dep></entry>
+      <entry><ind>0</ind><dep>2</dep></entry>
+      <entry><ind>1</ind><dep>9</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-3.7394</x-m>
+      <y-m>0</y-m>
+      <z-m>0.5233</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>piedG</object-name>
+    <property>surface-positions/rudder-pos-norm</property>
+    <interpolation>
+      <entry><ind>-1</ind><dep>6</dep></entry>
+      <entry><ind>0</ind><dep>5</dep></entry>
+      <entry><ind>1</ind><dep>0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-4.0594</x-m>
+      <y-m>0</y-m>
+      <z-m>0.2033</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                              RIGHT LEG / RUDDER
+  -->
+
+  <animation>
+    <type>rotate</type>
+    <object-name>bloc_jambeD</object-name>
+    <property>surface-positions/rudder-pos-norm</property>
+    <interpolation>
+      <entry><ind>-1</ind><dep>-1</dep></entry>
+      <entry><ind>0</ind><dep>2</dep></entry>
+      <entry><ind>1</ind><dep>5</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-3.3001</x-m>
+      <y-m>0</y-m>
+      <z-m>0.3583</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>bloc_molletD</object-name>
+    <property>surface-positions/rudder-pos-norm</property>
+    <interpolation>
+      <entry><ind>-1</ind><dep>9</dep></entry>
+      <entry><ind>0</ind><dep>2</dep></entry>
+      <entry><ind>1</ind><dep>-4</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-3.7394</x-m>
+      <y-m>0</y-m>
+      <z-m>0.5233</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>piedD</object-name>
+    <property>surface-positions/rudder-pos-norm</property>
+    <interpolation>
+      <entry><ind>-1</ind><dep>0</dep></entry>
+      <entry><ind>0</ind><dep>5</dep></entry>
+      <entry><ind>1</ind><dep>6</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-4.0594</x-m>
+      <y-m>0</y-m>
+      <z-m>0.2033</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                               LEFT LEG / BRAKES
+  -->
+
+  <animation>
+    <type>rotate</type>
+    <object-name>piedG</object-name>
+    <property>/gear/gear[1]/brake-position-norm</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>5</dep></entry>
+      <entry><ind>1</ind><dep>0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-4.0594</x-m>
+      <y-m>0</y-m>
+      <z-m>0.2033</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!--
+________________________________________________________________________________
+                                                              RIGHT LEG / BRAKES
+  -->
+
+  <animation>
+    <type>rotate</type>
+    <object-name>piedD</object-name>
+    <property>/gear/gear[2]/brake-position-norm</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>5</dep></entry>
+      <entry><ind>1</ind><dep>0</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-4.0594</x-m>
+      <y-m>0</y-m>
+      <z-m>0.2033</z-m>
     </center>
     <axis>
       <x>0</x>

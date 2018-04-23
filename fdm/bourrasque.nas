@@ -116,7 +116,7 @@ var hippo_loop = func() {
         {
             #print("+++ top droite");
             setprop("/sim/messages/pilot", 'starting hippodrom leg, turn in '~ leg_duration ~'s.');
-            settimer(func() { setprop("/sim/messages/pilot", 'turn in 10s.'); }, (leg_duration - 10));
+            settimer(func() { if(getprop("/instrumentation/my_aircraft/pfd/controls/hippodrome")){ setprop("/sim/messages/pilot", 'turn in 10s.'); } }, (leg_duration - 10));
             settimer(func() { hippo_turn(); }, leg_duration);
             top_hippo = 3;
         }

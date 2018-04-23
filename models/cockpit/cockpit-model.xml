@@ -284,6 +284,11 @@ ________________________________________________________________________________
     </axis>
   </animation>
 
+  <!--
+________________________________________________________________________________
+                                                                          CANOPY
+  -->
+
   <!-- ~~~~~~~~~~~~~~~~~~ verrin canopy -->
   <animation>
     <type>rotate</type>
@@ -785,7 +790,7 @@ ________________________________________________________________________________
     <name>fuel-pilot</name>
     <path>Aircraft/bourrasque/instruments/fuel/fuel-model.xml</path>
     <offsets>
-      <x-m>-3.9035</x-m>
+      <x-m>-3.902</x-m>
       <y-m>-.40</y-m>
       <z-m>.55</z-m>
       <heading-deg>0</heading-deg>
@@ -852,8 +857,49 @@ ________________________________________________________________________________
         </greater-than>
       </or>
     </condition>
-
   </model>
+
+
+  <animation>
+    <type>rotate</type>
+    <object-name>tablet-pilot</object-name>
+    <property>surface-positions/rudder-pos-norm</property>
+    <interpolation>
+      <entry><ind>-1</ind><dep>-1</dep></entry>
+      <entry><ind>0</ind><dep>2</dep></entry>
+      <entry><ind>1</ind><dep>5</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-3.3001</x-m>
+      <y-m>0</y-m>
+      <z-m>0.3583</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>tablet-pilot</object-name>
+    <property>/gear/gear[2]/brake-position-norm</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>2</dep></entry>
+      <entry><ind>1</ind><dep>2</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-3.3001</x-m>
+      <y-m>0</y-m>
+      <z-m>0.3583</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
 
   <!--
 ================================================================================
