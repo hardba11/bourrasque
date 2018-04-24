@@ -58,6 +58,8 @@ changelog
     <instruments-norm type="float">0</instruments-norm>
   </lighting>
 
+  <assistance type="bool">0</assistance>
+
 </PropertyList>
 
 

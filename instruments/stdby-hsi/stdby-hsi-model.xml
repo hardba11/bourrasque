@@ -45,15 +45,6 @@ changelog
     <object-name>hsi.knob_vor-emit</object-name>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ transparent
-  <effect>
-    <inherits-from>Effects/model-transparent</inherits-from>
-    <object-name>hsi.box-emit</object-name>
-    <object-name>hsi.knob_course-emit</object-name>
-    <object-name>hsi.knob_hdg-emit</object-name>
-    <object-name>hsi.knob_vor-emit</object-name>
-  </effect> -->
-
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>

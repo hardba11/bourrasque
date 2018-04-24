@@ -30,7 +30,6 @@ var vor_true_to_mag = func() {
     setprop("/instrumentation/nav[1]/heading-magnetic-deg", nav2_tru + (mag_orientation - tru_orientation));
 }
 
-
 var loud_sound = func() {
     var is_internal = getprop("sim/current-view/internal") or 0;
     var canopy_position = getprop("sim/model/canopy-pos-norm") or 0;
@@ -69,7 +68,6 @@ var touchdown_smoke = func() {
     }
 }
 
-
 # /instrumentation/my_aircraft/pfd/controls/hippodrome
 # - 0: desactive
 # - 1: actif
@@ -79,7 +77,6 @@ var touchdown_smoke = func() {
 # - 2: virage en cours : detecter la fin
 # - 3: attendre
 var top_hippo = 0;
-
 var hippo_turn = func() {
     #print("+++ call hippo_turn");
 
@@ -100,72 +97,6 @@ var hippo_turn = func() {
             top_hippo = 2;
         }, 5);
     }
-}
-
-var hippo_loop = func() {
-    hippo_enabled = getprop("/instrumentation/my_aircraft/pfd/controls/hippodrome") or 0;
-    if(hippo_enabled == 1)
-    {
-        var leg_duration = getprop("/instrumentation/my_aircraft/pfd/controls/hippodrome-leg-duration") or 30;
-        if(top_hippo == 0)
-        {
-            #print("+++ activation");
-            top_hippo = 1;
-        }
-        elsif(top_hippo == 1)
-        {
-            #print("+++ top droite");
-            setprop("/sim/messages/pilot", 'starting hippodrom leg, turn in '~ leg_duration ~'s.');
-            settimer(func() { if(getprop("/instrumentation/my_aircraft/pfd/controls/hippodrome")){ setprop("/sim/messages/pilot", 'turn in 10s.'); } }, (leg_duration - 10));
-            settimer(func() { hippo_turn(); }, leg_duration);
-            top_hippo = 3;
-        }
-        elsif(top_hippo == 2)
-        {
-            var heading_bug_error_deg = math.abs(sprintf('%d', getprop("/autopilot/internal/heading-bug-error-deg") or 0));
-            #print("+++ virage ... "~ heading_bug_error_deg);
-            if(heading_bug_error_deg < 2)
-            {
-                #print("+++ fin virage");
-                top_hippo = 1;
-            }
-        }
-    }
-    else
-    {
-        top_hippo = 0;
-    }
-    settimer(hippo_loop, 1);
-}
-
-var bourrasque_slow_loop = func() {
-
-    my_aircraft_functions.event_choose_enabled_cams();
-    my_aircraft_functions.disable_hippodrome_if_ap_not_ok();
-    #my_aircraft_functions.set_max_cloud_layer();
-    vor_true_to_mag();
-
-    settimer(bourrasque_slow_loop, 2);
-}
-
-var bourrasque_loop = func() {
-
-    # setting engine egt celcius from egt farenheit
-    egtf2egtc();
-
-    # setting altimeter kilopascal from inch hg
-    setprop("/instrumentation/altimeter/setting-kpa", (getprop("/instrumentation/altimeter/setting-inhg") * my_aircraft_functions.INHG2HPA));
-
-    # setting true-heading-bug from mag-heading-bug
-    setprop("/instrumentation/my_aircraft/nd/outputs/true-heading-bug-deg", math.mod(getprop("/autopilot/settings/heading-bug-deg") + getprop("/environment/magnetic-variation-deg"), 360));
-
-    # setting sound factor if internal and canopy closed
-    loud_sound();
-
-    # touchdown smoke
-    touchdown_smoke();
-
-    settimer(bourrasque_loop, .1);
 }
 
 var mp_encode = func(list_of_values) {
@@ -279,28 +210,81 @@ var bourrasque_mp_loop_encode = func() {
         refuel_serviceable,
         carrier_equipment]));
 
-    settimer(bourrasque_mp_loop_encode, 2);
 }
-bourrasque_mp_loop_encode();
+
+#===============================================================================
+#                                                                          LOOPS
+
+var hippo_loop = func() {
+    hippo_enabled = getprop("/instrumentation/my_aircraft/pfd/controls/hippodrome") or 0;
+    if(hippo_enabled == 1)
+    {
+        var leg_duration = getprop("/instrumentation/my_aircraft/pfd/controls/hippodrome-leg-duration") or 30;
+        if(top_hippo == 0)
+        {
+            #print("+++ activation");
+            top_hippo = 1;
+        }
+        elsif(top_hippo == 1)
+        {
+            #print("+++ top droite");
+            setprop("/sim/messages/pilot", 'starting hippodrom leg, turn in '~ leg_duration ~'s.');
+            settimer(func() { if(getprop("/instrumentation/my_aircraft/pfd/controls/hippodrome")){ setprop("/sim/messages/pilot", 'turn in 10s.'); } }, (leg_duration - 10));
+            settimer(func() { hippo_turn(); }, leg_duration);
+            top_hippo = 3;
+        }
+        elsif(top_hippo == 2)
+        {
+            var heading_bug_error_deg = math.abs(sprintf('%d', getprop("/autopilot/internal/heading-bug-error-deg") or 0));
+            #print("+++ virage ... "~ heading_bug_error_deg);
+            if(heading_bug_error_deg < 2)
+            {
+                #print("+++ fin virage");
+                top_hippo = 1;
+            }
+        }
+    }
+    else
+    {
+        top_hippo = 0;
+    }
+    settimer(hippo_loop, 1);
+}
+
+var bourrasque_slow_loop = func() {
+
+    bourrasque_mp_loop_encode();
+    my_aircraft_functions.event_choose_enabled_cams();
+    my_aircraft_functions.disable_hippodrome_if_ap_not_ok();
+    #my_aircraft_functions.set_max_cloud_layer();
+    vor_true_to_mag();
+
+    settimer(bourrasque_slow_loop, 2);
+}
+
+var bourrasque_loop = func() {
+
+    # setting engine egt celcius from egt farenheit
+    egtf2egtc();
+
+    # setting altimeter kilopascal from inch hg
+    setprop("/instrumentation/altimeter/setting-kpa", (getprop("/instrumentation/altimeter/setting-inhg") * my_aircraft_functions.INHG2HPA));
+
+    # setting true-heading-bug from mag-heading-bug
+    setprop("/instrumentation/my_aircraft/nd/outputs/true-heading-bug-deg", math.mod(getprop("/autopilot/settings/heading-bug-deg") + getprop("/environment/magnetic-variation-deg"), 360));
+
+    # setting sound factor if internal and canopy closed
+    loud_sound();
+
+    # touchdown smoke
+    touchdown_smoke();
+
+    settimer(bourrasque_loop, .1);
+}
 
 setlistener("/sim/signals/fdm-initialized", bourrasque_loop);
 setlistener("/sim/signals/fdm-initialized", hippo_loop);
 setlistener("/sim/signals/fdm-initialized", bourrasque_slow_loop);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

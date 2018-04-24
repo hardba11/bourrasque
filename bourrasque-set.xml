@@ -389,6 +389,7 @@ changelog
     <!-- ~~~~~~~~~~~~~~~~~~ other tools -->
     <tools>
       <file type="string">tools/trace-loop/trace-loop.nas</file>
+      <file type="string">tools/assistance_to_closest_airport/assistance.nas</file>
     </tools>
 
   </nasal>
