@@ -2,6 +2,56 @@ print("*** LOADING tools - assistance.nas ... ***");
 
 # namespace : tools
 
+#                               ~~~ README ~~~
+#
+# more infos here : https://forum.flightgear.org/viewtopic.php?f=18&t=34137
+#
+# how to install
+# --------------
+#
+# 1- copy this file in a directory (tools/assistance_to_closest_airport for example)
+#
+# 2- add the nasal script in your aircraft -set.xml file :
+#     <nasal>
+#       ... other scripts
+#       <tools>
+#         <file type="string">tools/assistance_to_closest_airport/assistance.nas</file>
+#       </tools>
+#     </nasal>
+#
+# 3- add a new property in the property tree in your aircraft -set.xml file :
+#     <controls>
+#       ... other properties
+#       <assistance type="bool">0</assistance>
+#     </controls>
+#
+# 4- add a button or a menu gui to enable/disable assistance property
+#    example (gui/dialogs/bourrasque-commands.xml) :
+#     <!-- ~~~~~~~~~~~~~~~~~~ assistance -->
+#     <group>
+#       <layout>table</layout>
+#       <halign>left</halign>
+#       <button>
+#         <row>0</row><col>0</col>
+#         <legend>need assistance</legend>
+#         <binding>
+#           <command>property-assign</command>
+#            <property>/controls/assistance</property>
+#           <value>1</value>
+#         </binding>
+#        </button>
+#        <button>
+#          <row>0</row><col>1</col>
+#          <legend>it is ok</legend>
+#          <binding>
+#            <command>property-assign</command>
+#            <property>/controls/assistance</property>
+#            <value>0</value>
+#          </binding>
+#        </button>
+#     </group>
+#
+
 var assistance_zone = [
     {
         'id': 'zone1',
@@ -82,20 +132,9 @@ var assistance_zone = [
     },
 ];
 
-var airport_id = '';
-var atc_speed = 300;
-var atc_alt = 5000;
-var atc_circuit = 'NULL';
-
-var assistance_message_header = '';
-var assistance_message = '';
-var assistance_message_horizontal = '';
-var assistance_message_vertical = '';
-var assistance_message_vitesse = '';
-var assistance_message_bonus = '';
-
+var airport_id  = '';
+var nb_cycle = 1;
 var previous_assistance_message = '';
-var previous_heading = 0;
 
 var assistance_loop = func() {
 
@@ -103,18 +142,22 @@ var assistance_loop = func() {
 
     # end of assistance if landed
     var is_wow = getprop("/gear/gear[0]/wow") or 0;
-    if(is_wow)
+    if(is_wow and (is_enabled == 1))
     {
         is_enabled = 0;
         setprop("/controls/assistance", 0);
+        assistance_message = sprintf("You landed, congratulations, have a good day ! Over.");
+        print(assistance_message);
+        setprop("/sim/messages/atc", assistance_message);
     }
 
     if(is_enabled == 1)
     {
-        var callsign = getprop("/sim/multiplay/callsign") or 'callsig';
-        var heading = getprop("/orientation/heading-magnetic-deg") or 0;
-        var altitude = getprop("/position/altitude-ft") or 0;
-        var speed = getprop("/velocities/airspeed-kt") or 0;
+        # get some info on aircraft
+        var callsign     = getprop("/sim/multiplay/callsign") or 'callsig';
+        var heading      = getprop("/orientation/heading-magnetic-deg") or 0;
+        var altitude     = getprop("/position/altitude-ft") or 0;
+        var speed        = getprop("/velocities/airspeed-kt") or 0;
         var is_gear_down = getprop("/controls/gear/gear-down") or 0;
 
         var qnh = getprop("/environment/pressure-sea-level-inhg") or 0;
@@ -125,23 +168,31 @@ var assistance_loop = func() {
             # on fait ca pour eviter la bascule vers un nouvel aeroport plus proche
             # lorsqu on navigue dans le circuit
             airport_id = getprop("/sim/airport/closest-airport-id") or '';
-            assistance_message = sprintf("%s, I will help you to reach the closest airport : %s, follow my instructions, heading in magnetic, set altitude %.2f inhg",
-                    callsign, airport_id, qnh);
+            assistance_message = sprintf(
+                    "%s, You asked for assistance, I will help you to reach the closest airport : %s",
+                    callsign,
+                    airport_id);
+            print(assistance_message);
+            setprop("/sim/messages/atc", assistance_message);
+
+            assistance_message = sprintf(
+                    "Follow my instructions, heading in magnetic, set altitude %.2f inhg",
+                    qnh);
             print(assistance_message);
             setprop("/sim/messages/atc", assistance_message);
         }
-        if(airport_id != '')
+        else
         {
             # aeroport trouve, on recupere les infos
-            var airport_info = airportinfo(airport_id);
-            var airport_info_name = airport_info.name;
-            var airport_info_lng = airport_info.lon;
-            var airport_info_lat = airport_info.lat;
-            var airport_info_elevation_ft = (3.28 * airport_info.elevation);
+            # get some info on airport
+            var airport_info                = airportinfo(airport_id);
+            var airport_info_name           = airport_info.name;
+            var airport_info_elevation_ft   = (3.28 * airport_info.elevation);
 
             # on choisi la piste la plus longue
+            # get longest runway
             var longest_rwy_id = '';
-            var longest_rwy = 0;
+            var longest_rwy    = 0;
             var runways = airport_info.runways;
             var runway_keys = sort(keys(runways), string.icmp);
             foreach(var rwy_id; runway_keys)
@@ -149,15 +200,17 @@ var assistance_loop = func() {
                 var runway = runways[rwy_id];
                 if(runway.length > longest_rwy)
                 {
-                    longest_rwy = runway.length;
+                    longest_rwy    = runway.length;
                     longest_rwy_id = rwy_id;
                 }
             }
             var airport_info_runway_id = runways[longest_rwy_id];
             var airport_info_heading = airport_info_runway_id.heading;
+            var airport_info_lng     = airport_info_runway_id.lon;
+            var airport_info_lat     = airport_info_runway_id.lat;
 
-            #printf("AIRPORT %s - %s - %s - %s - %s - RUNWAY %s - %s - %s", 
-            #    airport_id, 
+            #printf("DEBUG : AIRPORT %s - %s - %s - %s - %d - RUNWAY %s - %d - %d",
+            #    airport_id,
             #    airport_info_name,
             #    airport_info_lng,
             #    airport_info_lat,
@@ -166,7 +219,7 @@ var assistance_loop = func() {
             #    airport_info_runway_id.length * 3.28,
             #    airport_info_heading
             #);
-
+            #DEBUG : AIRPORT LFRQ - Quimper Pluguffan - -4.1722096 - 47.972947 - 296 - RUNWAY 10 - 7052 - 93
 
             # on recupere les coordonnees de l aeroport et de l avion
             var coord_airport = geo.Coord.new();
@@ -193,10 +246,18 @@ var assistance_loop = func() {
             # vers le nord, les coordonnes de l aeroport sont 0, 0
             # les coordonnees de l avion ont ete transposees dans le nouveau repere
             # on recherche alors dans quelle zone l avion se trouve
-            var in_zone = 0;
-            atc_speed = 300;
-            atc_alt = 5000 + airport_info_elevation_ft;
-            atc_circuit = 'NULL';
+            var aircraft_in_zone = 0;
+            var atc_heading = math.mod((course + 180), 360);
+            var atc_speed   = 300;
+            var atc_alt     = (sprintf('%d', 5000 / 100) + sprintf('%d', airport_info_elevation_ft / 100)) * 100;
+            var atc_circuit = 'NULL';
+            var assistance_message            = '';
+            var assistance_message_header     = sprintf('atc %s, %s.', airport_id, callsign);
+            var assistance_message_horizontal = '';
+            var assistance_message_vertical   = '';
+            var assistance_message_vitesse    = '';
+            var assistance_message_bonus      = '';
+            var l_or_r = (math.mod(course + 360 - heading, 360) > 180) ? 'left' : 'right';
             foreach(var zone; assistance_zone)
             {
                 if((translated_aircraft_lng > zone['top_left_x'])
@@ -204,41 +265,51 @@ var assistance_loop = func() {
                     and (translated_aircraft_lat > zone['bottom_right_y'])
                     and (translated_aircraft_lat < zone['top_left_y']))
                 {
-                    in_zone = 1;
-                    var atc_heading = math.mod(airport_info_heading + zone['heading'], 360);
-                    var l_or_r = (math.mod(atc_heading + 360 - heading, 360) > 180) ? 'left' : 'right';
-                    atc_speed = zone['speed'];
+                    aircraft_in_zone = 1;
+                    atc_heading = math.mod(airport_info_heading + zone['heading'], 360);
+                    atc_speed   = zone['speed'];
+                    atc_alt     = (sprintf('%d', zone['alt'] / 100) + sprintf('%d', airport_info_elevation_ft / 100)) * 100;
                     atc_circuit = zone['circuit'];
-                    atc_alt = zone['alt'] + airport_info_elevation_ft;
+                    l_or_r = (math.mod(atc_heading + 360 - heading, 360) > 180) ? 'left' : 'right';
                     break;
                 }
             }
 
-            assistance_message = '';
-            assistance_message_header = sprintf('atc %s, %s.', airport_id, callsign);
-            assistance_message_horizontal = '';
-            assistance_message_vertical = '';
-            assistance_message_vitesse = '';
-            assistance_message_bonus = '';
-
-            # GESTION DES MESSAGES POUR LA PARTIE HORIZONTALE
+# GESTION DES MESSAGES POUR LA PARTIE HORIZONTALE
             # on gere differemment selon si l avion est dans ou hors zone
-            if(in_zone == 1)
+            if(aircraft_in_zone == 1)
             {
                 # avion en finale
+                # zone final leg :
                 if(atc_circuit == 'final')
                 {
-                    var l_or_r = (math.mod(course + 360 - heading, 360) > 180) ? 'left' : 'right';
-                    assistance_message_horizontal = sprintf('final leg, turn %s heading %03d.', l_or_r, math.mod((course + 180), 360));
+                    # message de correction d alignement avec la piste
+                    # alignment with runway
+                    var correction = math.mod(heading - (airport_info_heading - course + 180), 360);
+                    l_or_r = ((heading - airport_info_heading - course + 180) < 0) ? 'left' : 'right';
+                    assistance_message_horizontal = sprintf('%s leg, align to runway %s, turn %s heading %03d.',
+                            atc_circuit,
+                            rwy_id,
+                            l_or_r,
+                            correction);
                 }
                 # avion dans les autres zones, on va guider l avion pour lui faire faire un circuit
-                elsif(math.cos((heading - atc_heading) * D2R) > math.cos(10 * D2R))
+                elsif(math.cos((heading - atc_heading) * D2R) > math.cos(5 * D2R))
                 {
-                    assistance_message_horizontal = sprintf('maintain heading %03d.', atc_heading);
+                    # autres zones, l avion est au cap correct
+                    # other zones - maintain
+                    assistance_message_horizontal = sprintf('%s leg, maintain heading %03d.',
+                        atc_circuit,
+                        atc_heading);
                 }
                 else
                 {
-                    assistance_message_horizontal = sprintf('turn %s heading %03d.', l_or_r, atc_heading);
+                    # autres zones
+                    # other zones - turn
+                    assistance_message_horizontal = sprintf('%s leg, turn %s heading %03d.',
+                        atc_circuit,
+                        l_or_r,
+                        atc_heading);
                 }
             }
             else
@@ -248,30 +319,34 @@ var assistance_loop = func() {
                 assistance_message_horizontal = sprintf('turn %s heading %03d.', l_or_r, math.mod((course + 180), 360));
             }
 
-            # GESTION DES MESSAGES POUR LA PARTIE VERTICALE
+# GESTION DES MESSAGES POUR LA PARTIE VERTICALE
             # avion en finale
             if(atc_circuit == 'final')
             {
-                assistance_message_vertical = sprintf('begin your descend to land, airport altitude:%d ft.', airport_info_elevation_ft);
+                assistance_message_vertical = sprintf('airport altitude:%d ft.',
+                    airport_info_elevation_ft);
             }
-            elsif(in_zone != 1)
+            elsif(aircraft_in_zone != 1)
             {
                 assistance_message_vertical = '';
             }
             elsif(altitude > (atc_alt + 100))
             {
-                assistance_message_vertical = sprintf('descend to %d ft.', atc_alt);
+                assistance_message_vertical = sprintf('descend to %d ft.',
+                    atc_alt);
             }
             elsif(altitude < (atc_alt - 100))
             {
-                assistance_message_vertical = sprintf('climb to %d ft.', atc_alt);
+                assistance_message_vertical = sprintf('climb to %d ft.',
+                    atc_alt);
             }
             else
             {
-                assistance_message_vertical = sprintf('maintain %d ft.', atc_alt);
+                assistance_message_vertical = sprintf('maintain %d ft.',
+                    atc_alt);
             }
 
-            # GESTION DES MESSAGES POUR LA PARTIE VITESSE
+# GESTION DES MESSAGES POUR LA PARTIE VITESSE
             # avion en finale
             if(atc_circuit == 'final')
             {
@@ -279,15 +354,18 @@ var assistance_loop = func() {
             }
             elsif(speed > (atc_speed + 20))
             {
-                assistance_message_vitesse = sprintf('lower speed to %d kt.', atc_speed);
+                assistance_message_vitesse = sprintf('lower speed to %d kt.',
+                    atc_speed);
             }
             elsif(speed < (atc_speed - 20))
             {
-                assistance_message_vitesse = sprintf('raise speed to %d kt.', atc_speed);
+                assistance_message_vitesse = sprintf('raise speed to %d kt.',
+                    atc_speed);
             }
             else
             {
-                assistance_message_vitesse = sprintf('maintain speed %d kt.', atc_speed);
+                assistance_message_vitesse = sprintf('maintain speed %d kt.',
+                    atc_speed);
             }
 
             if(((atc_circuit == 'downwind') or (atc_circuit == 'base') or (atc_circuit == 'final'))
@@ -296,31 +374,34 @@ var assistance_loop = func() {
                 assistance_message_bonus = 'check gears down.';
             }
 
-            #if(heading != previous_heading)
-            #{
-            #    previous_heading = heading;
-            #}
-
-            assistance_message = sprintf('%s %s %s %s %s', 
-                assistance_message_header, 
-                assistance_message_horizontal, 
-                assistance_message_vertical, 
-                assistance_message_vitesse, 
+# AFFICHAGE DES MESSAGES
+            assistance_message = sprintf('%s %s %s %s %s',
+                assistance_message_header,
+                assistance_message_horizontal,
+                assistance_message_vertical,
+                assistance_message_vitesse,
                 assistance_message_bonus);
 
             print(assistance_message);
-            #if(assistance_message != previous_assistance_message)
-            #{
+            if(assistance_message != previous_assistance_message)
+            {
                 setprop("/sim/messages/atc", assistance_message);
                 previous_assistance_message = assistance_message;
-            #}
+            }
+            elsif(nb_cycle > 10)
+            {
+                nb_cycle = 1;
+                setprop("/sim/messages/atc", assistance_message);
+            }
+            nb_cycle += 1;
         }
     }
     else
     {
+        # assistance disabled
         airport_id = '' ;
     }
-    settimer(assistance_loop, 5);
+    settimer(assistance_loop, 1);
 }
 
 setlistener("/sim/signals/fdm-initialized", assistance_loop);
