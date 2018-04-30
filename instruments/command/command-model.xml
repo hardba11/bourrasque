@@ -37,17 +37,6 @@ changelog
     <object-name>command.rudderTrimNeedle-emit</object-name>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ transparent
-  <effect>
-    <inherits-from>Effects/model-transparent</inherits-from>
-    <object-name>command.box-emit</object-name>
-    <object-name>command.gears-emit</object-name>
-    <object-name>command.parkbrake-emit</object-name>
-    <object-name>command.aileronTrimNeedle-emit</object-name>
-    <object-name>command.pitchTrimNeedle-emit</object-name>
-    <object-name>command.rudderTrimNeedle-emit</object-name>
-  </effect> -->
-
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>

@@ -296,22 +296,24 @@ my_aircraft_functions.event_control_gear(0, 1);
       <name>j</name>
       <desc>Retract Speedbrakes</desc>
       <binding>
-        <command>property-adjust</command>
-        <property>/controls/flight/speedbrake</property>
-        <step type="double">-0.20</step>
-        <min type="double">0</min>
-        <max type="double">1</max>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_airbrake(0);
+          ]]>
+        </script>
       </binding>
     </key>
     <key n="107">
       <name>k</name>
       <desc>Extend Speedbrakes</desc>
       <binding>
-        <command>property-adjust</command>
-        <property>/controls/flight/speedbrake</property>
-        <step type="double">0.20</step>
-        <min type="double">0</min>
-        <max type="double">1</max>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_airbrake(1);
+          ]]>
+        </script>
       </binding>
     </key>
 

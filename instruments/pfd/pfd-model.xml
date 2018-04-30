@@ -1564,10 +1564,12 @@ instrument_pfd.event_click_hold_autopilot();
       <button>0</button>
       <repeatable>false</repeatable>
       <binding>
-        <command>property-cycle</command>
-        <property>/autopilot/locks/speed</property>
-        <value type="string">speed-with-throttle</value>
-        <value type="string"></value>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+instrument_pfd.event_click_lock_speed(-1);
+          ]]>
+        </script>
       </binding>
       <binding>
         <command>property-toggle</command>
@@ -1590,33 +1592,25 @@ instrument_pfd.event_click_hold_autopilot();
     <condition>
       <and>
         <property>systems/electrical/bus/avionics</property>
-        <equals>
-          <property>/autopilot/locks/speed</property>
-          <value>speed-with-throttle</value>
-        </equals>
+        <or>
+          <and>
+            <equals>
+              <property>/autopilot/locks/speed</property>
+              <value>speed-with-throttle</value>
+            </equals>
+          </and>
+          <and>
+            <property>/instrumentation/my_aircraft/command_h/blink_alert</property>
+            <property>/instrumentation/my_aircraft/pfd/controls/lock-speed-stdby</property>
+            <not-equals>
+              <property>/autopilot/locks/speed</property>
+              <value>speed-with-throttle</value>
+            </not-equals>
+          </and>
+        </or>
       </and>
     </condition>
   </animation>
-
-  <!-- ~~~~~~~~~~~~~~~~~~ visibility text speed knots set -->
-  <!--
-  <animation>
-    <type>select</type>
-    <object-name>SPD-annun</object-name>
-    <condition>
-      <or>
-        <equals>
-          <property>/autopilot/locks/altitude</property>
-          <value>FLC</value>
-        </equals>
-        <equals>
-          <property>/autopilot/locks/altitude</property>
-          <value>VFLC</value>
-        </equals>
-      </or>
-    </condition>
-  </animation>
-  -->
 
   <!-- ~~~~~~~~~~~~~~~~~~~~~~ control target vs -->
   <animation>
@@ -1805,88 +1799,6 @@ ________________________________________________________________________________
       <height type="int">64</height>
     </font-resolution>
   </text>
-
-  <!--
-  <text>
-    <name>Valt-display</name>
-    <offsets>
-      <x-m>0.005</x-m>
-      <y-m>0.043</y-m>
-      <z-m>0.086</z-m>
-    </offsets>
-    <alignment>right-center</alignment>
-    <axis-alignment>yz-plane</axis-alignment>
-    <type type="string">number-value</type>
-    <property>/instrumentation/gps/wp/wp[1]/altitude-ft</property>
-    <format>%5.0f</format>
-    <font>helvetica_bold.txf</font>
-    <character-size>0.006</character-size>
-    <character-aspect-ratio type="double">1.3</character-aspect-ratio>
-    <font-resolution>
-      <width type="int">64</width>
-      <height type="int">64</height>
-    </font-resolution>
-  </text>
-    <animation>
-    <type>select</type>
-    <object-name>Valt-display</object-name>
-    <condition>
-      <equals>
-        <property>autopilot/locks/altitude</property>
-        <value>VALT</value>
-      </equals>
-    </condition>
-  </animation>
-  <text>
-    <name>inhg</name>
-    <offsets>
-      <x-m>0.005</x-m>
-      <y-m>0.057</y-m>
-      <z-m>0.003</z-m>
-    </offsets>
-    <alignment>center-center</alignment>
-    <axis-alignment>yz-plane</axis-alignment>
-    <type type="string">number-value</type>
-    <property>/instrumentation/altimeter/setting-inhg</property>
-    <format>%2.2f</format>
-    <font>helvetica_bold.txf</font>
-    <character-size>0.007</character-size>
-    <character-aspect-ratio type="double">1.3</character-aspect-ratio>
-    <font-resolution>
-      <width type="int">64</width>
-      <height type="int">64</height>
-    </font-resolution>
-  </text>
-  <text>
-    <name>ALT-min</name>
-    <offsets>
-      <x-m>0.005</x-m>
-      <y-m>0.062</y-m>
-      <z-m>0.093</z-m>
-    </offsets>
-    <alignment>left-bottom</alignment>
-    <axis-alignment>yz-plane</axis-alignment>
-    <type>literal</type>
-    <text>00</text>
-    <font>helvetica_bold.txf</font>
-    <character-size>0.007</character-size>
-    <character-aspect-ratio type="double">1.2</character-aspect-ratio>
-    <font-resolution>
-      <width type="int">64</width>
-      <height type="int">64</height>
-    </font-resolution>
-  </text>
-  <animation>
-    <type>select</type>
-    <object-name>Ralt</object-name>
-    <condition>
-      <less-than>
-        <property>/position/altitude-agl-ft</property>
-        <property>/autopilot/route-manager/min-lock-altitude-agl-ft</property>
-      </less-than>
-    </condition>
-  </animation>
-  -->
 
   <!--
 ================================================================================

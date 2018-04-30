@@ -35,6 +35,8 @@
     <hippodrome type="bool">0</hippodrome>
     <hippodrome-leg-duration type="int">300</hippodrome-leg-duration>
 
+    <lock-speed-stdby type="bool">0</lock-speed-stdby>
+
   </controls>
 
 </PropertyList>

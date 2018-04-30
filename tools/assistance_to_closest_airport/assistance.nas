@@ -4,6 +4,9 @@ print("*** LOADING tools - assistance.nas ... ***");
 
 #                               ~~~ README ~~~
 #
+#
+# ORIGINAL FILE : see bourrasque : https://github.com/hardba11/bourrasque
+#
 # more infos here : https://forum.flightgear.org/viewtopic.php?f=18&t=34137
 #
 # how to install
@@ -36,19 +39,19 @@ print("*** LOADING tools - assistance.nas ... ***");
 #         <legend>need assistance</legend>
 #         <binding>
 #           <command>property-assign</command>
-#            <property>/controls/assistance</property>
+#           <property>/controls/assistance</property>
 #           <value>1</value>
 #         </binding>
-#        </button>
-#        <button>
-#          <row>0</row><col>1</col>
-#          <legend>it is ok</legend>
-#          <binding>
-#            <command>property-assign</command>
-#            <property>/controls/assistance</property>
-#            <value>0</value>
-#          </binding>
-#        </button>
+#       </button>
+#       <button>
+#         <row>0</row><col>1</col>
+#         <legend>it is ok</legend>
+#         <binding>
+#           <command>property-assign</command>
+#           <property>/controls/assistance</property>
+#           <value>0</value>
+#         </binding>
+#       </button>
 #     </group>
 #
 

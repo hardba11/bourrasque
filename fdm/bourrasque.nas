@@ -42,29 +42,38 @@ var buffer_wow = [0, 0, 0]; # keep value of wow between cycles
 var cycle_wow  = [0, 2, 2]; # number of nasal cycles for smoking
 var touchdown_smoke = func() {
     var groundspeed  = getprop("/velocities/groundspeed-kt") or 0;
-    if(groundspeed > 80)
+    for(var i = 1; i <= 2; i += 1)
     {
-        for(var i = 1; i <= 2; i += 1)
+        wow_gear[i] = getprop("/gear/gear["~i~"]/wow") or 0;
+
+        # if last wow value was 0 (airborn last cycle) and current wow value is 1, begin smoke
+        if((buffer_wow[i] == 0)
+            and (wow_gear[i] == 1)
+            and (is_smoke[i] == 0)
+            and (groundspeed > 80))
         {
-            wow_gear[i] = getprop("/gear/gear["~i~"]/wow") or 0;
+            is_smoke[i] = 1;
+        }
+        buffer_wow[i] = wow_gear[i];
 
-            # if last wow value was 0 (airborn last cycle) and current wow value is 1, begin smoke
-            if((buffer_wow[1] == 0) and (wow_gear[1] == 1) and (is_smoke[1] == 0)) { is_smoke[1] = 1; }
-            buffer_wow[i] = wow_gear[i];
-
-            if(is_smoke[i] == 1)
+        if(is_smoke[i] == 1)
+        {
+            # smoking during 2 cycles
+            if(cycle_wow[i] > 0)
             {
-                # smoking during 2 cycles
-                if(cycle_wow[i] > 0) { cycle_wow[i] -= 1; }
-                else                 { is_smoke[i] = 0;   }
+                cycle_wow[i] -= 1;
             }
             else
             {
-                # end of cycle, stopping smoke and reinit
-                cycle_wow[i] = 2;
+                is_smoke[i] = 0;
             }
-            setprop("/gear/gear["~i~"]/tyre-smoke", is_smoke[i]);
         }
+        else
+        {
+            # end of cycle, stopping smoke and reinit
+            cycle_wow[i] = 2;
+        }
+        setprop("/gear/gear["~i~"]/tyre-smoke", is_smoke[i]);
     }
 }
 

@@ -70,6 +70,7 @@ var event_click_hold_autopilot = func()
     setprop("/autopilot/locks/altitude",                    'altitude-hold');
     setprop("/autopilot/locks/speed",                       'speed-with-throttle');
     setprop("/autopilot/locks/heading",                     'dg-heading-hold');
+    setprop("/instrumentation/my_aircraft/pfd/controls/lock-speed-stdby", 1);
 
     settimer(func() { setprop("/instrumentation/my_aircraft/pfd/controls/hold-blink", 0); }, .2);
     settimer(func() { setprop("/instrumentation/my_aircraft/pfd/controls/hold-blink", 1); }, .4);
@@ -84,9 +85,32 @@ var event_click_disengage_autopilot = func()
     setprop("/autopilot/locks/altitude", '');
     setprop("/autopilot/locks/speed",    '');
     setprop("/autopilot/locks/heading",  '');
+    setprop("/instrumentation/my_aircraft/pfd/controls/lock-speed-stdby", 0);
 
     settimer(func() { setprop("/instrumentation/my_aircraft/pfd/controls/disengage-blink", 0); }, 0.2);
     settimer(func() { setprop("/instrumentation/my_aircraft/pfd/controls/disengage-blink", 1); }, 0.4);
     settimer(func() { setprop("/instrumentation/my_aircraft/pfd/controls/disengage-blink", 0); }, 0.6);
 }
 
+var event_click_lock_speed = func(do_enable)
+{
+    var is_ap_speed_locked = getprop("/autopilot/locks/speed") or '';
+    if(do_enable == -1)
+    {
+        # do_enable == -1 : toggle
+        do_enable = (is_ap_speed_locked == '') ? 1 : 0;
+    }
+
+    if(do_enable == 1)
+    {
+        setprop("/autopilot/locks/speed", 'speed-with-throttle');
+        setprop("/instrumentation/my_aircraft/pfd/controls/lock-speed-stdby", 1);
+    }
+    else
+    {
+        setprop("/autopilot/locks/speed", '');
+        setprop("/instrumentation/my_aircraft/pfd/controls/lock-speed-stdby", 0);
+    }
+
+
+}
