@@ -26,6 +26,7 @@ changelog
     <!-- fixed parts -->
     <object-name>cockpit</object-name>
     <object-name>cockpit.accessoires</object-name>
+    <object-name>cockpit.joint</object-name>
     <object-name>support_hotas_L</object-name>
     <object-name>support_hotas_R</object-name>
     <!-- mobiles parts -->
@@ -59,6 +60,7 @@ changelog
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-shadow</inherits-from>
     <object-name>cockpit</object-name>
     <object-name>cockpit.accessoires</object-name>
+    <object-name>cockpit.joint</object-name>
     <object-name>support_hotas_L</object-name>
     <object-name>support_hotas_R</object-name>
     <object-name>hotas_L</object-name>
@@ -71,6 +73,7 @@ changelog
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
     <object-name>cockpit</object-name>
     <object-name>cockpit.accessoires</object-name>
+    <object-name>cockpit.joint</object-name>
     <object-name>support_hotas_L</object-name>
     <object-name>support_hotas_R</object-name>
     <object-name>hotas_L</object-name>
@@ -99,9 +102,9 @@ changelog
     <type>material</type>
     <object-name>hud_int</object-name>
     <emission>
-      <red>0.9</red>
-      <green>0.1</green>
-      <blue>0.7</blue>
+      <red>0.45</red>
+      <green>0.05</green>
+      <blue>0.35</blue>
     </emission>
   </animation>
 
@@ -398,7 +401,7 @@ ________________________________________________________________________________
     <offsets>
       <x-m>-3.889</x-m>
       <y-m>0</y-m>
-      <z-m>.968</z-m>
+      <z-m>.96</z-m>
     </offsets>
   </model>
 
@@ -410,12 +413,12 @@ ________________________________________________________________________________
     <name>magcompass-pilot</name>
     <path>Aircraft/bourrasque/instruments/magcompass/magcompass-model.xml</path>
     <offsets>
-      <x-m>-4.012</x-m>
+      <x-m>-3.94</x-m>
       <y-m>-.15</y-m>
-      <z-m>.87</z-m>
+      <z-m>.91</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
-      <pitch-deg>-30</pitch-deg>
+      <pitch-deg>-17</pitch-deg>
     </offsets>
   </model>
 
@@ -427,12 +430,12 @@ ________________________________________________________________________________
     <name>turn-pilot</name>
     <path>Aircraft/bourrasque/instruments/turn/turn-model.xml</path>
     <offsets>
-      <x-m>-3.99</x-m>
+      <x-m>-3.925</x-m>
       <y-m>.15</y-m>
-      <z-m>.875</z-m>
+      <z-m>.92</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
-      <pitch-deg>-30</pitch-deg>
+      <pitch-deg>-17</pitch-deg>
     </offsets>
   </model>
 
@@ -479,9 +482,9 @@ ________________________________________________________________________________
     <name>nd-pilot</name>
     <path>Aircraft/bourrasque/instruments/nd/nd-model.xml</path>
     <offsets>
-      <x-m>-3.88</x-m>
+      <x-m>-3.87</x-m>
       <y-m>0</y-m>
-      <z-m>0.825</z-m>
+      <z-m>0.81</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
       <pitch-deg>-27</pitch-deg>
@@ -496,7 +499,7 @@ ________________________________________________________________________________
     <name>pfd-pilot</name>
     <path>Aircraft/bourrasque/instruments/pfd/pfd-model.xml</path>
     <offsets>
-      <x-m>-3.93</x-m>
+      <x-m>-3.94</x-m>
       <y-m>.205</y-m>
       <z-m>0.73</z-m>
       <heading-deg>0</heading-deg>
@@ -513,7 +516,7 @@ ________________________________________________________________________________
     <name>sfd-pilot</name>
     <path>Aircraft/bourrasque/instruments/sfd/sfd-model.xml</path>
     <offsets>
-      <x-m>-3.93</x-m>
+      <x-m>-3.94</x-m>
       <y-m>-.205</y-m>
       <z-m>0.73</z-m>
       <heading-deg>0</heading-deg>
@@ -530,7 +533,7 @@ ________________________________________________________________________________
     <name>stdby-ai-pilot</name>
     <path>Aircraft/bourrasque/instruments/stdby-ai/stdby-ai-model.xml</path>
     <offsets>
-      <x-m>-3.935</x-m>
+      <x-m>-3.925</x-m>
       <y-m>-.06</y-m>
       <z-m>0.54</z-m>
       <heading-deg>0</heading-deg>
@@ -547,9 +550,9 @@ ________________________________________________________________________________
     <name>stdby-vsi-pilot</name>
     <path>Aircraft/bourrasque/instruments/stdby-vsi/stdby-vsi-model.xml</path>
     <offsets>
-      <x-m>-3.93</x-m>
+      <x-m>-3.925</x-m>
       <y-m>0</y-m>
-      <z-m>.543</z-m>
+      <z-m>.54</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
       <pitch-deg>-30</pitch-deg>
@@ -564,7 +567,7 @@ ________________________________________________________________________________
     <name>stdby-alt-pilot</name>
     <path>Aircraft/bourrasque/instruments/stdby-alt/stdby-alt-model.xml</path>
     <offsets>
-      <x-m>-3.935</x-m>
+      <x-m>-3.925</x-m>
       <y-m>.06</y-m>
       <z-m>0.54</z-m>
       <heading-deg>0</heading-deg>
@@ -581,7 +584,7 @@ ________________________________________________________________________________
     <name>stdby-hsi-pilot</name>
     <path>Aircraft/bourrasque/instruments/stdby-hsi/stdby-hsi-model.xml</path>
     <offsets>
-      <x-m>-3.885</x-m>
+      <x-m>-3.875</x-m>
       <y-m>.06</y-m>
       <z-m>0.46</z-m>
       <heading-deg>0</heading-deg>
@@ -598,9 +601,9 @@ ________________________________________________________________________________
     <name>aoa-pilot</name>
     <path>Aircraft/bourrasque/instruments/aoa/aoa-model.xml</path>
     <offsets>
-      <x-m>-3.88</x-m>
+      <x-m>-3.875</x-m>
       <y-m>0</y-m>
-      <z-m>.463</z-m>
+      <z-m>.46</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
       <pitch-deg>-30</pitch-deg>
@@ -615,7 +618,7 @@ ________________________________________________________________________________
     <name>stdby-asi-pilot</name>
     <path>Aircraft/bourrasque/instruments/stdby-asi/stdby-asi-model.xml</path>
     <offsets>
-      <x-m>-3.885</x-m>
+      <x-m>-3.875</x-m>
       <y-m>-.06</y-m>
       <z-m>0.46</z-m>
       <heading-deg>0</heading-deg>
@@ -637,7 +640,7 @@ ________________________________________________________________________________
       <z-m>.55</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
-      <pitch-deg>-30</pitch-deg>
+      <pitch-deg>-28</pitch-deg>
     </offsets>
   </model>
 
@@ -740,7 +743,7 @@ ________________________________________________________________________________
     <path>Aircraft/bourrasque/instruments/electricals/electricals-model.xml</path>
     <offsets>
       <x-m>-3.31</x-m>
-      <y-m>.409</y-m>
+      <y-m>.419</y-m>
       <z-m>.438</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
@@ -757,7 +760,7 @@ ________________________________________________________________________________
     <path>Aircraft/bourrasque/instruments/engines/engine0-model.xml</path>
     <offsets>
       <x-m>-3.214</x-m>
-      <y-m>.368</y-m>
+      <y-m>.378</y-m>
       <z-m>.467</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
@@ -774,7 +777,7 @@ ________________________________________________________________________________
     <path>Aircraft/bourrasque/instruments/engines/engine1-model.xml</path>
     <offsets>
       <x-m>-3.214</x-m>
-      <y-m>.451</y-m>
+      <y-m>.461</y-m>
       <z-m>.467</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
@@ -795,7 +798,7 @@ ________________________________________________________________________________
       <z-m>.55</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
-      <pitch-deg>-30</pitch-deg>
+      <pitch-deg>-28</pitch-deg>
     </offsets>
   </model>
 
@@ -808,7 +811,7 @@ ________________________________________________________________________________
     <path>Aircraft/bourrasque/instruments/command/command-model.xml</path>
     <offsets>
       <x-m>-3.75</x-m>
-      <y-m>-.419086</y-m>
+      <y-m>-.42</y-m>
       <z-m>.44</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
@@ -944,9 +947,26 @@ ________________________________________________________________________________
     <name>command_h-copilot</name>
     <path>Aircraft/bourrasque/instruments/command_h/command_h-backseat-model.xml</path>
     <offsets>
-      <x-m>-2.48</x-m>
+      <x-m>-2.439</x-m>
       <y-m>0</y-m>
-      <z-m>1.04</z-m>
+      <z-m>1.03</z-m>
+    </offsets>
+  </model>
+
+  <!--
+________________________________________________________________________________
+                                                                MAGNETIC COMPASS
+  -->
+  <model>
+    <name>magcompass-copilot</name>
+    <path>Aircraft/bourrasque/instruments/magcompass/magcompass-model.xml</path>
+    <offsets>
+      <x-m>-2.49</x-m>
+      <y-m>-.15</y-m>
+      <z-m>.98</z-m>
+      <heading-deg>0</heading-deg>
+      <roll-deg>0</roll-deg>
+      <pitch-deg>-17</pitch-deg>
     </offsets>
   </model>
 
@@ -958,12 +978,12 @@ ________________________________________________________________________________
     <name>nd-copilot</name>
     <path>Aircraft/bourrasque/instruments/nd/nd-model.xml</path>
     <offsets>
-      <x-m>-2.42</x-m>
+      <x-m>-2.41</x-m>
       <y-m>0</y-m>
-      <z-m>0.9</z-m>
+      <z-m>0.88</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
-      <pitch-deg>-32</pitch-deg>
+      <pitch-deg>-27</pitch-deg>
     </offsets>
   </model>
 
@@ -975,12 +995,12 @@ ________________________________________________________________________________
     <name>pfd-copilot</name>
     <path>Aircraft/bourrasque/instruments/pfd/pfd-model.xml</path>
     <offsets>
-      <x-m>-2.44</x-m>
-      <y-m>.23</y-m>
-      <z-m>0.83</z-m>
+      <x-m>-2.49</x-m>
+      <y-m>.205</y-m>
+      <z-m>0.8</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
-      <pitch-deg>-20</pitch-deg>
+      <pitch-deg>-18</pitch-deg>
     </offsets>
   </model>
 
@@ -992,12 +1012,12 @@ ________________________________________________________________________________
     <name>sfd-copilot</name>
     <path>Aircraft/bourrasque/instruments/sfd/sfd-model.xml</path>
     <offsets>
-      <x-m>-2.44</x-m>
-      <y-m>-.23</y-m>
-      <z-m>0.83</z-m>
+      <x-m>-2.49</x-m>
+      <y-m>-.205</y-m>
+      <z-m>0.8</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
-      <pitch-deg>-20</pitch-deg>
+      <pitch-deg>-18</pitch-deg>
     </offsets>
   </model>
 
@@ -1009,12 +1029,12 @@ ________________________________________________________________________________
     <name>stdby-ai-copilot</name>
     <path>Aircraft/bourrasque/instruments/stdby-ai/stdby-ai-model.xml</path>
     <offsets>
-      <x-m>-2.47</x-m>
+      <x-m>-2.475</x-m>
       <y-m>-.06</y-m>
-      <z-m>0.60</z-m>
+      <z-m>0.61</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
-      <pitch-deg>-25</pitch-deg>
+      <pitch-deg>-30</pitch-deg>
     </offsets>
   </model>
 
@@ -1026,9 +1046,9 @@ ________________________________________________________________________________
     <name>stdby-vsi-copilot</name>
     <path>Aircraft/bourrasque/instruments/stdby-vsi/stdby-vsi-model.xml</path>
     <offsets>
-      <x-m>-2.47</x-m>
+      <x-m>-2.475</x-m>
       <y-m>0</y-m>
-      <z-m>0.60</z-m>
+      <z-m>.61</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
       <pitch-deg>-30</pitch-deg>
@@ -1043,9 +1063,9 @@ ________________________________________________________________________________
     <name>stdby-alt-copilot</name>
     <path>Aircraft/bourrasque/instruments/stdby-alt/stdby-alt-model.xml</path>
     <offsets>
-      <x-m>-2.47</x-m>
+      <x-m>-2.475</x-m>
       <y-m>.06</y-m>
-      <z-m>0.60</z-m>
+      <z-m>0.61</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
       <pitch-deg>-30</pitch-deg>
@@ -1060,15 +1080,14 @@ ________________________________________________________________________________
     <name>stdby-hsi-copilot</name>
     <path>Aircraft/bourrasque/instruments/stdby-hsi/stdby-hsi-model.xml</path>
     <offsets>
-      <x-m>-2.42</x-m>
+      <x-m>-2.425</x-m>
       <y-m>.06</y-m>
-      <z-m>0.5</z-m>
+      <z-m>0.53</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
       <pitch-deg>-30</pitch-deg>
     </offsets>
   </model>
-
 
   <!--
 ________________________________________________________________________________
@@ -1078,9 +1097,9 @@ ________________________________________________________________________________
     <name>aoa-copilot</name>
     <path>Aircraft/bourrasque/instruments/aoa/aoa-model.xml</path>
     <offsets>
-      <x-m>-2.42</x-m>
+      <x-m>-2.425</x-m>
       <y-m>0</y-m>
-      <z-m>0.5</z-m>
+      <z-m>.53</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
       <pitch-deg>-30</pitch-deg>
@@ -1095,9 +1114,9 @@ ________________________________________________________________________________
     <name>stdby-asi-copilot</name>
     <path>Aircraft/bourrasque/instruments/stdby-asi/stdby-asi-model.xml</path>
     <offsets>
-      <x-m>-2.42</x-m>
+      <x-m>-2.425</x-m>
       <y-m>-.06</y-m>
-      <z-m>0.5</z-m>
+      <z-m>0.53</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
       <pitch-deg>-30</pitch-deg>
@@ -1112,29 +1131,12 @@ ________________________________________________________________________________
     <name>chrono-copilot</name>
     <path>Aircraft/bourrasque/instruments/chrono/chrono-model.xml</path>
     <offsets>
-      <x-m>-2.435</x-m>
+      <x-m>-2.4535</x-m>
       <y-m>.40</y-m>
-      <z-m>0.62</z-m>
+      <z-m>.62</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
-      <pitch-deg>-15</pitch-deg>
-    </offsets>
-  </model>
-
-  <!--
-________________________________________________________________________________
-                                                                MAGNETIC COMPASS
-  -->
-  <model>
-    <name>magcompass-copilot</name>
-    <path>Aircraft/bourrasque/instruments/magcompass/magcompass-model.xml</path>
-    <offsets>
-      <x-m>-2.445</x-m>
-      <y-m>.48</y-m>
-      <z-m>0.61</z-m>
-      <heading-deg>0</heading-deg>
-      <roll-deg>0</roll-deg>
-      <pitch-deg>-15</pitch-deg>
+      <pitch-deg>-28</pitch-deg>
     </offsets>
   </model>
 
@@ -1147,7 +1149,7 @@ ________________________________________________________________________________
     <name>com-1-copilot</name>
     <path>Aircraft/bourrasque/instruments/com/ctl22-model1.xml</path>
     <offsets>
-      <x-m>-2.35</x-m>
+      <x-m>-2.38</x-m>
       <y-m>.365</y-m>
       <z-m>.55</z-m>
       <heading-deg>0</heading-deg>
@@ -1159,7 +1161,7 @@ ________________________________________________________________________________
     <name>nav-1-copilot</name>
     <path>Aircraft/bourrasque/instruments/nav/ctl32-model1.xml</path>
     <offsets>
-      <x-m>-2.35</x-m>
+      <x-m>-2.38</x-m>
       <y-m>.425</y-m>
       <z-m>.55</z-m>
       <heading-deg>0</heading-deg>
@@ -1173,7 +1175,7 @@ ________________________________________________________________________________
     <name>com-2-copilot</name>
     <path>Aircraft/bourrasque/instruments/com/ctl22-model2.xml</path>
     <offsets>
-      <x-m>-2.285</x-m>
+      <x-m>-2.315</x-m>
       <y-m>.365</y-m>
       <z-m>.525</z-m>
       <heading-deg>0</heading-deg>
@@ -1185,7 +1187,7 @@ ________________________________________________________________________________
     <name>nav-2-copilot</name>
     <path>Aircraft/bourrasque/instruments/nav/ctl32-model2.xml</path>
     <offsets>
-      <x-m>-2.285</x-m>
+      <x-m>-2.315</x-m>
       <y-m>.425</y-m>
       <z-m>.525</z-m>
       <heading-deg>0</heading-deg>
@@ -1202,7 +1204,7 @@ ________________________________________________________________________________
     <name>transponder-copilot</name>
     <path>Aircraft/bourrasque/instruments/transponder/ctl92-model.xml</path>
     <offsets>
-      <x-m>-2.22</x-m>
+      <x-m>-2.25</x-m>
       <y-m>.365</y-m>
       <z-m>.5</z-m>
       <heading-deg>0</heading-deg>
@@ -1219,7 +1221,7 @@ ________________________________________________________________________________
     <name>adf-copilot</name>
     <path>Aircraft/bourrasque/instruments/adf/ctl62-model.xml</path>
     <offsets>
-      <x-m>-2.22</x-m>
+      <x-m>-2.25</x-m>
       <y-m>.425</y-m>
       <z-m>.5</z-m>
       <heading-deg>0</heading-deg>
@@ -1236,12 +1238,12 @@ ________________________________________________________________________________
     <name>electricals-copilot</name>
     <path>Aircraft/bourrasque/instruments/electricals/electricals-model.xml</path>
     <offsets>
-      <x-m>-2.0</x-m>
-      <y-m>.409</y-m>
-      <z-m>.48</z-m>
+      <x-m>-1.86</x-m>
+      <y-m>.419</y-m>
+      <z-m>.508</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
-      <pitch-deg>-100</pitch-deg>
+      <pitch-deg>-107</pitch-deg>
     </offsets>
   </model>
 
@@ -1253,12 +1255,12 @@ ________________________________________________________________________________
     <name>engine-0-copilot</name>
     <path>Aircraft/bourrasque/instruments/engines/engine0-model.xml</path>
     <offsets>
-      <x-m>-1.9</x-m>
-      <y-m>.368</y-m>
-      <z-m>.5</z-m>
+      <x-m>-1.764</x-m>
+      <y-m>.378</y-m>
+      <z-m>.537</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
-      <pitch-deg>-100</pitch-deg>
+      <pitch-deg>-107</pitch-deg>
     </offsets>
   </model>
 
@@ -1270,12 +1272,12 @@ ________________________________________________________________________________
     <name>engine-1-copilot</name>
     <path>Aircraft/bourrasque/instruments/engines/engine1-model.xml</path>
     <offsets>
-      <x-m>-1.9</x-m>
-      <y-m>.451</y-m>
-      <z-m>.5</z-m>
+      <x-m>-1.764</x-m>
+      <y-m>.461</y-m>
+      <z-m>.537</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
-      <pitch-deg>-100</pitch-deg>
+      <pitch-deg>-107</pitch-deg>
     </offsets>
   </model>
 
@@ -1287,12 +1289,12 @@ ________________________________________________________________________________
     <name>fuel-copilot</name>
     <path>Aircraft/bourrasque/instruments/fuel/fuel-model.xml</path>
     <offsets>
-      <x-m>-2.435</x-m>
-      <y-m>-.42</y-m>
-      <z-m>0.62</z-m>
+      <x-m>-2.452</x-m>
+      <y-m>-.40</y-m>
+      <z-m>.62</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
-      <pitch-deg>-15</pitch-deg>
+      <pitch-deg>-28</pitch-deg>
     </offsets>
   </model>
 
@@ -1304,9 +1306,9 @@ ________________________________________________________________________________
     <name>command-copilot</name>
     <path>Aircraft/bourrasque/instruments/command/command-model.xml</path>
     <offsets>
-      <x-m>-2.3127</x-m>
-      <y-m>-.4318</y-m>
-      <z-m>.53</z-m>
+      <x-m>-2.3</x-m>
+      <y-m>-.42</y-m>
+      <z-m>.51</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
       <pitch-deg>-69</pitch-deg>
@@ -1321,12 +1323,12 @@ ________________________________________________________________________________
     <name>light-copilot</name>
     <path>Aircraft/bourrasque/instruments/light/light-model.xml</path>
     <offsets>
-      <x-m>-1.95</x-m>
-      <y-m>-.427</y-m>
-      <z-m>.48</z-m>
+      <x-m>-1.78</x-m>
+      <y-m>-.42</y-m>
+      <z-m>.53</z-m>
       <heading-deg>0</heading-deg>
       <roll-deg>0</roll-deg>
-      <pitch-deg>-100</pitch-deg>
+      <pitch-deg>-107</pitch-deg>
     </offsets>
   </model>
 
