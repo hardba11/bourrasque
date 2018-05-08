@@ -43,7 +43,9 @@ var pfd = func()
         autopilot_to_label[getprop("/autopilot/locks/altitude")]
     );
 
-    settimer(pfd, 1);
+    var time_speed = getprop("/sim/speed-up") or 1;
+    var loop_speed = (time_speed == 1) ? 1 : 4 * time_speed;
+    settimer(pfd, loop_speed);
 }
 
 setlistener("/sim/signals/fdm-initialized", pfd);
@@ -72,9 +74,11 @@ var event_click_hold_autopilot = func()
     setprop("/autopilot/locks/heading",                     'dg-heading-hold');
     setprop("/instrumentation/my_aircraft/pfd/controls/lock-speed-stdby", 1);
 
-    settimer(func() { setprop("/instrumentation/my_aircraft/pfd/controls/hold-blink", 0); }, .2);
-    settimer(func() { setprop("/instrumentation/my_aircraft/pfd/controls/hold-blink", 1); }, .4);
-    settimer(func() { setprop("/instrumentation/my_aircraft/pfd/controls/hold-blink", 0); }, .6);
+    var time_speed = getprop("/sim/speed-up") or 1;
+    var loop_speed = (time_speed == 1) ? .1 : 2 * time_speed;
+    settimer(func() { setprop("/instrumentation/my_aircraft/pfd/controls/hold-blink", 0); }, loop_speed * 2);
+    settimer(func() { setprop("/instrumentation/my_aircraft/pfd/controls/hold-blink", 1); }, loop_speed * 4);
+    settimer(func() { setprop("/instrumentation/my_aircraft/pfd/controls/hold-blink", 0); }, loop_speed * 6);
 }
 
 var event_click_disengage_autopilot = func()
@@ -87,9 +91,11 @@ var event_click_disengage_autopilot = func()
     setprop("/autopilot/locks/heading",  '');
     setprop("/instrumentation/my_aircraft/pfd/controls/lock-speed-stdby", 0);
 
-    settimer(func() { setprop("/instrumentation/my_aircraft/pfd/controls/disengage-blink", 0); }, 0.2);
-    settimer(func() { setprop("/instrumentation/my_aircraft/pfd/controls/disengage-blink", 1); }, 0.4);
-    settimer(func() { setprop("/instrumentation/my_aircraft/pfd/controls/disengage-blink", 0); }, 0.6);
+    var time_speed = getprop("/sim/speed-up") or 1;
+    var loop_speed = (time_speed == 1) ? .1 : 2 * time_speed;
+    settimer(func() { setprop("/instrumentation/my_aircraft/pfd/controls/disengage-blink", 0); }, loop_speed * 2);
+    settimer(func() { setprop("/instrumentation/my_aircraft/pfd/controls/disengage-blink", 1); }, loop_speed * 4);
+    settimer(func() { setprop("/instrumentation/my_aircraft/pfd/controls/disengage-blink", 0); }, loop_speed * 6);
 }
 
 var event_click_lock_speed = func(do_enable)

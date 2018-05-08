@@ -363,7 +363,9 @@ var SFD_EICAS = {
             me.ff_engine1_text.setText(sprintf('%.1f', ff1 * 0.0508));
 
         }
-        settimer(func() { me.update(); }, .05);
+        var time_speed = getprop("/sim/speed-up") or 1;
+        var loop_speed = (time_speed == 1) ? .05 : 2 * time_speed;
+        settimer(func() { me.update(); }, loop_speed);
     }
 };
 

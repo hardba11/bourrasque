@@ -421,7 +421,9 @@ var checking_aircraft_status = func()
         setprop("/instrumentation/my_aircraft/command_h/ack_alert", 0);
     }
 
-    settimer(checking_aircraft_status, 1);
+    var time_speed = getprop("/sim/speed-up") or 1;
+    var loop_speed = (time_speed == 1) ? 1 : 2 * time_speed;
+    settimer(checking_aircraft_status, loop_speed);
 }
 
 setlistener("/sim/signals/fdm-initialized", checking_aircraft_status);
@@ -431,7 +433,8 @@ var blink = func()
 {
     light = (light == 0) ? 1 : 0;
     setprop("/instrumentation/my_aircraft/command_h/blink_alert", light);
-    settimer(blink, .5);
+    var time_speed = getprop("/sim/speed-up") or 1;
+    settimer(blink, time_speed * .5);
 }
 setlistener("/sim/signals/fdm-initialized", blink);
 

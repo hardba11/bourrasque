@@ -257,7 +257,9 @@ var hippo_loop = func() {
     {
         top_hippo = 0;
     }
-    settimer(hippo_loop, 1);
+    var time_speed = getprop("/sim/speed-up") or 1;
+    var loop_speed = (time_speed == 1) ? 1 : 4 * time_speed;
+    settimer(hippo_loop, loop_speed);
 }
 
 var bourrasque_slow_loop = func() {
@@ -268,7 +270,9 @@ var bourrasque_slow_loop = func() {
     #my_aircraft_functions.set_max_cloud_layer();
     vor_true_to_mag();
 
-    settimer(bourrasque_slow_loop, 2);
+    var time_speed = getprop("/sim/speed-up") or 1;
+    var loop_speed = (time_speed == 1) ? 2 : 4 * time_speed;
+    settimer(bourrasque_slow_loop, loop_speed);
 }
 
 var bourrasque_loop = func() {
@@ -288,7 +292,9 @@ var bourrasque_loop = func() {
     # touchdown smoke
     touchdown_smoke();
 
-    settimer(bourrasque_loop, .1);
+    var time_speed = getprop("/sim/speed-up") or 1;
+    var loop_speed = (time_speed == 1) ? .1 : 2 * time_speed;
+    settimer(bourrasque_loop, loop_speed);
 }
 
 setlistener("/sim/signals/fdm-initialized", bourrasque_loop);

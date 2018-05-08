@@ -169,7 +169,9 @@ var loop_chrono = func()
             setprop("/instrumentation/my_aircraft/chrono/et-msec",     et_msec);
             setprop("/instrumentation/my_aircraft/chrono/needle-msec", needle_msec);
         }
-        settimer(loop_chrono, 0.01);
+        var time_speed = getprop("/sim/speed-up") or 1;
+        var loop_speed = (time_speed == 1) ? .01 : 2 * time_speed;
+        settimer(loop_chrono, loop_speed);
     }
 }
 

@@ -60,7 +60,9 @@ var fuel = func()
     setprop("/instrumentation/my_aircraft/fuel/bingo/is_bingo_alert",   is_bingo_alert);
     setprop("/instrumentation/my_aircraft/fuel/nan-remaining",          nan_remaining);
 
-    settimer(fuel, 1);
+    var time_speed = getprop("/sim/speed-up") or 1;
+    var loop_speed = (time_speed == 1) ? 1 : 10 * time_speed;
+    settimer(fuel, loop_speed);
 }
 
 setlistener("/sim/signals/fdm-initialized", fuel);

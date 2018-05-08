@@ -69,7 +69,9 @@ var nd = func()
     var rh = getprop("instrumentation/my_aircraft/nd/inputs/rh-vor-adf") or 0;
     setprop("instrumentation/my_aircraft/nd/inputs/toggle_tacan", ((rh == -1) ? 1 : 0));
 
-    settimer(nd, .5);
+    var time_speed = getprop("/sim/speed-up") or 1;
+    var loop_speed = (time_speed == 1) ? .5 : 2 * time_speed;
+    settimer(nd, loop_speed);
 }
 
 var event_click_info = func()

@@ -507,9 +507,11 @@ var assistance_loop = func() {
     else
     {
         # assistance disabled
-        airport['id'] = '' ;
+        airport['id'] = '';
     }
-    settimer(assistance_loop, 1);
+    var time_speed = getprop("/sim/speed-up") or 1;
+    var loop_speed = (time_speed == 1) ? 1 : 2 * time_speed;
+    settimer(assistance_loop, loop_speed);
 }
 
 setlistener("/sim/signals/fdm-initialized", assistance_loop);

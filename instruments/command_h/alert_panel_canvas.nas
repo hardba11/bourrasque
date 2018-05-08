@@ -259,7 +259,9 @@ var WARN_PANEL = {
         elsif(avionics_status == WARN)    { me.avcs.setColor(1, 0, 0, 1); }
         elsif(avionics_status == ALERT)   { me.avcs.setColor(1, 0, 0, blinking); }
 
-        settimer(func() { me.update(); }, .1);
+        var time_speed = getprop("/sim/speed-up") or 1;
+        var loop_speed = (time_speed == 1) ? .1 : 5 * time_speed;
+        settimer(func() { me.update(); }, loop_speed);
     }
 };
 

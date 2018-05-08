@@ -212,7 +212,9 @@ var FUEL_CANVAS = {
         update_gauge(me.center_gauge, 0, -t_center * 250, color_gauge);
         update_gauge(me.right_gauge, 0, -t_right * 250, color_gauge);
 
-        settimer(func() { me.update(); }, .5);
+        var time_speed = getprop("/sim/speed-up") or 1;
+        var loop_speed = (time_speed == 1) ? .5 : 10 * time_speed;
+        settimer(func() { me.update(); }, loop_speed);
     }
 };
 

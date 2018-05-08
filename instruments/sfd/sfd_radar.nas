@@ -321,8 +321,9 @@ var SFD_RADAR = {
                 }
             }
         }
-        #print(sprintf('update'));
-        settimer(func() { me.update(); }, .1);
+        var time_speed = getprop("/sim/speed-up") or 1;
+        var loop_speed = (time_speed == 1) ? .1 : 4 * time_speed;
+        settimer(func() { me.update(); }, loop_speed);
     }
 };
 
