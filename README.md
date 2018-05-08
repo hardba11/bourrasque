@@ -37,6 +37,7 @@ Systems
 - carrier landing and takeoff ability
 - multiplayer back-seat : fly as passenger !
 - if you start in the air, brsq starts automatically systems and engines and enables autopilot
+- ATC assistance to reach clostest airport
 
 Effects
 - sounds (engines, wind, rain, avionics, gears)
@@ -54,6 +55,10 @@ AI scenario (need to copy files in your FGDATA directory - see README)
 
 Tools
 - tool to record a timed loop
+
+## pilot documentation
+
+see https://github.com/hardba11/bourrasque/blob/master/contrib/HELP.txt
 
 ## gallery
 

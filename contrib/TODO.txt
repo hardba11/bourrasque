@@ -69,7 +69,7 @@ Roadmap and releases
 | 
 | multi-player back seat [WIP : 3/5]
 | 
-| imporve radar on hud - canvas [WIP : 4/5]
+| improve radar on hud - canvas [WIP : 4/5]
 | 
 | improve sounds  [WIP : 4/5]
 | 

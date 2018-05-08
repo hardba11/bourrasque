@@ -22,8 +22,10 @@ How to install ?
 aircraft install :
 http://wiki.flightgear.org/Howto:Install_aircraft
 
-wingman demo install :
-copy the file ai/wingman_brsq_demo.xml in $FGDATA/AI/ directory
+AI demo install :
+- tanker : see ai/README-tanker-rafale-marine.txt
+- timed loop : see ai/README-timed-loop.txt
+- wingmen : see ai/README-wingmen.txt
 
 
 How to start ?
@@ -31,7 +33,7 @@ How to start ?
 
 1/ first, loose 2 minutes to read
 ---------------------------------
-- HELP.txt
+- HELP.txt : aircraft documentation for pilot
 - FEATURES.txt
 - Known bugs below
 
@@ -56,7 +58,6 @@ Known bugs :(
 
 - as I only got a mouse, flying with joystick could be difficult because no test done
 - some interior sounds triggered when view change
-- hud/minihud not shown as expected during starting
 - heading bug on ND if mag or true north choosen
 - strobe doesnt work yet in MP
 - instruments animations in MP backseat
@@ -73,10 +74,10 @@ How to help for developpment ?
 - ask me to get ressources.tar.gz file, it contains blender, xcf, scripts, doc
 - improve and discuss on forum
 - KEEP IN MIND theese keywords : keep it simply stupid (KISS), lean, maintainability, reusability, correct indentation
-- please dont copy/past from other aircrafts, ok it's more fast but could creates a technical debt (https://en.wikipedia.org/wiki/Technical_debt)
+- please dont copy/past from other aircrafts, ok it's more fast but day after days, it could creates a technical debt (https://en.wikipedia.org/wiki/Technical_debt)
 - test
 - update TODO, CHANGELOG, FEATURES and ... AUTHORS ;)
-- post me your changes
+- post me your changes (merge request on github)
 
 
 

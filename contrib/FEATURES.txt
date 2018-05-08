@@ -28,6 +28,7 @@ last version (beta) :
 - 2 wingmen AI demo
 - multiplayer tanker buddy-buddy
 - hippodrome autopilot driven
+- ATC assistance to reach clostest airport
 
 enjoy ;)
 
