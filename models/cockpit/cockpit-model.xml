@@ -27,6 +27,10 @@ changelog
     <object-name>cockpit</object-name>
     <object-name>cockpit.accessoires</object-name>
     <object-name>cockpit.joint</object-name>
+    <object-name>cockpit.vis_bordure</object-name>
+    <object-name>cockpit.vis_panneau_central_ar</object-name>
+    <object-name>cockpit.vis_panneau_central_av</object-name>
+    <object-name>cockpit.vis_panneaux_lateraux</object-name>
     <object-name>support_hotas_L</object-name>
     <object-name>support_hotas_R</object-name>
     <!-- mobiles parts -->
@@ -61,6 +65,10 @@ changelog
     <object-name>cockpit</object-name>
     <object-name>cockpit.accessoires</object-name>
     <object-name>cockpit.joint</object-name>
+    <object-name>cockpit.vis_bordure</object-name>
+    <object-name>cockpit.vis_panneau_central_ar</object-name>
+    <object-name>cockpit.vis_panneau_central_av</object-name>
+    <object-name>cockpit.vis_panneaux_lateraux</object-name>
     <object-name>support_hotas_L</object-name>
     <object-name>support_hotas_R</object-name>
     <object-name>hotas_L</object-name>
@@ -74,6 +82,10 @@ changelog
     <object-name>cockpit</object-name>
     <object-name>cockpit.accessoires</object-name>
     <object-name>cockpit.joint</object-name>
+    <object-name>cockpit.vis_bordure</object-name>
+    <object-name>cockpit.vis_panneau_central_ar</object-name>
+    <object-name>cockpit.vis_panneau_central_av</object-name>
+    <object-name>cockpit.vis_panneaux_lateraux</object-name>
     <object-name>support_hotas_L</object-name>
     <object-name>support_hotas_R</object-name>
     <object-name>hotas_L</object-name>
@@ -121,6 +133,10 @@ changelog
     <max-property>/sim/rendering/static-lod/detailed</max-property>
     <object-name>support_hotas_L</object-name>
     <object-name>support_hotas_R</object-name>
+    <object-name>cockpit.vis_bordure</object-name>
+    <object-name>cockpit.vis_panneau_central_ar</object-name>
+    <object-name>cockpit.vis_panneau_central_av</object-name>
+    <object-name>cockpit.vis_panneaux_lateraux</object-name>
     <object-name>hotas_L</object-name>
     <object-name>hotas_R</object-name>
     <object-name>palonnier_L</object-name>

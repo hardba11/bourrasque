@@ -22,51 +22,53 @@ Syd Adams
   -->
   <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
   <animation>
-    <object-name>CTL-22</object-name>
-    <object-name>CTL-22.pwr</object-name>
-    <object-name>CTL-22.toggle</object-name>
-    <object-name>CTL-22.vol</object-name>
-    <object-name>act.btn</object-name>
-    <object-name>freq.001</object-name>
-    <object-name>freq.002</object-name>
-    <object-name>freq.003</object-name>
-    <object-name>freq.004</object-name>
-    <object-name>freq.005</object-name>
-    <object-name>freq.006</object-name>
-    <object-name>freq.dec</object-name>
-    <object-name>freq.knob</object-name>
-    <object-name>freq1.knob</object-name>
-    <object-name>mem.annun</object-name>
-    <object-name>stby.001</object-name>
-    <object-name>stby.002</object-name>
-    <object-name>stby.003</object-name>
-    <object-name>stby.004</object-name>
-    <object-name>stby.005</object-name>
-    <object-name>stby.006</object-name>
-    <object-name>stby.dec</object-name>
-    <object-name>sto.btn</object-name>
-    <object-name>test.btn</object-name>
-    <object-name>xmt.annun</object-name>
+    <object-name>ctl22.box</object-name>
+    <object-name>ctl22.pwr</object-name>
+    <object-name>ctl22.toggle</object-name>
+    <object-name>ctl22.vol</object-name>
+    <object-name>ctl22.act_btn</object-name>
+    <object-name>ctl22.freq.001</object-name>
+    <object-name>ctl22.freq.002</object-name>
+    <object-name>ctl22.freq.003</object-name>
+    <object-name>ctl22.freq.004</object-name>
+    <object-name>ctl22.freq.005</object-name>
+    <object-name>ctl22.freq.006</object-name>
+    <object-name>ctl22.freq.dec</object-name>
+    <object-name>ctl22.freq.knob</object-name>
+    <object-name>ctl22.freq1.knob</object-name>
+    <object-name>ctl22.mem.annun</object-name>
+    <object-name>ctl22.stby.001</object-name>
+    <object-name>ctl22.stby.002</object-name>
+    <object-name>ctl22.stby.003</object-name>
+    <object-name>ctl22.stby.004</object-name>
+    <object-name>ctl22.stby.005</object-name>
+    <object-name>ctl22.stby.006</object-name>
+    <object-name>ctl22.stby.dec</object-name>
+    <object-name>ctl22.sto.btn</object-name>
+    <object-name>ctl22.test.btn</object-name>
+    <object-name>ctl22.xmt.annun</object-name>
+    <object-name>ctl22.box-emit</object-name>
+    <object-name>ctl22.vol-emit</object-name>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
   <animation>
     <type>select</type>
-    <object-name>freq.001</object-name>
-    <object-name>freq.002</object-name>
-    <object-name>freq.003</object-name>
-    <object-name>freq.004</object-name>
-    <object-name>freq.005</object-name>
-    <object-name>freq.006</object-name>
-    <object-name>freq.dec</object-name>
-    <object-name>mem.annun</object-name>
-    <object-name>stby.001</object-name>
-    <object-name>stby.002</object-name>
-    <object-name>stby.003</object-name>
-    <object-name>stby.004</object-name>
-    <object-name>stby.005</object-name>
-    <object-name>stby.006</object-name>
-    <object-name>stby.dec</object-name>
+    <object-name>ctl22.freq.001</object-name>
+    <object-name>ctl22.freq.002</object-name>
+    <object-name>ctl22.freq.003</object-name>
+    <object-name>ctl22.freq.004</object-name>
+    <object-name>ctl22.freq.005</object-name>
+    <object-name>ctl22.freq.006</object-name>
+    <object-name>ctl22.freq.dec</object-name>
+    <object-name>ctl22.mem.annun</object-name>
+    <object-name>ctl22.stby.001</object-name>
+    <object-name>ctl22.stby.002</object-name>
+    <object-name>ctl22.stby.003</object-name>
+    <object-name>ctl22.stby.004</object-name>
+    <object-name>ctl22.stby.005</object-name>
+    <object-name>ctl22.stby.006</object-name>
+    <object-name>ctl22.stby.dec</object-name>
     <condition>
       <property>systems/electrical/bus/avionics</property>
       <property>instrumentation/comm[0]/serviceable</property>
@@ -76,30 +78,28 @@ Syd Adams
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
-    <object-name>CTL-22</object-name>
-    <object-name>CTL-22.pwr</object-name>
-    <object-name>CTL-22.toggle</object-name>
-    <object-name>CTL-22.vol</object-name>
-    <object-name>act.btn</object-name>
-    <object-name>freq.dec</object-name>
-    <object-name>freq.knob</object-name>
-    <object-name>freq1.knob</object-name>
-    <object-name>mem.annun</object-name>
-    <object-name>stby.dec</object-name>
-    <object-name>sto.btn</object-name>
-    <object-name>test.btn</object-name>
-    <object-name>xmt.annun</object-name>
+    <object-name>ctl22.box</object-name>
+    <object-name>ctl22.pwr</object-name>
+    <object-name>ctl22.toggle</object-name>
+    <object-name>ctl22.vol</object-name>
+    <object-name>ctl22.act_btn</object-name>
+    <object-name>ctl22.freq.dec</object-name>
+    <object-name>ctl22.freq.knob</object-name>
+    <object-name>ctl22.freq1.knob</object-name>
+    <object-name>ctl22.mem.annun</object-name>
+    <object-name>ctl22.stby.dec</object-name>
+    <object-name>ctl22.sto.btn</object-name>
+    <object-name>ctl22.test.btn</object-name>
+    <object-name>ctl22.xmt.annun</object-name>
+    <object-name>ctl22.box-emit</object-name>
+    <object-name>ctl22.vol-emit</object-name>
   </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
   <animation>
     <type>material</type>
-    <object-name>CTL-22</object-name>
-    <object-name>CTL-22.pwr</object-name>
-    <object-name>CTL-22.toggle</object-name>
-    <object-name>CTL-22.vol</object-name>
-    <object-name>freq.knob</object-name>
-    <object-name>freq1.knob</object-name>
+    <object-name>ctl22.box-emit</object-name>
+    <object-name>ctl22.vol-emit</object-name>
     <emission>
       <factor-prop>/controls/lighting/instruments-norm</factor-prop>
       <red>0.8</red>
@@ -113,22 +113,22 @@ Syd Adams
 
   <animation>
     <type>material</type>
-    <object-name>freq.001</object-name>
-    <object-name>freq.002</object-name>
-    <object-name>freq.003</object-name>
-    <object-name>freq.dec</object-name>
-    <object-name>freq.004</object-name>
-    <object-name>freq.005</object-name>
-    <object-name>freq.006</object-name>
-    <object-name>freq.dec</object-name>
-    <object-name>stby.001</object-name>
-    <object-name>stby.002</object-name>
-    <object-name>stby.003</object-name>
-    <object-name>stby.dec</object-name>
-    <object-name>stby.004</object-name>
-    <object-name>stby.005</object-name>
-    <object-name>stby.006</object-name>
-    <object-name>stby.dec</object-name>
+    <object-name>ctl22.freq.001</object-name>
+    <object-name>ctl22.freq.002</object-name>
+    <object-name>ctl22.freq.003</object-name>
+    <object-name>ctl22.freq.dec</object-name>
+    <object-name>ctl22.freq.004</object-name>
+    <object-name>ctl22.freq.005</object-name>
+    <object-name>ctl22.freq.006</object-name>
+    <object-name>ctl22.freq.dec</object-name>
+    <object-name>ctl22.stby.001</object-name>
+    <object-name>ctl22.stby.002</object-name>
+    <object-name>ctl22.stby.003</object-name>
+    <object-name>ctl22.stby.dec</object-name>
+    <object-name>ctl22.stby.004</object-name>
+    <object-name>ctl22.stby.005</object-name>
+    <object-name>ctl22.stby.006</object-name>
+    <object-name>ctl22.stby.dec</object-name>
     <condition>
       <greater-than>
         <property>/controls/lighting/instruments-norm</property>
@@ -144,22 +144,22 @@ Syd Adams
   </animation>
   <animation>
     <type>material</type>
-    <object-name>freq.001</object-name>
-    <object-name>freq.002</object-name>
-    <object-name>freq.003</object-name>
-    <object-name>freq.dec</object-name>
-    <object-name>freq.004</object-name>
-    <object-name>freq.005</object-name>
-    <object-name>freq.006</object-name>
-    <object-name>freq.dec</object-name>
-    <object-name>stby.001</object-name>
-    <object-name>stby.002</object-name>
-    <object-name>stby.003</object-name>
-    <object-name>stby.dec</object-name>
-    <object-name>stby.004</object-name>
-    <object-name>stby.005</object-name>
-    <object-name>stby.006</object-name>
-    <object-name>stby.dec</object-name>
+    <object-name>ctl22.freq.001</object-name>
+    <object-name>ctl22.freq.002</object-name>
+    <object-name>ctl22.freq.003</object-name>
+    <object-name>ctl22.freq.dec</object-name>
+    <object-name>ctl22.freq.004</object-name>
+    <object-name>ctl22.freq.005</object-name>
+    <object-name>ctl22.freq.006</object-name>
+    <object-name>ctl22.freq.dec</object-name>
+    <object-name>ctl22.stby.001</object-name>
+    <object-name>ctl22.stby.002</object-name>
+    <object-name>ctl22.stby.003</object-name>
+    <object-name>ctl22.stby.dec</object-name>
+    <object-name>ctl22.stby.004</object-name>
+    <object-name>ctl22.stby.005</object-name>
+    <object-name>ctl22.stby.006</object-name>
+    <object-name>ctl22.stby.dec</object-name>
     <condition>
       <equals>
         <property>/controls/lighting/instruments-norm</property>
@@ -183,7 +183,7 @@ Syd Adams
   <!-- ~~~~~~~~~~~~~~~~~~~~~~ control power -->
   <animation>
     <type>pick</type>
-    <object-name>CTL-22.pwr</object-name>
+    <object-name>ctl22.pwr</object-name>
     <action>
       <button>0</button>
       <repeatable>false</repeatable>
@@ -210,7 +210,7 @@ Syd Adams
   <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation power -->
   <animation>
     <type>rotate</type>
-    <object-name>CTL-22.pwr</object-name>
+    <object-name>ctl22.pwr</object-name>
     <property>instrumentation/comm[0]/serviceable</property>
     <interpolation>
       <entry>
@@ -237,7 +237,8 @@ Syd Adams
   <!-- ~~~~~~~~~~~~~~~~~~~~~~ control volume -->
   <animation>
     <type>knob</type>
-    <object-name>CTL-22.vol</object-name>
+    <object-name>ctl22.vol</object-name>
+    <object-name>ctl22.vol-emit</object-name>
     <action>
       <binding>
         <command>property-adjust</command>
@@ -262,7 +263,7 @@ Syd Adams
   <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation volume -->
   <animation>
     <type>rotate</type>
-    <object-name>CTL-22.vol</object-name>
+    <object-name>ctl22.vol-emit</object-name>
     <property>instrumentation/comm[0]/volume</property>
     <factor>300</factor>
     <center>
@@ -282,7 +283,7 @@ Syd Adams
   <!-- left/middle click = +-0.1 // wheel = +-0.025 -->
   <animation>
     <type>pick</type>
-    <object-name>freq1.knob</object-name>
+    <object-name>ctl22.freq1.knob</object-name>
     <action>
       <button>0</button>
       <repeatable>true</repeatable>
@@ -360,7 +361,7 @@ Syd Adams
   <!-- left/middle click = +-1 // wheel = +-1 -->
   <animation>
     <type>pick</type>
-    <object-name>freq.knob</object-name>
+    <object-name>ctl22.freq.knob</object-name>
     <action>
       <button>0</button>
       <repeatable>true</repeatable>
@@ -438,7 +439,7 @@ Syd Adams
   <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation digits active frequency -->
   <animation>
     <type>textranslate</type>
-    <object-name>freq.001</object-name>
+    <object-name>ctl22.freq.001</object-name>
     <property>instrumentation/comm[0]/frequencies/selected-mhz</property>
     <factor>0.001</factor>
     <step>100</step>
@@ -452,7 +453,7 @@ Syd Adams
 
   <animation>
     <type>textranslate</type>
-    <object-name>freq.002</object-name>
+    <object-name>ctl22.freq.002</object-name>
     <property>instrumentation/comm[0]/frequencies/selected-mhz</property>
     <factor>0.01</factor>
     <step>10</step>
@@ -466,7 +467,7 @@ Syd Adams
 
   <animation>
     <type>textranslate</type>
-    <object-name>freq.003</object-name>
+    <object-name>ctl22.freq.003</object-name>
     <property>instrumentation/comm[0]/frequencies/selected-mhz</property>
     <factor>0.1</factor>
     <step>1</step>
@@ -480,7 +481,7 @@ Syd Adams
 
   <animation>
     <type>textranslate</type>
-    <object-name>freq.004</object-name>
+    <object-name>ctl22.freq.004</object-name>
     <property>instrumentation/comm[0]/frequencies/selected-mhz</property>
     <factor>1.0</factor>
     <step>0.1</step>
@@ -494,7 +495,7 @@ Syd Adams
 
   <animation>
     <type>textranslate</type>
-    <object-name>freq.005</object-name>
+    <object-name>ctl22.freq.005</object-name>
     <property>instrumentation/comm[0]/frequencies/selected-mhz</property>
     <factor>10.0</factor>
     <step>0.01</step>
@@ -508,7 +509,7 @@ Syd Adams
 
   <animation>
     <type>textranslate</type>
-    <object-name>freq.006</object-name>
+    <object-name>ctl22.freq.006</object-name>
     <property>instrumentation/comm[0]/frequencies/selected-mhz</property>
     <factor>100.0</factor>
     <step>0.001</step>
@@ -523,7 +524,7 @@ Syd Adams
   <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation digits stdby frequency -->
   <animation>
     <type>textranslate</type>
-    <object-name>stby.001</object-name>
+    <object-name>ctl22.stby.001</object-name>
     <property>instrumentation/comm[0]/frequencies/standby-mhz</property>
     <factor>0.001</factor>
     <step>100</step>
@@ -537,7 +538,7 @@ Syd Adams
 
   <animation>
     <type>textranslate</type>
-    <object-name>stby.002</object-name>
+    <object-name>ctl22.stby.002</object-name>
     <property>instrumentation/comm[0]/frequencies/standby-mhz</property>
     <factor>0.01</factor>
     <step>10</step>
@@ -551,7 +552,7 @@ Syd Adams
 
   <animation>
     <type>textranslate</type>
-    <object-name>stby.003</object-name>
+    <object-name>ctl22.stby.003</object-name>
     <property>instrumentation/comm[0]/frequencies/standby-mhz</property>
     <factor>0.1</factor>
     <step>1</step>
@@ -565,7 +566,7 @@ Syd Adams
 
   <animation>
     <type>textranslate</type>
-    <object-name>stby.004</object-name>
+    <object-name>ctl22.stby.004</object-name>
     <property>instrumentation/comm[0]/frequencies/standby-mhz</property>
     <factor>1.0</factor>
     <step>0.100</step>
@@ -579,7 +580,7 @@ Syd Adams
 
   <animation>
     <type>textranslate</type>
-    <object-name>stby.005</object-name>
+    <object-name>ctl22.stby.005</object-name>
     <property>instrumentation/comm[0]/frequencies/standby-mhz</property>
     <factor>10.0</factor>
     <step>0.01</step>
@@ -593,7 +594,7 @@ Syd Adams
 
   <animation>
     <type>textranslate</type>
-    <object-name>stby.006</object-name>
+    <object-name>ctl22.stby.006</object-name>
     <property>instrumentation/comm[0]/frequencies/standby-mhz</property>
     <factor>100.0</factor>
     <step>0.001</step>
@@ -608,7 +609,7 @@ Syd Adams
   <!-- ~~~~~~~~~~~~~~~~~~~~~~ control swap frequencies -->
   <animation>
     <type>pick</type>
-    <object-name>CTL-22.toggle</object-name>
+    <object-name>ctl22.toggle</object-name>
     <action>
       <button>0</button>
       <repeatable>false</repeatable>

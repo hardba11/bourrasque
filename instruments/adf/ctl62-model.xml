@@ -46,6 +46,8 @@ Syd Adams
     <object-name>mem.annun</object-name>
     <object-name>stby.dec</object-name>
     <object-name>xmt.annun</object-name>
+    <object-name>CTL-62-emit</object-name>
+    <object-name>CTL-62.vol-emit</object-name>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
@@ -91,17 +93,15 @@ Syd Adams
     <object-name>mem.annun</object-name>
     <object-name>stby.dec</object-name>
     <object-name>xmt.annun</object-name>
+    <object-name>CTL-62-emit</object-name>
+    <object-name>CTL-62.vol-emit</object-name>
   </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
   <animation>
     <type>material</type>
-    <object-name>CTL-62</object-name>
-    <object-name>CTL-62.freq</object-name>
-    <object-name>CTL-62.freq1</object-name>
-    <object-name>CTL-62.pwr</object-name>
-    <object-name>CTL-62.toggle</object-name>
-    <object-name>CTL-62.vol</object-name>
+    <object-name>CTL-62-emit</object-name>
+    <object-name>CTL-62.vol-emit</object-name>
     <emission>
       <factor-prop>/controls/lighting/instruments-norm</factor-prop>
       <red>0.8</red>
@@ -540,6 +540,7 @@ Syd Adams
   <animation>
     <type>knob</type>
     <object-name>CTL-62.vol</object-name>
+    <object-name>CTL-62.vol-emit</object-name>
     <action>
       <binding>
         <command>property-adjust</command>
@@ -563,7 +564,7 @@ Syd Adams
   <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation volume -->
   <animation>
     <type>rotate</type>
-    <object-name>CTL-62.vol</object-name>
+    <object-name>CTL-62.vol-emit</object-name>
     <property>instrumentation/adf[0]/volume-norm</property>
     <factor>360</factor>
     <center>

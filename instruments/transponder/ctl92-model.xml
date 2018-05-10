@@ -39,6 +39,8 @@ Syd Adams
     <object-name>stby3</object-name>
     <object-name>stby4</object-name>
     <object-name>xmt.annun.001</object-name>
+    <object-name>CTL-92-emit</object-name>
+    <object-name>CTL-92.vol-emit</object-name>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
@@ -74,17 +76,15 @@ Syd Adams
     <object-name>atc.pre</object-name>
     <object-name>atc.test</object-name>
     <object-name>xmt.annun.001</object-name>
+    <object-name>CTL-92-emit</object-name>
+    <object-name>CTL-92.vol-emit</object-name>
   </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
   <animation>
     <type>material</type>
-    <object-name>CTL-92</object-name>
-    <object-name>CTL-92.knob</object-name>
-    <object-name>CTL-92.knob1</object-name>
-    <object-name>CTL-92.pwr</object-name>
-    <object-name>CTL-92.toggle</object-name>
-    <object-name>CTL-92.vol</object-name>
+    <object-name>CTL-92-emit</object-name>
+    <object-name>CTL-92.vol-emit</object-name>
     <emission>
       <factor-prop>/controls/lighting/instruments-norm</factor-prop>
       <red>0.8</red>
@@ -95,7 +95,6 @@ Syd Adams
       <property>systems/electrical/bus/avionics</property>
     </condition>
   </animation>
-
 
   <animation>
     <type>material</type>
