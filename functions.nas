@@ -29,11 +29,11 @@ var SETTINGS_PANEL_VIEW_LEFT = [
 
 var SETTINGS_PANEL_VIEW_RIGHT = [
     ['fov', 'heading', 'pitch', 'z', 'x', 'y'],
-    [40, -11.6, -25, -3.21, 0, 1.10],       # right mfd
+    [40, -11.6, -25, -3.21, 0, 1.10],       # right MFD
     [30.52, 0, -35, -3.21, 0, 0.99],        # center stdby instruments
-    [33.86, -45, -55, -3.45, 0.21, 0.99],   # radio
+    [48.72, -60, -55, -3.63, 0.21, 0.85],   # radio
     [33.86, -87, -70, -3.21, 0.23, 0.87],   # systems
-    [33.86, -45, -55, -3.45, 0.21, 0.99],   # radio
+    [48.72, -60, -55, -3.63, 0.21, 0.85],   # radio
     [30.52, 0, -35, -3.21, 0, 0.99],        # center stdby instruments
 ];
 

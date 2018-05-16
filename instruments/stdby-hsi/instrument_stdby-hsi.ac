@@ -7,6 +7,7 @@ name "Blender_export__instrument_stdby-hsi.ac"
 kids 19
 OBJECT poly
 name "hsi.box"
+loc 0.0041144 0.0000000 0.0000000
 texture "texture_instrument_hsi.png"
 texrep 1 1
 numvert 316
@@ -2312,6 +2313,7 @@ refs 4
 kids 0
 OBJECT poly
 name "hsi.box-emit"
+loc 0.0041144 0.0000000 0.0000000
 texture "texture_instrument_hsi_scale-emit.png"
 texrep 1 1
 numvert 8
@@ -2341,7 +2343,7 @@ refs 4
 kids 0
 OBJECT poly
 name "hsi.bug"
-loc -0.0025082 0.0000000 0.0000000
+loc 0.0016062 0.0000000 0.0000000
 texture "texture_instrument_hsi_scale.png"
 texrep 1 1
 numvert 7
@@ -2376,7 +2378,7 @@ refs 4
 kids 0
 OBJECT poly
 name "hsi.crs1_needle"
-loc -0.0025080 0.0000000 0.0000000
+loc 0.0016064 0.0000000 0.0000000
 texture "texture_instrument_hsi_scale.png"
 texrep 1 1
 numvert 34
@@ -2562,7 +2564,7 @@ refs 4
 kids 0
 OBJECT poly
 name "hsi.crs2_needle"
-loc -0.0025080 0.0000000 0.0000000
+loc 0.0016064 0.0000000 0.0000000
 texture "texture_instrument_hsi_scale.png"
 texrep 1 1
 numvert 34
@@ -2714,7 +2716,7 @@ refs 4
 kids 0
 OBJECT poly
 name "hsi.dev1_needle"
-loc -0.0023724 0.0000000 0.0000000
+loc 0.0017420 0.0000000 0.0000000
 texture "texture_instrument_hsi_scale.png"
 texrep 1 1
 numvert 4
@@ -2733,7 +2735,7 @@ refs 4
 kids 0
 OBJECT poly
 name "hsi.dev2_needle"
-loc -0.0023724 0.0000000 0.0000000
+loc 0.0017420 0.0000000 0.0000000
 texture "texture_instrument_hsi_scale.png"
 texrep 1 1
 numvert 16
@@ -2785,7 +2787,7 @@ refs 4
 kids 0
 OBJECT poly
 name "hsi.hdg_ring"
-loc -0.0028986 0.0000000 0.0000000
+loc 0.0012158 0.0000000 0.0000000
 texture "texture_instrument_hsi_scale.png"
 texrep 1 1
 numvert 32
@@ -2937,7 +2939,7 @@ refs 4
 kids 0
 OBJECT poly
 name "hsi.knob_course"
-loc -0.0055973 0.0000000 0.0000000
+loc -0.0014828 0.0000000 0.0000000
 texture "texture_instrument_hsi_scale.png"
 texrep 1 1
 numvert 33
@@ -3146,7 +3148,7 @@ refs 4
 kids 0
 OBJECT poly
 name "hsi.knob_course-emit"
-loc -0.0055973 0.0000000 0.0000000
+loc -0.0014828 0.0000000 0.0000000
 texture "texture_instrument_hsi_scale-emit.png"
 texrep 1 1
 numvert 17
@@ -3227,7 +3229,7 @@ refs 4
 kids 0
 OBJECT poly
 name "hsi.knob_hdg"
-loc -0.0055973 0.0000000 0.0000000
+loc -0.0014828 0.0000000 0.0000000
 texture "texture_instrument_hsi_scale.png"
 texrep 1 1
 numvert 33
@@ -3436,7 +3438,7 @@ refs 4
 kids 0
 OBJECT poly
 name "hsi.knob_hdg-emit"
-loc -0.0055973 0.0000000 0.0000000
+loc -0.0014828 0.0000000 0.0000000
 texture "texture_instrument_hsi_scale-emit.png"
 texrep 1 1
 numvert 17
@@ -3517,7 +3519,7 @@ refs 4
 kids 0
 OBJECT poly
 name "hsi.knob_vor"
-loc -0.0055973 0.0000000 0.0000000
+loc -0.0014828 0.0000000 0.0000000
 texture "texture_instrument_hsi_scale.png"
 texrep 1 1
 numvert 36
@@ -3764,7 +3766,7 @@ refs 4
 kids 0
 OBJECT poly
 name "hsi.knob_vor-emit"
-loc -0.0055973 0.0000000 0.0000000
+loc -0.0014828 0.0000000 0.0000000
 texture "texture_instrument_hsi_scale-emit.png"
 texrep 1 1
 numvert 21
@@ -3884,6 +3886,7 @@ refs 4
 kids 0
 OBJECT poly
 name "hsi.lbl_vor1"
+loc 0.0041144 0.0000000 0.0000000
 texture "texture_instrument_hsi.png"
 texrep 1 1
 numvert 4
@@ -3902,6 +3905,7 @@ refs 4
 kids 0
 OBJECT poly
 name "hsi.lbl_vor2"
+loc 0.0041144 0.0000000 0.0000000
 texture "texture_instrument_hsi.png"
 texrep 1 1
 numvert 4
@@ -3920,6 +3924,7 @@ refs 4
 kids 0
 OBJECT poly
 name "hsi.scale"
+loc 0.0041144 0.0000000 0.0000000
 texture "texture_instrument_hsi_scale.png"
 texrep 1 1
 numvert 72
@@ -4335,7 +4340,7 @@ refs 4
 kids 0
 OBJECT poly
 name "hsi.vor1_needle"
-loc -0.0025082 0.0000000 0.0000000
+loc 0.0016062 0.0000000 0.0000000
 texture "texture_instrument_hsi_scale.png"
 texrep 1 1
 numvert 13
@@ -4403,7 +4408,7 @@ refs 4
 kids 0
 OBJECT poly
 name "hsi.vor2_needle"
-loc -0.0025082 0.0000000 0.0000000
+loc 0.0016062 0.0000000 0.0000000
 texture "texture_instrument_hsi_scale.png"
 texrep 1 1
 numvert 15

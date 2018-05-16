@@ -43,7 +43,7 @@ Syd Adams
     <object-name>CTL-62.toggle</object-name>
     <object-name>CTL-62.vol</object-name>
     <object-name>freq.dec</object-name>
-    <object-name>mem.annun</object-name>
+    <object-name>CTL-62.mem.annun</object-name>
     <object-name>stby.dec</object-name>
     <object-name>xmt.annun</object-name>
     <object-name>CTL-62-emit</object-name>
@@ -64,7 +64,7 @@ Syd Adams
     <object-name>ADFstby.004</object-name>
     <object-name>ADFstby.005</object-name>
     <object-name>freq.dec</object-name>
-    <object-name>mem.annun</object-name>
+    <object-name>CTL-62.mem.annun</object-name>
     <object-name>stby.dec</object-name>
     <condition>
       <property>systems/electrical/bus/avionics</property>
@@ -77,6 +77,13 @@ Syd Adams
     </condition>
   </animation>
 
+  <animation>
+    <type>select</type>
+    <object-name>CTL-62.mem.annun</object-name>
+    <condition>
+      <false />
+    </condition>
+  </animation>
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
@@ -90,7 +97,7 @@ Syd Adams
     <object-name>CTL-62.toggle</object-name>
     <object-name>CTL-62.vol</object-name>
     <object-name>freq.dec</object-name>
-    <object-name>mem.annun</object-name>
+    <object-name>CTL-62.mem.annun</object-name>
     <object-name>stby.dec</object-name>
     <object-name>xmt.annun</object-name>
     <object-name>CTL-62-emit</object-name>
@@ -525,9 +532,9 @@ Syd Adams
     <property>instrumentation/adf[0]/func-knob</property>
     <factor>30</factor>
     <center>
-      <x-m>0.0</x-m>
-      <y-m>-0.014</y-m>
-      <z-m>-0.018</z-m>
+      <x-m>0</x-m>
+      <y-m>-0.0182</y-m>
+      <z-m>-0.0234</z-m>
     </center>
     <axis>
       <x>-1</x>
@@ -568,9 +575,9 @@ Syd Adams
     <property>instrumentation/adf[0]/volume-norm</property>
     <factor>360</factor>
     <center>
-      <x-m>0.0</x-m>
-      <y-m>-0.014</y-m>
-      <z-m>-0.018</z-m>
+      <x-m>0</x-m>
+      <y-m>-0.0182</y-m>
+      <z-m>-0.0234</z-m>
     </center>
     <axis>
       <x>-1</x>

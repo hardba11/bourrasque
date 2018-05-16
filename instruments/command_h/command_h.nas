@@ -258,9 +258,13 @@ var checking_aircraft_status = func()
         { parkbrake_status = ALERT; }
     elsif((is_parkbrake == 1) and (state_launchbar != 'Disengaged'))
         { parkbrake_status = CAUTION; }
-    elsif((is_parkbrake == 1) and ((engine0_throttle > .3) or (engine1_throttle > .3)))
+    elsif((is_parkbrake == 1)
+        and ((engine0_throttle > .3) or (engine1_throttle > .3))
+        and ((is_engine0_stopped != 1) or (is_engine1_stopped != 1)))
         { parkbrake_status = CAUTION; }
-    elsif((is_parkbrake == 1) and ((engine0_throttle < .3) or (engine1_throttle < .3)))
+    elsif((is_parkbrake == 1)
+        and ((engine0_throttle < .3) or (engine1_throttle < .3))
+        and ((is_engine0_stopped != 1) or (is_engine1_stopped != 1)))
         { parkbrake_status = INFO; }
     elsif(is_parkbrake == 1)
         { parkbrake_status = INFO; }

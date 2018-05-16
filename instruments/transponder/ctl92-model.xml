@@ -235,9 +235,9 @@ Syd Adams
       <entry><ind>5</ind><dep>90.0</dep></entry> <!-- ALT -->
     </interpolation>
     <center>
-      <x-m>0.0</x-m>
-      <y-m>-0.0138</y-m>
-      <z-m>-0.0183</z-m>
+      <x-m>0</x-m>
+      <y-m>-0.0179</y-m>
+      <z-m>-0.0238</z-m>
     </center>
     <axis>
       <x>-1</x>

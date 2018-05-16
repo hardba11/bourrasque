@@ -227,9 +227,9 @@ Syd Adams
       </entry>
     </interpolation>
     <center>
-      <x-m>0.0</x-m>
-      <y-m>-0.0138</y-m>
-      <z-m>-0.0183</z-m>
+      <x-m>0</x-m>
+      <y-m>-0.0179</y-m>
+      <z-m>-0.0238</z-m>
     </center>
     <axis>
       <x>-1</x>
@@ -271,9 +271,9 @@ Syd Adams
     <property>instrumentation/nav[0]/volume</property>
     <factor>300</factor>
     <center>
-      <x-m>0.0</x-m>
-      <y-m>-0.0138</y-m>
-      <z-m>-0.0183</z-m>
+      <x-m>0</x-m>
+      <y-m>-0.0179</y-m>
+      <z-m>-0.0238</z-m>
     </center>
     <axis>
       <x>-1</x>
