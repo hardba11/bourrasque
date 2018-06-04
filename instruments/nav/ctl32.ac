@@ -7,7 +7,7 @@ OBJECT world
 name "Blender_export__ctl32.ac"
 kids 27
 OBJECT poly
-name "act.btn.001"
+name "ctl32.act.btn"
 texture "ctl-32.png"
 texrep 1 1
 numvert 24

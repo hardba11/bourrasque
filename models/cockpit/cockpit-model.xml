@@ -100,7 +100,6 @@ changelog
   </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (color) -->
-  <!-- TODO : check if necessary -->
   <animation>
     <type>material</type>
     <object-name>hud_ext</object-name>

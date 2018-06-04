@@ -37,17 +37,17 @@ Syd Adams
     <object-name>C62sto.btn</object-name>
     <object-name>C62test.btn</object-name>
     <object-name>CTL-62</object-name>
+    <object-name>CTL-62-emit</object-name>
+    <object-name>CTL-62.xmt.annun</object-name>
     <object-name>CTL-62.freq</object-name>
     <object-name>CTL-62.freq1</object-name>
+    <object-name>CTL-62.mem.annun</object-name>
     <object-name>CTL-62.pwr</object-name>
     <object-name>CTL-62.toggle</object-name>
     <object-name>CTL-62.vol</object-name>
-    <object-name>freq.dec</object-name>
-    <object-name>CTL-62.mem.annun</object-name>
-    <object-name>stby.dec</object-name>
-    <object-name>xmt.annun</object-name>
-    <object-name>CTL-62-emit</object-name>
     <object-name>CTL-62.vol-emit</object-name>
+    <object-name>freq.dec</object-name>
+    <object-name>stby.dec</object-name>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
@@ -64,7 +64,6 @@ Syd Adams
     <object-name>ADFstby.004</object-name>
     <object-name>ADFstby.005</object-name>
     <object-name>freq.dec</object-name>
-    <object-name>CTL-62.mem.annun</object-name>
     <object-name>stby.dec</object-name>
     <condition>
       <property>systems/electrical/bus/avionics</property>
@@ -76,7 +75,6 @@ Syd Adams
       </not>
     </condition>
   </animation>
-
   <animation>
     <type>select</type>
     <object-name>CTL-62.mem.annun</object-name>
@@ -84,6 +82,7 @@ Syd Adams
       <false />
     </condition>
   </animation>
+
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
@@ -91,16 +90,14 @@ Syd Adams
     <object-name>C62sto.btn</object-name>
     <object-name>C62test.btn</object-name>
     <object-name>CTL-62</object-name>
+    <object-name>CTL-62-emit</object-name>
+    <object-name>CTL-62.xmt.annun</object-name>
     <object-name>CTL-62.freq</object-name>
     <object-name>CTL-62.freq1</object-name>
+    <object-name>CTL-62.mem.annun</object-name>
     <object-name>CTL-62.pwr</object-name>
     <object-name>CTL-62.toggle</object-name>
     <object-name>CTL-62.vol</object-name>
-    <object-name>freq.dec</object-name>
-    <object-name>CTL-62.mem.annun</object-name>
-    <object-name>stby.dec</object-name>
-    <object-name>xmt.annun</object-name>
-    <object-name>CTL-62-emit</object-name>
     <object-name>CTL-62.vol-emit</object-name>
   </effect>
 

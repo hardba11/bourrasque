@@ -22,11 +22,9 @@ Syd Adams
   -->
   <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
   <animation>
-    <object-name>ctl22.box</object-name>
-    <object-name>ctl22.pwr</object-name>
-    <object-name>ctl22.toggle</object-name>
-    <object-name>ctl22.vol</object-name>
     <object-name>ctl22.act_btn</object-name>
+    <object-name>ctl22.box</object-name>
+    <object-name>ctl22.box-emit</object-name>
     <object-name>ctl22.freq.001</object-name>
     <object-name>ctl22.freq.002</object-name>
     <object-name>ctl22.freq.003</object-name>
@@ -37,6 +35,7 @@ Syd Adams
     <object-name>ctl22.freq.knob</object-name>
     <object-name>ctl22.freq1.knob</object-name>
     <object-name>ctl22.mem.annun</object-name>
+    <object-name>ctl22.pwr</object-name>
     <object-name>ctl22.stby.001</object-name>
     <object-name>ctl22.stby.002</object-name>
     <object-name>ctl22.stby.003</object-name>
@@ -46,9 +45,10 @@ Syd Adams
     <object-name>ctl22.stby.dec</object-name>
     <object-name>ctl22.sto.btn</object-name>
     <object-name>ctl22.test.btn</object-name>
-    <object-name>ctl22.xmt.annun</object-name>
-    <object-name>ctl22.box-emit</object-name>
+    <object-name>ctl22.toggle</object-name>
+    <object-name>ctl22.vol</object-name>
     <object-name>ctl22.vol-emit</object-name>
+    <object-name>ctl22.xmt.annun</object-name>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
@@ -61,7 +61,6 @@ Syd Adams
     <object-name>ctl22.freq.005</object-name>
     <object-name>ctl22.freq.006</object-name>
     <object-name>ctl22.freq.dec</object-name>
-    <object-name>ctl22.mem.annun</object-name>
     <object-name>ctl22.stby.001</object-name>
     <object-name>ctl22.stby.002</object-name>
     <object-name>ctl22.stby.003</object-name>
@@ -74,25 +73,30 @@ Syd Adams
       <property>instrumentation/comm[0]/serviceable</property>
     </condition>
   </animation>
+  <animation>
+    <type>select</type>
+    <object-name>ctl22.mem.annun</object-name>
+    <condition>
+      <false />
+    </condition>
+  </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
-    <object-name>ctl22.box</object-name>
-    <object-name>ctl22.pwr</object-name>
-    <object-name>ctl22.toggle</object-name>
-    <object-name>ctl22.vol</object-name>
     <object-name>ctl22.act_btn</object-name>
-    <object-name>ctl22.freq.dec</object-name>
+    <object-name>ctl22.box</object-name>
+    <object-name>ctl22.box-emit</object-name>
     <object-name>ctl22.freq.knob</object-name>
     <object-name>ctl22.freq1.knob</object-name>
     <object-name>ctl22.mem.annun</object-name>
-    <object-name>ctl22.stby.dec</object-name>
+    <object-name>ctl22.pwr</object-name>
     <object-name>ctl22.sto.btn</object-name>
     <object-name>ctl22.test.btn</object-name>
-    <object-name>ctl22.xmt.annun</object-name>
-    <object-name>ctl22.box-emit</object-name>
+    <object-name>ctl22.toggle</object-name>
+    <object-name>ctl22.vol</object-name>
     <object-name>ctl22.vol-emit</object-name>
+    <object-name>ctl22.xmt.annun</object-name>
   </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->

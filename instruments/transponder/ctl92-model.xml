@@ -26,11 +26,13 @@ Syd Adams
     <object-name>C92freq.004</object-name>
     <object-name>C92mem.annun</object-name>
     <object-name>CTL-92</object-name>
+    <object-name>CTL-92-emit</object-name>
     <object-name>CTL-92.knob</object-name>
     <object-name>CTL-92.knob1</object-name>
     <object-name>CTL-92.pwr</object-name>
     <object-name>CTL-92.toggle</object-name>
     <object-name>CTL-92.vol</object-name>
+    <object-name>CTL-92.vol-emit</object-name>
     <object-name>atc.ident</object-name>
     <object-name>atc.pre</object-name>
     <object-name>atc.test</object-name>
@@ -38,9 +40,7 @@ Syd Adams
     <object-name>stby2</object-name>
     <object-name>stby3</object-name>
     <object-name>stby4</object-name>
-    <object-name>xmt.annun.001</object-name>
-    <object-name>CTL-92-emit</object-name>
-    <object-name>CTL-92.vol-emit</object-name>
+    <object-name>CTL-92.xmt.annun</object-name>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
@@ -50,7 +50,6 @@ Syd Adams
     <object-name>C92freq.002</object-name>
     <object-name>C92freq.003</object-name>
     <object-name>C92freq.004</object-name>
-    <object-name>C92mem.annun</object-name>
     <condition>
       <property>systems/electrical/bus/avionics</property>
       <not>
@@ -61,23 +60,30 @@ Syd Adams
       </not>
     </condition>
   </animation>
+  <animation>
+    <type>select</type>
+    <object-name>C92mem.annun</object-name>
+    <condition>
+      <false />
+    </condition>
+  </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
     <object-name>C92mem.annun</object-name>
     <object-name>CTL-92</object-name>
+    <object-name>CTL-92-emit</object-name>
     <object-name>CTL-92.knob</object-name>
     <object-name>CTL-92.knob1</object-name>
     <object-name>CTL-92.pwr</object-name>
     <object-name>CTL-92.toggle</object-name>
     <object-name>CTL-92.vol</object-name>
+    <object-name>CTL-92.vol-emit</object-name>
     <object-name>atc.ident</object-name>
     <object-name>atc.pre</object-name>
     <object-name>atc.test</object-name>
-    <object-name>xmt.annun.001</object-name>
-    <object-name>CTL-92-emit</object-name>
-    <object-name>CTL-92.vol-emit</object-name>
+    <object-name>CTL-92.xmt.annun</object-name>
   </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->

@@ -24,11 +24,9 @@ Syd Adams
   -->
   <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
   <animation>
-    <object-name>ctl32.box</object-name>
-    <object-name>ctl32.pwr</object-name>
-    <object-name>ctl32.toggle</object-name>
-    <object-name>ctl32.vol</object-name>
     <object-name>ctl32.act.btn</object-name>
+    <object-name>ctl32.box</object-name>
+    <object-name>ctl32.box-emit</object-name>
     <object-name>ctl32.freq.001</object-name>
     <object-name>ctl32.freq.002</object-name>
     <object-name>ctl32.freq.003</object-name>
@@ -40,6 +38,7 @@ Syd Adams
     <object-name>ctl32.freq.up</object-name>
     <object-name>ctl32.freq1.knob</object-name>
     <object-name>ctl32.mem.annun</object-name>
+    <object-name>ctl32.pwr</object-name>
     <object-name>ctl32.stby.001</object-name>
     <object-name>ctl32.stby.002</object-name>
     <object-name>ctl32.stby.003</object-name>
@@ -48,9 +47,10 @@ Syd Adams
     <object-name>ctl32.stby.dec</object-name>
     <object-name>ctl32.sto.btn</object-name>
     <object-name>ctl32.test.btn</object-name>
-    <object-name>ctl32.xmt.annun</object-name>
-    <object-name>ctl32.box-emit</object-name>
+    <object-name>ctl32.toggle</object-name>
+    <object-name>ctl32.vol</object-name>
     <object-name>ctl32.vol-emit</object-name>
+    <object-name>ctl32.xmt.annun</object-name>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
@@ -62,7 +62,6 @@ Syd Adams
     <object-name>ctl32.freq.004</object-name>
     <object-name>ctl32.freq.005</object-name>
     <object-name>ctl32.freq.dec</object-name>
-    <object-name>ctl32.mem.annun</object-name>
     <object-name>ctl32.stby.001</object-name>
     <object-name>ctl32.stby.002</object-name>
     <object-name>ctl32.stby.003</object-name>
@@ -74,7 +73,6 @@ Syd Adams
       <property>instrumentation/nav[1]/serviceable</property>
     </condition>
   </animation>
-
   <animation>
     <type>select</type>
     <object-name>ctl32.mem.annun</object-name>
@@ -86,23 +84,21 @@ Syd Adams
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
-    <object-name>ctl32.box</object-name>
-    <object-name>ctl32.pwr</object-name>
-    <object-name>ctl32.toggle</object-name>
-    <object-name>ctl32.vol</object-name>
     <object-name>ctl32.act.btn</object-name>
-    <object-name>ctl32.freq.dec</object-name>
+    <object-name>ctl32.box</object-name>
+    <object-name>ctl32.box-emit</object-name>
     <object-name>ctl32.freq.dwn</object-name>
     <object-name>ctl32.freq.knob</object-name>
     <object-name>ctl32.freq.up</object-name>
     <object-name>ctl32.freq1.knob</object-name>
     <object-name>ctl32.mem.annun</object-name>
-    <object-name>ctl32.stby.dec</object-name>
+    <object-name>ctl32.pwr</object-name>
     <object-name>ctl32.sto.btn</object-name>
     <object-name>ctl32.test.btn</object-name>
-    <object-name>ctl32.xmt.annun</object-name>
-    <object-name>ctl32.box-emit</object-name>
+    <object-name>ctl32.toggle</object-name>
+    <object-name>ctl32.vol</object-name>
     <object-name>ctl32.vol-emit</object-name>
+    <object-name>ctl32.xmt.annun</object-name>
   </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
