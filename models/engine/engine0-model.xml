@@ -261,15 +261,15 @@ ________________________________________________________________________________
 ________________________________________________________________________________
                                                                 NOZZLE ANIMATION
   -->
-
   <animation>
     <type>rotate</type>
     <object-name>tuyere_int_part.000.0</object-name>
-    <property>engines/engine[0]/n2</property>
+    <property>engines/engine[0]/n1</property>
     <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
       <entry><ind>60</ind><dep>-2</dep></entry>
-      <entry><ind>80</ind><dep>-30</dep></entry>
-      <entry><ind>90</ind><dep>0</dep></entry>
+      <entry><ind>70</ind><dep>-30</dep></entry>
+      <entry><ind>85</ind><dep>0</dep></entry>
       <entry><ind>100</ind><dep>2</dep></entry>
     </interpolation>
     <center>
@@ -286,11 +286,12 @@ ________________________________________________________________________________
   <animation>
     <type>rotate</type>
     <object-name>tuyere_int_part.022.5</object-name>
-    <property>engines/engine[0]/n2</property>
+    <property>engines/engine[0]/n1</property>
     <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
       <entry><ind>60</ind><dep>-2</dep></entry>
-      <entry><ind>80</ind><dep>-30</dep></entry>
-      <entry><ind>90</ind><dep>0</dep></entry>
+      <entry><ind>70</ind><dep>-30</dep></entry>
+      <entry><ind>85</ind><dep>0</dep></entry>
       <entry><ind>100</ind><dep>2</dep></entry>
     </interpolation>
     <center>
@@ -307,11 +308,12 @@ ________________________________________________________________________________
   <animation>
     <type>rotate</type>
     <object-name>tuyere_int_part.045.0</object-name>
-    <property>engines/engine[0]/n2</property>
+    <property>engines/engine[0]/n1</property>
     <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
       <entry><ind>60</ind><dep>-2</dep></entry>
-      <entry><ind>80</ind><dep>-30</dep></entry>
-      <entry><ind>90</ind><dep>0</dep></entry>
+      <entry><ind>70</ind><dep>-30</dep></entry>
+      <entry><ind>85</ind><dep>0</dep></entry>
       <entry><ind>100</ind><dep>2</dep></entry>
     </interpolation>
     <center>
@@ -328,11 +330,12 @@ ________________________________________________________________________________
   <animation>
     <type>rotate</type>
     <object-name>tuyere_int_part.067.5</object-name>
-    <property>engines/engine[0]/n2</property>
+    <property>engines/engine[0]/n1</property>
     <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
       <entry><ind>60</ind><dep>-2</dep></entry>
-      <entry><ind>80</ind><dep>-30</dep></entry>
-      <entry><ind>90</ind><dep>0</dep></entry>
+      <entry><ind>70</ind><dep>-30</dep></entry>
+      <entry><ind>85</ind><dep>0</dep></entry>
       <entry><ind>100</ind><dep>2</dep></entry>
     </interpolation>
     <center>
@@ -349,11 +352,12 @@ ________________________________________________________________________________
   <animation>
     <type>rotate</type>
     <object-name>tuyere_int_part.090.0</object-name>
-    <property>engines/engine[0]/n2</property>
+    <property>engines/engine[0]/n1</property>
     <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
       <entry><ind>60</ind><dep>-2</dep></entry>
-      <entry><ind>80</ind><dep>-30</dep></entry>
-      <entry><ind>90</ind><dep>0</dep></entry>
+      <entry><ind>70</ind><dep>-30</dep></entry>
+      <entry><ind>85</ind><dep>0</dep></entry>
       <entry><ind>100</ind><dep>2</dep></entry>
     </interpolation>
     <center>
@@ -370,11 +374,12 @@ ________________________________________________________________________________
   <animation>
     <type>rotate</type>
     <object-name>tuyere_int_part.112.5</object-name>
-    <property>engines/engine[0]/n2</property>
+    <property>engines/engine[0]/n1</property>
     <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
       <entry><ind>60</ind><dep>-2</dep></entry>
-      <entry><ind>80</ind><dep>-30</dep></entry>
-      <entry><ind>90</ind><dep>0</dep></entry>
+      <entry><ind>70</ind><dep>-30</dep></entry>
+      <entry><ind>85</ind><dep>0</dep></entry>
       <entry><ind>100</ind><dep>2</dep></entry>
     </interpolation>
     <center>
@@ -391,11 +396,12 @@ ________________________________________________________________________________
   <animation>
     <type>rotate</type>
     <object-name>tuyere_int_part.135.0</object-name>
-    <property>engines/engine[0]/n2</property>
+    <property>engines/engine[0]/n1</property>
     <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
       <entry><ind>60</ind><dep>-2</dep></entry>
-      <entry><ind>80</ind><dep>-30</dep></entry>
-      <entry><ind>90</ind><dep>0</dep></entry>
+      <entry><ind>70</ind><dep>-30</dep></entry>
+      <entry><ind>85</ind><dep>0</dep></entry>
       <entry><ind>100</ind><dep>2</dep></entry>
     </interpolation>
     <center>
@@ -412,11 +418,12 @@ ________________________________________________________________________________
   <animation>
     <type>rotate</type>
     <object-name>tuyere_int_part.157.5</object-name>
-    <property>engines/engine[0]/n2</property>
+    <property>engines/engine[0]/n1</property>
     <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
       <entry><ind>60</ind><dep>-2</dep></entry>
-      <entry><ind>80</ind><dep>-30</dep></entry>
-      <entry><ind>90</ind><dep>0</dep></entry>
+      <entry><ind>70</ind><dep>-30</dep></entry>
+      <entry><ind>85</ind><dep>0</dep></entry>
       <entry><ind>100</ind><dep>2</dep></entry>
     </interpolation>
     <center>
@@ -433,11 +440,12 @@ ________________________________________________________________________________
   <animation>
     <type>rotate</type>
     <object-name>tuyere_int_part.180.0</object-name>
-    <property>engines/engine[0]/n2</property>
+    <property>engines/engine[0]/n1</property>
     <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
       <entry><ind>60</ind><dep>-2</dep></entry>
-      <entry><ind>80</ind><dep>-30</dep></entry>
-      <entry><ind>90</ind><dep>0</dep></entry>
+      <entry><ind>70</ind><dep>-30</dep></entry>
+      <entry><ind>85</ind><dep>0</dep></entry>
       <entry><ind>100</ind><dep>2</dep></entry>
     </interpolation>
     <center>
@@ -454,11 +462,12 @@ ________________________________________________________________________________
   <animation>
     <type>rotate</type>
     <object-name>tuyere_int_part.202.5</object-name>
-    <property>engines/engine[0]/n2</property>
+    <property>engines/engine[0]/n1</property>
     <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
       <entry><ind>60</ind><dep>-2</dep></entry>
-      <entry><ind>80</ind><dep>-30</dep></entry>
-      <entry><ind>90</ind><dep>0</dep></entry>
+      <entry><ind>70</ind><dep>-30</dep></entry>
+      <entry><ind>85</ind><dep>0</dep></entry>
       <entry><ind>100</ind><dep>2</dep></entry>
     </interpolation>
     <center>
@@ -475,11 +484,12 @@ ________________________________________________________________________________
   <animation>
     <type>rotate</type>
     <object-name>tuyere_int_part.225.0</object-name>
-    <property>engines/engine[0]/n2</property>
+    <property>engines/engine[0]/n1</property>
     <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
       <entry><ind>60</ind><dep>-2</dep></entry>
-      <entry><ind>80</ind><dep>-30</dep></entry>
-      <entry><ind>90</ind><dep>0</dep></entry>
+      <entry><ind>70</ind><dep>-30</dep></entry>
+      <entry><ind>85</ind><dep>0</dep></entry>
       <entry><ind>100</ind><dep>2</dep></entry>
     </interpolation>
     <center>
@@ -496,11 +506,12 @@ ________________________________________________________________________________
   <animation>
     <type>rotate</type>
     <object-name>tuyere_int_part.247.5</object-name>
-    <property>engines/engine[0]/n2</property>
+    <property>engines/engine[0]/n1</property>
     <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
       <entry><ind>60</ind><dep>-2</dep></entry>
-      <entry><ind>80</ind><dep>-30</dep></entry>
-      <entry><ind>90</ind><dep>0</dep></entry>
+      <entry><ind>70</ind><dep>-30</dep></entry>
+      <entry><ind>85</ind><dep>0</dep></entry>
       <entry><ind>100</ind><dep>2</dep></entry>
     </interpolation>
     <center>
@@ -517,11 +528,12 @@ ________________________________________________________________________________
   <animation>
     <type>rotate</type>
     <object-name>tuyere_int_part.270.0</object-name>
-    <property>engines/engine[0]/n2</property>
+    <property>engines/engine[0]/n1</property>
     <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
       <entry><ind>60</ind><dep>-2</dep></entry>
-      <entry><ind>80</ind><dep>-30</dep></entry>
-      <entry><ind>90</ind><dep>0</dep></entry>
+      <entry><ind>70</ind><dep>-30</dep></entry>
+      <entry><ind>85</ind><dep>0</dep></entry>
       <entry><ind>100</ind><dep>2</dep></entry>
     </interpolation>
     <center>
@@ -538,11 +550,12 @@ ________________________________________________________________________________
   <animation>
     <type>rotate</type>
     <object-name>tuyere_int_part.292.5</object-name>
-    <property>engines/engine[0]/n2</property>
+    <property>engines/engine[0]/n1</property>
     <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
       <entry><ind>60</ind><dep>-2</dep></entry>
-      <entry><ind>80</ind><dep>-30</dep></entry>
-      <entry><ind>90</ind><dep>0</dep></entry>
+      <entry><ind>70</ind><dep>-30</dep></entry>
+      <entry><ind>85</ind><dep>0</dep></entry>
       <entry><ind>100</ind><dep>2</dep></entry>
     </interpolation>
     <center>
@@ -559,11 +572,12 @@ ________________________________________________________________________________
   <animation>
     <type>rotate</type>
     <object-name>tuyere_int_part.315.0</object-name>
-    <property>engines/engine[0]/n2</property>
+    <property>engines/engine[0]/n1</property>
     <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
       <entry><ind>60</ind><dep>-2</dep></entry>
-      <entry><ind>80</ind><dep>-30</dep></entry>
-      <entry><ind>90</ind><dep>0</dep></entry>
+      <entry><ind>70</ind><dep>-30</dep></entry>
+      <entry><ind>85</ind><dep>0</dep></entry>
       <entry><ind>100</ind><dep>2</dep></entry>
     </interpolation>
     <center>
@@ -580,11 +594,12 @@ ________________________________________________________________________________
   <animation>
     <type>rotate</type>
     <object-name>tuyere_int_part.337.5</object-name>
-    <property>engines/engine[0]/n2</property>
+    <property>engines/engine[0]/n1</property>
     <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
       <entry><ind>60</ind><dep>-2</dep></entry>
-      <entry><ind>80</ind><dep>-30</dep></entry>
-      <entry><ind>90</ind><dep>0</dep></entry>
+      <entry><ind>70</ind><dep>-30</dep></entry>
+      <entry><ind>85</ind><dep>0</dep></entry>
       <entry><ind>100</ind><dep>2</dep></entry>
     </interpolation>
     <center>

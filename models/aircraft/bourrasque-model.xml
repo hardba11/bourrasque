@@ -263,7 +263,10 @@ ________________________________________________________________________________
         </product>
         <product>
           <property>systems/electrical/bus/commands</property>
-          <property>surface-positions/left-aileron-pos-norm</property>
+          <sum>
+            <property>surface-positions/left-aileron-pos-norm</property>
+            <property>surface-positions/elevator-pos-norm</property>
+          </sum>
           <value>8</value>
         </product>
       </sum>
@@ -294,7 +297,10 @@ ________________________________________________________________________________
         </product>
         <product>
           <property>systems/electrical/bus/commands</property>
-          <property>surface-positions/right-aileron-pos-norm</property>
+          <sum>
+            <property>surface-positions/right-aileron-pos-norm</property>
+            <property>surface-positions/elevator-pos-norm</property>
+          </sum>
           <value>8</value>
         </product>
       </sum>

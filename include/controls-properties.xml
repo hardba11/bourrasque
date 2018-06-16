@@ -25,6 +25,12 @@ changelog
     <fdm-aileron>0</fdm-aileron>
   </flight>
 
+  <jato>
+    <enabled type="bool">0</enabled>
+    <null type="float">0</null>
+    <throttle alias="/controls/jato/null" />   <!-- alias switched by functions.nas -->
+  </jato>
+
   <gear>
     <!-- set property : parking brake at start -->
     <brake-parking>1</brake-parking>

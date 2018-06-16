@@ -7,7 +7,8 @@ print("*** LOADING instrument_sfd_eicas - sfd_eicas.nas ... ***");
 var colors = {
     'light_grey': 'rgba(200, 200, 200, 1)',
     'blue':       'rgba(20, 20, 250, 1)',
-    'red':        'rgba(200, 20, 20, 1)'
+    'red':        'rgba(200, 20, 20, 1)',
+    'yellow':     'rgba(250, 250, 20, 1)'
 };
 
 var rayon_static = 115;
@@ -334,6 +335,7 @@ var SFD_EICAS = {
             var ff1     = getprop("/engines/engine[1]/fuel-flow-gph") or 0;
             var reheat0 = getprop("/engines/engine[0]/reheat") or 0;
             var reheat1 = getprop("/engines/engine[1]/reheat") or 0;
+            var jato    = getprop("/controls/jato/enabled") or 0;
 
             var angle_n0   = n0 * 270 / 109;
             var angle_n1   = n1 * 270 / 109;
@@ -341,8 +343,8 @@ var SFD_EICAS = {
             var angle_egt1 = egt1 / 4;
             var angle_ff0  = (ff0 > 5) ? math.log10(ff0) * 60 : 1;
             var angle_ff1  = (ff1 > 5) ? math.log10(ff1) * 60 : 1;
-            var color0     = (reheat0 > .1) ? 'red' : 'blue';
-            var color1     = (reheat1 > .1) ? 'red' : 'blue';
+            var color0     = (jato == 1) ? 'yellow' : ((reheat0 > .1) ? 'red' : 'blue');
+            var color1     = (jato == 1) ? 'yellow' : ((reheat1 > .1) ? 'red' : 'blue');
 
             # gauge + value n1
             update_circular_gauge(me.n1_engine0_circle, x_n1_engine0, y_n1_engine0, rayon_gauge, angle_n0, color0);

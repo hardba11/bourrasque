@@ -281,6 +281,11 @@ ________________________________________________________________________________
     <control-output control="REHEAT" prop="/engines/engine[1]/reheat" />
     <control-speed  control="REHEAT" transition-time="2" />
   </jet>
+  <thruster thrust="100000"
+      x="-5.9" y="0" z=".9"
+      vx="1" vy="0" vz="0">
+    <control-input axis="/controls/jato/throttle" control="THROTTLE" />
+  </thruster>
 
   <!--
 ================================================================================

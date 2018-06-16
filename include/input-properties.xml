@@ -71,10 +71,6 @@ ________________________________________________________________________________
       <name>@</name>
       <binding><command>nasal</command><script /></binding>
     </key>
-    <key n="78">
-      <name>N</name>
-      <binding><command>nasal</command><script /></binding>
-    </key>
     <key n="80">
       <name>P</name>
       <binding><command>nasal</command><script /></binding>
@@ -85,10 +81,6 @@ ________________________________________________________________________________
     </key>
     <key n="99">
       <name>c</name>
-      <binding><command>nasal</command><script /></binding>
-    </key>
-    <key n="110">
-      <name>n</name>
       <binding><command>nasal</command><script /></binding>
     </key>
     <key n="115">
@@ -213,6 +205,32 @@ my_aircraft_functions.event_brake(0);
           </script>
         </binding>
       </mod-up>
+    </key>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ jato -->
+    <key n="78">
+      <name>N</name>
+      <desc>jato on</desc>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_toggle_jato(1);
+          ]]>
+        </script>
+      </binding>
+    </key>
+    <key n="110">
+      <name>n</name>
+      <desc>jato off</desc>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_toggle_jato(0);
+          ]]>
+        </script>
+      </binding>
     </key>
 
     <!-- ~~~~~~~~~~~~~~~~~~ carrier -->

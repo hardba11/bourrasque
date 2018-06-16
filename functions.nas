@@ -685,6 +685,25 @@ var event_toggle_carrier_equipment = func(do_enable) {
     setprop("/controls/gear/launchbar", do_enable);
 }
 
+var event_toggle_jato = func(do_enable) {
+
+    var engine_throttle = props.globals.getNode("/controls/engines/engine[1]/throttle");
+    var jato_throttle = props.globals.getNode("/controls/jato/throttle");
+    var jato_null = props.globals.getNode("/controls/jato/null");
+
+    if(do_enable == 1)
+    {
+        jato_throttle.unalias();
+        jato_throttle.alias(engine_throttle);
+    }
+    else
+    {
+        jato_throttle.unalias();
+        jato_throttle.alias(jato_null);
+    }
+    setprop("/controls/jato/enabled", do_enable);
+}
+
 var event_load_store = func(place, load) {
     if(place == 'wing')
     {
