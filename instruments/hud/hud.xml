@@ -1863,7 +1863,7 @@ changelog
     <halign>left</halign>
   </label>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ nav2 data if nav2 selected -->
+  <!-- ~~~~~~~~~~~~~~~~~~ nav2 data if nav2 selected and adf2 not selected -->
   <label>
     <name>nav_data_nav2_id</name>
     <x>40</x>
@@ -1888,6 +1888,12 @@ changelog
             <property>/instrumentation/my_aircraft/stdby-hsi/controls/nav-selector</property>
             <value type="int">2</value>
           </equals>
+          <not>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/inputs/rh-vor-adf</property>
+              <value>-1</value>
+            </equals>
+          </not>
         </and>
       </or>
     </condition>
@@ -1921,12 +1927,205 @@ changelog
             <property>/instrumentation/my_aircraft/stdby-hsi/controls/nav-selector</property>
             <value type="int">2</value>
           </equals>
+          <not>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/inputs/rh-vor-adf</property>
+              <value>-1</value>
+            </equals>
+          </not>
         </and>
       </or>
     </condition>
     <format>%.0f deg</format>
     <input>
       <property>/instrumentation/nav[1]/heading-deg</property>
+    </input>
+    <halign>left</halign>
+  </label>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ tacan data if nav2 master and adf2 enabled -->
+  <label>
+    <name>nav_data_tacan_id</name>
+    <x>40</x>
+    <y>-45</y>
+    <width>20</width>
+    <height>6</height>
+    <condition>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <and>
+          <or>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>APP</value>
+            </equals>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>NAV</value>
+            </equals>
+          </or>
+          <equals>
+            <property>/instrumentation/my_aircraft/stdby-hsi/controls/nav-selector</property>
+            <value type="int">2</value>
+          </equals>
+          <equals>
+            <property>/instrumentation/my_aircraft/nd/inputs/rh-vor-adf</property>
+            <value>-1</value>
+          </equals>
+        </and>
+      </or>
+    </condition>
+    <format>TACAN %s</format>
+    <input>
+      <property>/instrumentation/tacan/ident</property>
+    </input>
+    <halign>left</halign>
+  </label>
+  <label>
+    <name>nav_data_tacan_bearing</name>
+    <x>40</x>
+    <y>-55</y>
+    <width>20</width>
+    <height>6</height>
+    <condition>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <and>
+          <or>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>APP</value>
+            </equals>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>NAV</value>
+            </equals>
+          </or>
+          <equals>
+            <property>/instrumentation/my_aircraft/stdby-hsi/controls/nav-selector</property>
+            <value type="int">2</value>
+          </equals>
+          <equals>
+            <property>/instrumentation/my_aircraft/nd/inputs/rh-vor-adf</property>
+            <value>-1</value>
+          </equals>
+        </and>
+      </or>
+    </condition>
+    <format>%.0f deg</format>
+    <input>
+      <property>/instrumentation/tacan/indicated-bearing-true-deg</property>
+    </input>
+    <halign>left</halign>
+  </label>
+  <label>
+    <name>nav_data_tacan_eta</name>
+    <x>40</x>
+    <y>-65</y>
+    <width>20</width>
+    <height>6</height>
+    <condition>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <and>
+          <or>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>APP</value>
+            </equals>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>NAV</value>
+            </equals>
+          </or>
+          <equals>
+            <property>/instrumentation/my_aircraft/stdby-hsi/controls/nav-selector</property>
+            <value type="int">2</value>
+          </equals>
+          <equals>
+            <property>/instrumentation/my_aircraft/nd/inputs/rh-vor-adf</property>
+            <value>-1</value>
+          </equals>
+        </and>
+      </or>
+    </condition>
+    <format>eta %.0f min</format>
+    <input>
+      <property>/instrumentation/tacan/indicated-time-min</property>
+    </input>
+    <halign>left</halign>
+  </label>
+  <label>
+    <name>nav_data_tacan_dist</name>
+    <x>40</x>
+    <y>-75</y>
+    <width>20</width>
+    <height>6</height>
+    <condition>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <and>
+          <or>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>APP</value>
+            </equals>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>NAV</value>
+            </equals>
+          </or>
+          <equals>
+            <property>/instrumentation/my_aircraft/stdby-hsi/controls/nav-selector</property>
+            <value type="int">2</value>
+          </equals>
+          <equals>
+            <property>/instrumentation/my_aircraft/nd/inputs/rh-vor-adf</property>
+            <value>-1</value>
+          </equals>
+        </and>
+      </or>
+    </condition>
+    <format>%.1f NM</format>
+    <input>
+      <property>/instrumentation/tacan/indicated-distance-nm</property>
+    </input>
+    <halign>left</halign>
+  </label>
+  <label>
+    <name>nav_data_tacan_kt</name>
+    <x>40</x>
+    <y>-85</y>
+    <width>20</width>
+    <height>6</height>
+    <condition>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <and>
+          <or>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>APP</value>
+            </equals>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>NAV</value>
+            </equals>
+          </or>
+          <equals>
+            <property>/instrumentation/my_aircraft/stdby-hsi/controls/nav-selector</property>
+            <value type="int">2</value>
+          </equals>
+          <equals>
+            <property>/instrumentation/my_aircraft/nd/inputs/rh-vor-adf</property>
+            <value>-1</value>
+          </equals>
+        </and>
+      </or>
+    </condition>
+    <format>%.0f kt</format>
+    <input>
+      <property>/instrumentation/tacan/indicated-ground-speed-kt</property>
     </input>
     <halign>left</halign>
   </label>
