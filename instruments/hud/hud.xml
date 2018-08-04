@@ -404,8 +404,8 @@ changelog
     <modulo>36</modulo>
     <option>top</option>
     <label-gap-width>10</label-gap-width>
-    <major-divisions>1.0</major-divisions>
-    <minor-divisions>0.5</minor-divisions>
+    <major-divisions>1</major-divisions>
+    <minor-divisions>.5</minor-divisions>
     <tick-bottom>false</tick-bottom>
     <tick-top>false</tick-top>
     <tick-right>false</tick-right>
@@ -444,8 +444,8 @@ changelog
     <modulo>36</modulo>
     <option>top</option>
     <label-gap-width>0</label-gap-width>
-    <major-divisions>1.0</major-divisions>
-    <minor-divisions>0.5</minor-divisions>
+    <major-divisions>1</major-divisions>
+    <minor-divisions>.5</minor-divisions>
     <tick-bottom>false</tick-bottom>
     <tick-top>false</tick-top>
     <tick-right>false</tick-right>
@@ -485,8 +485,8 @@ changelog
     <option>top</option>
     <option>horizontal</option>
     <label-gap-width>0</label-gap-width>
-    <major-divisions>1.0</major-divisions>
-    <minor-divisions>0.5</minor-divisions>
+    <major-divisions>1</major-divisions>
+    <minor-divisions>.5</minor-divisions>
     <tick-bottom>false</tick-bottom>
     <tick-top>false</tick-top>
     <tick-right>true</tick-right>
@@ -927,7 +927,7 @@ changelog
     <option>top</option>
     <option>horizontal</option>
     <option>notext</option>
-    <major-divisions>50</major-divisions>
+    <major-divisions>1</major-divisions>
     <minor-divisions>0</minor-divisions>
     <input>
       <property>/controls/flight/aileron</property>
@@ -939,16 +939,34 @@ changelog
     <name>pitch gauge</name>
     <x>80</x>
     <y>46</y>
-    <width>5</width>
+    <width>10</width>
     <height>24</height>
     <option>vertical</option>
     <option>right</option>
     <option>notext</option>
-    <major-divisions>50</major-divisions>
+    <major-divisions>1</major-divisions>
     <minor-divisions>0</minor-divisions>
     <input>
       <property>/controls/flight/elevator</property>
       <factor>-1</factor>
+      <max>1.0</max>
+      <min>-1.0</min>
+    </input>
+  </gauge>
+  <gauge>
+    <name>pitch trim gauge</name>
+    <x>74</x>
+    <y>50</y>
+    <width>5</width>
+    <height>16</height>
+    <option>vertical</option>
+    <option>left</option>
+    <option>notext</option>
+    <major-divisions>1</major-divisions>
+    <minor-divisions>0</minor-divisions>
+    <input>
+      <property>/controls/flight/elevator-trim</property>
+      <factor>-10</factor>
       <max>1.0</max>
       <min>-1.0</min>
     </input>
@@ -962,7 +980,7 @@ changelog
     <option>horizontal</option>
     <option>bottom</option>
     <option>notext</option>
-    <major-divisions>50</major-divisions>
+    <major-divisions>1</major-divisions>
     <minor-divisions>0</minor-divisions>
     <input>
       <property>/controls/flight/rudder</property>
