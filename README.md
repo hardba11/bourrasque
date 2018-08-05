@@ -51,14 +51,18 @@ Effects
 AI scenario (need to copy files in your FGDATA directory - see README)
 - 2 wingmen AI demo
 - timed loop AI demo over French Alps (takeoff LFLG : Grenoble le Versoud)
-- add a new tanker beside the A330MRTT
+- add a new tanker beside the A330MRTT : Rafale Marine buddy-buddy
 
 Tools
-- tool to record a timed loop
+- tool to record a timed loop (see https://github.com/hardba11/bourrasque/blob/master/tools/trace-loop/README.txt)
+- assistance to reach clostest airport (ATC orders)
+
 
 ## pilot documentation
 
 see https://github.com/hardba11/bourrasque/blob/master/contrib/HELP.txt
+
+![Image](http://i.imgur.com/Texfhr3.gif)
 
 ## gallery
 
@@ -114,7 +118,7 @@ LFLG timed loop (need a copy to AI/ to install) :
 
 ![Image](http://i.imgur.com/hd3LKso.png)
 
-tanker (need a copy to AI/ to install) :
+AI Rafale Marine tanker (need a copy to AI/ to install) :
 
 ![Image](http://i.imgur.com/dRmWRNU.png)
 
@@ -129,6 +133,10 @@ steppe livery :
 standard livery :
 
 ![Image](http://i.imgur.com/eJdURzL.png)
+
+russian livery :
+
+![Image](http://i.https://imgur.com/q173hjc.png)
 
 flecktarn livery :
 
@@ -182,4 +190,6 @@ touchdown smoke effects :
 
 ![Image](http://i.imgur.com/BVkJ6aO.png)
 
+high altitude navigation :
 
+![Image](http://i.imgur.com/oxHM3aQ.png)
