@@ -136,7 +136,7 @@ standard livery :
 
 russian livery :
 
-![Image](http://i.https://imgur.com/q173hjc.png)
+![Image](http://i.imgur.com/q173hjc.png)
 
 flecktarn livery :
 
