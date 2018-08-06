@@ -8,9 +8,6 @@
 
 http://wiki.flightgear.org/Property_tree
 
-changelog
-- 2016-10-22 : create
-
 -->
 
 <PropertyList>
@@ -24,17 +21,57 @@ changelog
     <!-- ~~~~~~~~~~~~~~~~~~ metadata -->
     <description type="string">Bourrasque back-seater (multiplayer)</description>
     <variant-of type="string">bourrasque</variant-of>
-
-    <author type="string">hardball SLK</author>
-    <aircraft-version type="string">20180317</aircraft-version>
-
+    <long-description type="string">Bourrasque is a fictionnal civil version of the famous Dassault Rafale, its purpose is the world exploration thanks to high speed, short landings and takeoff, radionavigation and auto pilot equipment.</long-description>
+    <aircraft-version type="string">20180806</aircraft-version>
     <minimum-fg-version type="string">2017.1.1</minimum-fg-version>
 
-    <status type="string">beta</status>
+    <!-- old / simple style -->
+    <author type="string">hardball SLK</author>
+
+    <!-- new in FlightGear 2018.3.0 style -->
+    <authors> 
+      <author n="0">
+        <name>hardball SLK</name>
+        <description>model, FDM, systems</description>
+        <nick>F-HRBD</nick>
+      </author>
+    </authors>
+    <maintainers>
+      <maintainer n="0">
+        <name>hardball SLK</name>
+        <email>nico@localhost</email>
+      </maintainer>
+    </maintainers>
+    <primary-set type="bool">true</primary-set>
+    <urls>
+      <home-page>https://hardba11.github.io/bourrasque/</home-page>
+      <support />
+      <wikipedia />
+      <code-repository>https://github.com/hardba11/bourrasque</code-repository>
+    </urls>
+
+    <status type="string">early production</status>
     <tags>
-      <tag>jet</tag>
-      <tag>retractable-gear</tag>
+      <!-- aircraftTypeTags -->
+      <tag>bizjet</tag>
+      <tag>fighter</tag>
+      <!-- manufacturerTags -->
+      <tag>dassault</tag>
+      <!-- eraTags -->
+      <tag>1990s</tag>
+      <!-- featureTags -->
+      <tag>canard</tag>
+      <tag>delta</tag>
+      <tag>fictional</tag>
+      <tag>hud</tag>
       <tag>ifr</tag>
+      <tag>refuel</tag>
+      <tag>retractable-gear</tag>
+      <tag>supersonic</tag>
+      <tag>tail-hook</tag>
+      <!-- propulsionTags -->
+      <tag>afterburner</tag>
+      <tag>jet</tag>
       <tag>twin-engine</tag>
     </tags>
 
@@ -45,7 +82,6 @@ changelog
       <model type="int">4</model>
     </rating>
 
-    <long-description type="string">Bourrasque is a fictionnal civil version of the famous Dassault Rafale, its purpose is the world exploration thanks to high speed, short landings and takeoff, radionavigation and auto pilot equipment.</long-description>
 
     <!-- ~~~~~~~~~~~~~~~~~~ flight model -->
     <flight-model>null</flight-model>
@@ -78,7 +114,9 @@ changelog
       <ground-equipment-g    type="int">1</ground-equipment-g>  <!-- chocks -->
       <ground-equipment-s    type="int">1</ground-equipment-s>  <!-- scale -->
       <ground-equipment-p    type="int">1</ground-equipment-p>  <!-- power unit -->
-      <ground-equipment-f    type="int">1</ground-equipment-f>  <!-- fuel truck-->
+      <ground-equipment-f    type="int">1</ground-equipment-f>  <!-- fuel truck -->
+
+      <carrier-equipment     type="int">0</carrier-equipment>   <!-- launch bar + tail hook -->
       <wing-tanks-1250       type="int">0</wing-tanks-1250>
       <wing-tanks-2000       type="int">0</wing-tanks-2000>
       <center-tank-1250      type="int">0</center-tank-1250>
@@ -151,8 +189,11 @@ changelog
 
   </sim>
 
-  <!-- smoke touchdown, data updated by functions.nas -->
+  <!-- smoke touchdown, data updated by bourrasque.nas -->
   <gear>
+    <gear n="0">
+      <launchbar-position-norm type="float">0</launchbar-position-norm>
+    </gear>
     <gear n="1">
       <tyre-smoke type="bool">0</tyre-smoke>
     </gear>
@@ -197,53 +238,6 @@ changelog
     <dual_control>
       <file>Aircraft/Generic/DualControl/copilot-dual-control.nas</file>
     </dual_control>
-
-    <!--my_aircraft_functions>
-      <file type="string">functions.nas</file>
-    </my_aircraft_functions>
-
-    <instrument_nd>
-      <file type="string">instruments/nd/nd.nas</file>
-    </instrument_nd>
-    <instrument_pfd>
-      <file type="string">instruments/pfd/pfd.nas</file>
-    </instrument_pfd>
-    <instrument_light>
-      <file type="string">instruments/light/light.nas</file>
-    </instrument_light>
-    <instrument_sfd_eicas>
-      <file type="string">instruments/sfd/sfd_eicas.nas</file>
-    </instrument_sfd_eicas>
-    <instrument_sfd_radar>
-      <file type="string">instruments/sfd/sfd_radar.nas</file>
-    </instrument_sfd_radar>
-    <instrument_fuel>
-      <file type="string">instruments/fuel/fuel.nas</file>
-    </instrument_fuel>
-    <instrument_fuel_canvas>
-      <file type="string">instruments/fuel/fuel_canvas.nas</file>
-    </instrument_fuel_canvas>
-    <instrument_command_h>
-      <file type="string">instruments/command_h/command_h.nas</file>
-    </instrument_command_h>
-    <instrument_command_h_canvas>
-      <file type="string">instruments/command_h/alert_panel_canvas.nas</file>
-    </instrument_command_h_canvas>
-    <instrument_chrono>
-      <file type="string">instruments/chrono/chrono.nas</file>
-    </instrument_chrono>
-    <instrument_tablet_map>
-      <file type="string">instruments/tablet/tablet_map.nas</file>
-    </instrument_tablet_map>
-
-    <fdm>
-      <file type="string">fdm/bourrasque.nas</file>
-      <file type="string">fdm/systems.nas</file>
-    </fdm>
-
-    <lights>
-      <file type="string">models/lights/lights.nas</file>
-    </lights-->
 
     <FailureMgr>
       <enabled type="bool">0</enabled>

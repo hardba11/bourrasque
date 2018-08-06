@@ -8,9 +8,6 @@
 
 http://wiki.flightgear.org/Property_tree
 
-changelog
-- 2016-10-22 : create
-
 -->
 
 <PropertyList>
@@ -23,17 +20,57 @@ changelog
 
     <!-- ~~~~~~~~~~~~~~~~~~ metadata -->
     <description type="string">Bourrasque</description>
-
-    <author type="string">hardball SLK</author>
-    <aircraft-version type="string">20180317</aircraft-version>
-
+    <long-description type="string">Bourrasque is a fictionnal civil version of the famous Dassault Rafale, its purpose is the world exploration thanks to high speed, short landings and takeoff, radionavigation and auto pilot equipment.</long-description>
+    <aircraft-version type="string">20180806</aircraft-version>
     <minimum-fg-version type="string">2017.1.1</minimum-fg-version>
 
-    <status type="string">beta</status>
+    <!-- old / simple style -->
+    <author type="string">hardball SLK</author>
+
+    <!-- new in FlightGear 2018.3.0 style -->
+    <authors> 
+      <author n="0">
+        <name>hardball SLK</name>
+        <description>model, FDM, systems</description>
+        <nick>F-HRBD</nick>
+      </author>
+    </authors>
+    <maintainers>
+      <maintainer n="0">
+        <name>hardball SLK</name>
+        <email>nico@localhost</email>
+      </maintainer>
+    </maintainers>
+    <primary-set type="bool">true</primary-set>
+    <urls>
+      <home-page>https://hardba11.github.io/bourrasque/</home-page>
+      <support />
+      <wikipedia />
+      <code-repository>https://github.com/hardba11/bourrasque</code-repository>
+    </urls>
+
+    <status type="string">early production</status>
     <tags>
-      <tag>jet</tag>
-      <tag>retractable-gear</tag>
+      <!-- aircraftTypeTags -->
+      <tag>bizjet</tag>
+      <tag>fighter</tag>
+      <!-- manufacturerTags -->
+      <tag>dassault</tag>
+      <!-- eraTags -->
+      <tag>1990s</tag>
+      <!-- featureTags -->
+      <tag>canard</tag>
+      <tag>delta</tag>
+      <tag>fictional</tag>
+      <tag>hud</tag>
       <tag>ifr</tag>
+      <tag>refuel</tag>
+      <tag>retractable-gear</tag>
+      <tag>supersonic</tag>
+      <tag>tail-hook</tag>
+      <!-- propulsionTags -->
+      <tag>afterburner</tag>
+      <tag>jet</tag>
       <tag>twin-engine</tag>
     </tags>
 
@@ -44,7 +81,6 @@ changelog
       <model type="int">4</model>
     </rating>
 
-    <long-description type="string">Bourrasque is a fictionnal civil version of the famous Dassault Rafale, its purpose is the world exploration thanks to high speed, short landings and takeoff, radionavigation and auto pilot equipment.</long-description>
 
     <!-- ~~~~~~~~~~~~~~~~~~ flight model -->
     <flight-model>yasim</flight-model>
@@ -64,8 +100,6 @@ changelog
       <path type="string">Aircraft/bourrasque/models/brsq.xml</path>
 
       <constant type="int">1</constant>
-
-<!-- USED FOR DEVELOPMENT <path>Aircraft/bourrasque/models/cockpit/cockpit-test-model.xml</path> -->
 
       <livery>
         <file type="string">liveries/texture_bourrasque_gris_digital</file>
@@ -303,7 +337,6 @@ changelog
 ================================================================================
                                                                            NASAL
 ================================================================================
-
   -->
   <nasal>
 
