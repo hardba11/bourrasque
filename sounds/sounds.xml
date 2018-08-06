@@ -401,11 +401,11 @@ ________________________________________________________________________________
       </condition>
       <volume>
         <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
-        <factor>.0002</factor>
+        <factor>.0004</factor>
       </volume>
       <pitch>
         <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
-        <factor>.0002</factor>
+        <factor>.0003</factor>
       </pitch>
     </rumble_gear_internal>
 
@@ -568,7 +568,7 @@ ________________________________________________________________________________
         </and>
       </condition>
       <volume>
-        <factor>0.3</factor>
+        <factor>0.5</factor>
       </volume>
     </brake_lever>
     <brake_lever>
@@ -582,7 +582,7 @@ ________________________________________________________________________________
         </and>
       </condition>
       <volume>
-        <factor>0.3</factor>
+        <factor>0.5</factor>
       </volume>
     </brake_lever>
 
@@ -628,7 +628,7 @@ ________________________________________________________________________________
         </equals>
       </condition>
       <volume>
-        <max>0.07</max>
+        <max>0.1</max>
       </volume>
     </gear_lock>
 
