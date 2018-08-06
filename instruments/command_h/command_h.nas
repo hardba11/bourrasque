@@ -66,6 +66,7 @@ var checking_aircraft_status = func()
     var airspeed            = getprop("/instrumentation/airspeed-indicator/true-speed-kt") or 0;
     var radar_altitude      = getprop("/position/altitude-agl-ft") or 0;
     var state_launchbar     = getprop("/gear/launchbar/state") or 'Disengaged';
+    var is_autotrim_enabled = getprop("/controls/flight/autotrim-pitch") or 0;
 
 
     #---------------------------------------------------------------------------
@@ -86,6 +87,7 @@ var checking_aircraft_status = func()
     var bingo_status        = getprop("/instrumentation/my_aircraft/command_h/panel_status/bingo_status") or 0;
     var air_refuel_status   = getprop("/instrumentation/my_aircraft/command_h/panel_status/air_refuel_status") or 0;
     var avionics_status     = getprop("/instrumentation/my_aircraft/command_h/panel_status/avionics_status") or 0;
+    var autotrim_status     = getprop("/instrumentation/my_aircraft/command_h/panel_status/autotrim_status") or 0;
 
 
     #---------------------------------------------------------------------------
@@ -158,6 +160,10 @@ var checking_aircraft_status = func()
         if(avionics_status == CAUTION)    { avionics_status = INFO; }
         elsif(avionics_status == WARN)    { avionics_status = INFO; }
         elsif(avionics_status == ALERT)   { avionics_status = WARN; }
+
+        if(autotrim_status == CAUTION)    { autotrim_status = INFO; }
+        elsif(autotrim_status == WARN)    { autotrim_status = INFO; }
+        elsif(autotrim_status == ALERT)   { autotrim_status = WARN; }
 
         setprop("/instrumentation/my_aircraft/command_h/sound_alert", 0);
         setprop("/instrumentation/my_aircraft/command_h/ack_alert", 0);
@@ -338,6 +344,13 @@ var checking_aircraft_status = func()
     else
         { avionics_status = OK; }
     setprop("/instrumentation/my_aircraft/command_h/panel_status/avionics_status", avionics_status);
+
+    # alert rules for TRIM
+    if(is_autotrim_enabled ==  1)
+        { autotrim_status = CAUTION; }
+    else
+        { autotrim_status = OK; }
+    setprop("/instrumentation/my_aircraft/command_h/panel_status/autotrim_status", autotrim_status);
 
 
     #---------------------------------------------------------------------------

@@ -261,6 +261,7 @@ changelog
     <float4 type="float">0</float4>
     <float5 type="float">0</float5>
     <float6 type="float">0</float6>
+    <bool1 type="bool">0</bool1>
     <!-- USED FOR TUNNING WITHOUT RESTARTING fcm.nas -->
     <fcm>
       <reduction_of_efficiency_for_speed type="float">2.7</reduction_of_efficiency_for_speed>

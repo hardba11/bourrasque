@@ -83,10 +83,6 @@ ________________________________________________________________________________
       <name>c</name>
       <binding><command>nasal</command><script /></binding>
     </key>
-    <key n="115">
-      <name>s</name>
-      <binding><command>nasal</command><script /></binding>
-    </key>
     <key n="126">
       <name>~</name>
       <binding><command>nasal</command><script /></binding>
@@ -128,6 +124,16 @@ tools.event_reinit_loop();
 ________________________________________________________________________________
                                                                         COMMANDS
   -->
+
+    <!-- ~~~~~~~~~~~~~~~~~~ autotrim -->
+    <key n="115">
+      <name>s</name>
+      <desc>Toggle pitch Autotrim</desc>
+      <binding n="0">
+        <property>/controls/flight/autotrim-pitch</property>
+        <command>property-toggle</command>
+      </binding>
+    </key>
 
     <!-- ~~~~~~~~~~~~~~~~~~ auto pilot : hold / disengage -->
     <key n="16">

@@ -10,6 +10,7 @@ keyboard shortcuts
 - c : open/close canopy, you can click on the canopy handles or on the canopy switch to half-open it
 - k : Extend Speedbrakes (5 positions)
 - j : Retract Speedbrakes (5 positions)
+- s : Toggle Autotrim (pitch)
 - ctrl-a : enable autopilot on Altitude
 - ctrl-s : enable autopilot on Speed
 - ctrl-h : enable autopilot on Heading (bug)

@@ -25,6 +25,7 @@
     <bingo_status type="int">0</bingo_status>
     <air_refuel_status type="int">0</air_refuel_status>
     <avionics_status type="int">0</avionics_status>
+    <autotrim_status type="int">0</autotrim_status>
   </panel_status>
 
   <message>

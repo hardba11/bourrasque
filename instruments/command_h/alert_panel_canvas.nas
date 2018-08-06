@@ -140,13 +140,13 @@ var WARN_PANEL = {
             .setFontSize(36)
             .setColor(0, 0, 0, 1)
             .setText('AVCS');
-        m.lbl82 = m.my_group.createChild('text', 'lbl82')
+        m.trim = m.my_group.createChild('text', 'TRIM')
             .setTranslation(960, 120)
             .setAlignment('center-bottom')
             .setFont('LiberationFonts/LiberationSansNarrow-Bold.ttf')
             .setFontSize(36)
             .setColor(0, 0, 0, 1)
-            .setText('');
+            .setText('TRIM');
 
         return m;
     },
@@ -258,6 +258,13 @@ var WARN_PANEL = {
         elsif(avionics_status == CAUTION) { me.avcs.setColor(1, 1, 0, blinking); }
         elsif(avionics_status == WARN)    { me.avcs.setColor(1, 0, 0, 1); }
         elsif(avionics_status == ALERT)   { me.avcs.setColor(1, 0, 0, blinking); }
+
+        var autotrim_status = getprop("/instrumentation/my_aircraft/command_h/panel_status/autotrim_status") or 0;
+        if(autotrim_status == OK)         { me.trim.setColor(0, 0, 0, 0); }
+        elsif(autotrim_status == INFO)    { me.trim.setColor(1, 1, 0, 1); }
+        elsif(autotrim_status == CAUTION) { me.trim.setColor(1, 1, 0, blinking); }
+        elsif(autotrim_status == WARN)    { me.trim.setColor(1, 0, 0, 1); }
+        elsif(autotrim_status == ALERT)   { me.trim.setColor(1, 0, 0, blinking); }
 
         var time_speed = getprop("/sim/speed-up") or 1;
         var loop_speed = (time_speed == 1) ? .1 : 5 * time_speed;

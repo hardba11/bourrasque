@@ -732,6 +732,54 @@ I also suggest you to use rate based control over degree based control. its more
 
   <!--
 ================================================================================
+                                                                       AUTO TRIM
+================================================================================
+  -->
+
+  <filter>
+    <name>autotrim pitch</name>
+    <debug>false</debug>
+    <initialize-to>output</initialize-to>
+    <enable>
+      <condition>
+        <and>
+          <equals>
+            <property>/gear/gear[1]/wow</property>
+            <value>0</value>
+          </equals>
+          <equals>
+            <property>/gear/gear[2]/wow</property>
+            <value>0</value>
+          </equals>
+          <property>/controls/flight/autotrim-pitch</property>
+        </and>
+      </condition>
+    </enable>
+    <input>
+      <condition>
+        <greater-than>
+          <property>/controls/flight/elevator</property>
+          <value>0.02</value>
+        </greater-than>
+      </condition>
+      <value>1</value>
+    </input>
+    <input>
+      <condition>
+        <less-than>
+          <property>/controls/flight/elevator</property>
+          <value>-0.02</value>
+        </less-than>
+      </condition>
+      <value>-1</value>
+    </input>
+    <output>/controls/flight/elevator-trim</output>
+    <type>noise-spike</type>
+    <max-rate-of-change>0.01</max-rate-of-change>
+  </filter>
+
+  <!--
+================================================================================
                                                                    FDM INTERFACE
 ================================================================================
   -->

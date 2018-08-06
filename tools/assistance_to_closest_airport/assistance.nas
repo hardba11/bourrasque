@@ -140,7 +140,7 @@ var get_airport_info = func() {
     var longest_rwy    = 0;
     var runways = arpt.runways;
     var rwy_keys = sort(keys(runways), string.icmp);
-    foreach(var rwy_id; rwy_keys)
+    foreach(var rwy_id ; rwy_keys)
     {
         var r = runways[rwy_id];
         if(r.length > longest_rwy)
@@ -273,7 +273,7 @@ var find_in_which_zone_is_aircraft = func(lat, lng, heading, aircraft_bearing, a
     # vers le nord, les coordonnes de l aeroport sont 0, 0
     # les coordonnees de l avion ont ete transposees dans le nouveau repere
     # on recherche alors dans quelle zone l avion se trouve
-    foreach(var zone; atc_zone)
+    foreach(var zone ; atc_zone)
     {
         if((translated_aircraft_lng > zone['top_left_x'])
             and (translated_aircraft_lng < zone['bottom_right_x'])

@@ -953,6 +953,19 @@ changelog
       <min>-1.0</min>
     </input>
   </gauge>
+
+  <label>
+    <name>pitch trim value</name>
+    <input>
+      <property>/controls/flight/elevator-trim</property>
+    </input>
+    <x>70</x>
+    <y>70</y>
+    <width>10</width>
+    <height>8</height>
+    <halign>middle</halign>
+    <format>%.3f</format>
+  </label>
   <gauge>
     <name>pitch trim gauge</name>
     <x>74</x>
@@ -966,7 +979,7 @@ changelog
     <minor-divisions>0</minor-divisions>
     <input>
       <property>/controls/flight/elevator-trim</property>
-      <factor>-10</factor>
+      <factor>-2</factor>
       <max>1.0</max>
       <min>-1.0</min>
     </input>

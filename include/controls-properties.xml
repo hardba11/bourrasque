@@ -16,13 +16,15 @@ changelog
 <PropertyList>
 
   <flight>
-    <!-- init properties used by fcm.nas and yasim -->
+    <!-- init properties used by fcm.nas autopilot and yasim -->
     <fcm-elevator>0</fcm-elevator>
     <fcm-aileron>0</fcm-aileron>
     <fcm-rudder>0</fcm-rudder>
     <fcm-canard>0</fcm-canard>
     <fdm-elevator>0</fdm-elevator>
     <fdm-aileron>0</fdm-aileron>
+
+    <autotrim-pitch type="bool">0</autotrim-pitch>
   </flight>
 
   <jato>
