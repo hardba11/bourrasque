@@ -52,6 +52,8 @@ var draw_circular_gauge = func(element, center_x, center_y, rayon, angle, color,
     var coord_x_start = center_x + rayon;
     var coord_y_start = center_y;
 
+    angle = (angle > 270) ? 270 : angle;
+
     var coord_x_end = -rayon + (rayon * math.cos(angle * D2R));
     var coord_y_end =           rayon * math.sin(angle * D2R);
 
@@ -87,6 +89,8 @@ var update_circular_gauge = func(element, center_x, center_y, rayon, angle, colo
 {
     var coord_x_start = center_x + rayon;
     var coord_y_start = center_y;
+
+    angle = (angle > 270) ? 270 : angle;
 
     var coord_x_end = -rayon + (rayon * math.cos(angle * D2R));
     var coord_y_end =           rayon * math.sin(angle * D2R);
