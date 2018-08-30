@@ -742,17 +742,7 @@ I also suggest you to use rate based control over degree based control. its more
     <initialize-to>output</initialize-to>
     <enable>
       <condition>
-        <and>
-          <equals>
-            <property>/gear/gear[1]/wow</property>
-            <value>0</value>
-          </equals>
-          <equals>
-            <property>/gear/gear[2]/wow</property>
-            <value>0</value>
-          </equals>
-          <property>/controls/flight/autotrim-pitch</property>
-        </and>
+        <property>/controls/flight/autotrim-pitch</property>
       </condition>
     </enable>
     <input>

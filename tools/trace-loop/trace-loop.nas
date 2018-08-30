@@ -1,4 +1,4 @@
-print("*** LOADING tool - trace-loop.nas ... ***");
+print("*** LOADING tools - trace-loop.nas ... ***");
 
 var no_phase = 0;
 var buffer_coords = [];

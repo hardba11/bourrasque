@@ -48,13 +48,13 @@ Effects
 - rain effects : raindrops on canopy and fuselage, particles on ground
 - smoke pods
 
-AI scenario (need to copy files in your FGDATA directory - see README)
-- 2 wingmen AI demo
-- timed loop AI demo over French Alps (takeoff LFLG : Grenoble le Versoud)
-- add a new tanker beside the A330MRTT : Rafale Marine buddy-buddy
+AI scenario (need to copy files in your FGDATA directory)
+- 2 wingmen AI demo - see [README](https://github.com/hardba11/bourrasque/blob/master/ai/README-wingmen.txt)
+- timed loop AI demo over French Alps (takeoff LFLG : Grenoble le Versoud) - see [README](https://github.com/hardba11/bourrasque/blob/master/ai/README-timed-loop.txt)
+- add a new tanker beside the A330MRTT : Rafale Marine buddy-buddy - see [README](https://github.com/hardba11/bourrasque/blob/master/ai/README-tanker-rafale-marine.txt)
 
 Tools
-- tool to record a timed loop (see https://github.com/hardba11/bourrasque/blob/master/tools/trace-loop/README.txt)
+- tool to record a timed loop - see [README](https://github.com/hardba11/bourrasque/blob/master/tools/trace-loop/README.txt)
 - assistance to reach clostest airport (ATC orders)
 
 

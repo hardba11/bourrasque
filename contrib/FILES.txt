@@ -291,18 +291,18 @@ bourrasque-set.xml
  |-- include/environment-properties.xml
  |-- include/input-properties.xml
  |-- include/instrumentation-properties.xml
- |    |-- include/../instruments/chrono/chrono-properties.xml
- |    |-- include/../instruments/command_h/command_h-properties.xml
- |    |-- include/../instruments/electricals/electricals-properties.xml
- |    |-- include/../instruments/engines/engines-properties.xml
- |    |-- include/../instruments/fuel/fuel-properties.xml
- |    |-- include/../instruments/hud_target_positions/hud_target_positions-properties.xml
- |    |-- include/../instruments/nd/nd-properties.xml
- |    |-- include/../instruments/pfd/pfd-properties.xml
- |    |-- include/../instruments/sfd/sfd-properties.xml
- |    |-- include/../instruments/stdby-alt/stdby-alt-properties.xml
- |    |-- include/../instruments/stdby-hsi/stdby-hsi-properties.xml
- |    `-- include/../instruments/tablet/tablet-properties.xml
+ |    |-- instruments/chrono/chrono-properties.xml
+ |    |-- instruments/command_h/command_h-properties.xml
+ |    |-- instruments/electricals/electricals-properties.xml
+ |    |-- instruments/engines/engines-properties.xml
+ |    |-- instruments/fuel/fuel-properties.xml
+ |    |-- instruments/hud_target_positions/hud_target_positions-properties.xml
+ |    |-- instruments/nd/nd-properties.xml
+ |    |-- instruments/pfd/pfd-properties.xml
+ |    |-- instruments/sfd/sfd-properties.xml
+ |    |-- instruments/stdby-alt/stdby-alt-properties.xml
+ |    |-- instruments/stdby-hsi/stdby-hsi-properties.xml
+ |    `-- instruments/tablet/tablet-properties.xml
  |-- include/sim-flight-recorder.xml
  |    `-- /Aircraft/Generic/flightrecorder/generic-jet.xml
  |         |-- /Aircraft/Generic/flightrecorder/components/controls.xml
