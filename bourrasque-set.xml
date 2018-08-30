@@ -104,10 +104,11 @@ http://wiki.flightgear.org/Property_tree
         <file type="string">liveries/texture_bourrasque_gris_digital</file>
       </livery>
 
-      <!-- for instruments sounds -->
+      <!-- for sounds -->
       <click type="bool">0</click>
       <lever_gear type="bool">0</lever_gear>
       <lever_parkbrake type="bool">0</lever_parkbrake>
+      <canopy_sound type="string"></canopy_sound>
 
       <!-- for MP -->
       <canopy-pos-norm       type="float">1</canopy-pos-norm>
@@ -203,7 +204,7 @@ http://wiki.flightgear.org/Property_tree
       </autopilot>
     </systems>
     <alarms>
-        <stall-warning type="int">0</stall-warning>
+      <stall-warning type="int">0</stall-warning>
     </alarms>
     <instrumentation>
       <tcas>

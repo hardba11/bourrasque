@@ -226,7 +226,7 @@ ________________________________________________________________________________
   <mstab x="0" y="0" z="0" length=".0001" chord=".0001" sweep=".0001" taper=".0001" dihedral="0" camber="0" incidence="0">
     <control-input  control="FLAP0" axis="/controls/doors/canopy" />
     <control-output control="FLAP0" prop="/sim/model/canopy-pos-norm" /> <!-- alias for MP -->
-    <control-speed  control="FLAP0" transition-time="10" />
+    <control-speed  control="FLAP0" transition-time="14" />
   </mstab>
   <!-- ~~~~~~~~~~~~~~~~~~ canard -->
   <mstab x="0" y="0" z="0" length=".0001" chord=".0001" sweep=".0001" taper=".0001" dihedral="0" camber="0" incidence="0">

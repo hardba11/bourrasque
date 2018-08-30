@@ -304,14 +304,12 @@ my_aircraft_functions.event_control_gear(0, 1);
       <name>c</name>
       <desc>Toggle Canopy</desc>
       <binding>
-        <property>/controls/doors/canopy</property>
-        <command>property-cycle</command>
-        <value>0</value>
-        <value>1</value>
-        <wrap>true</wrap>
-        <condition>
-          <property>sim/multiplay/generic/float[11]</property>
-        </condition>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_control_canopy();
+          ]]>
+        </script>
       </binding>
     </key>
 

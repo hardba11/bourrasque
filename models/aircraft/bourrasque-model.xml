@@ -499,8 +499,8 @@ ________________________________________________________________________________
     <object-name>block_canopy</object-name>
     <property>sim/multiplay/generic/float[0]</property> <!-- for MP sim/model/canopy-pos-norm -->
     <interpolation>
-      <entry><ind>0</ind><dep>0</dep></entry>
-      <entry><ind>0.6</ind><dep>3</dep></entry>
+      <entry><ind>.2</ind><dep>0</dep></entry>
+      <entry><ind>.6</ind><dep>2.5</dep></entry>
       <entry><ind>1</ind><dep>45</dep></entry>
     </interpolation>
     <center>

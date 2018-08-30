@@ -357,16 +357,12 @@ my_aircraft_functions.event_toggle_launchbar(-1);
       <button>0</button>
       <repeatable>false</repeatable>
       <binding>
-        <command>property-cycle</command>
-        <property>/controls/doors/canopy</property>
-        <value>0</value>
-        <value>0.6</value>
-        <value>1</value>
-        <value>0.601</value>
-        <wrap>true</wrap>
-        <condition>
-          <property>sim/multiplay/generic/float[11]</property>
-        </condition>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_control_canopy();
+          ]]>
+        </script>
       </binding>
       <binding>
         <command>property-toggle</command>

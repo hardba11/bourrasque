@@ -564,6 +564,44 @@ var event_launch = func() {
     }
 }
 
+var event_control_canopy = func() {
+
+    var is_on_ground = getprop("/gear/gear[1]/wow") or 0;
+    var command_position = getprop("/controls/doors/canopy") or 0;
+
+    if(is_on_ground)
+    {
+        if(command_position == 1)
+        {
+            # open to half
+            command_position = 0.601;
+            canopy_sound = '';
+        }
+        elsif(command_position > 0.6009)
+        {
+            # half to close
+            command_position = 0;
+            canopy_sound = 'lock';
+        }
+        elsif(command_position == 0)
+        {
+            # close to half
+            command_position = 0.6;
+            canopy_sound = 'unlock';
+        }
+        else
+        {
+            # half to open
+            command_position = 1;
+            canopy_sound = '';
+        }
+#print("DEBUG2 "~ command_position ~ " >> "~ canopy_sound) ;
+        setprop("/controls/doors/canopy", command_position);
+        setprop("/sim/model/canopy_sound", canopy_sound);
+    }
+}
+
+
 var event_control_gear = func(down, animate_view) {
 
     var is_on_ground = getprop("/gear/gear[1]/wow") or 0;
