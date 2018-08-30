@@ -76,6 +76,8 @@ ________________________________________________________________________________
       <volume>
         <property>/engines/engine[0]/n2</property>
         <factor>0.001</factor>
+        <min>0</min>
+        <max>2</max>
       </volume>
       <volume>
         <property>environment/loud-sound</property>
@@ -108,6 +110,7 @@ ________________________________________________________________________________
         <property>/engines/engine[0]/prop-thrust</property>
         <factor>0.0002</factor>
         <min>0</min>
+        <max>2</max>
       </volume>
       <volume>
         <property>environment/loud-sound</property>
@@ -200,6 +203,8 @@ ________________________________________________________________________________
       <volume>
         <property>/engines/engine[1]/n2</property>
         <factor>0.001</factor>
+        <min>0</min>
+        <max>2</max>
       </volume>
       <volume>
         <property>environment/loud-sound</property>
@@ -232,6 +237,7 @@ ________________________________________________________________________________
         <property>/engines/engine[1]/prop-thrust</property>
         <factor>0.0002</factor>
         <min>0</min>
+        <max>2</max>
       </volume>
       <volume>
         <property>environment/loud-sound</property>
@@ -288,10 +294,14 @@ ________________________________________________________________________________
       <volume>
         <property>/velocities/mach</property>
         <factor>0.3</factor>
+        <min>0</min>
+        <max>2</max>
       </volume>
       <pitch>
         <property>/velocities/mach</property>
         <factor>0.6</factor>
+        <min>0</min>
+        <max>2</max>
       </pitch>
     </aero_int>
 
@@ -309,10 +319,14 @@ ________________________________________________________________________________
       <volume>
         <property>/environment/rain-norm</property>
         <factor>0.3</factor>
+        <min>0</min>
+        <max>2</max>
       </volume>
       <pitch>
         <property>/velocities/mach</property>
         <factor>0.6</factor>
+        <min>0</min>
+        <max>2</max>
       </pitch>
       <position>
         <x>-4.0</x>
@@ -493,8 +507,73 @@ ________________________________________________________________________________
         </and>
       </condition>
     </alert>
+    <!-- ~~~~~~~~~~~~~~~~~~ warn -->
+    <alert>
+      <name>warn</name>
+      <path>warn.wav</path>
+      <mode>looped</mode>
+      <condition>
+        <and>
+          <property>/instrumentation/my_aircraft/command_h/sound_caution</property>
+          <property>sim/current-view/internal</property>
+        </and>
+      </condition>
+    </alert>
 
-    <!-- ~~~~~~~~~~~~~~~~~~ stall warnings -->
+    <!-- ~~~~~~~~~~~~~~~~~~ stall caution -->
+    <alert>
+      <name>stall_caution</name>
+      <path>stall_caution.wav</path>
+      <mode>looped</mode>
+      <condition>
+        <and>
+          <equals>
+            <property>/sim/alarms/stall-warning</property>
+            <value>1</value>
+          </equals>
+          <property>sim/current-view/internal</property>
+        </and>
+      </condition>
+    </alert>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ stall alert -->
+    <alert>
+      <name>stall_alert</name>
+      <path>stall_alert.wav</path>
+      <mode>looped</mode>
+      <condition>
+        <and>
+          <equals>
+            <property>/sim/alarms/stall-warning</property>
+            <value>2</value>
+          </equals>
+          <property>sim/current-view/internal</property>
+        </and>
+      </condition>
+    </alert>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ pull up -->
+    <alert>
+      <name>pullup</name>
+      <path>pullup.wav</path>
+      <mode>looped</mode>
+      <condition>
+        <and>
+          <equals>
+            <property>/controls/gear/gear-down</property>
+            <value>false</value>
+          </equals>
+          <less-than>
+            <property>/position/altitude-agl-ft</property>
+            <value>300</value>
+          </less-than>
+          <less-than>
+            <property>/instrumentation/vertical-speed-indicator/indicated-speed-kts</property>
+            <value>0</value>
+          </less-than>
+        </and>
+      </condition>
+    </alert>
 
     <!-- ~~~~~~~~~~~~~~~~~~ cockpit toogle switches -->
     <click>

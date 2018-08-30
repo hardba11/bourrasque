@@ -1501,7 +1501,7 @@ changelog
 -->
   <!-- ~~~~~~~~~~~~~~~~~~ stall alert -->
   <label>
-    <name>StallAlert</name>
+    <name>Stall Alert</name>
     <x>-35</x>
     <y>-10</y>
     <width>15</width>
@@ -1515,7 +1515,7 @@ changelog
         </equals>
       </or>
     </condition>
-    <format>STALL ALERT !</format>
+    <format>STALLING !</format>
     <blinking>
       <interval>0.1</interval>
     </blinking>
@@ -1524,7 +1524,7 @@ changelog
 
   <!-- ~~~~~~~~~~~~~~~~~~ stall warning -->
   <label>
-    <name>StallWarning</name>
+    <name>Stall Warning</name>
     <x>-40</x>
     <y>-10</y>
     <width>15</width>

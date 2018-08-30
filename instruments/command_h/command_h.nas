@@ -166,6 +166,7 @@ var checking_aircraft_status = func()
         elsif(autotrim_status == ALERT)   { autotrim_status = WARN; }
 
         setprop("/instrumentation/my_aircraft/command_h/sound_alert", 0);
+        setprop("/instrumentation/my_aircraft/command_h/sound_caution", 0);
         setprop("/instrumentation/my_aircraft/command_h/ack_alert", 0);
     }
 
@@ -427,14 +428,22 @@ var checking_aircraft_status = func()
         (avionics_status == INFO)
     );
 
-    if(is_alert or is_caution)
+    if(is_alert)
     {
         setprop("/instrumentation/my_aircraft/command_h/sound_alert", 1);
+        setprop("/instrumentation/my_aircraft/command_h/sound_caution", 0);
+        setprop("/instrumentation/my_aircraft/command_h/ack_alert", 0);
+    }
+    elsif(is_caution)
+    {
+        setprop("/instrumentation/my_aircraft/command_h/sound_alert", 0);
+        setprop("/instrumentation/my_aircraft/command_h/sound_caution", 1);
         setprop("/instrumentation/my_aircraft/command_h/ack_alert", 0);
     }
     else
     {
         setprop("/instrumentation/my_aircraft/command_h/sound_alert", 0);
+        setprop("/instrumentation/my_aircraft/command_h/sound_caution", 0);
         setprop("/instrumentation/my_aircraft/command_h/ack_alert", 0);
     }
 

@@ -81,7 +81,6 @@ http://wiki.flightgear.org/Property_tree
       <model type="int">4</model>
     </rating>
 
-
     <!-- ~~~~~~~~~~~~~~~~~~ flight model -->
     <flight-model>yasim</flight-model>
     <aero>fdm/bourrasque-yasim</aero>
@@ -203,7 +202,9 @@ http://wiki.flightgear.org/Property_tree
         <path>fdm/autopilot.xml</path>
       </autopilot>
     </systems>
-
+    <alarms>
+        <stall-warning type="int">0</stall-warning>
+    </alarms>
     <instrumentation>
       <tcas>
         <name>tcas</name>

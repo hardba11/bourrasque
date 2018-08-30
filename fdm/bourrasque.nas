@@ -36,6 +36,18 @@ var loud_sound = func() {
     setprop("/environment/loud-sound", ((is_internal == 1) and (canopy_position == 0)) ? 0.2 : 1);
 }
 
+var update_alarms = func() {
+    var stall_warning = 0;
+    var speed = getprop("/instrumentation/airspeed-indicator/true-speed-kt") or 0;
+    var aoa = getprop("/orientation/alpha-deg") or 0;
+    if(speed < 120)
+    {
+        if(aoa >= 9)  { stall_warning = 1; }
+        if(aoa >= 13) { stall_warning = 2; }
+    }
+    setprop("/sim/alarms/stall-warning", stall_warning);
+}
+
 var is_smoke   = [0, 0, 0];
 var wow_gear   = [0, 0, 0];
 var buffer_wow = [0, 0, 0]; # keep value of wow between cycles
@@ -291,6 +303,9 @@ var bourrasque_loop = func() {
 
     # touchdown smoke
     touchdown_smoke();
+
+    # alarms update
+    update_alarms();
 
     var time_speed = getprop("/sim/speed-up") or 1;
     var loop_speed = (time_speed == 1) ? .1 : 2 * time_speed;
