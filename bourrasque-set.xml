@@ -264,6 +264,7 @@ http://wiki.flightgear.org/Property_tree
       <path>/instrumentation/my_aircraft/stdby-alt/controls/std-alt</path>
       <path>/instrumentation/altimeter/setting-inhg</path>
       <path>/instrumentation/my_aircraft/stdby-alt/controls/setting-inhg-previous</path>
+      <path>/autopilot/settings/vertical-speed-fpm</path>
     </aircraft-data>
 
   </sim>

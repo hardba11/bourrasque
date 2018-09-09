@@ -289,7 +289,7 @@ ________________________________________________________________________________
       <path>bourrasque_aero_int.wav</path>
       <mode>looped</mode>
       <condition>
-        <property>sim/current-view/internal</property>
+        <property>/sim/current-view/internal</property>
       </condition>
       <volume>
         <property>/velocities/mach</property>
@@ -388,9 +388,9 @@ ________________________________________________________________________________
             <value>0.1</value>
           </greater-than>
           <or>
-            <not><property>sim/current-view/internal</property></not>
+            <not><property>/sim/current-view/internal</property></not>
             <greater-than>
-              <property>sim/model/canopy-pos-norm</property>
+              <property>/sim/model/canopy-pos-norm</property>
               <value>0</value>
             </greater-than>
           </or>
@@ -476,7 +476,7 @@ ________________________________________________________________________________
       <mode>looped</mode>
       <condition>
         <and>
-          <property>sim/current-view/internal</property>
+          <property>/sim/current-view/internal</property>
           <property>/systems/electrical/bus/avionics</property>
         </and>
       </condition>
@@ -503,7 +503,7 @@ ________________________________________________________________________________
       <condition>
         <and>
           <property>/instrumentation/my_aircraft/command_h/sound_alert</property>
-          <property>sim/current-view/internal</property>
+          <property>/sim/current-view/internal</property>
         </and>
       </condition>
     </alert>
@@ -515,7 +515,7 @@ ________________________________________________________________________________
       <condition>
         <and>
           <property>/instrumentation/my_aircraft/command_h/sound_caution</property>
-          <property>sim/current-view/internal</property>
+          <property>/sim/current-view/internal</property>
         </and>
       </condition>
     </caution>
@@ -531,7 +531,8 @@ ________________________________________________________________________________
             <property>/sim/alarms/stall-warning</property>
             <value>1</value>
           </equals>
-          <property>sim/current-view/internal</property>
+          <property>/sim/current-view/internal</property>
+          <not><property>/gear/gear[0]/wow</property></not>
         </and>
       </condition>
     </stall_caution>
@@ -546,7 +547,8 @@ ________________________________________________________________________________
             <property>/sim/alarms/stall-warning</property>
             <value>2</value>
           </equals>
-          <property>sim/current-view/internal</property>
+          <property>/sim/current-view/internal</property>
+          <not><property>/gear/gear[0]/wow</property></not>
         </and>
       </condition>
     </stall_alert>
@@ -581,8 +583,8 @@ ________________________________________________________________________________
       <mode>once</mode>
       <condition>
         <and>
-          <property>sim/model/click</property>
-          <property>sim/current-view/internal</property>
+          <property>/sim/model/click</property>
+          <property>/sim/current-view/internal</property>
         </and>
       </condition>
       <volume>
@@ -595,8 +597,8 @@ ________________________________________________________________________________
       <mode>once</mode>
       <condition>
         <and>
-          <not><property>sim/model/click</property></not>
-          <property>sim/current-view/internal</property>
+          <not><property>/sim/model/click</property></not>
+          <property>/sim/current-view/internal</property>
         </and>
       </condition>
       <volume>
@@ -611,8 +613,8 @@ ________________________________________________________________________________
       <mode>once</mode>
       <condition>
         <and>
-          <not><property>sim/model/lever_gear</property></not>
-          <property>sim/current-view/internal</property>
+          <not><property>/sim/model/lever_gear</property></not>
+          <property>/sim/current-view/internal</property>
         </and>
       </condition>
       <volume>
@@ -625,8 +627,8 @@ ________________________________________________________________________________
       <mode>once</mode>
       <condition>
         <and>
-          <property>sim/model/lever_gear</property>
-          <property>sim/current-view/internal</property>
+          <property>/sim/model/lever_gear</property>
+          <property>/sim/current-view/internal</property>
         </and>
       </condition>
       <volume>
@@ -641,8 +643,8 @@ ________________________________________________________________________________
       <mode>once</mode>
       <condition>
         <and>
-          <not><property>sim/model/lever_parkbrake</property></not>
-          <property>sim/current-view/internal</property>
+          <not><property>/sim/model/lever_parkbrake</property></not>
+          <property>/sim/current-view/internal</property>
         </and>
       </condition>
       <volume>
@@ -655,8 +657,8 @@ ________________________________________________________________________________
       <mode>once</mode>
       <condition>
         <and>
-          <property>sim/model/lever_parkbrake</property>
-          <property>sim/current-view/internal</property>
+          <property>/sim/model/lever_parkbrake</property>
+          <property>/sim/current-view/internal</property>
         </and>
       </condition>
       <volume>

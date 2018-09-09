@@ -1509,10 +1509,13 @@ changelog
     <condition>
       <or>
         <property>/_debug/instruments/hud_show_all</property>
-        <equals>
-          <property>/sim/alarms/stall-warning</property>
-          <value>2</value>
-        </equals>
+        <and>
+          <equals>
+            <property>/sim/alarms/stall-warning</property>
+            <value>2</value>
+          </equals>
+          <not><property>/gear/gear[0]/wow</property></not>
+        </and>
       </or>
     </condition>
     <format>STALLING !</format>
@@ -1532,10 +1535,13 @@ changelog
     <condition>
       <or>
         <property>/_debug/instruments/hud_show_all</property>
-        <equals>
-          <property>/sim/alarms/stall-warning</property>
-          <value>1</value>
-        </equals>
+        <and>
+          <equals>
+            <property>/sim/alarms/stall-warning</property>
+            <value>1</value>
+          </equals>
+          <not><property>/gear/gear[0]/wow</property></not>
+        </and>
       </or>
     </condition>
     <format>STALL WARNING !</format>
