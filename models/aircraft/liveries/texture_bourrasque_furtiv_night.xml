@@ -8,7 +8,7 @@
 
         <name type="string">furtiv night</name>
         <texture>liveries/texture_bourrasque_furtiv_night.png</texture>
-        <texture-tank>texture_tanks.png</texture-tank>
+        <texture-tank>texture_tanks_furtiv_night.png</texture-tank>
 
       </livery>
     </model>
