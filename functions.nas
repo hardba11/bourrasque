@@ -720,7 +720,7 @@ var event_toggle_carrier_equipment = func(do_enable) {
     }
     setprop("/sim/model/carrier-equipment", do_enable);
     setprop("/controls/gear/catapult-launch-cmd", do_enable);
-    setprop("/controls/gear/launchbar", do_enable);
+    setprop("/controls/gear/launchbar", 0);
 }
 
 var event_toggle_jato = func(do_enable) {
@@ -824,19 +824,23 @@ var event_airbrake = func(do_enable) {
         speedbrake = (speedbrake <= .25) ? 0 : speedbrake - .2;
         setprop("/controls/flight/speedbrake", speedbrake);
     }
+    event_status_ap_speed();
+}
 
-    var ap_speed = getprop("/autopilot/locks/speed"); # speed-with-throttle
-    var stdby_ap_speed = getprop("/instrumentation/my_aircraft/pfd/controls/lock-speed-stdby");
-    if((speedbrake > 0) and (ap_speed == 'speed-with-throttle'))
+var event_status_ap_speed = func() {
+    var speedbrake     = getprop("/controls/flight/speedbrake") or 0;
+    var ap_speed       = getprop("/autopilot/locks/speed") or ''; # speed-with-throttle
+    var stdby_ap_speed = getprop("/instrumentation/my_aircraft/pfd/controls/lock-speed-stdby") or 0;
+
+    if((speedbrake > .1) and (ap_speed == 'speed-with-throttle'))
     {
         setprop("/autopilot/locks/speed", '');
     }
-    elsif((speedbrake == 0) and (stdby_ap_speed == 1))
+    elsif((speedbrake <= .1) and (stdby_ap_speed == 1))
     {
         setprop("/autopilot/locks/speed", 'speed-with-throttle');
     }
 }
-
 
 var event_toggle_std_atm = func(do_enable) {
     var is_std_atm = getprop("/instrumentation/my_aircraft/stdby-alt/controls/std-alt") or 0;

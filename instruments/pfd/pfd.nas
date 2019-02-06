@@ -70,9 +70,8 @@ var event_click_hold_autopilot = func()
     setprop("/autopilot/internal/target-roll-deg",          0);
     setprop("/autopilot/internal/target-climb-rate-fps",    0);
     setprop("/autopilot/locks/altitude",                    'altitude-hold');
-    setprop("/autopilot/locks/speed",                       'speed-with-throttle');
     setprop("/autopilot/locks/heading",                     'dg-heading-hold');
-    setprop("/instrumentation/my_aircraft/pfd/controls/lock-speed-stdby", 1);
+    event_click_lock_speed(1);
 
     var time_speed = getprop("/sim/speed-up") or 1;
     var loop_speed = (time_speed == 1) ? .1 : 2 * time_speed;
@@ -87,9 +86,8 @@ var event_click_disengage_autopilot = func()
 
     # disengage AP for altitude, speed and heading
     setprop("/autopilot/locks/altitude", '');
-    setprop("/autopilot/locks/speed",    '');
     setprop("/autopilot/locks/heading",  '');
-    setprop("/instrumentation/my_aircraft/pfd/controls/lock-speed-stdby", 0);
+    event_click_lock_speed(0);
 
     var time_speed = getprop("/sim/speed-up") or 1;
     var loop_speed = (time_speed == 1) ? .1 : 2 * time_speed;
@@ -100,11 +98,12 @@ var event_click_disengage_autopilot = func()
 
 var event_click_lock_speed = func(do_enable)
 {
-    var is_ap_speed_locked = getprop("/autopilot/locks/speed") or '';
     if(do_enable == -1)
     {
         # do_enable == -1 : toggle
-        do_enable = (is_ap_speed_locked == '') ? 1 : 0;
+        var is_ap_speed_locked = getprop("/autopilot/locks/speed") or '';
+        var stdby_ap_speed     = getprop("/instrumentation/my_aircraft/pfd/controls/lock-speed-stdby") or 0;
+        do_enable = ((is_ap_speed_locked == '') and (stdby_ap_speed == 0)) ? 1 : 0;
     }
 
     if(do_enable == 1)
@@ -117,6 +116,5 @@ var event_click_lock_speed = func(do_enable)
         setprop("/autopilot/locks/speed", '');
         setprop("/instrumentation/my_aircraft/pfd/controls/lock-speed-stdby", 0);
     }
-
-
+    my_aircraft_functions.event_status_ap_speed();
 }

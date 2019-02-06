@@ -10,6 +10,8 @@
 
 PROPERTY-PATH : PropertyList > input
 
+/input/keyboard/key[*]/
+
 changelog
 - 2016-10-22 : create
 
@@ -156,6 +158,19 @@ instrument_pfd.event_click_disengage_autopilot();
           </script>
         </binding>
       </mod-shift>
+    </key>
+
+    <!-- ~~~~~~~~~~~~~~~~~~ auto throttle : hold / disengage -->
+    <key n="19">
+      <name>ctrl-s</name>
+      <binding n="0">
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+instrument_pfd.event_click_lock_speed(-1);
+          ]]>
+        </script>
+      </binding>
     </key>
 
     <!-- ~~~~~~~~~~~~~~~~~~ park brake -->
