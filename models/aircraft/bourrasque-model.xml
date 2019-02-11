@@ -118,6 +118,10 @@ changelog
     <!-- ~~~~~~~~~~~~~~~~~~ hook -->
     <object-name>root_hook</object-name>
     <object-name>hook</object-name>
+    <!-- ~~~~~~~~~~~~~~~~~~ ground-equipment - trappes -->
+    <object-name>trappe_apu</object-name>
+    <object-name>trappe_fuel</object-name>
+
   </animation>
 
   <effect>
@@ -154,6 +158,8 @@ changelog
     <object-name>canopy</object-name>
     <object-name>root_hook</object-name>
     <object-name>hook</object-name>
+    <object-name>trappe_apu</object-name>
+    <object-name>trappe_fuel</object-name>
   </effect>
 
   <animation>
@@ -181,11 +187,12 @@ changelog
     <object-name>canopy-accessoires</object-name>
     <object-name>root_hook</object-name>
     <object-name>hook</object-name>
+    <object-name>trappe_apu</object-name>
+    <object-name>trappe_fuel</object-name>
     <property-base>sim/model/livery</property-base>
     <texture-prop>texture</texture-prop>
     <texture>texture_bourrasque.png</texture>
   </animation>
-
 
 
   <!--
@@ -721,6 +728,38 @@ ________________________________________________________________________________
       <z>0</z>
     </axis>
   </animation>
+
+  <!--
+________________________________________________________________________________
+                                                                GROUND EQUIPMENT
+  -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ external-power-unit -->
+  <animation>
+    <type>select</type>
+    <object-name>trappe_apu</object-name>
+    <condition>
+      <property>sim/model/ground-equipment-p</property>
+      <less-than>
+        <property>velocities/groundspeed-kt</property>
+        <value>2</value>
+      </less-than>
+    </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ fuel-truck -->
+  <animation>
+    <type>select</type>
+    <object-name>trappe_fuel</object-name>
+    <condition>
+      <property>sim/model/ground-equipment-f</property>
+      <less-than>
+        <property>velocities/groundspeed-kt</property>
+        <value>2</value>
+      </less-than>
+    </condition>
+  </animation>
+
 
 </PropertyList>
 

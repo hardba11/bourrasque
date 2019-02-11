@@ -32,6 +32,8 @@ changelog
     <object-name>fuel-truck.base</object-name>
     <object-name>fuel-truck.pipe</object-name>
     <object-name>fuel-truck.tank</object-name>
+    <object-name>extincteur</object-name>
+    <object-name>cone</object-name>
   </animation>
 
   <!--
@@ -111,6 +113,7 @@ changelog
     <type>select</type>
     <object-name>external-power-unit.box</object-name>
     <object-name>external-power-unit.wire</object-name>
+    <object-name>extincteur</object-name>
     <condition>
       <property>sim/model/ground-equipment-p</property>
       <less-than>
@@ -126,6 +129,7 @@ changelog
     <object-name>fuel-truck.base</object-name>
     <object-name>fuel-truck.pipe</object-name>
     <object-name>fuel-truck.tank</object-name>
+    <object-name>cone</object-name>
     <condition>
       <property>sim/model/ground-equipment-f</property>
       <less-than>
