@@ -2,10 +2,9 @@ AC3Db
 MATERIAL "DefaultWhite" rgb 1.0000 1.0000 1.0000  amb 0.2000 0.2000 0.2000  emis 0.0000 0.0000 0.0000  spec 0.5000 0.5000 0.5000  shi 10 trans 0.0000
 MATERIAL "external-power-unit" rgb 1.0000 1.0000 1.0000  amb 1.0000 1.0000 1.0000  emis 0.0000 0.0000 0.0000  spec 0.5000 0.5000 0.5000  shi 127 trans 0.0000
 MATERIAL "ground_equipment" rgb 1.0000 1.0000 1.0000  amb 1.0000 1.0000 1.0000  emis 0.0000 0.0000 0.0000  spec 1.0000 1.0000 1.0000  shi 101 trans 0.0000
-MATERIAL "Material" rgb 0.1789 0.1011 0.0408  amb 1.0000 1.0000 1.0000  emis 0.0000 0.0000 0.0000  spec 0.5000 0.5000 0.5000  shi 50 trans 0.0000
 OBJECT world
 name "Blender_export__ground_equipment.ac"
-kids 12
+kids 11
 OBJECT poly
 name "external-power-unit.box"
 loc 2.6934075 -1.1187869 8.8353968
@@ -61224,23 +61223,6 @@ refs 3
 351 0.644894 0.442375
 543 0.644894 0.442375
 352 0.644894 0.442375
-kids 0
-OBJECT poly
-name "ground"
-loc -0.0020161 -1.4639885 0.0004222
-numvert 4
-13.3717442 -0.0353098 -13.3717899
--13.3717442 0.0353098 -13.3717899
-13.3717442 -0.0353098 13.3717899
--13.3717442 0.0353098 13.3717899
-numsurf 1
-SURF 0X0
-mat 3
-refs 4
-1 0 0
-3 0 0
-2 0 0
-0 0 0
 kids 0
 OBJECT poly
 name "ground_equipment.engine"
