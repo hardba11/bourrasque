@@ -12,8 +12,6 @@ print("*** LOADING instrument_tablet_map - tablet_map.nas ... ***");
 #var makeUrl  = string.compileTemplate('http://{server}.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.jpg');
 #var servers = ["otile1", "otile2", "otile3", "otile4"];
 
-#var width = 576;
-#var height = 768;
 var width = 1024;
 var height = 1024;
 
@@ -54,6 +52,7 @@ var MAP = {
         m.servers = ['a', 'b', 'c'];
         m.makePath = string.compileTemplate(m.maps_base ~'/osm-{type}/{z}/{x}/{y}.png');
         m.filename = 'Aircraft/bourrasque/instruments/tablet/my_aircraft_icon.svg';
+        m.page_morse = 'Aircraft/bourrasque/instruments/tablet/morse.png';
 
 # CANVAS STUFF
 
@@ -61,8 +60,10 @@ var MAP = {
         m.canvas.addPlacement(placement);
         m.root = m.canvas.createGroup();
 
+        m.g_page_map = m.root.createChild('group').set('z-index', 100);
+
         # text
-        m.txt_zoom = m.root.createChild('text', 'txt_zoom')
+        m.txt_zoom = m.g_page_map.createChild('text', 'txt_zoom')
             .setTranslation(200, 70)
             .setAlignment('left-bottom')
             .setFont('LiberationFonts/LiberationSansNarrow-Bold.ttf')
@@ -70,7 +71,7 @@ var MAP = {
             .setColor(.8, 0, 0, 1)
             .setText('txt_zoom')
             .set('z-index', 1);
-        m.txt_coords_lat = m.root.createChild('text', 'txt_coords_lat')
+        m.txt_coords_lat = m.g_page_map.createChild('text', 'txt_coords_lat')
             .setTranslation(180, 850)
             .setAlignment('left-bottom')
             .setFont('LiberationFonts/LiberationSansNarrow-Bold.ttf')
@@ -78,7 +79,7 @@ var MAP = {
             .setColor(.8, 0, 0, 1)
             .setText('txt_coords_lat')
             .set('z-index', 1);
-        m.txt_coords_lng = m.root.createChild('text', 'txt_coords_lng')
+        m.txt_coords_lng = m.g_page_map.createChild('text', 'txt_coords_lng')
             .setTranslation(180, 900)
             .setAlignment('left-bottom')
             .setFont('LiberationFonts/LiberationSansNarrow-Bold.ttf')
@@ -86,7 +87,7 @@ var MAP = {
             .setColor(.8, 0, 0, 1)
             .setText('txt_coords_lng')
             .set('z-index', 1);
-        m.txt_hdg = m.root.createChild('text', 'txt_hdg')
+        m.txt_hdg = m.g_page_map.createChild('text', 'txt_hdg')
             .setTranslation(180, 950)
             .setAlignment('left-bottom')
             .setFont('LiberationFonts/LiberationSansNarrow-Bold.ttf')
@@ -94,7 +95,7 @@ var MAP = {
             .setColor(.8, 0, 0, 1)
             .setText('txt_hdg')
             .set('z-index', 1);
-        m.txt_alt = m.root.createChild('text', 'txt_alt')
+        m.txt_alt = m.g_page_map.createChild('text', 'txt_alt')
             .setTranslation(600, 900)
             .setAlignment('left-bottom')
             .setFont('LiberationFonts/LiberationSansNarrow-Bold.ttf')
@@ -107,8 +108,12 @@ var MAP = {
         m.g_back = m.root.createChild('group');
         m.root.setCenter(width / 2, height / 2); # center of the canvas
 
+        m.g_page_morse = m.root.createChild('image').setFile(m.page_morse)
+            .setSize(1024, 1024)
+            .setTranslation(0, 0);
+
         # simple aircraft icon at current position/center of the map
-        m.svg_symbol = m.root.createChild('group');
+        m.svg_symbol = m.g_page_map.createChild('group');
         canvas.parsesvg(m.svg_symbol, m.filename);
         m.svg_symbol.setScale(0.03);
         m.svg_symbol.setTranslation(width / 2, height / 2);
@@ -140,9 +145,15 @@ var MAP = {
     },
     update: func() {
         var serviceable = getprop("/instrumentation/my_aircraft/tablet/controls/serviceable") or 0;
+        var time_speed = getprop("/sim/speed-up") or 1;
+        var loop_speed = (time_speed == 1) ? 1 : 4 * time_speed;
+        var page = getprop("/instrumentation/my_aircraft/tablet/controls/page") or 0;
 
-        if(serviceable == 1)
+        if((serviceable == 1) and (page == 0))
         {
+            me.g_page_morse.setVisible(0);
+            me.g_page_map.setVisible(1);
+
             me.svg_symbol.setRotation(me.myHeadingProp.getValue() * D2R);
             me.zoom = getprop("/instrumentation/my_aircraft/tablet/controls/zoom") or 10;
 
@@ -240,9 +251,15 @@ var MAP = {
                 me.last_tile = tile_index;
                 me.last_type = me.type;
             }
+            loop_speed = (time_speed == 1) ? .5 : 4 * time_speed;
         }
-        var time_speed = getprop("/sim/speed-up") or 1;
-        var loop_speed = (time_speed == 1) ? .5 : 4 * time_speed;
+        elsif((serviceable == 1) and (page == 1))
+        {
+            me.g_front.setVisible(0);
+            me.g_back.setVisible(0);
+            me.g_page_map.setVisible(0);
+            me.g_page_morse.setVisible(1);
+        }
         settimer(func() { me.update(); }, loop_speed);
     },
 };

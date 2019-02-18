@@ -88,10 +88,22 @@ changelog
     </hovered>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control zoom -->
   <animation>
     <type>pick</type>
     <object-name>tablet.map_screen</object-name>
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control pages -->
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/my_aircraft/tablet/controls/page</property>
+        <step>1</step>
+        <min>0</min>
+        <max>2</max>
+        <wrap>1</wrap>
+      </binding>
+    </action>
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control zoom -->
     <action>
       <button>3</button>
       <binding>
@@ -118,7 +130,7 @@ changelog
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>tooltip-tablet-map-zoom</tooltip-id>
-        <label>zoom in/out map %3d</label>
+        <label>zoom in/out map %3d, click to change page</label>
         <property>/instrumentation/my_aircraft/tablet/controls/zoom</property>
       </binding>
     </hovered>
