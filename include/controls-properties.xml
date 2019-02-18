@@ -15,6 +15,14 @@ changelog
 
 <PropertyList>
 
+  <cockpit>
+    <shake-effect type="bool">1</shake-effect>
+    <shaking-x type="float">0</shaking-x>
+    <shaking-y type="float">0</shaking-y>
+    <shaking-z type="float">0</shaking-z>
+  </cockpit>
+
+
   <flight>
     <!-- init properties used by fcm.nas autopilot and yasim -->
     <fcm-elevator>0</fcm-elevator>

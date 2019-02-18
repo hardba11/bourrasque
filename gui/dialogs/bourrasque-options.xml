@@ -33,6 +33,30 @@ changelog
 
   <hrule />
 
+  <!-- ~~~~~~~~~~~~~~~~~~ ground equipment -->
+  <group>
+    <layout>table</layout>
+    <halign>left</halign>
+    <checkbox>
+      <row>0</row><col>0</col>
+      <x>50</x>
+      <y>200</y>
+      <width>12</width>
+      <height>12</height>
+      <property>/controls/cockpit/shake-effect</property>
+      <binding>
+        <command>property-toggle</command>
+        <property>/controls/cockpit/shake-effect</property>
+      </binding>
+    </checkbox>
+    <text>
+      <row>0</row><col>1</col>
+      <halign>left</halign>
+      <label>cockpit shake effect</label>
+    </text>
+  </group>
+  <hrule />
+
   <!-- ~~~~~~~~~~~~~~~~~~ canvas hud helper -->
   <group>
     <layout>table</layout>

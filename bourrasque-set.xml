@@ -198,6 +198,7 @@ http://wiki.flightgear.org/Property_tree
         <name>rain-drops-filters</name>
         <path>models/effects/rain/rain-drops-filters.xml</path>
       </property-rule>
+
       <!-- ~~~~~~~~~~~~~~~~~~ autopilot -->
       <autopilot>
         <path>fdm/autopilot.xml</path>
@@ -227,6 +228,7 @@ http://wiki.flightgear.org/Property_tree
       <path>/instrumentation/my_aircraft/hud_target_positions/controls/enabled</path>
       <path>/instrumentation/my_aircraft/hud_target_positions/controls/targets_are_mp</path>
       <path>controls/pax/copilot</path>
+      <path>/controls/cockpit/shake-effect</path>
       <path>/instrumentation/my_aircraft/pfd/controls/hippodrome-leg-duration</path>
       <path>/instrumentation/adf[0]/mode</path>
       <path>/instrumentation/adf[0]/frequencies/standby-khz</path>
@@ -292,6 +294,9 @@ http://wiki.flightgear.org/Property_tree
 
   <!-- for tests and settings -->
   <_debug>
+    <int1 type="int">0</int1>
+    <int2 type="int">0</int2>
+    <int3 type="int">0</int3>
     <float1 type="float">0</float1>
     <float2 type="float">0</float2>
     <float3 type="float">0</float3>
@@ -361,9 +366,11 @@ http://wiki.flightgear.org/Property_tree
     <instrument_light>
       <file type="string">instruments/light/light.nas</file>
     </instrument_light>
+<!--
     <instrument_hud_target_positions>
       <file type="string">instruments/hud_target_positions/hud_target_positions.nas</file>
     </instrument_hud_target_positions>
+-->
     <instrument_sfd_eicas>
       <file type="string">instruments/sfd/sfd_eicas.nas</file>
     </instrument_sfd_eicas>
@@ -376,6 +383,7 @@ http://wiki.flightgear.org/Property_tree
     <instrument_fuel_canvas>
       <file type="string">instruments/fuel/fuel_canvas.nas</file>
     </instrument_fuel_canvas>
+
     <instrument_command_h>
       <file type="string">instruments/command_h/command_h.nas</file>
     </instrument_command_h>

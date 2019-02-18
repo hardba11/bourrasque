@@ -117,7 +117,7 @@ livery_update.stop();
 
   <!-- ~~~~~~~~~~~~~~~~~~ aircraft -->
   <model>
-    <name>aircraft</name>
+    <name>aircraft-model</name>
     <path>Aircraft/bourrasque/models/aircraft/bourrasque-model.xml</path>
   </model>
 
@@ -129,7 +129,7 @@ livery_update.stop();
 
   <!-- ~~~~~~~~~~~~~~~~~~ engines -->
   <model>
-    <name>engine0</name>
+    <name>engine0-model</name>
     <path>Aircraft/bourrasque/models/engine/engine0-model.xml</path>
     <offsets>
       <x-m>0</x-m>
@@ -138,7 +138,7 @@ livery_update.stop();
     </offsets>
   </model>
   <model>
-    <name>engine1</name>
+    <name>engine1-model</name>
     <path>Aircraft/bourrasque/models/engine/engine1-model.xml</path>
     <offsets>
       <x-m>0</x-m>
@@ -149,12 +149,12 @@ livery_update.stop();
 
   <!-- ~~~~~~~~~~~~~~~~~~ stores -->
   <model>
-    <name>stores</name>
+    <name>stores-model</name>
     <path>Aircraft/bourrasque/models/stores/stores-model.xml</path>
   </model>
 
   <model>
-    <name>smoke pod</name>
+    <name>smoke-pod-model</name>
     <path>Aircraft/bourrasque/models/stores/smoke_pod-model.xml</path>
   </model>
 
@@ -260,7 +260,7 @@ livery_update.stop();
 
   <!-- ~~~~~~~~~~~~~~~~~~ cockpit -->
   <model>
-    <name>cockpit</name>
+    <name>cockpit-model</name>
     <path>Aircraft/bourrasque/models/cockpit/cockpit-model.xml</path>
   </model>
 
@@ -550,6 +550,63 @@ livery_update.stop();
       <z-m type="float">-1</z-m>
     </offsets>
   </model>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ shaking -->
+  <animation>
+    <name>block_shake</name>
+    <object-name>cockpit-model</object-name>
+    <object-name>aircraft-model</object-name>
+    <object-name>engine0-model</object-name>
+    <object-name>engine1-model</object-name>
+    <object-name>stores-model</object-name>
+    <object-name>smoke-pod-model</object-name>
+    <object-name>refuel_pod</object-name>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>block_shake</object-name>
+    <property>/controls/cockpit/shaking-x</property>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>block_shake</object-name>
+    <property>/controls/cockpit/shaking-y</property>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>block_shake</object-name>
+    <property>/controls/cockpit/shaking-z</property>
+    <center>
+      <x-m>0</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
 
 </PropertyList>
 

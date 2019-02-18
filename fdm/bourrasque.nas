@@ -230,8 +230,62 @@ var bourrasque_mp_loop_encode = func() {
         pax_copilot,
         refuel_serviceable,
         carrier_equipment]));
-
 }
+
+var calculate_shake = func() {
+
+    var shake_enabled = getprop("/controls/cockpit/shake-effect") or 0;
+    # frequence (entre 1=mer calme et 75=secousses)
+    # amplitude (entre 200=bcp et 800=peu)
+
+    if(shake_enabled == 1)
+    {
+        var my_time = getprop("/sim/time/elapsed-sec");
+
+        var shake_x = 0;
+        var shake_y = 0;
+        var shake_z = 0;
+
+        var wow    = getprop("/gear/gear[1]/wow") or 0;
+        var speed  = getprop("/instrumentation/airspeed-indicator/true-speed-kt") or 0;
+        var aoa    = getprop("/orientation/alpha-deg") or 0;
+        var x_acc  = getprop("/fdm/yasim/accelerations/a-x") or 0;
+        var z_acc  = getprop("/accelerations/pilot/z-accel-fps_sec") or 0;
+        var alt    = getprop("/instrumentation/altimeter/indicated-altitude-ft") or 0;
+        var g_load = z_acc * -0.03108095;
+        if(wow == 1)
+        {
+            shake_y = math.sin(11 * my_time) / (1 + (1000 * 150 / (speed + 1)));
+            shake_z = math.sin(15 * my_time) / (1 + (400 * 150 / (speed + 1)));
+        }
+        elsif(g_load > 2)
+        {
+            shake_y = math.sin(9 * my_time) / (1 + (2000 * 7 / (aoa + 1)));
+            shake_z = math.sin(75 * my_time) / (1 + (700 * 7 / (aoa + 1)));
+        }
+        if((alt < 8000) and (speed > 150))
+        {
+            var facteur_speed = (8 / 9 * speed) - (400 / 3);
+            var facteur_alt = (-1 / 20 * alt) + 400;
+            shake_y = math.sin(2 * my_time) / (1 + facteur_speed + facteur_alt);
+            shake_z = math.sin(65 * my_time) / (1.3 * (1 + facteur_speed + facteur_alt));
+        }
+
+        shake_x = -1.5 / (1 + (100 * 10 / (x_acc + 1)));
+
+        #var freq_y  = getprop("/_debug/int1") or 0; # 2
+        #var ampl_y  = getprop("/_debug/float1") or 0; # 800
+        #var freq_z  = getprop("/_debug/int2") or 0; # 65
+        #var ampl_z  = getprop("/_debug/float2") or 0; # 1000
+        #shake_y = math.sin(freq_y * my_time) / ampl_y;
+        #shake_z = math.sin(freq_z * my_time) / ampl_z;
+
+        setprop("/controls/cockpit/shaking-x", shake_x);
+        setprop("/controls/cockpit/shaking-y", shake_y);
+        setprop("/controls/cockpit/shaking-z", shake_z);
+    }
+}
+
 
 #===============================================================================
 #                                                                          LOOPS
@@ -306,6 +360,9 @@ var bourrasque_loop = func() {
 
     # alarms update
     update_alarms();
+
+    # shake cockpit
+    calculate_shake();
 
     var time_speed = getprop("/sim/speed-up") or 1;
     var loop_speed = (time_speed == 1) ? .1 : 2 * time_speed;
