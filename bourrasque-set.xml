@@ -198,7 +198,6 @@ http://wiki.flightgear.org/Property_tree
         <name>rain-drops-filters</name>
         <path>models/effects/rain/rain-drops-filters.xml</path>
       </property-rule>
-
       <!-- ~~~~~~~~~~~~~~~~~~ autopilot -->
       <autopilot>
         <path>fdm/autopilot.xml</path>
@@ -383,7 +382,6 @@ http://wiki.flightgear.org/Property_tree
     <instrument_fuel_canvas>
       <file type="string">instruments/fuel/fuel_canvas.nas</file>
     </instrument_fuel_canvas>
-
     <instrument_command_h>
       <file type="string">instruments/command_h/command_h.nas</file>
     </instrument_command_h>

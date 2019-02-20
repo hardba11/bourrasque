@@ -258,17 +258,17 @@ var calculate_shake = func() {
             shake_y = math.sin(11 * my_time) / (1 + (1000 * 150 / (speed + 1)));
             shake_z = math.sin(15 * my_time) / (1 + (400 * 150 / (speed + 1)));
         }
-        elsif(g_load > 2)
+        elsif(g_load > 4)
         {
             shake_y = math.sin(9 * my_time) / (1 + (2000 * 7 / (aoa + 1)));
-            shake_z = math.sin(75 * my_time) / (1 + (700 * 7 / (aoa + 1)));
+            shake_z = math.sin(75 * my_time) / (1 + (700 * 5 / (aoa + 1)));
         }
-        if((alt < 8000) and (speed > 150))
+        elsif((alt < 10000) and (speed > 100) and (wow == 0))
         {
-            var facteur_speed = (8 / 9 * speed) - (400 / 3);
-            var facteur_alt = (-1 / 20 * alt) + 400;
-            shake_y = math.sin(2 * my_time) / (1 + facteur_speed + facteur_alt);
-            shake_z = math.sin(65 * my_time) / (1.3 * (1 + facteur_speed + facteur_alt));
+            var facteur_speed = (-10 / 9 * speed) + (3500 / 3);
+            var facteur_alt = (3 / 80 * alt) + 200;
+            shake_y = math.sin(2 * my_time) / (1 + (facteur_speed + facteur_alt));
+            shake_z = math.sin(65 * my_time) / (1.3 * (1 + (facteur_speed + facteur_alt)));
         }
 
         shake_x = -1.5 / (1 + (100 * 10 / (x_acc + 1)));

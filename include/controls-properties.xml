@@ -22,7 +22,6 @@ changelog
     <shaking-z type="float">0</shaking-z>
   </cockpit>
 
-
   <flight>
     <!-- init properties used by fcm.nas autopilot and yasim -->
     <fcm-elevator>0</fcm-elevator>

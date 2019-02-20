@@ -33,7 +33,7 @@ changelog
 
   <hrule />
 
-  <!-- ~~~~~~~~~~~~~~~~~~ ground equipment -->
+  <!-- ~~~~~~~~~~~~~~~~~~ shake effect -->
   <group>
     <layout>table</layout>
     <halign>left</halign>
