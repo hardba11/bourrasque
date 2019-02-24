@@ -2,15 +2,11 @@
 <!--
 ################################################################################
 #
-#             THIS FILE INITIALIZES AI/WINGMAN PROPERTY TREE
+#                              PROPERTY TREE INIT
 #
 ################################################################################
 
-PROPERTY-PATH : PropertyList > ai
-
-changelog
-- 2016-10-22 : create
-
+PROPERTY-PATH : /ai/
 -->
 
 <PropertyList>

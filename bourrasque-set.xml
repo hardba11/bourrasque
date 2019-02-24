@@ -28,7 +28,7 @@ http://wiki.flightgear.org/Property_tree
     <author type="string">hardball SLK</author>
 
     <!-- new in FlightGear 2018.3.0 style -->
-    <authors> 
+    <authors>
       <author n="0">
         <name>hardball SLK</name>
         <description>model, FDM, systems</description>
@@ -365,11 +365,9 @@ http://wiki.flightgear.org/Property_tree
     <instrument_light>
       <file type="string">instruments/light/light.nas</file>
     </instrument_light>
-<!--
     <instrument_hud_target_positions>
       <file type="string">instruments/hud_target_positions/hud_target_positions.nas</file>
     </instrument_hud_target_positions>
--->
     <instrument_sfd_eicas>
       <file type="string">instruments/sfd/sfd_eicas.nas</file>
     </instrument_sfd_eicas>
@@ -397,14 +395,16 @@ http://wiki.flightgear.org/Property_tree
 
     <!-- ~~~~~~~~~~~~~~~~~~ flight/commands/aircraft management -->
     <fdm>
-      <!-- aircraft properties update (loops) -->
+      <!-- aircraft properties update -->
       <file type="string">fdm/bourrasque.nas</file>
-      <!-- fly by wire (loops) -->
+      <!-- fly by wire -->
       <file type="string">fdm/fcm.nas</file>
-      <!-- aircraft electrical and engines systems (loops) -->
+      <!-- aircraft electrical and engines systems -->
       <file type="string">fdm/systems.nas</file>
       <!-- specific functions for starting/stopping aircraft -->
       <file type="string">fdm/autostart.nas</file>
+      <!-- loops -->
+      <file type="string">fdm/main_loop.nas</file>
     </fdm>
 
     <!-- ~~~~~~~~~~~~~~~~~~ models and effects -->
@@ -415,7 +415,7 @@ http://wiki.flightgear.org/Property_tree
       <file>Aircraft/bourrasque/models/aircraft/select_liveries.nas</file>
     </liveries>
 
-    <!-- ~~~~~~~~~~~~~~~~~~ 3rd party scripts to improve functionnalities -->
+    <!-- ~~~~~~~~~~~~~~~~~~ 3rd party scripts to improve functionnalities
     <aar>
       <file>Aircraft/Generic/aar.nas</file>
     </aar>
@@ -427,7 +427,7 @@ http://wiki.flightgear.org/Property_tree
     </FailureMgr>
     <towing>
       <enabled type="bool">0</enabled>
-    </towing>
+    </towing> -->
 
     <!-- ~~~~~~~~~~~~~~~~~~ other tools -->
     <tools>

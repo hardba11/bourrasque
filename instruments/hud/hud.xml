@@ -6,12 +6,9 @@
 #
 ################################################################################
 
-http://wiki.flightgear.org/Head-up_display
-http://wiki.flightgear.org/Canvas_HUD
-
-changelog
-- 2016-10-22 : create
-
+see :
+- http://wiki.flightgear.org/Head-up_display
+- http://wiki.flightgear.org/Canvas_HUD
 -->
 
 <PropertyList>

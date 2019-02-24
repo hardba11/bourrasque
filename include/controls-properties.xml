@@ -2,15 +2,11 @@
 <!--
 ################################################################################
 #
-#             THIS FILE INITIALIZES CONTROLS PROPERTY TREE
+#                              PROPERTY TREE INIT
 #
 ################################################################################
 
-PROPERTY-PATH : PropertyList > controls
-
-changelog
-- 2016-10-22 : create
-
+PROPERTY-PATH : /controls/
 -->
 
 <PropertyList>

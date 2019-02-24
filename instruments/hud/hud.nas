@@ -93,8 +93,6 @@ var minihud_loop = func()
         setprop("/sim/hud/visibility[1]", 0);
         setprop("/sim/hud/visibility[4]", 0);
     }
-
-    settimer(minihud_loop, .2);
 }
 
 var hud_number = getprop("/sim/hud/current-path");
@@ -113,5 +111,4 @@ elsif(hud_number == 4)
     setprop("/sim/hud/clipping/bottom", 100);
 }
 
-setlistener("/sim/signals/fdm-initialized", minihud_loop);
 

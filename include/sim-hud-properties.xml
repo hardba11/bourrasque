@@ -2,15 +2,11 @@
 <!--
 ################################################################################
 #
-#             THIS FILE INITIALIZES SIM/HUD PROPERTY TREE
+#                              PROPERTY TREE INIT
 #
 ################################################################################
 
-PROPERTY-PATH : PropertyList > sim > hud
-
-changelog
-- 2016-10-22 : create
-
+PROPERTY-PATH : /sim/hud/
 -->
 
 <PropertyList>

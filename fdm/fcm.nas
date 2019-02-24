@@ -449,10 +449,6 @@ var fcm_loop = func() {
     node_fcm_canard.setValue(output_canard);
 
     #printf("PITCH %.4f:%.4f - ROLL %.4f:%.4f - YAW %.4f:%.4f", input_pitch, output_pitch, input_roll, output_roll, input_yaw, output_yaw);
-
-    settimer(fcm_loop, .1);
 }
-
-setlistener("/sim/signals/fdm-initialized", fcm_loop);
 
 

@@ -42,13 +42,7 @@ var pfd = func()
         "/instrumentation/my_aircraft/pfd/inputs/autopilot/locks/altitude",
         autopilot_to_label[getprop("/autopilot/locks/altitude")]
     );
-
-    var time_speed = getprop("/sim/speed-up") or 1;
-    var loop_speed = (time_speed == 1) ? 1 : 4 * time_speed;
-    settimer(pfd, loop_speed);
 }
-
-setlistener("/sim/signals/fdm-initialized", pfd);
 
 var event_click_hold_autopilot = func()
 {

@@ -2,12 +2,11 @@
 <!--
 ################################################################################
 #
-#             THIS FILE INITIALIZES SIM/RENDERING PROPERTY TREE
+#                              PROPERTY TREE INIT
 #
 ################################################################################
 
-PROPERTY-PATH : PropertyList > sim > rendering
-
+PROPERTY-PATH : /sim/rendering/
 -->
 
 <PropertyList>

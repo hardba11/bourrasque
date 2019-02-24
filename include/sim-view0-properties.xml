@@ -2,12 +2,11 @@
 <!--
 ################################################################################
 #
-#             THIS FILE INITIALIZES SIM/VIEW 0 PROPERTY TREE
+#                              PROPERTY TREE INIT
 #
 ################################################################################
 
-PROPERTY-PATH : /sim/view[0]
-
+PROPERTY-PATH : /sim/view[0]/
 -->
 
 <PropertyList>

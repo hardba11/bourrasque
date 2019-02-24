@@ -73,6 +73,8 @@ Roadmap and releases
 | 
 | improve sounds  [WIP : 4/5]
 | 
+| improve effects  [WIP : 3/5]
+| 
 | clean up files and directory and comments, improve doc [1/5] (table property + wiki)
 | 
 | new yasim from scratch ?
@@ -81,7 +83,7 @@ Roadmap and releases
 | 
 | add/improve instruments : PFD, Gload, GPS, message, aoa
 | 
-| nozzle animation ?
+| nozzle animation [DONE : 5/5]
 | 
 | fps optimisations + LOD cockpit
 | 

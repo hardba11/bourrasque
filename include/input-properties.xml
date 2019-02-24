@@ -2,19 +2,15 @@
 <!--
 ################################################################################
 #
-#             THIS FILE INITIALIZES INPUT PROPERTY TREE
+#                              PROPERTY TREE INIT
 #
 ################################################################################
 
-/devices/status/keyboard/event/
+PROPERTY-PATH : /input/
 
-PROPERTY-PATH : PropertyList > input
-
-/input/keyboard/key[*]/
-
-changelog
-- 2016-10-22 : create
-
+see :
+- /devices/status/keyboard/event/
+- /input/keyboard/key[*]/
 -->
 
 <PropertyList>

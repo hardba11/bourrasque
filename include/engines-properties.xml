@@ -2,15 +2,11 @@
 <!--
 ################################################################################
 #
-#             THIS FILE INITIALIZES ENGINES PROPERTY TREE
+#                              PROPERTY TREE INIT
 #
 ################################################################################
 
-PROPERTY-PATH : PropertyList > engines
-
-changelog
-- 2016-10-22 : create
-
+PROPERTY-PATH : /engines/
 -->
 
 <PropertyList>

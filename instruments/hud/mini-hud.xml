@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- mini HUD -->
+<!--
+################################################################################
+#
+#                            MINI HUD CONFIGURATION
+#
+################################################################################
+
+see :
+- http://wiki.flightgear.org/Head-up_display
+- http://wiki.flightgear.org/Canvas_HUD
+-->
 <PropertyList>
   <enable3d>false</enable3d>
   <label>

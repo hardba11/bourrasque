@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+################################################################################
+#
+#      DEFINITION OF ALIASES OR INTERNAL PROPERTIES UPDATED BY INSTRUMENT
+#
+################################################################################
 
-<!-- DEFINITION OF ALIASES OR INTERNAL PROPERTIES -->
-
-<!-- /instrumentation/my_aircraft/tablet/ -->
+PROPERTY-PATH : /instrumentation/my_aircraft/tablet/
+-->
 <PropertyList>
 
   <!-- data used to control instrument -->

@@ -2,15 +2,14 @@
 <!--
 ################################################################################
 #
-#             THIS FILE INITIALIZES SIM/VIEW 105 PROPERTY TREE
+#                              PROPERTY TREE INIT
 #
 ################################################################################
 
-PROPERTY-PATH : /sim/view[105]
+PROPERTY-PATH : /sim/view[105]/
 
-WARNING
+WARNING :
 - view could be enabled by nasal - see bourrasque.nas
-
 -->
 
 <PropertyList>

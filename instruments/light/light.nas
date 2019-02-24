@@ -33,10 +33,6 @@ var light = func()
         # right landing-light
         setprop("/sim/rendering/als-secondary-lights/use-landing-light", 0);
     }
-    var time_speed = getprop("/sim/speed-up") or 1;
-    var loop_speed = (time_speed == 1) ? .5 : 10 * time_speed;
-    settimer(light, loop_speed);
 }
 
-setlistener("/sim/signals/fdm-initialized", light);
 

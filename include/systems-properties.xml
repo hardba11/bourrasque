@@ -2,15 +2,11 @@
 <!--
 ################################################################################
 #
-#             THIS FILE INITIALIZES SYSTEMS PROPERTY TREE
+#                              PROPERTY TREE INIT
 #
 ################################################################################
 
-PROPERTY-PATH : PropertyList > systems
-
-changelog
-- 2016-10-22 : create
-
+PROPERTY-PATH : /systems/
 -->
 
 <PropertyList>

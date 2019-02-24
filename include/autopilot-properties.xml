@@ -2,15 +2,11 @@
 <!--
 ################################################################################
 #
-#             THIS FILE INITIALIZES AUTOPILOT PROPERTY TREE
+#                              PROPERTY TREE INIT
 #
 ################################################################################
 
-PROPERTY-PATH : PropertyList > autopilot
-
-changelog
-- 2016-10-22 : create
-
+PROPERTY-PATH : /autopilot/
 -->
 
 <PropertyList>

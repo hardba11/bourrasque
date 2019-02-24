@@ -2,12 +2,11 @@
 <!--
 ################################################################################
 #
-#             THIS FILE INITIALIZES SIM/MULTIPLAY PROPERTY TREE
+#                              PROPERTY TREE INIT
 #
 ################################################################################
 
-PROPERTY-PATH : PropertyList > sim > multiplay
-
+PROPERTY-PATH : /sim/multiplay/
 -->
 
 <PropertyList>

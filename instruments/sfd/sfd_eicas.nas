@@ -370,7 +370,7 @@ var SFD_EICAS = {
 
         }
         var time_speed = getprop("/sim/speed-up") or 1;
-        var loop_speed = (time_speed == 1) ? .05 : 2 * time_speed;
+        var loop_speed = (time_speed == 1) ? .1 : 2 * time_speed;
         settimer(func() { me.update(); }, loop_speed);
     }
 };

@@ -46,6 +46,8 @@ var update_alarms = func() {
         if(aoa >= 13) { stall_warning = 2; }
     }
     setprop("/sim/alarms/stall-warning", stall_warning);
+    #printf("FIN update.alarms (3)");
+
 }
 
 var is_smoke   = [0, 0, 0];
@@ -251,44 +253,47 @@ var calculate_shake = func() {
         var aoa    = getprop("/orientation/alpha-deg") or 0;
         var x_acc  = getprop("/fdm/yasim/accelerations/a-x") or 0;
         var z_acc  = getprop("/accelerations/pilot/z-accel-fps_sec") or 0;
-        var alt    = getprop("/instrumentation/altimeter/indicated-altitude-ft") or 0;
+        var alt    = getprop("/position/altitude-agl-ft") or 0;
         var g_load = z_acc * -0.03108095;
         if(wow == 1)
         {
             shake_y = math.sin(11 * my_time) / (1 + (1000 * 150 / (speed + 1)));
             shake_z = math.sin(15 * my_time) / (1 + (400 * 150 / (speed + 1)));
         }
-        elsif(g_load > 4)
+        elsif((g_load > 4) or (aoa > 10))
         {
             shake_y = math.sin(9 * my_time) / (1 + (2000 * 7 / (aoa + 1)));
             shake_z = math.sin(75 * my_time) / (1 + (700 * 5 / (aoa + 1)));
         }
         elsif((alt < 10000) and (speed > 100) and (wow == 0))
         {
-            var facteur_speed = (-10 / 9 * speed) + (3500 / 3);
-            var facteur_alt = (3 / 80 * alt) + 200;
-            shake_y = math.sin(2 * my_time) / (1 + (facteur_speed + facteur_alt));
-            shake_z = math.sin(65 * my_time) / (1.3 * (1 + (facteur_speed + facteur_alt)));
+            var facteur_speed = (-45 / 8 * speed) + 5000;
+            var facteur_alt = (9 / 100 * alt) + 500;
+            shake_y = math.sin(3 * my_time) / (200 + (facteur_speed + facteur_alt)); # 3 - 1000
+            shake_z = math.sin(4 * my_time) / (200 + (2 * (facteur_speed + facteur_alt))); # 4 - 2000
         }
 
         shake_x = -1.5 / (1 + (100 * 10 / (x_acc + 1)));
-
-        #var freq_y  = getprop("/_debug/int1") or 0; # 2
-        #var ampl_y  = getprop("/_debug/float1") or 0; # 800
-        #var freq_z  = getprop("/_debug/int2") or 0; # 65
-        #var ampl_z  = getprop("/_debug/float2") or 0; # 1000
-        #shake_y = math.sin(freq_y * my_time) / ampl_y;
-        #shake_z = math.sin(freq_z * my_time) / ampl_z;
 
         setprop("/controls/cockpit/shaking-x", shake_x);
         setprop("/controls/cockpit/shaking-y", shake_y);
         setprop("/controls/cockpit/shaking-z", shake_z);
     }
+    else
+    {
+        var my_time = getprop("/sim/time/elapsed-sec");
+        var freq_y  = getprop("/_debug/int1") or 0;
+        var ampl_y  = getprop("/_debug/float1") or 0;
+        var freq_z  = getprop("/_debug/int2") or 0;
+        var ampl_z  = getprop("/_debug/float2") or 0;
+        shake_y = math.sin(freq_y * my_time) / (ampl_y + 1);
+        shake_z = math.sin(freq_z * my_time) / (ampl_z + 1);
+
+        setprop("/controls/cockpit/shaking-y", shake_y);
+        setprop("/controls/cockpit/shaking-z", shake_z);
+    }
 }
 
-
-#===============================================================================
-#                                                                          LOOPS
 
 var hippo_loop = func() {
     hippo_enabled = getprop("/instrumentation/my_aircraft/pfd/controls/hippodrome") or 0;
@@ -323,57 +328,7 @@ var hippo_loop = func() {
     {
         top_hippo = 0;
     }
-    var time_speed = getprop("/sim/speed-up") or 1;
-    var loop_speed = (time_speed == 1) ? 1 : 4 * time_speed;
-    settimer(hippo_loop, loop_speed);
 }
-
-var bourrasque_slow_loop = func() {
-
-    bourrasque_mp_loop_encode();
-    my_aircraft_functions.event_choose_enabled_cams();
-    my_aircraft_functions.disable_hippodrome_if_ap_not_ok();
-    #my_aircraft_functions.set_max_cloud_layer();
-    vor_true_to_mag();
-
-    var time_speed = getprop("/sim/speed-up") or 1;
-    var loop_speed = (time_speed == 1) ? 2 : 4 * time_speed;
-    settimer(bourrasque_slow_loop, loop_speed);
-}
-
-var bourrasque_loop = func() {
-
-    # setting engine egt celcius from egt farenheit
-    egtf2egtc();
-
-    # setting altimeter kilopascal from inch hg
-    setprop("/instrumentation/altimeter/setting-kpa", (getprop("/instrumentation/altimeter/setting-inhg") * my_aircraft_functions.INHG2HPA));
-
-    # setting true-heading-bug from mag-heading-bug
-    setprop("/instrumentation/my_aircraft/nd/outputs/true-heading-bug-deg", math.mod(getprop("/autopilot/settings/heading-bug-deg") + getprop("/environment/magnetic-variation-deg"), 360));
-
-    # setting sound factor if internal and canopy closed
-    loud_sound();
-
-    # touchdown smoke
-    touchdown_smoke();
-
-    # alarms update
-    update_alarms();
-
-    # shake cockpit
-    calculate_shake();
-
-    var time_speed = getprop("/sim/speed-up") or 1;
-    var loop_speed = (time_speed == 1) ? .1 : 2 * time_speed;
-    settimer(bourrasque_loop, loop_speed);
-}
-
-setlistener("/sim/signals/fdm-initialized", bourrasque_loop);
-setlistener("/sim/signals/fdm-initialized", hippo_loop);
-setlistener("/sim/signals/fdm-initialized", bourrasque_slow_loop);
-
-
 
 
 

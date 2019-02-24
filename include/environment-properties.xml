@@ -2,12 +2,11 @@
 <!--
 ################################################################################
 #
-#             THIS FILE INITIALIZES ENVIRONMENT PROPERTY TREE
+#                              PROPERTY TREE INIT
 #
 ################################################################################
 
-PROPERTY-PATH : PropertyList > environment
-
+PROPERTY-PATH : /environment/
 -->
 
 <PropertyList>

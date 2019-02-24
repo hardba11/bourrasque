@@ -350,14 +350,21 @@ bourrasque-set.xml
  |    |-- sounds/bourrasque_start_engine_ext.wav
  |    |-- sounds/bourrasque_stop_engine_ext.wav
  |    |-- sounds/bourrasque_whine_ext.wav
+ |    |-- sounds/canopy.wav
+ |    |-- sounds/canopy_lock.wav
+ |    |-- sounds/canopy_unlock.wav
+ |    |-- sounds/caution.wav
  |    |-- sounds/clic.wav
  |    |-- sounds/gear-lck.wav
  |    |-- sounds/gear.wav
  |    |-- sounds/gear_lever.wav
  |    |-- sounds/lever.wav
+ |    |-- sounds/pullup.wav
  |    |-- sounds/rain-windshield.wav
  |    |-- sounds/rain.wav
  |    |-- sounds/rumble.wav
+ |    |-- sounds/stall_alert.wav
+ |    |-- sounds/stall_caution.wav
  |    |-- sounds/touchdown.wav
  |    `-- sounds/wind.wav
  |-- tools/assistance_to_closest_airport/assistance.nas

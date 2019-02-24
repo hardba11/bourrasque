@@ -68,10 +68,6 @@ var nd = func()
     # coupling tacan with right adf (unused)
     var rh = getprop("instrumentation/my_aircraft/nd/inputs/rh-vor-adf") or 0;
     setprop("instrumentation/my_aircraft/nd/inputs/toggle_tacan", ((rh == -1) ? 1 : 0));
-
-    var time_speed = getprop("/sim/speed-up") or 1;
-    var loop_speed = (time_speed == 1) ? .5 : 2 * time_speed;
-    settimer(nd, loop_speed);
 }
 
 var event_click_info = func()
@@ -122,7 +118,6 @@ var event_click_true_north = func()
     }
 }
 
-setlistener("sim/signals/fdm-initialized", nd);
 
 
 

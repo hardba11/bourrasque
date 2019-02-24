@@ -155,12 +155,5 @@ var systems_loop = func()
     setprop("/systems/electrical/bus/avionics", is_bus_avionics_on);
     setprop("/systems/electrical/bus/engines",  is_bus_engines_on);
     setprop("/systems/electrical/bus/commands", is_bus_commands_on);
-
-    var time_speed = getprop("/sim/speed-up") or 1;
-    var loop_speed = (time_speed == 1) ? .1 : 1 * time_speed;
-    settimer(systems_loop, loop_speed);
 }
-
-setlistener("/sim/signals/fdm-initialized", systems_loop);
-
 

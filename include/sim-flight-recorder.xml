@@ -2,14 +2,14 @@
 <!--
 ################################################################################
 #
-#           THIS FILE INITIALIZES SIM/FLIGHT-RECORDERY PROPERTY TREE
+#                              PROPERTY TREE INIT
 #
 ################################################################################
 
-PROPERTY-PATH : PropertyList > sim > flight-recorder
+PROPERTY-PATH : /sim/flight-recorder/
 
-https://sourceforge.net/p/flightgear/fgdata/ci/next/tree/Docs/README.flightrecorder
-
+see :
+- https://sourceforge.net/p/flightgear/fgdata/ci/next/tree/Docs/README.flightrecorder
 -->
 
 <PropertyList>

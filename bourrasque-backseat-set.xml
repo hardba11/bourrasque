@@ -29,7 +29,7 @@ http://wiki.flightgear.org/Property_tree
     <author type="string">hardball SLK</author>
 
     <!-- new in FlightGear 2018.3.0 style -->
-    <authors> 
+    <authors>
       <author n="0">
         <name>hardball SLK</name>
         <description>model, FDM, systems</description>

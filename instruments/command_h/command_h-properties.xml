@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+################################################################################
+#
+#      DEFINITION OF ALIASES OR INTERNAL PROPERTIES UPDATED BY INSTRUMENT
+#
+################################################################################
 
-<!-- DEFINITION OF ALIASES OR INTERNAL PROPERTIES -->
-
-<!-- /instrumentation/my_aircraft/command_h/ -->
+PROPERTY-PATH : /instrumentation/my_aircraft/command_h/
+-->
 
 <PropertyList>
   <sound_alert type="int">0</sound_alert>     <!-- play a sound -->

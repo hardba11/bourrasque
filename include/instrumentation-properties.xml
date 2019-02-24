@@ -2,15 +2,11 @@
 <!--
 ################################################################################
 #
-#             THIS FILE INITIALIZES INSTRUMENTATION PROPERTY TREE
+#                              PROPERTY TREE INIT
 #
 ################################################################################
 
-PROPERTY-PATH : PropertyList > instrumentation
-
-changelog
-- 2016-10-22 : create
-
+PROPERTY-PATH : /instrumentation/
 -->
 
 <PropertyList>
