@@ -384,7 +384,7 @@ my_aircraft_functions.change_mod(-1);
         <command>nasal</command>
         <script>
           <![CDATA[
-fdm.toggle_autostart();
+core.toggle_autostart();
           ]]>
         </script>
       </binding>

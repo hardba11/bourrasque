@@ -1,6 +1,6 @@
-print("*** LOADING fdm - main_loop.nas ... ***");
+print("*** LOADING core - main_loop.nas ... ***");
 
-# namespace : fdm
+# namespace : core
 
 #===============================================================================
 #                                                                          LOOPS
@@ -8,15 +8,15 @@ print("*** LOADING fdm - main_loop.nas ... ***");
 
 var loop_2000ms = func() {
 
-    bourrasque_mp_loop_encode();
+    core.bourrasque_mp_loop_encode();
     my_aircraft_functions.event_choose_enabled_cams();
     my_aircraft_functions.disable_hippodrome_if_ap_not_ok();
     #my_aircraft_functions.set_max_cloud_layer();
-    vor_true_to_mag();
+    core.vor_true_to_mag();
 }
 
 var loop_1000ms = func() {
-    hippo_loop();
+    core.hippo_loop();
 
     instrument_pfd.pfd();
     instrument_fuel.fuel();
@@ -38,19 +38,19 @@ var loop_200ms = func() {
     instrument_hud.minihud_loop();
 
     # setting sound factor if internal and canopy closed
-    loud_sound();
+    core.loud_sound();
 
     # alarms update
-    update_alarms();
+    core.update_alarms();
 }
 
 var loop_100ms = func() {
 
     # systems
-    systems_loop();
+    core.systems_loop();
 
     # setting engine egt celsius from egt farenheit
-    egtf2egtc();
+    core.egtf2egtc();
 
     # setting altimeter kilopascal from inch hg
     setprop("/instrumentation/altimeter/setting-kpa", (getprop("/instrumentation/altimeter/setting-inhg") * my_aircraft_functions.INHG2HPA));
@@ -65,10 +65,11 @@ var loop_100ms = func() {
     #instrument_command_h_canvas
 
     # touchdown smoke
-    touchdown_smoke();
+    core.touchdown_smoke();
 
     # shake cockpit
-    calculate_shake();
+    core.calculate_shake();
+    core.calculate_shake_external_view();
 }
 
 var ms = 0;
@@ -76,7 +77,7 @@ var ratio_speed = 1;
 var main_loop = func() {
 
     # fly by wire
-    fcm_loop();
+    core.fcm_loop();
 
     if(math.mod(ms, 100 * ratio_speed) == 0)
     {

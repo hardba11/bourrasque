@@ -22,7 +22,7 @@ http://wiki.flightgear.org/Property_tree
     <description type="string">Bourrasque back-seater (multiplayer)</description>
     <variant-of type="string">bourrasque</variant-of>
     <long-description type="string">Bourrasque is a fictionnal civil version of the famous Dassault Rafale, its purpose is the world exploration thanks to high speed, short landings and takeoff, radionavigation and auto pilot equipment.</long-description>
-    <aircraft-version type="string">20180806</aircraft-version>
+    <aircraft-version type="string">20190228</aircraft-version>
     <minimum-fg-version type="string">2017.1.1</minimum-fg-version>
 
     <!-- old / simple style -->
@@ -82,7 +82,6 @@ http://wiki.flightgear.org/Property_tree
       <model type="int">4</model>
     </rating>
 
-
     <!-- ~~~~~~~~~~~~~~~~~~ flight model -->
     <flight-model>null</flight-model>
 
@@ -99,10 +98,11 @@ http://wiki.flightgear.org/Property_tree
         <file type="string">liveries/texture_bourrasque_gris_digital</file>
       </livery>
 
-      <!-- for instruments sounds -->
+      <!-- for sounds -->
       <click type="bool">0</click>
       <lever_gear type="bool">0</lever_gear>
       <lever_parkbrake type="bool">0</lever_parkbrake>
+      <canopy_sound type="string"></canopy_sound>
 
       <!-- for MP -->
       <canopy-pos-norm       type="float">1</canopy-pos-norm>

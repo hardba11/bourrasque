@@ -1,6 +1,6 @@
-print("*** LOADING fdm - autostart.nas ... ***");
+print("*** LOADING core - autostart.nas ... ***");
 
-# namespace : fdm
+# namespace : core
 
 #===============================================================================
 #                                               INSTRUMENTS START/STOP FUNCTIONS

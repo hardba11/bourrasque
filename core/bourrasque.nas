@@ -1,6 +1,6 @@
-print("*** LOADING fdm - bourrasque.nas ... ***");
+print("*** LOADING core - bourrasque.nas ... ***");
 
-# namespace : fdm
+# namespace : core
 
 var egtf2egtc = func() {
     setprop("/engines/engine[0]/egt", 0);
@@ -46,8 +46,6 @@ var update_alarms = func() {
         if(aoa >= 13) { stall_warning = 2; }
     }
     setprop("/sim/alarms/stall-warning", stall_warning);
-    #printf("FIN update.alarms (3)");
-
 }
 
 var is_smoke   = [0, 0, 0];
@@ -255,12 +253,12 @@ var calculate_shake = func() {
         var z_acc  = getprop("/accelerations/pilot/z-accel-fps_sec") or 0;
         var alt    = getprop("/position/altitude-agl-ft") or 0;
         var g_load = z_acc * -0.03108095;
-        if(wow == 1)
+        if((wow == 1) and (speed > 5))
         {
             shake_y = math.sin(11 * my_time) / (1 + (1000 * 150 / (speed + 1)));
             shake_z = math.sin(15 * my_time) / (1 + (400 * 150 / (speed + 1)));
         }
-        elsif((g_load > 4) or (aoa > 10))
+        elsif((g_load > 4) or ((aoa > 10) and (aoa > 30))
         {
             shake_y = math.sin(9 * my_time) / (1 + (2000 * 7 / (aoa + 1)));
             shake_z = math.sin(75 * my_time) / (1 + (700 * 5 / (aoa + 1)));
@@ -281,16 +279,66 @@ var calculate_shake = func() {
     }
     else
     {
-        var my_time = getprop("/sim/time/elapsed-sec");
-        var freq_y  = getprop("/_debug/int1") or 0;
-        var ampl_y  = getprop("/_debug/float1") or 0;
-        var freq_z  = getprop("/_debug/int2") or 0;
-        var ampl_z  = getprop("/_debug/float2") or 0;
-        shake_y = math.sin(freq_y * my_time) / (ampl_y + 1);
-        shake_z = math.sin(freq_z * my_time) / (ampl_z + 1);
+        setprop("/controls/cockpit/shaking-x", 0);
+        setprop("/controls/cockpit/shaking-y", 0);
+        setprop("/controls/cockpit/shaking-z", 0);
+    }
+}
 
-        setprop("/controls/cockpit/shaking-y", shake_y);
-        setprop("/controls/cockpit/shaking-z", shake_z);
+var calculate_shake_external_view = func() {
+
+    var shake_enabled   = getprop("/controls/cockpit/shake-effect") or 0;
+    var view_number     = getprop("/sim/current-view/view-number") or 0;
+    var wow             = getprop("/gear/gear[1]/wow") or 0;
+
+    var x_offset_current   = getprop("/sim/current-view/x-offset-m") or 0;
+    var y_offset_current   = getprop("/sim/current-view/y-offset-m") or 0;
+    var z_offset_current   = getprop("/sim/current-view/z-offset-m") or 0;
+
+    var offset_saved   = getprop("/sim/current-view/offset-saved") or 0;
+    if(offset_saved == 0)
+    {
+        # back up offset
+        setprop("/sim/current-view/x-offset-sav", x_offset_current);
+        setprop("/sim/current-view/y-offset-sav", y_offset_current);
+        setprop("/sim/current-view/z-offset-sav", z_offset_current);
+        setprop("/sim/current-view/offset-saved", 1);
+    }
+
+    var x_offset_set   = getprop("/sim/current-view/x-offset-sav") or 0;
+    var y_offset_set   = getprop("/sim/current-view/y-offset-sav") or 0;
+    var z_offset_set   = getprop("/sim/current-view/z-offset-sav") or 0;
+
+    if((shake_enabled == 1)
+        and (wow == 0)
+        and ((view_number == 1) or (view_number == 2) or (view_number == 5) or (view_number == 7)))
+    {
+        var my_time = getprop("/sim/time/elapsed-sec");
+        move_x = (math.sin(1.5 * my_time) / 42) + (math.sin(2.5 * my_time) / 50) + (math.sin(4.5 * my_time) / 75);
+        move_y = (math.sin(1 * my_time) / 30) + (math.sin(3 * my_time) / 40) + (math.sin(5 * my_time) / 50);
+        move_z = (math.sin(2 * my_time) / 40);
+
+        setprop("/sim/current-view/target-x-offset-m", move_x);
+        setprop("/sim/current-view/target-y-offset-m", move_y);
+        setprop("/sim/current-view/target-z-offset-m", move_z);
+
+        setprop("/sim/current-view/x-offset-m", x_offset_set - move_x);
+        setprop("/sim/current-view/y-offset-m", y_offset_set - move_y);
+        setprop("/sim/current-view/z-offset-m", z_offset_set - move_z);
+    }
+    else
+    {
+        setprop("/sim/current-view/target-x-offset-m", 0);
+        setprop("/sim/current-view/target-y-offset-m", 0);
+        setprop("/sim/current-view/target-z-offset-m", 0);
+
+        setprop("/sim/current-view/x-offset", x_offset_set);
+        setprop("/sim/current-view/y-offset", y_offset_set);
+        setprop("/sim/current-view/z-offset", z_offset_set);
+        setprop("/sim/current-view/x-offset-sav", 0);
+        setprop("/sim/current-view/y-offset-sav", 0);
+        setprop("/sim/current-view/z-offset-sav", 0);
+        setprop("/sim/current-view/offset-saved", 0);
     }
 }
 

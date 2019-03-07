@@ -1,6 +1,6 @@
-print("*** LOADING fdm - fcm.nas ... ***");
+print("*** LOADING core - fcm.nas ... ***");
 
-# namespace : fcm
+# namespace : core
 
 # description :
 # - flight control manager

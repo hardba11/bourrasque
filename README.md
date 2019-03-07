@@ -66,6 +66,10 @@ see https://github.com/hardba11/bourrasque/blob/master/contrib/HELP.txt
 
 ## gallery
 
+camera effects :
+
+![Image](http://i.imgur.com/6kszT3e.gif)
+
 reheat effects, different colors depending on the time :
 
 ![Image](http://i.imgur.com/4IjCBz8.png)
@@ -149,6 +153,14 @@ desert livery :
 flight gear livery :
 
 ![Image](http://i.imgur.com/n13LXzK.png)
+
+furtiv livery :
+
+![Image](http://i.imgur.com/oeYSXVO.png)
+
+furtiv night livery :
+
+![Image](http://i.imgur.com/7eQNui0.png)
 
 tiger livery :
 

@@ -21,7 +21,7 @@ http://wiki.flightgear.org/Property_tree
     <!-- ~~~~~~~~~~~~~~~~~~ metadata -->
     <description type="string">Bourrasque</description>
     <long-description type="string">Bourrasque is a fictionnal civil version of the famous Dassault Rafale, its purpose is the world exploration thanks to high speed, short landings and takeoff, radionavigation and auto pilot equipment.</long-description>
-    <aircraft-version type="string">20180806</aircraft-version>
+    <aircraft-version type="string">20190228</aircraft-version>
     <minimum-fg-version type="string">2017.1.1</minimum-fg-version>
 
     <!-- old / simple style -->
@@ -83,7 +83,7 @@ http://wiki.flightgear.org/Property_tree
 
     <!-- ~~~~~~~~~~~~~~~~~~ flight model -->
     <flight-model>yasim</flight-model>
-    <aero>fdm/bourrasque-yasim</aero>
+    <aero>core/bourrasque-yasim</aero>
 
     <!-- ~~~~~~~~~~~~~~~~~~ airport -->
     <airport>
@@ -164,9 +164,16 @@ http://wiki.flightgear.org/Property_tree
 
       <splash-title>loading brsq ...</splash-title>
     </startup>
-    <fuel-fraction type="float">0.1</fuel-fraction>
+    <fuel-fraction type="float">0.2</fuel-fraction>
     <virtual-cockpit archive="y">true</virtual-cockpit>
     <allow-toggle-cockpit archive="y">true</allow-toggle-cockpit>
+
+    <current-view>
+      <offset-saved type="bool">0</offset-saved>
+      <x-offset-sav type="float">0</x-offset-sav>
+      <y-offset-sav type="float">0</y-offset-sav>
+      <z-offset-sav type="float">0</z-offset-sav>
+    </current-view>
 
     <!-- ~~~~~~~~~~~~~~~~~~ views -->
     <view n="0"     include="include/sim-view0-properties.xml" />
@@ -200,7 +207,7 @@ http://wiki.flightgear.org/Property_tree
       </property-rule>
       <!-- ~~~~~~~~~~~~~~~~~~ autopilot -->
       <autopilot>
-        <path>fdm/autopilot.xml</path>
+        <path>core/autopilot.xml</path>
       </autopilot>
     </systems>
     <alarms>
@@ -394,18 +401,18 @@ http://wiki.flightgear.org/Property_tree
     </instrument_tablet_map>
 
     <!-- ~~~~~~~~~~~~~~~~~~ flight/commands/aircraft management -->
-    <fdm>
+    <core>
       <!-- aircraft properties update -->
-      <file type="string">fdm/bourrasque.nas</file>
+      <file type="string">core/bourrasque.nas</file>
       <!-- fly by wire -->
-      <file type="string">fdm/fcm.nas</file>
+      <file type="string">core/fcm.nas</file>
       <!-- aircraft electrical and engines systems -->
-      <file type="string">fdm/systems.nas</file>
+      <file type="string">core/systems.nas</file>
       <!-- specific functions for starting/stopping aircraft -->
-      <file type="string">fdm/autostart.nas</file>
+      <file type="string">core/autostart.nas</file>
       <!-- loops -->
-      <file type="string">fdm/main_loop.nas</file>
-    </fdm>
+      <file type="string">core/main_loop.nas</file>
+    </core>
 
     <!-- ~~~~~~~~~~~~~~~~~~ models and effects -->
     <lights>

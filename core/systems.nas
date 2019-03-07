@@ -1,6 +1,6 @@
-print("*** LOADING fdm - systems.nas ... ***");
+print("*** LOADING core - systems.nas ... ***");
 
-# namespace : fdm
+# namespace : core
 
 #     evenement push btn "start" et tt est ok
 #               |

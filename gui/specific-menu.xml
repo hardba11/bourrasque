@@ -24,7 +24,7 @@ changelog
         <command>nasal</command>
           <script>
             <![CDATA[
-fdm.autostart();
+core.autostart();
           ]]>
           </script>
         </binding>
@@ -36,7 +36,7 @@ fdm.autostart();
           <command>nasal</command>
           <script>
             <![CDATA[
-fdm.stop();
+core.stop();
             ]]>
           </script>
         </binding>
@@ -48,7 +48,7 @@ fdm.stop();
           <command>nasal</command>
           <script>
             <![CDATA[
-fdm.fast_start();
+core.fast_start();
             ]]>
           </script>
         </binding>

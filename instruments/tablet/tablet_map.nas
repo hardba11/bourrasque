@@ -52,7 +52,7 @@ var MAP = {
         m.servers = ['a', 'b', 'c'];
         m.makePath = string.compileTemplate(m.maps_base ~'/osm-{type}/{z}/{x}/{y}.png');
         m.filename = 'Aircraft/bourrasque/instruments/tablet/my_aircraft_icon.svg';
-        m.page_morse = 'Aircraft/bourrasque/instruments/tablet/morse.png';
+        m.filepath_image_morse = 'Aircraft/bourrasque/instruments/tablet/morse.png';
 
 # CANVAS STUFF
 
@@ -62,7 +62,7 @@ var MAP = {
 
         m.g_page_map = m.root.createChild('group').set('z-index', 100);
 
-        # text
+        # text for MAP page
         m.txt_zoom = m.g_page_map.createChild('text', 'txt_zoom')
             .setTranslation(200, 70)
             .setAlignment('left-bottom')
@@ -108,9 +108,69 @@ var MAP = {
         m.g_back = m.root.createChild('group');
         m.root.setCenter(width / 2, height / 2); # center of the canvas
 
-        m.g_page_morse = m.root.createChild('image').setFile(m.page_morse)
+        m.g_page_morse = m.root.createChild('group').set('z-index', 100);
+        m.image_morse = m.g_page_morse.createChild('image').setFile(m.filepath_image_morse)
             .setSize(1024, 1024)
             .setTranslation(0, 0);
+        m.txt_col1_vor_france = m.g_page_morse.createChild('text', 'col1_vor_france')
+            .setTranslation(160, 330)
+            .setAlignment('left-top')
+            .setFont('LiberationFonts/LiberationMono-Regular.ttf')
+            .setFontSize(20)
+            .setColor(0, .8, 0, 1)
+            .setText('
+QPR 117.8  QuimPeR
+ARE 112.5  monts d ARrEe
+DIN 114.3  DINard
+REN 109.25 RENnes
+NTS 115.5  NanTeS
+ANG 113.0  ANGers
+CAN 114.45 CAeN
+DVL 110.2  DeauViLle
+LGL 115.0  L aiGLe
+EVX 112.4  EVreuX
+CAD 115.95 ChAteauDun
+AMB 113.7  AMBoise
+POI 113.3  POItiers
+CNA 114.65 CogNAc
+BMC 113.75 Bordeaux MerignaC
+SAU 116.8  SAUveterre
+MDM 108.7  Mont De Marsan
+AGN 114.8  AGeN
+TLS 117.7  TouLouSe
+GAI 115.8  GAIllac
+PPG 116.25 PerPiGnan
+MEN 115.3  MENde').set('z-index', 1);
+
+        m.txt_col2_vor_france = m.g_page_morse.createChild('text', 'col2_vor_france')
+            .setTranslation(510, 330)
+            .setAlignment('left-top')
+            .setFont('LiberationFonts/LiberationMono-Regular.ttf')
+            .setFontSize(20)
+            .setColor(0, .8, 0, 1)
+            .setText('
+FJR 114.45 Montpellier
+MTG 117.3  MarTiGues
+MRM 108.8  MaRseille Marignane
+STP 116.5  St TroPez
+NIZ 112.4  NIce aZure
+MTL 113.65 MonTeLimar
+CFA 114.35 Clermont-FerrAnd
+LTP 115.55 La Tour du Pin
+LSE 114.75 Lyon St Exupery
+MOU 116.7  MOUlins
+NEV 113.4  NEVers
+RLP 117.3  RoLamPon
+TRO 116.0  TROyes
+LUL 117.1  LUxeuiL
+EPL 113.0  EPinaL
+GTQ 111.25 GrosTenQuin
+MMD 109.4  MontMeDy
+REM 112.3  REiMs
+CTL 117.6  ChaTiLlon sur marne
+CMB 112.6  CaMBrai
+ABB 108.45 ABBeville
+BNE 113.8  BoulogNE').set('z-index', 1);
 
         # simple aircraft icon at current position/center of the map
         m.svg_symbol = m.g_page_map.createChild('group');
