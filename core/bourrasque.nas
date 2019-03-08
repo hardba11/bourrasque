@@ -258,7 +258,7 @@ var calculate_shake = func() {
             shake_y = math.sin(11 * my_time) / (1 + (1000 * 150 / (speed + 1)));
             shake_z = math.sin(15 * my_time) / (1 + (400 * 150 / (speed + 1)));
         }
-        elsif((g_load > 4) or ((aoa > 10) and (aoa > 30)))
+        elsif((g_load > 4) or ((aoa > 10) and (wow == 0)))
         {
             shake_y = math.sin(9 * my_time) / (1 + (2000 * 7 / (aoa + 1)));
             shake_z = math.sin(75 * my_time) / (1 + (700 * 5 / (aoa + 1)));

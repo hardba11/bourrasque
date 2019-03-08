@@ -99,11 +99,12 @@ var systems_loop = func()
         }
 
         ### EVENTS
-
+        var level_tot = getprop("/consumables/fuel/total-fuel-m3") or 0;
         if(((is_bus_avionics_on == 0)
                 or (is_bus_engines_on == 0)
                 or (is_pump == 0)
-                or (is_fuelon == 0))
+                or (is_fuelon == 0)
+                or (level_tot <= 1))
             and(is_stopped == 0))
         {
             # lancer l'arret si plus d'alimentation
