@@ -561,6 +561,7 @@ livery_update.stop();
     <object-name>stores-model</object-name>
     <object-name>smoke-pod-model</object-name>
     <object-name>refuel_pod</object-name>
+    <object-name>lights</object-name>
   </animation>
   <animation>
     <type>translate</type>
