@@ -264,13 +264,13 @@ var calculate_shake = func() {
             shake_z = math.sin(75 * my_time) / (1 + (700 * 5 / (aoa + 1)));
         }
 # TODO
-        #elsif((alt < 10000) and (speed > 100) and (wow == 0))
-        #{
-        #    var facteur_speed = 1 + ((-15 / 20) * speed) + 2075;
-        #    var facteur_alt = 1 + (3 * math.abs(alt)) - 3000;
-        #    shake_y = (math.sin(3 * my_time) / facteur_speed) + (math.sin(2 * my_time) / facteur_alt);
-        #    shake_z = (math.sin(4 * my_time) / facteur_speed) + (math.sin(3 * my_time) / facteur_alt);
-        #}
+        elsif((alt < 10000) and (speed > 100) and (wow == 0))
+        {
+            var facteur_speed = 1 + ((-15 / 20) * speed) + 2075;
+            var facteur_alt = 1 + (math.abs(alt) / 3);
+            shake_y = (math.sin(3 * my_time) / (facteur_speed + facteur_alt)) + (math.sin(2 * my_time) / (facteur_speed + facteur_alt));
+            shake_z = (math.sin(4 * my_time) / (facteur_speed + facteur_alt)) + (math.sin(3 * my_time) / (facteur_speed + facteur_alt));
+        }
 
         shake_x = -1.5 / (1 + (100 * 10 / (x_acc + 1)));
 
