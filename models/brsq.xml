@@ -234,9 +234,9 @@ livery_update.stop();
     <name>anticoll light</name>
     <path>Aircraft/bourrasque/models/lights/light_anticoll.xml</path>
     <offsets>
-      <x-m type="float">1.6</x-m>
+      <x-m type="float">-1.08</x-m>
       <y-m type="float">0</y-m>
-      <z-m type="float">-.35</z-m>
+      <z-m type="float">-.38</z-m>
     </offsets>
   </model>
   <model>

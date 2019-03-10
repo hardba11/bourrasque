@@ -422,10 +422,10 @@ http://wiki.flightgear.org/Property_tree
       <file>Aircraft/bourrasque/models/aircraft/select_liveries.nas</file>
     </liveries>
 
-    <!-- ~~~~~~~~~~~~~~~~~~ 3rd party scripts to improve functionnalities
-    <aar>
+    <!-- ~~~~~~~~~~~~~~~~~~ 3rd party scripts to improve functionnalities -->
+    <!--aar>
       <file>Aircraft/Generic/aar.nas</file>
-    </aar>
+    </aar-->
     <formation>
       <file>Aircraft/Generic/formation.nas</file>
     </formation>
@@ -434,7 +434,7 @@ http://wiki.flightgear.org/Property_tree
     </FailureMgr>
     <towing>
       <enabled type="bool">0</enabled>
-    </towing> -->
+    </towing>
 
     <!-- ~~~~~~~~~~~~~~~~~~ other tools -->
     <tools>
