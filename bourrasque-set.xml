@@ -425,6 +425,9 @@ http://wiki.flightgear.org/Property_tree
     <!-- ~~~~~~~~~~~~~~~~~~ 3rd party scripts to improve functionnalities -->
     <!--aar>
       <file>Aircraft/Generic/aar.nas</file>
+    </aar>
+    <aar>
+      <file>core/aar.nas</file>
     </aar-->
     <formation>
       <file>Aircraft/Generic/formation.nas</file>

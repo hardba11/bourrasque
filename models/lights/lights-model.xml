@@ -39,15 +39,17 @@ ________________________________________________________________________________
   <animation>
     <type>material</type>
     <object-name>light_nav_green</object-name>
+    <ambient>
+      <red>0</red>
+      <green>1</green>
+      <blue>0</blue>
+    </ambient>
     <emission>
-      <red>0.0</red>
-      <green>1.0</green>
-      <blue>0.0</blue>
+      <factor-prop>controls/lighting/nav-lights</factor-prop>
+      <red>0</red>
+      <green>10</green>
+      <blue>0</blue>
     </emission>
-  </animation>
-  <animation>
-    <type>select</type>
-    <object-name>light_nav_green</object-name>
     <condition>
       <and>
         <property>controls/lighting/nav-lights</property>
@@ -64,15 +66,17 @@ ________________________________________________________________________________
   <animation>
     <type>material</type>
     <object-name>light_nav_red</object-name>
+    <ambient>
+      <red>1</red>
+      <green>0</green>
+      <blue>0</blue>
+    </ambient>
     <emission>
-      <red>1.0</red>
-      <green>0.0</green>
-      <blue>0.0</blue>
+      <factor-prop>controls/lighting/nav-lights</factor-prop>
+      <red>10</red>
+      <green>0</green>
+      <blue>0</blue>
     </emission>
-  </animation>
-  <animation>
-    <type>select</type>
-    <object-name>light_nav_red</object-name>
     <condition>
       <and>
         <property>controls/lighting/nav-lights</property>
@@ -88,15 +92,17 @@ ________________________________________________________________________________
   <animation>
     <type>material</type>
     <object-name>light_pos</object-name>
+    <ambient>
+      <red>1</red>
+      <green>1</green>
+      <blue>1</blue>
+    </ambient>
     <emission>
-      <red>1.0</red>
-      <green>1.0</green>
-      <blue>1.0</blue>
+      <factor-prop>controls/lighting/pos-lights</factor-prop>
+      <red>10</red>
+      <green>10</green>
+      <blue>10</blue>
     </emission>
-  </animation>
-  <animation>
-    <type>select</type>
-    <object-name>light_pos</object-name>
     <condition>
       <and>
         <property>controls/lighting/pos-lights</property>
@@ -112,15 +118,17 @@ ________________________________________________________________________________
   <animation>
     <object-name>light_anticoll</object-name>
     <type>material</type>
+    <ambient>
+      <red>1</red>
+      <green>0</green>
+      <blue>0</blue>
+    </ambient>
     <emission>
-      <red>1.0</red>
-      <green>0.0</green>
-      <blue>0.0</blue>
+      <factor-prop>sim/model/lights/beacon/state</factor-prop>
+      <red>10</red>
+      <green>0</green>
+      <blue>0</blue>
     </emission>
-  </animation>
-  <animation>
-    <type>select</type>
-    <object-name>light_anticoll</object-name>
     <condition>
       <and>
         <property>controls/lighting/beacon</property>
@@ -136,27 +144,29 @@ ________________________________________________________________________________
   <animation>
     <type>material</type>
     <object-name>light_strobe</object-name>
+    <ambient>
+      <red>1</red>
+      <green>1</green>
+      <blue>1</blue>
+    </ambient>
     <emission>
-      <red>1.0</red>
-      <green>1.0</green>
-      <blue>1.0</blue>
+      <factor-prop>sim/model/lights/strobe/state</factor-prop>
+      <red>10</red>
+      <green>10</green>
+      <blue>10</blue>
     </emission>
-  </animation>
-  <animation>
-    <type>range</type>
-    <object-name>light_strobe</object-name>
-    <min-m>0</min-m>
-    <max-property>sim/rendering/static-lod/bare</max-property>
-  </animation>
-  <animation>
-    <type>select</type>
-    <object-name>light_strobe</object-name>
     <condition>
       <and>
         <property>controls/lighting/strobe</property>
         <property>systems/electrical/bus/commands</property>
       </and>
     </condition>
+  </animation>
+  <animation>
+    <type>range</type>
+    <object-name>light_strobe</object-name>
+    <min-m>0</min-m>
+    <max-property>sim/rendering/static-lod/bare</max-property>
   </animation>
 
   <!--
