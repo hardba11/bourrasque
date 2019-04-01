@@ -293,9 +293,9 @@ ________________________________________________________________________________
       </condition>
       <volume>
         <property>/velocities/mach</property>
-        <factor>0.3</factor>
+        <factor>0.4</factor>
         <min>0</min>
-        <max>2</max>
+        <max>3</max>
       </volume>
       <pitch>
         <property>/velocities/mach</property>
@@ -560,17 +560,18 @@ ________________________________________________________________________________
       <mode>looped</mode>
       <condition>
         <and>
+          <property>/sim/current-view/internal</property>
           <equals>
             <property>/controls/gear/gear-down</property>
             <value>false</value>
           </equals>
           <less-than>
             <property>/position/altitude-agl-ft</property>
-            <value>300</value>
+            <value>200</value>
           </less-than>
           <less-than>
             <property>/instrumentation/vertical-speed-indicator/indicated-speed-kts</property>
-            <value>0</value>
+            <value>-200</value>
           </less-than>
         </and>
       </condition>
@@ -770,14 +771,17 @@ ________________________________________________________________________________
       <path>canopy_lock.wav</path>
       <mode>once</mode>
       <condition>
-        <equals>
-          <property>/sim/model/canopy_sound</property>
-          <value>lock</value>
-        </equals>
-        <less-than>
-          <property>/sim/model/canopy-pos-norm</property>
-          <value>.1</value>
-        </less-than>
+        <and>
+          <property>/sim/current-view/internal</property>
+          <equals>
+            <property>/sim/model/canopy_sound</property>
+            <value>lock</value>
+          </equals>
+          <less-than>
+            <property>/sim/model/canopy-pos-norm</property>
+            <value>.1</value>
+          </less-than>
+        </and>
       </condition>
       <volume>
         <max>.1</max>
@@ -790,14 +794,17 @@ ________________________________________________________________________________
       <path>canopy_unlock.wav</path>
       <mode>once</mode>
       <condition>
-        <equals>
-          <property>/sim/model/canopy_sound</property>
-          <value>unlock</value>
-        </equals>
-        <greater-than>
-          <property>/sim/model/canopy-pos-norm</property>
-          <value>0</value>
-        </greater-than>
+        <and>
+          <property>/sim/current-view/internal</property>
+          <equals>
+            <property>/sim/model/canopy_sound</property>
+            <value>unlock</value>
+          </equals>
+          <greater-than>
+            <property>/sim/model/canopy-pos-norm</property>
+            <value>0</value>
+          </greater-than>
+        </and>
       </condition>
       <volume>
         <max>.1</max>

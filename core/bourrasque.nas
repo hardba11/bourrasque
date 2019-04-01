@@ -263,7 +263,6 @@ var calculate_shake = func() {
             shake_y = math.sin(9 * my_time) / (1 + (2000 * 7 / (aoa + 1)));
             shake_z = math.sin(75 * my_time) / (1 + (700 * 5 / (aoa + 1)));
         }
-# TODO
         elsif((alt < 10000) and (speed > 100) and (wow == 0))
         {
             var facteur_speed = 1 + ((-15 / 20) * speed) + 2075;

@@ -2,39 +2,45 @@ print("*** LOADING instrument_command_h - command_h.nas ... ***");
 
 # namespace : instrument_command_h
 
-#                       __________
-#  .------------------ |0         |
-#  |     .-----------> |    OK    |
-#  |     |     .-----> !__________!
-#  |     |     |        __________ 
-#  |     |    rules    |1         | <---------.
-#  |    rules  |       |   INFO   | <---.     |
-#  |     |     `-----> !__________!     |     |
-#  |     |              __________     mute   |
-#  |     |             |2         |     |    ack
-# rules  `-----------> | CAUTION* | ----'     |
-#  |                   !__________!           |
-#  |                    __________            |
-#  |                   |3         | ----------'
-#  |                   |   WARN   | <---------. 
-#  |                   !__________!           |
-#  |                    __________           ack
-#  |                   |4         |           |
-#  `-----------------> |  ALERT*  | ----------'
-#                      !__________!
+#                             __________
+#  .------------------------ |0         |
+#  |     .-----+-----+-----> |    OK    |
+#  |     |     |     |       !__________!
+#  |     |     |     |        __________ 
+#  |     |     |    rules    |1         |
+#  |     |     |     |       |   INFO   |
+#  |     |     |     `-----> !__________!
+#  |     |    rules           __________
+#  |     |     |             |2         | <---------.
+#  |    rules  `-----------> |  NOTICE  | <---.     |
+#  |     |                   !__________!     |     |
+#  |     |                    __________     mute   |
+#  |     |                   |3         |     |    ack
+# rules  `-----------------> | CAUTION* | ----'     |
+#  |                         !__________!           |
+#  |                          __________            |
+#  |                         |4         | ----------'
+#  |                         |   WARN   | <---------. 
+#  |                         !__________!           |
+#  |                          __________           ack
+#  |                         |5         |           |
+#  `-----------------------> |  ALERT*  | ----------'
+#                            !__________!
 
 # STATUS are defined in command_h-properties.xml
 #   0 - OK : off
-#   1 - INFO : static yellow
-#   2 - CAUTION : blinking yellow - sound* - clicking ack mute the sound
-#   3 - WARN : static red
-#   4 - ALERT : blinking red - sound* - clicking ack mute the sound
+#   1 - INFO : green
+#   2 - NOTICE : static yellow
+#   3 - CAUTION : blinking yellow - sound* - clicking ack mute the sound
+#   4 - WARN : static red
+#   5 - ALERT : blinking red - sound* - clicking ack mute the sound
 
 var OK      = 0;
 var INFO    = 1;
-var CAUTION = 2;
-var WARN    = 3;
-var ALERT   = 4;
+var NOTICE  = 2;
+var CAUTION = 3;
+var WARN    = 4;
+var ALERT   = 5;
 
 var checking_aircraft_status = func()
 {
@@ -67,6 +73,7 @@ var checking_aircraft_status = func()
     var radar_altitude      = getprop("/position/altitude-agl-ft") or 0;
     var state_launchbar     = getprop("/gear/launchbar/state") or 'Disengaged';
     var is_autotrim_enabled = getprop("/controls/flight/autotrim-pitch") or 0;
+    var gear_serviceable    = getprop("/sim/failure-manager/controls/gear/serviceable") or 0;
 
 
     #---------------------------------------------------------------------------
@@ -101,68 +108,68 @@ var checking_aircraft_status = func()
     ack_alert = getprop("/instrumentation/my_aircraft/command_h/ack_alert") or 0;
     if(ack_alert == 1)
     {
-        if(engine0_status == CAUTION)    { engine0_status = INFO; }
-        elsif(engine0_status == WARN)    { engine0_status = INFO; }
+        if(engine0_status == CAUTION)    { engine0_status = NOTICE; }
+        elsif(engine0_status == WARN)    { engine0_status = NOTICE; }
         elsif(engine0_status == ALERT)   { engine0_status = WARN; }
 
-        if(engine1_status == CAUTION)    { engine1_status = INFO; }
-        elsif(engine1_status == WARN)    { engine1_status = INFO; }
+        if(engine1_status == CAUTION)    { engine1_status = NOTICE; }
+        elsif(engine1_status == WARN)    { engine1_status = NOTICE; }
         elsif(engine1_status == ALERT)   { engine1_status = WARN; }
 
-        if(hydraulics_status == CAUTION)    { hydraulics_status = INFO; }
-        elsif(hydraulics_status == WARN)    { hydraulics_status = INFO; }
+        if(hydraulics_status == CAUTION)    { hydraulics_status = NOTICE; }
+        elsif(hydraulics_status == WARN)    { hydraulics_status = NOTICE; }
         elsif(hydraulics_status == ALERT)   { hydraulics_status = WARN; }
 
-        if(fuel_status == CAUTION)    { fuel_status = INFO; }
-        elsif(fuel_status == WARN)    { fuel_status = INFO; }
+        if(fuel_status == CAUTION)    { fuel_status = NOTICE; }
+        elsif(fuel_status == WARN)    { fuel_status = NOTICE; }
         elsif(fuel_status == ALERT)   { fuel_status = WARN; }
 
-        if(gear_status == CAUTION)    { gear_status = INFO; }
-        elsif(gear_status == WARN)    { gear_status = INFO; }
+        if(gear_status == CAUTION)    { gear_status = NOTICE; }
+        elsif(gear_status == WARN)    { gear_status = NOTICE; }
         elsif(gear_status == ALERT)   { gear_status = WARN; }
 
-        if(hook_status == CAUTION)    { hook_status = INFO; }
-        elsif(hook_status == WARN)    { hook_status = INFO; }
+        if(hook_status == CAUTION)    { hook_status = NOTICE; }
+        elsif(hook_status == WARN)    { hook_status = NOTICE; }
         elsif(hook_status == ALERT)   { hook_status = WARN; }
 
-        if(speedbrake_status == CAUTION)    { speedbrake_status = INFO; }
-        elsif(speedbrake_status == WARN)    { speedbrake_status = INFO; }
+        if(speedbrake_status == CAUTION)    { speedbrake_status = NOTICE; }
+        elsif(speedbrake_status == WARN)    { speedbrake_status = NOTICE; }
         elsif(speedbrake_status == ALERT)   { speedbrake_status = WARN; }
 
-        if(parkbrake_status == CAUTION)    { parkbrake_status = INFO; }
-        elsif(parkbrake_status == WARN)    { parkbrake_status = INFO; }
+        if(parkbrake_status == CAUTION)    { parkbrake_status = NOTICE; }
+        elsif(parkbrake_status == WARN)    { parkbrake_status = NOTICE; }
         elsif(parkbrake_status == ALERT)   { parkbrake_status = WARN; }
 
-        if(canopy_status == CAUTION)    { canopy_status = INFO; }
-        elsif(canopy_status == WARN)    { canopy_status = INFO; }
+        if(canopy_status == CAUTION)    { canopy_status = NOTICE; }
+        elsif(canopy_status == WARN)    { canopy_status = NOTICE; }
         elsif(canopy_status == ALERT)   { canopy_status = WARN; }
 
-        if(epu_status == CAUTION)    { epu_status = INFO; }
-        elsif(epu_status == WARN)    { epu_status = INFO; }
+        if(epu_status == CAUTION)    { epu_status = NOTICE; }
+        elsif(epu_status == WARN)    { epu_status = NOTICE; }
         elsif(epu_status == ALERT)   { epu_status = WARN; }
 
-        if(reheat0_status == CAUTION)    { reheat0_status = INFO; }
-        elsif(reheat0_status == WARN)    { reheat0_status = INFO; }
+        if(reheat0_status == CAUTION)    { reheat0_status = NOTICE; }
+        elsif(reheat0_status == WARN)    { reheat0_status = NOTICE; }
         elsif(reheat0_status == ALERT)   { reheat0_status = WARN; }
 
-        if(reheat1_status == CAUTION)    { reheat1_status = INFO; }
-        elsif(reheat1_status == WARN)    { reheat1_status = INFO; }
+        if(reheat1_status == CAUTION)    { reheat1_status = NOTICE; }
+        elsif(reheat1_status == WARN)    { reheat1_status = NOTICE; }
         elsif(reheat1_status == ALERT)   { reheat1_status = WARN; }
 
-        if(bingo_status == CAUTION)    { bingo_status = INFO; }
-        elsif(bingo_status == WARN)    { bingo_status = INFO; }
+        if(bingo_status == CAUTION)    { bingo_status = NOTICE; }
+        elsif(bingo_status == WARN)    { bingo_status = NOTICE; }
         elsif(bingo_status == ALERT)   { bingo_status = WARN; }
 
-        if(air_refuel_status == CAUTION)    { air_refuel_status = INFO; }
-        elsif(air_refuel_status == WARN)    { air_refuel_status = INFO; }
+        if(air_refuel_status == CAUTION)    { air_refuel_status = NOTICE; }
+        elsif(air_refuel_status == WARN)    { air_refuel_status = NOTICE; }
         elsif(air_refuel_status == ALERT)   { air_refuel_status = WARN; }
 
-        if(avionics_status == CAUTION)    { avionics_status = INFO; }
-        elsif(avionics_status == WARN)    { avionics_status = INFO; }
+        if(avionics_status == CAUTION)    { avionics_status = NOTICE; }
+        elsif(avionics_status == WARN)    { avionics_status = NOTICE; }
         elsif(avionics_status == ALERT)   { avionics_status = WARN; }
 
-        if(autotrim_status == CAUTION)    { autotrim_status = INFO; }
-        elsif(autotrim_status == WARN)    { autotrim_status = INFO; }
+        if(autotrim_status == CAUTION)    { autotrim_status = NOTICE; }
+        elsif(autotrim_status == WARN)    { autotrim_status = NOTICE; }
         elsif(autotrim_status == ALERT)   { autotrim_status = WARN; }
 
         setprop("/instrumentation/my_aircraft/command_h/sound_alert", 0);
@@ -183,7 +190,7 @@ var checking_aircraft_status = func()
     elsif(((is_engine0_stopped == 1) or (is_engine0_stopping == 1)) and (is_on_ground == 0))
         { engine0_status = ALERT }
     elsif((is_engine0_stopped == 1) or (is_engine0_stopping == 1))
-        { engine0_status = INFO; }
+        { engine0_status = NOTICE; }
     else
         { engine0_status = OK; }
     setprop("/instrumentation/my_aircraft/command_h/panel_status/engine0_status", engine0_status);
@@ -194,7 +201,7 @@ var checking_aircraft_status = func()
     elsif(((is_engine1_stopped == 1) or (is_engine1_stopping == 1)) and (is_on_ground == 0))
         { engine1_status = ALERT; }
     elsif((is_engine1_stopped == 1) or (is_engine1_stopping == 1))
-        { engine1_status = INFO; }
+        { engine1_status = NOTICE; }
     else
         { engine1_status = OK; }
     setprop("/instrumentation/my_aircraft/command_h/panel_status/engine1_status", engine1_status);
@@ -205,7 +212,7 @@ var checking_aircraft_status = func()
     elsif((is_bus_commands_on == 0) and (is_on_ground == 0))
         { hydraulics_status = ALERT; }
     elsif(is_bus_commands_on == 0)
-        { hydraulics_status = INFO; }
+        { hydraulics_status = NOTICE; }
     else
         { hydraulics_status = OK; }
     setprop("/instrumentation/my_aircraft/command_h/panel_status/hydraulics_status", hydraulics_status);
@@ -216,7 +223,7 @@ var checking_aircraft_status = func()
     elsif((is_fuel_connected == 1) and ((is_engine0_stopped == 0) or (is_engine1_stopped == 0)))
         { fuel_status = ALERT; }
     elsif(is_fuel_connected == 1)
-        { fuel_status = INFO; }
+        { fuel_status = NOTICE; }
     else
         { fuel_status = OK; }
     setprop("/instrumentation/my_aircraft/command_h/panel_status/fuel_status", fuel_status);
@@ -224,16 +231,18 @@ var checking_aircraft_status = func()
     # alert rules for GEAR
     if((gear_status == ALERT) or (gear_status == WARN))
         {}
+    elsif(gear_serviceable == 0)
+        { gear_status = WARN; }
     elsif((is_gear_down == 1) and (airspeed > 350))
         { gear_status = ALERT; }
     elsif((is_gear_down == 1) and (airspeed > 270))
         { gear_status = CAUTION; }
     elsif((is_gear_down == 1) and (airspeed < 270) and (gear_status == CAUTION))
-        { gear_status = INFO; }
-    elsif((is_gear_down == 0) and (airspeed < 200) and (radar_altitude < 1500) and (gear_status != INFO))
+        { gear_status = NOTICE; }
+    elsif((is_gear_down == 0) and (airspeed < 200) and (radar_altitude < 1500) and (gear_status != NOTICE))
         { gear_status = CAUTION; }
     elsif((is_gear_down == 0) and (airspeed < 200) and (radar_altitude < 1500))
-        { gear_status = INFO; }
+        { gear_status = NOTICE; }
     elsif(is_gear_down == 1)
         { gear_status = INFO; }
     else
@@ -243,17 +252,17 @@ var checking_aircraft_status = func()
     # alert rules for HOOK
     if((hook_status == ALERT) or (hook_status == WARN))
         {}
-    elsif((is_hook_down == 1) and (airspeed > 350) and (hook_status != INFO))
+    elsif((is_hook_down == 1) and (airspeed > 350) and (hook_status != NOTICE))
         { hook_status = CAUTION; }
     elsif(is_hook_down == 1)
-        { hook_status = INFO; }
+        { hook_status = NOTICE; }
     else
         { hook_status = OK; }
     setprop("/instrumentation/my_aircraft/command_h/panel_status/hook_status", hook_status);
 
     # alert rules for SPBK
     if(speedbrake_position > 0)
-        { speedbrake_status = INFO; }
+        { speedbrake_status = NOTICE; }
     else
         { speedbrake_status = OK; }
     setprop("/instrumentation/my_aircraft/command_h/panel_status/speedbrake_status", speedbrake_status);
@@ -272,7 +281,7 @@ var checking_aircraft_status = func()
     elsif((is_parkbrake == 1)
         and ((engine0_throttle < .3) or (engine1_throttle < .3))
         and ((is_engine0_stopped != 1) or (is_engine1_stopped != 1)))
-        { parkbrake_status = INFO; }
+        { parkbrake_status = NOTICE; }
     elsif(is_parkbrake == 1)
         { parkbrake_status = INFO; }
     else
@@ -284,12 +293,12 @@ var checking_aircraft_status = func()
         {}
     elsif((canopy_position > .7) and (wheelspeed > 5))
         { canopy_status = ALERT; }
-    elsif((canopy_position > .7) and (wheelspeed > 5) and (canopy_status != INFO))
+    elsif((canopy_position > .7) and (wheelspeed > 5) and (canopy_status != NOTICE))
         { canopy_status = CAUTION; }
-    elsif((canopy_position > .1) and (groundspeed > 25) and (canopy_status != INFO))
+    elsif((canopy_position > .1) and (groundspeed > 25) and (canopy_status != NOTICE))
         { canopy_status = CAUTION; }
     elsif(canopy_position > .1)
-        { canopy_status = INFO; }
+        { canopy_status = NOTICE; }
     else
         { canopy_status = OK; }
     setprop("/instrumentation/my_aircraft/command_h/panel_status/canopy_status", canopy_status);
@@ -300,7 +309,7 @@ var checking_aircraft_status = func()
     elsif((is_epu_connected == 1) and ((is_engine0_stopped == 0) or (is_engine1_stopped == 0)) and (is_parkbrake == 0))
         { epu_status = ALERT; }
     elsif(is_epu_connected == 1)
-        { epu_status = INFO; }
+        { epu_status = NOTICE; }
     else
         { epu_status = OK; }
     setprop("/instrumentation/my_aircraft/command_h/panel_status/epu_status", epu_status);
@@ -341,7 +350,7 @@ var checking_aircraft_status = func()
     elsif((is_bus_avionics_on == 0) and (is_on_ground == 0))
         { hydraulics_status = ALERT; }
     elsif(is_bus_avionics_on == 0)
-        { avionics_status = INFO; }
+        { avionics_status = NOTICE; }
     else
         { avionics_status = OK; }
     setprop("/instrumentation/my_aircraft/command_h/panel_status/avionics_status", avionics_status);
@@ -410,7 +419,24 @@ var checking_aircraft_status = func()
         (air_refuel_status == CAUTION) or
         (avionics_status == CAUTION)
     );
-    is_info = (
+    is_notice = (
+        (engine0_status == NOTICE) or
+        (engine1_status == NOTICE) or
+        (hydraulics_status == NOTICE) or
+        (fuel_status == NOTICE) or
+        (gear_status == NOTICE) or
+        (hook_status == NOTICE) or
+        (speedbrake_status == NOTICE) or
+        (parkbrake_status == NOTICE) or
+        (canopy_status == NOTICE) or
+        (epu_status == NOTICE) or
+        (reheat0_status == NOTICE) or
+        (reheat1_status == NOTICE) or
+        (bingo_status == NOTICE) or
+        (air_refuel_status == NOTICE) or
+        (avionics_status == NOTICE)
+    );
+    is_infoe = (
         (engine0_status == INFO) or
         (engine1_status == INFO) or
         (hydraulics_status == INFO) or

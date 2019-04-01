@@ -129,7 +129,8 @@ my_aircraft_functions.event_control_gear(-1, 0);
     <type>rotate</type>
     <object-name>command.gears</object-name>
     <object-name>command.gears-emit</object-name>
-    <property>controls/gear/gear-down</property>
+    <!--property>controls/gear/gear-down</property-->
+    <property>sim/model/lever_gear</property>
     <interpolation>
       <entry><ind>1</ind><dep>0</dep></entry>
       <entry><ind>0</ind><dep>-60</dep></entry>

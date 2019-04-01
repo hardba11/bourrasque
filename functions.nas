@@ -605,11 +605,17 @@ var event_control_canopy = func() {
 var event_control_gear = func(down, animate_view) {
 
     var is_on_ground = getprop("/gear/gear[1]/wow") or 0;
+    var is_serviceable = getprop("/sim/failure-manager/controls/gear/serviceable") or 0;
     if(down == -1)
     {
         # down == -1 : toggle gears :
         var is_down = getprop("/controls/gear/gear-down") or 0;
         down = (is_down == 0) ? 1 : 0;
+    }
+    if(is_serviceable == 0)
+    {
+        setprop("sim/model/lever_gear", (getprop("sim/model/lever_gear") == 0) ? 1 : 0);
+        return;
     }
 
     if((down == 1) and (is_on_ground == 0))
@@ -620,7 +626,7 @@ var event_control_gear = func(down, animate_view) {
             save_current_view();
             view_panel_command();
             settimer(func() { setprop("/controls/gear/gear-down", 1); setprop("sim/model/lever_gear", 1); }, .3);
-            settimer(func() { load_current_view(); }, .5);
+            settimer(func() { load_current_view(); }, .3);
         }
         else
         {
@@ -640,7 +646,7 @@ var event_control_gear = func(down, animate_view) {
             save_current_view();
             view_panel_command();
             settimer(func() { setprop("/controls/gear/gear-down", 0); setprop("sim/model/lever_gear", 0); }, 0.3);
-            settimer(func() { load_current_view(); }, 0.5);
+            settimer(func() { load_current_view(); }, .3);
         }
         else
         {

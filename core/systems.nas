@@ -60,7 +60,13 @@ var systems_loop = func()
         var is_starting = getprop("/instrumentation/my_aircraft/engines/controls/engine["~ engine_id ~"]/is_starting") or 0;
         var is_stopping = getprop("/instrumentation/my_aircraft/engines/controls/engine["~ engine_id ~"]/is_stopping") or 0;
 
+        var is_serviceable = getprop("/sim/failure-manager/engines/engine["~ engine_id ~"]/serviceable") or 0;
+
         ### STAT CHANGES
+        if((is_stopped == 0) and (is_serviceable == 0))
+        {
+            is_stopping = 1;
+        }
 
         if((is_stopped == 1) and (is_stopping == 0) and (is_starting == 0))
         {
@@ -85,7 +91,7 @@ var systems_loop = func()
                 is_stopping = 0;
             }
         }
-        elsif((is_stopped == 1) and (is_stopping == 0) and (is_starting == 1))
+        elsif((is_stopped == 1) and (is_stopping == 0) and (is_starting == 1) and (is_serviceable == 1))
         {
             # transition vers etat demarre
             elapsed_loops[engine_id] += 1;

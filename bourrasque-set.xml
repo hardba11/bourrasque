@@ -220,6 +220,17 @@ http://wiki.flightgear.org/Property_tree
       </tcas>
     </instrumentation>
 
+    <failure-manager>
+      <engines>
+        <engine n="0">
+          <serviceable type="bool">1</serviceable>
+        </engine>
+        <engine n="1">
+          <serviceable type="bool">1</serviceable>
+        </engine>
+      </engines>
+    </failure-manager>
+
     <!-- ~~~~~~~~~~~~~~~~~~ saving all properties between sessions -->
     <aircraft-data>
       <path>/systems/refuel/serviceable</path>
@@ -432,9 +443,9 @@ http://wiki.flightgear.org/Property_tree
     <formation>
       <file>Aircraft/Generic/formation.nas</file>
     </formation>
-    <FailureMgr>
+    <!--FailureMgr>
       <enabled type="bool">0</enabled>
-    </FailureMgr>
+    </FailureMgr-->
     <towing>
       <enabled type="bool">0</enabled>
     </towing>

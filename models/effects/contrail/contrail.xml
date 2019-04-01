@@ -21,6 +21,8 @@
           <property>environment/temperature-degc</property>
           <value>-35</value>
         </less-than>
+        <not><property>/engines/engine[0]/stopped</property></not>
+        <not><property>/engines/engine[1]/stopped</property></not>
       </and>
     </condition>
 
@@ -88,14 +90,14 @@
         <value>30</value>
       </life-sec>
 
-      <mass-kg>0.3</mass-kg>
+      <mass-kg>0.1</mass-kg>
       <radius-m>0.8</radius-m>
 
     </particle>
 
     <program>
       <fluid>air</fluid>
-      <gravity type="bool">false</gravity>
+      <gravity type="bool">true</gravity>
       <wind typ="bool">true</wind>
     </program>
 
