@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PropertyList>
+
+  <!-- quand on a declenche un clic, ce filtre fait varier click-sound (float) 
+  entre 0 et 1, cela permet d'avoir un etat transitoir pour declencher le son
+  -->
+  <filter>
+    <name>click</name>
+    <type>noise-spike</type>
+    <max-rate-of-change>7</max-rate-of-change>
+    <input>sim/model/click</input>
+    <output>sim/model/click-sound</output>
+  </filter>
+
+</PropertyList>

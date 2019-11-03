@@ -35,6 +35,7 @@ var loops_until_start = 200; # = 20s /!\ depends settimer
 # this function check engines stats and manage engines
 var systems_loop = func()
 {
+    var is_crashed          = getprop("/sim/crashed") or 0;
     var master_switch       = getprop("/instrumentation/my_aircraft/electricals/controls/master-switch") or 0;
     var avionics_enabled    = getprop("/instrumentation/my_aircraft/electricals/controls/bus-avionics") or 0;
     var engines_enabled     = getprop("/instrumentation/my_aircraft/electricals/controls/bus-engines") or 0;
@@ -68,7 +69,16 @@ var systems_loop = func()
             is_stopping = 1;
         }
 
-        if((is_stopped == 1) and (is_stopping == 0) and (is_starting == 0))
+        if(is_crashed)
+        {
+            # etat stoppe
+            n1 = 0;
+            elapsed_loops[engine_id] = 0;
+            is_stopped == 1;
+            is_stopping == 0;
+            is_starting == 0;
+        }
+        elsif((is_stopped == 1) and (is_stopping == 0) and (is_starting == 0))
         {
             # etat stoppe
             n1 = 0;
@@ -113,7 +123,7 @@ var systems_loop = func()
                 or (level_tot <= 1))
             and(is_stopped == 0))
         {
-            # lancer l'arret si plus d'alimentation
+            # lancer l'arret si plus d'alimentation en fuel
             is_stopping = 1;
         }
 
@@ -145,7 +155,13 @@ var systems_loop = func()
 
     # ~~~~~~~~~~~~~~~~~~ ELECTRICAL MANAGEMENT
 
-    if((master_switch == 0)
+    if(is_crashed)
+    {
+        is_bus_avionics_on = 0;
+        is_bus_engines_on  = 0;
+        is_bus_commands_on = 0;
+    }
+    elsif((master_switch == 0)
         or ((master_switch == 2) and (nb_engine_stopped == 2))
         or ((master_switch == 3) and (is_epu == 0)))
     {

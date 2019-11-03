@@ -150,6 +150,7 @@
     <object-name>molletG</object-name>
     <object-name>piedG</object-name>
   </animation>
+
   <!--
 ================================================================================
                                                                        ANIMATION
@@ -164,14 +165,16 @@ ________________________________________________________________________________
     <object-name>bloc_tete</object-name>
     <type>select</type>
     <condition>
-      <not-equals>
-        <property>/sim/current-view/view-number</property>
-        <value>0</value>
-      </not-equals>
-      <not-equals>
-        <property>/sim/current-view/view-number</property>
-        <value>8</value>
-      </not-equals>
+      <or>
+        <not-equals>
+          <property>/sim/current-view/view-number</property>
+          <value>8</value>
+        </not-equals>
+        <not-equals>
+          <property>sim/model/name</property>
+          <value>bourrasque</value>
+        </not-equals>
+      </or>
     </condition>
   </animation>
 

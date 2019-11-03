@@ -235,10 +235,11 @@ var bourrasque_mp_loop_encode = func() {
 var calculate_shake = func() {
 
     var shake_enabled = getprop("/controls/cockpit/shake-effect") or 0;
+    var is_crashed    = getprop("/sim/crashed") or 0;
     # frequence (entre 1=mer calme et 75=secousses)
     # amplitude (entre 200=bcp et 800=peu)
 
-    if(shake_enabled == 1)
+    if((shake_enabled == 1) and ! is_crashed)
     {
         var my_time = getprop("/sim/time/elapsed-sec");
 
@@ -289,8 +290,10 @@ var calculate_shake_external_view = func() {
 
     # x: left/right - y:down/up - z:fwd/back
 
-    var shake_enabled   = getprop("/controls/cockpit/shake-effect") or 0;
-    if(shake_enabled == 1)
+    var shake_enabled = getprop("/controls/cockpit/shake-effect") or 0;
+    var is_crashed    = getprop("/sim/crashed") or 0;
+
+    if((shake_enabled == 1) and ! is_crashed)
     {
         var view_number     = getprop("/sim/current-view/view-number") or 0;
         var wow             = getprop("/gear/gear[1]/wow") or 0;

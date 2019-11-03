@@ -50,6 +50,7 @@ PROPERTY-PATH : /ai/
           </generic>
         </multiplay>
         <model>
+          <name type="string">wingman</name>
           <livery>
             <file alias="/sim/model/livery/file" />
             <texture alias="/sim/model/livery/texture" />
@@ -99,6 +100,7 @@ PROPERTY-PATH : /ai/
           </generic>
         </multiplay>
         <model>
+          <name type="string">wingman</name>
           <livery>
             <file alias="/sim/model/livery/file" />
             <texture alias="/sim/model/livery/texture" />

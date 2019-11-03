@@ -762,6 +762,26 @@ I also suggest you to use rate based control over degree based control. its more
   -->
 
   <filter>
+    <name>pitch distance from zero</name>
+    <type>gain</type>
+    <gain>1.0</gain>
+    <input>
+      <expression>
+        <table>
+          <property>/controls/flight/elevator</property>
+          <entry><ind>-1.0</ind><dep>-.06</dep></entry>
+          <entry><ind>-.2</ind><dep>-.01</dep></entry>
+          <entry><ind>-.01</ind><dep>-.0001</dep></entry>
+          <entry><ind>.01</ind><dep>.0001</dep></entry>
+          <entry><ind>.2</ind><dep>.01</dep></entry>
+          <entry><ind>1.0</ind><dep>.06</dep></entry>
+        </table>
+      </expression>
+    </input>
+    <output>/controls/flight/autotrim-rate-of-change</output>
+  </filter>
+
+  <filter>
     <name>autotrim pitch</name>
     <debug>false</debug>
     <initialize-to>output</initialize-to>
@@ -790,7 +810,7 @@ I also suggest you to use rate based control over degree based control. its more
     </input>
     <output>/controls/flight/elevator-trim</output>
     <type>noise-spike</type>
-    <max-rate-of-change>0.01</max-rate-of-change>
+    <max-rate-of-change>/controls/flight/autotrim-rate-of-change</max-rate-of-change>
   </filter>
 
   <!--

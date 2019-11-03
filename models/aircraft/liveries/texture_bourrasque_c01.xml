@@ -7,7 +7,7 @@
       <livery>
 
         <name type="string">rafale C01</name>
-        <texture>liveries/texture_bourrasque_C01.png</texture>
+        <texture>liveries/texture_bourrasque_c01.png</texture>
         <texture-tank>texture_tanks_black.png</texture-tank>
 
       </livery>

@@ -106,7 +106,8 @@ var do_command_canopy = func(value) {
 var do_command_brake_parking = func(value) {
     printf('  set parking brake');
     setprop("/controls/gear/brake-parking", value);
-    setprop("/sim/model/lever_parkbrake", (getprop("/sim/model/click") ? 0 : 1));
+    setprop("/sim/model/lever_parkbrake", .5);
+    setprop("/sim/model/lever_parkbrake", value);
 }
 var do_ground_equipment = func(value) {
     printf('  ground equipment');

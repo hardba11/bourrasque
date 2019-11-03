@@ -110,7 +110,7 @@ changelog
         <command>property-adjust</command>
         <property>/instrumentation/my_aircraft/tablet/controls/zoom</property>
         <step>-1</step>
-        <min>7</min>
+        <min>5</min>
         <max>13</max>
         <wrap>0</wrap>
       </binding>
@@ -121,7 +121,7 @@ changelog
         <command>property-adjust</command>
         <property>/instrumentation/my_aircraft/tablet/controls/zoom</property>
         <step>1</step>
-        <min>7</min>
+        <min>5</min>
         <max>13</max>
         <wrap>0</wrap>
       </binding>

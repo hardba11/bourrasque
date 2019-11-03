@@ -114,6 +114,12 @@ my_aircraft_functions.event_control_gear(-1, 0);
           ]]>
         </script>
       </binding>
+      <binding>
+        <command>property-interpolate</command>
+        <property>sim/model/lever_gear</property>
+        <property>/controls/gear/gear-down</property>
+        <time>.5</time>
+      </binding>
     </action>
     <hovered>
       <binding>
@@ -129,7 +135,6 @@ my_aircraft_functions.event_control_gear(-1, 0);
     <type>rotate</type>
     <object-name>command.gears</object-name>
     <object-name>command.gears-emit</object-name>
-    <!--property>controls/gear/gear-down</property-->
     <property>sim/model/lever_gear</property>
     <interpolation>
       <entry><ind>1</ind><dep>0</dep></entry>
@@ -206,8 +211,10 @@ my_aircraft_functions.event_control_gear(-1, 0);
         <property>/controls/gear/brake-parking</property>
       </binding>
       <binding>
-        <command>property-toggle</command>
+        <command>property-interpolate</command>
         <property>sim/model/lever_parkbrake</property>
+        <property>/controls/gear/brake-parking</property>
+        <time>.5</time>
       </binding>
     </action>
     <hovered>
@@ -224,7 +231,7 @@ my_aircraft_functions.event_control_gear(-1, 0);
     <type>rotate</type>
     <object-name>command.parkbrake</object-name>
     <object-name>command.parkbrake-emit</object-name>
-    <property>/controls/gear/brake-parking</property>
+    <property>sim/model/lever_parkbrake</property>
     <interpolation>
       <entry><ind>1</ind><dep>0</dep></entry>
       <entry><ind>0</ind><dep>80</dep></entry>

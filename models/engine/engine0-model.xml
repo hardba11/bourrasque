@@ -82,6 +82,7 @@ ________________________________________________________________________________
         <property>/engines/engine[0]/stopped</property>
         <value>0</value>
       </equals>
+      <not><property>/sim/crashed</property></not>
     </condition>
     <emission>
       <factor-prop>/controls/engines/engine[0]/throttle</factor-prop>
@@ -99,6 +100,7 @@ ________________________________________________________________________________
         <property>/engines/engine[0]/stopped</property>
         <value>0</value>
       </equals>
+      <not><property>/sim/crashed</property></not>
     </condition>
     <emission>
       <factor-prop>/controls/engines/engine[0]/throttle</factor-prop>
@@ -127,6 +129,7 @@ ________________________________________________________________________________
           <property>engines/engine[0]/stopped</property>
           <value>0</value>
         </equals>
+        <not><property>/sim/crashed</property></not>
       </and>
     </condition>
   </animation>

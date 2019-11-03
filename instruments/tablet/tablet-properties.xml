@@ -14,7 +14,7 @@ PROPERTY-PATH : /instrumentation/my_aircraft/tablet/
   <controls>
     <serviceable type="bool">0</serviceable>
     <page type="int">0</page>
-    <zoom type="int">8</zoom> <!-- 7 - 13 -->
+    <zoom type="int">6</zoom> <!-- 5 - 13 -->
     <brightness type="float">0.2</brightness>
   </controls>
 

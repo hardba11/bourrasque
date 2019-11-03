@@ -35,15 +35,18 @@ changelog
     <type>select</type>
     <object-name>command_h.screen.off</object-name>
     <condition>
-      <not>
-        <or>
-          <property>systems/electrical/bus/avionics</property>
-          <not-equals>
-            <property>/instrumentation/my_aircraft/electricals/controls/master-switch</property>
-            <value>0</value>
-          </not-equals>
-        </or>
-      </not>
+      <or>
+        <not>
+          <or>
+            <property>systems/electrical/bus/avionics</property>
+            <not-equals>
+              <property>/instrumentation/my_aircraft/electricals/controls/master-switch</property>
+              <value>0</value>
+            </not-equals>
+          </or>
+        </not>
+        <property>/sim/crashed</property>
+      </or>
     </condition>
   </animation>
 

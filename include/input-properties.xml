@@ -11,6 +11,7 @@ PROPERTY-PATH : /input/
 see :
 - /devices/status/keyboard/event/
 - /input/keyboard/key[*]/
+
 -->
 
 <PropertyList>
@@ -173,7 +174,7 @@ instrument_pfd.event_click_lock_speed(-1);
     <key n="66">
       <name>B</name>
       <desc>toggle parking brake on or off</desc>
-      <binding>
+      <!--binding>
         <command>nasal</command>
         <script>
           <![CDATA[
@@ -187,6 +188,16 @@ settimer(func() { my_aircraft_functions.load_current_view(); }, 1);
       <binding>
         <command>property-toggle</command>
         <property>sim/model/lever_parkbrake</property>
+      </binding-->
+      <binding>
+        <command>property-toggle</command>
+        <property>/controls/gear/brake-parking</property>
+      </binding>
+      <binding>
+        <command>property-interpolate</command>
+        <property>sim/model/lever_parkbrake</property>
+        <property>/controls/gear/brake-parking</property>
+        <time>.5</time>
       </binding>
     </key>
 
@@ -292,9 +303,15 @@ my_aircraft_functions.event_toggle_launchbar(-1);
         <command>nasal</command>
         <script>
           <![CDATA[
-my_aircraft_functions.event_control_gear(1, 1);
+my_aircraft_functions.event_control_gear(1, 0);
           ]]>
         </script>
+      </binding>
+      <binding>
+        <command>property-interpolate</command>
+        <property>sim/model/lever_gear</property>
+        <property>/controls/gear/gear-down</property>
+        <time>.5</time>
       </binding>
     </key>
     <key n="103">
@@ -304,9 +321,15 @@ my_aircraft_functions.event_control_gear(1, 1);
         <command>nasal</command>
         <script>
           <![CDATA[
-my_aircraft_functions.event_control_gear(0, 1);
+my_aircraft_functions.event_control_gear(0, 0);
           ]]>
         </script>
+      </binding>
+      <binding>
+        <command>property-interpolate</command>
+        <property>sim/model/lever_gear</property>
+        <property>/controls/gear/gear-down</property>
+        <time>.5</time>
       </binding>
     </key>
 
@@ -657,6 +680,58 @@ my_aircraft_functions.inc_throttle(-0.01, -1);
 ________________________________________________________________________________
                                                                            VIEWS
   -->
+    <key n="22">
+      <name>ctrl-v</name>
+      <desc>Select initial view</desc>
+      <binding n="0">
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_set_view(0);
+          ]]>
+        </script>
+        <property />
+      </binding>
+    </key>
+    <key n="86">
+      <name>V</name>
+      <desc>Scroll in reverse thought views</desc>
+      <binding n="0">
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_set_view(-1);
+          ]]>
+        </script>
+        <property />
+      </binding>
+    </key>
+    <key n="118">
+      <name>v</name>
+      <desc>Scroll thought views</desc>
+      <binding n="0">
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.event_set_view(1);
+          ]]>
+        </script>
+        <property />
+      </binding>
+      <mod-shift>
+        <desc>Scroll in reverse thought views</desc>
+        <binding n="0">
+          <command>nasal</command>
+          <script>
+            <![CDATA[
+my_aircraft_functions.event_set_view(-1);
+            ]]>
+          </script>
+          <property />
+        </binding>
+      </mod-shift>
+    </key>
+
     <key n="362">
       <name>Home</name>
       <desc>toggle view left</desc>
@@ -671,7 +746,6 @@ my_aircraft_functions.view_cockpit_panels(-1);
         <property />
       </binding>
     </key>
-
     <key n="360">
       <name>PageUp</name>
       <desc>toggle view right</desc>
@@ -776,7 +850,7 @@ ________________________________________________________________________________
           </condition>
           <command>property-adjust</command>
           <property>/controls/flight/rudder</property>
-          <factor type="double">2.0</factor>
+          <factor type="double">.7</factor>
           <min type="double">-1.0</min>
           <max type="double">1.0</max>
           <wrap type="bool">false</wrap>

@@ -21,6 +21,7 @@
           <property>/environment/temperature-degc</property>
           <value>18</value>
         </greater-than>
+        <not><property>/sim/crashed</property></not>
       </and>
     </condition>
 

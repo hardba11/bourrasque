@@ -3,7 +3,6 @@
 <PropertyList>
 
   <particlesystem>
-
     <name>contrail</name>
     <texture>contrail.png</texture>
 
@@ -14,15 +13,21 @@
     <condition>
       <and>
         <greater-than>
-          <property>/position/altitude-ft</property>
+          <property>position/altitude-ft</property>
           <value>19000</value>
         </greater-than>
         <less-than>
           <property>environment/temperature-degc</property>
           <value>-35</value>
         </less-than>
-        <not><property>/engines/engine[0]/stopped</property></not>
-        <not><property>/engines/engine[1]/stopped</property></not>
+        <equals>
+          <property>engines/engine[0]/stopped</property>
+          <value>0</value>
+        </equals>
+        <equals>
+          <property>engines/engine[1]/stopped</property>
+          <value>0</value>
+        </equals>
       </and>
     </condition>
 
@@ -38,16 +43,16 @@
       <phi-min-deg>-1.5</phi-min-deg>
       <phi-max-deg>1.5</phi-max-deg>
       <speed-mps>
-        <value>0</value>
-        <spread>0</spread>
+        <value>50</value>
+        <spread>5</spread>
       </speed-mps>
       <rotation-speed>
-        <x-min-deg-sec>0</x-min-deg-sec>
-        <y-min-deg-sec>0</y-min-deg-sec>
-        <z-min-deg-sec>0</z-min-deg-sec>
-        <x-max-deg-sec>0</x-max-deg-sec>
-        <y-max-deg-sec>0</y-max-deg-sec>
-        <z-max-deg-sec>0</z-max-deg-sec>
+        <x-max-deg-sec> 15</x-max-deg-sec>
+        <x-min-deg-sec>-15</x-min-deg-sec>
+        <y-max-deg-sec> 15</y-max-deg-sec>
+        <y-min-deg-sec>-15</y-min-deg-sec>
+        <z-max-deg-sec> 15</z-max-deg-sec>
+        <z-min-deg-sec>-15</z-min-deg-sec>
       </rotation-speed>
     </shooter>
 
@@ -61,19 +66,17 @@
     <align>billboard</align>
 
     <particle>
-
       <start>
         <color>
           <red><value>1</value></red>
           <green><value>1</value></green>
           <blue><value>1</value></blue>
-          <alpha><value>0.4</value></alpha>
+          <alpha><value>0.3</value></alpha>
         </color>
         <size>
           <value>2</value>
         </size>
       </start>
-
       <end>
         <color>
           <red><value>1</value></red>
@@ -85,20 +88,17 @@
           <value>120</value>
         </size>
       </end>
-
       <life-sec>
-        <value>30</value>
+        <value>20</value>
       </life-sec>
-
-      <mass-kg>0.1</mass-kg>
-      <radius-m>0.8</radius-m>
-
+      <mass-kg>0.025</mass-kg>
+      <radius-m>0.175</radius-m>
     </particle>
 
     <program>
       <fluid>air</fluid>
       <gravity type="bool">true</gravity>
-      <wind typ="bool">true</wind>
+      <wind type="bool">true</wind>
     </program>
 
   </particlesystem>

@@ -19,21 +19,20 @@ var SETTINGS_MODS = [
 
 var SETTINGS_PANEL_VIEW_LEFT = [
     ['fov', 'heading', 'pitch', 'z', 'x', 'y'],
-    [40, 11.6, -25, -3.21, 0, 1.10],        # left MFD
     [30.52, 0, -35, -3.21, 0, 0.99],        # center stdby instruments
+    [40, 11.6, -25, -3.21, 0, 1.10],        # left MFD
     [33.86, 45, -55, -3.45, -0.21, 0.99],   # command
-    [33.86, 90, -70, -3.21, -0.23, 0.87],   # lights
-    [33.86, 45, -55, -3.45, -0.21, 0.99],   # command
+    [41, 90, -70, -3.21, -0.23, 0.87],      # lights
     [30.52, 0, -35, -3.21, 0, 0.99],        # center stdby instruments
 ];
 
 var SETTINGS_PANEL_VIEW_RIGHT = [
     ['fov', 'heading', 'pitch', 'z', 'x', 'y'],
-    [40, -11.6, -25, -3.21, 0, 1.10],       # right MFD
-    [30.52, 0, -35, -3.21, 0, 0.99],        # center stdby instruments
-    [48.72, -60, -55, -3.63, 0.21, 0.85],   # radio
-    [33.86, -87, -70, -3.21, 0.23, 0.87],   # systems
-    [48.72, -60, -55, -3.63, 0.21, 0.85],   # radio
+    [43.3, -11.6, -25, -3.21, 0, 1.10],     # right MFD
+    [64.3, -60, -55, -3.63, 0.21, 0.85],    # radio
+    [36, -7, -45, -3.21, 0, 1.1],           # tablet
+    [41.3, -70, -65, -3.21, 0.23, 0.87],    # systems
+#    [48.72, -60, -55, -3.63, 0.21, 0.85],   # radio
     [30.52, 0, -35, -3.21, 0, 0.99],        # center stdby instruments
 ];
 
@@ -148,7 +147,6 @@ var load_current_view = func() {
         setprop("/sim/current-view/z-offset-m", current_z);
         setprop("/sim/current-view/x-offset-m", 0);
         setprop("/sim/current-view/y-offset-m", current_y);
-
     }
 }
 
@@ -565,7 +563,6 @@ var event_launch = func() {
 }
 
 var event_control_canopy = func() {
-
     var is_on_ground = getprop("/gear/gear[1]/wow") or 0;
     var command_position = getprop("/controls/doors/canopy") or 0;
 
@@ -601,9 +598,7 @@ var event_control_canopy = func() {
     }
 }
 
-
 var event_control_gear = func(down, animate_view) {
-
     var is_on_ground = getprop("/gear/gear[1]/wow") or 0;
     var is_serviceable = getprop("/sim/failure-manager/controls/gear/serviceable") or 0;
     if(down == -1)
@@ -614,7 +609,7 @@ var event_control_gear = func(down, animate_view) {
     }
     if(is_serviceable == 0)
     {
-        setprop("sim/model/lever_gear", (getprop("sim/model/lever_gear") == 0) ? 1 : 0);
+    #    setprop("sim/model/lever_gear", (getprop("sim/model/lever_gear") == 0) ? 1 : 0);
         return;
     }
 
@@ -625,13 +620,14 @@ var event_control_gear = func(down, animate_view) {
         {
             save_current_view();
             view_panel_command();
-            settimer(func() { setprop("/controls/gear/gear-down", 1); setprop("sim/model/lever_gear", 1); }, .3);
+        #    settimer(func() { setprop("/controls/gear/gear-down", 1); setprop("sim/model/lever_gear", 1); }, .3);
+            settimer(func() { setprop("/controls/gear/gear-down", 1); }, .3);
             settimer(func() { load_current_view(); }, .3);
         }
         else
         {
             setprop("/controls/gear/gear-down", 1);
-            setprop("sim/model/lever_gear", 1);
+            #setprop("sim/model/lever_gear", 1);
         }
         # retract refuel pod pipe
         setprop("/controls/refuel-pod/pipe-extended", 0);
@@ -645,7 +641,8 @@ var event_control_gear = func(down, animate_view) {
             setprop("/controls/gear/catapult-launch-cmd", 0);
             save_current_view();
             view_panel_command();
-            settimer(func() { setprop("/controls/gear/gear-down", 0); setprop("sim/model/lever_gear", 0); }, 0.3);
+        #    settimer(func() { setprop("/controls/gear/gear-down", 0); setprop("sim/model/lever_gear", 0); }, 0.3);
+            settimer(func() { setprop("/controls/gear/gear-down", 0); }, 0.3);
             settimer(func() { load_current_view(); }, .3);
         }
         else
@@ -653,13 +650,12 @@ var event_control_gear = func(down, animate_view) {
             setprop("/controls/gear/launchbar", 0);
             setprop("/controls/gear/catapult-launch-cmd", 0);
             setprop("/controls/gear/gear-down", 0);
-            setprop("sim/model/lever_gear", 0);
+        #    setprop("sim/model/lever_gear", 0);
         }
     }
 }
 
 var event_control_pod_pipe = func(extend) {
-
     var is_gear_down = getprop("/controls/gear/gear-down") or 0;
     var center_pod = getprop("/sim/model/center-refuel-pod") or 0;
     
@@ -867,6 +863,17 @@ var event_toggle_std_atm = func(do_enable) {
         setprop("/instrumentation/my_aircraft/stdby-alt/controls/std-alt", 0);
         var setting_inhg_previous = getprop("/instrumentation/my_aircraft/stdby-alt/controls/setting-inhg-previous");
         setprop("/instrumentation/altimeter/setting-inhg", setting_inhg_previous);
+    }
+}
+
+var event_set_view = func(action) {
+    if(action == 0)
+    {
+        setprop("/sim/current-view/view-number", 0);
+    }
+    else
+    {
+        view.stepView(action);
     }
 }
 

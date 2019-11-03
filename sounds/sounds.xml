@@ -503,6 +503,7 @@ ________________________________________________________________________________
       <condition>
         <and>
           <property>/instrumentation/my_aircraft/command_h/sound_alert</property>
+          <property>/systems/electrical/bus/avionics</property>
           <property>/sim/current-view/internal</property>
         </and>
       </condition>
@@ -515,6 +516,7 @@ ________________________________________________________________________________
       <condition>
         <and>
           <property>/instrumentation/my_aircraft/command_h/sound_caution</property>
+          <property>/systems/electrical/bus/avionics</property>
           <property>/sim/current-view/internal</property>
         </and>
       </condition>
@@ -527,6 +529,7 @@ ________________________________________________________________________________
       <mode>looped</mode>
       <condition>
         <and>
+          <property>/systems/electrical/bus/avionics</property>
           <equals>
             <property>/sim/alarms/stall-warning</property>
             <value>1</value>
@@ -543,6 +546,7 @@ ________________________________________________________________________________
       <mode>looped</mode>
       <condition>
         <and>
+          <property>/systems/electrical/bus/avionics</property>
           <equals>
             <property>/sim/alarms/stall-warning</property>
             <value>2</value>
@@ -561,6 +565,7 @@ ________________________________________________________________________________
       <condition>
         <and>
           <property>/sim/current-view/internal</property>
+          <property>/systems/electrical/bus/avionics</property>
           <equals>
             <property>/controls/gear/gear-down</property>
             <value>false</value>
@@ -579,26 +584,13 @@ ________________________________________________________________________________
 
     <!-- ~~~~~~~~~~~~~~~~~~ cockpit toogle switches -->
     <click>
-      <name>clic1</name>
+      <name>clic</name>
       <path>clic.wav</path>
       <mode>once</mode>
       <condition>
         <and>
-          <property>/sim/model/click</property>
-          <property>/sim/current-view/internal</property>
-        </and>
-      </condition>
-      <volume>
-        <factor>1.0</factor>
-      </volume>
-    </click>
-    <click>
-      <name>clic2</name>
-      <path>clic.wav</path>
-      <mode>once</mode>
-      <condition>
-        <and>
-          <not><property>/sim/model/click</property></not>
+          <greater-than><property>/sim/model/click-sound</property><value type="float">.1</value></greater-than>
+          <less-than><property>/sim/model/click-sound</property><value type="float">.9</value></less-than>
           <property>/sim/current-view/internal</property>
         </and>
       </condition>
@@ -609,26 +601,13 @@ ________________________________________________________________________________
 
     <!-- ~~~~~~~~~~~~~~~~~~ cockpit gear lever -->
     <gear_lever>
-      <name>gear_lever1</name>
+      <name>gear_lever</name>
       <path>gear_lever.wav</path>
       <mode>once</mode>
       <condition>
         <and>
-          <not><property>/sim/model/lever_gear</property></not>
-          <property>/sim/current-view/internal</property>
-        </and>
-      </condition>
-      <volume>
-        <factor>0.5</factor>
-      </volume>
-    </gear_lever>
-    <gear_lever>
-      <name>gear_lever2</name>
-      <path>gear_lever.wav</path>
-      <mode>once</mode>
-      <condition>
-        <and>
-          <property>/sim/model/lever_gear</property>
+          <greater-than><property>/sim/model/lever_gear</property><value type="float">.1</value></greater-than>
+          <less-than><property>/sim/model/lever_gear</property><value type="float">.9</value></less-than>
           <property>/sim/current-view/internal</property>
         </and>
       </condition>
@@ -639,26 +618,13 @@ ________________________________________________________________________________
 
     <!-- ~~~~~~~~~~~~~~~~~~ cockpit parkbrake lever -->
     <brake_lever>
-      <name>brake_lever1</name>
+      <name>brake_lever</name>
       <path>lever.wav</path>
       <mode>once</mode>
       <condition>
         <and>
-          <not><property>/sim/model/lever_parkbrake</property></not>
-          <property>/sim/current-view/internal</property>
-        </and>
-      </condition>
-      <volume>
-        <factor>0.5</factor>
-      </volume>
-    </brake_lever>
-    <brake_lever>
-      <name>brake_lever2</name>
-      <path>lever.wav</path>
-      <mode>once</mode>
-      <condition>
-        <and>
-          <property>/sim/model/lever_parkbrake</property>
+          <greater-than><property>/sim/model/lever_parkbrake</property><value type="float">.1</value></greater-than>
+          <less-than><property>/sim/model/lever_parkbrake</property><value type="float">.9</value></less-than>
           <property>/sim/current-view/internal</property>
         </and>
       </condition>

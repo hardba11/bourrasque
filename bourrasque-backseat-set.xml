@@ -95,13 +95,14 @@ http://wiki.flightgear.org/Property_tree
       <constant type="int">1</constant>
 
       <livery>
-        <file type="string">liveries/texture_bourrasque_gris_digital</file>
+        <file type="string">liveries/texture_bourrasque_first_version</file>
       </livery>
 
       <!-- for sounds -->
-      <click type="bool">0</click>
-      <lever_gear type="bool">0</lever_gear>
-      <lever_parkbrake type="bool">0</lever_parkbrake>
+      <click type="bool">1</click>
+      <click-sound type="float">1</click-sound>
+      <lever_gear type="float">1</lever_gear>
+      <lever_parkbrake type="float">1</lever_parkbrake>
       <canopy_sound type="string"></canopy_sound>
 
       <!-- for MP -->
@@ -159,6 +160,13 @@ http://wiki.flightgear.org/Property_tree
     <virtual-cockpit archive="y">true</virtual-cockpit>
     <allow-toggle-cockpit archive="y">true</allow-toggle-cockpit>
 
+    <current-view>
+      <offset-saved type="bool">0</offset-saved>
+      <x-offset-sav type="float">0</x-offset-sav>
+      <y-offset-sav type="float">0</y-offset-sav>
+      <z-offset-sav type="float">0</z-offset-sav>
+    </current-view>
+
     <!-- ~~~~~~~~~~~~~~~~~~ views -->
     <view n="0"     include="include/sim-view0-backseat-properties.xml" />
     <view n="102"   include="include/sim-view102-properties.xml" />
@@ -185,7 +193,14 @@ http://wiki.flightgear.org/Property_tree
         <name>rain-drops-filters</name>
         <path>models/effects/rain/rain-drops-filters.xml</path>
       </property-rule>
+      <property-rule n="102">
+        <name>sounds-filters</name>
+        <path>sounds/sounds-filters.xml</path>
+      </property-rule>
     </systems>
+    <alarms>
+      <stall-warning type="int">0</stall-warning>
+    </alarms>
 
   </sim>
 
