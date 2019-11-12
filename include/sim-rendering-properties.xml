@@ -11,18 +11,12 @@ PROPERTY-PATH : /sim/rendering/
 
 <PropertyList>
 
-  <!--redout>
+  <redout>
     <parameters>
       <blackout-complete-g>10</blackout-complete-g>
       <blackout-onset-g>8</blackout-onset-g>
     </parameters>
-  </redout-->
-
-  <als-secondary-lights>
-    <landing-light1-offset-deg type="double">6</landing-light1-offset-deg>  <!-- left landing-light -->
-    <landing-light2-offset-deg type="double">-6</landing-light2-offset-deg> <!-- right landing-light -->
-    <landing-light3-offset-deg type="double">-3</landing-light3-offset-deg> <!-- vertical angle landing-lights -->
-  </als-secondary-lights>
+  </redout>
 
 </PropertyList>
 

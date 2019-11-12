@@ -20,6 +20,7 @@ PROPERTY-PATH : /sim/view[0]/
     <z-offset-m archive="y" type="double">-3.21</z-offset-m>
     <pitch-offset-deg>-5</pitch-offset-deg>
     <default-field-of-view-deg type="double">60.0</default-field-of-view-deg>
+    <dynamic-view type="bool">true</dynamic-view>
     <limits>
       <enabled type="bool">true</enabled>
       <left>

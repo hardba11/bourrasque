@@ -699,7 +699,7 @@ ________________________________________________________________________________
       <pitch>
         <property>/sim/model/canopy-pos-norm</property>
         <factor>.5</factor>
-        <max>0.1</max>
+        <max>.1</max>
       </pitch>
       <volume>
         <max>.07</max>
@@ -738,7 +738,6 @@ ________________________________________________________________________________
       <mode>once</mode>
       <condition>
         <and>
-          <property>/sim/current-view/internal</property>
           <equals>
             <property>/sim/model/canopy_sound</property>
             <value>lock</value>
@@ -761,7 +760,6 @@ ________________________________________________________________________________
       <mode>once</mode>
       <condition>
         <and>
-          <property>/sim/current-view/internal</property>
           <equals>
             <property>/sim/model/canopy_sound</property>
             <value>unlock</value>

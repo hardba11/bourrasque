@@ -30,7 +30,6 @@ var loop_1000ms = func() {
 
 var loop_500ms = func() {
     instrument_nd.nd();
-    instrument_light.light();
     instrument_command_h.blink();
 }
 
@@ -45,6 +44,8 @@ var loop_200ms = func() {
 }
 
 var loop_100ms = func() {
+
+    instrument_light.light();
 
     # systems
     core.systems_loop();

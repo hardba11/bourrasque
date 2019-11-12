@@ -686,30 +686,33 @@ var event_control_pod_pipe = func(extend) {
 }
 
 var event_choose_enabled_cams = func() {
+    # view managed by this function must have :
+    # <enabled type="bool">false</enabled>
+
     # refueling cam if pod
     var center_pod = getprop("/sim/model/center-refuel-pod") or 0;
     if(center_pod == 1)
     {
         setprop("/sim/view[104]/enabled", 1);
-        setprop("/sim/view[102]/enabled", 0);
     }
     else
     {
         setprop("/sim/view[104]/enabled", 0);
-        setprop("/sim/view[102]/enabled", 1);
     }
 
-    # tail cam si backseat vide
+    # tail cam if empty backseat
     var is_copilot = getprop("/controls/pax/copilot") or 0;
     if(is_copilot == 1)
     {
-        setprop("/sim/view[105]/enabled", 0);
+        setprop("/sim/view[101]/enabled", 1);
         setprop("/sim/view[103]/enabled", 1);
+        setprop("/sim/view[105]/enabled", 0);
     }
     else
     {
-        setprop("/sim/view[105]/enabled", 1);
+        setprop("/sim/view[101]/enabled", 0);
         setprop("/sim/view[103]/enabled", 0);
+        setprop("/sim/view[105]/enabled", 1);
     }
 }
 

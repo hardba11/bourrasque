@@ -30,6 +30,7 @@
           <property>/accelerations/pilot-g</property>
           <value>3</value>
         </greater-than>
+        <not><property>/sim/crashed</property></not>
       </and>
     </condition>
 

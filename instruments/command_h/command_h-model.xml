@@ -125,7 +125,7 @@ changelog
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>tooltip-command-h-hud-brightness</tooltip-id>
-        <label>Hud brighness %s%%</label>
+        <label>Hud brighness %s%% (H)</label>
         <mapping>percent</mapping>
         <property>/sim/hud/color/brightness</property>
       </binding>

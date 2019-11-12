@@ -15,7 +15,7 @@ WARNING :
 <PropertyList>
 
   <name type="string">Copilot View</name>
-  <enabled type="bool">true</enabled>
+  <enabled type="bool">false</enabled>
   <type>lookfrom</type>
   <internal type="bool">true</internal>
   <config>

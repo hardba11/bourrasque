@@ -102,6 +102,15 @@ aircraft.livery.dialog.toggle();
         </binding>
       </item>
 
+      <item n="8">
+        <label>Set views ...</label>
+        <name>set-views</name>
+        <binding>
+          <command>dialog-show</command>
+          <dialog-name>bourrasque-set-views</dialog-name>
+        </binding>
+      </item>
+
     </menu>
 
   </default>

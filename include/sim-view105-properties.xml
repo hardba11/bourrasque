@@ -17,7 +17,7 @@ WARNING :
   <name type="string">tail cam view</name>
   <enabled type="bool">false</enabled>
   <type>lookfrom</type>
-  <internal type="bool">true</internal>
+  <internal type="bool">false</internal>
   <config>
     <from-model type="bool">true</from-model>
     <from-model-idx type="int">0</from-model-idx>
