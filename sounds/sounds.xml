@@ -47,6 +47,7 @@ ________________________________________________________________________________
             <property>/instrumentation/my_aircraft/engines/controls/engine[0]/is_stopping</property>
             <value>0</value>
           </equals>
+          <not><property>/sim/crashed</property></not>
         </and>
       </condition>
       <volume>
@@ -71,6 +72,7 @@ ________________________________________________________________________________
             <property>/instrumentation/my_aircraft/engines/controls/engine[0]/is_stopping</property>
             <value>0</value>
           </equals>
+          <not><property>/sim/crashed</property></not>
         </and>
       </condition>
       <volume>
@@ -97,6 +99,7 @@ ________________________________________________________________________________
       <mode>looped</mode>
       <condition>
         <not><property>/engines/engine[0]/stopped</property></not>
+        <not><property>/sim/crashed</property></not>
       </condition>
       <orientation>
         <x>1.0</x>
@@ -143,6 +146,7 @@ ________________________________________________________________________________
             <property>/instrumentation/my_aircraft/engines/controls/engine[0]/is_stopping</property>
             <value>1</value>
           </equals>
+          <not><property>/sim/crashed</property></not>
         </and>
       </condition>
       <volume>
@@ -175,6 +179,7 @@ ________________________________________________________________________________
             <property>/instrumentation/my_aircraft/engines/controls/engine[1]/is_stopping</property>
             <value>0</value>
           </equals>
+          <not><property>/sim/crashed</property></not>
         </and>
       </condition>
       <volume>
@@ -198,6 +203,7 @@ ________________________________________________________________________________
             <property>/instrumentation/my_aircraft/engines/controls/engine[1]/is_stopping</property>
             <value>0</value>
           </equals>
+          <not><property>/sim/crashed</property></not>
         </and>
       </condition>
       <volume>
@@ -224,6 +230,7 @@ ________________________________________________________________________________
       <mode>looped</mode>
       <condition>
         <not><property>/engines/engine[1]/stopped</property></not>
+        <not><property>/sim/crashed</property></not>
       </condition>
       <orientation>
         <x>1.0</x>
@@ -270,6 +277,7 @@ ________________________________________________________________________________
             <property>/instrumentation/my_aircraft/engines/controls/engine[1]/is_stopping</property>
             <value>1</value>
           </equals>
+          <not><property>/sim/crashed</property></not>
         </and>
       </condition>
       <volume>

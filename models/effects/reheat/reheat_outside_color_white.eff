@@ -23,8 +23,8 @@
 
     <flame_radius_fraction type="float">.45</flame_radius_fraction>
 
-    <thrust_collimation type="float">.1</thrust_collimation>
-    <thrust_density type="float">.35</thrust_density>
+    <thrust_collimation type="float">0</thrust_collimation>
+    <thrust_density type="float">.3</thrust_density>
 
     <use_noise type="int">1</use_noise>
     <noise_strength type="float">.3</noise_strength>

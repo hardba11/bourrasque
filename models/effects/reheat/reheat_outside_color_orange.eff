@@ -8,7 +8,7 @@
 
   <parameters>
 
-    <base_flame_density type="float">.02</base_flame_density>
+    <base_flame_density type="float">.01</base_flame_density>
 
     <base_flame_r type="float">.8</base_flame_r>
     <base_flame_g type="float">.8</base_flame_g>
@@ -23,7 +23,7 @@
 
     <flame_radius_fraction type="float">.43</flame_radius_fraction>
 
-    <thrust_collimation type="float">.1</thrust_collimation>
+    <thrust_collimation type="float">0</thrust_collimation>
     <thrust_density type="float">.1</thrust_density>
 
     <use_noise type="int">1</use_noise>

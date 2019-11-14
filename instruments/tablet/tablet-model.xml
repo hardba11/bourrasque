@@ -23,11 +23,21 @@ changelog
   <!-- ~~~~~~~~~~~~~~~~~~ opaque + transparent -->
   <animation>
     <object-name>tablet.box</object-name>
-    <object-name>tablet.map_screen</object-name>
+    <object-name>tablet.screen</object-name>
     <object-name>tablet.screen.off</object-name>
     <object-name>tablet.on</object-name>
     <object-name>tablet.bright_down</object-name>
     <object-name>tablet.bright_up</object-name>
+    <object-name>tablet.menu_screen</object-name>
+    <object-name>tablet.zone_menu</object-name>
+    <object-name>tablet.zone1</object-name>
+    <object-name>tablet.zone2</object-name>
+    <object-name>tablet.zone3</object-name>
+    <object-name>tablet.zone4</object-name>
+    <object-name>tablet.zone_prev</object-name>
+    <object-name>tablet.zone_next</object-name>
+    <object-name>tablet.zone_minus</object-name>
+    <object-name>tablet.zone_plus</object-name>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
@@ -39,21 +49,44 @@ changelog
     </condition>
   </animation>
 
+  <animation>
+    <type>select</type>
+    <object-name>tablet.zone1</object-name>
+    <object-name>tablet.zone2</object-name>
+    <object-name>tablet.zone3</object-name>
+    <object-name>tablet.zone4</object-name>
+    <condition>
+      <equals>
+        <property>/instrumentation/my_aircraft/tablet/controls/page</property>
+        <value>0</value>
+      </equals>
+    </condition>
+  </animation>
+
+
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
     <object-name>tablet.box</object-name>
-    <object-name>tablet.map_screen</object-name>
+    <object-name>tablet.screen</object-name>
     <object-name>tablet.screen.off</object-name>
     <object-name>tablet.on</object-name>
     <object-name>tablet.bright_down</object-name>
     <object-name>tablet.bright_up</object-name>
+    <object-name>tablet.menu_screen</object-name>
+    <object-name>tablet.zone_menu</object-name>
+    <object-name>tablet.zone_prev</object-name>
+    <object-name>tablet.zone_next</object-name>
+    <object-name>tablet.zone_minus</object-name>
+    <object-name>tablet.zone_plus</object-name>
   </effect>
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
   <animation>
     <type>material</type>
-    <object-name>tablet.map_screen</object-name>
+    <object-name>tablet.screen</object-name>
+    <object-name>tablet.menu_screen</object-name>
+    <object-name>tablet.zone_menu</object-name>
     <emission>
       <factor-prop>/instrumentation/my_aircraft/tablet/controls/brightness</factor-prop>
       <red>1</red>
@@ -88,38 +121,108 @@ changelog
     </hovered>
   </animation>
 
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control zone menu -->
   <animation>
     <type>pick</type>
-    <object-name>tablet.map_screen</object-name>
-  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control pages -->
+    <object-name>tablet.zone_menu</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-assign</command>
+        <property>/instrumentation/my_aircraft/tablet/controls/page</property>
+        <value>0</value>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-tablet-menu</tooltip-id>
+        <label>menu</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control zone prev -->
+  <animation>
+    <type>pick</type>
+    <object-name>tablet.zone_prev</object-name>
     <action>
       <button>0</button>
       <binding>
         <command>property-adjust</command>
-        <property>/instrumentation/my_aircraft/tablet/controls/page</property>
-        <step>1</step>
+        <property>/instrumentation/my_aircraft/tablet/controls/checklist/page</property>
+        <step>-1</step>
         <min>0</min>
-        <max>2</max>
+        <max>6</max>
         <wrap>1</wrap>
       </binding>
     </action>
-  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control zoom -->
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-tablet-prev</tooltip-id>
+        <label>previous page</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control zone next -->
+  <animation>
+    <type>pick</type>
+    <object-name>tablet.zone_next</object-name>
     <action>
-      <button>3</button>
+      <button>0</button>
       <binding>
         <command>property-adjust</command>
-        <property>/instrumentation/my_aircraft/tablet/controls/zoom</property>
+        <property>/instrumentation/my_aircraft/tablet/controls/checklist/page</property>
+        <step>1</step>
+        <min>0</min>
+        <max>6</max>
+        <wrap>1</wrap>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-tablet-next</tooltip-id>
+        <label>next page</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control zone moins -->
+  <animation>
+    <type>pick</type>
+    <object-name>tablet.zone_minus</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/my_aircraft/tablet/controls/map/zoom</property>
         <step>-1</step>
         <min>5</min>
         <max>13</max>
         <wrap>0</wrap>
       </binding>
     </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-tablet-minus</tooltip-id>
+        <label>zoom out</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control zone plus -->
+  <animation>
+    <type>pick</type>
+    <object-name>tablet.zone_plus</object-name>
     <action>
-      <button>4</button>
+      <button>0</button>
       <binding>
         <command>property-adjust</command>
-        <property>/instrumentation/my_aircraft/tablet/controls/zoom</property>
+        <property>/instrumentation/my_aircraft/tablet/controls/map/zoom</property>
         <step>1</step>
         <min>5</min>
         <max>13</max>
@@ -129,9 +232,72 @@ changelog
     <hovered>
       <binding>
         <command>set-tooltip</command>
-        <tooltip-id>tooltip-tablet-map-zoom</tooltip-id>
-        <label>zoom in/out map %3d, click to change page</label>
-        <property>/instrumentation/my_aircraft/tablet/controls/zoom</property>
+        <tooltip-id>tooltip-tablet-plus</tooltip-id>
+        <label>zoom in</label>
+      </binding>
+    </hovered>
+  </animation>
+
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control zone menu1 -->
+  <animation>
+    <type>pick</type>
+    <object-name>tablet.zone1</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-assign</command>
+        <property>/instrumentation/my_aircraft/tablet/controls/page</property>
+        <value>1</value>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-tablet-menu-map</tooltip-id>
+        <label>display map</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control zone menu2 -->
+  <animation>
+    <type>pick</type>
+    <object-name>tablet.zone2</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-assign</command>
+        <property>/instrumentation/my_aircraft/tablet/controls/page</property>
+        <value>2</value>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-tablet-menu-checklist</tooltip-id>
+        <label>display checklists</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control zone menu3 -->
+  <animation>
+    <type>pick</type>
+    <object-name>tablet.zone3</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-assign</command>
+        <property>/instrumentation/my_aircraft/tablet/controls/page</property>
+        <value>3</value>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-tablet-menu-vor-fr</tooltip-id>
+        <label>display main vor frequencies france</label>
       </binding>
     </hovered>
   </animation>

@@ -12,10 +12,21 @@ PROPERTY-PATH : /instrumentation/my_aircraft/tablet/
 
   <!-- data used to control instrument -->
   <controls>
-    <serviceable type="bool">0</serviceable>
-    <page type="int">0</page>
-    <zoom type="int">6</zoom> <!-- 5 - 13 -->
+    <serviceable type="bool">1</serviceable>
     <brightness type="float">0.2</brightness>
+    <page type="int">0</page>
+    <!--
+    - page 0 = menu
+    - page 1 = map
+    - page 2 = checklist
+    - page 3 = vor fance
+    -->
+    <map>
+      <zoom type="int">6</zoom> <!-- 5 - 13 -->
+    </map>
+    <checklist>
+      <page type="int">0</page> <!-- adjusted on tablet-model.xml, used in tablet_canvas.nas-->
+    </checklist>
   </controls>
 
 </PropertyList>

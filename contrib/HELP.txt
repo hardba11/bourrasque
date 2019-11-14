@@ -225,7 +225,7 @@ navigation
 ----------
 
 ND : mod [NAV]
-ALT : hdg [1013 HPa]
+ALT : Hpa [1013 HPa]
 choose VOR frequency, choose radial
 ND : VOR1 [ENABLE]
 PFD : adjust autopilot [ON DEMAND]

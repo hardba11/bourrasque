@@ -32,6 +32,10 @@ var light = func()
     # enable als lights if switch on and gear up and bus on
     if(is_on and is_gear_down and is_bus_on)
     {
+        var luminosity = getprop("/rendering/scene/diffuse/green");
+        var intensity = 1 - luminosity;
+        intensity = (intensity > .9) ? .9 : intensity;
+
         var aircraft_position = geo.aircraft_position();
         var lat = aircraft_position.lat();
         var lon = aircraft_position.lon();
@@ -63,18 +67,18 @@ var light = func()
             setprop("/sim/rendering/als-secondary-lights/lightspot/eyerel-z-m["~ i ~"]", delta_z);
             setprop("/sim/rendering/als-secondary-lights/lightspot/dir["~ i ~"]", heading);
 
-            setprop("/sim/rendering/als-secondary-lights/lightspot/lightspot-r["~ i ~"]", 0.8);
-            setprop("/sim/rendering/als-secondary-lights/lightspot/lightspot-g["~ i ~"]", 0.9);
-            setprop("/sim/rendering/als-secondary-lights/lightspot/lightspot-b["~ i ~"]", 1.0);
+            setprop("/sim/rendering/als-secondary-lights/lightspot/lightspot-r["~ i ~"]", intensity);
+            setprop("/sim/rendering/als-secondary-lights/lightspot/lightspot-g["~ i ~"]", intensity);
+            setprop("/sim/rendering/als-secondary-lights/lightspot/lightspot-b["~ i ~"]", intensity + .1);
         }
     }
     else
     {
         for(var i = 0; i < size(data_light); i += 1)
         {
-            setprop("/sim/rendering/als-secondary-lights/lightspot/lightspot-r["~ i ~"]", 0.0);
-            setprop("/sim/rendering/als-secondary-lights/lightspot/lightspot-g["~ i ~"]", 0.0);
-            setprop("/sim/rendering/als-secondary-lights/lightspot/lightspot-b["~ i ~"]", 0.0);
+            setprop("/sim/rendering/als-secondary-lights/lightspot/lightspot-r["~ i ~"]", .0);
+            setprop("/sim/rendering/als-secondary-lights/lightspot/lightspot-g["~ i ~"]", .0);
+            setprop("/sim/rendering/als-secondary-lights/lightspot/lightspot-b["~ i ~"]", .0);
         }
     }
 }

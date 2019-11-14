@@ -453,6 +453,19 @@ my_aircraft_functions.event_acknowledge_master_caution();
       </binding>
     </key>
 
+    <!-- ~~~~~~~~~~~~~~~~~~ start/pause chrono -->
+    <key n="121">
+      <name>y</name>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+instrument_chrono.event_click_chr_btn();
+          ]]>
+        </script>
+      </binding>
+    </key>
+
   <!--
 ________________________________________________________________________________
                                                                         CONTROLS

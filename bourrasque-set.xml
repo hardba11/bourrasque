@@ -424,7 +424,7 @@ http://wiki.flightgear.org/Property_tree
       <file type="string">instruments/chrono/chrono.nas</file>
     </instrument_chrono>
     <instrument_tablet_map>
-      <file type="string">instruments/tablet/tablet_map.nas</file>
+      <file type="string">instruments/tablet/tablet_canvas.nas</file>
     </instrument_tablet_map>
 
     <!-- ~~~~~~~~~~~~~~~~~~ flight/commands/aircraft management -->

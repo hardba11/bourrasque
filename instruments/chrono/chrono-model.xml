@@ -237,7 +237,7 @@ instrument_chrono.event_click_chr_btn();
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>tooltip-chrono-chr-btn</tooltip-id>
-        <label>Start/Pause chrono</label>
+        <label>Start/Pause chrono (y)</label>
       </binding>
     </hovered>
   </animation>
