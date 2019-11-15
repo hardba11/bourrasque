@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PropertyList>
 
-  <!-- quand on a declenche un clic, ce filtre fait varier click-sound (float) 
+  <!-- quand on a declenche un clic, ce filtre fait varier click-sound (float)
   entre 0 et 1, cela permet d'avoir un etat transitoir pour declencher le son
   -->
   <filter>

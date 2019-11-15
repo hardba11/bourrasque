@@ -23,13 +23,17 @@ keyboard shortcuts
 - v : next view
 - V : previous view
 - ctrl-v : default view (pilot)
-- tab : mouse mode : pointer, view, stick
-- < or \ : change phase for record loop
-- > or | : reinit record loop
+- i : change hud color
+- I decrease hud brightness
+- y : start/stop chrono
 - [ : Catapult launch (carrier)
 - ] : Toggle Launch-bar (carrier)
 - ; : Toggle Hook (carrier)
 - NUMPAD : see below
+- tab : mouse mode : pointer, view, stick
+
+- < or \ : change phase for record loop
+- > or | : reinit record loop
 
 
 mouse functionnalities
@@ -155,93 +159,23 @@ use the bourrasque menu or } key
 
 start
 -----
-
-FUEL TRUCK : click to adjust fuel quantity [ON DEMAND]
-gui/equipment : fuel truck [REMOVE]
-gui/equipment : covers [REMOVE]
-gui/equipment : scale [REMOVE]
-command panel : canopy [HALF-CLOSE]
-electrical instrument : switch [BAT or EPU]
-electrical instrument : avionics [ON]
-lights panel : instrument light [ADJUST]
-radio : NAV1 [ON]
-radio : COM1 [ON]
-radio : NAV2 [ON]
-radio : COM2 [ON]
-radio : ADF  [ON]
-radio : TRANSPONDER [ON]
-nav/com : frequency [ADJUST]
-
-contact tower, request autorization to start engines
-
-transponder adjust squawk [ON DEMAND]
-electrical instrument : engines [ON]
-engine 0 instrument : cut [ON]
-engine 0 instrument : pump [ON]
-engine 0 instrument : start [PUSH]
-engine 0 started [WAIT]
-electrical instrument : switch [ALT]
-engine 1 instrument : cut [ON]
-engine 1 instrument : pump [ON]
-engine 1 instrument : start [PUSH]
-lights panel : anti-collision [ON]
-lights panel : strobe [ON]
-lights panel : navigation [ON]
-lights panel : position [ON]
-lights panel : formation [ON DEMAND]
-lights panel : landing and taxi [ON DEMAND]
-engine 1 started [WAIT]
-electrical instrument : cmd [ON]
-gui/equipment : epu [REMOVE]
+see checklist on the knee tablet
 
 taxi
 ----
-
-contact tower, request autorization to taxi
-
-ND : mod [TAXI]
-gui/equipment : shocks [REMOVE]
-command panel : parkbrake [RELEASE]
-brake [TEST]
-
+see checklist on the knee tablet
 
 take off
 --------
-
-contact tower, request autorization to enter on runway
-
-command panel : canopy [CLOSE]
-ND : mod [APP]
-PFD : autopilot speed [ADJUST 200kt]
-PFD : autopilot alt [ADJUST]
-PFD : autopilot heading [ADJUST]
-HSI : NAV1 radial [ADJUST]
-
-full thrust
-rotation: 150kts
-
+see checklist on the knee tablet
 
 navigation
 ----------
-
-ND : mod [NAV]
-ALT : Hpa [1013 HPa]
-choose VOR frequency, choose radial
-ND : VOR1 [ENABLE]
-PFD : adjust autopilot [ON DEMAND]
-
+see checklist on the knee tablet
 
 landing
 -------
-
-ALT : hdg [ADJUST]
-nd : mod [APP]
-approach at ~140kts use speedbrakes (j, k keys) (speedbrake 40% - aoa 5)
-hud flight director on runway threshold
-and hud flight director between -2deg and -4deg
-touchdown at 120kts
-nd : mod [TAXI]
-
+see checklist on the knee tablet
 
 stop
 ----

@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="utf-8"?>
 
 <PropertyList>
 
@@ -27,7 +27,7 @@
     </button>
   </group>
 
-  <hrule/>
+  <hrule />
 
   <group>
     <layout>hbox</layout>
@@ -54,7 +54,7 @@
         <property>/sim/current-view/x-offset-m</property>
       </text>
 
-      <hrule/>
+      <hrule />
 
       <group>
         <layout>hbox</layout>
@@ -168,11 +168,11 @@
         <property>/sim/current-view/y-offset-m</property>
       </text>
 
-      <hrule/>
-   
+      <hrule />
+
       <group>
         <layout>hbox</layout>
-        <vrule/>
+        <vrule />
         <button>
           <pref-width>22</pref-width>
           <pref-height>22</pref-height>
@@ -237,7 +237,7 @@
           </binding>
         </button>
 
-        <vrule/>
+        <vrule />
 
       </group>
 
@@ -286,7 +286,7 @@
         <property>/sim/current-view/z-offset-m</property>
       </text>
 
-      <hrule/>
+      <hrule />
 
       <group>
         <layout>hbox</layout>
@@ -380,7 +380,7 @@
     </group>
   </group>
 
-  <hrule/>
+  <hrule />
 
   <group>
     <layout>hbox</layout>

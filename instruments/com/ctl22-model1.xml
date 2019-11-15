@@ -99,6 +99,28 @@ Syd Adams
     <object-name>ctl22.xmt.annun</object-name>
   </effect>
 
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (flood) -->
+  <animation>
+    <type>material</type>
+    <object-name>ctl22.act_btn</object-name>
+    <object-name>ctl22.box</object-name>
+    <object-name>ctl22.freq.knob</object-name>
+    <object-name>ctl22.freq1.knob</object-name>
+    <object-name>ctl22.mem.annun</object-name>
+    <object-name>ctl22.pwr</object-name>
+    <object-name>ctl22.sto.btn</object-name>
+    <object-name>ctl22.test.btn</object-name>
+    <object-name>ctl22.toggle</object-name>
+    <object-name>ctl22.vol</object-name>
+    <object-name>ctl22.xmt.annun</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/panel-norm</factor-prop>
+      <red>.3</red>
+      <green>0</green>
+      <blue>0</blue>
+    </emission>
+  </animation>
+
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
   <animation>
     <type>material</type>

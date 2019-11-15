@@ -43,6 +43,20 @@ changelog
     <object-name>turn.needle-emit</object-name>
   </effect>
 
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (flood) -->
+  <animation>
+    <type>material</type>
+    <object-name>turn.box</object-name>
+    <object-name>turn.needle</object-name>
+    <object-name>turn.slip-skid-ball</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/panel-norm</factor-prop>
+      <red>.3</red>
+      <green>0</green>
+      <blue>0</blue>
+    </emission>
+  </animation>
+
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
   <animation>
     <type>material</type>

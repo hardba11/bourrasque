@@ -50,9 +50,45 @@
     <object-name>piedG</object-name>
   </effect>
 
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (flood) -->
+  <animation>
+    <type>material</type>
+    <object-name>corps</object-name>
+    <object-name>brasG</object-name>
+    <object-name>avantbrasG</object-name>
+    <object-name>mainG</object-name>
+    <object-name>brasD</object-name>
+    <object-name>avantbrasD</object-name>
+    <object-name>mainD</object-name>
+    <object-name>jambeD</object-name>
+    <object-name>jambeG</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/panel-norm</factor-prop>
+      <red>.2</red>
+      <green>0</green>
+      <blue>0</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <object-name>tete</object-name>
+    <object-name>lunettes</object-name>
+    <object-name>molletD</object-name>
+    <object-name>piedD</object-name>
+    <object-name>molletG</object-name>
+    <object-name>piedG</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/panel-norm</factor-prop>
+      <red>.1</red>
+      <green>0</green>
+      <blue>0</blue>
+    </emission>
+  </animation>
+
   <!-- ~~~~~~~~~~~~~~~~~~ specific copilot texture -->
   <animation>
     <type>material</type>
+    <texture>copilot.png</texture>
     <object-name>tete</object-name>
     <object-name>corps</object-name>
     <object-name>brasG</object-name>
@@ -61,7 +97,6 @@
     <object-name>brasD</object-name>
     <object-name>avantbrasD</object-name>
     <object-name>mainD</object-name>
-    <texture>copilot.png</texture>
     <object-name>jambeD</object-name>
     <object-name>molletD</object-name>
     <object-name>piedD</object-name>

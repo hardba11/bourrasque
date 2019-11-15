@@ -81,6 +81,22 @@ changelog
     <object-name>tablet.zone_plus</object-name>
   </effect>
 
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (flood) -->
+  <animation>
+    <type>material</type>
+    <object-name>tablet.box</object-name>
+    <object-name>tablet.screen.off</object-name>
+    <object-name>tablet.on</object-name>
+    <object-name>tablet.bright_down</object-name>
+    <object-name>tablet.bright_up</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/panel-norm</factor-prop>
+      <red>.3</red>
+      <green>0</green>
+      <blue>0</blue>
+    </emission>
+  </animation>
+
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
   <animation>
     <type>material</type>

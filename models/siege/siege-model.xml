@@ -8,6 +8,7 @@
     <object-name>siege</object-name>
   </animation>
 
+  <!-- ~~~~~~~~~~~~~~~~~~ effects -->
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-shadow</inherits-from>
     <object-name>siege</object-name>
@@ -16,6 +17,18 @@
     <inherits-from>Aircraft/bourrasque/models/effects/interior/interior-flashlight</inherits-from>
     <object-name>siege</object-name>
   </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (flood) -->
+  <animation>
+    <type>material</type>
+    <object-name>siege</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/panel-norm</factor-prop>
+      <red>.1</red>
+      <green>0</green>
+      <blue>0</blue>
+    </emission>
+  </animation>
 
 </PropertyList>
 

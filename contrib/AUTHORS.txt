@@ -6,15 +6,15 @@ authors
 
 - hardball SLK
 - itouchpod for the autopilot
-- viggen and m2000-5 developpers for the canvas map
 
 
 thanks to
 ---------
 
+- viggen and m2000-5 developpers for the canvas map
+
 - all contributors of the wiki which gives a precious help
 - buckaroo for samples files, yasim doc and for his help to the community
-- itouchpod for the autopilot
 - syd adams for samples files
 - canvas conceptors
 - mirage 2000-5 developpers (I used main files/framework and I used and improved pilot model)

@@ -99,6 +99,51 @@ changelog
     <object-name>piston_canopy</object-name>
   </effect>
 
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (flood) -->
+  <animation>
+    <type>material</type>
+    <object-name>cockpit</object-name>
+    <object-name>cockpit.accessoires</object-name>
+    <object-name>cockpit.joint</object-name>
+    <object-name>cockpit.vis_bordure</object-name>
+    <object-name>cockpit.vis_panneau_central_ar</object-name>
+    <object-name>cockpit.vis_panneau_central_av</object-name>
+    <object-name>cockpit.vis_panneaux_lateraux</object-name>
+    <object-name>support_hotas_L</object-name>
+    <object-name>support_hotas_R</object-name>
+    <object-name>hotas_L</object-name>
+    <object-name>hotas_R</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/panel-norm</factor-prop>
+      <red>.5</red>
+      <green>0</green>
+      <blue>0</blue>
+    </emission>
+  </animation>
+  <animation>
+    <type>material</type>
+    <texture>texture_cockpit_flood.png</texture>
+    <object-name>cockpit</object-name>
+    <object-name>cockpit.accessoires</object-name>
+    <object-name>cockpit.joint</object-name>
+    <object-name>cockpit.vis_bordure</object-name>
+    <object-name>cockpit.vis_panneau_central_ar</object-name>
+    <object-name>cockpit.vis_panneau_central_av</object-name>
+    <object-name>cockpit.vis_panneaux_lateraux</object-name>
+    <object-name>support_hotas_L</object-name>
+    <object-name>support_hotas_R</object-name>
+    <condition>
+      <less-than>
+        <property>/rendering/scene/diffuse/green</property>
+        <value>0.45</value>
+      </less-than>
+      <greater-than>
+        <property>/controls/lighting/panel-norm</property>
+        <value>0.39</value>
+      </greater-than>
+    </condition>
+  </animation>
+
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (color) -->
   <animation>
     <type>material</type>

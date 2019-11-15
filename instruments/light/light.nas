@@ -69,7 +69,7 @@ var light = func()
 
             setprop("/sim/rendering/als-secondary-lights/lightspot/lightspot-r["~ i ~"]", intensity);
             setprop("/sim/rendering/als-secondary-lights/lightspot/lightspot-g["~ i ~"]", intensity);
-            setprop("/sim/rendering/als-secondary-lights/lightspot/lightspot-b["~ i ~"]", intensity + .1);
+            setprop("/sim/rendering/als-secondary-lights/lightspot/lightspot-b["~ i ~"]", intensity + (intensity / 10));
         }
     }
     else

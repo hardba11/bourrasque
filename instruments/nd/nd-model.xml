@@ -130,6 +130,38 @@ changelog
     <object-name>nd.zoom</object-name>
   </effect>
 
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (flood) -->
+  <animation>
+    <type>material</type>
+    <object-name>cadre</object-name>
+    <object-name>hud.app</object-name>
+    <object-name>hud.nav</object-name>
+    <object-name>hud.taxi</object-name>
+    <object-name>hud.vfr</object-name>
+    <object-name>hud.void1</object-name>
+    <object-name>nd.adf1</object-name>
+    <object-name>nd.adf2</object-name>
+    <object-name>nd.app</object-name>
+    <object-name>nd.hdg</object-name>
+    <object-name>nd.info</object-name>
+    <object-name>nd.map</object-name>
+    <object-name>nd.pln</object-name>
+    <object-name>nd.rdr</object-name>
+    <object-name>nd.screen.off</object-name>
+    <object-name>nd.true_north</object-name>
+    <object-name>nd.slave_gps</object-name>
+    <object-name>nd.vor</object-name>
+    <object-name>nd.vor1</object-name>
+    <object-name>nd.vor2</object-name>
+    <object-name>nd.zoom</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/panel-norm</factor-prop>
+      <red>.3</red>
+      <green>0</green>
+      <blue>0</blue>
+    </emission>
+  </animation>
+
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
   <animation>
     <type>material</type>

@@ -69,6 +69,26 @@ changelog
     <object-name>sfd.aar-emit</object-name>
   </effect>
 
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (flood) -->
+  <animation>
+    <type>material</type>
+    <object-name>sfd.cadre</object-name>
+    <object-name>sfd.screen.off</object-name>
+    <object-name>sfd.buttons</object-name>
+    <object-name>sfd.ack</object-name>
+    <object-name>sfd.swap-screen</object-name>
+    <object-name>sfd.radar-range</object-name>
+    <object-name>sfd.set_bingo</object-name>
+    <object-name>sfd.swap_bingo</object-name>
+    <object-name>sfd.aar</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/panel-norm</factor-prop>
+      <red>.3</red>
+      <green>0</green>
+      <blue>0</blue>
+    </emission>
+  </animation>
+
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
   <animation>
     <type>material</type>

@@ -67,14 +67,6 @@ PROPERTY-PATH : /controls/
     <landing-lights type="int">0</landing-lights>
     <formation-lights type="float">0</formation-lights>
     <instruments-norm type="float">0</instruments-norm>
-
-
-			<landing-lights n="0" type="double">1</landing-lights>
-			<landing-lights n="1" type="double">1</landing-lights>
-			<landing-lights n="2" type="double">1</landing-lights>
-
-
-
   </lighting>
 
   <assistance type="bool">0</assistance>

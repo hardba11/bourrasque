@@ -55,6 +55,24 @@ changelog
     <object-name>command.rudderTrimNeedle-emit</object-name>
   </effect>
 
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (flood) -->
+  <animation>
+    <type>material</type>
+    <object-name>command.box</object-name>
+    <object-name>command.canopy</object-name>
+    <object-name>command.gears</object-name>
+    <object-name>command.hook</object-name>
+    <object-name>command.launchbar</object-name>
+    <object-name>command.parkbrake</object-name>
+    <object-name>command.trim_scale</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/panel-norm</factor-prop>
+      <red>.3</red>
+      <green>0</green>
+      <blue>0</blue>
+    </emission>
+  </animation>
+
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
   <animation>
     <type>material</type>

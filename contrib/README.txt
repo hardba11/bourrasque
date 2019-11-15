@@ -48,7 +48,7 @@ for the best experience I recommend :
 3/ launch
 ---------
 
-launch flightgear from a gui and select the aircraft : bourrasque
+launch flightgear from a gui and select the aircraft : bourrasque, als enabled
 
 enjoy ;)
 
@@ -57,7 +57,6 @@ Known bugs :(
 =============
 
 - as I only got a mouse, flying with joystick could be difficult because no test done
-- some interior sounds triggered when view change
 - heading bug on ND if mag or true north choosen
 - strobe doesnt work yet in MP
 - instruments animations in MP backseat

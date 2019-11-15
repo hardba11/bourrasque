@@ -1,3 +1,4 @@
+print("*** LOADING core - aar.nas ... ***");
 # Properties under /consumables/fuel/tank[n]:
 # + level-gal_us    - Current fuel load.  Can be set by user code.
 # + level-lbs       - OUTPUT ONLY property, do not try to set
@@ -21,7 +22,7 @@ var contactN = nil;
 var aimodelsN = nil;
 var types = {};
 
-var update_loop = func {
+var update_loop = func() {
 
     # on verifie que l aeronef peut faire de l AAR
     if(! serviceable or ! ai_enabled)
@@ -35,13 +36,13 @@ var update_loop = func {
     var ac = aimodelsN.getChildren("tanker");
     var mp = aimodelsN.getChildren("multiplayer");
 
-    foreach(var a; ac ~ mp)
+    foreach(var a ; ac ~ mp)
     {
         if(! a.getNode("valid", 1).getValue())          continue;
         if(! a.getNode("tanker", 1).getValue())         continue;
         if(! a.getNode("refuel/contact", 1).getValue()) continue;
 
-        foreach(var t; a.getNode("refuel", 1).getChildren("type"))
+        foreach(var t ; a.getNode("refuel", 1).getChildren("type"))
         {
             var type = t.getValue();
             if(contains(types, type) and types[type])
@@ -73,7 +74,7 @@ var update_loop = func {
 
     # sum up consumed fuel
     var consumed = 0;
-    foreach(var e; engines)
+    foreach(var e ; engines)
     {
         var fuel = e.getNode("fuel-consumed-lbs");
         consumed += fuel.getValue();
@@ -85,14 +86,14 @@ var update_loop = func {
     # and the aircraft maximum rate.  Both are expressed
     # in lbs/min
     var fuel_rate = math.min(
-        tankers[0].getNode("refuel/max-fuel-transfer-lbs-min", 1).getValue() or 6000, 
+        tankers[0].getNode("refuel/max-fuel-transfer-lbs-min", 1).getValue() or 6000,
         refuelingN.getNode("max-fuel-transfer-lbs-min", 1).getValue() or 6000);
     var received =  UPDATE_PERIOD * fuel_rate / 60;
     consumed -= received;
 
     # make list of selected tanks
     var selected_tanks = [];
-    foreach(var t; tanks)
+    foreach(var t ; tanks)
     {
         var cap = t.getNode("capacity-gal_us", 1).getValue();
         if(cap != nil and cap > 0.01 and t.getNode("selected", 1).getBoolValue())
@@ -109,7 +110,7 @@ var update_loop = func {
     elsif(consumed >= 0)
     {
         var fuel_per_tank = consumed / size(selected_tanks);
-        foreach(var t; selected_tanks)
+        foreach(var t ; selected_tanks)
         {
             var ppg = t.getNode("density-ppg").getValue();
             var lbs = t.getNode("level-gal_us").getValue() * ppg;
@@ -138,7 +139,7 @@ var update_loop = func {
         #find the number of tanks which can accept fuel
         var available = 0;
 
-        foreach(var t; selected_tanks)
+        foreach(var t ; selected_tanks)
         {
             var ppg = t.getNode("density-ppg").getValue();
             var capacity = t.getNode("capacity-gal_us").getValue() * ppg;
@@ -155,7 +156,7 @@ var update_loop = func {
             var fuel_per_tank = -consumed / available;
 
             # add fuel to each available tank
-            foreach(var t; selected_tanks)
+            foreach(var t ; selected_tanks)
             {
                 var ppg = t.getNode("density-ppg").getValue();
                 var capacity = t.getNode("capacity-gal_us").getValue() * ppg;
@@ -177,7 +178,7 @@ var update_loop = func {
     var gals = 0;
     var lbs = 0;
     var cap = 0;
-    foreach(var t; tanks)
+    foreach(var t ; tanks)
     {
         gals += t.getNode("level-gal_us", 1).getValue();
         lbs += t.getNode("level-lbs", 1).getValue();
@@ -194,7 +195,7 @@ var update_loop = func {
     {
         setprop("/consumables/fuel/total-fuel-norm", gals / cap);
     }
-    foreach(var e; engines)
+    foreach(var e ; engines)
     {
         e.getNode("out-of-fuel", 1).setBoolValue(out_of_fuel);
     }
@@ -205,7 +206,7 @@ var aarTimer = maketimer(UPDATE_PERIOD, update_loop);
 aarTimer.simulatedTime = 1;
 
 
-setlistener("/sim/signals/fdm-initialized", func {
+setlistener("/sim/signals/fdm-initialized", func() {
     if(contains(globals, "fuel") and typeof(fuel) == "hash")
     {
         fuel.loop = func nil;       # kill $FG_ROOT/Nasal/fuel.nas' loop
@@ -216,15 +217,15 @@ setlistener("/sim/signals/fdm-initialized", func {
     aimodelsN   = props.globals.getNode("ai/models", 1);
     engines     = props.globals.getNode("engines", 1).getChildren("engine");
 
-    foreach(var e; engines)
+    foreach(var e ; engines)
     {
         e.getNode("fuel-consumed-lbs", 1).setDoubleValue(0);
         e.getNode("out-of-fuel", 1).setBoolValue(0);
     }
 
-    foreach(var t; props.globals.getNode("consumables/fuel", 1).getChildren("tank"))
+    foreach(var t ; props.globals.getNode("consumables/fuel", 1).getChildren("tank"))
     {
-        if (! t.getAttribute("children"))
+        if(! t.getAttribute("children"))
         {
             continue;           # skip native_fdm.cxx generated zombie tanks
         }
@@ -236,7 +237,7 @@ setlistener("/sim/signals/fdm-initialized", func {
         t.initNode("selected", 1, "BOOL");
     }
 
-    foreach(var t; props.globals.getNode("systems/refuel", 1).getChildren("type"))
+    foreach(var t ; props.globals.getNode("systems/refuel", 1).getChildren("type"))
     {
         types[t.getValue()] = 1;
     }

@@ -597,8 +597,14 @@ ________________________________________________________________________________
       <mode>once</mode>
       <condition>
         <and>
-          <greater-than><property>/sim/model/click-sound</property><value type="float">.1</value></greater-than>
-          <less-than><property>/sim/model/click-sound</property><value type="float">.9</value></less-than>
+          <greater-than>
+            <property>/sim/model/click-sound</property>
+            <value type="float">.1</value>
+          </greater-than>
+          <less-than>
+            <property>/sim/model/click-sound</property>
+            <value type="float">.9</value>
+          </less-than>
           <property>/sim/current-view/internal</property>
         </and>
       </condition>
@@ -614,8 +620,14 @@ ________________________________________________________________________________
       <mode>once</mode>
       <condition>
         <and>
-          <greater-than><property>/sim/model/lever_gear</property><value type="float">.1</value></greater-than>
-          <less-than><property>/sim/model/lever_gear</property><value type="float">.9</value></less-than>
+          <greater-than>
+            <property>/sim/model/lever_gear</property>
+            <value type="float">.1</value>
+          </greater-than>
+          <less-than>
+            <property>/sim/model/lever_gear</property>
+            <value type="float">.9</value>
+          </less-than>
           <property>/sim/current-view/internal</property>
         </and>
       </condition>
@@ -631,8 +643,14 @@ ________________________________________________________________________________
       <mode>once</mode>
       <condition>
         <and>
-          <greater-than><property>/sim/model/lever_parkbrake</property><value type="float">.1</value></greater-than>
-          <less-than><property>/sim/model/lever_parkbrake</property><value type="float">.9</value></less-than>
+          <greater-than>
+            <property>/sim/model/lever_parkbrake</property>
+            <value type="float">.1</value>
+          </greater-than>
+          <less-than>
+            <property>/sim/model/lever_parkbrake</property>
+            <value type="float">.9</value>
+          </less-than>
           <property>/sim/current-view/internal</property>
         </and>
       </condition>

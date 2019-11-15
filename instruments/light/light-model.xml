@@ -28,7 +28,7 @@ changelog
     <object-name>light.btn_3</object-name>
     <object-name>light.btn_4</object-name>
     <object-name>light.btn_5</object-name>
-    <object-name>light.btn_6</object-name>
+    <object-name>light.knob_6</object-name>
     <object-name>light.knob_7</object-name>
     <object-name>light.knob_8</object-name>
     <object-name>light.box-emit</object-name>
@@ -37,17 +37,9 @@ changelog
     <object-name>light.btn_3-emit</object-name>
     <object-name>light.btn_4-emit</object-name>
     <object-name>light.btn_5-emit</object-name>
+    <object-name>light.knob_6-emit</object-name>
     <object-name>light.knob_7-emit</object-name>
     <object-name>light.knob_8-emit</object-name>
-  </animation>
-
-  <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
-  <animation>
-    <type>select</type>
-    <object-name>light.btn_6-emit</object-name>
-    <condition>
-      <false />
-    </condition>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ effects -->
@@ -59,7 +51,7 @@ changelog
     <object-name>light.btn_3</object-name>
     <object-name>light.btn_4</object-name>
     <object-name>light.btn_5</object-name>
-    <object-name>light.btn_6</object-name>
+    <object-name>light.knob_6</object-name>
     <object-name>light.knob_7</object-name>
     <object-name>light.knob_8</object-name>
     <object-name>light.box-emit</object-name>
@@ -68,14 +60,36 @@ changelog
     <object-name>light.btn_3-emit</object-name>
     <object-name>light.btn_4-emit</object-name>
     <object-name>light.btn_5-emit</object-name>
+    <object-name>light.knob_6-emit</object-name>
     <object-name>light.knob_7-emit</object-name>
     <object-name>light.knob_8-emit</object-name>
   </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (flood) -->
+  <animation>
+    <type>material</type>
+    <object-name>light.box</object-name>
+    <object-name>light.btn_1</object-name>
+    <object-name>light.btn_2</object-name>
+    <object-name>light.btn_3</object-name>
+    <object-name>light.btn_4</object-name>
+    <object-name>light.btn_5</object-name>
+    <object-name>light.knob_6</object-name>
+    <object-name>light.knob_7</object-name>
+    <object-name>light.knob_8</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/panel-norm</factor-prop>
+      <red>.3</red>
+      <green>0</green>
+      <blue>0</blue>
+    </emission>
+  </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
   <animation>
     <type>material</type>
     <object-name>light.box-emit</object-name>
+    <object-name>light.knob_6-emit</object-name>
     <object-name>light.knob_7-emit</object-name>
     <object-name>light.knob_8-emit</object-name>
     <emission>
@@ -605,7 +619,7 @@ changelog
         <value>.33</value>
         <value>.66</value>
         <value>1</value>
-        <wrap>false</wrap>
+        <wrap>0</wrap>
       </binding>
       <binding>
         <command>property-toggle</command>
@@ -622,7 +636,7 @@ changelog
         <value>.66</value>
         <value>.33</value>
         <value>0</value>
-        <wrap>false</wrap>
+        <wrap>0</wrap>
       </binding>
       <binding>
         <command>property-toggle</command>
@@ -639,7 +653,7 @@ changelog
         <value>.33</value>
         <value>.66</value>
         <value>1</value>
-        <wrap>false</wrap>
+        <wrap>0</wrap>
       </binding>
       <binding>
         <command>property-toggle</command>
@@ -656,7 +670,7 @@ changelog
         <value>.66</value>
         <value>.33</value>
         <value>0</value>
-        <wrap>false</wrap>
+        <wrap>0</wrap>
       </binding>
       <binding>
         <command>property-toggle</command>
@@ -687,9 +701,59 @@ changelog
       <entry><ind>1</ind><dep>60</dep></entry>
     </interpolation>
     <center>
-      <x-m>0.0099461</x-m>
-      <y-m>0.018161</y-m>
-      <z-m>-0.033371</z-m>
+      <x-m>.0052609</x-m>
+      <y-m>-.015002</y-m>
+      <z-m>-.033245</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control flood light (panels) -->
+  <animation>
+    <type>knob</type>
+    <object-name>light.knob_6</object-name>
+    <property>/controls/lighting/panel-norm</property>
+    <action>
+      <binding>
+        <command>property-adjust</command>
+        <property>/controls/lighting/panel-norm</property>
+        <factor>-.4</factor>
+        <min>0</min>
+        <max>.80</max>
+        <wrap>0</wrap>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-panel-lights</tooltip-id>
+        <label>Instruments lights %s%%</label>
+        <mapping>percent</mapping>
+        <property>/controls/lighting/panel-norm</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation flood light (panels) -->
+  <animation>
+    <type>rotate</type>
+    <object-name>light.knob_6</object-name>
+    <object-name>light.knob_6-emit</object-name>
+    <property>/controls/lighting/panel-norm</property>
+    <interpolation>
+      <entry><ind>0</ind><dep>-60</dep></entry>
+      <entry><ind>.33</ind><dep>-20</dep></entry>
+      <entry><ind>.66</ind><dep>20</dep></entry>
+      <entry><ind>1</ind><dep>60</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>.0092021</x-m>
+      <y-m>.023393</y-m>
+      <z-m>-0.031878</z-m>
     </center>
     <axis>
       <x>-1</x>
@@ -710,7 +774,7 @@ changelog
         <factor>-.2</factor>
         <min>0</min>
         <max>1</max>
-        <wrap>false</wrap>
+        <wrap>0</wrap>
       </binding>
     </action>
     <hovered>

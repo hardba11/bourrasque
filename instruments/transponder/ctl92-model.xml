@@ -86,6 +86,28 @@ Syd Adams
     <object-name>CTL-92.xmt.annun</object-name>
   </effect>
 
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (flood) -->
+  <animation>
+    <type>material</type>
+    <object-name>C92mem.annun</object-name>
+    <object-name>CTL-92</object-name>
+    <object-name>CTL-92.knob</object-name>
+    <object-name>CTL-92.knob1</object-name>
+    <object-name>CTL-92.pwr</object-name>
+    <object-name>CTL-92.toggle</object-name>
+    <object-name>CTL-92.vol</object-name>
+    <object-name>atc.ident</object-name>
+    <object-name>atc.pre</object-name>
+    <object-name>atc.test</object-name>
+    <object-name>CTL-92.xmt.annun</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/panel-norm</factor-prop>
+      <red>.3</red>
+      <green>0</green>
+      <blue>0</blue>
+    </emission>
+  </animation>
+
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
   <animation>
     <type>material</type>

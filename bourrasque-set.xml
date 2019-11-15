@@ -397,7 +397,6 @@ http://wiki.flightgear.org/Property_tree
     </instrument_pfd>
     <instrument_light>
       <file type="string">instruments/light/light.nas</file>
-      <!--file type="string">instruments/light/light-manager.nas</file-->
     </instrument_light>
     <instrument_hud_target_positions>
       <file type="string">instruments/hud_target_positions/hud_target_positions.nas</file>

@@ -609,7 +609,7 @@ var event_control_gear = func(down, animate_view) {
     }
     if(is_serviceable == 0)
     {
-    #    setprop("sim/model/lever_gear", (getprop("sim/model/lever_gear") == 0) ? 1 : 0);
+        #setprop("sim/model/lever_gear", (getprop("sim/model/lever_gear") == 0) ? 1 : 0);
         return;
     }
 
@@ -620,7 +620,7 @@ var event_control_gear = func(down, animate_view) {
         {
             save_current_view();
             view_panel_command();
-        #    settimer(func() { setprop("/controls/gear/gear-down", 1); setprop("sim/model/lever_gear", 1); }, .3);
+            #settimer(func() { setprop("/controls/gear/gear-down", 1); setprop("sim/model/lever_gear", 1); }, .3);
             settimer(func() { setprop("/controls/gear/gear-down", 1); }, .3);
             settimer(func() { load_current_view(); }, .3);
         }
@@ -641,7 +641,7 @@ var event_control_gear = func(down, animate_view) {
             setprop("/controls/gear/catapult-launch-cmd", 0);
             save_current_view();
             view_panel_command();
-        #    settimer(func() { setprop("/controls/gear/gear-down", 0); setprop("sim/model/lever_gear", 0); }, 0.3);
+            #settimer(func() { setprop("/controls/gear/gear-down", 0); setprop("sim/model/lever_gear", 0); }, 0.3);
             settimer(func() { setprop("/controls/gear/gear-down", 0); }, 0.3);
             settimer(func() { load_current_view(); }, .3);
         }
@@ -650,7 +650,7 @@ var event_control_gear = func(down, animate_view) {
             setprop("/controls/gear/launchbar", 0);
             setprop("/controls/gear/catapult-launch-cmd", 0);
             setprop("/controls/gear/gear-down", 0);
-        #    setprop("sim/model/lever_gear", 0);
+            #setprop("sim/model/lever_gear", 0);
         }
     }
 }

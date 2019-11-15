@@ -11,7 +11,6 @@ PROPERTY-PATH : /input/
 see :
 - /devices/status/keyboard/event/
 - /input/keyboard/key[*]/
-
 -->
 
 <PropertyList>
@@ -174,21 +173,6 @@ instrument_pfd.event_click_lock_speed(-1);
     <key n="66">
       <name>B</name>
       <desc>toggle parking brake on or off</desc>
-      <!--binding>
-        <command>nasal</command>
-        <script>
-          <![CDATA[
-my_aircraft_functions.save_current_view();
-my_aircraft_functions.view_panel_command();
-settimer(func() { setprop('/controls/gear/brake-parking', (getprop('/controls/gear/brake-parking') ? 0 : 1)); }, 0.3);
-settimer(func() { my_aircraft_functions.load_current_view(); }, 1);
-          ]]>
-        </script>
-      </binding>
-      <binding>
-        <command>property-toggle</command>
-        <property>sim/model/lever_parkbrake</property>
-      </binding-->
       <binding>
         <command>property-toggle</command>
         <property>/controls/gear/brake-parking</property>
@@ -706,6 +690,7 @@ my_aircraft_functions.event_set_view(0);
         <property />
       </binding>
     </key>
+
     <key n="86">
       <name>V</name>
       <desc>Scroll in reverse thought views</desc>
@@ -719,6 +704,7 @@ my_aircraft_functions.event_set_view(-1);
         <property />
       </binding>
     </key>
+
     <key n="118">
       <name>v</name>
       <desc>Scroll thought views</desc>
@@ -759,6 +745,7 @@ my_aircraft_functions.view_cockpit_panels(-1);
         <property />
       </binding>
     </key>
+
     <key n="360">
       <name>PageUp</name>
       <desc>toggle view right</desc>

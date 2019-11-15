@@ -43,14 +43,6 @@ description :
     <object-name>chrono.et_knob-emit</object-name>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ transparent
-  <effect>
-    <inherits-from>Effects/model-transparent</inherits-from>
-    <object-name>chrono.box-emit</object-name>
-    <object-name>chrono.mode_knob-emit</object-name>
-    <object-name>chrono.et_knob-emit</object-name>
-  </effect> -->
-
   <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
   <animation>
     <type>select</type>
@@ -93,8 +85,22 @@ description :
     <object-name>chrono.box-emit</object-name>
     <object-name>chrono.mode_knob-emit</object-name>
     <object-name>chrono.et_knob-emit</object-name>
-
   </effect>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ emitting (flood) -->
+  <animation>
+    <type>material</type>
+    <object-name>chrono.box</object-name>
+    <object-name>chrono.chr_btn</object-name>
+    <object-name>chrono.mode_knob</object-name>
+    <object-name>chrono.et_knob</object-name>
+    <emission>
+      <factor-prop>/controls/lighting/panel-norm</factor-prop>
+      <red>.3</red>
+      <green>0</green>
+      <blue>0</blue>
+    </emission>
+  </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
   <animation>
