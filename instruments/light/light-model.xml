@@ -83,6 +83,9 @@ changelog
       <green>0</green>
       <blue>0</blue>
     </emission>
+    <condition>
+      <property>systems/electrical/bus/avionics</property>
+    </condition>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->
@@ -731,7 +734,7 @@ changelog
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>tooltip-panel-lights</tooltip-id>
-        <label>Instruments lights %s%%</label>
+        <label>Panels lights %s%%</label>
         <mapping>percent</mapping>
         <property>/controls/lighting/panel-norm</property>
       </binding>
@@ -762,7 +765,7 @@ changelog
     </axis>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control interior light -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control instruments light -->
   <animation>
     <type>knob</type>
     <object-name>light.knob_8</object-name>
@@ -788,7 +791,7 @@ changelog
     </hovered>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation interior light -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ animation instruments light -->
   <animation>
     <type>rotate</type>
     <object-name>light.knob_8</object-name>

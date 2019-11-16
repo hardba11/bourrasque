@@ -49,6 +49,9 @@ changelog
       <green>0</green>
       <blue>0</blue>
     </emission>
+    <condition>
+      <property>systems/electrical/bus/avionics</property>
+    </condition>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->

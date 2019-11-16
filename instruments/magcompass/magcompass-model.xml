@@ -43,10 +43,13 @@ changelog
     <object-name>magcompass.box</object-name>
     <emission>
       <factor-prop>/controls/lighting/panel-norm</factor-prop>
-      <red>.3</red>
+      <red>.1</red>
       <green>0</green>
       <blue>0</blue>
     </emission>
+    <condition>
+      <property>systems/electrical/bus/avionics</property>
+    </condition>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ emitting (light) -->

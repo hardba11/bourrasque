@@ -13,7 +13,7 @@ PROPERTY-PATH : /instrumentation/my_aircraft/tablet/
   <!-- data used to control instrument -->
   <controls>
     <serviceable type="bool">1</serviceable>
-    <brightness type="float">0.2</brightness>
+    <brightness type="float">0.4</brightness>
     <page type="int">0</page>
     <!--
     - page 0 = menu

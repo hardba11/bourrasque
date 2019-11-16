@@ -119,6 +119,13 @@ changelog
       <green>0</green>
       <blue>0</blue>
     </emission>
+    <condition>
+      <property>systems/electrical/bus/avionics</property>
+      <!--less-than>
+        <property>/rendering/scene/diffuse/green</property>
+        <value>0.45</value>
+      </less-than-->
+    </condition>
   </animation>
   <animation>
     <type>material</type>
@@ -135,11 +142,11 @@ changelog
     <condition>
       <less-than>
         <property>/rendering/scene/diffuse/green</property>
-        <value>0.45</value>
+        <value>.12</value>
       </less-than>
       <greater-than>
         <property>/controls/lighting/panel-norm</property>
-        <value>0.39</value>
+        <value>.39</value>
       </greater-than>
     </condition>
   </animation>

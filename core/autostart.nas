@@ -98,6 +98,10 @@ var do_lighting_instr = func(value) {
     printf('  set instruments light');
     setprop("/controls/lighting/instruments-norm", value);
 }
+var do_lighting_panel = func(value) {
+    printf('  set interior light');
+    setprop("/controls/lighting/panel-norm", value);
+}
 var do_command_canopy = func(value) {
     printf('  set canopy position');
     setprop("/controls/doors/canopy", value);
@@ -171,6 +175,7 @@ var init = func() {
     do_lighting_strobe(0);
     do_lighting_anticoll(0);
     do_lighting_instr(0);
+    do_lighting_panel(0);
     do_comm0(0);
     do_comm1(0);
     do_nav0(0);
@@ -226,7 +231,8 @@ var fast_start = func() {
         do_nav1(1);
         do_adf0(2);
         do_transponder(4);
-        do_lighting_instr(1);
+        do_lighting_instr(0.6);
+        do_lighting_panel(0.4);
         do_lighting_form(1);
         do_lighting_pos(1);
         do_lighting_nav(1);
@@ -299,6 +305,7 @@ var stop = func() {
         wait +=  2   ; settimer(func() { do_command_canopy(1); },                           wait);
         wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_light(); },       wait);
         wait +=  1   ; settimer(func() {  do_lighting_instr(0); },                          wait);
+        wait +=  1   ; settimer(func() {  do_lighting_panel(0); },                          wait);
         wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_electrical(); },  wait);
         wait +=  1   ; settimer(func() {  do_electrical_bus_avionics(0); },                 wait);
         wait +=  1   ; settimer(func() {  do_electrical_master_switch(0); },                wait);
@@ -333,6 +340,7 @@ var autostart = func() {
         wait +=   .5 ; settimer(func() {  do_electrical_bus_commands(1); },                 wait);
         wait +=   .5 ; settimer(func() { my_aircraft_functions.view_panel_light(); },       wait);
         wait +=  1   ; settimer(func() {  do_lighting_instr(0.6); },                        wait);
+        wait +=  1   ; settimer(func() {  do_lighting_panel(0.4); },                        wait);
         wait +=   .1 ; settimer(func() { flashlight(0); },                                  wait);
         wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_light(); },       wait);
         wait +=   .5 ; settimer(func() {  do_lighting_anticoll(1); },                       wait);
