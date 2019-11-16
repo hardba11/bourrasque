@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+
+  <filter>
+    <type>gain</type>
+    <gain>-1</gain>
+    <input>/rendering/scene/diffuse/green</input>
+    <reference>1</reference>
+    <output>/sim/model/rendering/relative-navlight-luminosity</output>
+    <min>.4</min>
+    <max>1</max>
+  </filter>
+
+  <filter>
+    <type>gain</type>
+    <gain>2</gain>
+    <input>/sim/model/rendering/relative-navlight-luminosity</input>
+    <output>/sim/model/rendering/relative-strobelight-luminosity</output>
+  </filter>
+
+</PropertyList>
+

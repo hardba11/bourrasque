@@ -100,6 +100,11 @@ http://wiki.flightgear.org/Property_tree
 
       <constant type="int">1</constant>
 
+      <rendering>
+        <relative-navlight-luminosity type="float">0</relative-navlight-luminosity>
+        <relative-strobelight-luminosity type="float">0</relative-strobelight-luminosity>
+      </rendering>
+
       <livery>
         <file type="string">liveries/texture_bourrasque_first_version</file>
       </livery>
@@ -198,8 +203,8 @@ http://wiki.flightgear.org/Property_tree
     <!-- ~~~~~~~~~~~~~~~~~~ systems -->
     <systems>
       <property-rule n="100">
-        <name>3d-shadow-filters</name>
-        <path>models/effects/shadow/3d-shadow-filters.xml</path>
+        <name>brsq-filters</name>
+        <path>models/brsq-filters.xml</path>
       </property-rule>
       <property-rule n="101">
         <name>rain-drops-filters</name>
@@ -208,6 +213,10 @@ http://wiki.flightgear.org/Property_tree
       <property-rule n="102">
         <name>sounds-filters</name>
         <path>sounds/sounds-filters.xml</path>
+      </property-rule>
+      <property-rule n="103">
+        <name>3d-shadow-filters</name>
+        <path>models/effects/shadow/3d-shadow-filters.xml</path>
       </property-rule>
       <!-- ~~~~~~~~~~~~~~~~~~ autopilot -->
       <autopilot>

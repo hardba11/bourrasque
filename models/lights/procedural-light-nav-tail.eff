@@ -11,7 +11,8 @@
     <light_color_center_r type="float">1.0</light_color_center_r>
     <light_color_center_g type="float">1.0</light_color_center_g>
     <light_color_center_b type="float">1.0</light_color_center_b>
-    <intensity_scale type="float">1.0</intensity_scale>
+
+    <intensity_scale type="float"><use>/sim/model/rendering/relative-navlight-luminosity</use></intensity_scale>
 
     <!-- Arc is 140 deg, is 70 deg per side -->
     <pointing_x type="float">-1.0</pointing_x>

@@ -151,6 +151,14 @@ var do_transponder = func(value) { # 0/4
     setprop("/instrumentation/transponder/inputs/knob-mode", value);
     setprop("/sim/model/click", (getprop("/sim/model/click") ? 0 : 1));
 }
+var do_hud_brightness = func(value) {
+    printf('  hud brightness');
+    setprop("/sim/hud/color/brightness", value);
+}
+var do_hud_color = func(value) { # 0=green/1=red
+    printf('  hud color');
+    setprop("/sim/hud/current-color", value);
+}
 
 var flashlight = func(n) {
     var view_number = getprop('/sim/current-view/view-number') or 0;
@@ -159,6 +167,40 @@ var flashlight = func(n) {
         setprop("/sim/rendering/als-secondary-lights/use-flashlight", n);
     }
 }
+
+var settings_depending_luminosity = {
+    'day':{
+        'hud_color':        0,
+        'hud_brightness':   1,
+        'panel_light':      0,
+        'instrument_light': 0,
+        'nav_light':        0,
+        'pos_light':        0,
+        'form_light':       0,
+        'flashlight':       0,
+    },
+    'dawn':{
+        'hud_color':        0,
+        'hud_brightness':   .7,
+        'panel_light':      0,
+        'instrument_light': 1,
+        'nav_light':        1,
+        'pos_light':        1,
+        'form_light':       1,
+        'flashlight':       0,
+    },
+    'night':{
+        'hud_color':        1,
+        'hud_brightness':   .5,
+        'panel_light':      .8,
+        'instrument_light': .6,
+        'nav_light':        1,
+        'pos_light':        1,
+        'form_light':       .66,
+        'flashlight':       2,
+    },
+};
+
 
 #===============================================================================
 #                                                           START/STOP FUNCTIONS
@@ -216,6 +258,11 @@ var fast_start = func() {
     {
         process_status = 'FASTAUTOSTARTING';
 
+        var scene_diffuse = getprop("/rendering/scene/diffuse/green");
+        var luminosity = 'dawn';
+        luminosity = (scene_diffuse > .5) ? 'day' : luminosity;
+        luminosity = (scene_diffuse <= .12) ? 'night' : luminosity;
+
         do_ground_equipment(0);
         do_electrical_master_switch(1);
         do_electrical_bus_avionics(1);
@@ -231,14 +278,16 @@ var fast_start = func() {
         do_nav1(1);
         do_adf0(2);
         do_transponder(4);
-        do_lighting_instr(0.6);
-        do_lighting_panel(0.4);
-        do_lighting_form(1);
-        do_lighting_pos(1);
-        do_lighting_nav(1);
+        do_lighting_instr(settings_depending_luminosity[luminosity]['instrument_light']);
+        do_lighting_panel(settings_depending_luminosity[luminosity]['panel_light']);
+        do_lighting_form(settings_depending_luminosity[luminosity]['form_light']);
+        do_lighting_pos(settings_depending_luminosity[luminosity]['pos_light']);
+        do_lighting_nav(settings_depending_luminosity[luminosity]['nav_light']);
         do_lighting_strobe(1);
         do_lighting_anticoll(1);
         do_lighting_landing(1);
+        do_hud_color(settings_depending_luminosity[luminosity]['hud_color']);
+        do_hud_brightness(settings_depending_luminosity[luminosity]['hud_brightness']);
         do_command_canopy(0);
         settimer(func() {
             do_engines_started();
@@ -258,6 +307,11 @@ var stop = func() {
     {
         process_status = 'AUTOSTOPPING';
 
+        var scene_diffuse = getprop("/rendering/scene/diffuse/green");
+        var luminosity = 'dawn';
+        luminosity = (scene_diffuse > .5) ? 'day' : luminosity;
+        luminosity = (scene_diffuse <= .12) ? 'night' : luminosity;
+
         my_aircraft_functions.save_current_view();
 
         setprop("/controls/engines/engine[0]/throttle", 0);
@@ -275,13 +329,11 @@ var stop = func() {
         wait +=  1   ; settimer(func() {  do_command_brake_parking(1); },                   wait);
         wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_light(); },       wait);
         wait +=  2   ; settimer(func() {  do_lighting_landing(0); },                        wait);
-        wait +=  1   ; settimer(func() {  do_lighting_form(.66); },                         wait);
-        wait +=   .2 ; settimer(func() {  do_lighting_form(.33); },                         wait);
-        wait +=   .2 ; settimer(func() {  do_lighting_form(0); },                           wait);
-        wait +=  1   ; settimer(func() {  do_lighting_pos(0); },                            wait);
+        wait +=  1   ; settimer(func() {  do_lighting_form(0); },                           wait);
         wait +=  1   ; settimer(func() {  do_lighting_nav(0); },                            wait);
-        wait +=  1   ; settimer(func() {  do_lighting_strobe(0); },                         wait);
+        wait +=  1   ; settimer(func() {  do_lighting_pos(0); },                            wait);
         wait +=  1   ; settimer(func() {  do_lighting_anticoll(0); },                       wait);
+        wait +=  1   ; settimer(func() {  do_lighting_strobe(0); },                         wait);
         wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_electrical(); },  wait);
         wait +=  1   ; settimer(func() {  do_electrical_master_switch(1); },                wait);
         wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_engines(); },     wait);
@@ -294,13 +346,13 @@ var stop = func() {
         wait +=  1   ; settimer(func() {  do_nav0(0); },                                    wait);
         wait +=  1   ; settimer(func() {  do_nav1(0); },                                    wait);
         wait +=  1   ; settimer(func() {  do_adf0(0); },                                    wait);
-        wait +=  1   ; settimer(func() {  do_comm0(0); },                                   wait);
-        wait +=  1   ; settimer(func() {  do_comm1(0); },                                   wait);
         wait +=  1   ; settimer(func() {  do_transponder(0); },                             wait);
+        wait +=  1   ; settimer(func() {  do_comm1(0); },                                   wait);
+        wait +=  1   ; settimer(func() {  do_comm0(0); },                                   wait);
         wait +=  2   ; settimer(func() { my_aircraft_functions.view_panel_electrical(); },  wait);
         wait +=  6   ; settimer(func() {  do_electrical_bus_commands(0); },                 wait);
         wait +=  1   ; settimer(func() {  do_electrical_bus_engines(0); },                  wait);
-        wait +=  1   ; settimer(func() { flashlight(2); },                                  wait);
+        wait +=  1   ; settimer(func() { flashlight(settings_depending_luminosity[luminosity]['flashlight']); }, wait);
         wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_command(); },     wait);
         wait +=  2   ; settimer(func() { do_command_canopy(1); },                           wait);
         wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_light(); },       wait);
@@ -325,32 +377,37 @@ var autostart = func() {
     {
         process_status = 'AUTOSTARTING';
 
+        var scene_diffuse = getprop("/rendering/scene/diffuse/green");
+        var luminosity = 'dawn';
+        luminosity = (scene_diffuse > .5) ? 'day' : luminosity;
+        luminosity = (scene_diffuse <= .12) ? 'night' : luminosity;
+
         init();
         my_aircraft_functions.save_current_view();
 
         var wait = 0;
+        wait +=   .1 ; settimer(func() { flashlight(settings_depending_luminosity[luminosity]['flashlight']); }, wait);
         wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_command(); },     wait);
         wait +=   .2 ; settimer(func() {  do_command_canopy(.6); },                         wait);
         wait +=   .1 ; settimer(func() { do_ground_equipment(0); },                         wait);
-        wait +=   .1 ; settimer(func() { flashlight(2); },                                  wait);
         wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_electrical(); },  wait);
         wait +=   .5 ; settimer(func() {  do_electrical_master_switch(1); },                wait);
         wait +=   .5 ; settimer(func() {  do_electrical_bus_avionics(1); },                 wait);
         wait +=   .5 ; settimer(func() {  do_electrical_bus_engines(1); },                  wait);
         wait +=   .5 ; settimer(func() {  do_electrical_bus_commands(1); },                 wait);
         wait +=   .5 ; settimer(func() { my_aircraft_functions.view_panel_light(); },       wait);
-        wait +=  1   ; settimer(func() {  do_lighting_instr(0.6); },                        wait);
-        wait +=  1   ; settimer(func() {  do_lighting_panel(0.4); },                        wait);
+        wait +=  1   ; settimer(func() {  do_lighting_instr(settings_depending_luminosity[luminosity]['instrument_light']); }, wait);
+        wait +=  1   ; settimer(func() {  do_lighting_panel(settings_depending_luminosity[luminosity]['panel_light']); },      wait);
         wait +=   .1 ; settimer(func() { flashlight(0); },                                  wait);
         wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_light(); },       wait);
-        wait +=   .5 ; settimer(func() {  do_lighting_anticoll(1); },                       wait);
         wait +=   .5 ; settimer(func() {  do_lighting_strobe(1); },                         wait);
+        wait +=   .5 ; settimer(func() {  do_lighting_anticoll(1); },                       wait);
         wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_radio(); },       wait);
         wait +=  1   ; settimer(func() {  do_comm0(1); },                                   wait);
-        wait +=  1   ; settimer(func() {  do_comm1(1); },                                   wait);
-        wait +=  1   ; settimer(func() {  do_transponder(4); },                             wait);
         wait +=  1   ; settimer(func() {  do_nav0(1); },                                    wait);
+        wait +=  1   ; settimer(func() {  do_comm1(1); },                                   wait);
         wait +=  1   ; settimer(func() {  do_nav1(1); },                                    wait);
+        wait +=  1   ; settimer(func() {  do_transponder(4); },                             wait);
         wait +=  1   ; settimer(func() {  do_adf0(2); },                                    wait);
         wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_command(); },     wait);
         wait +=  1   ; settimer(func() {  do_command_canopy(0); },                          wait);
@@ -367,13 +424,14 @@ var autostart = func() {
         wait +=  5   ; settimer(func() { my_aircraft_functions.view_panel_electrical(); },  wait);
         wait +=  1   ; settimer(func() {  do_electrical_master_switch(2); },                wait);
         wait +=  1   ; settimer(func() { my_aircraft_functions.view_panel_light(); },       wait);
-        wait +=   .5 ; settimer(func() {  do_lighting_nav(1); },                            wait);
-        wait +=   .5 ; settimer(func() {  do_lighting_pos(1); },                            wait);
-        wait +=   .5 ; settimer(func() {  do_lighting_form(.33); },                         wait);
-        wait +=   .2 ; settimer(func() {  do_lighting_form(.66); },                         wait);
-        wait +=   .2 ; settimer(func() {  do_lighting_form(1); },                           wait);
+        wait +=   .5 ; settimer(func() {  do_lighting_pos(settings_depending_luminosity[luminosity]['pos_light']); },   wait);
+        wait +=   .5 ; settimer(func() {  do_lighting_nav(settings_depending_luminosity[luminosity]['nav_light']); },   wait);
         wait +=   .5 ; settimer(func() {  do_lighting_landing(1); },                        wait);
+        wait +=   .5 ; settimer(func() {  do_lighting_form(settings_depending_luminosity[luminosity]['form_light']); }, wait);
         wait +=  2   ; settimer(func() { my_aircraft_functions.load_current_view(); },      wait);
+        wait +=   .5 ; settimer(func() {  do_hud_color(settings_depending_luminosity[luminosity]['hud_color']); }, wait);
+        wait +=   .2 ; settimer(func() {  do_hud_brightness(settings_depending_luminosity[luminosity]['hud_brightness']); }, wait);
+
         wait +=  1   ; settimer(func() { printf('started. Ready to fly !'); },              wait);
         wait +=  1   ; settimer(func() { setprop("/sim/messages/pilot", 'started. Ready to fly !'); }, wait);
 
