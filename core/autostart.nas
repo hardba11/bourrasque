@@ -258,11 +258,6 @@ var fast_start = func() {
     {
         process_status = 'FASTAUTOSTARTING';
 
-        var scene_diffuse = getprop("/rendering/scene/diffuse/green");
-        var luminosity = 'dawn';
-        luminosity = (scene_diffuse > .5) ? 'day' : luminosity;
-        luminosity = (scene_diffuse <= .12) ? 'night' : luminosity;
-
         do_ground_equipment(0);
         do_electrical_master_switch(1);
         do_electrical_bus_avionics(1);
@@ -278,16 +273,9 @@ var fast_start = func() {
         do_nav1(1);
         do_adf0(2);
         do_transponder(4);
-        do_lighting_instr(settings_depending_luminosity[luminosity]['instrument_light']);
-        do_lighting_panel(settings_depending_luminosity[luminosity]['panel_light']);
-        do_lighting_form(settings_depending_luminosity[luminosity]['form_light']);
-        do_lighting_pos(settings_depending_luminosity[luminosity]['pos_light']);
-        do_lighting_nav(settings_depending_luminosity[luminosity]['nav_light']);
         do_lighting_strobe(1);
         do_lighting_anticoll(1);
         do_lighting_landing(1);
-        do_hud_color(settings_depending_luminosity[luminosity]['hud_color']);
-        do_hud_brightness(settings_depending_luminosity[luminosity]['hud_brightness']);
         do_command_canopy(0);
         settimer(func() {
             do_engines_started();
@@ -295,6 +283,23 @@ var fast_start = func() {
             process_status = 'READY';
         }, 1);
 
+        settimer(func() {
+
+        var scene_diffuse = getprop("/rendering/scene/diffuse/green");
+            var luminosity = 'dawn';
+            luminosity = (scene_diffuse > .5) ? 'day' : luminosity;
+            luminosity = (scene_diffuse <= .12) ? 'night' : luminosity;
+
+            printf('FASTAUTOSTARTING - scene_diffuse:%s - luminosity:%s', scene_diffuse, luminosity);
+
+            do_lighting_instr(settings_depending_luminosity[luminosity]['instrument_light']);
+            do_lighting_panel(settings_depending_luminosity[luminosity]['panel_light']);
+            do_lighting_form(settings_depending_luminosity[luminosity]['form_light']);
+            do_lighting_pos(settings_depending_luminosity[luminosity]['pos_light']);
+            do_lighting_nav(settings_depending_luminosity[luminosity]['nav_light']);
+            do_hud_color(settings_depending_luminosity[luminosity]['hud_color']);
+            do_hud_brightness(settings_depending_luminosity[luminosity]['hud_brightness']);
+        }, 5);
         printf('started. Ready to fly !');
         settimer(func() { setprop("/sim/messages/pilot", 'started. Ready to fly !'); }, 1);
     }

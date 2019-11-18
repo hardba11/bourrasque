@@ -79,8 +79,8 @@ var distLoop = maketimer(0.1,
                     interpolate("/homemade-loop-timer/color-green", 0.5, 2);
                     #read logfile contents, write new stuff and close it
                     var txt = "";
-                    call(func(){ txt = io.readfile(getprop("/sim/fg-home") ~"/HOMEMADE-loop-times.log"); }, nil, var err = []);
-                    var file = io.open(getprop("/sim/fg-home") ~"/HOMEMADE-loop-times.log", "w");
+                    call(func(){ txt = io.readfile(getprop("/sim/fg-home") ~"/homemade-loop-times.log"); }, nil, var err = []);
+                    var file = io.open(getprop("/sim/fg-home") ~"/homemade-loop-times.log", "w");
                     var mins = getprop("/sim/time/real/minute");
                     var secs = getprop("/sim/time/real/second");
                     var newTime =
@@ -97,8 +97,8 @@ var distLoop = maketimer(0.1,
                     io.close(file);
                     screen.log.write("time: "~ newTime);
                     print("time: "~ newTime);
-                    screen.log.write("Writing time to file "~ getprop("/sim/fg-home") ~"/HOMEMADE-loop-times.log");
-                    print("Writing time to file "~ getprop("/sim/fg-home") ~"/HOMEMADE-loop-times.log");
+                    screen.log.write("Writing time to file "~ getprop("/sim/fg-home") ~"/homemade-loop-times.log");
+                    print("Writing time to file "~ getprop("/sim/fg-home") ~"/homemade-loop-times.log");
                 }
                 else if(getprop("/homemade-loop-timer/finish-delay"))
                 {

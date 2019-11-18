@@ -38,16 +38,16 @@ creating ai scenario
 2- open a terminal and run :
 chmod 0700 csv2xml-loop.pl
 ./csv2xml-loop.pl
-3- a new file has been created : HOMEMADE-timed-loop.xml
+3- a new file has been created : homemade-timed-loop.xml
 4- copy it in the directory fgdata/AI/
-5- copy directory bourrasque/ai/HOMEMADE-timed-loop/ in the directory fgdata/AI/
+5- copy directory bourrasque/ai/homemade-timed-loop/ in the directory fgdata/AI/
 
 
 
 testing/using
 -------------
 1- launch fgfs
-2- enable scenario HOMEMADE-timed-loop in the menu
+2- enable scenario homemade-timed-loop in the menu
 3- test
 
 

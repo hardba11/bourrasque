@@ -121,10 +121,6 @@ changelog
     </emission>
     <condition>
       <property>systems/electrical/bus/avionics</property>
-      <!--less-than>
-        <property>/rendering/scene/diffuse/green</property>
-        <value>0.45</value>
-      </less-than-->
     </condition>
   </animation>
   <animation>
@@ -148,6 +144,7 @@ changelog
         <property>/controls/lighting/panel-norm</property>
         <value>.39</value>
       </greater-than>
+      <property>systems/electrical/bus/avionics</property>
     </condition>
   </animation>
 
@@ -181,7 +178,7 @@ changelog
     <type>range</type>
     <min-m>0</min-m>
     <max-m>500</max-m>
-    <max-property>/sim/rendering/static-lod/detailed</max-property>
+    <max-property>sim/rendering/static-lod/detailed</max-property>
     <object-name>support_hotas_L</object-name>
     <object-name>support_hotas_R</object-name>
     <object-name>cockpit.vis_bordure</object-name>
