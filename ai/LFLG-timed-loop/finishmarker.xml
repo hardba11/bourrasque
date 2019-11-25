@@ -8,8 +8,6 @@
     <load>
     <![CDATA[
 srand(); # set seed for random generator
-#screen.log.write("Mach Loop finish loaded");
-print("Mach Loop finish loaded");
 
 var root = cmdarg();
 var rootindex = root.getIndex();
@@ -74,7 +72,7 @@ var distLoop = maketimer(0.1,
                     var difftime = getprop("/sim/time/elapsed-sec") - getprop("/homemade-loop-timer/starttime");
                     var decimals = int((difftime - int(difftime)) * 100);
                     var timeString = int(difftime) ~"."~ ((decimals < 10) ? ("0"~ decimals) : decimals);
-                    setprop("/sim/multiplay/chat", getprop("/sim/multiplay/callsign") ~" ("~ getprop("/sim/aircraft") ~") finished timed Mach Loop with time "~ timeString ~" s");
+                    setprop("/sim/multiplay/chat", getprop("/sim/multiplay/callsign") ~" ("~ getprop("/sim/aircraft") ~") finished LFLG timed loop with time "~ timeString ~" s");
                     setprop("/homemade-loop-timer/starttime", 0);
                     interpolate("/homemade-loop-timer/color-green", 0.5, 2);
                     #read logfile contents, write new stuff and close it
@@ -103,7 +101,7 @@ var distLoop = maketimer(0.1,
                 else if(getprop("/homemade-loop-timer/finish-delay"))
                 {
                     setprop("/homemade-loop-timer/finished-notcleared", 1);
-                    setprop("/sim/multiplay/chat", "Awww, "~ getprop("/sim/multiplay/callsign") ~" ("~ getprop("/sim/aircraft") ~") finished timed Mach Loop without clearing all waypoints...");
+                    setprop("/sim/multiplay/chat", "Awww, "~ getprop("/sim/multiplay/callsign") ~" ("~ getprop("/sim/aircraft") ~") finished LFLG timed loop without clearing all waypoints...");
                     setprop("/homemade-loop-timer/finish-delay", 0);
                     settimer(func(){ setprop("/homemade-loop-timer/finish-delay", 1); }, 5);
                 }
@@ -121,7 +119,7 @@ distLoop.start();
     <unload>
     <![CDATA[
 #screen.log.write("Mach Loop finish unloaded");
-print("Mach Loop finish unloaded");
+print("LFLG timed loop finish unloaded");
 removelistener(listenStarttime);
 distLoop.stop();
 distLoop = nil;

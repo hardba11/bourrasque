@@ -9,7 +9,7 @@ var resolution_y = 1024;
 var pixel_range = 620;
 var margin_top = 120;
 
-var radar_range = getprop("/instrumentation/my_aircraft/sfd/controls/radar_range") or 40;
+var radar_range = getprop("/instrumentation/my_aircraft/sfd/controls/radar_range") or 5;
 
 
 #===============================================================================
@@ -242,7 +242,7 @@ var SFD_RADAR = {
         {
 
 # RECUPERATION DES DONNEES : NOTRE AVION
-            var radar_range = getprop("/instrumentation/my_aircraft/sfd/controls/radar_range") or 40;
+            var radar_range = getprop("/instrumentation/my_aircraft/sfd/controls/radar_range") or 5;
             var my_speed    = getprop("/instrumentation/airspeed-indicator/true-speed-kt");
             var my_heading  = getprop("/orientation/heading-deg");
             var my_alt      = getprop("/instrumentation/altimeter/indicated-altitude-ft");

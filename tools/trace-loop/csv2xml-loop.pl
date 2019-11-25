@@ -1,7 +1,7 @@
 #!/usr/bin/perl -W
 
 # author : hardball
-# version : v20191117-01
+# version : v20191125-01
 # description :
 #   csv loop to xml scenario
 
@@ -29,12 +29,13 @@ use Term::ANSIColor ;
 my $FILENAME_IN_CSV         = 'trace-loop-INPUT.csv' ;
 my $FILENAME_INC_HEADER_XML = 'loop-HEADER.inc.xml' ;
 my $FILENAME_INC_FOOTER_XML = 'loop-FOOTER.inc.xml' ;
-my $FILENAME_OUT_XML        = 'homemade-timed-loop.xml' ;
+my $FILENAME_OUT_XML        = 'LFLG-timed-loop.xml' ;
 
 my $TPL_ENTRANCE = '
     <entry>
-      <name>Line%02d</name>
-      <model type="string">AI/homemade-timed-loop/lineupmarker.xml</model>
+      <name>loop-entrance%02d</name>
+      <callsign>L-IN%02d</callsign>
+      <model type="string">LFLG-timed-loop/lineupmarker.xml</model>
       <latitude type="double">%s</latitude>
       <longitude type="double">%s</longitude>
       <altitude type="double">%s</altitude>
@@ -45,8 +46,9 @@ my $TPL_ENTRANCE = '
 
 my $TPL_START1 = '
     <entry>
-      <name>Start-Marker</name>
-      <model type="string">AI/homemade-timed-loop/startmarker.xml</model>
+      <name>loop-start-marker</name>
+      <callsign>L-STRT</callsign>
+      <model type="string">LFLG-timed-loop/startmarker.xml</model>
       <latitude type="double">%s</latitude>
       <longitude type="double">%s</longitude>
       <altitude type="double">%s</altitude>
@@ -55,9 +57,9 @@ my $TPL_START1 = '
     </entry>' ;
 my $TPL_START2 = '
     <entry>
-      <callsign>Start</callsign>
-      <name>Start</name>
-      <model type="string">AI/homemade-timed-loop/targetmarker-inactive.xml</model>
+      <name>loop-start</name>
+      <callsign>L-STRT</callsign>
+      <model type="string">LFLG-timed-loop/targetmarker-inactive.xml</model>
       <latitude type="double">%s</latitude>
       <longitude type="double">%s</longitude>
       <altitude type="double">%s</altitude>
@@ -68,8 +70,9 @@ my $TPL_START2 = '
 
 my $TPL_LOOP = '
     <entry>
-      <name>%d</name>
-      <model type="string">AI/homemade-timed-loop/targetmarker.xml</model>
+      <name>loop-gate-%02d</name>
+      <callsign>L-GT%02d</callsign>
+      <model type="string">LFLG-timed-loop/targetmarker.xml</model>
       <latitude type="double">%s</latitude>
       <longitude type="double">%s</longitude>
       <altitude type="double">%s</altitude>
@@ -80,9 +83,9 @@ my $TPL_LOOP = '
 
 my $TPL_FINISH1 = '
     <entry>
-      <callsign>Finish</callsign>
-      <name>Finish</name>
-      <model type="string">AI/homemade-timed-loop/targetmarker-inactive.xml</model>
+      <name>loop-finish</name>
+      <callsign>L-END</callsign>
+      <model type="string">LFLG-timed-loop/targetmarker-inactive.xml</model>
       <latitude type="double">%s</latitude>
       <longitude type="double">%s</longitude>
       <altitude type="double">%s</altitude>
@@ -91,8 +94,9 @@ my $TPL_FINISH1 = '
     </entry>' ;
 my $TPL_FINISH2 = '
     <entry>
-      <name>Finish-Marker</name>
-      <model type="string">AI/homemade-timed-loop/finishmarker.xml</model>
+      <name>loop-finish-marker</name>
+      <callsign>L-END</callsign>
+      <model type="string">LFLG-timed-loop/finishmarker.xml</model>
       <latitude type="double">%s</latitude>
       <longitude type="double">%s</longitude>
       <altitude type="double">%s</altitude>
@@ -103,8 +107,9 @@ my $TPL_FINISH2 = '
 
 my $TPL_EXIT = '
     <entry>
-      <name>Exit%02d</name>
-      <model type="string">AI/homemade-timed-loop/lineupmarker.xml</model>
+      <name>loop-exit-%02d</name>
+      <callsign>L-EX%02d</callsign>
+      <model type="string">LFLG-timed-loop/lineupmarker.xml</model>
       <latitude type="double">%s</latitude>
       <longitude type="double">%s</longitude>
       <altitude type="double">%s</altitude>
@@ -150,7 +155,7 @@ sub main
 
         if($no_phase == 1)
         {
-            push @out, sprintf($TPL_ENTRANCE, ++$index_entrance, $lat, $lng, $alt, $hdg, $roll) ;
+            push @out, sprintf($TPL_ENTRANCE, ++$index_entrance, $index_entrance, $lat, $lng, $alt, $hdg, $roll) ;
         }
         elsif(($no_phase == 2) && ($previous_no_phase == 1))
         {
@@ -159,7 +164,7 @@ sub main
         }
         elsif($no_phase == 2)
         {
-            push @out, sprintf($TPL_LOOP, ++$index_loop, $lat, $lng, $alt, $hdg, $roll) ;
+            push @out, sprintf($TPL_LOOP, ++$index_loop, $index_loop, $lat, $lng, $alt, $hdg, $roll) ;
         }
         elsif(($no_phase == 3) && ($previous_no_phase == 2))
         {
@@ -168,7 +173,7 @@ sub main
         }
         elsif($no_phase == 3)
         {
-            push @out, sprintf($TPL_EXIT, ++$index_exit, $lat, $lng, $alt, $hdg, $roll) ;
+            push @out, sprintf($TPL_EXIT, ++$index_exit, $index_exit, $lat, $lng, $alt, $hdg, $roll) ;
         }
 
         $previous_no_phase = $no_phase ;

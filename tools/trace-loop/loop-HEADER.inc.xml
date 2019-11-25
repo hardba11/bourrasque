@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PropertyList>
+  <name>HOMEMADE-timed-loop</name>
   <scenario>
-    <name>HOMEMADE-timed-loop</name>
     <description>
       HOMEMADE timed loop (thanks to FGUK Mach Loop developpers !)
     </description>

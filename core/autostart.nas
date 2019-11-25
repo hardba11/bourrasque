@@ -290,8 +290,6 @@ var fast_start = func() {
             luminosity = (scene_diffuse > .5) ? 'day' : luminosity;
             luminosity = (scene_diffuse <= .12) ? 'night' : luminosity;
 
-            printf('FASTAUTOSTARTING - scene_diffuse:%s - luminosity:%s', scene_diffuse, luminosity);
-
             do_lighting_instr(settings_depending_luminosity[luminosity]['instrument_light']);
             do_lighting_panel(settings_depending_luminosity[luminosity]['panel_light']);
             do_lighting_form(settings_depending_luminosity[luminosity]['form_light']);

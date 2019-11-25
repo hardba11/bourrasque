@@ -8,8 +8,6 @@
     <load>
     <![CDATA[
 srand(); # set seed for random generator
-#screen.log.write("Mach Loop start loaded");
-print("Mach Loop start loaded");
 
 var root = cmdarg();
 var rootindex = root.getIndex();
@@ -95,7 +93,7 @@ var distLoop = maketimer(0.1,
             if(dist < 100)
             {
                 setprop("/homemade-loop-timer/starttime", getprop("/sim/time/elapsed-sec"));
-                setprop("/sim/multiplay/chat", getprop("/sim/multiplay/callsign") ~" ("~ getprop("/sim/aircraft") ~") started timed Mach Loop!");
+                setprop("/sim/multiplay/chat", getprop("/sim/multiplay/callsign") ~" ("~ getprop("/sim/aircraft") ~") started timed LFLG timed loop !");
                 machCheck.start();
                 clearWaypoints();
                 setprop("/homemade-loop-timer/finished-notcleared", 0);
@@ -120,8 +118,8 @@ distLoop.start();
     </load>
     <unload>
     <![CDATA[
-#screen.log.write("Mach Loop start unloaded");
-print("Mach Loop start unloaded");
+#screen.log.write("LFLG timed loop start unloaded");
+print("LFLG timed loop start unloaded");
 removelistener(listenStarttime);
 removelistener(listenNotcleared);
 distLoop.stop();

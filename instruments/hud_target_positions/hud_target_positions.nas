@@ -5,7 +5,7 @@ print("*** LOADING instrument_hud_target_positions - hud_target_positions.nas ..
 var my_reticle_radius = 10;
 var max_reticle = 10;
 
-var DEG2PIXEL = 512 / 45;
+var DEG2PIXEL = 512 / 44;
 
 #===============================================================================
 #                                                                      CLASS HUD
@@ -82,10 +82,10 @@ var HUD = {
             m.speed_bar = m.speed_info.createChild('path', 'speed_bar-'~ i)
                 .setStrokeLineWidth(2)
                 .set('stroke', 'rgba(255, 255, 220, 0.9)')
-                .moveTo(-(my_reticle_radius + 8), 0)
+                .moveTo(-(my_reticle_radius + 6), 0)
                 .lineTo(-my_reticle_radius, 0)
                 .moveTo(my_reticle_radius, 0)
-                .lineTo(my_reticle_radius + 8, 0);
+                .lineTo(my_reticle_radius + 6, 0);
             m.text_speed = m.speed_info.createChild('text', 'text_speed-'~ i)
                 .setTranslation(-30, 0)
                 .setAlignment('right-center')
@@ -132,9 +132,9 @@ var HUD = {
             var pitch_deg      = getprop("/orientation/pitch-deg");
             var roll_deg       = getprop("/orientation/roll-deg");
             var velocity       = getprop("/instrumentation/airspeed-indicator/true-speed-kt");
-            var my_heading_deg = getprop("/orientation/heading-deg");
+            var my_heading_deg = getprop("/orientation/heading-deg"); # true north
             var my_aoa_deg     = getprop("/orientation/alpha-deg");
-            var radar_range    = getprop("/instrumentation/my_aircraft/sfd/controls/radar_range") or 40;
+            var radar_range    = getprop("/instrumentation/my_aircraft/sfd/controls/radar_range") or 5;
 
             var coord_y_pitch  = pitch_deg * DEG2PIXEL;
             var coord_y_aoa    = my_aoa_deg * DEG2PIXEL;
@@ -162,6 +162,7 @@ var HUD = {
             var targets_datas  = [];
             for(var i = 0; i < size(list_obj); i += 1)
             {
+                var heading_offset     = list_obj[i].getNode("radar/h-offset").getValue() or 0;
                 var target_bearing_deg = list_obj[i].getNode("radar/bearing-deg").getValue() or 0;
                 var target_callsign    = list_obj[i].getNode("callsign").getValue() or 0;
                 var target_in_range    = list_obj[i].getNode("radar/in-range").getValue() or 0;
@@ -170,7 +171,7 @@ var HUD = {
 
                 if(target_in_range
                     and is_valid
-                    and math.abs(target_bearing_deg - my_heading_deg) < 50
+                    and math.abs(heading_offset) < 50
                     and target_range < radar_range)
                 {
                     var target_data = {};
@@ -180,15 +181,16 @@ var HUD = {
                     var target_altitude              = list_obj[i].getNode("position/altitude-ft").getValue() or 0;
                     var target_airspeed              = list_obj[i].getNode("velocities/true-airspeed-kt").getValue() or 0;
 
-                    var bearing_deg                  = target_bearing_deg - my_heading_deg;
                     var relative_heading_deg         = target_heading_deg - my_heading_deg;
 
-                    var coord_x                      = bearing_deg * DEG2PIXEL;
-                    var coord_y                      = target_elevation_deg * DEG2PIXEL;
+                    var coord_x                      = heading_offset * DEG2PIXEL;
+                    var coord_y                      = (target_elevation_deg + 1) * DEG2PIXEL;
 
-                    var relative_speed_M             = velocity        * math.cos(target_bearing_deg * D2R);
-                    var relative_speed_T             = target_airspeed * math.cos((my_heading_deg + target_bearing_deg - target_heading_deg + 180) * D2R);
-                    var relative_speed               = relative_speed_T + relative_speed_M;
+                    var relative_speed_M             = velocity        * math.cos(heading_offset * D2R);
+                    var relative_speed_T             = target_airspeed * math.cos((target_heading_deg - target_bearing_deg) * D2R);
+                    #var relative_speed_M             = velocity        * math.cos(target_bearing_deg * D2R);
+                    #var relative_speed_T             = target_airspeed * math.cos((my_heading_deg + target_bearing_deg - target_heading_deg + 180) * D2R);
+                    var relative_speed               = relative_speed_T - relative_speed_M;
                     var speed_y                      = (sprintf('%d', relative_speed) == 0) ? 0 : math.log10(math.abs(sprintf('%d', relative_speed))) * 6;
                     var positive_or_negative         = (relative_speed >= 0) ? 1 : -1;
 
@@ -207,6 +209,7 @@ var HUD = {
                     target_data.coord_x              = coord_x;
                     target_data.coord_y              = -(coord_y - coord_y_pitch) + 7;  # 7: dirt hack to correct position
                     target_data.relative_heading_deg = relative_heading_deg;
+                    target_data.target_range         = target_range;
 
                     append(targets_datas, target_data);
                     #print(sprintf('FOUND target %s - %.1f - %d - %d', target_callsign, relative_speed, velocity, target_airspeed));
@@ -225,6 +228,9 @@ var HUD = {
                 {
                     var td = targets_datas[i];
 
+                    var scale_reticle = ((td.target_range < 10) and (td.target_range > 0)) 
+                        ? ((-.12 * td.target_range) + 1.5)
+                        : 0.3;
                     me.text_lbl   = me.targets[i].getElementById('text_lbl-'~ i);
                     me.text_info  = me.targets[i].getElementById('text_info-'~ i);
                     me.reticle    = me.targets[i].getElementById('reticle-'~ i);
@@ -236,6 +242,7 @@ var HUD = {
                     me.text_speed.setText(td.text_speed);
                     me.t_targets[i].setTranslation(td.coord_x, td.coord_y);
                     me.t_reticles[i].setRotation(td.relative_heading_deg * D2R);
+                    me.t_targets[i].setScale(scale_reticle, scale_reticle);
 
                     me.targets[i].show();
                     #print(sprintf('SHOW target %s', td.text_info));

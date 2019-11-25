@@ -25,6 +25,11 @@ see :
 ________________________________________________________________________________
                                          RAS of some useless keys for bourrasque
   -->
+    <key n="2">
+      <name>ctrl-b</name>
+      <desc></desc>
+      <binding n="0"><command>nasal</command><script /></binding>
+    </key>
     <key n="7">
       <name>ctrl-g</name>
       <binding><command>nasal</command><script /></binding>

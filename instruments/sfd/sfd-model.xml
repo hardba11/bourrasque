@@ -229,6 +229,7 @@ my_aircraft_functions.event_swap_sfd_screen();
         <command>property-cycle</command>
         <wrap type="bool">0</wrap>
         <property>/instrumentation/my_aircraft/sfd/controls/radar_range</property>
+        <value>5</value>
         <value>10</value>
         <value>20</value>
         <value>40</value>
@@ -251,6 +252,7 @@ my_aircraft_functions.event_swap_sfd_screen();
         <value>40</value>
         <value>20</value>
         <value>10</value>
+        <value>5</value>
       </binding>
       <binding>
         <command>property-toggle</command>

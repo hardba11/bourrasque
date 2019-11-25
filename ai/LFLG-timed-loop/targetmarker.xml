@@ -87,8 +87,8 @@ var distLoop = maketimer(0.1,
                 if(miss)
                 {
                     redFlash();
-                    screen.log.write("You missed a waypoint!");
-                    print("You missed a waypoint!");
+                    screen.log.write("You missed a gate !");
+                    print("You missed a gate !");
                     miss = 0;
                 }
             }

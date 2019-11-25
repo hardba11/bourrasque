@@ -205,19 +205,24 @@ http://wiki.flightgear.org/Property_tree
       <property-rule n="100">
         <name>brsq-filters</name>
         <path>models/brsq-filters.xml</path>
+        <serviceable type="bool">1</serviceable>
       </property-rule>
       <property-rule n="101">
         <name>rain-drops-filters</name>
         <path>models/effects/rain/rain-drops-filters.xml</path>
+        <serviceable type="bool">1</serviceable>
       </property-rule>
       <property-rule n="102">
         <name>sounds-filters</name>
         <path>sounds/sounds-filters.xml</path>
+        <serviceable type="bool">1</serviceable>
       </property-rule>
       <property-rule n="103">
         <name>3d-shadow-filters</name>
         <path>models/effects/shadow/3d-shadow-filters.xml</path>
+        <serviceable type="bool">1</serviceable>
       </property-rule>
+
       <!-- ~~~~~~~~~~~~~~~~~~ autopilot -->
       <autopilot>
         <path>core/autopilot.xml</path>
