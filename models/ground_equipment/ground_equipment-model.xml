@@ -59,6 +59,19 @@ changelog
       </equals>
     </condition>
   </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ hide engines covers + flags -->
+  <animation>
+    <type>pick</type>
+    <object-name>ground_equipment.engine</object-name>
+    <object-name>ground_equipment.flags</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/ground-equipment-e</property>
+      </binding>
+    </action>
+  </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ gears chocks -->
   <animation>
@@ -88,6 +101,18 @@ changelog
       <z>1</z>
     </axis>
   </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ hide gears chocks -->
+  <animation>
+    <type>pick</type>
+    <object-name>ground_equipment.gears</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/ground-equipment-g</property>
+      </binding>
+    </action>
+  </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ scale -->
   <animation>
@@ -107,6 +132,18 @@ changelog
       </or>
     </condition>
   </animation>
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ hide scale -->
+  <animation>
+    <type>pick</type>
+    <object-name>ground_equipment.scale</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/ground-equipment-s</property>
+      </binding>
+    </action>
+  </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ external-power-unit -->
   <animation>
@@ -121,6 +158,21 @@ changelog
         <value>2</value>
       </less-than>
     </condition>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ hide epu -->
+  <animation>
+    <type>pick</type>
+    <object-name>external-power-unit.box</object-name>
+    <object-name>external-power-unit.wire</object-name>
+    <object-name>extincteur</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/ground-equipment-p</property>
+      </binding>
+    </action>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ fuel-truck -->
@@ -138,7 +190,20 @@ changelog
       </less-than>
     </condition>
   </animation>
-
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ hide fuel-truck -->
+  <animation>
+    <type>pick</type>
+    <object-name>fuel-truck.base</object-name>
+    <object-name>fuel-truck.pipe</object-name>
+    <object-name>cone</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/ground-equipment-f</property>
+      </binding>
+    </action>
+  </animation>
   <!-- ~~~~~~~~~~~~~~~~~~~~~~ control fuel quantity -->
   <animation>
     <type>pick</type>

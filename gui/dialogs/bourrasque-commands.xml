@@ -69,7 +69,7 @@ my_aircraft_functions.event_toggle_hippodrome(1);
 
   <hrule />
 
-  <!-- ~~~~~~~~~~~~~~~~~~ flashlight -->
+  <!-- ~~~~~~~~~~~~~~~~~~ flashlight / spotlight -->
   <group>
     <layout>table</layout>
     <halign>left</halign>
@@ -102,6 +102,32 @@ my_aircraft_functions.event_toggle_hippodrome(1);
         <command>property-assign</command>
         <property>/sim/rendering/als-secondary-lights/use-flashlight</property>
         <value>2</value>
+      </binding>
+    </button>
+  </group>
+  <group>
+    <layout>table</layout>
+    <halign>left</halign>
+    <text>
+      <row>0</row><col>0</col>
+      <label>searchlight</label>
+    </text>
+    <button>
+      <row>0</row><col>1</col>
+      <legend>off</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/rendering/als-secondary-lights/use-searchlight</property>
+        <value>0</value>
+      </binding>
+    </button>
+    <button>
+      <row>0</row><col>2</col>
+      <legend>on</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/sim/rendering/als-secondary-lights/use-searchlight</property>
+        <value>1</value>
       </binding>
     </button>
   </group>

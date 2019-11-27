@@ -64,6 +64,37 @@ changelog
     <object-name>reheat_inner_bruleur</object-name>
   </effect>
 
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/aircraft/aircraft</inherits-from>
+    <object-name>tuyere</object-name>
+    <object-name>tuyere.paroie</object-name>
+    <object-name>tuyere_int_part.000.0</object-name>
+    <object-name>tuyere_int_part.022.5</object-name>
+    <object-name>tuyere_int_part.045.0</object-name>
+    <object-name>tuyere_int_part.067.5</object-name>
+    <object-name>tuyere_int_part.090.0</object-name>
+    <object-name>tuyere_int_part.112.5</object-name>
+    <object-name>tuyere_int_part.135.0</object-name>
+    <object-name>tuyere_int_part.157.5</object-name>
+    <object-name>tuyere_int_part.180.0</object-name>
+    <object-name>tuyere_int_part.202.5</object-name>
+    <object-name>tuyere_int_part.225.0</object-name>
+    <object-name>tuyere_int_part.247.5</object-name>
+    <object-name>tuyere_int_part.270.0</object-name>
+    <object-name>tuyere_int_part.292.5</object-name>
+    <object-name>tuyere_int_part.315.0</object-name>
+    <object-name>tuyere_int_part.337.5</object-name>
+    <object-name>tuyere_part_000</object-name>
+    <object-name>tuyere_part_036</object-name>
+    <object-name>tuyere_part_072</object-name>
+    <object-name>tuyere_part_108</object-name>
+    <object-name>tuyere_part_144</object-name>
+    <object-name>tuyere_part_180</object-name>
+    <object-name>tuyere_part_216</object-name>
+    <object-name>tuyere_part_252</object-name>
+    <object-name>tuyere_part_288</object-name>
+    <object-name>tuyere_part_324</object-name>
+  </effect>
 
   <!--
 ================================================================================

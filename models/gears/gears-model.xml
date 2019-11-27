@@ -48,7 +48,7 @@ changelog
     <object-name>projecteur_train_mirroir</object-name>
     <object-name>essieu_train</object-name>
     <object-name>essieu_train_principal_L</object-name>
-    <object-name>essieu_train_principal_L</object-name>
+    <object-name>essieu_train_principal_R</object-name>
     <object-name>catapulte_support</object-name>
     <object-name>catapulte_tige</object-name>
   </animation>
@@ -63,6 +63,33 @@ changelog
   <effect>
     <inherits-from>Aircraft/bourrasque/models/effects/aircraft/mirror</inherits-from>
     <object-name>projecteur_train_mirroir</object-name>
+  </effect>
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/aircraft/aircraft</inherits-from>
+    <object-name>verin_jambe_train</object-name>
+    <object-name>piston_verin_jambe_train</object-name>
+    <object-name>jambe_train</object-name>
+    <object-name>compas_jambe_train</object-name>
+    <object-name>compas_piston_train</object-name>
+    <object-name>piston_train</object-name>
+    <object-name>roue_train</object-name>
+    <object-name>jambe_train_principal_L</object-name>
+    <object-name>compas_jambe_train_principal_L</object-name>
+    <object-name>compas_piston_train_principal_L</object-name>
+    <object-name>piston_train_principal_L</object-name>
+    <object-name>roue_train_principal_L</object-name>
+    <object-name>jambe_train_principal_R</object-name>
+    <object-name>compas_jambe_train_principal_R</object-name>
+    <object-name>compas_piston_train_principal_R</object-name>
+    <object-name>piston_train_principal_R</object-name>
+    <object-name>roue_train_principal_R</object-name>
+    <object-name>projecteur_train</object-name>
+    <object-name>projecteur_train_mirroir</object-name>
+    <object-name>essieu_train</object-name>
+    <object-name>essieu_train_principal_L</object-name>
+    <object-name>essieu_train_principal_R</object-name>
+    <object-name>catapulte_support</object-name>
+    <object-name>catapulte_tige</object-name>
   </effect>
 
   <animation>

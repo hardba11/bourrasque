@@ -177,9 +177,9 @@ ________________________________________________________________________________
     <type>material</type>
     <object-name>light_form</object-name>
     <emission>
-      <red>0.0</red>
-      <green>1</green>
-      <blue>0.0</blue>
+      <red>0</red>
+      <green-prop>sim/model/rendering/relative-navlight-luminosity</green-prop>
+      <blue>0</blue>
       <factor-prop>sim/multiplay/generic/float[2]</factor-prop>
     </emission>
     <condition>

@@ -564,9 +564,10 @@ var event_launch = func() {
 
 var event_control_canopy = func() {
     var is_on_ground = getprop("/gear/gear[1]/wow") or 0;
+    var is_on = getprop("/instrumentation/my_aircraft/electricals/controls/master-switch") or 0;
     var command_position = getprop("/controls/doors/canopy") or 0;
 
-    if(is_on_ground)
+    if(is_on_ground and is_on)
     {
         if(command_position == 1)
         {
