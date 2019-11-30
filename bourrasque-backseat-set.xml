@@ -33,7 +33,7 @@ http://wiki.flightgear.org/Property_tree
       <author n="0">
         <name>hardball SLK</name>
         <description>model, FDM, systems</description>
-        <nick>F-HRBD</nick>
+        <nick>F-HRDB</nick>
       </author>
     </authors>
     <maintainers>
@@ -82,6 +82,24 @@ http://wiki.flightgear.org/Property_tree
       <model type="int">4</model>
     </rating>
 
+    <previews>
+      <preview>
+        <type>exterior</type>
+        <splash type="bool">true</splash>
+        <path>contrib/preview-airborn.png</path>
+      </preview>
+      <preview>
+        <type>exterior</type>
+        <splash type="bool">true</splash>
+        <path>contrib/preview-parked.png</path>
+      </preview>
+      <preview>
+        <type>panel</type>
+        <splash type="bool">true</splash>
+        <path>contrib/preview-panel.png</path>
+      </preview>
+    </previews>
+
     <!-- ~~~~~~~~~~~~~~~~~~ flight model -->
     <flight-model>null</flight-model>
 
@@ -93,6 +111,11 @@ http://wiki.flightgear.org/Property_tree
       <variant type="string">bourrasque</variant>
 
       <constant type="int">1</constant>
+
+      <rendering>
+        <relative-navlight-luminosity type="float">0</relative-navlight-luminosity>
+        <relative-strobelight-luminosity type="float">0</relative-strobelight-luminosity>
+      </rendering>
 
       <livery>
         <file type="string">liveries/texture_bourrasque_first_version</file>
@@ -186,23 +209,36 @@ http://wiki.flightgear.org/Property_tree
     <!-- ~~~~~~~~~~~~~~~~~~ systems -->
     <systems>
       <property-rule n="100">
-        <name>3d-shadow-filters</name>
-        <path>models/effects/shadow/3d-shadow-filters.xml</path>
+        <name>brsq-filters</name>
+        <path>models/brsq-filters.xml</path>
+        <serviceable type="bool">1</serviceable>
       </property-rule>
       <property-rule n="101">
         <name>rain-drops-filters</name>
         <path>models/effects/rain/rain-drops-filters.xml</path>
+        <serviceable type="bool">1</serviceable>
       </property-rule>
       <property-rule n="102">
         <name>sounds-filters</name>
         <path>sounds/sounds-filters.xml</path>
+        <serviceable type="bool">1</serviceable>
       </property-rule>
+      <property-rule n="103">
+        <name>3d-shadow-filters</name>
+        <path>models/effects/shadow/3d-shadow-filters.xml</path>
+        <serviceable type="bool">1</serviceable>
+      </property-rule>
+
     </systems>
     <alarms>
       <stall-warning type="int">0</stall-warning>
     </alarms>
 
   </sim>
+
+  <position>
+    <gear-agl-ft type="float">0</gear-agl-ft>
+  </position>
 
   <!-- smoke touchdown, data updated by bourrasque.nas -->
   <gear>

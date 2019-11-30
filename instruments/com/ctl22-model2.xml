@@ -149,7 +149,6 @@ Syd Adams
     <object-name>ctl22.freq.004</object-name>
     <object-name>ctl22.freq.005</object-name>
     <object-name>ctl22.freq.006</object-name>
-    <object-name>ctl22.freq.dec</object-name>
     <object-name>ctl22.stby.001</object-name>
     <object-name>ctl22.stby.002</object-name>
     <object-name>ctl22.stby.003</object-name>
@@ -157,7 +156,6 @@ Syd Adams
     <object-name>ctl22.stby.004</object-name>
     <object-name>ctl22.stby.005</object-name>
     <object-name>ctl22.stby.006</object-name>
-    <object-name>ctl22.stby.dec</object-name>
     <condition>
       <greater-than>
         <property>/controls/lighting/instruments-norm</property>
@@ -180,7 +178,6 @@ Syd Adams
     <object-name>ctl22.freq.004</object-name>
     <object-name>ctl22.freq.005</object-name>
     <object-name>ctl22.freq.006</object-name>
-    <object-name>ctl22.freq.dec</object-name>
     <object-name>ctl22.stby.001</object-name>
     <object-name>ctl22.stby.002</object-name>
     <object-name>ctl22.stby.003</object-name>
@@ -188,7 +185,6 @@ Syd Adams
     <object-name>ctl22.stby.004</object-name>
     <object-name>ctl22.stby.005</object-name>
     <object-name>ctl22.stby.006</object-name>
-    <object-name>ctl22.stby.dec</object-name>
     <condition>
       <equals>
         <property>/controls/lighting/instruments-norm</property>

@@ -151,14 +151,13 @@ Syd Adams
     <object-name>ctl32.freq.003</object-name>
     <object-name>ctl32.freq.004</object-name>
     <object-name>ctl32.freq.005</object-name>
-    <object-name>ctl32.stby.dec</object-name>
+    <object-name>ctl32.freq.dec</object-name>
     <object-name>ctl32.stby.001</object-name>
     <object-name>ctl32.stby.002</object-name>
     <object-name>ctl32.stby.003</object-name>
     <object-name>ctl32.stby.dec</object-name>
     <object-name>ctl32.stby.004</object-name>
     <object-name>ctl32.stby.005</object-name>
-    <object-name>ctl32.stby.dec</object-name>
     <condition>
       <greater-than>
         <property>/controls/lighting/instruments-norm</property>
@@ -179,14 +178,13 @@ Syd Adams
     <object-name>ctl32.freq.003</object-name>
     <object-name>ctl32.freq.004</object-name>
     <object-name>ctl32.freq.005</object-name>
-    <object-name>ctl32.stby.dec</object-name>
+    <object-name>ctl32.freq.dec</object-name>
     <object-name>ctl32.stby.001</object-name>
     <object-name>ctl32.stby.002</object-name>
     <object-name>ctl32.stby.003</object-name>
     <object-name>ctl32.stby.dec</object-name>
     <object-name>ctl32.stby.004</object-name>
     <object-name>ctl32.stby.005</object-name>
-    <object-name>ctl32.stby.dec</object-name>
     <condition>
       <equals>
         <property>/controls/lighting/instruments-norm</property>

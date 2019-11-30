@@ -32,7 +32,7 @@ http://wiki.flightgear.org/Property_tree
       <author n="0">
         <name>hardball SLK</name>
         <description>model, FDM, systems</description>
-        <nick>F-HRBD</nick>
+        <nick>F-HRDB</nick>
       </author>
     </authors>
     <maintainers>
@@ -80,6 +80,24 @@ http://wiki.flightgear.org/Property_tree
       <cockpit type="int">4</cockpit>
       <model type="int">4</model>
     </rating>
+
+    <previews>
+      <preview>
+        <type>exterior</type>
+        <splash type="bool">true</splash>
+        <path>contrib/preview-airborn.png</path>
+      </preview>
+      <preview>
+        <type>exterior</type>
+        <splash type="bool">true</splash>
+        <path>contrib/preview-parked.png</path>
+      </preview>
+      <preview>
+        <type>panel</type>
+        <splash type="bool">true</splash>
+        <path>contrib/preview-panel.png</path>
+      </preview>
+    </previews>
 
     <!-- ~~~~~~~~~~~~~~~~~~ flight model -->
     <flight-model>yasim</flight-model>
