@@ -8,7 +8,7 @@ You have some beginning and ending doors to help you to find the starting door.
 how to install ?
 ----------------
 
-1- copy the directory bourrasque/ai/homemade-timed-loop/ in the directory fgdata/AI/
+1- copy the directory bourrasque/ai/LFLG-timed-loop/ in the directory fgdata/AI/
 2- copy the file bourrasque/ai/LFLG-timed-loop.xml in the directory fgdata/AI/
 
 

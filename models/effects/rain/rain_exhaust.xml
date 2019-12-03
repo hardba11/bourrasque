@@ -27,11 +27,11 @@
             <value>0.1</value>
           </greater-than>
           <greater-than>
-            <property>/position/altitude-agl-ft</property>
+            <property>position/altitude-agl-ft</property>
             <value>6</value>
           </greater-than>
           <less-than>
-            <property>/position/altitude-agl-ft</property>
+            <property>position/altitude-agl-ft</property>
             <value>20</value>
           </less-than>
         </and>

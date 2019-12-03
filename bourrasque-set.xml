@@ -19,7 +19,7 @@ http://wiki.flightgear.org/Property_tree
   <sim>
 
     <!-- ~~~~~~~~~~~~~~~~~~ metadata -->
-    <description type="string">Bourrasque</description>
+    <description type="string">bourrasque</description>
     <long-description type="string">Bourrasque is a fictionnal civil version of the famous Dassault Rafale, its purpose is the world exploration thanks to high speed, short landings and takeoff, radionavigation and auto pilot equipment.</long-description>
     <aircraft-version type="string">20190228</aircraft-version>
     <minimum-fg-version type="string">2017.1.1</minimum-fg-version>
@@ -124,7 +124,7 @@ http://wiki.flightgear.org/Property_tree
       </rendering>
 
       <livery>
-        <file type="string">liveries/texture_bourrasque_first_version</file>
+        <file type="string">texture_bourrasque_first_version</file>
       </livery>
 
       <!-- for sounds -->
@@ -172,20 +172,14 @@ http://wiki.flightgear.org/Property_tree
     <!-- ~~~~~~~~~~~~~~~~~~ initialisation -->
     <startup>
       <splash-texture>contrib/splash-01.png</splash-texture>
-      <splash-texture>contrib/splash-03.png</splash-texture>
       <splash-texture>contrib/splash-04.png</splash-texture>
       <splash-texture>contrib/splash-05.png</splash-texture>
       <splash-texture>contrib/splash-06.png</splash-texture>
       <splash-texture>contrib/splash-07.png</splash-texture>
-      <splash-texture>contrib/splash-10.png</splash-texture>
       <splash-texture>contrib/splash-11.png</splash-texture>
-      <splash-texture>contrib/splash-12.png</splash-texture>
-      <splash-texture>contrib/splash-13.png</splash-texture>
       <splash-texture>contrib/splash-14.png</splash-texture>
       <splash-texture>contrib/splash-15.png</splash-texture>
-      <splash-texture>contrib/splash-16.png</splash-texture>
       <splash-texture>contrib/splash-17.png</splash-texture>
-
       <splash-title>loading brsq ...</splash-title>
     </startup>
     <virtual-cockpit archive="y">true</virtual-cockpit>
@@ -222,12 +216,12 @@ http://wiki.flightgear.org/Property_tree
     <systems>
       <property-rule n="100">
         <name>brsq-filters</name>
-        <path>models/brsq-filters.xml</path>
+        <path>Aircraft/bourrasque/models/brsq-filters.xml</path>
         <serviceable type="bool">1</serviceable>
       </property-rule>
       <property-rule n="101">
         <name>rain-drops-filters</name>
-        <path>models/effects/rain/rain-drops-filters.xml</path>
+        <path>Aircraft/bourrasque/models/effects/rain/rain-drops-filters.xml</path>
         <serviceable type="bool">1</serviceable>
       </property-rule>
       <property-rule n="102">
@@ -237,7 +231,7 @@ http://wiki.flightgear.org/Property_tree
       </property-rule>
       <property-rule n="103">
         <name>3d-shadow-filters</name>
-        <path>models/effects/shadow/3d-shadow-filters.xml</path>
+        <path>Aircraft/bourrasque/models/effects/shadow/3d-shadow-filters.xml</path>
         <serviceable type="bool">1</serviceable>
       </property-rule>
 

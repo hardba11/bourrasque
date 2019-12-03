@@ -156,7 +156,11 @@ var HUD = {
             # ajout des objets target aux objets tanker
             for(var i = 0; i < size(list_mp_obj); i += 1)
             {
-                append(list_obj, list_mp_obj[i]);
+                var ac_type = list_mp_obj[i].getNode("sim/model/ac-type");
+                if((ac_type == nil) or ((ac_type != nil) and (ac_type.getValue() != "bourrasque-backseat")))
+                {
+                    append(list_obj, list_mp_obj[i]);
+                }
             }
 
             var targets_datas  = [];

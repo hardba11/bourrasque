@@ -39,7 +39,8 @@
     <condition>
       <property>sim/model/smoking</property>
       <equals>
-        <property>sim/model/smoking-color</property>
+        <!--property>sim/model/smoking-color</property-->
+        <property>sim/multiplay/generic/string[0]</property>
         <value>white</value>
       </equals>
     </condition>
@@ -54,7 +55,8 @@
     <condition>
       <property>sim/model/smoking</property>
       <equals>
-        <property>sim/model/smoking-color</property>
+        <!--property>sim/model/smoking-color</property-->
+        <property>sim/multiplay/generic/string[0]</property>
         <value>white</value>
       </equals>
     </condition>
@@ -70,7 +72,8 @@
     <condition>
       <property>sim/model/smoking</property>
       <equals>
-        <property>sim/model/smoking-color</property>
+        <!--property>sim/model/smoking-color</property-->
+        <property>sim/multiplay/generic/string[0]</property>
         <value>red</value>
       </equals>
     </condition>
@@ -85,7 +88,8 @@
     <condition>
       <property>sim/model/smoking</property>
       <equals>
-        <property>sim/model/smoking-color</property>
+        <!--property>sim/model/smoking-color</property-->
+        <property>sim/multiplay/generic/string[0]</property>
         <value>red</value>
       </equals>
     </condition>
@@ -101,7 +105,8 @@
     <condition>
       <property>sim/model/smoking</property>
       <equals>
-        <property>sim/model/smoking-color</property>
+        <!--property>sim/model/smoking-color</property-->
+        <property>sim/multiplay/generic/string[0]</property>
         <value>blue</value>
       </equals>
     </condition>
@@ -116,7 +121,8 @@
     <condition>
       <property>sim/model/smoking</property>
       <equals>
-        <property>sim/model/smoking-color</property>
+        <!--property>sim/model/smoking-color</property-->
+        <property>sim/multiplay/generic/string[0]</property>
         <value>blue</value>
       </equals>
     </condition>

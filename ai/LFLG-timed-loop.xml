@@ -3,7 +3,7 @@
   <name>LFLG-timed-loop</name>
   <scenario>
     <description>
-      HOMEMADE timed loop (thanks to FGUK Mach Loop developpers !)
+      LFLG timed loop (thanks to FGUK Mach Loop developpers !)
     </description>
     <nasal>
       <load>

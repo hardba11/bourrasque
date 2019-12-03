@@ -15,9 +15,10 @@ changelog
 
   <default>
     <menu n="101">
-      <label>Bourrasque</label>
+      <label>brsq NOSA</label>
+
       <item n="0">
-        <label>Select MP pilot</label>
+        <label>Select MP pilot ...</label>
         <binding>
           <command>nasal</command>
           <script>
@@ -27,6 +28,7 @@ dual_control_tools.copilot_dialog.show(aircraft_dual_control.pilot_type);
           </script>
         </binding>
       </item>
+
       <item n="1">
         <label>light</label>
         <binding>
@@ -36,6 +38,16 @@ dual_control_tools.copilot_dialog.show(aircraft_dual_control.pilot_type);
           <value>2</value>
         </binding>
       </item>
+
+      <item n="2">
+        <label>Set views ...</label>
+        <name>set-views</name>
+        <binding>
+          <command>dialog-show</command>
+          <dialog-name>bourrasque-set-views</dialog-name>
+        </binding>
+      </item>
+
     </menu>
   </default>
 

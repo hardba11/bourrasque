@@ -10,7 +10,7 @@
 
     <condition>
       <equals>
-        <property>/gear/launchbar/state</property>
+        <property>gear/launchbar/state</property>
         <value>Launching</value>
       </equals>
     </condition>

@@ -18,7 +18,7 @@
           <value>9</value>
         </greater-than>
         <greater-than>
-          <property>/environment/temperature-degc</property>
+          <property>environment/temperature-degc</property>
           <value>18</value>
         </greater-than>
         <not><property>/sim/crashed</property></not>

@@ -15,8 +15,7 @@ changelog
 
   <default>
     <menu n="101">
-      <label>Bourrasque</label>
-
+      <label>brsq</label>
 
       <item n="0">
         <label>Autostart</label>
