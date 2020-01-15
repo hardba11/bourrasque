@@ -213,7 +213,7 @@ see :
   <turn-bank-indicator>
     <name>Turn Indicator</name>
     <x>-50</x>
-    <y>-135</y>
+    <y>-85</y>
     <width>100</width>
     <height>100</height>
     <bank-input>
@@ -243,7 +243,7 @@ see :
   <turn-bank-indicator>
     <name>Turn Indicator APP</name>
     <x>-80</x>
-    <y>-70</y>
+    <y>-20</y>
     <width>160</width>
     <height>50</height>
     <bank-input>
@@ -274,7 +274,7 @@ see :
   <label>
     <name>Heading Label top</name>
     <x>-9</x>
-    <y>18</y>
+    <y>68</y>
     <width>18</width>
     <height>10</height>
     <input>
@@ -304,7 +304,7 @@ see :
   <label>
     <name>Heading Label top A/P</name>
     <x>-13</x>
-    <y>18</y>
+    <y>68</y>
     <width>26</width>
     <height>10</height>
     <input>
@@ -336,7 +336,7 @@ see :
   <label>
     <name>Heading Label middle</name>
     <x>-9</x>
-    <y>10</y>
+    <y>15</y>
     <width>18</width>
     <height>10</height>
     <input>
@@ -362,7 +362,7 @@ see :
   <label>
     <name>Heading Label middle A/P</name>
     <x>-13</x>
-    <y>10</y>
+    <y>15</y>
     <width>26</width>
     <height>10</height>
     <input>
@@ -394,7 +394,7 @@ see :
       <factor>0.1</factor>
     </input>
     <x>-40</x>
-    <y>30</y>
+    <y>80</y>
     <width>80</width>
     <height>10</height>
     <display-span>4.0</display-span>
@@ -434,7 +434,7 @@ see :
       <factor>0.1</factor>
     </input>
     <x>-70</x>
-    <y>-5</y>
+    <y>3</y>
     <width>140</width>
     <height>15</height>
     <display-span>4.0</display-span>
@@ -474,7 +474,7 @@ see :
       <factor>0.1</factor>
     </input>
     <x>-40</x>
-    <y>-120</y>
+    <y>-70</y>
     <width>80</width>
     <height>16</height>
     <display-span>5.0</display-span>
@@ -517,7 +517,7 @@ see :
   <label>
     <name>KIAS</name>
     <x>-109</x>
-    <y>-26</y>
+    <y>24</y>
     <width>38</width>
     <height>10</height>
     <input>
@@ -551,7 +551,7 @@ see :
   <label>
     <name>KIAS - AP</name>
     <x>-109</x>
-    <y>-26</y>
+    <y>24</y>
     <width>38</width>
     <height>10</height>
     <input>
@@ -586,7 +586,7 @@ see :
   <label>
     <name>KIAS secondary</name>
     <x>-99</x>
-    <y>-26</y>
+    <y>24</y>
     <width>38</width>
     <height>10</height>
     <input>
@@ -613,7 +613,7 @@ see :
       <property>/velocities/mach</property>
     </input>
     <x>-99</x>
-    <y>-38</y>
+    <y>12</y>
     <width>30</width>
     <height>8</height>
     <format>%4.2fM</format>
@@ -646,7 +646,7 @@ see :
       <property>/velocities/groundspeed-kt</property>
     </input>
     <x>-100</x>
-    <y>-70</y>
+    <y>-20</y>
     <width>50</width>
     <height>10</height>
     <format>GS %3.0fkt</format>
@@ -670,7 +670,7 @@ see :
       <property>/velocities/groundspeed-kt</property>
     </input>
     <x>-100</x>
-    <y>-70</y>
+    <y>-20</y>
     <width>50</width>
     <height>10</height>
     <format>GS %3.0fkt</format>
@@ -695,7 +695,7 @@ see :
   <label>
     <name>Altitude</name>
     <x>79</x>
-    <y>-26</y>
+    <y>24</y>
     <width>36</width>
     <height>10</height>
     <input>
@@ -729,7 +729,7 @@ see :
   <label>
     <name>Altitude A/P</name>
     <x>79</x>
-    <y>-26</y>
+    <y>24</y>
     <width>45</width>
     <height>10</height>
     <input>
@@ -764,7 +764,7 @@ see :
   <label>
     <name>Altitude secondary</name>
     <x>79</x>
-    <y>-26</y>
+    <y>24</y>
     <width>36</width>
     <height>10</height>
     <input>
@@ -787,7 +787,7 @@ see :
   <label>
     <name>flight level</name>
     <x>79</x>
-    <y>-38</y>
+    <y>12</y>
     <width>36</width>
     <height>8</height>
     <condition>
@@ -811,7 +811,7 @@ see :
   <label>
     <name>elevationOk</name>
     <x>0</x>
-    <y>-120</y>
+    <y>-70</y>
     <halign>center</halign>
     <format>R %4.0fft</format>
     <input>
@@ -839,7 +839,7 @@ see :
   <label>
     <name>Ralt</name>
     <x>85</x>
-    <y>-61</y>
+    <y>-11</y>
     <width>18</width>
     <height>8</height>
     <input>
@@ -871,7 +871,7 @@ see :
       <factor>.1</factor>
     </input>
     <x>80</x>
-    <y>-85</y>
+    <y>-35</y>
     <width>15</width>
     <height>55</height>
     <option>right</option>
@@ -918,7 +918,7 @@ see :
   <gauge>
     <name>roll gauge</name>
     <x>80</x>
-    <y>8</y>
+    <y>58</y>
     <width>25</width>
     <height>5</height>
     <option>top</option>
@@ -935,7 +935,7 @@ see :
   <gauge>
     <name>pitch gauge</name>
     <x>80</x>
-    <y>-4</y>
+    <y>46</y>
     <width>10</width>
     <height>24</height>
     <option>vertical</option>
@@ -957,7 +957,7 @@ see :
       <property>/controls/flight/elevator-trim</property>
     </input>
     <x>70</x>
-    <y>20</y>
+    <y>70</y>
     <width>10</width>
     <height>8</height>
     <halign>middle</halign>
@@ -966,7 +966,7 @@ see :
   <gauge>
     <name>pitch trim gauge</name>
     <x>74</x>
-    <y>0</y>
+    <y>50</y>
     <width>5</width>
     <height>16</height>
     <option>vertical</option>
@@ -984,7 +984,7 @@ see :
   <gauge>
     <name>yaw gauge</name>
     <x>80</x>
-    <y>5</y>
+    <y>55</y>
     <width>25</width>
     <height>3</height>
     <option>horizontal</option>
@@ -1003,7 +1003,7 @@ see :
   <gauge>
     <name>throttle0</name>
     <x>-100</x>
-    <y>-135</y>
+    <y>-85</y>
     <width>10</width>
     <height>45</height>
     <option>vertical</option>
@@ -1034,7 +1034,7 @@ see :
   <gauge>
     <name>throttle1</name>
     <x>-100</x>
-    <y>-135</y>
+    <y>-85</y>
     <width>10</width>
     <height>45</height>
     <option>vertical</option>
@@ -1066,7 +1066,7 @@ see :
   <gauge>
     <name>throttle0-thumb</name>
     <x>-100</x>
-    <y>-135</y>
+    <y>-85</y>
     <width>5</width>
     <height>20</height>
     <option>vertical</option>
@@ -1097,7 +1097,7 @@ see :
   <gauge>
     <name>throttle1-thumb</name>
     <x>-100</x>
-    <y>-135</y>
+    <y>-85</y>
     <width>5</width>
     <height>20</height>
     <option>vertical</option>
@@ -1136,7 +1136,7 @@ see :
       <property>/orientation/alpha-deg</property>
     </input>
     <x>36</x>
-    <y>-28</y>
+    <y>22</y>
     <width>30</width>
     <height>8</height>
     <halign>right</halign>
@@ -1175,7 +1175,7 @@ see :
   <tape>
     <name>aoa gauge</name>
     <x>55</x>
-    <y>-85</y>
+    <y>-35</y>
     <width>10</width>
     <height>60</height>
     <option>right</option>
@@ -1231,7 +1231,7 @@ see :
   <label>
     <name>Gear</name>
     <x>-56</x>
-    <y>-120</y>
+    <y>-70</y>
     <width>15</width>
     <height>6</height>
     <condition>
@@ -1248,7 +1248,7 @@ see :
   <label>
     <name>Parking Brake</name>
     <x>-56</x>
-    <y>-112</y>
+    <y>-62</y>
     <width>15</width>
     <height>6</height>
     <condition>
@@ -1269,7 +1269,7 @@ see :
       <factor>10</factor>
     </input>
     <x>-56</x>
-    <y>-104</y>
+    <y>-54</y>
     <width>15</width>
     <height>6</height>
     <condition>
@@ -1289,7 +1289,7 @@ see :
   <label>
     <name>Hook</name>
     <x>-56</x>
-    <y>-96</y>
+    <y>-46</y>
     <width>15</width>
     <height>6</height>
     <condition>
@@ -1308,7 +1308,7 @@ see :
   <label>
     <name>Launch Bar</name>
     <x>-78</x>
-    <y>-96</y>
+    <y>-46</y>
     <width>15</width>
     <height>6</height>
     <condition>
@@ -1328,7 +1328,7 @@ see :
   <label>
     <name>starting engine 0</name>
     <x>-20</x>
-    <y>10</y>
+    <y>60</y>
     <width>40</width>
     <height>10</height>
     <condition>
@@ -1352,7 +1352,7 @@ see :
   <label>
     <name>starting engine 1</name>
     <x>-20</x>
-    <y>0</y>
+    <y>50</y>
     <width>40</width>
     <height>10</height>
     <condition>
@@ -1377,7 +1377,7 @@ see :
   <label>
     <name>engine 0 stopped</name>
     <x>-20</x>
-    <y>10</y>
+    <y>60</y>
     <width>40</width>
     <height>10</height>
     <condition>
@@ -1401,7 +1401,7 @@ see :
   <label>
     <name>engine 1 stopped</name>
     <x>-20</x>
-    <y>0</y>
+    <y>50</y>
     <width>40</width>
     <height>10</height>
     <condition>
@@ -1427,7 +1427,7 @@ see :
   <label>
     <name>starting engine 0</name>
     <x>-20</x>
-    <y>10</y>
+    <y>60</y>
     <width>40</width>
     <height>10</height>
     <condition>
@@ -1445,7 +1445,7 @@ see :
   <label>
     <name>starting engine 1</name>
     <x>-20</x>
-    <y>0</y>
+    <y>50</y>
     <width>40</width>
     <height>10</height>
     <condition>
@@ -1465,7 +1465,7 @@ see :
   <label>
     <name>G Load</name>
     <x>-60</x>
-    <y>-5</y>
+    <y>45</y>
     <width>1.5</width>
     <height>1.5</height>
     <input>
@@ -1500,7 +1500,7 @@ see :
   <label>
     <name>Stall Alert</name>
     <x>-35</x>
-    <y>-60</y>
+    <y>-10</y>
     <width>15</width>
     <height>6</height>
     <condition>
@@ -1526,7 +1526,7 @@ see :
   <label>
     <name>Stall Warning</name>
     <x>-40</x>
-    <y>-60</y>
+    <y>-10</y>
     <width>15</width>
     <height>6</height>
     <condition>
@@ -1552,7 +1552,7 @@ see :
   <label>
     <name>elevationWarn</name>
     <x>0</x>
-    <y>-50</y>
+    <y>0</y>
     <condition>
       <or>
         <property>/_debug/instruments/hud_show_all</property>
@@ -1591,7 +1591,7 @@ see :
   <label>
     <name>nav_data_gps_id</name>
     <x>40</x>
-    <y>-95</y>
+    <y>-45</y>
     <width>20</width>
     <height>6</height>
     <condition>
@@ -1625,7 +1625,7 @@ see :
   <label>
     <name>nav_data_gps_bearing</name>
     <x>40</x>
-    <y>-105</y>
+    <y>-55</y>
     <width>20</width>
     <height>6</height>
     <condition>
@@ -1659,7 +1659,7 @@ see :
   <label>
     <name>nav_data_gps_eta</name>
     <x>40</x>
-    <y>-115</y>
+    <y>-65</y>
     <width>20</width>
     <height>6</height>
     <condition>
@@ -1693,7 +1693,7 @@ see :
   <label>
     <name>nav_data_gps_dist</name>
     <x>40</x>
-    <y>-125</y>
+    <y>-75</y>
     <width>20</width>
     <height>6</height>
     <condition>
@@ -1729,7 +1729,7 @@ see :
   <label>
     <name>nav_data_nav1_id</name>
     <x>40</x>
-    <y>-95</y>
+    <y>-45</y>
     <width>20</width>
     <height>6</height>
     <condition>
@@ -1763,7 +1763,7 @@ see :
   <label>
     <name>nav_data_nav1_bearing</name>
     <x>40</x>
-    <y>-105</y>
+    <y>-55</y>
     <width>20</width>
     <height>6</height>
     <condition>
@@ -1797,7 +1797,7 @@ see :
   <label>
     <name>nav_data_nav1_eta</name>
     <x>40</x>
-    <y>-115</y>
+    <y>-65</y>
     <width>20</width>
     <height>6</height>
     <condition>
@@ -1831,7 +1831,7 @@ see :
   <label>
     <name>nav_data_nav1_dist</name>
     <x>40</x>
-    <y>-125</y>
+    <y>-75</y>
     <width>20</width>
     <height>6</height>
     <condition>
@@ -1865,7 +1865,7 @@ see :
   <label>
     <name>nav_data_nav1_kt</name>
     <x>40</x>
-    <y>-135</y>
+    <y>-85</y>
     <width>20</width>
     <height>6</height>
     <condition>
@@ -1901,7 +1901,7 @@ see :
   <label>
     <name>nav_data_nav2_id</name>
     <x>40</x>
-    <y>-95</y>
+    <y>-45</y>
     <width>20</width>
     <height>6</height>
     <condition>
@@ -1940,7 +1940,7 @@ see :
   <label>
     <name>nav_data_nav2_bearing</name>
     <x>40</x>
-    <y>-105</y>
+    <y>-55</y>
     <width>20</width>
     <height>6</height>
     <condition>
@@ -1981,7 +1981,7 @@ see :
   <label>
     <name>nav_data_tacan_id</name>
     <x>40</x>
-    <y>-95</y>
+    <y>-45</y>
     <width>20</width>
     <height>6</height>
     <condition>
@@ -2018,7 +2018,7 @@ see :
   <label>
     <name>nav_data_tacan_bearing</name>
     <x>40</x>
-    <y>-105</y>
+    <y>-55</y>
     <width>20</width>
     <height>6</height>
     <condition>
@@ -2055,7 +2055,7 @@ see :
   <label>
     <name>nav_data_tacan_eta</name>
     <x>40</x>
-    <y>-115</y>
+    <y>-65</y>
     <width>20</width>
     <height>6</height>
     <condition>
@@ -2092,7 +2092,7 @@ see :
   <label>
     <name>nav_data_tacan_dist</name>
     <x>40</x>
-    <y>-125</y>
+    <y>-75</y>
     <width>20</width>
     <height>6</height>
     <condition>
@@ -2129,7 +2129,7 @@ see :
   <label>
     <name>nav_data_tacan_kt</name>
     <x>40</x>
-    <y>-135</y>
+    <y>-85</y>
     <width>20</width>
     <height>6</height>
     <condition>

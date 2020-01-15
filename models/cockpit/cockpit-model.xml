@@ -451,7 +451,7 @@ center : has to be the coords for view n=0 (see include/sim-view0-properties.xml
     <offsets>
       <x-m>-3.21</x-m>
       <y-m>0</y-m>
-      <z-m>1.10</z-m>
+      <z-m>1.15</z-m>
     </offsets>
   </model>
 

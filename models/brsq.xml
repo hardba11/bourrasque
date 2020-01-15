@@ -401,7 +401,7 @@ livery_update.stop();
       <not>
         <equals>
           <property>/sim/model/name</property>
-          <value>bourrasque backseat</value>
+          <value>brsq-backseat</value>
         </equals>
       </not>
     </condition>

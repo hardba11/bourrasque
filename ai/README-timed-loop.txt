@@ -19,6 +19,7 @@ how to use ?
 2- choose LFLG airport
 3- open the menu AI/Traffic and Scenario Settings
 4- enable scenario LFLG-timed-loop
+5- disable blackout, disable clouds
 
 
 original idea

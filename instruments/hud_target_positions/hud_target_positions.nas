@@ -232,7 +232,7 @@ var HUD = {
                 {
                     var td = targets_datas[i];
 
-                    var scale_reticle = ((td.target_range < 10) and (td.target_range > 0)) 
+                    var scale_reticle = ((td.target_range < 10) and (td.target_range > 0))
                         ? ((-.12 * td.target_range) + 1.5)
                         : 0.3;
                     me.text_lbl   = me.targets[i].getElementById('text_lbl-'~ i);

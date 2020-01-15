@@ -19,10 +19,10 @@ http://wiki.flightgear.org/Property_tree
   <sim>
 
     <!-- ~~~~~~~~~~~~~~~~~~ metadata -->
-    <description type="string">bourrasque back-seater (multiplayer)</description>
-    <variant-of type="string">bourrasque</variant-of>
+    <description type="string">brsq back-seat (multiplayer)</description>
+    <variant-of>brsq</variant-of>
     <long-description type="string">Bourrasque is a fictionnal civil version of the famous Dassault Rafale, its purpose is the world exploration thanks to high speed, short landings and takeoff, radionavigation and auto pilot equipment.</long-description>
-    <aircraft-version type="string">20190228</aircraft-version>
+    <aircraft-version type="string">20191204</aircraft-version>
     <minimum-fg-version type="string">2017.1.1</minimum-fg-version>
 
     <!-- old / simple style -->
@@ -106,9 +106,8 @@ http://wiki.flightgear.org/Property_tree
     <!-- ~~~~~~~~~~~~~~~~~~ model -->
     <model>
 
-      <name type="string">bourrasque backseat</name>
+      <name type="string">brsq-backseat</name>
       <path type="string">Aircraft/bourrasque/models/brsq-backseat.xml</path>
-      <variant type="string">bourrasque-backseat</variant>
 
       <constant type="int">1</constant>
 
@@ -118,7 +117,7 @@ http://wiki.flightgear.org/Property_tree
       </rendering>
 
       <livery>
-        <file type="string">liveries/texture_bourrasque_first_version</file>
+        <file type="string">texture_bourrasque_first_version</file>
       </livery>
 
       <!-- for sounds -->

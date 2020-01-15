@@ -202,7 +202,7 @@ ________________________________________________________________________________
         </not-equals>
         <not-equals>
           <property>sim/model/name</property>
-          <value>bourrasque</value>
+          <value>brsq</value>
         </not-equals>
       </or>
     </condition>
