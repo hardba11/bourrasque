@@ -77,8 +77,21 @@ changelog
 ================================================================================
   -->
 
-  <!-- ~~~~~~~~~~~~~~~~~~ animation speed needles -->
+  <animation>
+    <type>pick</type>
+    <object-name>asi.mach_scale</object-name>
+    <object-name>asi.scale</object-name>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-stdby-asi-speed</tooltip-id>
+        <label>true speed : %d kt</label>
+        <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
+      </binding>
+    </hovered>
+  </animation>
 
+  <!-- ~~~~~~~~~~~~~~~~~~ animation speed needles -->
   <animation>
     <type>rotate</type>
     <object-name>asi.needle</object-name>

@@ -117,6 +117,21 @@ changelog
 ================================================================================
   -->
 
+  <animation>
+    <type>pick</type>
+    <object-name>hsi.hdg_ring</object-name>
+    <object-name>hsi.scale</object-name>
+    <object-name>hsi.crs1_needle</object-name>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-stdby-hsi-heading</tooltip-id>
+        <label>heading : %3d</label>
+        <property>/orientation/heading-magnetic-deg</property>
+      </binding>
+    </hovered>
+  </animation>
+
   <!-- ~~~~~~~~~~~~~~~~~~ animation heading -->
   <animation>
     <type>rotate</type>

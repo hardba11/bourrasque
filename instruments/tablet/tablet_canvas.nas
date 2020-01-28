@@ -122,7 +122,7 @@ var checklists = [
         'items': [
             {'list': 'contact tower, autorization to taxi', 'check': 'REQUEST'},
             {'list': 'change mod ND', 'check': 'TAXI'},
-            {'list': 'gui/equipment : shocks', 'check': 'REMOVE'},
+            {'list': 'gui/equipment : chocks', 'check': 'REMOVE'},
             {'list': 'command panel : parkbrake', 'check': 'RELEASE'},
             {'list': 'brake', 'check': 'TEST'},
         ],

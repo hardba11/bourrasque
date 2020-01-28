@@ -146,6 +146,19 @@ changelog
 ================================================================================
   -->
 
+  <animation>
+    <type>pick</type>
+    <object-name>alt.scale</object-name>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-stdby-alt-altitude</tooltip-id>
+        <label>altitude : %d ft</label>
+        <property>/instrumentation/altimeter/indicated-altitude-ft</property>
+      </binding>
+    </hovered>
+  </animation>
+
   <!-- ~~~~~~~~~~~~~~~~~~ animation altitude digit 1 -->
   <animation>
     <type>textranslate</type>

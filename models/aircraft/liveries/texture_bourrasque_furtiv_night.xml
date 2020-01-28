@@ -9,6 +9,7 @@
         <name type="string">furtiv night</name>
         <texture>liveries/texture_bourrasque_furtiv_night.png</texture>
         <texture-tank>texture_tanks_furtiv_night.png</texture-tank>
+        <texture-gears>texture_gears.png</texture-gears>
 
       </livery>
     </model>

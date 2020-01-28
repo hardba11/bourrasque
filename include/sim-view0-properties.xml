@@ -14,12 +14,16 @@ PROPERTY-PATH : /sim/view[0]/
   <name type="string">Pilot View</name>
   <internal type="bool" archive="y">true</internal>
   <config>
-    <!-- x,y,z used for hud target position, see models/cockpit/cockpit-model.xml -->
+    <!-- 
+    x,y,z used for hud target position, 
+    @see models/cockpit/cockpit-model.xml
+    @see functions.nas
+    -->
     <x-offset-m archive="y" type="double">.0</x-offset-m>
     <y-offset-m archive="y" type="double">1.15</y-offset-m>
-    <z-offset-m archive="y" type="double">-3.21</z-offset-m>
-    <pitch-offset-deg>-5</pitch-offset-deg>
-    <default-field-of-view-deg type="double">60.0</default-field-of-view-deg>
+    <z-offset-m archive="y" type="double">-3.32</z-offset-m>
+    <pitch-offset-deg>-10</pitch-offset-deg>
+    <default-field-of-view-deg type="double">109.0</default-field-of-view-deg>
     <dynamic-view type="bool">true</dynamic-view>
     <limits>
       <enabled type="bool">true</enabled>

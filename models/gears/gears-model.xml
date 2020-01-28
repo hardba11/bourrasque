@@ -94,6 +94,16 @@ changelog
 
   <animation>
     <type>material</type>
+    <object-name>roue_train</object-name>
+    <object-name>roue_train_principal_L</object-name>
+    <object-name>roue_train_principal_R</object-name>
+    <property-base>sim/model/livery</property-base>
+    <texture-prop>texture-gears</texture-prop>
+    <texture-gears>texture_gears.png</texture-gears>
+  </animation>
+
+  <animation>
+    <type>material</type>
     <object-name>projecteur_train</object-name>
     <emission>
       <factor>2</factor>

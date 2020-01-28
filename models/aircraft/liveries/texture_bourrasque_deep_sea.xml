@@ -9,6 +9,7 @@
         <name type="string">deep sea</name>
         <texture>liveries/texture_bourrasque_deep_sea.png</texture>
         <texture-tank>texture_tanks_deep_sea.png</texture-tank>
+        <texture-gears>texture_gears_red.png</texture-gears>
 
       </livery>
     </model>

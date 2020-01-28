@@ -55,6 +55,7 @@ PROPERTY-PATH : /ai/
             <file alias="/sim/model/livery/file" />
             <texture alias="/sim/model/livery/texture" />
             <texture-tank alias="/sim/model/livery/texture-tank" />
+            <texture-gears alias="/sim/model/livery/texture-gears" />
           </livery>
           <smoking-color type="string">red</smoking-color>
         </model>
@@ -105,6 +106,7 @@ PROPERTY-PATH : /ai/
             <file alias="/sim/model/livery/file" />
             <texture alias="/sim/model/livery/texture" />
             <texture-tank alias="/sim/model/livery/texture-tank" />
+            <texture-gears alias="/sim/model/livery/texture-gears" />
           </livery>
           <smoking-color type="string">blue</smoking-color>
         </model>

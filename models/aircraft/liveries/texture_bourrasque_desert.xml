@@ -9,6 +9,7 @@
         <name type="string">desert</name>
         <texture>liveries/texture_bourrasque_desert.png</texture>
         <texture-tank>texture_tanks_desert.png</texture-tank>
+        <texture-gears>texture_gears.png</texture-gears>
 
       </livery>
     </model>

@@ -9,6 +9,7 @@
         <name type="string">steppe</name>
         <texture>liveries/texture_bourrasque_steppe.png</texture>
         <texture-tank>texture_tanks_steppe.png</texture-tank>
+        <texture-gears>texture_gears.png</texture-gears>
 
       </livery>
     </model>

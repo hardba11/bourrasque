@@ -86,6 +86,19 @@ changelog
     </axis>
   </animation>
 
+  <animation>
+    <type>pick</type>
+    <object-name>magcompass.ring</object-name>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-magcompass-heading</tooltip-id>
+        <label>magnetic heading : %3d</label>
+        <property>/instrumentation/magnetic-compass/indicated-heading-deg</property>
+      </binding>
+    </hovered>
+  </animation>
+
   <!--
 ================================================================================
                                                                         TEXT OSG

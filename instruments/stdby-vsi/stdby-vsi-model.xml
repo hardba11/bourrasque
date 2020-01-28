@@ -68,6 +68,19 @@ description :
 ================================================================================
   -->
 
+  <animation>
+    <type>pick</type>
+    <object-name>stdby-vsi.scale</object-name>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-stdby-vsi-vspeed</tooltip-id>
+        <label>vertical speed : %d ft/min</label>
+        <property>autopilot/internal/vert-speed-fpm</property>
+      </binding>
+    </hovered>
+  </animation>
+
   <!-- ~~~~~~~~~~~~~~~~~~ animation scale -->
   <animation>
     <type>rotate</type>

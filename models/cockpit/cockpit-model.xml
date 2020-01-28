@@ -443,13 +443,15 @@ ________________________________________________________________________________
                                                             HUD TARGET POSITIONS
 
 diameter = 2m,
-center : has to be the coords for view n=0 (see include/sim-view0-properties.xml)
+center : has to be the coords for view n=0
+@see include/sim-view0-properties.xml
+@see functions.nas
   -->
   <model>
     <name>hud_target_positions</name>
     <path>Aircraft/bourrasque/instruments/hud_target_positions/hud_target_positions-model.xml</path>
     <offsets>
-      <x-m>-3.21</x-m>
+      <x-m>-3.32</x-m>
       <y-m>0</y-m>
       <z-m>1.15</z-m>
     </offsets>

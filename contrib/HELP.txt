@@ -181,7 +181,7 @@ stop
 ----
 
 command panel : parkbrake [BRAKE]
-gui/equipment : shocks [PUT]
+gui/equipment : wheel chocks [PUT]
 command panel : canopy [HALF-CLOSE]
 electrical instrument : switch [BAT]
 engine 0 instrument : cut [OFF]
