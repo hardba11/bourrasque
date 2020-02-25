@@ -77,12 +77,14 @@ var systems_loop = func()
             is_stopped == 1;
             is_stopping == 0;
             is_starting == 0;
+            setprop("/controls/engines/engine["~ engine_id ~"]/throttle", 0);
         }
         elsif((is_stopped == 1) and (is_stopping == 0) and (is_starting == 0))
         {
             # etat stoppe
             n1 = 0;
             elapsed_loops[engine_id] = 0;
+            setprop("/controls/engines/engine["~ engine_id ~"]/throttle", 0);
         }
         elsif((is_stopped == 0) and (is_stopping == 0) and (is_starting == 0))
         {

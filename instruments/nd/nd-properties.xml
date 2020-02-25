@@ -29,7 +29,7 @@ PROPERTY-PATH : /instrumentation/my_aircraft/nd/
   </inputs>
 
   <controls>
-    <mode type="string">TAXI</mode>
+    <mode type="string">VFR</mode>
   </controls>
 
   <outputs>

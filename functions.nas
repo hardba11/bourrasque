@@ -20,21 +20,20 @@ var SETTINGS_MODS = [
 # @see models/cockpit/cockpit-model.xml
 # @see include/sim-view0-properties.xml
 var SETTINGS_PANEL_VIEW_LEFT = [
-    ['fov', 'heading', 'pitch', 'z', 'x', 'y'],
-    [30.52, 0, -35, -3.32, 0, 0.99],        # center stdby instruments
-    [40, 11.6, -25, -3.32, 0, 1.10],        # left MFD
-    [33.86, 45, -55, -3.45, -0.21, 0.99],   # command
-    [41, 90, -70, -3.32, -0.23, 0.87],      # lights
-    [30.52, 0, -35, -3.32, 0, 0.99],        # center stdby instruments
+    [ 'fov', 'heading', 'pitch',  'z'  ,  'x'  ,  'y'  ],
+    [  37.2,       0  ,   -35  ,  -3.32,   0   ,   0.99], # center stdby instruments
+    [  54.6,      11.6,   -25  ,  -3.32,   0   ,   1.10], # right MFD
+    [  33.8,      45  ,   -55  ,  -3.45,  -0.21,   0.99], # command
+    [  41  ,      90  ,   -70  ,  -3.32,  -0.23,   0.87], # lights
+    [  37.2,       0  ,   -35  ,  -3.32,   0   ,   0.99], # center stdby instruments
 ];
 var SETTINGS_PANEL_VIEW_RIGHT = [
-    ['fov', 'heading', 'pitch', 'z', 'x', 'y'],
-    [43.3, -11.6, -25, -3.32, 0, 1.10],     # right MFD
-    [64.3, -60, -55, -3.63, 0.21, 0.85],    # radio
-    [36, -7, -45, -3.32, 0, 1.1],           # tablet
-    [41.3, -70, -65, -3.32, 0.23, 0.87],    # systems
-#    [48.72, -60, -55, -3.63, 0.21, 0.85],   # radio
-    [30.52, 0, -35, -3.32, 0, 0.99],        # center stdby instruments
+    [ 'fov', 'heading', 'pitch',  'z'  ,  'x'  ,  'y'  ],
+    [  54.6,     -11.6,   -25  ,  -3.32,   0   ,   1.10], # right MFD
+    [  68.7,     -60  ,   -55  ,  -3.63,   0.21,   0.85], # radio
+    [  41.7,     -11  ,   -55  ,  -3.32,   0   ,   1.1 ], # tablet
+    [  64.3,     -90  ,   -60  ,  -3.28,   0.19,   0.78], # systems
+    [  37.2,       0  ,   -35  ,  -3.32,   0   ,   0.99], # center stdby instruments
 ];
 
 #===============================================================================
