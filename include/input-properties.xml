@@ -38,10 +38,12 @@ ________________________________________________________________________________
       <name>Enter</name>
       <binding><command>nasal</command><script /></binding>
     </key>
+    <!--
     <key n="13">
       <name>Keypad Enter</name>
       <binding><command>nasal</command><script /></binding>
     </key>
+    -->
     <key n="20">
       <name>ctrl-t</name>
       <binding><command>nasal</command><script /></binding>
@@ -66,10 +68,12 @@ ________________________________________________________________________________
       <name>$</name>
       <binding><command>nasal</command><script /></binding>
     </key>
+    <!--
     <key n="48">
       <name>0</name>
       <binding><command>nasal</command><script /></binding>
     </key>
+    -->
     <key n="64">
       <name>@</name>
       <binding><command>nasal</command><script /></binding>
