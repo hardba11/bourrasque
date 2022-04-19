@@ -22,7 +22,7 @@ changelog
   <layout>vbox</layout>
   <group>
     <layout>hbox</layout><empty><stretch>1</stretch></empty>
-    <text><label>bourrasques's commands</label></text>
+    <text><label>bourrasque's commands</label></text>
     <empty><stretch>1</stretch></empty>
     <button><pref-width>16</pref-width><pref-height>16</pref-height><legend />
       <default>1</default><keynum>27</keynum><border>2</border>
@@ -39,11 +39,11 @@ changelog
     <halign>left</halign>
     <text>
       <row>0</row><col>0</col>
-      <label>do hippodrome</label>
+      <label>Do hippodrome !</label>
     </text>
     <button>
       <row>0</row><col>1</col>
-      <legend>disable</legend>
+      <legend>Disable</legend>
       <binding>
         <command>nasal</command>
         <script>
@@ -55,7 +55,7 @@ my_aircraft_functions.event_toggle_hippodrome(0);
     </button>
     <button>
       <row>0</row><col>2</col>
-      <legend>enable</legend>
+      <legend>Enable</legend>
       <binding>
         <command>nasal</command>
         <script>
@@ -75,11 +75,11 @@ my_aircraft_functions.event_toggle_hippodrome(1);
     <halign>left</halign>
     <text>
       <row>0</row><col>0</col>
-      <label>flashlight</label>
+      <label>Flashlight</label>
     </text>
     <button>
       <row>0</row><col>1</col>
-      <legend>off</legend>
+      <legend>Off</legend>
       <binding>
         <command>property-assign</command>
         <property>/sim/rendering/als-secondary-lights/use-flashlight</property>
@@ -88,7 +88,7 @@ my_aircraft_functions.event_toggle_hippodrome(1);
     </button>
     <button>
       <row>0</row><col>2</col>
-      <legend>white</legend>
+      <legend>White</legend>
       <binding>
         <command>property-assign</command>
         <property>/sim/rendering/als-secondary-lights/use-flashlight</property>
@@ -97,7 +97,7 @@ my_aircraft_functions.event_toggle_hippodrome(1);
     </button>
     <button>
       <row>0</row><col>3</col>
-      <legend>red</legend>
+      <legend>Red</legend>
       <binding>
         <command>property-assign</command>
         <property>/sim/rendering/als-secondary-lights/use-flashlight</property>
@@ -110,11 +110,11 @@ my_aircraft_functions.event_toggle_hippodrome(1);
     <halign>left</halign>
     <text>
       <row>0</row><col>0</col>
-      <label>searchlight</label>
+      <label>Searchlight</label>
     </text>
     <button>
       <row>0</row><col>1</col>
-      <legend>off</legend>
+      <legend>Off</legend>
       <binding>
         <command>property-assign</command>
         <property>/sim/rendering/als-secondary-lights/use-searchlight</property>
@@ -123,7 +123,7 @@ my_aircraft_functions.event_toggle_hippodrome(1);
     </button>
     <button>
       <row>0</row><col>2</col>
-      <legend>on</legend>
+      <legend>On</legend>
       <binding>
         <command>property-assign</command>
         <property>/sim/rendering/als-secondary-lights/use-searchlight</property>
@@ -140,11 +140,11 @@ my_aircraft_functions.event_toggle_hippodrome(1);
     <halign>left</halign>
     <text>
       <row>0</row><col>0</col>
-      <label>refueling pipe</label>
+      <label>Refueling pipe</label>
     </text>
     <button>
       <row>0</row><col>1</col>
-      <legend>retract</legend>
+      <legend>Retract</legend>
       <binding>
         <command>nasal</command>
         <script>
@@ -156,7 +156,7 @@ my_aircraft_functions.event_control_pod_pipe(0);
     </button>
     <button>
       <row>0</row><col>2</col>
-      <legend>extend</legend>
+      <legend>Extend</legend>
       <binding>
         <command>nasal</command>
         <script>
@@ -176,11 +176,11 @@ my_aircraft_functions.event_control_pod_pipe(1);
     <halign>left</halign>
     <text>
       <row>0</row><col>0</col>
-      <label>smoke</label>
+      <label>Smoke</label>
     </text>
     <button>
       <row>0</row><col>1</col>
-      <legend>off</legend>
+      <legend>Off</legend>
       <binding>
         <command>nasal</command>
         <script>
@@ -192,7 +192,7 @@ my_aircraft_functions.event_smoke(0);
     </button>
     <button>
       <row>0</row><col>2</col>
-      <legend>blue</legend>
+      <legend>Blue</legend>
       <binding>
         <command>nasal</command>
         <script>
@@ -209,7 +209,7 @@ my_aircraft_functions.event_smoke(1);
     </button>
     <button>
       <row>0</row><col>3</col>
-      <legend>white</legend>
+      <legend>White</legend>
       <binding>
         <command>nasal</command>
         <script>
@@ -226,7 +226,7 @@ my_aircraft_functions.event_smoke(1);
     </button>
     <button>
       <row>0</row><col>4</col>
-      <legend>red</legend>
+      <legend>Red</legend>
       <binding>
         <command>nasal</command>
         <script>
@@ -251,7 +251,7 @@ my_aircraft_functions.event_smoke(1);
     <halign>left</halign>
     <button>
       <row>0</row><col>0</col>
-      <legend>need assistance</legend>
+      <legend>Need assistance !</legend>
       <binding>
         <command>property-assign</command>
         <property>/controls/assistance</property>
@@ -260,7 +260,7 @@ my_aircraft_functions.event_smoke(1);
     </button>
     <button>
       <row>0</row><col>1</col>
-      <legend>it is ok</legend>
+      <legend>It is ok</legend>
       <binding>
         <command>property-assign</command>
         <property>/controls/assistance</property>

@@ -40,7 +40,7 @@ var minihud_loop = func()
             {
                 # head turned, mini hud is displayed
                 hud_number = 4;
-                setprop("/sim/hud/current-path", hud_number);
+                setprop("/sim/hud/current-path",     hud_number);
                 setprop("/sim/hud/clipping/left",    200);
                 setprop("/sim/hud/clipping/right",   400);
                 setprop("/sim/hud/clipping/top",     400);
@@ -75,7 +75,7 @@ var minihud_loop = func()
         if(hud_number != 4)
         {
             hud_number = 4;
-            setprop("/sim/hud/current-path", hud_number);
+            setprop("/sim/hud/current-path",    hud_number);
             setprop("/sim/hud/clipping/left",   200);
             setprop("/sim/hud/clipping/right",  400);
             setprop("/sim/hud/clipping/top",    400);

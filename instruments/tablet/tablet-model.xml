@@ -172,7 +172,7 @@ changelog
         <property>/instrumentation/my_aircraft/tablet/controls/checklist/page</property>
         <step>-1</step>
         <min>0</min>
-        <max>6</max>
+        <max>8</max>
         <wrap>1</wrap>
       </binding>
     </action>
@@ -196,7 +196,7 @@ changelog
         <property>/instrumentation/my_aircraft/tablet/controls/checklist/page</property>
         <step>1</step>
         <min>0</min>
-        <max>6</max>
+        <max>8</max>
         <wrap>1</wrap>
       </binding>
     </action>

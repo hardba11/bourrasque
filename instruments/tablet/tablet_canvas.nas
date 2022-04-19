@@ -15,6 +15,12 @@ print("*** LOADING instrument_tablet_map - tablet_map.nas ... ***");
 var width = 1024;
 var height = 1024;
 
+# AMB 113.7  AMBoise
+# SAU 116.8  SAUveterre
+# MTG 117.3  MarTiGues
+# RLP 117.3  RoLamPon
+
+
 var data_col1_vor_france = '
 QPR 117.8  QuimPeR
 ARE 112.5  monts d ARrEe
@@ -27,21 +33,18 @@ DVL 110.2  DeauViLle
 LGL 115.0  L aiGLe
 EVX 112.4  EVreuX
 CAD 115.95 ChAteauDun
-AMB 113.7  AMBoise
 POI 113.3  POItiers
 CNA 114.65 CogNAc
 BMC 113.75 Bordeaux MerignaC
-SAU 116.8  SAUveterre
 MDM 108.7  Mont De Marsan
 AGN 114.8  AGeN
 TLS 117.7  TouLouSe
 GAI 115.8  GAIllac
 PPG 116.25 PerPiGnan
-MEN 115.3  MENde';
+MEN 115.3  MENde
+FJR 114.45 montpellier';
 
 var data_col2_vor_france = '
-FJR 114.45 Montpellier
-MTG 117.3  MarTiGues
 MRM 108.8  MaRseille Marignane
 STP 116.5  St TroPez
 NIZ 112.4  NIce aZure
@@ -51,9 +54,10 @@ LTP 115.55 La Tour du Pin
 LSE 114.75 Lyon St Exupery
 MOU 116.7  MOUlins
 NEV 113.4  NEVers
-RLP 117.3  RoLamPon
+LMG 114.5  LiMoGes
 TRO 116.0  TROyes
 LUL 117.1  LUxeuiL
+DJL 111.45 DiJon Longvic
 EPL 113.0  EPinaL
 GTQ 111.25 GrosTenQuin
 MMD 109.4  MontMeDy
@@ -70,99 +74,141 @@ var checklists = [
     {
         'title': 'START 1/2',
         'items': [
-            {'list': 'FUEL TRUCK : adjust fuel quantity', 'check': 'ON DEMAND'},
-            {'list': 'gui/equipment : fuel truck', 'check': 'REMOVE'},
-            {'list': 'gui/equipment : covers', 'check': 'REMOVE'},
-            {'list': 'gui/equipment : scale', 'check': 'REMOVE'},
-            {'list': 'command panel : canopy', 'check': 'HALF-CLOSE'},
-            {'list': 'electrical instrument : switch', 'check': 'BAT or EPU'},
-            {'list': 'electrical instrument : avionics', 'check': 'ON'},
-            {'list': 'lights panel : instrument light', 'check': 'ADJUST'},
-            {'list': 'radio : NAV1', 'check': 'ON'},
-            {'list': 'radio : COM1', 'check': 'ON'},
-            {'list': 'radio : NAV2', 'check': 'ON'},
-            {'list': 'radio : COM2', 'check': 'ON'},
-            {'list': 'radio : ADF ', 'check': 'ON'},
-            {'list': 'radio : TRANSPONDER', 'check': 'ON'},
-            {'list': 'nav/com : frequency', 'check': 'ADJUST'},
-            {'list': 'contact tower, autorization to start engines', 'check': 'REQUEST'},
-            {'list': 'transponder adjust squawk', 'check': 'ON DEMAND'},
-            {'list': 'electrical instrument : engines', 'check': 'ON'},
-            {'list': 'engine 0 instrument : cut', 'check': 'ON'},
-            {'list': 'engine 0 instrument : pump', 'check': 'ON'},
-            {'list': 'engine 0 instrument : start', 'check': 'PUSH'},
-            {'list': 'engine 0 started', 'check': 'WAIT'},
-            {'list': 'electrical instrument : switch', 'check': 'ALT'},
-            {'list': 'NEXT PAGE', 'check': '>>>>>'},
+            {'list': 'PAGE 1/2',                                      'check': '#'},
+            {'list': '================================',              'check': '#'},
+            {'list': 'FUEL TRUCK : adjust fuel quantity',             'check': 'ON DEMAND'},
+            {'list': 'gui/equipment : fuel truck',                    'check': 'REMOVE'},
+            {'list': 'gui/equipment : covers',                        'check': 'REMOVE'},
+            {'list': 'gui/equipment : scale',                         'check': 'REMOVE'},
+            {'list': 'electrical instrument : switch',                'check': 'BAT or EPU'},
+            {'list': 'command panel : canopy',                        'check': 'HALF-CLOSE'},
+            {'list': 'electrical instrument : avionics',              'check': 'ON'},
+            {'list': 'electrical instrument : cmd',                   'check': 'ON'},
+            {'list': 'lights panel : instrument light',               'check': 'ADJUST'},
+            {'list': 'radio : NAV1',                                  'check': 'ON'},
+            {'list': 'radio : COM1',                                  'check': 'ON'},
+            {'list': 'radio : NAV2',                                  'check': 'ON'},
+            {'list': 'radio : COM2',                                  'check': 'ON'},
+            {'list': 'radio : ADF ',                                  'check': 'ON'},
+            {'list': 'radio : TRANSPONDER',                           'check': 'ON'},
+            {'list': 'nav/com : frequency',                           'check': 'ADJUST'},
+            {'list': 'contact tower, autorization to start engines',  'check': 'REQUEST'},
+            {'list': 'transponder adjust squawk',                     'check': 'ON DEMAND'},
+            {'list': 'change mod ND',                                 'check': 'TAXI'},
+            {'list': 'electrical instrument : engines',               'check': 'ON'},
+            {'list': 'lights panel : anti-collision',                 'check': 'ON'},
+            {'list': 'NEXT PAGE',                                     'check': '>>>>>'},
         ],
     },
 # 2
     {
         'title': 'START 2/2',
         'items': [
-            {'list': 'PAGE 2/2', 'check': '#'},
-            {'list': '---------------------------------------------------------', 'check': '#'},
-            {'list': 'engine 1 instrument : cut', 'check': 'ON'},
-            {'list': 'engine 1 instrument : pump', 'check': 'ON'},
-            {'list': 'engine 1 instrument : start', 'check': 'PUSH'},
-            {'list': 'lights panel : anti-collision', 'check': 'ON'},
-            {'list': 'lights panel : strobe', 'check': 'ON'},
-            {'list': 'lights panel : navigation', 'check': 'ON'},
-            {'list': 'lights panel : position', 'check': 'ON'},
-            {'list': 'lights panel : formation', 'check': 'ON DEMAND'},
-            {'list': 'lights panel : landing and taxi', 'check': 'ON DEMAND'},
-            {'list': 'engine 1 started', 'check': 'WAIT'},
-            {'list': 'electrical instrument : cmd', 'check': 'ON'},
-            {'list': 'gui/equipment : epu', 'check': 'REMOVE'},
+            {'list': 'PAGE 2/2',                                      'check': '#'},
+            {'list': '================================',              'check': '#'},
+            {'list': 'engine 0 instrument : cut',                     'check': 'ON'},
+            {'list': 'engine 0 instrument : pump',                    'check': 'ON'},
+            {'list': 'engine 0 instrument : start',                   'check': 'PUSH'},
+            {'list': 'engine 0 started',                              'check': 'WAIT'},
+            {'list': 'electrical instrument : switch',                'check': 'ALT'},
+            {'list': 'engine 1 instrument : cut',                     'check': 'ON'},
+            {'list': 'engine 1 instrument : pump',                    'check': 'ON'},
+            {'list': 'engine 1 instrument : start',                   'check': 'PUSH'},
+            {'list': 'lights panel : strobe',                         'check': 'ON'},
+            {'list': 'lights panel : navigation',                     'check': 'ON'},
+            {'list': 'lights panel : position',                       'check': 'ON'},
+            {'list': 'lights panel : formation',                      'check': 'ON DEMAND'},
+            {'list': 'lights panel : landing and taxi',               'check': 'ON DEMAND'},
+            {'list': 'engine 1 started',                              'check': 'WAIT'},
+            {'list': 'ALT Hpa QFE',                                   'check': 'ADJUST'},
+            {'list': 'gui/equipment : epu',                           'check': 'REMOVE'},
         ],
     },
 # 3
     {
         'title': 'TAXI',
         'items': [
-            {'list': 'contact tower, autorization to taxi', 'check': 'REQUEST'},
-            {'list': 'change mod ND', 'check': 'TAXI'},
-            {'list': 'gui/equipment : chocks', 'check': 'REMOVE'},
-            {'list': 'command panel : parkbrake', 'check': 'RELEASE'},
-            {'list': 'brake', 'check': 'TEST'},
+            {'list': 'contact tower, autorization to taxi',           'check': 'REQUEST'},
+            {'list': 'change mod ND',                                 'check': 'TAXI'},
+            {'list': 'gui/equipment : chocks',                        'check': 'REMOVE'},
+            {'list': 'command panel : parkbrake',                     'check': 'RELEASE'},
+            {'list': 'brake',                                         'check': 'TEST'},
         ],
     },
 # 4
     {
         'title': 'TAKE OFF',
         'items': [
-            {'list': 'rotation: 150kts', 'check': '#'},
-            {'list': '---------------------------------------------------------', 'check': '#'},
-            {'list': 'contact tower, autorization to enter runway', 'check': 'REQUEST'},
-            {'list': 'command panel : canopy', 'check': 'CLOSE'},
-            {'list': 'change mod ND', 'check': 'APP'},
-            {'list': 'PFD : autopilot speed', 'check': '200kt'},
-            {'list': 'PFD : autopilot heading', 'check': 'ADJUST'},
-            {'list': 'HSI : NAV1 radial', 'check': 'ADJUST'},
+            {'list': 'contact tower, autorization to enter runway',   'check': 'REQUEST'},
+            {'list': 'command panel : canopy',                        'check': 'CLOSE'},
+            {'list': 'change mod ND',                                 'check': 'APP'},
+            {'list': 'PFD : autopilot speed',                         'check': '200kt'},
+            {'list': 'ND : autopilot heading',                        'check': 'ADJUST'},
+            {'list': 'PFD : autopilot alt',                           'check': '2500ft'},
+            {'list': 'PFD : autopilot vs',                            'check': '2000ft/min'},
+            {'list': 'HSI : NAV1 radial',                             'check': 'ON DEMAND'},
+            {'list': '.--------------------------------------------', 'check': 'info'},
+            {'list': '| rotation: 150kts',                            'check': 'info'},
+            {'list': '`--------------------------------------------', 'check': 'info'},
+            {'list': 'CHRONO : chrono',                               'check': 'START'},
+            {'list': 'PFD : autopilot speed',                         'check': 'ACTIVE'},
         ],
     },
 # 5
     {
-        'title': 'NAVIGATION',
+        'title': 'CLIMBING',
         'items': [
-            {'list': 'change mod ND', 'check': 'NAV'},
-            {'list': 'ALT Hpa std', 'check': 'STD'},
-            {'list': 'VOR frequency, radial', 'check': 'CHOOSE'},
-            {'list': 'ND : VOR1', 'check': 'ENABLE'},
-            {'list': 'PFD : adjust autopilot', 'check': 'ON DEMAND'},
+            {'list': '.--------------------------------------------', 'check': 'info'},
+            {'list': '| reaching 2500ft after 00:01:55 / 6.7NM',      'check': 'info'},
+            {'list': '`--------------------------------------------', 'check': 'info'},
+            {'list': 'ND : autopilot heading',                        'check': 'ADJUST'},
+            {'list': 'PFD : autopilot vs',                            'check': '4000ft/min'},
+            {'list': 'PFD : autopilot speed',                         'check': '600kt'},
+            {'list': 'PFD : autopilot alt',                           'check': '40000ft'},
+            {'list': 'ALT Hpa std',                                   'check': 'STD'},
+            {'list': '.--------------------------------------------', 'check': 'info'},
+            {'list': '| 2500ft|200kt to 40000ft|600kt',               'check': 'info'},
+            {'list': '| - 00:09:45',                                  'check': 'info'},
+            {'list': '| - 96NM',                                      'check': 'info'},
+            {'list': '`--------------------------------------------', 'check': 'info'},
         ],
     },
 # 6
     {
+        'title': 'NAVIGATION',
+        'items': [
+            {'list': 'change mod ND',                                 'check': 'NAV'},
+            {'list': 'VOR frequency, radial',                         'check': 'CHOOSE'},
+            {'list': 'ND : VOR1', 'check':                            'ENABLE'},
+            {'list': 'PFD : adjust autopilot',                        'check': 'ON DEMAND'},
+        ],
+    },
+# 7
+    {
+        'title': 'DESCENT',
+        'items': [
+            {'list': '.--------------------------------------------', 'check': 'info'},
+            {'list': '| 40000ft|600kt to 4000ft 400kt',               'check': 'info'},
+            {'list': '| - 00:09:30',                                  'check': 'info'},
+            {'list': '| - 83NM',                                      'check': 'info'},
+            {'list': '`--------------------------------------------', 'check': 'info'},
+            {'list': 'PFD : autopilot speed',                         'check': '300kt'},
+            {'list': 'PFD : autopilot vs',                            'check': '4000ft/min'},
+            {'list': 'PFD : autopilot alt',                           'check': '4000ft'},
+            {'list': 'ALT Hpa QFE',                                   'check': 'ADJUST'},
+        ],
+    },
+# 8
+    {
         'title': 'LANDING',
         'items': [
-            {'list': 'ALT Hpa QFE', 'check': 'ADJUST'},
-            {'list': 'change mod ND', 'check': 'APP'},
-            {'list': '---------------------------------------------------------', 'check': '#'},
-            {'list': 'approach at 140kts use speedbrakes', 'check': '#'},
-            {'list': 'velocity vector on runway s threshold', 'check': '#'},
-            {'list': 'velocity vector -3deg on hud ladder', 'check': '#'},
-            {'list': 'touchdown at 120kts', 'check': '#'},
+            {'list': 'change mod ND',                                 'check': 'APP'},
+            {'list': '.--------------------------------------------', 'check': 'info'},
+            {'list': '| approach at 140kts use speedbrakes',          'check': 'info'},
+            {'list': '| velocity vector on runway s threshold',       'check': 'info'},
+            {'list': '| velocity vector -3deg on hud ladder',         'check': 'info!'},
+            {'list': '| touchdown at 120kts',                         'check': 'info'},
+            {'list': '`--------------------------------------------', 'check': 'info'},
         ],
     },
 ];
@@ -208,6 +254,7 @@ var MAP = {
         m.filepath_image_menu = 'Aircraft/bourrasque/instruments/tablet/menu.png';
         m.filepath_image_checklist = 'Aircraft/bourrasque/instruments/tablet/bg.png';
         m.filepath_image_vor = 'Aircraft/bourrasque/instruments/tablet/morse.png';
+        m.filepath_image_mapvor = 'Aircraft/bourrasque/instruments/tablet/mapvor-fr.png';
 
 # CANVAS STUFF
 
@@ -350,6 +397,13 @@ var MAP = {
             .setColor(0, .8, 0, 1)
             .setText(data_col2_vor_france).set('z-index', 1);
 
+# MAPVOR STUFF
+        m.g_page_mapvor = m.root.createChild('group').set('z-index', 97);
+        m.image_mapvor = m.g_page_mapvor.createChild('image').setFile(m.filepath_image_mapvor)
+            .setSize(1024, 1024)
+            .setTranslation(0, 0);
+
+
         return m;
     },
     update: func() {
@@ -365,6 +419,7 @@ var MAP = {
             me.g_page_menu.setVisible(1);
             me.g_page_checklist.setVisible(0);
             me.g_page_vor.setVisible(0);
+            me.g_page_mapvor.setVisible(0);
 
             me.g_front.setVisible(0);
             me.g_back.setVisible(0);
@@ -474,6 +529,7 @@ var MAP = {
             me.g_page_menu.setVisible(0);
             me.g_page_checklist.setVisible(0);
             me.g_page_vor.setVisible(0);
+            me.g_page_mapvor.setVisible(0);
 
             me.g_page_map.setVisible(1);
 
@@ -500,10 +556,12 @@ var MAP = {
             me.g_page_menu.setVisible(0);
             me.g_page_checklist.setVisible(1);
             me.g_page_vor.setVisible(0);
+            me.g_page_mapvor.setVisible(0);
 
             me.g_front.setVisible(0);
             me.g_back.setVisible(0);
             me.g_page_map.setVisible(0);
+            me.g_page_mapvor.setVisible(0);
         }
 
 # page3 = VOR FR
@@ -511,7 +569,16 @@ var MAP = {
         {
             me.g_page_menu.setVisible(0);
             me.g_page_checklist.setVisible(0);
-            me.g_page_vor.setVisible(1);
+            if(math.mod(no_page_checklist, 2) == 0)
+            {
+                me.g_page_vor.setVisible(1);
+                me.g_page_mapvor.setVisible(0);
+            }
+            else
+            {
+                me.g_page_vor.setVisible(0);
+                me.g_page_mapvor.setVisible(1);
+            }
 
             me.g_front.setVisible(0);
             me.g_back.setVisible(0);

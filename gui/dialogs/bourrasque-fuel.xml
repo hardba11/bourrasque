@@ -2,7 +2,7 @@
 <!--
 ################################################################################
 #
-#                      bourrasque options dialogbox
+#                      bourrasque fuel dialogbox
 #
 ################################################################################
 
@@ -22,7 +22,7 @@ changelog
   <layout>vbox</layout>
   <group>
     <layout>hbox</layout><empty><stretch>1</stretch></empty>
-    <text><label>bourrasques's fuel</label></text>
+    <text><label>bourrasque's fuel</label></text>
     <empty><stretch>1</stretch></empty>
     <button><pref-width>16</pref-width><pref-height>16</pref-height><legend />
       <default>1</default><keynum>27</keynum><border>2</border>
@@ -52,7 +52,7 @@ changelog
     <text>
       <row>0</row><col>1</col>
       <halign>left</halign>
-      <label>fuel freeze</label>
+      <label>Fuel freeze</label>
     </text>
   </group>
 

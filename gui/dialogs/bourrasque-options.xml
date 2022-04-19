@@ -22,7 +22,7 @@ changelog
   <layout>vbox</layout>
   <group>
     <layout>hbox</layout><empty><stretch>1</stretch></empty>
-    <text><label>bourrasques's options</label></text>
+    <text><label>bourrasque's options</label></text>
     <empty><stretch>1</stretch></empty>
     <button><pref-width>16</pref-width><pref-height>16</pref-height><legend />
       <default>1</default><keynum>27</keynum><border>2</border>
@@ -52,7 +52,7 @@ changelog
     <text>
       <row>0</row><col>1</col>
       <halign>left</halign>
-      <label>cockpit shake effect</label>
+      <label>Cockpit shake effect</label>
     </text>
   </group>
   <hrule />
@@ -63,7 +63,7 @@ changelog
     <halign>left</halign>
     <text>
       <row>0</row><col>0</col>
-      <label>hud helper</label>
+      <label>HUD helper</label>
     </text>
     <checkbox>
       <row>1</row><col>0</col>
@@ -80,7 +80,7 @@ changelog
     <text>
       <row>1</row><col>1</col>
       <halign>left</halign>
-      <label>show targets positions</label>
+      <label>Show targets' positions</label>
     </text>
     <checkbox>
       <row>2</row><col>0</col>
@@ -97,7 +97,7 @@ changelog
     <text>
       <row>2</row><col>1</col>
       <halign>left</halign>
-      <label>show multiplayers targets (AI if unchecked)</label>
+      <label>Show multiplayers targets (AI if unchecked)</label>
     </text>
   </group>
 
@@ -109,12 +109,12 @@ changelog
     <halign>left</halign>
     <text>
       <row>0</row><col>0</col>
-      <label>pilot</label>
+      <label>Pilot</label>
     </text>
     <button>
       <row>0</row><col>1</col>
       <pref-width>70</pref-width><pref-height>20</pref-height>
-      <legend>away</legend>
+      <legend>Away</legend>
       <binding>
         <command>property-assign</command>
         <property>controls/pax/pilot</property>
@@ -124,7 +124,7 @@ changelog
     <button>
       <row>0</row><col>2</col>
       <pref-width>70</pref-width><pref-height>20</pref-height>
-      <legend>seated</legend>
+      <legend>Seated</legend>
       <binding>
         <command>property-assign</command>
         <property>controls/pax/pilot</property>
@@ -133,12 +133,12 @@ changelog
     </button>
     <text>
       <row>1</row><col>0</col>
-      <label>copilot</label>
+      <label>Copilot</label>
     </text>
     <button>
       <row>1</row><col>1</col>
       <pref-width>70</pref-width><pref-height>20</pref-height>
-      <legend>away</legend>
+      <legend>Away</legend>
       <binding>
         <command>property-assign</command>
         <property>controls/pax/copilot</property>
@@ -148,7 +148,7 @@ changelog
     <button>
       <row>1</row><col>2</col>
       <pref-width>70</pref-width><pref-height>20</pref-height>
-      <legend>seated</legend>
+      <legend>Seated</legend>
       <binding>
         <command>property-assign</command>
         <property>controls/pax/copilot</property>
@@ -165,7 +165,7 @@ changelog
     <halign>left</halign>
     <text>
       <row>0</row><col>0</col>
-      <label>hippodrome leg</label>
+      <label>Hippodrome leg</label>
     </text>
     <button>
       <row>0</row><col>1</col>
