@@ -15,57 +15,94 @@ print("*** LOADING instrument_tablet_map - tablet_map.nas ... ***");
 var width = 1024;
 var height = 1024;
 
-# AMB 113.7  AMBoise
-# SAU 116.8  SAUveterre
-# MTG 117.3  MarTiGues
-# RLP 117.3  RoLamPon
-
-
-var data_col1_vor_france = '
-QPR 117.8  QuimPeR
-ARE 112.5  monts d ARrEe
-DIN 114.3  DINard
-REN 109.25 RENnes
-NTS 115.5  NanTeS
-ANG 113.0  ANGers
-CAN 114.45 CAeN
-DVL 110.2  DeauViLle
-LGL 115.0  L aiGLe
-EVX 112.4  EVreuX
-CAD 115.95 ChAteauDun
-POI 113.3  POItiers
-CNA 114.65 CogNAc
-BMC 113.75 Bordeaux MerignaC
-MDM 108.7  Mont De Marsan
-AGN 114.8  AGeN
-TLS 117.7  TouLouSe
-GAI 115.8  GAIllac
-PPG 116.25 PerPiGnan
-MEN 115.3  MENde
-FJR 114.45 montpellier';
-
-var data_col2_vor_france = '
-MRM 108.8  MaRseille Marignane
-STP 116.5  St TroPez
-NIZ 112.4  NIce aZure
-MTL 113.65 MonTeLimar
-CFA 114.35 Clermont-FerrAnd
-LTP 115.55 La Tour du Pin
-LSE 114.75 Lyon St Exupery
-MOU 116.7  MOUlins
-NEV 113.4  NEVers
-LMG 114.5  LiMoGes
-TRO 116.0  TROyes
-LUL 117.1  LUxeuiL
-DJL 111.45 DiJon Longvic
-EPL 113.0  EPinaL
-GTQ 111.25 GrosTenQuin
-MMD 109.4  MontMeDy
-REM 112.3  REiMs
-CTL 117.6  ChaTiLlon sur marne
-CMB 112.6  CaMBrai
+var data_col1_vor_france = "
 ABB 108.45 ABBeville
-BNE 113.8  BoulogNE';
+    [LFOI 02/20]
+AGN 114.8  AGeN
+    [LFBA 11/29]
+ANG 113.0  ANGers
+    [LFJR 08/26]
+ARE 112.5  monts d ARreE
+BMC 113.75 Bordeaux MerignaC
+    [LFBD 05/23]
+BNE 113.8  BoulogNE
+    [LFAT 14/32]
+CAD 115.95 ChAteauDun
+    [LFOC 10/28]
+CAN 114.45 CAeN
+    [LFRK 13/31]
+CFA 114.35 Clermont-FerrAnd
+    [LFLC 08/26]
+CMB 112.6  CaMBrai
+    [LFYG 08/26]
+CNA 114.65 CogNAc
+    [LFBG 05/23]
+CTL 117.6  ChaTiLlon sur marne
+    [LFFH 04/22]
+DIN 114.3  DINard
+    [LFRD 17/35]
+DJL 111.45 DiJon Longvic
+    [LFSD 18/36]
+DVL 110.2  DeauViLle
+    [LFRG 12/30]
+EPL 113.0  EPinaL
+    [LFSG 09/27]
+EVX 112.4  EVreuX
+    [LFOE 04/22]
+FJR 114.45 montpellier
+    [LFMT 13/31]
+GAI 115.8  GAIllac
+    [LFCI 09/27]
+GTQ 111.25 GrosTenQuin
+    [LFJL 04/22]
+LGL 115.0  L'aiGLe
+    [LFOL 07/25]
+";
+
+var data_col2_vor_france = "
+LMG 114.5  LiMoGes
+    [LFBL 03/21]
+LSE 114.75 Lyon St Exupery
+    [LFLL 18/36]
+LTP 115.55 La Tour du Pin
+    [LFLS 09/27]
+LUL 117.1  LUxeuiL
+    [LFSX 11/29]
+MDM 108.7  Mont De Marsan
+    [LFBM 09/27]
+MEN 115.3  MENde
+    [LFNB 13/31]
+MMD 109.4  MontMeDy
+    [LFGW 10/28]
+MOU 116.7  MOUlins
+    [LFHY 08/26]
+MRM 108.8  MaRseille Marignane
+    [LFML 13/31]
+MTL 113.65 MonTeLimar
+    [LFLQ 02/20]
+NEV 113.4  NEVers
+    [LFQG 12/30]
+NIZ 112.4  NIce aZure
+    [LFMN 04/22]
+NTS 115.5  NanTeS
+    [LFRS 03/21]
+POI 113.3  POItiers
+    [LFBI 03/21]
+PPG 116.25 PerPiGnan
+    [LFMP 15/33]
+QPR 117.8  QuimPeR
+    [LFRQ 10/28]
+REM 112.3  REiMs
+    [LFQA 07/25]
+REN 109.25 RENnes
+    [LFRN 10/28]
+STP 116.5  St TroPez
+    [LFTZ 06/24]
+TLS 117.7  TouLouSe
+    [LFBO 14/32]
+TRO 116.0  TROyes
+    [LFQB 18/36]
+";
 
 # max 23 lignes par page
 # list : 45 char max
@@ -382,18 +419,18 @@ var MAP = {
             .setSize(1024, 1024)
             .setTranslation(0, 0);
         m.txt_col1_vor_france = m.g_page_vor.createChild('text', 'col1_vor_france')
-            .setTranslation(160, 430)
+            .setTranslation(160, 330)
             .setAlignment('left-top')
             .setFont('LiberationFonts/LiberationMono-Regular.ttf')
-            .setFontSize(20)
+            .setFontSize(16)
             .setColor(0, .8, 0, 1)
             .setText(data_col1_vor_france).set('z-index', 1);
 
         m.txt_col2_vor_france = m.g_page_vor.createChild('text', 'col2_vor_france')
-            .setTranslation(510, 430)
+            .setTranslation(510, 330)
             .setAlignment('left-top')
             .setFont('LiberationFonts/LiberationMono-Regular.ttf')
-            .setFontSize(20)
+            .setFontSize(16)
             .setColor(0, .8, 0, 1)
             .setText(data_col2_vor_france).set('z-index', 1);
 
