@@ -260,7 +260,7 @@ var HUD = {
             me.t_horizontal_container.setRotation(-(roll_deg * D2R), 512, 512);
         }
         var time_speed = getprop("/sim/speed-up") or 1;
-        var loop_speed = (time_speed == 1) ? .1 : 10 * time_speed;
+        var loop_speed = (time_speed == 1) ? .1 : 1;
         settimer(func() { me.update(); }, loop_speed);
     }
 };

@@ -15,21 +15,23 @@ changelog
 
 <PropertyList>
 
-  <key><name>}</name><desc>autostart/autostop engines</desc></key>
+  <key><name>}</name><desc>Autostart/Autostop engines</desc></key>
   <key><name>c</name><desc>Open/Close canopy. You can click on the canopy handle to half-open it !</desc></key>
   <key><name>g</name><desc>Gears up</desc></key>
   <key><name>G</name><desc>Gears down</desc></key>
-  <key><name>k</name><desc>Extend Speedbrakes (4 positions)</desc></key>
-  <key><name>j</name><desc>Retract Speedbrakes (4 positions)</desc></key>
+  <key><name>k</name><desc>Extend Speedbrakes (5 positions)</desc></key>
+  <key><name>j</name><desc>Retract Speedbrakes (5 positions)</desc></key>
   <key><name>s</name><desc>Toggle Autotrim (pitch)</desc></key>
   <key><name>b</name><desc>Brake (wheels)</desc></key>
   <key><name>B</name><desc>Toggle parkbrakes</desc></key>
-  <key><name>m</name><desc>Select previous mod</desc></key>
-  <key><name>M</name><desc>Select next mod</desc></key>
+  <key><name>m</name><desc>Select previous mod (MFD+FDM+AP presets)</desc></key>
+  <key><name>M</name><desc>Select next mod (MFD+FDM+AP presets)</desc></key>
   <key><name>l</name><desc>Toggle landing lights</desc></key>
   <key><name>L</name><desc>Toggle lights</desc></key>
   <key><name>o</name><desc>Acknowledge master caution</desc></key>
   <key><name>h</name><desc>Toggle night/day hud</desc></key>
+  <key><name>H</name><desc>Hud brightness</desc></key>
+  <key><name>y</name><desc>Start/Stop chrono</desc></key>
   <key><name>ctrl-a</name><desc>Enable autopilot on Altitude</desc></key>
   <key><name>ctrl-s</name><desc>Enable autopilot on Speed</desc></key>
   <key><name>ctrl-h</name><desc>Enable autopilot on Heading (bug)</desc></key>
@@ -43,13 +45,57 @@ changelog
   <key><name>&gt;</name><desc>reinit record loop</desc></key>
 
   <text>
+CHECK-LISTS :
+- watch knee-tablet, click on checklist
+- use &lt; and &gt; to previous and next pages.
+
+MEMO :
 - take off rotation: 150kts
-- landing: 130kts / speedbrake 40% / aoa 8
-- taxi speed : 20-30 kt
-- max speed below FL 100 : 250 Kt
-- set altimeter to 1013 hPa over 5000 ft
+- landing: 120-140kts
+- max speed below FL 100 : 250kts
+- set altimeter to 1013hPa over 5000ft
 - carrier take off : engage launch bar (]), unlock parkbrakes (B), throttle 80%, catapult ([)
+
+NUMPAD LAYOUT (*=hit key with the ctrl key, **=if autopilot is enabled)
+0
+- decr throttle
+- decr speed**
+1
+- yaw left
+- trim l yaw*
+2
+- pitch up
+- trim up*
+- incr alt**
+3
+- yaw right
+- trim r yaw*
+4
+- roll left
+- trim left*
+- hdg left**
+5
+- reinit P,R,Y
+- reinit trim*
+6
+- roll right
+- trim right*
+- hdg right**
+7
+- view panels
+8
+- pitch down
+- trim down*
+- decr alt**
+9
+- view panels
++
+- inc throttle
+- inc speed**
   </text>
+
+
+
 
 </PropertyList>
 

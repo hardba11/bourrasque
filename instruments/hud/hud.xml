@@ -1750,6 +1750,7 @@ see :
             <property>/instrumentation/my_aircraft/stdby-hsi/controls/nav-selector</property>
             <value type="int">1</value>
           </equals>
+          <property>/instrumentation/nav[0]/serviceable</property>
           <not><property>/instrumentation/nav[0]/slaved-to-gps</property></not>
         </and>
       </or>
@@ -1784,6 +1785,7 @@ see :
             <property>/instrumentation/my_aircraft/stdby-hsi/controls/nav-selector</property>
             <value type="int">1</value>
           </equals>
+          <property>/instrumentation/nav[0]/serviceable</property>
           <not><property>/instrumentation/nav[0]/slaved-to-gps</property></not>
         </and>
       </or>
@@ -1818,6 +1820,7 @@ see :
             <property>/instrumentation/my_aircraft/stdby-hsi/controls/nav-selector</property>
             <value type="int">1</value>
           </equals>
+          <property>/instrumentation/nav[0]/serviceable</property>
           <not><property>/instrumentation/nav[0]/slaved-to-gps</property></not>
         </and>
       </or>
@@ -1852,6 +1855,7 @@ see :
             <property>/instrumentation/my_aircraft/stdby-hsi/controls/nav-selector</property>
             <value type="int">1</value>
           </equals>
+          <property>/instrumentation/nav[0]/serviceable</property>
           <not><property>/instrumentation/nav[0]/slaved-to-gps</property></not>
         </and>
       </or>
@@ -1886,6 +1890,7 @@ see :
             <property>/instrumentation/my_aircraft/stdby-hsi/controls/nav-selector</property>
             <value type="int">1</value>
           </equals>
+          <property>/instrumentation/nav[0]/serviceable</property>
           <not><property>/instrumentation/nav[0]/slaved-to-gps</property></not>
         </and>
       </or>
@@ -1928,6 +1933,7 @@ see :
               <value>-1</value>
             </equals>
           </not>
+          <property>/instrumentation/nav[1]/serviceable</property>
         </and>
       </or>
     </condition>
@@ -1967,6 +1973,7 @@ see :
               <value>-1</value>
             </equals>
           </not>
+          <property>/instrumentation/nav[1]/serviceable</property>
         </and>
       </or>
     </condition>

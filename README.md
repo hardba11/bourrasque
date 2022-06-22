@@ -154,7 +154,7 @@ flight gear livery :
 
 ![Image](http://i.imgur.com/n13LXzK.png)
 
-furtiv livery :
+serpent livery :
 
 ![Image](http://i.imgur.com/oeYSXVO.png)
 

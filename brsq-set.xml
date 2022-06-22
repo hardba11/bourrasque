@@ -21,7 +21,7 @@ http://wiki.flightgear.org/Property_tree
     <!-- ~~~~~~~~~~~~~~~~~~ metadata -->
     <description type="string">brsq</description>
     <long-description type="string">Bourrasque is a fictionnal civil version of the famous Dassault Rafale, its purpose is the world exploration thanks to high speed, short landings and takeoff, radionavigation and auto pilot equipment.</long-description>
-    <aircraft-version type="string">20191204</aircraft-version>
+    <aircraft-version type="string">20220620</aircraft-version>
     <minimum-fg-version type="string">2017.1.1</minimum-fg-version>
 
     <primary-set type="bool">true</primary-set>
@@ -169,6 +169,7 @@ http://wiki.flightgear.org/Property_tree
     </sound>
 
     <!-- ~~~~~~~~~~~~~~~~~~ specific menu -->
+    <gui n="0" include="gui/gui-theme.xml" />
     <menubar include="gui/specific-menu.xml" />
 
     <!-- ~~~~~~~~~~~~~~~~~~ initialisation -->
@@ -477,10 +478,10 @@ http://wiki.flightgear.org/Property_tree
     </liveries>
 
     <!-- ~~~~~~~~~~~~~~~~~~ 3rd party scripts to improve functionnalities -->
-    <!--aar>
+    <aar>
       <file>Aircraft/Generic/aar.nas</file>
     </aar>
-    <aar>
+    <!--aar>
       <file>core/aar.nas</file>
     </aar-->
     <formation>

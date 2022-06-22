@@ -17,8 +17,8 @@ keyboard shortcuts
 - ctrl-n : enable autopilot on Heading (nav 1 radial)
 - ctrl-p : enable autopilot to keep current heading, altitude and speed
 - ctrl-P : disable autopilot
-- m : select previous mod
-- M : select next mod
+- m : select previous mod (MFD+FDM+AP presets)
+- M : select next mod (MFD+FDM+AP presets)
 - } : autostart
 - v : next view
 - V : previous view

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PropertyList>
+  <style n="0">
+  </style>
+
+  <style n="1">
+    <name>nico</name>
+    <colors n="0">
+
+      <background n="0">
+        <alpha>.85</alpha><red>.18</red><green>.21</green><blue>.23</blue>
+      </background>
+
+      <label n="0">
+        <alpha>.60</alpha><red>.99</red><green>.70</green><blue>.00</blue>
+      </label>
+      <hrule n="0">
+        <alpha>.60</alpha><red>.99</red><green>.70</green><blue>.00</blue>
+      </hrule>
+      <vrule n="0">
+        <alpha>.60</alpha><red>.99</red><green>.70</green><blue>.00</blue>
+      </vrule>
+      <checkbox-highlight n="0">
+        <alpha>.30</alpha><red>.99</red><green>.70</green><blue>.00</blue>
+      </checkbox-highlight>
+
+      <input-legend n="0">
+        <alpha>.99</alpha><red>.99</red><green>.00</green><blue>.00</blue>
+      </input-legend>
+      <checkbox-misc n="0">
+        <alpha>.99</alpha><red>.99</red><green>.00</green><blue>.00</blue>
+      </checkbox-misc>
+      <dial-misc n="0">
+        <alpha>.99</alpha><red>.99</red><green>.00</green><blue>.00</blue>
+      </dial-misc>
+
+      <button n="0">
+        <alpha>.95</alpha><red>.06</red><green>.07</green><blue>.09</blue>
+      </button>
+
+      <input n="0">
+        <alpha>.99</alpha><red>.00</red><green>.00</green><blue>.00</blue>
+      </input>
+      <radio-foreground n="0">
+        <alpha>.99</alpha><red>.00</red><green>.00</green><blue>.00</blue>
+      </radio-foreground>
+      <checkbox-foreground n="0">
+        <alpha>.99</alpha><red>.00</red><green>.00</green><blue>.00</blue>
+      </checkbox-foreground>
+      <combo-editfield n="0">
+        <alpha>.99</alpha><red>.00</red><green>.00</green><blue>.00</blue>
+      </combo-editfield>
+
+      <slider n="0">
+        <alpha>.70</alpha><red>.80</red><green>.80</green><blue>.80</blue>
+      </slider>
+
+    </colors>
+  </style>
+
+</PropertyList>
+
+
+
+

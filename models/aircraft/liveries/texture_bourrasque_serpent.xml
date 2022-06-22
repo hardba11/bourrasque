@@ -6,9 +6,9 @@
     <model>
       <livery>
 
-        <name type="string">furtiv</name>
-        <texture>liveries/texture_bourrasque_furtiv.png</texture>
-        <texture-tank>texture_tanks_furtiv.png</texture-tank>
+        <name type="string">serpent</name>
+        <texture>liveries/texture_bourrasque_serpent.png</texture>
+        <texture-tank>texture_tanks_serpent.png</texture-tank>
         <texture-gears>texture_gears.png</texture-gears>
 
       </livery>

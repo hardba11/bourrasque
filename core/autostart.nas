@@ -379,6 +379,7 @@ var autostart = func() {
     if(process_status == 'READY')
     {
         process_status = 'AUTOSTARTING';
+        my_aircraft_functions.set_mod('APP');
 
         var scene_diffuse = getprop("/rendering/scene/diffuse/green");
         var luminosity = 'dawn';

@@ -104,7 +104,8 @@ var main_loop = func() {
     ms = (ms > (2000 * ratio_speed)) ? 0 : ms + 100;
 
     var time_speed = getprop("/sim/speed-up") or 1;
-    ratio_speed = (time_speed > 1) ? 2 * time_speed : 1;
+    #ratio_speed = (time_speed > 1) ? 2 * time_speed : 1;
+    ratio_speed = (time_speed > 4) ? 4 : 1;
 
     settimer(main_loop, .1);
 

@@ -34,7 +34,7 @@ var update_loop = func() {
         return 0;
     }
 
-    # on va recuperer une liste de ravitailleurset leurs caracteristiques
+    # on va recuperer une liste de ravitailleurs et leurs caracteristiques
     # parmis les ai ou multiplayer
     tanker      = aimodelsN.getChildren("tanker");
     multiplayer = aimodelsN.getChildren("multiplayer");

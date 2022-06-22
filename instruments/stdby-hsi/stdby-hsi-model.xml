@@ -310,7 +310,23 @@ changelog
     </center>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ control radial vor1 knob -->
+  <!-- ~~~~~~~~~~~~~~~~~~ control radial vor knob -->
+  <animation>
+    <type>pick</type>
+    <object-name>hsi.knob_course</object-name>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-stdby-hsi-radial1</tooltip-id>
+        <label>Nav1 Radial %3d - Nav2 Radial %3d</label>
+        <mapping>heading</mapping>
+        <property>/instrumentation/nav[0]/radials/selected-deg</property>
+        <property>/instrumentation/nav[1]/radials/selected-deg</property>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ control radial vor2 knob -->
   <!-- left/middle click = +-30 // wheel = +-1 -->
   <animation>
     <type>pick</type>
@@ -386,13 +402,6 @@ changelog
         <property>sim/model/click</property>
       </binding>
     </action>
-    <hovered>
-      <binding>
-        <command>set-tooltip</command>
-        <tooltip-id>tooltip-stdby-hsi-radial</tooltip-id>
-        <label>Set Nav1 or Nav2 Radial</label>
-      </binding>
-    </hovered>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ control radial vor2 knob -->

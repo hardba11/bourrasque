@@ -19,89 +19,89 @@ var data_col1_vor_france = "
 ABB 108.45 ABBeville
     [LFOI 02/20]
 AGN 114.8  AGeN
-    [LFBA 11/29]
+    [LFBA 291 110.35]
 ANG 113.0  ANGers
-    [LFJR 08/26]
+    [LFJR 261 108.9]
 ARE 112.5  monts d ARreE
 BMC 113.75 Bordeaux MerignaC
-    [LFBD 05/23]
+    [LFBD 225 110.3]
 BNE 113.8  BoulogNE
-    [LFAT 14/32]
+    [LFAT 133 110.15]
 CAD 115.95 ChAteauDun
     [LFOC 10/28]
 CAN 114.45 CAeN
-    [LFRK 13/31]
+    [LFRK 305 110.95]
 CFA 114.35 Clermont-FerrAnd
-    [LFLC 08/26]
+    [LFLC 260 111.10]
 CMB 112.6  CaMBrai
-    [LFYG 08/26]
+    [LFQI 273 109.3]
 CNA 114.65 CogNAc
-    [LFBG 05/23]
+    [LFBG 229 109.9]
 CTL 117.6  ChaTiLlon sur marne
     [LFFH 04/22]
 DIN 114.3  DINard
-    [LFRD 17/35]
+    [LFRD 350 110.75]
 DJL 111.45 DiJon Longvic
-    [LFSD 18/36]
+    [LFSD 353 109.5]
 DVL 110.2  DeauViLle
-    [LFRG 12/30]
+    [LFRG 297 111.55]
 EPL 113.0  EPinaL
-    [LFSG 09/27]
+    [LFSG 265 110.9]
 EVX 112.4  EVreuX
-    [LFOE 04/22]
+    [LFOE 039 111.29]
 FJR 114.45 montpellier
-    [LFMT 13/31]
+    [LFMT 304 108.55]
 GAI 115.8  GAIllac
-    [LFCI 09/27]
+    [LFCI 088 108.7]
 GTQ 111.25 GrosTenQuin
-    [LFJL 04/22]
+    [LFJL 039 111.75]
 LGL 115.0  L'aiGLe
     [LFOL 07/25]
 ";
 
 var data_col2_vor_france = "
 LMG 114.5  LiMoGes
-    [LFBL 03/21]
+    [LFBL 213 110.1]
 LSE 114.75 Lyon St Exupery
-    [LFLL 18/36]
+    [LFLL 355 110.75]
 LTP 115.55 La Tour du Pin
-    [LFLS 09/27]
+    [LFLS 090 109.3]
 LUL 117.1  LUxeuiL
-    [LFSX 11/29]
+    [LFSX 113 108.1]
 MDM 108.7  Mont De Marsan
-    [LFBM 09/27]
+    [LFBM 087 110.5]
 MEN 115.3  MENde
-    [LFNB 13/31]
+    [LFNB 125 111.9]
 MMD 109.4  MontMeDy
     [LFGW 10/28]
 MOU 116.7  MOUlins
     [LFHY 08/26]
 MRM 108.8  MaRseille Marignane
-    [LFML 13/31]
+    [LFML 133 110.3]
 MTL 113.65 MonTeLimar
     [LFLQ 02/20]
 NEV 113.4  NEVers
     [LFQG 12/30]
 NIZ 112.4  NIce aZure
-    [LFMN 04/22]
+    [LFMN 044 110.7]
 NTS 115.5  NanTeS
-    [LFRS 03/21]
+    [LFRS 027 109.9]
 POI 113.3  POItiers
-    [LFBI 03/21]
+    [LFBI 210 110.95]
 PPG 116.25 PerPiGnan
-    [LFMP 15/33]
+    [LFMP 328 111.75]
 QPR 117.8  QuimPeR
-    [LFRQ 10/28]
+    [LFRQ 273 111.3]
 REM 112.3  REiMs
     [LFQA 07/25]
 REN 109.25 RENnes
-    [LFRN 10/28]
+    [LFRN 280 110.1]
 STP 116.5  St TroPez
     [LFTZ 06/24]
-TLS 117.7  TouLouSe
-    [LFBO 14/32]
+TOU 117.7  TOUlouse
+    [LFBO 142 110.7]
 TRO 116.0  TROyes
-    [LFQB 18/36]
+    [LFQB 173 111.15]
 ";
 
 # max 23 lignes par page
@@ -269,11 +269,8 @@ var MAP = {
         # data used to create array of tiles
         m.tile_size = 256;
         m.num_tiles = [5, 5];
+        m.center_tile_offset = [2, 2];
         m.type = 'map';
-        m.center_tile_offset = [
-            (m.num_tiles[0] - 1) / 2,
-            (m.num_tiles[1] - 1) / 2
-        ];
 
         # my aircraft data and settings
         m.myHeadingProp = props.globals.getNode("orientation/heading-deg");
@@ -350,8 +347,7 @@ var MAP = {
             .setText('txt_alt')
             .set('z-index', 1);
 
-        m.g_front = m.root.createChild('group');
-        m.g_back = m.root.createChild('group');
+        m.g_map = m.root.createChild('group');
         m.root.setCenter(width / 2, height / 2); # center of the canvas
 
         # simple aircraft icon at current position/center of the map
@@ -377,9 +373,7 @@ var MAP = {
             return tiles;
         }
 
-        m.tiles_front = make_tiles(m.g_front);
-        m.tiles_back  = make_tiles(m.g_back);
-        m.use_front = 1;
+        m.tiles_map = make_tiles(m.g_map);
         m.last_tile = [-1, -1];
         m.last_type = m.type;
 
@@ -458,8 +452,6 @@ var MAP = {
             me.g_page_vor.setVisible(0);
             me.g_page_mapvor.setVisible(0);
 
-            me.g_front.setVisible(0);
-            me.g_back.setVisible(0);
             me.g_page_map.setVisible(0);
         }
 
@@ -489,29 +481,16 @@ var MAP = {
             var tile_index = [int(offset[0]), int(offset[1])];
             var ox = tile_index[0] - offset[0];
             var oy = tile_index[1] - offset[1];
-            me.g_front.setVisible(me.use_front);
-            me.g_back.setVisible(! me.use_front);
-            me.use_front = math.mod(me.use_front + 1, 2);
 
             # placing tiles
             for(var x = 0; x < me.num_tiles[0]; x += 1)
             {
                 for(var y = 0; y < me.num_tiles[1]; y += 1)
                 {
-                    if(me.use_front)
-                    {
-                        me.tiles_back[x][y].setTranslation(
-                            int(((ox + x) * me.tile_size) + .5),
-                            int(((oy + y) * me.tile_size) + .5)
-                        );
-                    }
-                    else
-                    {
-                        me.tiles_front[x][y].setTranslation(
-                            int(((ox + x) * me.tile_size) + .5),
-                            int(((oy + y) * me.tile_size) + .5)
-                        );
-                    }
+                    me.tiles_map[x][y].setTranslation(
+                        int(((ox + x) * me.tile_size) +18),
+                        int(((oy + y) * me.tile_size) +13)
+                    );
                 }
             }
 
@@ -544,8 +523,7 @@ var MAP = {
                                     })
                                     .fail(func(r) {
                                         printf('::map - FAILED downloading %s to %s', img_url, img_path);
-                                        me.tiles_back[x - 1][y - 1].setFile("");
-                                        me.tiles_front[x - 1][y - 1].setFile("");
+                                        me.tiles_map[x - 1][y - 1].setFile("");
                                     });
                             }
                             else
@@ -553,8 +531,7 @@ var MAP = {
                                 if(pos.z == me.zoom)
                                 {
                                     printf('::map - using %s', img_path);
-                                    me.tiles_back[x][y].setFile(img_path);
-                                    me.tiles_front[x][y].setFile(img_path);
+                                    me.tiles_map[x][y].setFile(img_path);
                                 }
                             }
                         })();
@@ -570,7 +547,7 @@ var MAP = {
 
             me.g_page_map.setVisible(1);
 
-            loop_speed = (time_speed == 1) ? .5 : 4 * time_speed;
+            loop_speed = (time_speed == 1) ? .5 : 4;
         }
 
 # page2 = CHECKLIST
@@ -595,8 +572,6 @@ var MAP = {
             me.g_page_vor.setVisible(0);
             me.g_page_mapvor.setVisible(0);
 
-            me.g_front.setVisible(0);
-            me.g_back.setVisible(0);
             me.g_page_map.setVisible(0);
             me.g_page_mapvor.setVisible(0);
         }
@@ -617,8 +592,6 @@ var MAP = {
                 me.g_page_mapvor.setVisible(1);
             }
 
-            me.g_front.setVisible(0);
-            me.g_back.setVisible(0);
             me.g_page_map.setVisible(0);
         }
         settimer(func() { me.update(); }, loop_speed);
