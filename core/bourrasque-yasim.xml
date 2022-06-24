@@ -273,10 +273,18 @@ ________________________________________________________________________________
     <control-output control="REHEAT" prop="/engines/engine[1]/reheat" />
     <control-speed  control="REHEAT" transition-time="2" />
   </jet>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ thruster : boost + pushback -->
   <thruster thrust="100000"
-      x="-4.9" y="0" z=".95"
+      x="-4.9" y="0" z="1"
       vx="1" vy="0" vz="0">
     <control-input axis="/controls/jato/throttle" control="THROTTLE" />
+  </thruster>
+  <thruster thrust="2500"
+      x="3" y="0" z="-.3"
+      vx="1" vy="0" vz="0">
+    <control-input axis="/sim/model/pushback/target-speed-fps" control="THROTTLE"
+        src0="-1" src1="1" dst0="-1" dst1="1" />
   </thruster>
 
   <!--

@@ -271,5 +271,25 @@ my_aircraft_functions.event_smoke(1);
 
   <hrule />
 
+  <!-- ~~~~~~~~~~~~~~~~~~ pushback -->
+  <group>
+    <layout>table</layout>
+    <halign>left</halign>
+    <text>
+      <row>0</row><col>0</col>
+      <label>Pushback</label>
+    </text>
+    <button>
+      <row>0</row><col>1</col>
+      <legend>Use</legend>
+      <binding>
+        <command>dialog-show</command>
+        <dialog-name>pushback</dialog-name>
+      </binding>
+    </button>
+  </group>
+
+  <hrule />
+
 </PropertyList>
 

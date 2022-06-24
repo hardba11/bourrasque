@@ -551,6 +551,17 @@ livery_update.stop();
     </offsets>
   </model>
 
+  <!-- ~~~~~~~~~~~~~~~~~~ pushback -->
+  <model>
+    <name>Pushback</name>
+    <path>Models/Airport/Pushback/Military1.xml</path>
+    <offsets>
+     <x-m>-2.75</x-m>
+     <y-m>0</y-m>
+     <z-m>-1.4</z-m>
+    </offsets>
+  </model>
+
   <!-- ~~~~~~~~~~~~~~~~~~ shaking -->
   <animation>
     <name>block_shake</name>
