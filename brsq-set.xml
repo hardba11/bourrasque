@@ -21,7 +21,7 @@ http://wiki.flightgear.org/Property_tree
     <!-- ~~~~~~~~~~~~~~~~~~ metadata -->
     <description type="string">brsq</description>
     <long-description type="string">Bourrasque is a fictionnal civil version of the famous Dassault Rafale, its purpose is the world exploration thanks to high speed, short landings and takeoff, radionavigation and auto pilot equipment.</long-description>
-    <aircraft-version type="string">20220620</aircraft-version>
+    <aircraft-version type="string">20220703</aircraft-version>
     <minimum-fg-version type="string">2017.1.1</minimum-fg-version>
 
     <primary-set type="bool">true</primary-set>
@@ -355,25 +355,21 @@ http://wiki.flightgear.org/Property_tree
 
   <!-- for tests and settings -->
   <_debug>
+    <Kp type="float">1.0</Kp>
+    <Ti type="float">10000000000.0</Ti>
+    <Td type="float">0.0</Td>
     <int1 type="int">0</int1>
     <int2 type="int">0</int2>
     <int3 type="int">0</int3>
-    <float1 type="float">0</float1>
-    <float2 type="float">0</float2>
-    <float3 type="float">0</float3>
-    <float4 type="float">0</float4>
-    <float5 type="float">0</float5>
-    <float6 type="float">0</float6>
+    <float1 type="float">0.0</float1>
+    <float2 type="float">0.0</float2>
+    <float3 type="float">0.0</float3>
+    <float4 type="float">0.0</float4>
+    <float5 type="float">0.0</float5>
+    <float6 type="float">0.0</float6>
     <bool1 type="bool">0</bool1>
-    <!-- USED FOR TUNNING WITHOUT RESTARTING fcm.nas -->
-    <fcm>
-      <reduction_of_efficiency_for_speed type="float">2.7</reduction_of_efficiency_for_speed>
-      <reduction_of_efficiency_for_altitude type="float">2.0</reduction_of_efficiency_for_altitude>
-      <optimal_speed type="int">200</optimal_speed>
-      <range_speed type="int">550</range_speed>
-      <optimal_altitude type="int">0</optimal_altitude>
-      <range_altitude type="int">20000</range_altitude>
-    </fcm>
+    <!-- USED FOR DEV -->
+    <show_devtools type="bool">0</show_devtools>
     <instruments>
       <hud_show_all type="bool">0</hud_show_all>
     </instruments>

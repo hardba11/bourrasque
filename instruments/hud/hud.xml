@@ -1469,9 +1469,7 @@ see :
     <width>1.5</width>
     <height>1.5</height>
     <input>
-      <property>/accelerations/pilot/z-accel-fps_sec</property>
-      <factor>-0.03108095</factor>
-      <damp>1.0</damp>
+      <property>/accelerations/pilot-g</property>
     </input>
     <format>%2.1fg</format>
     <halign>left</halign>
@@ -1488,7 +1486,6 @@ see :
         </equals>
       </or>
     </condition>
-
   </label>
 
   <!--
@@ -2171,5 +2168,88 @@ see :
     <halign>left</halign>
   </label>
 
+
+
+
+
+  <!--
+================================================================================
+                                                                       DEV TOOLS
+================================================================================
+-->
+
+  <gauge>
+    <name>debug fbw-elevator</name>
+    <x>89</x>
+    <y>-135</y>
+    <width>10</width>
+    <height>48</height>
+    <option>vertical</option>
+    <option>left</option>
+    <option>notext</option>
+    <input>
+      <property>/controls/flight/fbw-elevator</property>
+      <factor>-1</factor>
+      <max>1.0</max>
+      <min>-1.0</min>
+    </input>
+    <condition>
+      <property>/_debug/show_devtools</property>
+    </condition>
+  </gauge>
+  <label>
+    <name>g</name>
+    <x>100</x>
+    <y>-105</y>
+    <width>1.5</width>
+    <height>1.5</height>
+    <input>
+      <property>/accelerations/pilot-g</property>
+    </input>
+    <format>%2.03fg</format>
+    <halign>left</halign>
+    <condition>
+      <property>/_debug/show_devtools</property>
+    </condition>
+  </label>
+  <gauge>
+    <name>debug fbw-aileron</name>
+    <x>74</x>
+    <y>-135</y>
+    <width>50</width>
+    <height>10</height>
+    <option>top</option>
+    <option>horizontal</option>
+    <option>notext</option>
+    <major-divisions>1</major-divisions>
+    <minor-divisions>0</minor-divisions>
+    <input>
+      <property>/controls/flight/fbw-aileron</property>
+      <max>1.0</max>
+      <min>-1.0</min>
+    </input>
+    <condition>
+      <property>/_debug/show_devtools</property>
+    </condition>
+  </gauge>
+  <label>
+    <name>rolldegs</name>
+    <x>74</x>
+    <y>-145</y>
+    <width>20</width>
+    <height>6</height>
+    <format>%.02f</format>
+    <input>
+      <property>/orientation/roll-rate-degps</property>
+    </input>
+    <halign>left</halign>
+    <condition>
+      <property>/_debug/show_devtools</property>
+    </condition>
+  </label>
+
 </PropertyList>
+
+
+
 

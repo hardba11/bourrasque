@@ -22,7 +22,7 @@ http://wiki.flightgear.org/Property_tree
     <description type="string">brsq back-seat (multiplayer)</description>
     <variant-of>brsq</variant-of>
     <long-description type="string">Bourrasque is a fictionnal civil version of the famous Dassault Rafale, its purpose is the world exploration thanks to high speed, short landings and takeoff, radionavigation and auto pilot equipment.</long-description>
-    <aircraft-version type="string">20191204</aircraft-version>
+    <aircraft-version type="string">20220703</aircraft-version>
     <minimum-fg-version type="string">2017.1.1</minimum-fg-version>
 
     <!-- old / simple style -->

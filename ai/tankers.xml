@@ -67,7 +67,24 @@
       <z-m>-6</z-m>
     </contact>
   </tanker>
-  <tanker>
+    <tanker>
+        <name>KC-130</name>
+        <type>probe</type>
+        <model>Models/Geometry/KC-130/KC-130.xml</model>
+        <speed-kts>100</speed-kts>
+        <max-fuel-transfer-lbs-min type="double">1800</max-fuel-transfer-lbs-min>
+        <contact>
+            <x-m>-36</x-m>
+            <y-m>-19</y-m>
+            <z-m>-6</z-m>
+        </contact>
+        <contact>
+            <x-m>-36</x-m>
+            <y-m>19</y-m>
+            <z-m>-6</z-m>
+        </contact>
+    </tanker>
+    <tanker>
     <name>KC-135</name>
     <type>boom</type>
     <model>Models/Geometry/KC135/KC135.xml</model>

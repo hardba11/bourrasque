@@ -2,50 +2,288 @@
 <!--
 ################################################################################
 #
-#             THIS FILE DEFINES THE AUTOPILOT BEHAVIOUR
+#          THIS FILE DEFINES THE FLY BY WIRE AND AUTOPILOT BEHAVIOUR
 #
 ################################################################################
 
 http://www.flightgear.org/Docs/XMLAutopilot/node4.html
 file Aircraft/Generic/generic-autopilot-helper.xml
 
-- alpha     Filter time weighing factor (default = 0.1)
-- beta      Proportional weighing factor (default = 1)
-- gamma     Unfiltered derivative error weighing factor (default = 0)
-- Kp        Proportional gain
-- Ts        Sampling interval
-- Ti        Integrator time
-- Td        Derivator time
-- u_min     Minimum output value
-- u_max     Maximum output value
-
-P : present, le gain agit sur la rapidite de correction
-D : futur, permet d anticiper et eviter l overshoot
-I : passe, corrige les perturbations
-
-changelog
-- 2016-10-22 : create
-- 2017-07-20 : total refactoring by Joshua Davidson (it0uchpods)
-
-@hardball here is my tip:
-start with Ti of 1000000000 and Td of 0
-then adjust Kp until it reacts decently, but it may not be perfect.
-But, it should not oscilate.
-then, begin reducing Ti (which is time, not gain), until the steady state error is being corrected (the more time goes by, the more the integrator will output)
-I usually end up in around 1-10 ish, depending on the controller
-Then, you can adjust Td bringing it up very slightly, but 0.00001 increments, which will make the controller more stable, and then very unstable, so I usually bring D up until the reaction begins to get oscilation, then I take it off a little.
-remember that unlike normal PIDs used in most other programs, FG's  PID uses Ti and Td variables, so it's TIME, not a gain, like Kp is.
-less Ti is more I action
-more Td is more D action
-I also suggest you to use rate based control over degree based control. its more stable, especially in bad weather.
-
 -->
-<!-- Bourrasque Autopilot -->
-<!-- Retuned and Overhauled -->
-<!-- (c) 2018 Joshua Davidson (it0uchpods) -->
 
 <PropertyList>
 
+<!--
+INIT : Ti=10000000000, Td=0
+AJUSTER Kp sans oscillations
+REDUIRE Ti pour arriver a la consigne
+AJOUTER Td par increments de 0.00001 s'arreter avant les oscillations
+- Kp : present, agit sur la rapidite de correction
+- Ti : passe, corrige les perturbations -Ti <=> +I
+- Td : futur, permet d'anticiper et eviter l'overshoot +Td <=> +D
+
+fast rise - Is the rate at which the output rises
+overshoot - if the output overshoots (and then adjusts) the target
+settling - this is how the output settles towards the target
+steady error - continuous error from output to a target that doesn't change
+
+    fast rise   overshoot   settling    steady error
+P   Decrease    Increase    No effect   Decrease
+I   Decrease    Increase    Increase    Eliminate
+D   No effect   Decrease    Decrease    No effect
+
+
+TODO
+assouplir entre 130kt et 300kt
+qq parasites vers 400kt
+
+-->
+  <!--
+================================================================================
+                                                                FLY BY WIRE ROLL
+================================================================================
+  -->
+  <pid-controller>
+    <name>fbw-aileron</name>
+    <debug>false</debug>
+    <enable>
+      <condition>
+        <not>
+          <and>
+            <equals><property>/gear/gear[1]/wow</property><value>1</value></equals>
+            <equals><property>/gear/gear[2]/wow</property><value>1</value></equals>
+          </and>
+        </not>
+      </condition>
+    </enable>
+    <feedback-if-disabled>true</feedback-if-disabled>
+    <input>
+      <expression>
+        <table>
+          <property>/orientation/roll-rate-degps</property>
+          <entry><ind>-400</ind><dep>-1.000</dep></entry>
+          <entry><ind>-270</ind><dep>-0.999</dep></entry>
+          <entry><ind>-100</ind><dep>-0.500</dep></entry>
+          <entry><ind>0.0</ind><dep>0.000</dep></entry>
+          <entry><ind>100</ind><dep>0.500</dep></entry>
+          <entry><ind>270</ind><dep>0.999</dep></entry>
+          <entry><ind>400</ind><dep>1.000</dep></entry>
+        </table>
+      </expression>
+    </input>
+    <reference>
+      <expression>
+        <table>
+          <property>/controls/flight/aileron</property>
+          <entry><ind>-1.000</ind><dep>-0.999</dep></entry>
+          <entry><ind>-0.900</ind><dep>-0.700</dep></entry>
+          <entry><ind>-0.600</ind><dep>-0.250</dep></entry>
+          <entry><ind>-0.200</ind><dep>-0.050</dep></entry>
+          <entry><ind>-0.009</ind><dep>0.000</dep></entry>
+          <entry><ind>0.000</ind><dep>0.000</dep></entry>
+          <entry><ind>0.009</ind><dep>0.000</dep></entry>
+          <entry><ind>0.200</ind><dep>0.050</dep></entry>
+          <entry><ind>0.600</ind><dep>0.250</dep></entry>
+          <entry><ind>0.900</ind><dep>0.700</dep></entry>
+          <entry><ind>1.000</ind><dep>0.999</dep></entry>
+        </table>
+      </expression>
+    </reference>
+    <output>/controls/flight/fbw-aileron</output>
+    <config>
+      <!--<Kp>/_debug/Kp</Kp><Ti>/_debug/Ti</Ti><Td>/_debug/Td</Td>-->
+      <Kp>
+        <expression>
+          <table>
+            <property>/velocities/airspeed-kt</property>
+            <entry><ind>200</ind><dep>2.6</dep></entry>
+            <entry><ind>300</ind><dep>2.5</dep></entry>
+            <entry><ind>450</ind><dep>2.3</dep></entry>
+            <entry><ind>600</ind><dep>2.0</dep></entry>
+            <entry><ind>800</ind><dep>1.3</dep></entry>
+            <entry><ind>1000</ind><dep>.9</dep></entry>
+            <entry><ind>1200</ind><dep>.5</dep></entry>
+            <entry><ind>1400</ind><dep>.2</dep></entry>
+            <entry><ind>1600</ind><dep>.1</dep></entry>
+          </table>
+        </expression>
+      </Kp>
+      <Ti>0.1</Ti>
+      <Td>0.00002</Td>
+      <u_min>-1.0</u_min>
+      <u_max>1.0</u_max>
+    </config>
+  </pid-controller>
+  <filter>
+    <name>fcm-aileron</name>
+    <type>gain</type>
+    <gain>
+      <condition>
+        <property>/controls/gear/gear-down</property>
+      </condition>
+      <value>0.3</value>
+    </gain>
+<!--
+    <gain>1.0</gain>
+-->
+    <gain>
+      <expression>
+        <table>
+          <property>/velocities/airspeed-kt</property>
+          <entry><ind>100</ind><dep>0.4</dep></entry>
+          <entry><ind>150</ind><dep>0.4</dep></entry>
+          <entry><ind>200</ind><dep>0.6</dep></entry>
+          <entry><ind>250</ind><dep>0.8</dep></entry>
+          <entry><ind>300</ind><dep>1.0</dep></entry>
+          <entry><ind>1500</ind><dep>1.0</dep></entry>
+        </table>
+      </expression>
+    </gain>
+    <input>
+      <condition>
+        <and>
+          <equals>
+            <property>/gear/gear[1]/wow</property>
+            <value>1</value>
+          </equals>
+          <equals>
+            <property>/gear/gear[2]/wow</property>
+            <value>1</value>
+          </equals>
+        </and>
+      </condition>
+      <property>/controls/flight/aileron</property>
+    </input>
+    <input>/controls/flight/fbw-aileron</input>
+    <output>/controls/flight/fcm-aileron</output>
+  </filter>
+
+
+  <!--
+================================================================================
+                                                               FLY BY WIRE PITCH
+================================================================================
+  -->
+  <pid-controller>
+    <name>fbw-elevator</name>
+    <debug>false</debug>
+    <enable>
+      <condition>
+        <not>
+          <and>
+            <equals><property>/gear/gear[1]/wow</property><value>1</value></equals>
+            <equals><property>/gear/gear[2]/wow</property><value>1</value></equals>
+          </and>
+        </not>
+      </condition>
+    </enable>
+    <feedback-if-disabled>true</feedback-if-disabled>
+    <input>
+      <expression>
+        <table>
+          <property>/accelerations/pilot-g</property>
+          <entry><ind>-5</ind><dep>1.00</dep></entry>
+          <entry><ind>1.0</ind><dep>0.00</dep></entry>
+          <entry><ind>12.5</ind><dep>-1.00</dep></entry>
+        </table>
+      </expression>
+    </input>
+    <reference>
+      <expression>
+        <table>
+          <property>/controls/flight/elevator</property>
+          <entry><ind>-1.000</ind><dep>-0.999</dep></entry>
+          <entry><ind>-0.200</ind><dep>-0.050</dep></entry>
+          <entry><ind>-0.007</ind><dep>0.000</dep></entry>
+          <entry><ind>0.000</ind><dep>0.000</dep></entry>
+          <entry><ind>0.007</ind><dep>0.000</dep></entry>
+          <entry><ind>0.200</ind><dep>0.050</dep></entry>
+          <entry><ind>1.000</ind><dep>0.999</dep></entry>
+        </table>
+      </expression>
+    </reference>
+    <output>/controls/flight/fbw-elevator</output>
+    <config>
+      <!--
+<Kp>/_debug/Kp</Kp><Ti>/_debug/Ti</Ti><Td>/_debug/Td</Td>
+-->
+      <Kp>
+        <expression>
+          <table>
+            <property>/velocities/airspeed-kt</property>
+            <entry><ind>100</ind><dep>1.7</dep></entry>
+            <entry><ind>150</ind><dep>1.6</dep></entry>
+            <entry><ind>200</ind><dep>1</dep></entry>
+            <entry><ind>300</ind><dep>0.8</dep></entry>
+            <entry><ind>600</ind><dep>0.4</dep></entry>
+            <entry><ind>800</ind><dep>0.2</dep></entry>
+            <entry><ind>1000</ind><dep>0.10</dep></entry>
+            <entry><ind>1200</ind><dep>0.05</dep></entry>
+            <entry><ind>1500</ind><dep>0.02</dep></entry>
+          </table>
+        </expression>
+      </Kp>
+      <Ti>1</Ti>
+      <Td>0.00001</Td>
+      <u_min>-1.0</u_min>
+      <u_max>1.0</u_max>
+    </config>
+  </pid-controller>
+  <filter>
+    <name>fcm-elevator</name>
+    <type>gain</type>
+    <gain>
+      <condition>
+        <property>/controls/gear/gear-down</property>
+      </condition>
+      <value>0.6</value>
+    </gain>
+<!--
+    <gain>1.0</gain>
+-->
+    <gain>
+      <expression>
+        <table>
+          <property>/velocities/airspeed-kt</property>
+          <entry><ind>100</ind><dep>0.4</dep></entry>
+          <entry><ind>150</ind><dep>0.4</dep></entry>
+          <entry><ind>200</ind><dep>0.6</dep></entry>
+          <entry><ind>250</ind><dep>0.8</dep></entry>
+          <entry><ind>300</ind><dep>1.0</dep></entry>
+          <entry><ind>1500</ind><dep>1.0</dep></entry>
+        </table>
+      </expression>
+    </gain>
+    <input>
+      <condition>
+        <and>
+          <equals><property>/gear/gear[1]/wow</property><value>1</value></equals>
+          <equals><property>/gear/gear[2]/wow</property><value>1</value></equals>
+        </and>
+      </condition>
+      <property>/controls/flight/elevator</property>
+    </input>
+    <input>/controls/flight/fbw-elevator</input>
+    <output>/controls/flight/fcm-elevator</output>
+  </filter>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Bourrasque Autopilot -->
+<!-- Retuned and Overhauled -->
+<!-- (c) 2018 Joshua Davidson (it0uchpods) -->
   <!--
 ================================================================================
                                                                    LATERAL MODES
