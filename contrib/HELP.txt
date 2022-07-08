@@ -2,7 +2,7 @@
 
 
 memo
-====
+================================================================================
 
 keyboard shortcuts
 ------------------
@@ -48,32 +48,33 @@ when on stick mode (cross cursor - hit TAB to change)
 - view : vertical/horizontal axis (RMB pressed)
 
 
-numpad layout
--------------
+numpad layout (numlock disabled !!!)
+------------------------------------
 
-* hit key with the ctrl key
-** if autopilot is enabled
-___________________________________________________________________
- 7              | 8              | 9              | +
- - view panels  | - pitch down   | - view panels  | - inc throttle
-                | - trim down*   |                | - inc speed**
-                | - decr alt**   |                |
-________________|________________|________________|
- 4              | 5              | 6              |
- - roll left    | - reinit P,R,Y | - roll right   |
- - trim left*   | - reinit trim* | - trim right*  |
- - hdg left**   |                | - hdg right**  |
-________________|________________|________________|________________
- 1              | 2              | 3              | enter
- - yaw left     | - pitch up     | - yaw right    |
- - trim l yaw*  | - trim up*     | - trim r yaw*  |
-                | - incr alt**   |                |
-________________|________________|________________|
- 0                               | .              |
- - decr throttle                 |                |
- - decr speed**                  |                |
-                                 |                |
-_________________________________|________________|________________
+- * hit key with the ctrl key
+- ** if autopilot is enabled
+
+    ___________________________________________________________________
+     7              | 8              | 9              | +
+     - view panels  | - pitch down   | - view panels  | - inc throttle
+                    | - trim down*   |                | - inc speed**
+                    | - decr alt**   |                |
+    ________________|________________|________________|
+     4              | 5              | 6              |
+     - roll left    | - reinit P,R,Y | - roll right   |
+     - trim left*   | - reinit trim* | - trim right*  |
+     - hdg left**   |                | - hdg right**  |
+    ________________|________________|________________|________________
+     1              | 2              | 3              | enter
+     - yaw left     | - pitch up     | - yaw right    |
+     - trim l yaw*  | - trim up*     | - trim r yaw*  |
+                    | - incr alt**   |                |
+    ________________|________________|________________|
+     0                               | .              |
+     - decr throttle                 |                |
+     - decr speed**                  |                |
+                                     |                |
+    _________________________________|________________|________________
 
 
 instruments knobs behaviours
@@ -92,7 +93,8 @@ some informations
 list of instruments
 -------------------
 
-right panel :
+**right panel :**
+
 - on the left : engine 0 instrument
 - on the right : engine 1 instrument
 - electrical instrument
@@ -103,14 +105,16 @@ right panel :
 - nav/com 1
 - clock
 
-front panel :
+**front panel :**
+
 - screen on the right : primary function display : speed, altitude, attitude indicator, AP settings (PFD)
 - screen on center : navigation display : navigation information, heading, vor (ND)
 - screen on the left : secondary function display : engines informations (SFD)
 - compass
 - turn indicator
 
-bottom panel :
+**bottom panel :**
+
 - standby attitude indicator (AI)
 - standby vertical speed indicator (VSI)
 - standby altitude indicator (ALT)
@@ -118,7 +122,8 @@ bottom panel :
 - angle of attack indicator (AOA)
 - standby horizontal situation indicator (HSI)
 
-left panel :
+**left panel :**
+
 - fuel screen
 - command panel : canopy, gears, parkbrake, arrestor hook
 - throttle stick
@@ -128,15 +133,16 @@ left panel :
 mods
 ----
 
-4 buttons on the top of the center screen (Nav Display) change fly-by-wire, hud and ND settings
-- TAXI : for taxiing
+4 buttons on the top of the center screen (Nav Display) change hud, AP and ND settings
+
+- TAXI : ONLY for taxiing
 - APP : for landing, take-off and approach
 - NAV : for navigation
 - VFR : for free fly
 
 
 how-to
-======
+================================================================================
 
 in air start at 5000ft and 250kt
 --------------------------------
@@ -159,65 +165,70 @@ use the bourrasque menu or } key
 
 start
 -----
+
 see checklist on the knee tablet
 
 taxi
 ----
+
 see checklist on the knee tablet
 
 take off
 --------
+
 see checklist on the knee tablet
 
 navigation
 ----------
+
 see checklist on the knee tablet
 
 landing
 -------
+
 see checklist on the knee tablet
 
 stop
 ----
 
-command panel : parkbrake [BRAKE]
-gui/equipment : wheel chocks [PUT]
-command panel : canopy [HALF-CLOSE]
-electrical instrument : switch [BAT]
-engine 0 instrument : cut [OFF]
-engine 0 instrument : pump [OFF]
-engine 1 instrument : cut [OFF]
-engine 1 instrument : pump [OFF]
-engine 0 stopped [WAIT]
-engine 1 stopped [WAIT]
-electrical instrument : engines [OFF]
-lights panel : landing and taxi [OFF]
-lights panel : formation [OFF]
-lights panel : anti-collision [OFF]
-lights panel : strobe [OFF]
-lights panel : navigation [OFF]
-lights panel : position [OFF]
-radio : NAV1 [OFF]
-radio : COM1 [OFF]
-radio : NAV2 [OFF]
-radio : COM2 [OFF]
-radio : ADF  [OFF]
-radio : TRANSPONDER [OFF]
-electrical instrument : cmd [OFF]
-electrical instrument : avionics [OFF]
-lights panel : instrument light [OFF]
-gui/equipment : scale [PUT]
-gui/equipment : covers [PUT]
-gui/equipment : fuel truck [PUT]
+- command panel : parkbrake [BRAKE]
+- gui/equipment : wheel chocks [PUT]
+- command panel : canopy [HALF-CLOSE]
+- electrical instrument : switch [BAT]
+- engine 0 instrument : cut [OFF]
+- engine 0 instrument : pump [OFF]
+- engine 1 instrument : cut [OFF]
+- engine 1 instrument : pump [OFF]
+- engine 0 stopped [WAIT]
+- engine 1 stopped [WAIT]
+- electrical instrument : engines [OFF]
+- lights panel : landing and taxi [OFF]
+- lights panel : formation [OFF]
+- lights panel : anti-collision [OFF]
+- lights panel : strobe [OFF]
+- lights panel : navigation [OFF]
+- lights panel : position [OFF]
+- radio : NAV1 [OFF]
+- radio : COM1 [OFF]
+- radio : NAV2 [OFF]
+- radio : COM2 [OFF]
+- radio : ADF  [OFF]
+- radio : TRANSPONDER [OFF]
+- electrical instrument : cmd [OFF]
+- electrical instrument : avionics [OFF]
+- lights panel : instrument light [OFF]
+- gui/equipment : scale [PUT]
+- gui/equipment : covers [PUT]
+- gui/equipment : fuel truck [PUT]
 
 
 carrier take off
 ----------------
 
-nd : mod [APP]
-engage launch bar (])
-unlock parkbrakes (B)
-throttle 80%, catapult ([)
+- nd : mod [APP]
+- engage launch bar (])
+- unlock parkbrakes (B)
+- throttle 80%, catapult ([)
 
 
 refuelling as a tanker
@@ -225,15 +236,17 @@ refuelling as a tanker
 
 an automatic hippodrome driven by autopilot is available
 
-gui/equipment : center pylon [refuel pod]
-the copilot proGo view will be disable and the view refuelling pod will be enabled
+- gui/equipment : center pylon [refuel pod]
+- the copilot proGo view will be disable and the view refuelling pod will be enabled
 
-PFD : autopilot speed [ADJUST to 200kt AND ENABLE]
-PFD : autopilot alt [ADJUST to 10000ft AND ENABLE]
-PFD : autopilot heading [ADJUST AND ENABLE]
-wait aircraft is stabilized
-PFD : autopilot hippodrome [ENABLE]
-SFD : aar [ENABLE] (extend the refuelling pod pipe)
+check-list :
+
+- PFD : autopilot speed [ADJUST to 200kt AND ENABLE]
+- PFD : autopilot alt [ADJUST to 10000ft AND ENABLE]
+- PFD : autopilot heading [ADJUST AND ENABLE]
+- wait aircraft is stabilized
+- PFD : autopilot hippodrome [ENABLE]
+- SFD : aar [ENABLE] (extend the refuelling pod pipe)
 
 
 

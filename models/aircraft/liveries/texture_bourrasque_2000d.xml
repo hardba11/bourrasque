@@ -6,7 +6,7 @@
     <model>
       <livery>
 
-        <name type="string">2000 D</name>
+        <name type="string">[2-legende] Mirage2000D "Ardennes"</name>
         <texture>liveries/texture_bourrasque_2000d.png</texture>
         <texture-tank>texture_tanks_2000d.png</texture-tank>
         <texture-gears>texture_gears.png</texture-gears>

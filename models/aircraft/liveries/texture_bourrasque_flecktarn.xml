@@ -6,7 +6,7 @@
     <model>
       <livery>
 
-        <name type="string">green flecktarn</name>
+        <name type="string">[3-artwork] Flecktarn</name>
         <texture>liveries/texture_bourrasque_flecktarn.png</texture>
         <texture-tank>texture_tanks_flecktarn.png</texture-tank>
         <texture-gears>texture_gears_white.png</texture-gears>

@@ -6,7 +6,7 @@
     <model>
       <livery>
 
-        <name type="string">deep sea</name>
+        <name type="string">[3-artwork] Deep Sea</name>
         <texture>liveries/texture_bourrasque_deep_sea.png</texture>
         <texture-tank>texture_tanks_deep_sea.png</texture-tank>
         <texture-gears>texture_gears_red.png</texture-gears>

@@ -1,7 +1,7 @@
                     FLIGHTGEAR "BOURRASQUE" AIRCRAFT - README
 
 Did you know ?
-==============
+================================================================================
 
 bourrasque is a french word synonyme of "rafale" ;)
 
@@ -17,22 +17,24 @@ I did not create a REAL aircraft but I tried to make a REALISTIC aircraft.
 
 
 How to install ?
-================
+================================================================================
 
 aircraft install :
 http://wiki.flightgear.org/Howto:Install_aircraft
 
 AI demo install :
+
 - tanker : see ai/README-tanker-rafale-marine.txt
 - timed loop : see ai/README-timed-loop.txt
 - wingmen : see ai/README-wingmen.txt
 
 
 How to start ?
-==============
+================================================================================
 
 1/ first, loose 2 minutes to read
 ---------------------------------
+
 - HELP.txt : aircraft documentation for pilot
 - FEATURES.txt
 - Known bugs below
@@ -54,17 +56,17 @@ enjoy ;)
 
 
 Known bugs :(
-=============
+================================================================================
 
-- as I only got a mouse, flying with joystick could be difficult because no test done
+- as I only got a mouse, flying with joystick could be difficult because no test could have been done
 - heading bug on ND if mag or true north choosen
 - strobe doesnt work yet in MP
 - instruments animations in MP backseat
-- 3D shadow not always on the ground
+- 3D shadow not always on the ground and doesnt work in multiplay
 
 
 How to help for developpment ?
-==============================
+================================================================================
 
 - read HELP.txt
 - read LAYOUT.txt

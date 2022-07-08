@@ -6,7 +6,7 @@
     <model>
       <livery>
 
-        <name type="string">rafale C01</name>
+        <name type="string">[2-legende] RafaleC01</name>
         <texture>liveries/texture_bourrasque_c01.png</texture>
         <texture-tank>texture_tanks_black.png</texture-tank>
         <texture-gears>texture_gears.png</texture-gears>

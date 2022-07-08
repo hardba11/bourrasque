@@ -6,7 +6,7 @@
     <model>
       <livery>
 
-        <name type="string">russia</name>
+        <name type="string">[2-legende] Russia "aggressor"</name>
         <texture>liveries/texture_bourrasque_russia.png</texture>
         <texture-tank>texture_tanks_russia.png</texture-tank>
         <texture-gears>texture_gears_green.png</texture-gears>

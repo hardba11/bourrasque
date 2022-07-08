@@ -6,7 +6,7 @@
     <model>
       <livery>
         <!-- Motif Disruptif Digital Zone Temperee Basse Altitude -->
-        <name type="string">mdd-zt-ba</name>
+        <name type="string">[1-tactic] mdd-zt-ba</name>
         <texture>liveries/texture_bourrasque_mddztba.png</texture>
         <texture-tank>texture_tanks_mddztba.png</texture-tank>
         <texture-gears>texture_gears.png</texture-gears>

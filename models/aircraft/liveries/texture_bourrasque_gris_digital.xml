@@ -6,7 +6,7 @@
     <model>
       <livery>
 
-        <name type="string">gris digital</name>
+        <name type="string">[1-tactic] Gris-Digital</name>
         <texture>liveries/texture_bourrasque_gris_digital.png</texture>
         <texture-tank>texture_tanks_gris_digital.png</texture-tank>
         <texture-gears>texture_gears.png</texture-gears>

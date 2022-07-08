@@ -1,8 +1,9 @@
                      FLIGHTGEAR "BOURRASQUE" AIRCRAFT - TODO
 
+see : https://github.com/hardba11/bourrasque/projects/1
+
 Roadmap and releases
 --------------------
-
 
 
 | improve yasim [DONE : 5/5]
@@ -81,7 +82,7 @@ Roadmap and releases
 | 
 | start/stop procedure : nasal + sounds (basic then improved) [DONE : 5/5]
 | 
-| add/improve instruments : PFD, Gload, GPS, message, aoa
+| add/improve instruments : PFD, Gload, GPS, message, aoa, TACAN
 | 
 | nozzle animation [DONE : 5/5]
 | 

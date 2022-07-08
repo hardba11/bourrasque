@@ -6,7 +6,7 @@
     <model>
       <livery>
 
-        <name type="string">flight gear</name>
+        <name type="string">[3-artwork] Flightgear</name>
         <texture>liveries/texture_bourrasque_fgfs.png</texture>
         <texture-tank>texture_tanks.png</texture-tank>
         <texture-gears>texture_gears_yellow.png</texture-gears>
