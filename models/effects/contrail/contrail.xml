@@ -44,8 +44,8 @@
       <phi-min-deg>-1.5</phi-min-deg>
       <phi-max-deg>1.5</phi-max-deg>
       <speed-mps>
-        <value>50</value>
-        <spread>5</spread>
+        <value>100</value>
+        <spread>0</spread>
       </speed-mps>
       <rotation-speed>
         <x-max-deg-sec> 15</x-max-deg-sec>
@@ -59,7 +59,7 @@
 
     <counter>
       <particles-per-sec>
-        <value>40</value>
+        <value>30</value>
         <spread>0</spread>
       </particles-per-sec>
     </counter>
@@ -72,7 +72,7 @@
           <red><property>rendering/scene/diffuse/red</property></red>
           <green><property>rendering/scene/diffuse/red</property></green>
           <blue><property>rendering/scene/diffuse/red</property></blue>
-          <alpha><value>0.3</value></alpha>
+          <alpha><value>0.2</value></alpha>
         </color>
         <size>
           <value>2</value>
@@ -83,16 +83,16 @@
           <red><property>rendering/scene/diffuse/red</property></red>
           <green><property>rendering/scene/diffuse/red</property></green>
           <blue><property>rendering/scene/diffuse/red</property></blue>
-          <alpha><value>0.01</value></alpha>
+          <alpha><value>0.005</value></alpha>
         </color>
         <size>
-          <value>120</value>
+          <value>100</value>
         </size>
       </end>
       <life-sec>
         <value>20</value>
       </life-sec>
-      <mass-kg>0.025</mass-kg>
+      <mass-kg>0.05</mass-kg>
       <radius-m>0.175</radius-m>
     </particle>
 

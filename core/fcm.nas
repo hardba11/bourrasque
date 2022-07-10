@@ -8,26 +8,24 @@ print("*** LOADING core - fcm.nas ... ***");
 #                                           vvvvvvvvvvvvvvvvvvvvvvvvv
 #
 # .--------------------------------------.
-# |      control (mouse & joystick)      |--------------+
-# '--------------------------------------'              |
-#     .                                                 V
-#     .                                            input values (/controls/flight/*)
-#     .                                       .--------------------.
-#  (default fg settings)                      |        fcm         |
-#     .                                       '--------------------'
-#     .                                            output values (/controls/flight/fcm-*)
-#     .                                                 |
-#     .                                                 |
-#     .   .--------------------------.                  |
-#     .   |       AUTOPILOT          |                  |
-#     .   |                          |                  |
-#     .   | if AP disabled           |<-----------------+
-#     .   |   fdm = fbw              |
-#     .   | if AP enabled            |
-#     .   |   fdm = fcm              |
-#     .   |                          |
-#     .   '--------------------------'
-#     .        output values (/controls/flight/fdm-*)
+# |      control (mouse & joystick)      |-----------+
+# '--------------------------------------'           |
+#     .                                              V
+#     .                                         input values (/controls/flight/*)
+#     .                                    .--------------------.
+#  (default fg settings)                   |        fcm         |
+#     .                                    '--------------------'
+#     .                                         output values (/controls/flight/fcm-*)
+#     .                                              |
+#     .                                              |
+#     .   .--------------------------.               |
+#     .   |       AUTOPILOT          |               |
+#     .   |                          |               |
+#     .   | if AP disabled           |               |
+#     .   |   fdm = fbw-fcm          |               |
+#     .   |                          |               |
+#     .   '--------------------------'               |
+#     .           output values (/controls/flight/fdm-*)
 #     .             |
 #     V             V
 # .--------------------------------------.
