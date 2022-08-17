@@ -1443,15 +1443,12 @@ instrument_pfd.event_click_hold_autopilot();
       <button>0</button>
       <repeatable>false</repeatable>
       <binding>
-        <command>property-cycle</command>
-        <property>/autopilot/locks/altitude</property>
-        <value type="string">altitude-hold</value>
-        <value type="string"></value>
-      </binding>
-      <binding>
-        <command>property-adjust</command>
-        <property>/autopilot/internal/target-climb-rate-fps</property>
-        <value type="float">0</value>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+instrument_pfd.event_click_lock_alt(-1);
+          ]]>
+        </script>
       </binding>
       <binding>
         <command>property-toggle</command>

@@ -536,6 +536,11 @@ changelog
         <value type="int">1</value>
       </binding>
       <binding>
+        <command>property-assign</command>
+        <property>/instrumentation/dme/frequencies/source</property>
+        <value>/instrumentation/nav[0]/frequencies/selected-mhz</value>
+      </binding>
+      <binding>
         <command>property-toggle</command>
         <property>sim/model/click</property>
       </binding>
@@ -562,6 +567,11 @@ changelog
         <command>property-assign</command>
         <property>/instrumentation/my_aircraft/stdby-hsi/controls/nav-selector</property>
         <value type="int">2</value>
+      </binding>
+      <binding>
+        <command>property-assign</command>
+        <property>/instrumentation/dme/frequencies/source</property>
+        <value>/instrumentation/nav[1]/frequencies/selected-mhz</value>
       </binding>
       <binding>
         <command>property-toggle</command>

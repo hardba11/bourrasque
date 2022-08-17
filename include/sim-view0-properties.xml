@@ -23,7 +23,7 @@ PROPERTY-PATH : /sim/view[0]/
     <y-offset-m archive="y" type="double">1.15</y-offset-m>
     <z-offset-m archive="y" type="double">-3.32</z-offset-m>
     <pitch-offset-deg>-10</pitch-offset-deg>
-    <default-field-of-view-deg type="double">109.0</default-field-of-view-deg>
+    <default-field-of-view-deg type="double">70.0</default-field-of-view-deg>
     <dynamic-view type="bool">true</dynamic-view>
     <limits>
       <enabled type="bool">true</enabled>

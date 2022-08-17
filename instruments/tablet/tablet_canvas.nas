@@ -157,7 +157,7 @@ var checklists = [
             {'list': 'lights panel : formation',                      'check': 'ON DEMAND'},
             {'list': 'lights panel : landing and taxi',               'check': 'ON DEMAND'},
             {'list': 'engine 1 started',                              'check': 'WAIT'},
-            {'list': 'ALT Hpa QFE',                                   'check': 'ADJUST'},
+            {'list': 'ALT Hpa QNH',                                   'check': 'ADJUST'},
             {'list': 'gui/equipment : epu',                           'check': 'REMOVE'},
         ],
     },
@@ -216,7 +216,7 @@ var checklists = [
         'items': [
             {'list': 'change mod ND',                                 'check': 'NAV'},
             {'list': 'VOR frequency, radial',                         'check': 'CHOOSE'},
-            {'list': 'ND : VOR1', 'check':                            'ENABLE'},
+            {'list': 'ND : VOR1',                                     'check': 'ENABLE'},
             {'list': 'PFD : adjust autopilot',                        'check': 'ON DEMAND'},
         ],
     },
@@ -232,7 +232,7 @@ var checklists = [
             {'list': 'PFD : autopilot speed',                         'check': '300kt'},
             {'list': 'PFD : autopilot vs',                            'check': '4000ft/min'},
             {'list': 'PFD : autopilot alt',                           'check': '4000ft'},
-            {'list': 'ALT Hpa QFE',                                   'check': 'ADJUST'},
+            {'list': 'ALT Hpa QNH',                                   'check': 'ADJUST'},
         ],
     },
 # 8
@@ -268,7 +268,7 @@ var MAP = {
 
         # data used to create array of tiles
         m.tile_size = 256;
-        m.num_tiles = [5, 5];
+        m.num_tiles = [7, 7];
         m.center_tile_offset = [2, 2];
         m.type = 'map';
 
@@ -353,8 +353,8 @@ var MAP = {
         # simple aircraft icon at current position/center of the map
         m.svg_symbol = m.g_page_map.createChild('group');
         canvas.parsesvg(m.svg_symbol, m.filename);
-        m.svg_symbol.setScale(0.03);
-        m.svg_symbol.setTranslation(width / 2, height / 2);
+        m.svg_symbol.setScale(0.025);
+        m.svg_symbol.setTranslation((width / 2) - 14, (height / 2) - 16);
         m.myVector = m.svg_symbol.getBoundingBox();
         m.svg_symbol.updateCenter();
         m.svg_symbol.set('z-index', 1);
@@ -463,7 +463,7 @@ var MAP = {
 
             me.txt_coords_lat.setText(sprintf('%s', getprop("/position/latitude-string") or ''));
             me.txt_coords_lng.setText(sprintf('%s', getprop("/position/longitude-string") or ''));
-            me.txt_alt.setText(sprintf('alt agl : %d m', getprop("/position/altitude-agl-m") or 0));
+            me.txt_alt.setText(sprintf('alt agl : %d ft', getprop("/position/altitude-agl-ft") or 0));
             me.txt_hdg.setText(sprintf('heading true : %d - heading mag : %d', getprop("/orientation/heading-deg") or 0, getprop("/orientation/heading-magnetic-deg") or 0));
             me.txt_zoom.setText(sprintf('zoom : %s', me.zoom));
 
@@ -488,8 +488,8 @@ var MAP = {
                 for(var y = 0; y < me.num_tiles[1]; y += 1)
                 {
                     me.tiles_map[x][y].setTranslation(
-                        int(((ox + x) * me.tile_size) +18),
-                        int(((oy + y) * me.tile_size) +13)
+                        int(((ox + x) * me.tile_size)),
+                        int(((oy + y) * me.tile_size))
                     );
                 }
             }

@@ -27,71 +27,87 @@ ________________________________________________________________________________
   -->
     <key n="2">
       <name>ctrl-b</name>
-      <desc></desc>
+      <desc>RAZ</desc>
       <binding n="0"><command>nasal</command><script /></binding>
     </key>
     <key n="7">
       <name>ctrl-g</name>
+      <desc>RAZ</desc>
       <binding><command>nasal</command><script /></binding>
     </key>
     <key n="10">
       <name>Enter</name>
+      <desc>RAZ</desc>
       <binding><command>nasal</command><script /></binding>
     </key>
     <key n="13">
       <name>Keypad Enter</name>
+      <desc>RAZ</desc>
       <binding><command>nasal</command><script /></binding>
     </key>
     <key n="20">
       <name>ctrl-t</name>
+      <desc>RAZ</desc>
       <binding><command>nasal</command><script /></binding>
     </key>
     <key n="21">
       <name>ctrl-u</name>
+      <desc>RAZ</desc>
       <binding><command>nasal</command><script /></binding>
     </key>
     <key n="23">
       <name>ctrl-w</name>
+      <desc>RAZ</desc>
       <binding><command>nasal</command><script /></binding>
     </key>
     <key n="33">
       <name>!</name>
+      <desc>RAZ</desc>
       <binding><command>nasal</command><script /></binding>
     </key>
     <key n="35">
       <name>#</name>
+      <desc>RAZ</desc>
       <binding><command>nasal</command><script /></binding>
     </key>
     <key n="36">
       <name>$</name>
+      <desc>RAZ</desc>
       <binding><command>nasal</command><script /></binding>
     </key>
     <key n="48">
       <name>0</name>
+      <desc>RAZ</desc>
       <binding><command>nasal</command><script /></binding>
     </key>
     <key n="64">
       <name>@</name>
+      <desc>RAZ</desc>
       <binding><command>nasal</command><script /></binding>
     </key>
     <key n="80">
       <name>P</name>
+      <desc>RAZ</desc>
       <binding><command>nasal</command><script /></binding>
     </key>
     <key n="83">
       <name>S</name>
+      <desc>RAZ</desc>
       <binding><command>nasal</command><script /></binding>
     </key>
     <key n="99">
       <name>c</name>
+      <desc>RAZ</desc>
       <binding><command>nasal</command><script /></binding>
     </key>
     <key n="126">
       <name>~</name>
+      <desc>RAZ</desc>
       <binding><command>nasal</command><script /></binding>
     </key>
     <key n="262">
       <name>F6</name>
+      <desc>RAZ</desc>
       <binding><command>nasal</command><script /></binding>
     </key>
 
@@ -102,6 +118,7 @@ ________________________________________________________________________________
     <!-- ~~~~~~~~~~~~~~~~~~ loop recording -->
     <key n="92">
       <name>ltr</name>
+      <desc>loop recording</desc>
       <binding>
         <command>nasal</command>
         <script>
@@ -131,7 +148,7 @@ ________________________________________________________________________________
     <!-- ~~~~~~~~~~~~~~~~~~ autotrim -->
     <key n="115">
       <name>s</name>
-      <desc>Toggle pitch Autotrim</desc>
+      <desc>toggle pitch autotrim</desc>
       <binding n="0">
         <property>/controls/flight/autotrim-pitch</property>
         <command>property-toggle</command>
@@ -141,6 +158,7 @@ ________________________________________________________________________________
     <!-- ~~~~~~~~~~~~~~~~~~ auto pilot : hold / disengage -->
     <key n="16">
       <name>ctrl-p</name>
+      <desc>toggle autopilot</desc>
       <binding>
         <command>nasal</command>
         <script>
@@ -161,9 +179,24 @@ instrument_pfd.event_click_disengage_autopilot();
       </mod-shift>
     </key>
 
+    <!-- ~~~~~~~~~~~~~~~~~~ autopilot altitude : hold / disengage -->
+    <key n="1">
+      <name>ctrl-a</name>
+      <desc>toggle autopilot altitude</desc>
+      <binding n="0">
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+instrument_pfd.event_click_lock_alt(-1);
+          ]]>
+        </script>
+      </binding>
+    </key>
+
     <!-- ~~~~~~~~~~~~~~~~~~ auto throttle : hold / disengage -->
     <key n="19">
       <name>ctrl-s</name>
+      <desc>toggle autopilot speed</desc>
       <binding n="0">
         <command>nasal</command>
         <script>
@@ -445,6 +478,7 @@ my_aircraft_functions.event_acknowledge_master_caution();
     <!-- ~~~~~~~~~~~~~~~~~~ start/pause chrono -->
     <key n="121">
       <name>y</name>
+      <desc>start/pause chrono</desc>
       <binding>
         <command>nasal</command>
         <script>
@@ -825,7 +859,7 @@ ________________________________________________________________________________
           </condition>
           <command>property-adjust</command>
           <property>/controls/flight/aileron</property>
-          <factor type="double">2.0</factor>
+          <factor type="double">1.0</factor>
           <min type="double">-1.0</min>
           <max type="double">1.0</max>
           <wrap type="bool">false</wrap>
@@ -868,12 +902,31 @@ ________________________________________________________________________________
   -->
       <y-axis>
 
-        <!-- no middle button pressed: control elevator -->
-        <binding>
+        <!-- no button pressed: control elevator -->
+        <binding n="0">
           <condition>
-            <and>
-              <not><property>/devices/status/mice/mouse[0]/button[1]</property></not>
-            </and>
+            <not><property>/devices/status/mice/mouse[0]/button[0]</property></not>
+            <not><property>/devices/status/mice/mouse[0]/button[1]</property></not>
+          </condition>
+          <command>property-adjust</command>
+          <property>/controls/flight/elevator</property>
+          <factor type="double">-2.0</factor>
+          <min type="double">-1.0</min>
+          <max type="double">1.0</max>
+          <wrap type="bool">false</wrap>
+        </binding>
+
+        <!-- left button pressed : control elevator if no mod=taxi and wow -->
+        <binding n="1">
+          <condition>
+            <property>/devices/status/mice/mouse[0]/button[0]</property>
+            <not>
+              <equals>
+                <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+                <value>TAXI</value>
+              </equals>
+              <property>/gear/gear[0]/wow</property>
+            </not>
           </condition>
           <command>property-adjust</command>
           <property>/controls/flight/elevator</property>
@@ -884,7 +937,7 @@ ________________________________________________________________________________
         </binding>
 
         <!-- middle button pressed: control throttle -->
-        <binding>
+        <binding n="2">
           <command>nasal</command>
           <script>
             <![CDATA[

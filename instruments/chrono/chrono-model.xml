@@ -149,10 +149,6 @@ description :
                                                          CONTROLS AND ANIMATIONS
 ================================================================================
   -->
-  <animation>
-    <type>pick</type>
-    <object-name>chrono.mode_knob</object-name>
-  </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ animation mode knob -->
   <animation>

@@ -1980,6 +1980,108 @@ see :
     </input>
     <halign>left</halign>
   </label>
+  <label>
+    <name>nav_data_nav2_eta</name>
+    <x>40</x>
+    <y>-115</y>
+    <width>20</width>
+    <height>6</height>
+    <condition>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <and>
+          <or>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>APP</value>
+            </equals>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>NAV</value>
+            </equals>
+          </or>
+          <equals>
+            <property>/instrumentation/my_aircraft/stdby-hsi/controls/nav-selector</property>
+            <value type="int">2</value>
+          </equals>
+          <property>/instrumentation/nav[1]/serviceable</property>
+        </and>
+      </or>
+    </condition>
+    <format>eta %.0f min</format>
+    <input>
+      <property>/instrumentation/dme[0]/indicated-time-min</property>
+    </input>
+    <halign>left</halign>
+  </label>
+  <label>
+    <name>nav_data_nav2_dist</name>
+    <x>40</x>
+    <y>-125</y>
+    <width>20</width>
+    <height>6</height>
+    <condition>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <and>
+          <or>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>APP</value>
+            </equals>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>NAV</value>
+            </equals>
+          </or>
+          <equals>
+            <property>/instrumentation/my_aircraft/stdby-hsi/controls/nav-selector</property>
+            <value type="int">2</value>
+          </equals>
+          <property>/instrumentation/nav[1]/serviceable</property>
+        </and>
+      </or>
+    </condition>
+    <format>%.1f NM</format>
+    <input>
+      <property>/instrumentation/dme[0]/indicated-distance-nm</property>
+    </input>
+    <halign>left</halign>
+  </label>
+  <label>
+    <name>nav_data_nav2_kt</name>
+    <x>40</x>
+    <y>-135</y>
+    <width>20</width>
+    <height>6</height>
+    <condition>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <and>
+          <or>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>APP</value>
+            </equals>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>NAV</value>
+            </equals>
+          </or>
+          <equals>
+            <property>/instrumentation/my_aircraft/stdby-hsi/controls/nav-selector</property>
+            <value type="int">2</value>
+          </equals>
+          <property>/instrumentation/nav[1]/serviceable</property>
+        </and>
+      </or>
+    </condition>
+    <format>%.0f kt</format>
+    <input>
+      <property>/instrumentation/dme[0]/indicated-ground-speed-kt</property>
+    </input>
+    <halign>left</halign>
+  </label>
 
   <!-- ~~~~~~~~~~~~~~~~~~ tacan data if nav2 master and adf2 enabled -->
   <label>

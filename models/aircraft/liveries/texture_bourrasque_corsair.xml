@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+
+  <sim>
+    <model>
+      <livery>
+
+        <name type="string">[2-legende] Corsair</name>
+        <texture>liveries/texture_bourrasque_corsair.png</texture>
+        <texture-tank>texture_tanks.png</texture-tank>
+        <texture-gears>texture_gears_red.png</texture-gears>
+
+      </livery>
+    </model>
+  </sim>
+
+</PropertyList>

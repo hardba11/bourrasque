@@ -31,7 +31,7 @@ Still in development but fully usable.
 Systems
 - autopilot
 - automatic hippodrome driven by autopilot
-- 4 mods (TAXI, APP, NAV, VFR) changing hud and fly-by-wire laws
+- 4 mods (TAXI, APP, NAV, VFR) changing hud and mfd configuration
 - start/stop procedure
 - refuelling ability (enable in menu and see : http://wiki.flightgear.org/Howto:Aerial_refueling)
 - carrier landing and takeoff ability
