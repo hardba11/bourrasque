@@ -8,12 +8,12 @@
     <texture n="4">
       <type>cubemap</type>
       <images>
-        <positive-x>models/effects/interior/0004.png</positive-x> <!-- px (tail) rotate 90 deg from N or S to W -->
-        <negative-x>models/effects/interior/0002.png</negative-x> <!-- nx (nose) rotate 90 deg from N or S to E -->
-        <positive-y>models/effects/interior/0001.png</positive-y> <!-- py (starboard/right) from N do not rotate -->
-        <negative-y>models/effects/interior/0003.png</negative-y> <!-- ny (port/left) from N rotate 180 deg to S -->
-        <positive-z>models/effects/interior/0006.png</positive-z> <!-- pz (top) rotate 90 deg from N or S to W -->
-        <negative-z>models/effects/interior/0005.png</negative-z> <!-- nz (bottom) rotate 90 deg from N or S to W -->
+        <positive-x>Aircraft/bourrasque/models/effects/interior/0004.png</positive-x> <!-- px (tail) rotate 90 deg from N or S to W -->
+        <negative-x>Aircraft/bourrasque/models/effects/interior/0002.png</negative-x> <!-- nx (nose) rotate 90 deg from N or S to E -->
+        <positive-y>Aircraft/bourrasque/models/effects/interior/0001.png</positive-y> <!-- py (starboard/right) from N do not rotate -->
+        <negative-y>Aircraft/bourrasque/models/effects/interior/0003.png</negative-y> <!-- ny (port/left) from N rotate 180 deg to S -->
+        <positive-z>Aircraft/bourrasque/models/effects/interior/0006.png</positive-z> <!-- pz (top) rotate 90 deg from N or S to W -->
+        <negative-z>Aircraft/bourrasque/models/effects/interior/0005.png</negative-z> <!-- nz (bottom) rotate 90 deg from N or S to W -->
       </images>
     </texture>
     <!-- the cube center must be the same as the camera x,y,z in blend -->
