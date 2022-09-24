@@ -4,8 +4,9 @@ print("*** LOADING instrument_hud_target_positions - hud_target_positions.nas ..
 
 var my_reticle_radius = 10;
 var max_reticle = 10;
+var px_factor = 330;
 
-var DEG2PIXEL = 512 / 44;
+
 
 #===============================================================================
 #                                                                      CLASS HUD
@@ -46,7 +47,10 @@ var HUD = {
         m.horizontal_container = m.my_container.createChild('group');
         m.t_horizontal_container = m.horizontal_container.createTransform();
 
-        #m.debug_rectangle = m.horizontal_container.createChild('path').setStrokeLineWidth(1).set('stroke', 'rgba(255, 0, 0, 1)').moveTo(0, 0).lineTo(0, 1024).lineTo(1024, 1024).lineTo(1024, 0).close();
+#        m.debug_rectangle1 = m.horizontal_container.createChild('path').setStrokeLineWidth(2).set('stroke', 'rgba(255, 0, 0, 1)').moveTo(4, 4).lineTo(4, 1020).lineTo(1020, 1020).lineTo(1020, 4).close();
+#        m.debug_rectangle2 = m.horizontal_container.createChild('path').setStrokeLineWidth(2).set('stroke', 'rgba(255, 0, 0, 1)').moveTo(256, 256).lineTo(256, 768).lineTo(768, 768).lineTo(768, 256).close();
+#        m.debug_ligne1 = m.horizontal_container.createChild('path').setStrokeLineWidth(2).set('stroke', 'rgba(255, 0, 0, 1)').moveTo(508, 512).lineTo(516, 512);
+#        m.debug_ligne2 = m.horizontal_container.createChild('path').setStrokeLineWidth(2).set('stroke', 'rgba(255, 0, 0, 1)').moveTo(512, 508).lineTo(512, 516);
 
         m.targets = [];
         m.t_targets = [];
@@ -128,20 +132,25 @@ var HUD = {
         var show_targets = getprop("/instrumentation/my_aircraft/hud_target_positions/controls/enabled") or 0;
         if(show_targets == 1)
         {
-            # recuperation de la position de l avion
+
+            # recuperation de la position de l'avion
             var pitch_deg      = getprop("/orientation/pitch-deg");
             var roll_deg       = getprop("/orientation/roll-deg");
+            # on neglige le yaw
             var velocity       = getprop("/instrumentation/airspeed-indicator/true-speed-kt");
             var my_heading_deg = getprop("/orientation/heading-deg"); # true north
             var my_aoa_deg     = getprop("/orientation/alpha-deg");
             var radar_range    = getprop("/instrumentation/my_aircraft/sfd/controls/radar_range") or 5;
 
-            var coord_y_pitch  = pitch_deg * DEG2PIXEL;
-            var coord_y_aoa    = my_aoa_deg * DEG2PIXEL;
+            var pitch_view_deg   = getprop("/instrumentation/my_aircraft/hud_target_positions/view/pitch-offset-deg");
+            var heading_view_deg = getprop("/instrumentation/my_aircraft/hud_target_positions/view/heading-offset-deg");
+
+            var coord_y_pitch  = math.tan(pitch_deg * D2R) * px_factor;
+            var coord_y_aoa    = math.tan(my_aoa_deg * D2R) * px_factor;
 
             # recuperation des informations sur les targets
             # les donnees brutes sont dans list_mp_obj
-            # les donnees filtrees et transformees qui serviront a l affichage sont dans targets_datas
+            # les donnees filtrees et transformees qui serviront a l'affichage sont dans targets_datas
             var targets_are_mp = getprop("/instrumentation/my_aircraft/hud_target_positions/controls/targets_are_mp") or 0;
             if(targets_are_mp == 1)
             {
@@ -157,7 +166,7 @@ var HUD = {
             for(var i = 0; i < size(list_mp_obj); i += 1)
             {
                 var ac_type = list_mp_obj[i].getNode("sim/model/ac-type");
-                if((ac_type == nil) or ((ac_type != nil) and (ac_type.getValue() != "bourrasque-backseat")))
+                if((ac_type == nil) or ((ac_type != nil) and (ac_type.getValue() != "brsq-backseat")))
                 {
                     append(list_obj, list_mp_obj[i]);
                 }
@@ -166,16 +175,14 @@ var HUD = {
             var targets_datas  = [];
             for(var i = 0; i < size(list_obj); i += 1)
             {
-                var heading_offset     = list_obj[i].getNode("radar/h-offset").getValue() or 0;
-                var target_bearing_deg = list_obj[i].getNode("radar/bearing-deg").getValue() or 0;
                 var target_callsign    = list_obj[i].getNode("callsign").getValue() or 0;
                 var target_in_range    = list_obj[i].getNode("radar/in-range").getValue() or 0;
                 var is_valid           = list_obj[i].getNode("valid").getValue() or 0;
                 var target_range       = list_obj[i].getNode("radar/range-nm").getValue() or 1000;
-
+                var vertical_offset    = list_obj[i].getNode("radar/v-offset").getValue() or 0;
+                var horizontal_offset  = list_obj[i].getNode("radar/h-offset").getValue() or 0;
                 if(target_in_range
                     and is_valid
-                    and math.abs(heading_offset) < 50
                     and target_range < radar_range)
                 {
                     var target_data = {};
@@ -184,18 +191,58 @@ var HUD = {
                     var target_heading_deg           = list_obj[i].getNode("orientation/true-heading-deg").getValue() or 0;
                     var target_altitude              = list_obj[i].getNode("position/altitude-ft").getValue() or 0;
                     var target_airspeed              = list_obj[i].getNode("velocities/true-airspeed-kt").getValue() or 0;
+                    var target_bearing_deg           = list_obj[i].getNode("radar/bearing-deg").getValue() or 0;
 
                     var relative_heading_deg         = target_heading_deg - my_heading_deg;
 
-                    var coord_x                      = heading_offset * DEG2PIXEL;
-                    var coord_y                      = (target_elevation_deg + 1) * DEG2PIXEL;
+# @TODO : filtrer les targets a afficher selon la direction de la vue
 
-                    var relative_speed_M             = velocity        * math.cos(heading_offset * D2R);
+                    # https://fr.wikipedia.org/wiki/Matrice_de_rotation#En_dimension_trois
+                    # https://www.mathweb.fr/euclide/2019/07/14/introduction-aux-matrices-de-rotation/
+                    # http://www.pierreaudibert.fr/tra/GeometrieSphere.pdf
+                    # https://en.wikipedia.org/wiki/Spherical_coordinate_system
+                    # https://www.methodephysique.fr/coordonnees_cartesiennes_cylindriques_spheriques/
+                    # https://www.random-science-tools.com/maths/coordinate-converter.htm
+
+                    # on transforme les angles v et h en coordonnees x, y, z sur une sphere de rayon 1
+                    var x = math.cos((vertical_offset + pitch_deg) * D2R) * math.cos(horizontal_offset * D2R);
+                    var y = math.cos((vertical_offset + pitch_deg) * D2R) * math.sin(horizontal_offset * D2R);
+                    var z = math.sin((vertical_offset + pitch_deg) * D2R);
+
+                    # on applique une matrice de rotation autour de y pour obtenir les nouvelles coordonnees de la cible en fonction du tangage
+                    # on ramene ainsi l'axe du roulis sur x
+                    var x_t1 = (z * math.sin(pitch_deg * D2R)) + (x * (math.cos(pitch_deg * D2R)));
+                    var y_t1 = y;
+                    var z_t1 = (z * math.cos(pitch_deg * D2R)) - (x * (math.sin(pitch_deg * D2R)));
+
+                    # on applique une matrice de rotation autour de x pour obtenir les nouvelles coordonnees de la cible en fonction du roulis
+                    var x_t2 = x_t1;
+                    var y_t2 = (y_t1 * math.cos(roll_deg * D2R)) - (z_t1 * (math.sin(roll_deg * D2R)));
+                    var z_t2 = (y_t1 * math.sin(roll_deg * D2R)) + (z_t1 * (math.cos(roll_deg * D2R)));
+
+                    # on transforme les nouvelles coordonnees en angles
+                    var new_vertical_offset = math.asin(math.clamp(z_t2, -1, 1)) / D2R;
+                    var new_horizontal_offset = math.atan2(y_t2, x_t2) / D2R;
+
+                    # la vue en se deplacant doit afficher les coordonnees
+                    var coord_x                      = math.tan((new_horizontal_offset + heading_view_deg) * D2R) * px_factor;
+                    var coord_y                      = math.tan((new_vertical_offset - pitch_view_deg) * D2R) * px_factor * -1;
+
+#                    print(sprintf('DEBUG h%d:v%d = [%.2f,%.2f,%.2f] -- r %d --> [%.2f,%.2f,%.2f] - p %d --> [%.2f,%.2f,%.2f] = h%d:v%d', 
+#                        horizontal_offset, vertical_offset,
+#                        x, y, z,
+#                        pitch_deg,
+#                        x_t1, y_t1, z_t1,
+#                        roll_deg,
+#                        x_t2, y_t2, z_t2,
+#                        new_horizontal_offset, new_vertical_offset
+#                    ));
+
+
+                    var relative_speed_M             = velocity        * math.cos(horizontal_offset * D2R);
                     var relative_speed_T             = target_airspeed * math.cos((target_heading_deg - target_bearing_deg) * D2R);
-                    #var relative_speed_M             = velocity        * math.cos(target_bearing_deg * D2R);
-                    #var relative_speed_T             = target_airspeed * math.cos((my_heading_deg + target_bearing_deg - target_heading_deg + 180) * D2R);
                     var relative_speed               = relative_speed_T - relative_speed_M;
-                    var speed_y                      = (sprintf('%d', relative_speed) == 0) ? 0 : math.log10(math.abs(sprintf('%d', relative_speed))) * 6;
+                    var speed_y                      = (sprintf('%d', relative_speed) == 0) ? 0 : math.log10(math.abs(sprintf('%d', relative_speed) / 2)) * 5;
                     var positive_or_negative         = (relative_speed >= 0) ? 1 : -1;
 
                     target_data.speed_bars_y         = positive_or_negative * speed_y;
@@ -211,13 +258,18 @@ var HUD = {
                         target_data.text_info        = sprintf('%d ft / %d kt', target_altitude, target_airspeed);
                     }
                     target_data.coord_x              = coord_x;
-                    target_data.coord_y              = -(coord_y - coord_y_pitch) + 7;  # 7: dirt hack to correct position
+                    target_data.coord_y              = coord_y;
                     target_data.relative_heading_deg = relative_heading_deg;
                     target_data.target_range         = target_range;
 
                     append(targets_datas, target_data);
                     #print(sprintf('FOUND target %s - %.1f - %d - %d', target_callsign, relative_speed, velocity, target_airspeed));
                     #print(sprintf('DEBUG [%d,%d] - %.3f', coord_x, coord_y, target_elevation_deg));
+                    #print(sprintf('DEBUG [%.2f,%.2f] vo:%d - ho:%d | x:%d y:%d | R:%.2f T:%.2f F:%.2F', 
+                    #  pitch_deg, roll_deg, 
+                    #  vertical_offset, horizontal_offset, 
+                    #  coord_x, coord_y, 
+                    #  coord_R, coord_T, coord_F));
                 }
                 if(size(targets_datas) >= max_reticle)
                 {
@@ -257,7 +309,7 @@ var HUD = {
                     #print(sprintf('HIDE target %d', i));
                 }
             }
-            me.t_horizontal_container.setRotation(-(roll_deg * D2R), 512, 512);
+            #me.t_horizontal_container.setRotation(-(roll_deg * D2R), 512, 512);
         }
         var time_speed = getprop("/sim/speed-up") or 1;
         var loop_speed = (time_speed == 1) ? .1 : 1;

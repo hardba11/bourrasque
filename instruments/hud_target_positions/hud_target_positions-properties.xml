@@ -16,4 +16,10 @@ PROPERTY-PATH : /instrumentation/my_aircraft/hud_target_positions/
     <targets_are_mp type="bool">1</targets_are_mp>
   </controls>
 
+  <view>
+    <pitch-offset-deg alias="/sim/current-view/pitch-offset-deg" />
+    <heading-offset-deg alias="/sim/current-view/heading-offset-deg" />
+  </view>
+
+
 </PropertyList>

@@ -456,6 +456,36 @@ center : has to be the coords for view n=0
       <z-m>1.15</z-m>
     </offsets>
   </model>
+  <animation>
+    <type>rotate</type> <!-- left/right -->
+    <object-name>hud_target_positions</object-name>
+    <property>/instrumentation/my_aircraft/hud_target_positions/view/heading-offset-deg</property>
+    <center>
+      <x-m>-3.32</x-m>
+      <y-m>0</y-m>
+      <z-m>1.15</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>rotate</type> <!-- up/down -->
+    <object-name>hud_target_positions</object-name>
+    <property>/instrumentation/my_aircraft/hud_target_positions/view/pitch-offset-deg</property>
+    <center>
+      <x-m>-3.32</x-m>
+      <y-m>0</y-m>
+      <z-m>1.15</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
 
 <!--
 ________________________________________________________________________________
