@@ -181,9 +181,14 @@ var HUD = {
                 var target_range       = list_obj[i].getNode("radar/range-nm").getValue() or 1000;
                 var vertical_offset    = list_obj[i].getNode("radar/v-offset").getValue() or 0;
                 var horizontal_offset  = list_obj[i].getNode("radar/h-offset").getValue() or 0;
+
                 if(target_in_range
                     and is_valid
-                    and target_range < radar_range)
+                    and target_range < radar_range
+                    and (math.mod(math.mod(360 - horizontal_offset, 360) - heading_view_deg, 360) > 240
+                        or math.mod(math.mod(360 - horizontal_offset, 360) - heading_view_deg, 360) < 120
+                    )
+                )
                 {
                     var target_data = {};
 
@@ -194,8 +199,6 @@ var HUD = {
                     var target_bearing_deg           = list_obj[i].getNode("radar/bearing-deg").getValue() or 0;
 
                     var relative_heading_deg         = target_heading_deg - my_heading_deg;
-
-# @TODO : filtrer les targets a afficher selon la direction de la vue
 
                     # https://fr.wikipedia.org/wiki/Matrice_de_rotation#En_dimension_trois
                     # https://www.mathweb.fr/euclide/2019/07/14/introduction-aux-matrices-de-rotation/
@@ -224,8 +227,8 @@ var HUD = {
                     var new_vertical_offset = math.asin(math.clamp(z_t2, -1, 1)) / D2R;
                     var new_horizontal_offset = math.atan2(y_t2, x_t2) / D2R;
 
-                    # la vue en se deplacant doit afficher les coordonnees
-                    var coord_x                      = math.tan((new_horizontal_offset + heading_view_deg) * D2R) * px_factor;
+                    # la vue en se deplacant doit afficher les coordonnees (x diminue dans les hautes latitudes)
+                    var coord_x                      = math.tan((new_horizontal_offset + heading_view_deg) * D2R) * px_factor * math.sin((90 - pitch_view_deg) * D2R);
                     var coord_y                      = math.tan((new_vertical_offset - pitch_view_deg) * D2R) * px_factor * -1;
 
 #                    print(sprintf('DEBUG h%d:v%d = [%.2f,%.2f,%.2f] -- r %d --> [%.2f,%.2f,%.2f] - p %d --> [%.2f,%.2f,%.2f] = h%d:v%d', 
