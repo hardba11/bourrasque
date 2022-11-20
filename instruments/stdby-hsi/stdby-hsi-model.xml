@@ -208,9 +208,18 @@ changelog
     </condition>
     <property>/instrumentation/nav[0]/heading-needle-deflection</property>
     <interpolation>
-      <entry><ind>-10.0</ind><dep>-0.013</dep></entry>
-      <entry><ind>0.0</ind><dep>0.0</dep></entry>
-      <entry><ind>10.0</ind><dep>0.013</dep></entry>
+      <entry>
+        <ind>-10.0</ind>
+        <dep>-0.013</dep>
+      </entry>
+      <entry>
+        <ind>0.0</ind>
+        <dep>0.0</dep>
+      </entry>
+      <entry>
+        <ind>10.0</ind>
+        <dep>0.013</dep>
+      </entry>
     </interpolation>
     <axis>
       <x>0</x>
@@ -274,9 +283,18 @@ changelog
     </condition>
     <property>/instrumentation/nav[1]/heading-needle-deflection</property>
     <interpolation>
-      <entry><ind>-10.0</ind><dep>-0.013</dep></entry>
-      <entry><ind>0.0</ind><dep>0.0</dep></entry>
-      <entry><ind>10.0</ind><dep>0.013</dep></entry>
+      <entry>
+        <ind>-10.0</ind>
+        <dep>-0.013</dep>
+      </entry>
+      <entry>
+        <ind>0.0</ind>
+        <dep>0.0</dep>
+      </entry>
+      <entry>
+        <ind>10.0</ind>
+        <dep>0.013</dep>
+      </entry>
     </interpolation>
     <axis>
       <x>0</x>
@@ -508,8 +526,14 @@ changelog
     <object-name>hsi.knob_vor-emit</object-name>
     <property>/instrumentation/my_aircraft/stdby-hsi/controls/nav-selector</property>
     <interpolation>
-      <entry><ind>1</ind><dep>0</dep></entry>
-      <entry><ind>2</ind><dep>-90</dep></entry>
+      <entry>
+        <ind>1</ind>
+        <dep>0</dep>
+      </entry>
+      <entry>
+        <ind>2</ind>
+        <dep>-90</dep>
+      </entry>
     </interpolation>
     <center>
       <x-m>.0075</x-m>

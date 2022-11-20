@@ -1154,14 +1154,14 @@ see :
             <value>NAV</value>
           </equals>
           <or>
-          <greater-than>
-            <property>/orientation/alpha-deg</property>
-            <value>1.5</value>
-          </greater-than>
-          <less-than>
-            <property>/orientation/alpha-deg</property>
-            <value>0</value>
-          </less-than>
+            <greater-than>
+              <property>/orientation/alpha-deg</property>
+              <value>1.5</value>
+            </greater-than>
+            <less-than>
+              <property>/orientation/alpha-deg</property>
+              <value>0</value>
+            </less-than>
           </or>
         </and>
         <equals>
@@ -1508,7 +1508,9 @@ see :
             <property>/sim/alarms/stall-warning</property>
             <value>2</value>
           </equals>
-          <not><property>/gear/gear[0]/wow</property></not>
+          <not>
+            <property>/gear/gear[0]/wow</property>
+          </not>
         </and>
       </or>
     </condition>
@@ -1534,7 +1536,9 @@ see :
             <property>/sim/alarms/stall-warning</property>
             <value>1</value>
           </equals>
-          <not><property>/gear/gear[0]/wow</property></not>
+          <not>
+            <property>/gear/gear[0]/wow</property>
+          </not>
         </and>
       </or>
     </condition>
@@ -1748,7 +1752,9 @@ see :
             <value type="int">1</value>
           </equals>
           <property>/instrumentation/nav[0]/serviceable</property>
-          <not><property>/instrumentation/nav[0]/slaved-to-gps</property></not>
+          <not>
+            <property>/instrumentation/nav[0]/slaved-to-gps</property>
+          </not>
         </and>
       </or>
     </condition>
@@ -1783,7 +1789,9 @@ see :
             <value type="int">1</value>
           </equals>
           <property>/instrumentation/nav[0]/serviceable</property>
-          <not><property>/instrumentation/nav[0]/slaved-to-gps</property></not>
+          <not>
+            <property>/instrumentation/nav[0]/slaved-to-gps</property>
+          </not>
         </and>
       </or>
     </condition>
@@ -1818,7 +1826,9 @@ see :
             <value type="int">1</value>
           </equals>
           <property>/instrumentation/nav[0]/serviceable</property>
-          <not><property>/instrumentation/nav[0]/slaved-to-gps</property></not>
+          <not>
+            <property>/instrumentation/nav[0]/slaved-to-gps</property>
+          </not>
         </and>
       </or>
     </condition>
@@ -1853,7 +1863,9 @@ see :
             <value type="int">1</value>
           </equals>
           <property>/instrumentation/nav[0]/serviceable</property>
-          <not><property>/instrumentation/nav[0]/slaved-to-gps</property></not>
+          <not>
+            <property>/instrumentation/nav[0]/slaved-to-gps</property>
+          </not>
         </and>
       </or>
     </condition>
@@ -1888,7 +1900,9 @@ see :
             <value type="int">1</value>
           </equals>
           <property>/instrumentation/nav[0]/serviceable</property>
-          <not><property>/instrumentation/nav[0]/slaved-to-gps</property></not>
+          <not>
+            <property>/instrumentation/nav[0]/slaved-to-gps</property>
+          </not>
         </and>
       </or>
     </condition>
@@ -2271,9 +2285,6 @@ see :
   </label>
 
 
-
-
-
   <!--
 ================================================================================
                                                                        DEV TOOLS
@@ -2351,7 +2362,3 @@ see :
   </label>
 
 </PropertyList>
-
-
-
-

@@ -129,7 +129,9 @@ ________________________________________________________________________________
     <object-name>wing-tanks1250L</object-name>
     <condition>
       <property>sim/model/wing-tanks-1250</property>
-      <not><property>sim/model/wing-tanks-2000</property></not>
+      <not>
+        <property>sim/model/wing-tanks-2000</property>
+      </not>
     </condition>
   </animation>
   <!-- ~~~~~~~~~~~~~~~~~~ tanks 2000 l -->
@@ -153,4 +155,3 @@ ________________________________________________________________________________
   </animation>
 
 </PropertyList>
-

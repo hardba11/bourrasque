@@ -21,7 +21,9 @@
           <property>environment/temperature-degc</property>
           <value>18</value>
         </greater-than>
-        <not><property>/sim/crashed</property></not>
+        <not>
+          <property>/sim/crashed</property>
+        </not>
       </and>
     </condition>
 
@@ -63,10 +65,18 @@
 
       <start>
         <color>
-          <red><value>1</value></red>
-          <green><value>1</value></green>
-          <blue><value>1</value></blue>
-          <alpha><value>0.7</value></alpha>
+          <red>
+            <value>1</value>
+          </red>
+          <green>
+            <value>1</value>
+          </green>
+          <blue>
+            <value>1</value>
+          </blue>
+          <alpha>
+            <value>0.7</value>
+          </alpha>
         </color>
         <size>
           <value>3</value>
@@ -75,10 +85,18 @@
 
       <end>
         <color>
-          <red><value>1</value></red>
-          <green><value>1</value></green>
-          <blue><value>1</value></blue>
-          <alpha><value>0.05</value></alpha>
+          <red>
+            <value>1</value>
+          </red>
+          <green>
+            <value>1</value>
+          </green>
+          <blue>
+            <value>1</value>
+          </blue>
+          <alpha>
+            <value>0.05</value>
+          </alpha>
         </color>
         <size>
           <value>2</value>

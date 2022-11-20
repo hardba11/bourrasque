@@ -55,7 +55,9 @@ changelog
     <type>select</type>
     <object-name>hud_ext</object-name>
     <condition>
-      <not><property>/sim/current-view/internal</property></not>
+      <not>
+        <property>/sim/current-view/internal</property>
+      </not>
     </condition>
   </animation>
 
@@ -363,10 +365,22 @@ ________________________________________________________________________________
     <object-name>piston_canopy</object-name>
     <property>sim/multiplay/generic/float[0]</property> <!-- for MP sim/model/canopy-pos-norm -->
     <interpolation>
-      <entry><ind>0</ind><dep>0</dep></entry>
-      <entry><ind>.6</ind><dep>0</dep></entry>
-      <entry><ind>.87</ind><dep>0</dep></entry>
-      <entry><ind>1</ind><dep>1</dep></entry>
+      <entry>
+        <ind>0</ind>
+        <dep>0</dep>
+      </entry>
+      <entry>
+        <ind>.6</ind>
+        <dep>0</dep>
+      </entry>
+      <entry>
+        <ind>.87</ind>
+        <dep>0</dep>
+      </entry>
+      <entry>
+        <ind>1</ind>
+        <dep>1</dep>
+      </entry>
     </interpolation>
     <center>
       <x-m>-1.431</x-m>
@@ -385,9 +399,18 @@ ________________________________________________________________________________
     <object-name>piston_canopy</object-name>
     <property>sim/multiplay/generic/float[0]</property> <!-- for MP sim/model/canopy-pos-norm -->
     <interpolation>
-      <entry><ind>0</ind><dep>0</dep></entry>
-      <entry><ind>.6</ind><dep>.005</dep></entry>
-      <entry><ind>1</ind><dep>.073</dep></entry>
+      <entry>
+        <ind>0</ind>
+        <dep>0</dep>
+      </entry>
+      <entry>
+        <ind>.6</ind>
+        <dep>.005</dep>
+      </entry>
+      <entry>
+        <ind>1</ind>
+        <dep>.073</dep>
+      </entry>
     </interpolation>
     <axis>
       <x>.6</x>
@@ -438,7 +461,7 @@ ________________________________________________________________________________
     </condition>
   </model>
 
-<!--
+  <!--
 ________________________________________________________________________________
                                                             HUD TARGET POSITIONS
 
@@ -487,7 +510,7 @@ center : has to be the coords for view n=0
     </axis>
   </animation>
 
-<!--
+  <!--
 ________________________________________________________________________________
                                                                  COMMAND HEAD UP
   -->
@@ -535,7 +558,7 @@ ________________________________________________________________________________
     </offsets>
   </model>
 
-<!-- USED FOR DEVELOPMENT -->
+  <!-- USED FOR DEVELOPMENT -->
   <!--animation>
     <type>translate</type>
     <object-name>turn-pilot</object-name>
@@ -570,7 +593,7 @@ ________________________________________________________________________________
     </axis>
   </animation-->
 
-<!--
+  <!--
 ________________________________________________________________________________
                                                                      NAV DISPLAY
   -->
@@ -964,9 +987,18 @@ ________________________________________________________________________________
     <object-name>tablet-pilot</object-name>
     <property>surface-positions/rudder-pos-norm</property>
     <interpolation>
-      <entry><ind>-1</ind><dep>-1</dep></entry>
-      <entry><ind>0</ind><dep>2</dep></entry>
-      <entry><ind>1</ind><dep>5</dep></entry>
+      <entry>
+        <ind>-1</ind>
+        <dep>-1</dep>
+      </entry>
+      <entry>
+        <ind>0</ind>
+        <dep>2</dep>
+      </entry>
+      <entry>
+        <ind>1</ind>
+        <dep>5</dep>
+      </entry>
     </interpolation>
     <center>
       <x-m>-3.3001</x-m>
@@ -984,8 +1016,14 @@ ________________________________________________________________________________
     <object-name>tablet-pilot</object-name>
     <property>/gear/gear[2]/brake-position-norm</property>
     <interpolation>
-      <entry><ind>0</ind><dep>2</dep></entry>
-      <entry><ind>1</ind><dep>2</dep></entry>
+      <entry>
+        <ind>0</ind>
+        <dep>2</dep>
+      </entry>
+      <entry>
+        <ind>1</ind>
+        <dep>2</dep>
+      </entry>
     </interpolation>
     <center>
       <x-m>-3.3001</x-m>
@@ -1035,7 +1073,7 @@ ________________________________________________________________________________
     </condition>
   </model>
 
-<!--
+  <!--
 ________________________________________________________________________________
                                                                  COMMAND HEAD UP
   -->
@@ -1066,7 +1104,7 @@ ________________________________________________________________________________
     </offsets>
   </model>
 
-<!--
+  <!--
 ________________________________________________________________________________
                                                                      NAV DISPLAY
   -->
@@ -1450,4 +1488,3 @@ ________________________________________________________________________________
 
 
 </PropertyList>
-

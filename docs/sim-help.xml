@@ -15,34 +15,118 @@ changelog
 
 <PropertyList>
 
-  <key><name>}</name><desc>Autostart/Autostop engines</desc></key>
-  <key><name>c</name><desc>Open/Close canopy. You can click on the canopy handle to half-open it !</desc></key>
-  <key><name>g</name><desc>Gears up</desc></key>
-  <key><name>G</name><desc>Gears down</desc></key>
-  <key><name>k</name><desc>Extend Speedbrakes (5 positions)</desc></key>
-  <key><name>j</name><desc>Retract Speedbrakes (5 positions)</desc></key>
-  <key><name>s</name><desc>Toggle Autotrim (pitch)</desc></key>
-  <key><name>b</name><desc>Brake (wheels)</desc></key>
-  <key><name>B</name><desc>Toggle parkbrakes</desc></key>
-  <key><name>m</name><desc>Select previous mod (MFD+FDM+AP presets)</desc></key>
-  <key><name>M</name><desc>Select next mod (MFD+FDM+AP presets)</desc></key>
-  <key><name>l</name><desc>Toggle landing lights</desc></key>
-  <key><name>L</name><desc>Toggle lights</desc></key>
-  <key><name>o</name><desc>Acknowledge master caution</desc></key>
-  <key><name>h</name><desc>Toggle night/day hud</desc></key>
-  <key><name>H</name><desc>Hud brightness</desc></key>
-  <key><name>y</name><desc>Start/Stop chrono</desc></key>
-  <key><name>ctrl-a</name><desc>Enable autopilot on Altitude</desc></key>
-  <key><name>ctrl-s</name><desc>Enable autopilot on Speed</desc></key>
-  <key><name>ctrl-h</name><desc>Enable autopilot on Heading (bug)</desc></key>
-  <key><name>ctrl-n</name><desc>Enable autopilot on Heading (nav 1 radial)</desc></key>
-  <key><name>ctrl-p</name><desc>Enable autopilot to keep current heading, altitude and speed</desc></key>
-  <key><name>ctrl-P</name><desc>Disable autopilot</desc></key>
-  <key><name>[</name><desc>Catapult launch (carrier)</desc></key>
-  <key><name>]</name><desc>Toggle Launch-bar (carrier)</desc></key>
-  <key><name>;</name><desc>Toggle Hook (carrier)</desc></key>
-  <key><name>&lt;</name><desc>change phase for record loop</desc></key>
-  <key><name>&gt;</name><desc>reinit record loop</desc></key>
+  <key>
+    <name>}</name>
+    <desc>Autostart/Autostop engines</desc>
+  </key>
+  <key>
+    <name>c</name>
+    <desc>Open/Close canopy. You can click on the canopy handle to half-open it !</desc>
+  </key>
+  <key>
+    <name>g</name>
+    <desc>Gears up</desc>
+  </key>
+  <key>
+    <name>G</name>
+    <desc>Gears down</desc>
+  </key>
+  <key>
+    <name>k</name>
+    <desc>Extend Speedbrakes (5 positions)</desc>
+  </key>
+  <key>
+    <name>j</name>
+    <desc>Retract Speedbrakes (5 positions)</desc>
+  </key>
+  <key>
+    <name>s</name>
+    <desc>Toggle Autotrim (pitch)</desc>
+  </key>
+  <key>
+    <name>b</name>
+    <desc>Brake (wheels)</desc>
+  </key>
+  <key>
+    <name>B</name>
+    <desc>Toggle parkbrakes</desc>
+  </key>
+  <key>
+    <name>m</name>
+    <desc>Select previous mod (MFD+FDM+AP presets)</desc>
+  </key>
+  <key>
+    <name>M</name>
+    <desc>Select next mod (MFD+FDM+AP presets)</desc>
+  </key>
+  <key>
+    <name>l</name>
+    <desc>Toggle landing lights</desc>
+  </key>
+  <key>
+    <name>L</name>
+    <desc>Toggle lights</desc>
+  </key>
+  <key>
+    <name>o</name>
+    <desc>Acknowledge master caution</desc>
+  </key>
+  <key>
+    <name>h</name>
+    <desc>Toggle night/day hud</desc>
+  </key>
+  <key>
+    <name>H</name>
+    <desc>Hud brightness</desc>
+  </key>
+  <key>
+    <name>y</name>
+    <desc>Start/Stop chrono</desc>
+  </key>
+  <key>
+    <name>ctrl-a</name>
+    <desc>Enable autopilot on Altitude</desc>
+  </key>
+  <key>
+    <name>ctrl-s</name>
+    <desc>Enable autopilot on Speed</desc>
+  </key>
+  <key>
+    <name>ctrl-h</name>
+    <desc>Enable autopilot on Heading (bug)</desc>
+  </key>
+  <key>
+    <name>ctrl-n</name>
+    <desc>Enable autopilot on Heading (nav 1 radial)</desc>
+  </key>
+  <key>
+    <name>ctrl-p</name>
+    <desc>Enable autopilot to keep current heading, altitude and speed</desc>
+  </key>
+  <key>
+    <name>ctrl-P</name>
+    <desc>Disable autopilot</desc>
+  </key>
+  <key>
+    <name>[</name>
+    <desc>Catapult launch (carrier)</desc>
+  </key>
+  <key>
+    <name>]</name>
+    <desc>Toggle Launch-bar (carrier)</desc>
+  </key>
+  <key>
+    <name>;</name>
+    <desc>Toggle Hook (carrier)</desc>
+  </key>
+  <key>
+    <name>&lt;</name>
+    <desc>change phase for record loop</desc>
+  </key>
+  <key>
+    <name>&gt;</name>
+    <desc>reinit record loop</desc>
+  </key>
 
   <text>
 CHECK-LISTS :
@@ -95,7 +179,4 @@ NUMPAD LAYOUT (*=hit key with the ctrl key, **=if autopilot is enabled)
   </text>
 
 
-
-
 </PropertyList>
-

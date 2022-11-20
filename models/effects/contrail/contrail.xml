@@ -28,7 +28,9 @@
           <property>engines/engine[1]/stopped</property>
           <value>0</value>
         </equals>
-        <not><property>/sim/crashed</property></not>
+        <not>
+          <property>/sim/crashed</property>
+        </not>
       </and>
     </condition>
 
@@ -69,10 +71,18 @@
     <particle>
       <start>
         <color>
-          <red><property>rendering/scene/diffuse/red</property></red>
-          <green><property>rendering/scene/diffuse/red</property></green>
-          <blue><property>rendering/scene/diffuse/red</property></blue>
-          <alpha><value>0.2</value></alpha>
+          <red>
+            <property>rendering/scene/diffuse/red</property>
+          </red>
+          <green>
+            <property>rendering/scene/diffuse/red</property>
+          </green>
+          <blue>
+            <property>rendering/scene/diffuse/red</property>
+          </blue>
+          <alpha>
+            <value>0.2</value>
+          </alpha>
         </color>
         <size>
           <value>2</value>
@@ -80,10 +90,18 @@
       </start>
       <end>
         <color>
-          <red><property>rendering/scene/diffuse/red</property></red>
-          <green><property>rendering/scene/diffuse/red</property></green>
-          <blue><property>rendering/scene/diffuse/red</property></blue>
-          <alpha><value>0.005</value></alpha>
+          <red>
+            <property>rendering/scene/diffuse/red</property>
+          </red>
+          <green>
+            <property>rendering/scene/diffuse/red</property>
+          </green>
+          <blue>
+            <property>rendering/scene/diffuse/red</property>
+          </blue>
+          <alpha>
+            <value>0.005</value>
+          </alpha>
         </color>
         <size>
           <value>100</value>

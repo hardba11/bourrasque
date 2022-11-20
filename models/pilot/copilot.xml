@@ -425,11 +425,26 @@ ________________________________________________________________________________
     <object-name>bloc_pilote</object-name>
     <property>/fdm/yasim/accelerations/a-y</property>
     <interpolation>
-      <entry><ind>-12</ind><dep>3</dep></entry>
-      <entry><ind>-10</ind><dep>2</dep></entry>
-      <entry><ind>0</ind><dep>0</dep></entry>
-      <entry><ind>10</ind><dep>-2</dep></entry>
-      <entry><ind>12</ind><dep>-3</dep></entry>
+      <entry>
+        <ind>-12</ind>
+        <dep>3</dep>
+      </entry>
+      <entry>
+        <ind>-10</ind>
+        <dep>2</dep>
+      </entry>
+      <entry>
+        <ind>0</ind>
+        <dep>0</dep>
+      </entry>
+      <entry>
+        <ind>10</ind>
+        <dep>-2</dep>
+      </entry>
+      <entry>
+        <ind>12</ind>
+        <dep>-3</dep>
+      </entry>
     </interpolation>
     <center>
       <x-m>0</x-m>
@@ -447,11 +462,26 @@ ________________________________________________________________________________
     <object-name>bloc_tete</object-name>
     <property>/fdm/yasim/accelerations/a-y</property>
     <interpolation>
-      <entry><ind>-12</ind><dep>4</dep></entry>
-      <entry><ind>-10</ind><dep>2</dep></entry>
-      <entry><ind>0</ind><dep>0</dep></entry>
-      <entry><ind>10</ind><dep>-2</dep></entry>
-      <entry><ind>12</ind><dep>-4</dep></entry>
+      <entry>
+        <ind>-12</ind>
+        <dep>4</dep>
+      </entry>
+      <entry>
+        <ind>-10</ind>
+        <dep>2</dep>
+      </entry>
+      <entry>
+        <ind>0</ind>
+        <dep>0</dep>
+      </entry>
+      <entry>
+        <ind>10</ind>
+        <dep>-2</dep>
+      </entry>
+      <entry>
+        <ind>12</ind>
+        <dep>-4</dep>
+      </entry>
     </interpolation>
     <center>
       <x-m>-3.13</x-m>
@@ -471,9 +501,18 @@ ________________________________________________________________________________
     <object-name>bloc_pilote</object-name>
     <property>/fdm/yasim/accelerations/a-x</property>
     <interpolation>
-      <entry><ind>-30</ind><dep>-4</dep></entry>
-      <entry><ind>0</ind><dep>0</dep></entry>
-      <entry><ind>30</ind><dep>2</dep></entry>
+      <entry>
+        <ind>-30</ind>
+        <dep>-4</dep>
+      </entry>
+      <entry>
+        <ind>0</ind>
+        <dep>0</dep>
+      </entry>
+      <entry>
+        <ind>30</ind>
+        <dep>2</dep>
+      </entry>
     </interpolation>
     <center>
       <x-m>-3.404</x-m>
@@ -491,9 +530,18 @@ ________________________________________________________________________________
     <object-name>bloc_tete</object-name>
     <property>/fdm/yasim/accelerations/a-x</property>
     <interpolation>
-      <entry><ind>-30</ind><dep>-6</dep></entry>
-      <entry><ind>0</ind><dep>0</dep></entry>
-      <entry><ind>30</ind><dep>3</dep></entry>
+      <entry>
+        <ind>-30</ind>
+        <dep>-6</dep>
+      </entry>
+      <entry>
+        <ind>0</ind>
+        <dep>0</dep>
+      </entry>
+      <entry>
+        <ind>30</ind>
+        <dep>3</dep>
+      </entry>
     </interpolation>
     <center>
       <x-m>-3.13</x-m>
@@ -515,11 +563,26 @@ ________________________________________________________________________________
     <object-name>jambeD</object-name>
     <property>/fdm/yasim/accelerations/a-z</property>
     <interpolation>
-      <entry><ind>-150</ind><dep>.015</dep></entry>
-      <entry><ind>-100</ind><dep>.005</dep></entry>
-      <entry><ind>0</ind><dep>0</dep></entry>
-      <entry><ind>100</ind><dep>-.005</dep></entry>
-      <entry><ind>150</ind><dep>-.015</dep></entry>
+      <entry>
+        <ind>-150</ind>
+        <dep>.015</dep>
+      </entry>
+      <entry>
+        <ind>-100</ind>
+        <dep>.005</dep>
+      </entry>
+      <entry>
+        <ind>0</ind>
+        <dep>0</dep>
+      </entry>
+      <entry>
+        <ind>100</ind>
+        <dep>-.005</dep>
+      </entry>
+      <entry>
+        <ind>150</ind>
+        <dep>-.015</dep>
+      </entry>
     </interpolation>
     <center>
       <x-m>0</x-m>
@@ -544,16 +607,39 @@ ________________________________________________________________________________
     <object-name>bloc_tete</object-name>
     <property>/orientation/roll-deg</property>
     <condition>
-      <not><property>/gear/gear[0]/wow</property></not>
+      <not>
+        <property>/gear/gear[0]/wow</property>
+      </not>
     </condition>
     <interpolation>
-      <entry><ind>-180</ind><dep>0</dep></entry>
-      <entry><ind>-170</ind><dep>-7</dep></entry>
-      <entry><ind>-90</ind><dep>-7</dep></entry>
-      <entry><ind>0</ind><dep>0</dep></entry>
-      <entry><ind>90</ind><dep>7</dep></entry>
-      <entry><ind>170</ind><dep>7</dep></entry>
-      <entry><ind>180</ind><dep>0</dep></entry>
+      <entry>
+        <ind>-180</ind>
+        <dep>0</dep>
+      </entry>
+      <entry>
+        <ind>-170</ind>
+        <dep>-7</dep>
+      </entry>
+      <entry>
+        <ind>-90</ind>
+        <dep>-7</dep>
+      </entry>
+      <entry>
+        <ind>0</ind>
+        <dep>0</dep>
+      </entry>
+      <entry>
+        <ind>90</ind>
+        <dep>7</dep>
+      </entry>
+      <entry>
+        <ind>170</ind>
+        <dep>7</dep>
+      </entry>
+      <entry>
+        <ind>180</ind>
+        <dep>0</dep>
+      </entry>
     </interpolation>
     <center>
       <x-m>-3.13</x-m>
@@ -575,9 +661,18 @@ ________________________________________________________________________________
       <property>/gear/gear[0]/wow</property>
     </condition>
     <interpolation>
-      <entry><ind>-180</ind><dep>0</dep></entry>
-      <entry><ind>0</ind><dep>0</dep></entry>
-      <entry><ind>180</ind><dep>0</dep></entry>
+      <entry>
+        <ind>-180</ind>
+        <dep>0</dep>
+      </entry>
+      <entry>
+        <ind>0</ind>
+        <dep>0</dep>
+      </entry>
+      <entry>
+        <ind>180</ind>
+        <dep>0</dep>
+      </entry>
     </interpolation>
     <center>
       <x-m>-3.13</x-m>

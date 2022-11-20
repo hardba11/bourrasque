@@ -157,9 +157,18 @@ description :
     <object-name>chrono.mode_knob-emit</object-name>
     <property>/instrumentation/my_aircraft/chrono/controls/mode-knob</property>
     <interpolation>
-      <entry><ind>0</ind><dep>0</dep></entry>
-      <entry><ind>1</ind><dep>35</dep></entry>
-      <entry><ind>2</ind><dep>-144</dep></entry>
+      <entry>
+        <ind>0</ind>
+        <dep>0</dep>
+      </entry>
+      <entry>
+        <ind>1</ind>
+        <dep>35</dep>
+      </entry>
+      <entry>
+        <ind>2</ind>
+        <dep>-144</dep>
+      </entry>
     </interpolation>
     <center>
       <x-m>0</x-m>
@@ -254,9 +263,18 @@ instrument_chrono.event_click_chr_btn();
     <object-name>chrono.et_knob-emit</object-name>
     <property>/instrumentation/my_aircraft/chrono/controls/et-knob</property>
     <interpolation>
-      <entry><ind>0</ind><dep>0</dep></entry>
-      <entry><ind>1</ind><dep>35</dep></entry>
-      <entry><ind>2</ind><dep>-144</dep></entry>
+      <entry>
+        <ind>0</ind>
+        <dep>0</dep>
+      </entry>
+      <entry>
+        <ind>1</ind>
+        <dep>35</dep>
+      </entry>
+      <entry>
+        <ind>2</ind>
+        <dep>-144</dep>
+      </entry>
     </interpolation>
     <center>
       <x-m>0</x-m>

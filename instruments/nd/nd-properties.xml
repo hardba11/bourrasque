@@ -11,21 +11,21 @@ PROPERTY-PATH : /instrumentation/my_aircraft/nd/
 <PropertyList>
 
   <inputs>
-    <range-nm         type="int">40</range-nm>
-    <arpt             type="bool">1</arpt>
-    <sta              type="bool">1</sta>
-    <wpt              type="bool">0</wpt>
-    <data             type="bool">1</data>
-    <nd-centered      type="bool">1</nd-centered>
-    <lh-vor-adf       type="int">1</lh-vor-adf>
-    <rh-vor-adf       type="int">0</rh-vor-adf>
-    <display-mode     type="string">VOR</display-mode>
+    <range-nm type="int">40</range-nm>
+    <arpt type="bool">1</arpt>
+    <sta type="bool">1</sta>
+    <wpt type="bool">0</wpt>
+    <data type="bool">1</data>
+    <nd-centered type="bool">1</nd-centered>
+    <lh-vor-adf type="int">1</lh-vor-adf>
+    <rh-vor-adf type="int">0</rh-vor-adf>
+    <display-mode type="string">VOR</display-mode>
     <display-mode-num type="int">1</display-mode-num>
-    <display-type     type="string">LCD</display-type>
-    <true-north       type="bool">0</true-north>
-    <rangearc         type="bool">1</rangearc>
-    <hdg-trk          type="bool">0</hdg-trk>
-    <toggle_tacan     type="bool">0</toggle_tacan>
+    <display-type type="string">LCD</display-type>
+    <true-north type="bool">0</true-north>
+    <rangearc type="bool">1</rangearc>
+    <hdg-trk type="bool">0</hdg-trk>
+    <toggle_tacan type="bool">0</toggle_tacan>
   </inputs>
 
   <controls>
@@ -33,10 +33,9 @@ PROPERTY-PATH : /instrumentation/my_aircraft/nd/
   </controls>
 
   <outputs>
-    <indicated-heading   alias="/orientation/heading-magnetic-deg" />   <!-- alias switched by nd.nas -->
-    <heading-bug-deg     alias="/autopilot/settings/heading-bug-deg" /> <!-- alias switched by nd.nas -->
-    <true-heading-bug-deg type="float" />                               <!-- calculated by bourrasque.nas -->
+    <indicated-heading alias="/orientation/heading-magnetic-deg" /> <!-- alias switched by nd.nas -->
+    <heading-bug-deg alias="/autopilot/settings/heading-bug-deg" /> <!-- alias switched by nd.nas -->
+    <true-heading-bug-deg type="float" /> <!-- calculated by bourrasque.nas -->
   </outputs>
 
 </PropertyList>
-

@@ -6,7 +6,7 @@
 
   <nasal>
     <load>
-    <![CDATA[
+      <![CDATA[
 srand(); # set seed for random generator
 
 props.globals.initNode("/homemade-loop-timer/maxid", 0, "INT");
@@ -102,7 +102,7 @@ distLoop.restart(10 * rand());
     ]]>
     </load>
     <unload>
-    <![CDATA[
+      <![CDATA[
 settimer(
     func()
     {
@@ -152,4 +152,3 @@ settimer(
   </animation>
 
 </PropertyList>
-

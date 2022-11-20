@@ -21,13 +21,29 @@ changelog
   <modal type="bool">false</modal>
   <layout>vbox</layout>
   <group>
-    <layout>hbox</layout><empty><stretch>1</stretch></empty>
-    <text><label>bourrasque's equipment</label></text>
-    <empty><stretch>1</stretch></empty>
-    <button><pref-width>16</pref-width><pref-height>16</pref-height><legend />
-      <default>1</default><keynum>27</keynum><border>2</border>
-      <binding><command>dialog-close</command></binding>
-      <binding><command>dialog-apply</command></binding>
+    <layout>hbox</layout>
+    <empty>
+      <stretch>1</stretch>
+    </empty>
+    <text>
+      <label>bourrasque's equipment</label>
+    </text>
+    <empty>
+      <stretch>1</stretch>
+    </empty>
+    <button>
+      <pref-width>16</pref-width>
+      <pref-height>16</pref-height>
+      <legend />
+      <default>1</default>
+      <keynum>27</keynum>
+      <border>2</border>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+      <binding>
+        <command>dialog-apply</command>
+      </binding>
     </button>
   </group>
 
@@ -38,12 +54,14 @@ changelog
     <layout>table</layout>
     <halign>left</halign>
     <text>
-      <row>0</row><col>1</col>
+      <row>0</row>
+      <col>1</col>
       <label>Ground equipment</label>
     </text>
 
     <checkbox>
-      <row>1</row><col>0</col>
+      <row>1</row>
+      <col>0</col>
       <x>50</x>
       <y>200</y>
       <width>12</width>
@@ -55,13 +73,15 @@ changelog
       </binding>
     </checkbox>
     <text>
-      <row>1</row><col>1</col>
+      <row>1</row>
+      <col>1</col>
       <halign>left</halign>
       <label>Covers</label>
     </text>
 
     <checkbox>
-      <row>2</row><col>0</col>
+      <row>2</row>
+      <col>0</col>
       <x>50</x>
       <y>200</y>
       <width>12</width>
@@ -73,14 +93,16 @@ changelog
       </binding>
     </checkbox>
     <text>
-      <row>2</row><col>1</col>
+      <row>2</row>
+      <col>1</col>
       <halign>left</halign>
       <label>Fuel truck</label>
     </text>
 
 
     <checkbox>
-      <row>3</row><col>0</col>
+      <row>3</row>
+      <col>0</col>
       <x>50</x>
       <y>200</y>
       <width>12</width>
@@ -92,14 +114,16 @@ changelog
       </binding>
     </checkbox>
     <text>
-      <row>3</row><col>1</col>
+      <row>3</row>
+      <col>1</col>
       <halign>left</halign>
       <label>EPU</label>
     </text>
 
 
     <checkbox>
-      <row>4</row><col>0</col>
+      <row>4</row>
+      <col>0</col>
       <x>50</x>
       <y>200</y>
       <width>12</width>
@@ -111,14 +135,16 @@ changelog
       </binding>
     </checkbox>
     <text>
-      <row>4</row><col>1</col>
+      <row>4</row>
+      <col>1</col>
       <halign>left</halign>
       <label>Scale</label>
     </text>
 
 
     <checkbox>
-      <row>5</row><col>0</col>
+      <row>5</row>
+      <col>0</col>
       <x>50</x>
       <y>200</y>
       <width>12</width>
@@ -130,7 +156,8 @@ changelog
       </binding>
     </checkbox>
     <text>
-      <row>5</row><col>1</col>
+      <row>5</row>
+      <col>1</col>
       <halign>left</halign>
       <label>Wheel chocks</label>
     </text>
@@ -143,7 +170,8 @@ changelog
     <halign>left</halign>
 
     <checkbox>
-      <row>0</row><col>0</col>
+      <row>0</row>
+      <col>0</col>
       <x>50</x>
       <y>200</y>
       <width>12</width>
@@ -155,13 +183,15 @@ changelog
       </binding>
     </checkbox>
     <text>
-      <row>0</row><col>1</col>
+      <row>0</row>
+      <col>1</col>
       <halign>left</halign>
       <label>Refueling probe</label>
     </text>
 
     <checkbox>
-      <row>1</row><col>0</col>
+      <row>1</row>
+      <col>0</col>
       <x>50</x>
       <y>200</y>
       <width>12</width>
@@ -177,7 +207,8 @@ my_aircraft_functions.event_toggle_carrier_equipment(-1);
       </binding>
     </checkbox>
     <text>
-      <row>1</row><col>1</col>
+      <row>1</row>
+      <col>1</col>
       <halign>left</halign>
       <label>Carrier equipment</label>
     </text>
@@ -191,12 +222,15 @@ my_aircraft_functions.event_toggle_carrier_equipment(-1);
     <layout>table</layout>
     <halign>left</halign>
     <text>
-      <row>0</row><col>0</col>
+      <row>0</row>
+      <col>0</col>
       <label>Wing tanks</label>
     </text>
     <button>
-      <row>1</row><col>0</col>
-      <pref-width>70</pref-width><pref-height>20</pref-height>
+      <row>1</row>
+      <col>0</col>
+      <pref-width>70</pref-width>
+      <pref-height>20</pref-height>
       <legend>None</legend>
       <binding>
         <command>nasal</command>
@@ -208,8 +242,10 @@ my_aircraft_functions.event_load_store("wing", "none");
       </binding>
     </button>
     <button>
-      <row>2</row><col>0</col>
-      <pref-width>70</pref-width><pref-height>20</pref-height>
+      <row>2</row>
+      <col>0</col>
+      <pref-width>70</pref-width>
+      <pref-height>20</pref-height>
       <legend>1250 l</legend>
       <binding>
         <command>nasal</command>
@@ -221,8 +257,10 @@ my_aircraft_functions.event_load_store("wing", "tank-1250");
       </binding>
     </button>
     <button>
-      <row>3</row><col>0</col>
-      <pref-width>70</pref-width><pref-height>20</pref-height>
+      <row>3</row>
+      <col>0</col>
+      <pref-width>70</pref-width>
+      <pref-height>20</pref-height>
       <legend>2000 l</legend>
       <binding>
         <command>nasal</command>
@@ -234,8 +272,10 @@ my_aircraft_functions.event_load_store("wing", "tank-2000");
       </binding>
     </button>
     <button>
-      <row>4</row><col>0</col>
-      <pref-width>70</pref-width><pref-height>20</pref-height>
+      <row>4</row>
+      <col>0</col>
+      <pref-width>70</pref-width>
+      <pref-height>20</pref-height>
       <legend>Full</legend>
       <binding>
         <command>nasal</command>
@@ -248,12 +288,15 @@ my_aircraft_functions.event_load_store("wing", "tank-1250+tank-2000");
     </button>
 
     <text>
-      <row>0</row><col>1</col>
+      <row>0</row>
+      <col>1</col>
       <label>Center tank</label>
     </text>
     <button>
-      <row>1</row><col>1</col>
-      <pref-width>70</pref-width><pref-height>20</pref-height>
+      <row>1</row>
+      <col>1</col>
+      <pref-width>70</pref-width>
+      <pref-height>20</pref-height>
       <legend>None</legend>
       <binding>
         <command>nasal</command>
@@ -265,8 +308,10 @@ my_aircraft_functions.event_load_store("center", "none");
       </binding>
     </button>
     <button>
-      <row>2</row><col>1</col>
-      <pref-width>70</pref-width><pref-height>20</pref-height>
+      <row>2</row>
+      <col>1</col>
+      <pref-width>70</pref-width>
+      <pref-height>20</pref-height>
       <legend>1250 l</legend>
       <binding>
         <command>nasal</command>
@@ -278,8 +323,10 @@ my_aircraft_functions.event_load_store("center", "tank-1250");
       </binding>
     </button>
     <button>
-      <row>3</row><col>1</col>
-      <pref-width>70</pref-width><pref-height>20</pref-height>
+      <row>3</row>
+      <col>1</col>
+      <pref-width>70</pref-width>
+      <pref-height>20</pref-height>
       <legend>2000 l</legend>
       <binding>
         <command>nasal</command>
@@ -291,8 +338,10 @@ my_aircraft_functions.event_load_store("center", "tank-2000");
       </binding>
     </button>
     <button>
-      <row>4</row><col>1</col>
-      <pref-width>70</pref-width><pref-height>20</pref-height>
+      <row>4</row>
+      <col>1</col>
+      <pref-width>70</pref-width>
+      <pref-height>20</pref-height>
       <legend>AAR pod</legend>
       <binding>
         <command>nasal</command>
@@ -305,12 +354,15 @@ my_aircraft_functions.event_load_store("center", "refuel-pod");
     </button>
 
     <text>
-      <row>0</row><col>2</col>
+      <row>0</row>
+      <col>2</col>
       <label>Wing ext</label>
     </text>
     <button>
-      <row>1</row><col>2</col>
-      <pref-width>70</pref-width><pref-height>20</pref-height>
+      <row>1</row>
+      <col>2</col>
+      <pref-width>70</pref-width>
+      <pref-height>20</pref-height>
       <legend>None</legend>
       <binding>
         <command>nasal</command>
@@ -322,8 +374,10 @@ my_aircraft_functions.event_load_store("wing-pylons", "none");
       </binding>
     </button>
     <button>
-      <row>2</row><col>2</col>
-      <pref-width>70</pref-width><pref-height>20</pref-height>
+      <row>2</row>
+      <col>2</col>
+      <pref-width>70</pref-width>
+      <pref-height>20</pref-height>
       <legend>Smoke</legend>
       <binding>
         <command>nasal</command>
@@ -340,4 +394,3 @@ my_aircraft_functions.event_load_store("wing-pylons", "smoke-pod");
   <hrule />
 
 </PropertyList>
-
