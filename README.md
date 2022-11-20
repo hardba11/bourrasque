@@ -3,7 +3,7 @@ markdown README.md > md.html ; cat {hd.inc,md,ft.inc}.html > github.html
 -->
 
 ![Image](http://i.imgur.com/BJtiZIH.png)
-**bourrasque is a fictional aircraft designed to enjoy flying !!!**
+**Bourrasque is a fictional aircraft designed to enjoy flying !!!**
 
 It is usable in [FLIGHTGEAR open source flight simulator](http://www.flightgear.org).
 
@@ -11,17 +11,20 @@ It is agile and powerful, can fly fast and do short takeoffs and landings.
 It's a suitable aircraft to discover the whole world of flightgear (entirely earth is available) with its radio-navigation instruments and autopilot.
 Thanks to its hud-showing-target-position feature, it's easy to find an aircraft in the sky and fly in formation with your friends on [flightgear multiplayer servers](http://mpmap02.flightgear.org/).
 
-## features
+## Features
+
 Still in development but fully usable.
 
-3D model
+3D Model
+
 - detailed model
 - animated controls (ailerons, elevons, slats, canard)
 - other animations : opening canopy, retracting gears, lights, gears suspension
 - choice of liveries
 - ground equipments, external stores (fuel tanks, smoke pods, refuelling pod)
 
-3D cockpit
+3D Mockpit
+
 - usable and clickable instruments with tooltips : VOR, PFD, Nav Display, hsi, asi, etc
 - instruments adjustable lighting
 - autostart/autostop and fast start shortcuts
@@ -29,17 +32,19 @@ Still in development but fully usable.
 - a lot of instruments shortcuts
 
 Systems
+
 - autopilot
 - automatic hippodrome driven by autopilot
 - 4 mods (TAXI, APP, NAV, VFR) changing hud and mfd configuration
 - start/stop procedure
-- refuelling ability (enable in menu and see : http://wiki.flightgear.org/Howto:Aerial_refueling)
+- refuelling ability (enable in menu and see : <http://wiki.flightgear.org/Howto:Aerial_refueling>)
 - carrier landing and takeoff ability
 - multiplayer back-seat : fly as passenger !
 - if you start in the air, brsq starts automatically systems and engines and enables autopilot
 - ATC assistance to reach clostest airport
 
 Effects
+
 - sounds (engines, wind, rain, avionics, gears)
 - reheat effects (enable ALS)
 - 3d shadow (enable ALS)
@@ -48,23 +53,24 @@ Effects
 - rain effects : raindrops on canopy and fuselage, particles on ground
 - smoke pods
 
-AI scenario (need to copy files in your FGDATA directory)
+AI Scenario (need to copy files in your FGDATA directory)
+
 - 2 wingmen AI demo - see [README](https://github.com/hardba11/bourrasque/blob/master/ai/README-wingmen.txt)
 - timed loop AI demo over French Alps (takeoff LFLG : Grenoble le Versoud) - see [README](https://github.com/hardba11/bourrasque/blob/master/ai/README-timed-loop.txt)
 - add a new tanker beside the A330MRTT : Rafale Marine buddy-buddy - see [README](https://github.com/hardba11/bourrasque/blob/master/ai/README-tanker-rafale-marine.txt)
 
 Tools
+
 - tool to record a timed loop - see [README](https://github.com/hardba11/bourrasque/blob/master/tools/trace-loop/README.txt)
 - assistance to reach clostest airport (ATC orders)
 
+## Pilot Documentation
 
-## pilot documentation
-
-see https://github.com/hardba11/bourrasque/blob/master/contrib/HELP.txt
+see <https://github.com/hardba11/bourrasque/blob/master/contrib/HELP.txt>
 
 ![Image](http://i.imgur.com/Texfhr3.gif)
 
-## gallery
+## Gallery
 
 camera effects :
 
