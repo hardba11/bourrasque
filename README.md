@@ -5,11 +5,11 @@ markdown README.md > md.html ; cat {hd.inc,md,ft.inc}.html > github.html
 ![Image](http://i.imgur.com/BJtiZIH.png)
 **Bourrasque is a fictional aircraft designed to enjoy flying !!!**
 
-It is usable in [FLIGHTGEAR open source flight simulator](http://www.flightgear.org).
+It is usable in [FlightGear open source flight simulator](http://www.flightgear.org).
 
 It is agile and powerful, can fly fast and do short takeoffs and landings.
-It's a suitable aircraft to discover the whole world of flightgear (entirely earth is available) with its radio-navigation instruments and autopilot.
-Thanks to its hud-showing-target-position feature, it's easy to find an aircraft in the sky and fly in formation with your friends on [flightgear multiplayer servers](http://mpmap02.flightgear.org/).
+It's a suitable aircraft to discover the whole world of FlightGear (entirely earth is available) with its radio-navigation instruments and autopilot.
+Thanks to its HUD-showing-target-position feature, it's easy to find an aircraft in the sky and fly in formation with your friends on [flightgear multiplayer servers](http://mpmap02.flightgear.org/).
 
 ## Features
 
@@ -17,110 +17,110 @@ Still in development but fully usable.
 
 3D Model
 
-- detailed model
-- animated controls (ailerons, elevons, slats, canard)
-- other animations : opening canopy, retracting gears, lights, gears suspension
-- choice of liveries
-- ground equipments, external stores (fuel tanks, smoke pods, refuelling pod)
+- Detailed model
+- Animated controls (ailerons, elevons, slats, canard)
+- Other animations : opening canopy, retracting gears, lights, gears suspension
+- Choice of liveries
+- Ground equipments, external stores (fuel tanks, smoke pods, refuelling pod)
 
-3D Mockpit
+3D Cockpit
 
-- usable and clickable instruments with tooltips : VOR, PFD, Nav Display, hsi, asi, etc
-- instruments adjustable lighting
-- autostart/autostop and fast start shortcuts
-- hud + mini-hud + hud canvas
-- a lot of instruments shortcuts
+- Usable and clickable instruments with tooltips : VOR, PFD, Nav Display, hsi, asi, etc
+- Instruments adjustable lighting
+- Autostart/autostop and fast start shortcuts
+- HUD + mini-HUD + HUD canvas
+- A lot of instrument shortcuts
 
 Systems
 
-- autopilot
-- automatic hippodrome driven by autopilot
+- Autopilot
+- Automatic hippodrome driven by autopilot
 - 4 mods (TAXI, APP, NAV, VFR) changing hud and mfd configuration
-- start/stop procedure
-- refuelling ability (enable in menu and see : <http://wiki.flightgear.org/Howto:Aerial_refueling>)
-- carrier landing and takeoff ability
-- multiplayer back-seat : fly as passenger !
-- if you start in the air, brsq starts automatically systems and engines and enables autopilot
+- Start/stop procedure
+- Refuelling ability (enable in menu and see : <http://wiki.flightgear.org/Howto:Aerial_refueling>)
+- Carrier landing and takeoff ability
+- Multiplayer back-seat : fly as passenger !
+- If you start in the air, brsq starts automatically systems and engines and enables autopilot
 - ATC assistance to reach clostest airport
 
 Effects
 
-- sounds (engines, wind, rain, avionics, gears)
-- reheat effects (enable ALS)
+- Sounds (engines, wind, rain, avionics, gears)
+- Reheat effects (enable ALS)
 - 3d shadow (enable ALS)
-- atmosphere effects : wingtips, contrails
-- light effects : landing lights, flashlight (enable ALS)
-- rain effects : raindrops on canopy and fuselage, particles on ground
-- smoke pods
+- Atmosphere effects : wingtips, contrails
+- Light effects : landing lights, flashlight (enable ALS)
+- Rain effects : raindrops on canopy and fuselage, particles on ground
+- Smoke pods
 
 AI Scenario (need to copy files in your FGDATA directory)
 
 - 2 wingmen AI demo - see [README](https://github.com/hardba11/bourrasque/blob/master/ai/README-wingmen.txt)
-- timed loop AI demo over French Alps (takeoff LFLG : Grenoble le Versoud) - see [README](https://github.com/hardba11/bourrasque/blob/master/ai/README-timed-loop.txt)
-- add a new tanker beside the A330MRTT : Rafale Marine buddy-buddy - see [README](https://github.com/hardba11/bourrasque/blob/master/ai/README-tanker-rafale-marine.txt)
+- Timed loop AI demo over French Alps (takeoff LFLG : Grenoble le Versoud) - see [README](https://github.com/hardba11/bourrasque/blob/master/ai/README-timed-loop.txt)
+- Add a new tanker beside the A330MRTT : Rafale Marine buddy-buddy - see [README](https://github.com/hardba11/bourrasque/blob/master/ai/README-tanker-rafale-marine.txt)
 
 Tools
 
-- tool to record a timed loop - see [README](https://github.com/hardba11/bourrasque/blob/master/tools/trace-loop/README.txt)
-- assistance to reach clostest airport (ATC orders)
+- Tool to record a timed loop - see [README](https://github.com/hardba11/bourrasque/blob/master/tools/trace-loop/README.txt)
+- Assistance to reach clostest airport (ATC orders)
 
 ## Pilot Documentation
 
-see <https://github.com/hardba11/bourrasque/blob/master/contrib/HELP.txt>
+See <https://github.com/hardba11/bourrasque/blob/master/contrib/HELP.txt>
 
 ![Image](http://i.imgur.com/Texfhr3.gif)
 
 ## Gallery
 
-camera effects :
+Camera effects :
 
 ![Image](http://i.imgur.com/6kszT3e.gif)
 
-reheat effects, different colors depending on the time :
+Reheat effects, different colors depending on the time :
 
 ![Image](http://i.imgur.com/4IjCBz8.png)
 
-ground equipment, crew, canopy animation, 1250l tanks :
+Rround equipment, crew, canopy animation, 1250l tanks :
 
 ![Image](http://i.imgur.com/GcW1Q70.png)
 
-fuel truck and EPU ground equipment, 1250l tanks :
+Ruel truck and EPU ground equipment, 1250l tanks :
 
 ![Image](http://i.imgur.com/KHg7CUz.png)
 
-suspension, 3d shadow, strobe lights :
+Suspension, 3d shadow, strobe lights :
 
 ![Image](http://i.imgur.com/38X5OPu.png)
 
-animated pilots models, specific views :
+Animated pilots models, specific views :
 
 ![Image](http://i.imgur.com/i0gDhpN.png)
 
-cockpit, usable and clickable instruments :
+Cockpit, usable and clickable instruments :
 
 ![Image](http://i.imgur.com/vxeYFrq.png)
 
-enlightened cockpit, takeoff/approach hud configuration :
+Enlightened cockpit, takeoff/approach hud configuration :
 
 ![Image](http://i.imgur.com/Uc8TrPp.png)
 
-hud showing target position and informations, vfr hud configuration :
+HUD showing target position and informations, VFR HUD configuration :
 
 ![Image](http://i.imgur.com/fnMhXxE.png)
 
-radar on SFD :
+Radar on SFD :
 
 ![Image](http://i.imgur.com/ifILq7h.png)
 
-map displayed on knee-tablet, overlay text for each instrument :
+Map displayed on knee-tablet, overlay text for each instrument :
 
 ![Image](http://i.imgur.com/wyg5tS6.png)
 
-carrier takeoff and landing capacity, mini-hud :
+Carrier takeoff and landing capacity, mini-HUD :
 
 ![Image](http://i.imgur.com/RbwwA3M.png)
 
-refuelling ability :
+Refuelling ability :
 
 ![Image](http://i.imgur.com/VrMoNWV.png)
 
@@ -132,43 +132,43 @@ AI Rafale Marine tanker (need a copy to AI/ to install) :
 
 ![Image](http://i.imgur.com/dRmWRNU.png)
 
-digital livery :
+Digital livery :
 
 ![Image](http://i.imgur.com/eLH2UKu.png)
 
-steppe livery :
+Steppe livery :
 
 ![Image](http://i.imgur.com/WBxkgGY.png)
 
-standard livery :
+Standard livery :
 
 ![Image](http://i.imgur.com/eJdURzL.png)
 
-russian livery :
+Russian livery :
 
 ![Image](http://i.imgur.com/q173hjc.png)
 
-flecktarn livery :
+Flecktarn livery :
 
 ![Image](http://i.imgur.com/Eq5waUG.png)
 
-desert livery :
+Desert livery :
 
 ![Image](http://i.imgur.com/UkyhrAb.png)
 
-flight gear livery :
+FlightGear livery :
 
 ![Image](http://i.imgur.com/n13LXzK.png)
 
-serpent livery :
+Serpent livery :
 
 ![Image](http://i.imgur.com/oeYSXVO.png)
 
-furtiv night livery :
+Furtiv night livery :
 
 ![Image](http://i.imgur.com/7eQNui0.png)
 
-tiger livery :
+Tiger livery :
 
 ![Image](http://i.imgur.com/aPbeYro.png)
 
@@ -180,27 +180,27 @@ C01 livery :
 
 ![Image](http://i.imgur.com/zO8a4Ht.png)
 
-wingmens scenario, contrail effects, 2000l tanks :
+Wingmen scenario, contrail effects, 2000L tanks :
 
 ![Image](http://i.imgur.com/SP9jPdX.png)
 
-wingmens scenario, landing light :
+Wingmen scenario, landing light :
 
 ![Image](http://i.imgur.com/01Glvac.png)
 
-rain effects at differents speeds, taxi hud configuration (left image) :
+Rain effects at differents speeds, taxi hud configuration (left image) :
 
 ![Image](http://i.imgur.com/x6LSRkX.png)
 
-wheels rain effects :
+Wheels rain effects :
 
 ![Image](http://i.imgur.com/5M5ORu5.png)
 
-exhaust rain effects when rotating :
+Exhaust rain effects when rotating :
 
 ![Image](http://i.imgur.com/btLqZXL.png)
 
-touchdown smoke effects :
+Touchdown smoke effects :
 
 ![Image](http://i.imgur.com/rwAqjdz.png)
 
@@ -208,6 +208,6 @@ touchdown smoke effects :
 
 ![Image](http://i.imgur.com/BVkJ6aO.png)
 
-high altitude navigation :
+High altitude navigation :
 
 ![Image](http://i.imgur.com/oxHM3aQ.png)
