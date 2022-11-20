@@ -35,10 +35,10 @@ Systems
 
 - Autopilot
 - Automatic hippodrome driven by autopilot
-- 4 mods (TAXI, APP, NAV, VFR) changing hud and mfd configuration
+- 4 mods (TAXI, APP, NAV, VFR) changing HUD and MFD configuration
 - Start/stop procedure
-- Refuelling ability (enable in menu and see : <http://wiki.flightgear.org/Howto:Aerial_refueling>)
-- Carrier landing and takeoff ability
+- Refuelling capability (enable in menu and see : <http://wiki.flightgear.org/Howto:Aerial_refueling>)
+- Carrier landing and takeoff capability
 - Multiplayer back-seat : fly as passenger !
 - If you start in the air, brsq starts automatically systems and engines and enables autopilot
 - ATC assistance to reach clostest airport
@@ -80,11 +80,11 @@ Reheat effects, different colors depending on the time :
 
 ![Image](http://i.imgur.com/4IjCBz8.png)
 
-Rround equipment, crew, canopy animation, 1250l tanks :
+Rround equipment, crew, canopy animation, 1250L tanks :
 
 ![Image](http://i.imgur.com/GcW1Q70.png)
 
-Ruel truck and EPU ground equipment, 1250l tanks :
+Ruel truck and EPU ground equipment, 1250L tanks :
 
 ![Image](http://i.imgur.com/KHg7CUz.png)
 
@@ -120,7 +120,7 @@ Carrier takeoff and landing capacity, mini-HUD :
 
 ![Image](http://i.imgur.com/RbwwA3M.png)
 
-Refuelling ability :
+Refuelling capability :
 
 ![Image](http://i.imgur.com/VrMoNWV.png)
 
