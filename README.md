@@ -1,6 +1,7 @@
 <!--
 markdown README.md > md.html ; cat {hd.inc,md,ft.inc}.html > github.html
 -->
+# Bourrasque
 
 ![Image](http://i.imgur.com/BJtiZIH.png)
 
@@ -16,7 +17,7 @@ Thanks to its HUD-showing-target-position feature, it's easy to find an aircraft
 
 Still in development but fully usable.
 
-3D Model
+### 3D Model
 
 - Detailed model
 - Animated controls (ailerons, elevons, slats, canard)
@@ -24,7 +25,7 @@ Still in development but fully usable.
 - Choice of liveries
 - Ground equipments, external stores (fuel tanks, smoke pods, refuelling pod)
 
-3D Cockpit
+### 3D Cockpit
 
 - Usable and clickable instruments with tooltips : VOR, PFD, Nav Display, hsi, asi, etc
 - Instruments adjustable lighting
@@ -32,7 +33,7 @@ Still in development but fully usable.
 - HUD + mini-HUD + HUD canvas
 - A lot of instrument shortcuts
 
-Systems
+### Systems
 
 - Autopilot
 - Automatic hippodrome driven by autopilot
@@ -44,7 +45,7 @@ Systems
 - If you start in the air, brsq starts automatically systems and engines and enables autopilot
 - ATC assistance to reach clostest airport
 
-Effects
+### Effects
 
 - Sounds (engines, wind, rain, avionics, gears)
 - Reheat effects (enable ALS)
@@ -54,13 +55,13 @@ Effects
 - Rain effects : raindrops on canopy and fuselage, particles on ground
 - Smoke pods
 
-AI Scenario (need to copy files in your FGDATA directory)
+### AI Scenario (need to copy files in your FGDATA directory)
 
 - 2 wingmen AI demo - see [README](https://github.com/hardba11/bourrasque/blob/master/ai/README-wingmen.txt)
 - Timed loop AI demo over French Alps (takeoff LFLG : Grenoble le Versoud) - see [README](https://github.com/hardba11/bourrasque/blob/master/ai/README-timed-loop.txt)
 - Add a new tanker beside the A330MRTT : Rafale Marine buddy-buddy - see [README](https://github.com/hardba11/bourrasque/blob/master/ai/README-tanker-rafale-marine.txt)
 
-Tools
+### Tools
 
 - Tool to record a timed loop - see [README](https://github.com/hardba11/bourrasque/blob/master/tools/trace-loop/README.txt)
 - Assistance to reach clostest airport (ATC orders)
