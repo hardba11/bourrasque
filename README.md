@@ -3,13 +3,14 @@ markdown README.md > md.html ; cat {hd.inc,md,ft.inc}.html > github.html
 -->
 
 ![Image](http://i.imgur.com/BJtiZIH.png)
+
 **Bourrasque is a fictional aircraft designed to enjoy flying !!!**
 
 It is usable in [FlightGear open source flight simulator](http://www.flightgear.org).
 
 It is agile and powerful, can fly fast and do short takeoffs and landings.
 It's a suitable aircraft to discover the whole world of FlightGear (entirely earth is available) with its radio-navigation instruments and autopilot.
-Thanks to its HUD-showing-target-position feature, it's easy to find an aircraft in the sky and fly in formation with your friends on [flightgear multiplayer servers](http://mpmap02.flightgear.org/).
+Thanks to its HUD-showing-target-position feature, it's easy to find an aircraft in the sky and fly in formation with your friends on [FlightGear multiplayer servers](http://mpmap02.flightgear.org/).
 
 ## Features
 
