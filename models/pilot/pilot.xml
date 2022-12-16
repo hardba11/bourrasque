@@ -273,18 +273,9 @@ ________________________________________________________________________________
     <object-name>bloc_brasD</object-name>
     <property>/controls/flight/elevator</property>
     <interpolation>
-      <entry>
-        <ind>-1</ind>
-        <dep>-3</dep>
-      </entry>
-      <entry>
-        <ind>0</ind>
-        <dep>0</dep>
-      </entry>
-      <entry>
-        <ind>1</ind>
-        <dep>2</dep>
-      </entry>
+      <entry><ind>-1</ind><dep>-3</dep></entry>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>1</ind><dep>2</dep></entry>
     </interpolation>
     <center>
       <x-m>-3.0934</x-m>
@@ -303,18 +294,9 @@ ________________________________________________________________________________
     <object-name>bloc_avantbrasD</object-name>
     <property>/controls/flight/elevator</property>
     <interpolation>
-      <entry>
-        <ind>-1</ind>
-        <dep>3</dep>
-      </entry>
-      <entry>
-        <ind>0</ind>
-        <dep>0</dep>
-      </entry>
-      <entry>
-        <ind>1</ind>
-        <dep>-1</dep>
-      </entry>
+      <entry><ind>-1</ind><dep>3</dep></entry>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>1</ind><dep>-1</dep></entry>
     </interpolation>
     <center>
       <x-m>-3.2086</x-m>
@@ -333,18 +315,9 @@ ________________________________________________________________________________
     <object-name>mainD</object-name>
     <property>/controls/flight/elevator</property>
     <interpolation>
-      <entry>
-        <ind>-1</ind>
-        <dep>15</dep>
-      </entry>
-      <entry>
-        <ind>0</ind>
-        <dep>0</dep>
-      </entry>
-      <entry>
-        <ind>1</ind>
-        <dep>-10</dep>
-      </entry>
+      <entry><ind>-1</ind><dep>15</dep></entry>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>1</ind><dep>-10</dep></entry>
     </interpolation>
     <center>
       <x-m>-3.4784</x-m>
@@ -369,18 +342,9 @@ ________________________________________________________________________________
     <object-name>mainD</object-name>
     <property>/controls/flight/aileron</property>
     <interpolation>
-      <entry>
-        <ind>-1</ind>
-        <dep>10</dep>
-      </entry>
-      <entry>
-        <ind>0</ind>
-        <dep>0</dep>
-      </entry>
-      <entry>
-        <ind>1</ind>
-        <dep>-4</dep>
-      </entry>
+      <entry><ind>-1</ind><dep>10</dep></entry>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>1</ind><dep>-4</dep></entry>
     </interpolation>
     <center>
       <x-m>-3.4784</x-m>
@@ -399,18 +363,9 @@ ________________________________________________________________________________
     <object-name>bloc_avantbrasD</object-name>
     <property>/controls/flight/aileron</property>
     <interpolation>
-      <entry>
-        <ind>-1</ind>
-        <dep>3</dep>
-      </entry>
-      <entry>
-        <ind>0</ind>
-        <dep>0</dep>
-      </entry>
-      <entry>
-        <ind>1</ind>
-        <dep>-2</dep>
-      </entry>
+      <entry><ind>-1</ind><dep>3</dep></entry>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>1</ind><dep>-2</dep></entry>
     </interpolation>
     <center>
       <x-m>-3.2086</x-m>
@@ -435,14 +390,8 @@ ________________________________________________________________________________
     <object-name>bloc_brasG</object-name>
     <property>/controls/engines/engine[0]/throttle</property>
     <interpolation>
-      <entry>
-        <ind>0</ind>
-        <dep>4</dep>
-      </entry>
-      <entry>
-        <ind>1</ind>
-        <dep>15</dep>
-      </entry>
+      <entry><ind>0</ind><dep>4</dep></entry>
+      <entry><ind>1</ind><dep>15</dep></entry>
     </interpolation>
     <center>
       <x-m>-3.1533</x-m>
@@ -461,14 +410,8 @@ ________________________________________________________________________________
     <object-name>bloc_avantbrasG</object-name>
     <property>/controls/engines/engine[0]/throttle</property>
     <interpolation>
-      <entry>
-        <ind>0</ind>
-        <dep>0</dep>
-      </entry>
-      <entry>
-        <ind>1</ind>
-        <dep>-10</dep>
-      </entry>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>1</ind><dep>-10</dep></entry>
     </interpolation>
     <center>
       <x-m>-3.1308</x-m>
@@ -487,14 +430,8 @@ ________________________________________________________________________________
     <object-name>mainG</object-name>
     <property>/controls/engines/engine[0]/throttle</property>
     <interpolation>
-      <entry>
-        <ind>0</ind>
-        <dep>0</dep>
-      </entry>
-      <entry>
-        <ind>1</ind>
-        <dep>-5</dep>
-      </entry>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>1</ind><dep>-5</dep></entry>
     </interpolation>
     <center>
       <x-m>-3.404</x-m>
@@ -518,18 +455,9 @@ ________________________________________________________________________________
     <object-name>bloc_jambeG</object-name>
     <property>surface-positions/rudder-pos-norm</property>
     <interpolation>
-      <entry>
-        <ind>-1</ind>
-        <dep>5</dep>
-      </entry>
-      <entry>
-        <ind>0</ind>
-        <dep>2</dep>
-      </entry>
-      <entry>
-        <ind>1</ind>
-        <dep>-1</dep>
-      </entry>
+      <entry><ind>-1</ind><dep>5</dep></entry>
+      <entry><ind>0</ind><dep>2</dep></entry>
+      <entry><ind>1</ind><dep>-1</dep></entry>
     </interpolation>
     <center>
       <x-m>-3.3001</x-m>
@@ -548,18 +476,9 @@ ________________________________________________________________________________
     <object-name>bloc_molletG</object-name>
     <property>surface-positions/rudder-pos-norm</property>
     <interpolation>
-      <entry>
-        <ind>-1</ind>
-        <dep>-4</dep>
-      </entry>
-      <entry>
-        <ind>0</ind>
-        <dep>2</dep>
-      </entry>
-      <entry>
-        <ind>1</ind>
-        <dep>9</dep>
-      </entry>
+      <entry><ind>-1</ind><dep>-4</dep></entry>
+      <entry><ind>0</ind><dep>2</dep></entry>
+      <entry><ind>1</ind><dep>9</dep></entry>
     </interpolation>
     <center>
       <x-m>-3.7394</x-m>
@@ -578,18 +497,9 @@ ________________________________________________________________________________
     <object-name>piedG</object-name>
     <property>surface-positions/rudder-pos-norm</property>
     <interpolation>
-      <entry>
-        <ind>-1</ind>
-        <dep>6</dep>
-      </entry>
-      <entry>
-        <ind>0</ind>
-        <dep>5</dep>
-      </entry>
-      <entry>
-        <ind>1</ind>
-        <dep>0</dep>
-      </entry>
+      <entry><ind>-1</ind><dep>6</dep></entry>
+      <entry><ind>0</ind><dep>5</dep></entry>
+      <entry><ind>1</ind><dep>0</dep></entry>
     </interpolation>
     <center>
       <x-m>-4.0594</x-m>
@@ -613,18 +523,9 @@ ________________________________________________________________________________
     <object-name>bloc_jambeD</object-name>
     <property>surface-positions/rudder-pos-norm</property>
     <interpolation>
-      <entry>
-        <ind>-1</ind>
-        <dep>-1</dep>
-      </entry>
-      <entry>
-        <ind>0</ind>
-        <dep>2</dep>
-      </entry>
-      <entry>
-        <ind>1</ind>
-        <dep>5</dep>
-      </entry>
+      <entry><ind>-1</ind><dep>-1</dep></entry>
+      <entry><ind>0</ind><dep>2</dep></entry>
+      <entry><ind>1</ind><dep>5</dep></entry>
     </interpolation>
     <center>
       <x-m>-3.3001</x-m>
@@ -643,18 +544,9 @@ ________________________________________________________________________________
     <object-name>bloc_molletD</object-name>
     <property>surface-positions/rudder-pos-norm</property>
     <interpolation>
-      <entry>
-        <ind>-1</ind>
-        <dep>9</dep>
-      </entry>
-      <entry>
-        <ind>0</ind>
-        <dep>2</dep>
-      </entry>
-      <entry>
-        <ind>1</ind>
-        <dep>-4</dep>
-      </entry>
+      <entry><ind>-1</ind><dep>9</dep></entry>
+      <entry><ind>0</ind><dep>2</dep></entry>
+      <entry><ind>1</ind><dep>-4</dep></entry>
     </interpolation>
     <center>
       <x-m>-3.7394</x-m>
@@ -673,18 +565,9 @@ ________________________________________________________________________________
     <object-name>piedD</object-name>
     <property>surface-positions/rudder-pos-norm</property>
     <interpolation>
-      <entry>
-        <ind>-1</ind>
-        <dep>0</dep>
-      </entry>
-      <entry>
-        <ind>0</ind>
-        <dep>5</dep>
-      </entry>
-      <entry>
-        <ind>1</ind>
-        <dep>6</dep>
-      </entry>
+      <entry><ind>-1</ind><dep>0</dep></entry>
+      <entry><ind>0</ind><dep>5</dep></entry>
+      <entry><ind>1</ind><dep>6</dep></entry>
     </interpolation>
     <center>
       <x-m>-4.0594</x-m>
@@ -708,14 +591,8 @@ ________________________________________________________________________________
     <object-name>piedG</object-name>
     <property>/gear/gear[1]/brake-position-norm</property>
     <interpolation>
-      <entry>
-        <ind>0</ind>
-        <dep>5</dep>
-      </entry>
-      <entry>
-        <ind>1</ind>
-        <dep>0</dep>
-      </entry>
+      <entry><ind>0</ind><dep>5</dep></entry>
+      <entry><ind>1</ind><dep>0</dep></entry>
     </interpolation>
     <center>
       <x-m>-4.0594</x-m>
@@ -739,14 +616,8 @@ ________________________________________________________________________________
     <object-name>piedD</object-name>
     <property>/gear/gear[2]/brake-position-norm</property>
     <interpolation>
-      <entry>
-        <ind>0</ind>
-        <dep>5</dep>
-      </entry>
-      <entry>
-        <ind>1</ind>
-        <dep>0</dep>
-      </entry>
+      <entry><ind>0</ind><dep>5</dep></entry>
+      <entry><ind>1</ind><dep>0</dep></entry>
     </interpolation>
     <center>
       <x-m>-4.0594</x-m>
@@ -771,26 +642,11 @@ ________________________________________________________________________________
     <object-name>bloc_pilote</object-name>
     <property>/fdm/yasim/accelerations/a-y</property>
     <interpolation>
-      <entry>
-        <ind>-12</ind>
-        <dep>3</dep>
-      </entry>
-      <entry>
-        <ind>-10</ind>
-        <dep>2</dep>
-      </entry>
-      <entry>
-        <ind>0</ind>
-        <dep>0</dep>
-      </entry>
-      <entry>
-        <ind>10</ind>
-        <dep>-2</dep>
-      </entry>
-      <entry>
-        <ind>12</ind>
-        <dep>-3</dep>
-      </entry>
+      <entry><ind>-12</ind><dep>3</dep></entry>
+      <entry><ind>-10</ind><dep>2</dep></entry>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>10</ind><dep>-2</dep></entry>
+      <entry><ind>12</ind><dep>-3</dep></entry>
     </interpolation>
     <center>
       <x-m>0</x-m>
@@ -808,26 +664,11 @@ ________________________________________________________________________________
     <object-name>bloc_tete</object-name>
     <property>/fdm/yasim/accelerations/a-y</property>
     <interpolation>
-      <entry>
-        <ind>-12</ind>
-        <dep>4</dep>
-      </entry>
-      <entry>
-        <ind>-10</ind>
-        <dep>2</dep>
-      </entry>
-      <entry>
-        <ind>0</ind>
-        <dep>0</dep>
-      </entry>
-      <entry>
-        <ind>10</ind>
-        <dep>-2</dep>
-      </entry>
-      <entry>
-        <ind>12</ind>
-        <dep>-4</dep>
-      </entry>
+      <entry><ind>-12</ind><dep>4</dep></entry>
+      <entry><ind>-10</ind><dep>2</dep></entry>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>10</ind><dep>-2</dep></entry>
+      <entry><ind>12</ind><dep>-4</dep></entry>
     </interpolation>
     <center>
       <x-m>-3.13</x-m>
@@ -847,18 +688,9 @@ ________________________________________________________________________________
     <object-name>bloc_pilote</object-name>
     <property>/fdm/yasim/accelerations/a-x</property>
     <interpolation>
-      <entry>
-        <ind>-30</ind>
-        <dep>-3</dep>
-      </entry>
-      <entry>
-        <ind>0</ind>
-        <dep>0</dep>
-      </entry>
-      <entry>
-        <ind>30</ind>
-        <dep>2</dep>
-      </entry>
+      <entry><ind>-30</ind><dep>-3</dep></entry>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>30</ind><dep>2</dep></entry>
     </interpolation>
     <center>
       <x-m>-3.404</x-m>
@@ -876,18 +708,9 @@ ________________________________________________________________________________
     <object-name>bloc_tete</object-name>
     <property>/fdm/yasim/accelerations/a-x</property>
     <interpolation>
-      <entry>
-        <ind>-30</ind>
-        <dep>-5</dep>
-      </entry>
-      <entry>
-        <ind>0</ind>
-        <dep>0</dep>
-      </entry>
-      <entry>
-        <ind>30</ind>
-        <dep>4</dep>
-      </entry>
+      <entry><ind>-30</ind><dep>-5</dep></entry>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>30</ind><dep>4</dep></entry>
     </interpolation>
     <center>
       <x-m>-3.13</x-m>
@@ -909,26 +732,11 @@ ________________________________________________________________________________
     <object-name>jambeD</object-name>
     <property>/fdm/yasim/accelerations/a-z</property>
     <interpolation>
-      <entry>
-        <ind>-150</ind>
-        <dep>.015</dep>
-      </entry>
-      <entry>
-        <ind>-100</ind>
-        <dep>.005</dep>
-      </entry>
-      <entry>
-        <ind>0</ind>
-        <dep>0</dep>
-      </entry>
-      <entry>
-        <ind>100</ind>
-        <dep>-.005</dep>
-      </entry>
-      <entry>
-        <ind>150</ind>
-        <dep>-.015</dep>
-      </entry>
+      <entry><ind>-150</ind><dep>.015</dep></entry>
+      <entry><ind>-100</ind><dep>.005</dep></entry>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>100</ind><dep>-.005</dep></entry>
+      <entry><ind>150</ind><dep>-.015</dep></entry>
     </interpolation>
     <center>
       <x-m>0</x-m>
@@ -956,26 +764,11 @@ ________________________________________________________________________________
       <property>/gear/gear[0]/wow</property>
     </condition>
     <interpolation>
-      <entry>
-        <ind>-1</ind>
-        <dep>35</dep>
-      </entry>
-      <entry>
-        <ind>-.5</ind>
-        <dep>10</dep>
-      </entry>
-      <entry>
-        <ind>0</ind>
-        <dep>0</dep>
-      </entry>
-      <entry>
-        <ind>.5</ind>
-        <dep>-10</dep>
-      </entry>
-      <entry>
-        <ind>1</ind>
-        <dep>-35</dep>
-      </entry>
+      <entry><ind>-1</ind><dep>35</dep></entry>
+      <entry><ind>-.5</ind><dep>10</dep></entry>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>.5</ind><dep>-10</dep></entry>
+      <entry><ind>1</ind><dep>-35</dep></entry>
     </interpolation>
     <center>
       <x-m>-3.13</x-m>
@@ -995,39 +788,16 @@ ________________________________________________________________________________
     <object-name>bloc_tete</object-name>
     <property>/orientation/roll-deg</property>
     <condition>
-      <not>
-        <property>/gear/gear[0]/wow</property>
-      </not>
+      <not><property>/gear/gear[0]/wow</property></not>
     </condition>
     <interpolation>
-      <entry>
-        <ind>-180</ind>
-        <dep>0</dep>
-      </entry>
-      <entry>
-        <ind>-170</ind>
-        <dep>-10</dep>
-      </entry>
-      <entry>
-        <ind>-90</ind>
-        <dep>-10</dep>
-      </entry>
-      <entry>
-        <ind>0</ind>
-        <dep>0</dep>
-      </entry>
-      <entry>
-        <ind>90</ind>
-        <dep>10</dep>
-      </entry>
-      <entry>
-        <ind>170</ind>
-        <dep>10</dep>
-      </entry>
-      <entry>
-        <ind>180</ind>
-        <dep>0</dep>
-      </entry>
+      <entry><ind>-180</ind><dep>0</dep></entry>
+      <entry><ind>-170</ind><dep>-10</dep></entry>
+      <entry><ind>-90</ind><dep>-10</dep></entry>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>90</ind><dep>10</dep></entry>
+      <entry><ind>170</ind><dep>10</dep></entry>
+      <entry><ind>180</ind><dep>0</dep></entry>
     </interpolation>
     <center>
       <x-m>-3.13</x-m>
@@ -1047,23 +817,15 @@ ________________________________________________________________________________
     <object-name>bloc_tete</object-name>
     <property>/instrumentation/turn-indicator/indicated-turn-rate</property>
     <condition>
-      <not>
-        <property>/gear/gear[0]/wow</property>
-      </not>
+      <not><property>/gear/gear[0]/wow</property></not>
       <greater-than>
         <property>/instrumentation/turn-indicator/indicated-turn-rate</property>
         <value>0</value>
       </greater-than>
     </condition>
     <interpolation>
-      <entry>
-        <ind>2</ind>
-        <dep>-20</dep>
-      </entry>
-      <entry>
-        <ind>0</ind>
-        <dep>0</dep>
-      </entry>
+      <entry><ind>2</ind><dep>-20</dep></entry>
+      <entry><ind>0</ind><dep>0</dep></entry>
     </interpolation>
     <center>
       <x-m>-3.13</x-m>
@@ -1083,23 +845,15 @@ ________________________________________________________________________________
     <object-name>bloc_tete</object-name>
     <property>/instrumentation/turn-indicator/indicated-turn-rate</property>
     <condition>
-      <not>
-        <property>/gear/gear[0]/wow</property>
-      </not>
+      <not><property>/gear/gear[0]/wow</property></not>
       <less-than>
         <property>/instrumentation/turn-indicator/indicated-turn-rate</property>
         <value>0</value>
       </less-than>
     </condition>
     <interpolation>
-      <entry>
-        <ind>-2</ind>
-        <dep>20</dep>
-      </entry>
-      <entry>
-        <ind>0</ind>
-        <dep>0</dep>
-      </entry>
+      <entry><ind>-2</ind><dep>20</dep></entry>
+      <entry><ind>0</ind><dep>0</dep></entry>
     </interpolation>
     <center>
       <x-m>-3.13</x-m>

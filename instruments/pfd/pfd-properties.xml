@@ -12,7 +12,7 @@ PROPERTY-PATH : /instrumentation/my_aircraft/pfd/
 
   <!-- data used for display : captors -->
   <inputs>
-    <heading-bug-error-deg alias="/autopilot/internal/heading-bug-error-deg" />
+    <heading-bug-error-deg          alias="/autopilot/internal/heading-bug-error-deg" />
 
     <autopilot>
       <locks>
@@ -27,14 +27,14 @@ PROPERTY-PATH : /instrumentation/my_aircraft/pfd/
   <!-- data used to control instrument -->
   <controls>
     <display-heading-bug type="bool">0</display-heading-bug>
-    <target-alt alias="/autopilot/settings/target-altitude-ft" />
+    <target-alt      alias="/autopilot/settings/target-altitude-ft" />
     <target-speed-kt alias="/autopilot/settings/target-speed-kt" />
-    <target-vs alias="/autopilot/settings/vertical-speed-fpm" />
+    <target-vs       alias="/autopilot/settings/vertical-speed-fpm" />
     <vs-min type="float">0</vs-min> <!-- see filter vspeed min in autopilot.xml -->
     <vs-max type="float">0</vs-max> <!-- see filter vspeed max in autopilot.xml -->
     <target-nav1 />
 
-    <hold-blink type="bool">0</hold-blink>
+    <hold-blink      type="bool">0</hold-blink>
     <disengage-blink type="bool">0</disengage-blink>
 
     <hippodrome type="bool">0</hippodrome>
@@ -45,3 +45,4 @@ PROPERTY-PATH : /instrumentation/my_aircraft/pfd/
   </controls>
 
 </PropertyList>
+

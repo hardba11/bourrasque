@@ -82,11 +82,11 @@ Reheat effects, different colors depending on the time :
 
 ![Image](http://i.imgur.com/4IjCBz8.png)
 
-Rround equipment, crew, canopy animation, 1250L tanks :
+Ground equipment, crew, canopy animation, 1250L tanks :
 
 ![Image](http://i.imgur.com/GcW1Q70.png)
 
-Ruel truck and EPU ground equipment, 1250L tanks :
+Fuel truck and EPU ground equipment, 1250L tanks :
 
 ![Image](http://i.imgur.com/KHg7CUz.png)
 
@@ -154,7 +154,7 @@ Flecktarn livery :
 
 ![Image](http://i.imgur.com/Eq5waUG.png)
 
-Desert livery :
+Arid livery :
 
 ![Image](http://i.imgur.com/UkyhrAb.png)
 
@@ -213,3 +213,6 @@ Touchdown smoke effects :
 High altitude navigation :
 
 ![Image](http://i.imgur.com/oxHM3aQ.png)
+
+
+

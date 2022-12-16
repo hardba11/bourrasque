@@ -167,22 +167,10 @@ changelog
     <object-name>electrical.source-emit</object-name>
     <property>/instrumentation/my_aircraft/electricals/controls/master-switch</property>
     <interpolation>
-      <entry>
-        <ind>0</ind>
-        <dep>180</dep>
-      </entry>
-      <entry>
-        <ind>1</ind>
-        <dep>225</dep>
-      </entry>
-      <entry>
-        <ind>2</ind>
-        <dep>270</dep>
-      </entry>
-      <entry>
-        <ind>3</ind>
-        <dep>335</dep>
-      </entry>
+      <entry><ind>0</ind><dep>180</dep></entry>
+      <entry><ind>1</ind><dep>225</dep></entry>
+      <entry><ind>2</ind><dep>270</dep></entry>
+      <entry><ind>3</ind><dep>335</dep></entry>
     </interpolation>
     <center>
       <x-m>0.002</x-m>
@@ -228,14 +216,8 @@ changelog
     <object-name>electrical.bus1-emit</object-name>
     <property>/instrumentation/my_aircraft/electricals/controls/bus-avionics</property>
     <interpolation>
-      <entry>
-        <ind>1</ind>
-        <dep>20</dep>
-      </entry>
-      <entry>
-        <ind>0</ind>
-        <dep>-20</dep>
-      </entry>
+      <entry><ind>1</ind><dep>20</dep></entry>
+      <entry><ind>0</ind><dep>-20</dep></entry>
     </interpolation>
     <center>
       <x-m>0</x-m>
@@ -281,14 +263,8 @@ changelog
     <object-name>electrical.bus2-emit</object-name>
     <property>/instrumentation/my_aircraft/electricals/controls/bus-engines</property>
     <interpolation>
-      <entry>
-        <ind>1</ind>
-        <dep>20</dep>
-      </entry>
-      <entry>
-        <ind>0</ind>
-        <dep>-20</dep>
-      </entry>
+      <entry><ind>1</ind><dep>20</dep></entry>
+      <entry><ind>0</ind><dep>-20</dep></entry>
     </interpolation>
     <center>
       <x-m>0</x-m>
@@ -334,14 +310,8 @@ changelog
     <object-name>electrical.bus3-emit</object-name>
     <property>/instrumentation/my_aircraft/electricals/controls/bus-commands</property>
     <interpolation>
-      <entry>
-        <ind>1</ind>
-        <dep>20</dep>
-      </entry>
-      <entry>
-        <ind>0</ind>
-        <dep>-20</dep>
-      </entry>
+      <entry><ind>1</ind><dep>20</dep></entry>
+      <entry><ind>0</ind><dep>-20</dep></entry>
     </interpolation>
     <center>
       <x-m>0</x-m>
@@ -428,3 +398,4 @@ changelog
   </animation>
 
 </PropertyList>
+

@@ -58,14 +58,8 @@ file Aircraft/Generic/generic-autopilot-helper.xml
       <condition>
         <not>
           <or>
-            <equals>
-              <property>/gear/gear[1]/wow</property>
-              <value>1</value>
-            </equals>
-            <equals>
-              <property>/gear/gear[2]/wow</property>
-              <value>1</value>
-            </equals>
+            <equals><property>/gear/gear[1]/wow</property><value>1</value></equals>
+            <equals><property>/gear/gear[2]/wow</property><value>1</value></equals>
             <greater-than-equals>
               <property>/velocities/airspeed-kt</property>
               <value>1800</value>
@@ -79,42 +73,15 @@ file Aircraft/Generic/generic-autopilot-helper.xml
       <expression>
         <table>
           <property>/orientation/roll-rate-degps</property>
-          <entry>
-            <ind>-1000</ind>
-            <dep>-1.000</dep>
-          </entry>
-          <entry>
-            <ind>-300</ind>
-            <dep>-1.000</dep>
-          </entry>
-          <entry>
-            <ind>-270</ind>
-            <dep>-0.999</dep>
-          </entry>
-          <entry>
-            <ind>-100</ind>
-            <dep>-0.500</dep>
-          </entry>
-          <entry>
-            <ind>0.0</ind>
-            <dep>0.000</dep>
-          </entry>
-          <entry>
-            <ind>100</ind>
-            <dep>0.500</dep>
-          </entry>
-          <entry>
-            <ind>270</ind>
-            <dep>0.999</dep>
-          </entry>
-          <entry>
-            <ind>300</ind>
-            <dep>1.000</dep>
-          </entry>
-          <entry>
-            <ind>1000</ind>
-            <dep>1.000</dep>
-          </entry>
+          <entry><ind>-1000</ind><dep>-1.000</dep></entry>
+          <entry><ind>-300</ind><dep>-1.000</dep></entry>
+          <entry><ind>-270</ind><dep>-0.999</dep></entry>
+          <entry><ind>-100</ind><dep>-0.500</dep></entry>
+          <entry><ind>0.0</ind><dep>0.000</dep></entry>
+          <entry><ind>100</ind><dep>0.500</dep></entry>
+          <entry><ind>270</ind><dep>0.999</dep></entry>
+          <entry><ind>300</ind><dep>1.000</dep></entry>
+          <entry><ind>1000</ind><dep>1.000</dep></entry>
         </table>
       </expression>
     </input>
@@ -122,50 +89,17 @@ file Aircraft/Generic/generic-autopilot-helper.xml
       <expression>
         <table>
           <property>/controls/flight/aileron</property>
-          <entry>
-            <ind>-1.000</ind>
-            <dep>-0.999</dep>
-          </entry>
-          <entry>
-            <ind>-0.900</ind>
-            <dep>-0.700</dep>
-          </entry>
-          <entry>
-            <ind>-0.600</ind>
-            <dep>-0.250</dep>
-          </entry>
-          <entry>
-            <ind>-0.200</ind>
-            <dep>-0.050</dep>
-          </entry>
-          <entry>
-            <ind>-0.009</ind>
-            <dep>0.000</dep>
-          </entry>
-          <entry>
-            <ind>0.000</ind>
-            <dep>0.000</dep>
-          </entry>
-          <entry>
-            <ind>0.009</ind>
-            <dep>0.000</dep>
-          </entry>
-          <entry>
-            <ind>0.200</ind>
-            <dep>0.050</dep>
-          </entry>
-          <entry>
-            <ind>0.600</ind>
-            <dep>0.250</dep>
-          </entry>
-          <entry>
-            <ind>0.900</ind>
-            <dep>0.700</dep>
-          </entry>
-          <entry>
-            <ind>1.000</ind>
-            <dep>0.999</dep>
-          </entry>
+          <entry><ind>-1.000</ind><dep>-0.999</dep></entry>
+          <entry><ind>-0.900</ind><dep>-0.700</dep></entry>
+          <entry><ind>-0.600</ind><dep>-0.250</dep></entry>
+          <entry><ind>-0.200</ind><dep>-0.050</dep></entry>
+          <entry><ind>-0.009</ind><dep>0.000</dep></entry>
+          <entry><ind>0.000</ind><dep>0.000</dep></entry>
+          <entry><ind>0.009</ind><dep>0.000</dep></entry>
+          <entry><ind>0.200</ind><dep>0.050</dep></entry>
+          <entry><ind>0.600</ind><dep>0.250</dep></entry>
+          <entry><ind>0.900</ind><dep>0.700</dep></entry>
+          <entry><ind>1.000</ind><dep>0.999</dep></entry>
         </table>
       </expression>
     </reference>
@@ -176,42 +110,15 @@ file Aircraft/Generic/generic-autopilot-helper.xml
         <expression>
           <table>
             <property>/velocities/airspeed-kt</property>
-            <entry>
-              <ind>200</ind>
-              <dep>2.6</dep>
-            </entry>
-            <entry>
-              <ind>300</ind>
-              <dep>2.5</dep>
-            </entry>
-            <entry>
-              <ind>450</ind>
-              <dep>2.3</dep>
-            </entry>
-            <entry>
-              <ind>600</ind>
-              <dep>2.0</dep>
-            </entry>
-            <entry>
-              <ind>800</ind>
-              <dep>1.3</dep>
-            </entry>
-            <entry>
-              <ind>1000</ind>
-              <dep>.8</dep>
-            </entry>
-            <entry>
-              <ind>1200</ind>
-              <dep>.3</dep>
-            </entry>
-            <entry>
-              <ind>1400</ind>
-              <dep>.2</dep>
-            </entry>
-            <entry>
-              <ind>1600</ind>
-              <dep>.1</dep>
-            </entry>
+            <entry><ind>200</ind><dep>2.6</dep></entry>
+            <entry><ind>300</ind><dep>2.5</dep></entry>
+            <entry><ind>450</ind><dep>2.3</dep></entry>
+            <entry><ind>600</ind><dep>2.0</dep></entry>
+            <entry><ind>800</ind><dep>1.3</dep></entry>
+            <entry><ind>1000</ind><dep>.8</dep></entry>
+            <entry><ind>1200</ind><dep>.3</dep></entry>
+            <entry><ind>1400</ind><dep>.2</dep></entry>
+            <entry><ind>1600</ind><dep>.1</dep></entry>
           </table>
         </expression>
       </Kp>
@@ -230,37 +137,19 @@ file Aircraft/Generic/generic-autopilot-helper.xml
       </condition>
       <value>0.3</value>
     </gain>
-    <!--
+<!--
     <gain>1.0</gain>
 -->
     <gain>
       <expression>
         <table>
           <property>/velocities/airspeed-kt</property>
-          <entry>
-            <ind>100</ind>
-            <dep>0.4</dep>
-          </entry>
-          <entry>
-            <ind>150</ind>
-            <dep>0.4</dep>
-          </entry>
-          <entry>
-            <ind>200</ind>
-            <dep>0.6</dep>
-          </entry>
-          <entry>
-            <ind>250</ind>
-            <dep>0.8</dep>
-          </entry>
-          <entry>
-            <ind>300</ind>
-            <dep>1.0</dep>
-          </entry>
-          <entry>
-            <ind>1500</ind>
-            <dep>1.0</dep>
-          </entry>
+          <entry><ind>100</ind><dep>0.4</dep></entry>
+          <entry><ind>150</ind><dep>0.4</dep></entry>
+          <entry><ind>200</ind><dep>0.6</dep></entry>
+          <entry><ind>250</ind><dep>0.8</dep></entry>
+          <entry><ind>300</ind><dep>1.0</dep></entry>
+          <entry><ind>1500</ind><dep>1.0</dep></entry>
         </table>
       </expression>
     </gain>
@@ -268,14 +157,8 @@ file Aircraft/Generic/generic-autopilot-helper.xml
       <condition>
         <not>
           <or>
-            <equals>
-              <property>/gear/gear[1]/wow</property>
-              <value>1</value>
-            </equals>
-            <equals>
-              <property>/gear/gear[2]/wow</property>
-              <value>1</value>
-            </equals>
+            <equals><property>/gear/gear[1]/wow</property><value>1</value></equals>
+            <equals><property>/gear/gear[2]/wow</property><value>1</value></equals>
             <greater-than-equals>
               <property>/velocities/airspeed-kt</property>
               <value>1800</value>
@@ -300,14 +183,8 @@ file Aircraft/Generic/generic-autopilot-helper.xml
       <condition>
         <not>
           <or>
-            <equals>
-              <property>/gear/gear[1]/wow</property>
-              <value>1</value>
-            </equals>
-            <equals>
-              <property>/gear/gear[2]/wow</property>
-              <value>1</value>
-            </equals>
+            <equals><property>/gear/gear[1]/wow</property><value>1</value></equals>
+            <equals><property>/gear/gear[2]/wow</property><value>1</value></equals>
             <greater-than-equals>
               <property>/velocities/airspeed-kt</property>
               <value>1800</value>
@@ -321,34 +198,13 @@ file Aircraft/Generic/generic-autopilot-helper.xml
       <expression>
         <table>
           <property>/accelerations/pilot-g</property>
-          <entry>
-            <ind>-10</ind>
-            <dep>1.00</dep>
-          </entry>
-          <entry>
-            <ind>-6</ind>
-            <dep>1.00</dep>
-          </entry>
-          <entry>
-            <ind>-5</ind>
-            <dep>1.00</dep>
-          </entry>
-          <entry>
-            <ind>1.0</ind>
-            <dep>0.00</dep>
-          </entry>
-          <entry>
-            <ind>12.5</ind>
-            <dep>-1.00</dep>
-          </entry>
-          <entry>
-            <ind>15.0</ind>
-            <dep>-1.00</dep>
-          </entry>
-          <entry>
-            <ind>20.0</ind>
-            <dep>-1.00</dep>
-          </entry>
+          <entry><ind>-10</ind><dep>1.00</dep></entry>
+          <entry><ind>-6</ind><dep>1.00</dep></entry>
+          <entry><ind>-5</ind><dep>1.00</dep></entry>
+          <entry><ind>1.0</ind><dep>0.00</dep></entry>
+          <entry><ind>12.5</ind><dep>-1.00</dep></entry>
+          <entry><ind>15.0</ind><dep>-1.00</dep></entry>
+          <entry><ind>20.0</ind><dep>-1.00</dep></entry>
         </table>
       </expression>
     </input>
@@ -356,34 +212,13 @@ file Aircraft/Generic/generic-autopilot-helper.xml
       <expression>
         <table>
           <property>/controls/flight/elevator</property>
-          <entry>
-            <ind>-1.000</ind>
-            <dep>-0.999</dep>
-          </entry>
-          <entry>
-            <ind>-0.200</ind>
-            <dep>-0.050</dep>
-          </entry>
-          <entry>
-            <ind>-0.007</ind>
-            <dep>0.000</dep>
-          </entry>
-          <entry>
-            <ind>0.000</ind>
-            <dep>0.000</dep>
-          </entry>
-          <entry>
-            <ind>0.007</ind>
-            <dep>0.000</dep>
-          </entry>
-          <entry>
-            <ind>0.200</ind>
-            <dep>0.050</dep>
-          </entry>
-          <entry>
-            <ind>1.000</ind>
-            <dep>0.999</dep>
-          </entry>
+          <entry><ind>-1.000</ind><dep>-0.999</dep></entry>
+          <entry><ind>-0.200</ind><dep>-0.050</dep></entry>
+          <entry><ind>-0.007</ind><dep>0.000</dep></entry>
+          <entry><ind>0.000</ind><dep>0.000</dep></entry>
+          <entry><ind>0.007</ind><dep>0.000</dep></entry>
+          <entry><ind>0.200</ind><dep>0.050</dep></entry>
+          <entry><ind>1.000</ind><dep>0.999</dep></entry>
         </table>
       </expression>
     </reference>
@@ -396,46 +231,16 @@ file Aircraft/Generic/generic-autopilot-helper.xml
         <expression>
           <table>
             <property>/velocities/airspeed-kt</property>
-            <entry>
-              <ind>100</ind>
-              <dep>1.7</dep>
-            </entry>
-            <entry>
-              <ind>150</ind>
-              <dep>1.6</dep>
-            </entry>
-            <entry>
-              <ind>200</ind>
-              <dep>1</dep>
-            </entry>
-            <entry>
-              <ind>300</ind>
-              <dep>0.8</dep>
-            </entry>
-            <entry>
-              <ind>450</ind>
-              <dep>0.55</dep>
-            </entry>
-            <entry>
-              <ind>600</ind>
-              <dep>0.4</dep>
-            </entry>
-            <entry>
-              <ind>800</ind>
-              <dep>0.2</dep>
-            </entry>
-            <entry>
-              <ind>1000</ind>
-              <dep>0.10</dep>
-            </entry>
-            <entry>
-              <ind>1200</ind>
-              <dep>0.05</dep>
-            </entry>
-            <entry>
-              <ind>1500</ind>
-              <dep>0.02</dep>
-            </entry>
+            <entry><ind>100</ind><dep>1.7</dep></entry>
+            <entry><ind>150</ind><dep>1.6</dep></entry>
+            <entry><ind>200</ind><dep>1</dep></entry>
+            <entry><ind>300</ind><dep>0.8</dep></entry>
+            <entry><ind>450</ind><dep>0.55</dep></entry>
+            <entry><ind>600</ind><dep>0.4</dep></entry>
+            <entry><ind>800</ind><dep>0.2</dep></entry>
+            <entry><ind>1000</ind><dep>0.10</dep></entry>
+            <entry><ind>1200</ind><dep>0.05</dep></entry>
+            <entry><ind>1500</ind><dep>0.02</dep></entry>
           </table>
         </expression>
       </Kp>
@@ -454,37 +259,19 @@ file Aircraft/Generic/generic-autopilot-helper.xml
       </condition>
       <value>0.6</value>
     </gain>
-    <!--
+<!--
     <gain>1.0</gain>
 -->
     <gain>
       <expression>
         <table>
           <property>/velocities/airspeed-kt</property>
-          <entry>
-            <ind>100</ind>
-            <dep>0.4</dep>
-          </entry>
-          <entry>
-            <ind>150</ind>
-            <dep>0.4</dep>
-          </entry>
-          <entry>
-            <ind>200</ind>
-            <dep>0.6</dep>
-          </entry>
-          <entry>
-            <ind>250</ind>
-            <dep>0.8</dep>
-          </entry>
-          <entry>
-            <ind>300</ind>
-            <dep>1.0</dep>
-          </entry>
-          <entry>
-            <ind>1500</ind>
-            <dep>1.0</dep>
-          </entry>
+          <entry><ind>100</ind><dep>0.4</dep></entry>
+          <entry><ind>150</ind><dep>0.4</dep></entry>
+          <entry><ind>200</ind><dep>0.6</dep></entry>
+          <entry><ind>250</ind><dep>0.8</dep></entry>
+          <entry><ind>300</ind><dep>1.0</dep></entry>
+          <entry><ind>1500</ind><dep>1.0</dep></entry>
         </table>
       </expression>
     </gain>
@@ -492,14 +279,8 @@ file Aircraft/Generic/generic-autopilot-helper.xml
       <condition>
         <not>
           <or>
-            <equals>
-              <property>/gear/gear[1]/wow</property>
-              <value>1</value>
-            </equals>
-            <equals>
-              <property>/gear/gear[2]/wow</property>
-              <value>1</value>
-            </equals>
+            <equals><property>/gear/gear[1]/wow</property><value>1</value></equals>
+            <equals><property>/gear/gear[2]/wow</property><value>1</value></equals>
             <greater-than-equals>
               <property>/velocities/airspeed-kt</property>
               <value>1800</value>
@@ -536,22 +317,10 @@ file Aircraft/Generic/generic-autopilot-helper.xml
       <expression>
         <table>
           <property>/velocities/mach</property>
-          <entry>
-            <ind>0.2</ind>
-            <dep>-1.6</dep>
-          </entry>
-          <entry>
-            <ind>1.0</ind>
-            <dep>-3.8</dep>
-          </entry>
-          <entry>
-            <ind>1.5</ind>
-            <dep>-4.5</dep>
-          </entry>
-          <entry>
-            <ind>2.0</ind>
-            <dep>-5.0</dep>
-          </entry>
+          <entry><ind>0.2</ind><dep>-1.6</dep></entry>
+          <entry><ind>1.0</ind><dep>-3.8</dep></entry>
+          <entry><ind>1.5</ind><dep>-4.5</dep></entry>
+          <entry><ind>2.0</ind><dep>-5.0</dep></entry>
         </table>
       </expression>
     </input>
@@ -564,23 +333,15 @@ file Aircraft/Generic/generic-autopilot-helper.xml
     <gain>1.0</gain>
     <enable>
       <condition>
-        <not>
-          <property>/instrumentation/my_aircraft/pfd/controls/hippodrome</property>
-        </not>
+        <not><property>/instrumentation/my_aircraft/pfd/controls/hippodrome</property></not>
       </condition>
     </enable>
     <input>
       <expression>
         <table>
           <property>/velocities/mach</property>
-          <entry>
-            <ind>0.2</ind>
-            <dep>30</dep>
-          </entry>
-          <entry>
-            <ind>1.0</ind>
-            <dep>60</dep>
-          </entry>
+          <entry><ind>0.2</ind><dep>30</dep></entry>
+          <entry><ind>1.0</ind><dep>60</dep></entry>
         </table>
       </expression>
     </input>
@@ -599,14 +360,8 @@ file Aircraft/Generic/generic-autopilot-helper.xml
       <expression>
         <table>
           <property>/velocities/mach</property>
-          <entry>
-            <ind>0.2</ind>
-            <dep>12</dep>
-          </entry>
-          <entry>
-            <ind>1.0</ind>
-            <dep>25</dep>
-          </entry>
+          <entry><ind>0.2</ind><dep>12</dep></entry>
+          <entry><ind>1.0</ind><dep>25</dep></entry>
         </table>
       </expression>
     </input>
@@ -659,9 +414,7 @@ file Aircraft/Generic/generic-autopilot-helper.xml
           <property>/autopilot/locks/heading</property>
           <value>nav1-hold</value>
         </equals>
-        <not>
-          <property>/instrumentation/nav[0]/slaved-to-gps</property>
-        </not>
+        <not><property>/instrumentation/nav[0]/slaved-to-gps</property></not>
       </condition>
     </enable>
     <input>
@@ -751,22 +504,10 @@ file Aircraft/Generic/generic-autopilot-helper.xml
       <expression>
         <table>
           <property>/velocities/mach</property>
-          <entry>
-            <ind>0.2</ind>
-            <dep>0.0059</dep>
-          </entry>
-          <entry>
-            <ind>1.0</ind>
-            <dep>0.0013</dep>
-          </entry>
-          <entry>
-            <ind>1.5</ind>
-            <dep>0.0010</dep>
-          </entry>
-          <entry>
-            <ind>2.0</ind>
-            <dep>0.0004</dep>
-          </entry>
+          <entry><ind>0.2</ind><dep>0.0059</dep></entry>
+          <entry><ind>1.0</ind><dep>0.0013</dep></entry>
+          <entry><ind>1.5</ind><dep>0.0010</dep></entry>
+          <entry><ind>2.0</ind><dep>0.0004</dep></entry>
         </table>
       </expression>
     </input>
@@ -846,9 +587,7 @@ file Aircraft/Generic/generic-autopilot-helper.xml
     <gain>1.0</gain>
     <input>
       <expression>
-        <abs>
-          <property>/instrumentation/my_aircraft/pfd/controls/target-vs</property>
-        </abs>
+        <abs><property>/instrumentation/my_aircraft/pfd/controls/target-vs</property></abs>
       </expression>
     </input>
     <output>/autopilot/internal/max-vs</output>
@@ -901,18 +640,9 @@ file Aircraft/Generic/generic-autopilot-helper.xml
       <expression>
         <table>
           <property>/velocities/mach</property>
-          <entry>
-            <ind>0.2</ind>
-            <dep>0.0023</dep>
-          </entry>
-          <entry>
-            <ind>1.0</ind>
-            <dep>0.0006</dep>
-          </entry>
-          <entry>
-            <ind>2.0</ind>
-            <dep>0.0002</dep>
-          </entry>
+          <entry><ind>0.2</ind><dep>0.0023</dep></entry>
+          <entry><ind>1.0</ind><dep>0.0006</dep></entry>
+          <entry><ind>2.0</ind><dep>0.0002</dep></entry>
         </table>
       </expression>
     </input>
@@ -1095,18 +825,9 @@ file Aircraft/Generic/generic-autopilot-helper.xml
       <expression>
         <table>
           <property>/velocities/mach</property>
-          <entry>
-            <ind>0.2</ind>
-            <dep>-0.0225</dep>
-          </entry>
-          <entry>
-            <ind>1.0</ind>
-            <dep>-0.0045</dep>
-          </entry>
-          <entry>
-            <ind>2.0</ind>
-            <dep>-0.0013</dep>
-          </entry>
+          <entry><ind>0.2</ind><dep>-0.0225</dep></entry>
+          <entry><ind>1.0</ind><dep>-0.0045</dep></entry>
+          <entry><ind>2.0</ind><dep>-0.0013</dep></entry>
         </table>
       </expression>
     </input>
@@ -1259,7 +980,7 @@ file Aircraft/Generic/generic-autopilot-helper.xml
                                                                   VELOCITY MODES
   -->
 
-  <!-- ~~~~~~~~~~~~~~~~~~ auto-throttle -->
+  <!-- ~~~~~~~~~~~~~~~~~~ auto-throttle airborn -->
   <pid-controller>
     <name>IAS Hold</name>
     <debug>false</debug>
@@ -1269,6 +990,10 @@ file Aircraft/Generic/generic-autopilot-helper.xml
           <property>/autopilot/locks/speed</property>
           <value>speed-with-throttle</value>
         </equals>
+        <not-equals>
+          <property>instrumentation/my_aircraft/nd/controls/mode</property>
+          <value>TAXI</value>
+        </not-equals>
       </condition>
     </enable>
     <input>
@@ -1289,6 +1014,45 @@ file Aircraft/Generic/generic-autopilot-helper.xml
       <u_max>0.90</u_max>
     </config>
   </pid-controller>
+  <!-- ~~~~~~~~~~~~~~~~~~ auto-throttle on ground (mode = TAXI) -->
+  <pid-controller>
+    <name>ground IAS Hold</name>
+    <debug>false</debug>
+    <enable>
+      <condition>
+        <equals>
+          <property>/autopilot/locks/speed</property>
+          <value>speed-with-throttle</value>
+        </equals>
+        <equals>
+          <property>instrumentation/my_aircraft/nd/controls/mode</property>
+          <value>TAXI</value>
+        </equals>
+      </condition>
+    </enable>
+    <input>
+      <property>/velocities/groundspeed-kt</property>
+    </input>
+    <reference>
+      <expression>
+        <sum>
+          <property>/instrumentation/my_aircraft/pfd/controls/target-speed-kt</property>
+          <value>-2</value>
+        </sum>
+      </expression>
+    </reference>
+    <output>
+      <property>/controls/engines/engine[0]/throttle</property>
+      <property>/controls/engines/engine[1]/throttle</property>
+    </output>
+    <config>
+      <Kp>0.01</Kp>
+      <Ti>12.0</Ti>
+      <Td>0.00001</Td>
+      <u_min>0.0</u_min>
+      <u_max>0.50</u_max>
+    </config>
+  </pid-controller>
 
   <!--
 ================================================================================
@@ -1304,30 +1068,12 @@ file Aircraft/Generic/generic-autopilot-helper.xml
       <expression>
         <table>
           <property>/controls/flight/elevator</property>
-          <entry>
-            <ind>-1.0</ind>
-            <dep>-.06</dep>
-          </entry>
-          <entry>
-            <ind>-.2</ind>
-            <dep>-.01</dep>
-          </entry>
-          <entry>
-            <ind>-.01</ind>
-            <dep>-.0001</dep>
-          </entry>
-          <entry>
-            <ind>.01</ind>
-            <dep>.0001</dep>
-          </entry>
-          <entry>
-            <ind>.2</ind>
-            <dep>.01</dep>
-          </entry>
-          <entry>
-            <ind>1.0</ind>
-            <dep>.06</dep>
-          </entry>
+          <entry><ind>-1.0</ind><dep>-.06</dep></entry>
+          <entry><ind>-.2</ind><dep>-.01</dep></entry>
+          <entry><ind>-.01</ind><dep>-.0001</dep></entry>
+          <entry><ind>.01</ind><dep>.0001</dep></entry>
+          <entry><ind>.2</ind><dep>.01</dep></entry>
+          <entry><ind>1.0</ind><dep>.06</dep></entry>
         </table>
       </expression>
     </input>
@@ -1380,14 +1126,8 @@ directly connect output to the FDM when AP is on otherwise connect FCM to FDM
     <input>
       <condition>
         <or>
-          <equals>
-            <property>/autopilot/locks/heading</property>
-            <value>dg-heading-hold</value>
-          </equals>
-          <equals>
-            <property>/autopilot/locks/heading</property>
-            <value>nav1-hold</value>
-          </equals>
+          <equals><property>/autopilot/locks/heading</property><value>dg-heading-hold</value></equals>
+          <equals><property>/autopilot/locks/heading</property><value>nav1-hold</value></equals>
         </or>
       </condition>
       <property>/controls/flight/aileron</property>
@@ -1405,14 +1145,8 @@ directly connect output to the FDM when AP is on otherwise connect FCM to FDM
     <input>
       <condition>
         <or>
-          <equals>
-            <property>/autopilot/locks/altitude</property>
-            <value>vertical-speed-hold</value>
-          </equals>
-          <equals>
-            <property>/autopilot/locks/altitude</property>
-            <value>altitude-hold</value>
-          </equals>
+          <equals><property>/autopilot/locks/altitude</property><value>vertical-speed-hold</value></equals>
+          <equals><property>/autopilot/locks/altitude</property><value>altitude-hold</value></equals>
         </or>
       </condition>
       <property>/controls/flight/elevator</property>
@@ -1424,3 +1158,6 @@ directly connect output to the FDM when AP is on otherwise connect FCM to FDM
   </filter>
 
 </PropertyList>
+
+
+

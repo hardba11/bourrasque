@@ -239,7 +239,7 @@ see :
     </condition>
   </turn-bank-indicator>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ tbi for APP, NAV, VFR mode -->
+  <!-- ~~~~~~~~~~~~~~~~~~ tbi for APP mode -->
   <turn-bank-indicator>
     <name>Turn Indicator APP</name>
     <x>-80</x>
@@ -623,8 +623,6 @@ see :
         <property>/velocities/mach</property>
         <value>0.70</value>
       </greater-than>
-    </condition>
-    <condition>
       <or>
         <property>/_debug/instruments/hud_show_all</property>
         <equals>
@@ -1508,9 +1506,7 @@ see :
             <property>/sim/alarms/stall-warning</property>
             <value>2</value>
           </equals>
-          <not>
-            <property>/gear/gear[0]/wow</property>
-          </not>
+          <not><property>/gear/gear[0]/wow</property></not>
         </and>
       </or>
     </condition>
@@ -1536,9 +1532,7 @@ see :
             <property>/sim/alarms/stall-warning</property>
             <value>1</value>
           </equals>
-          <not>
-            <property>/gear/gear[0]/wow</property>
-          </not>
+          <not><property>/gear/gear[0]/wow</property></not>
         </and>
       </or>
     </condition>
@@ -1752,9 +1746,7 @@ see :
             <value type="int">1</value>
           </equals>
           <property>/instrumentation/nav[0]/serviceable</property>
-          <not>
-            <property>/instrumentation/nav[0]/slaved-to-gps</property>
-          </not>
+          <not><property>/instrumentation/nav[0]/slaved-to-gps</property></not>
         </and>
       </or>
     </condition>
@@ -1789,9 +1781,7 @@ see :
             <value type="int">1</value>
           </equals>
           <property>/instrumentation/nav[0]/serviceable</property>
-          <not>
-            <property>/instrumentation/nav[0]/slaved-to-gps</property>
-          </not>
+          <not><property>/instrumentation/nav[0]/slaved-to-gps</property></not>
         </and>
       </or>
     </condition>
@@ -1826,9 +1816,7 @@ see :
             <value type="int">1</value>
           </equals>
           <property>/instrumentation/nav[0]/serviceable</property>
-          <not>
-            <property>/instrumentation/nav[0]/slaved-to-gps</property>
-          </not>
+          <not><property>/instrumentation/nav[0]/slaved-to-gps</property></not>
         </and>
       </or>
     </condition>
@@ -1863,9 +1851,7 @@ see :
             <value type="int">1</value>
           </equals>
           <property>/instrumentation/nav[0]/serviceable</property>
-          <not>
-            <property>/instrumentation/nav[0]/slaved-to-gps</property>
-          </not>
+          <not><property>/instrumentation/nav[0]/slaved-to-gps</property></not>
         </and>
       </or>
     </condition>
@@ -1900,9 +1886,7 @@ see :
             <value type="int">1</value>
           </equals>
           <property>/instrumentation/nav[0]/serviceable</property>
-          <not>
-            <property>/instrumentation/nav[0]/slaved-to-gps</property>
-          </not>
+          <not><property>/instrumentation/nav[0]/slaved-to-gps</property></not>
         </and>
       </or>
     </condition>
@@ -2362,3 +2346,7 @@ see :
   </label>
 
 </PropertyList>
+
+
+
+

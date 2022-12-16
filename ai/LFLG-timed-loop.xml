@@ -37,13 +37,13 @@ var loop = maketimer(0.1, func() {
 });
 loop.singleShot = 1;
 loop.start();
-      ]]>
+        ]]>
       </load>
       <unload>
         <![CDATA[
 loop.stop();
 loop = nil;
-      ]]>
+        ]]>
       </unload>
     </nasal>
 

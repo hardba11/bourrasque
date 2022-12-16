@@ -99,7 +99,7 @@ var distLoop = maketimer(0.1,
 distLoop.singleShot = 1;
 var listenStarttime = setlistener("/homemade-loop-timer/starttime", func(){ distLoop.restart(0); });
 distLoop.restart(10 * rand());
-    ]]>
+      ]]>
     </load>
     <unload>
       <![CDATA[
@@ -119,7 +119,7 @@ settimer(
         distLoop = nil;
     },
     0.8 * rand());
-    ]]>
+      ]]>
     </unload>
   </nasal>
 
@@ -152,3 +152,7 @@ settimer(
   </animation>
 
 </PropertyList>
+
+
+
+

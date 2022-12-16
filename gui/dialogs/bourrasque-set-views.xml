@@ -174,9 +174,7 @@ changelog
         <stretch>true</stretch>
         <live>true</live>
         <property>/sim/current-view/y-offset-m</property>
-        <binding>
-          <command>dialog-apply</command>
-        </binding>
+        <binding><command>dialog-apply</command></binding>
       </dial>
       <text>
         <label>-100.00</label>
@@ -294,9 +292,7 @@ changelog
         <stretch>true</stretch>
         <live>true</live>
         <property>/sim/current-view/z-offset-m</property>
-        <binding>
-          <command>dialog-apply</command>
-        </binding>
+        <binding><command>dialog-apply</command></binding>
       </dial>
       <text>
         <label>-100.00</label>
@@ -424,3 +420,7 @@ changelog
   </group>
 
 </PropertyList>
+
+
+
+

@@ -39,18 +39,18 @@ PROPERTY-PATH : /instrumentation/
   </transponder>
 
   <my_aircraft>
-    <electricals include="../instruments/electricals/electricals-properties.xml" />
-    <engines include="../instruments/engines/engines-properties.xml" />
-    <hud_target_positions include="../instruments/hud_target_positions/hud_target_positions-properties.xml" />
-    <chrono include="../instruments/chrono/chrono-properties.xml" />
-    <nd include="../instruments/nd/nd-properties.xml" />
-    <pfd include="../instruments/pfd/pfd-properties.xml" />
-    <sfd include="../instruments/sfd/sfd-properties.xml" />
-    <fuel include="../instruments/fuel/fuel-properties.xml" />
-    <command_h include="../instruments/command_h/command_h-properties.xml" />
-    <stdby-hsi include="../instruments/stdby-hsi/stdby-hsi-properties.xml" />
-    <stdby-alt include="../instruments/stdby-alt/stdby-alt-properties.xml" />
-    <tablet include="../instruments/tablet/tablet-properties.xml" />
+    <electricals            include="../instruments/electricals/electricals-properties.xml" />
+    <engines                include="../instruments/engines/engines-properties.xml" />
+    <hud_target_positions   include="../instruments/hud_target_positions/hud_target_positions-properties.xml" />
+    <chrono                 include="../instruments/chrono/chrono-properties.xml" />
+    <nd                     include="../instruments/nd/nd-properties.xml" />
+    <pfd                    include="../instruments/pfd/pfd-properties.xml" />
+    <sfd                    include="../instruments/sfd/sfd-properties.xml" />
+    <fuel                   include="../instruments/fuel/fuel-properties.xml" />
+    <command_h              include="../instruments/command_h/command_h-properties.xml" />
+    <stdby-hsi              include="../instruments/stdby-hsi/stdby-hsi-properties.xml" />
+    <stdby-alt              include="../instruments/stdby-alt/stdby-alt-properties.xml" />
+    <tablet                 include="../instruments/tablet/tablet-properties.xml" />
   </my_aircraft>
 
   <radar>
@@ -63,26 +63,22 @@ PROPERTY-PATH : /instrumentation/
     </display-controls>
     <font>
       <tcas>
-        <color n="0">
-          <!-- distant targets -->
+        <color n="0"> <!-- distant targets -->
           <red type="float">0</red>
           <green type="float">1</green>
           <blue type="float">1</blue>
         </color>
-        <color n="1">
-          <!-- proximity targets -->
+        <color n="1"> <!-- proximity targets -->
           <red type="float">0</red>
           <green type="float">1</green>
           <blue type="float">1</blue>
         </color>
-        <color n="2">
-          <!-- TA threat targets -->
+        <color n="2"> <!-- TA threat targets -->
           <red type="float">1</red>
           <green type="float">0.5</green>
           <blue type="float">0</blue>
         </color>
-        <color n="3">
-          <!-- RA threat targets -->
+        <color n="3"> <!-- RA threat targets -->
           <red type="float">1</red>
           <green type="float">0</green>
           <blue type="float">0</blue>
@@ -96,7 +92,7 @@ PROPERTY-PATH : /instrumentation/
   <tcas>
     <serviceable type="bool">true</serviceable>
     <inputs>
-      <mode type="int">0</mode> <!-- 0=off, 1=standby, 2=TA-only, 3=auto(TA/RA) -->
+      <mode type="int">0</mode>       <!-- 0=off, 1=standby, 2=TA-only, 3=auto(TA/RA) -->
     </inputs>
     <speaker>
       <max-dist>2</max-dist>
@@ -106,3 +102,5 @@ PROPERTY-PATH : /instrumentation/
   </tcas>
 
 </PropertyList>
+
+

@@ -53,18 +53,10 @@
 
       <start>
         <color>
-          <red>
-            <value>1</value>
-          </red>
-          <green>
-            <value>1</value>
-          </green>
-          <blue>
-            <value>1</value>
-          </blue>
-          <alpha>
-            <value>.1</value>
-          </alpha>
+          <red><value>1</value></red>
+          <green><value>1</value></green>
+          <blue><value>1</value></blue>
+          <alpha><value>.1</value></alpha>
         </color>
         <size>
           <value>0.5</value>
@@ -72,18 +64,10 @@
       </start>
       <end>
         <color>
-          <red>
-            <value>1</value>
-          </red>
-          <green>
-            <value>1</value>
-          </green>
-          <blue>
-            <value>1</value>
-          </blue>
-          <alpha>
-            <value>.01</value>
-          </alpha>
+          <red><value>1</value></red>
+          <green><value>1</value></green>
+          <blue><value>1</value></blue>
+          <alpha><value>.01</value></alpha>
         </color>
         <size>
           <value>5</value>

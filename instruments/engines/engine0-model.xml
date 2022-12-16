@@ -117,14 +117,8 @@ changelog
     <object-name>engines.cutoff-emit</object-name>
     <property>/instrumentation/my_aircraft/engines/controls/engine[0]/fuel-on</property>
     <interpolation>
-      <entry>
-        <ind>1</ind>
-        <dep>20</dep>
-      </entry>
-      <entry>
-        <ind>0</ind>
-        <dep>-20</dep>
-      </entry>
+      <entry><ind>1</ind><dep>20</dep></entry>
+      <entry><ind>0</ind><dep>-20</dep></entry>
     </interpolation>
     <center>
       <x-m>0</x-m>
@@ -171,14 +165,8 @@ changelog
     <object-name>engines.pump-emit</object-name>
     <property>/instrumentation/my_aircraft/engines/controls/engine[0]/pump</property>
     <interpolation>
-      <entry>
-        <ind>1</ind>
-        <dep>20</dep>
-      </entry>
-      <entry>
-        <ind>0</ind>
-        <dep>-20</dep>
-      </entry>
+      <entry><ind>1</ind><dep>20</dep></entry>
+      <entry><ind>0</ind><dep>-20</dep></entry>
     </interpolation>
     <center>
       <x-m>0</x-m>
@@ -276,3 +264,4 @@ changelog
   </animation>
 
 </PropertyList>
+

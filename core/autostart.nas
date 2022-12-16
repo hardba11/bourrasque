@@ -144,12 +144,12 @@ var do_nav1 = func(value) { # 0/1
 var do_adf0 = func(value) { # 0/2
     printf('  adf0');
     setprop("/instrumentation/adf[0]/func-knob", value);
-    setprop("/sim/model/click", (getprop("/sim/model/click") ? 0 : 1));
+    setprop("/sim/model/click", (getprop("/sim/model/click") ? 0 : 2));
 }
-var do_transponder = func(value) { # 0/4
+var do_transponder = func(value) { # 0/5
     printf('  transponder');
     setprop("/instrumentation/transponder/inputs/knob-mode", value);
-    setprop("/sim/model/click", (getprop("/sim/model/click") ? 0 : 1));
+    setprop("/sim/model/click", (getprop("/sim/model/click") ? 0 : 5));
 }
 var do_hud_brightness = func(value) {
     printf('  hud brightness');

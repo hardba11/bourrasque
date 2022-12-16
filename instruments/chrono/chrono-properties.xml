@@ -21,15 +21,16 @@ PROPERTY-PATH : /instrumentation/my_aircraft/chrono/
   <outputs>
     <digit-tl alias="/instrumentation/clock/local-hour" />
     <digit-tr alias="/instrumentation/clock/indicated-min" />
-    <needle alias="/instrumentation/clock/indicated-sec" />
+    <needle   alias="/instrumentation/clock/indicated-sec" />
     <digit-bl alias="/sim/time/real/day" />
     <digit-br alias="/sim/time/real/month" />
     <colon type="bool">1</colon>
   </outputs>
 
   <controls>
-    <et-knob type="int">1</et-knob> <!-- 1=run -->
+    <et-knob   type="int">1</et-knob>   <!-- 1=run -->
     <mode-knob type="int">1</mode-knob> <!-- 1=local -->
   </controls>
 
 </PropertyList>
+

@@ -13,11 +13,11 @@
     <condition>
       <and>
         <greater-than>
-          <property>velocities/true-speed-kt</property>
+          <property>velocities/airspeed-kt</property>
           <value>50</value>
         </greater-than>
         <less-than>
-          <property>velocities/true-speed-kt</property>
+          <property>velocities/airspeed-kt</property>
           <value>400</value>
         </less-than>
         <less-than>
@@ -32,9 +32,7 @@
           <property>engines/engine[1]/stopped</property>
           <value>0</value>
         </equals>
-        <not>
-          <property>/sim/crashed</property>
-        </not>
+        <not><property>/sim/crashed</property></not>
       </and>
     </condition>
 
@@ -75,18 +73,10 @@
     <particle>
       <start>
         <color>
-          <red>
-            <value>0.1</value>
-          </red>
-          <green>
-            <value>0.1</value>
-          </green>
-          <blue>
-            <value>0.1</value>
-          </blue>
-          <alpha>
-            <value>0.08</value>
-          </alpha>
+          <red><value>0.1</value></red>
+          <green><value>0.1</value></green>
+          <blue><value>0.1</value></blue>
+          <alpha><value>0.08</value></alpha>
         </color>
         <size>
           <value>0.5</value>
@@ -94,18 +84,10 @@
       </start>
       <end>
         <color>
-          <red>
-            <value>0.6</value>
-          </red>
-          <green>
-            <value>0.6</value>
-          </green>
-          <blue>
-            <value>0.6</value>
-          </blue>
-          <alpha>
-            <value>0.00001</value>
-          </alpha>
+          <red><value>0.6</value></red>
+          <green><value>0.6</value></green>
+          <blue><value>0.6</value></blue>
+          <alpha><value>0.00001</value></alpha>
         </color>
         <size>
           <value>5</value>

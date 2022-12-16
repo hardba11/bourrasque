@@ -45,9 +45,7 @@ changelog
     <type>select</type>
     <object-name>tablet.screen.off</object-name>
     <condition>
-      <not>
-        <property>/instrumentation/my_aircraft/tablet/controls/serviceable</property>
-      </not>
+      <not><property>/instrumentation/my_aircraft/tablet/controls/serviceable</property></not>
     </condition>
   </animation>
 

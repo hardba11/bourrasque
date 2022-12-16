@@ -90,18 +90,9 @@ description :
     </condition>
     <property>autopilot/internal/vert-speed-fpm</property>
     <interpolation>
-      <entry>
-        <ind>-9000.0</ind>
-        <dep>-90</dep>
-      </entry>
-      <entry>
-        <ind>0.0</ind>
-        <dep>0.0</dep>
-      </entry>
-      <entry>
-        <ind>9000</ind>
-        <dep>90</dep>
-      </entry>
+      <entry><ind>-9000.0</ind><dep>-90</dep></entry>
+      <entry><ind>0.0</ind><dep>0.0</dep></entry>
+      <entry><ind>9000</ind><dep>90</dep></entry>
     </interpolation>
     <center>
       <x-m>-.0479</x-m>

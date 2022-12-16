@@ -116,14 +116,8 @@ perl -e 'for(reverse(1..11)){printf "
     <object-name>block_pipe</object-name>
     <property>sim/multiplay/generic/float[13]</property>
     <interpolation>
-      <entry>
-        <ind>0.0</ind>
-        <dep>12</dep>
-      </entry>
-      <entry>
-        <ind>1.0</ind>
-        <dep>0</dep>
-      </entry>
+      <entry><ind>0.0</ind><dep>12</dep></entry>
+      <entry><ind>1.0</ind><dep>0</dep></entry>
     </interpolation>
     <center>
       <x-m>0</x-m>
@@ -141,22 +135,10 @@ perl -e 'for(reverse(1..11)){printf "
     <object-name>block_pipe</object-name>
     <property>sim/multiplay/generic/float[13]</property>
     <interpolation>
-      <entry>
-        <ind>0.0</ind>
-        <dep>1.2</dep>
-      </entry>
-      <entry>
-        <ind>0.7</ind>
-        <dep>0.55</dep>
-      </entry>
-      <entry>
-        <ind>0.9</ind>
-        <dep>0.2</dep>
-      </entry>
-      <entry>
-        <ind>1.0</ind>
-        <dep>0</dep>
-      </entry>
+      <entry><ind>0.0</ind><dep>1.2</dep></entry>
+      <entry><ind>0.7</ind><dep>0.55</dep></entry>
+      <entry><ind>0.9</ind><dep>0.2</dep></entry>
+      <entry><ind>1.0</ind><dep>0</dep></entry>
     </interpolation>
     <center>
       <x-m>0</x-m>
@@ -328,3 +310,4 @@ perl -e 'for(reverse(1..11)){printf "
   </animation>
 
 </PropertyList>
+

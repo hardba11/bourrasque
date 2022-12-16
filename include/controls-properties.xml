@@ -33,7 +33,7 @@ PROPERTY-PATH : /controls/
   <jato>
     <enabled type="bool">0</enabled>
     <null type="float">0</null>
-    <throttle alias="/controls/jato/null" /> <!-- alias switched by functions.nas -->
+    <throttle alias="/controls/jato/null" />   <!-- alias switched by functions.nas -->
   </jato>
 
   <gear>
@@ -72,3 +72,5 @@ PROPERTY-PATH : /controls/
   <assistance type="bool">0</assistance>
 
 </PropertyList>
+
+

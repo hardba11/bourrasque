@@ -80,13 +80,8 @@ TODO :
     <object-name>PFD.screen.off</object-name>
     <condition>
       <or>
-        <not>
-          <property>systems/electrical/bus/avionics</property>
-        </not>
-        <equals>
-          <property>/sim/aircraft</property>
-          <value>bourrasque-backseat</value>
-        </equals>
+        <not><property>systems/electrical/bus/avionics</property></not>
+        <equals><property>/sim/aircraft</property><value>bourrasque-backseat</value></equals>
       </or>
     </condition>
   </animation>
@@ -470,18 +465,9 @@ ________________________________________________________________________________
       <subtype>textranslate</subtype>
       <property>orientation/pitch-deg</property>
       <interpolation>
-        <entry>
-          <ind>-90.0</ind>
-          <dep>-0.41</dep>
-        </entry>
-        <entry>
-          <ind>0.0</ind>
-          <dep>0.0</dep>
-        </entry>
-        <entry>
-          <ind>90.0</ind>
-          <dep>0.41</dep>
-        </entry>
+        <entry><ind>-90.0</ind><dep>-0.41</dep></entry>
+        <entry><ind>0.0</ind><dep>0.0</dep></entry>
+        <entry><ind>90.0</ind><dep>0.41</dep></entry>
       </interpolation>
       <axis>
         <x>0</x>
@@ -517,110 +503,32 @@ ________________________________________________________________________________
       <subtype>textranslate</subtype>
       <property>/instrumentation/altimeter/indicated-altitude-ft</property>
       <interpolation>
-        <entry>
-          <ind>00000.0000</ind>
-          <dep>0.0000</dep>
-        </entry>
-        <entry>
-          <ind>05000.0000</ind>
-          <dep>0.7570</dep>
-        </entry>
-        <entry>
-          <ind>05000.0001</ind>
-          <dep>0.0000</dep>
-        </entry>
-        <entry>
-          <ind>10000.0000</ind>
-          <dep>0.7570</dep>
-        </entry>
-        <entry>
-          <ind>10000.0001</ind>
-          <dep>0.0000</dep>
-        </entry>
-        <entry>
-          <ind>15000.0000</ind>
-          <dep>0.7570</dep>
-        </entry>
-        <entry>
-          <ind>15000.0001</ind>
-          <dep>0.0000</dep>
-        </entry>
-        <entry>
-          <ind>20000.0000</ind>
-          <dep>0.7570</dep>
-        </entry>
-        <entry>
-          <ind>20000.0001</ind>
-          <dep>0.0000</dep>
-        </entry>
-        <entry>
-          <ind>25000.0000</ind>
-          <dep>0.7570</dep>
-        </entry>
-        <entry>
-          <ind>25000.0001</ind>
-          <dep>0.0000</dep>
-        </entry>
-        <entry>
-          <ind>30000.0000</ind>
-          <dep>0.7570</dep>
-        </entry>
-        <entry>
-          <ind>30000.0001</ind>
-          <dep>0.0000</dep>
-        </entry>
-        <entry>
-          <ind>35000.0000</ind>
-          <dep>0.7570</dep>
-        </entry>
-        <entry>
-          <ind>35000.0001</ind>
-          <dep>0.0000</dep>
-        </entry>
-        <entry>
-          <ind>40000.0000</ind>
-          <dep>0.7570</dep>
-        </entry>
-        <entry>
-          <ind>40000.0001</ind>
-          <dep>0.0000</dep>
-        </entry>
-        <entry>
-          <ind>45000.0000</ind>
-          <dep>0.7570</dep>
-        </entry>
-        <entry>
-          <ind>45000.0001</ind>
-          <dep>0.0000</dep>
-        </entry>
-        <entry>
-          <ind>50000.0000</ind>
-          <dep>0.7570</dep>
-        </entry>
-        <entry>
-          <ind>50000.0001</ind>
-          <dep>0.0000</dep>
-        </entry>
-        <entry>
-          <ind>55000.0000</ind>
-          <dep>0.7570</dep>
-        </entry>
-        <entry>
-          <ind>55000.0001</ind>
-          <dep>0.0000</dep>
-        </entry>
-        <entry>
-          <ind>60000.0000</ind>
-          <dep>0.7570</dep>
-        </entry>
-        <entry>
-          <ind>60000.0001</ind>
-          <dep>0.0000</dep>
-        </entry>
-        <entry>
-          <ind>65000.0000</ind>
-          <dep>0.7570</dep>
-        </entry>
+        <entry><ind>00000.0000</ind><dep>0.0000</dep></entry>
+        <entry><ind>05000.0000</ind><dep>0.7570</dep></entry>
+        <entry><ind>05000.0001</ind><dep>0.0000</dep></entry>
+        <entry><ind>10000.0000</ind><dep>0.7570</dep></entry>
+        <entry><ind>10000.0001</ind><dep>0.0000</dep></entry>
+        <entry><ind>15000.0000</ind><dep>0.7570</dep></entry>
+        <entry><ind>15000.0001</ind><dep>0.0000</dep></entry>
+        <entry><ind>20000.0000</ind><dep>0.7570</dep></entry>
+        <entry><ind>20000.0001</ind><dep>0.0000</dep></entry>
+        <entry><ind>25000.0000</ind><dep>0.7570</dep></entry>
+        <entry><ind>25000.0001</ind><dep>0.0000</dep></entry>
+        <entry><ind>30000.0000</ind><dep>0.7570</dep></entry>
+        <entry><ind>30000.0001</ind><dep>0.0000</dep></entry>
+        <entry><ind>35000.0000</ind><dep>0.7570</dep></entry>
+        <entry><ind>35000.0001</ind><dep>0.0000</dep></entry>
+        <entry><ind>40000.0000</ind><dep>0.7570</dep></entry>
+        <entry><ind>40000.0001</ind><dep>0.0000</dep></entry>
+        <entry><ind>45000.0000</ind><dep>0.7570</dep></entry>
+        <entry><ind>45000.0001</ind><dep>0.0000</dep></entry>
+        <entry><ind>50000.0000</ind><dep>0.7570</dep></entry>
+        <entry><ind>50000.0001</ind><dep>0.0000</dep></entry>
+        <entry><ind>55000.0000</ind><dep>0.7570</dep></entry>
+        <entry><ind>55000.0001</ind><dep>0.0000</dep></entry>
+        <entry><ind>60000.0000</ind><dep>0.7570</dep></entry>
+        <entry><ind>60000.0001</ind><dep>0.0000</dep></entry>
+        <entry><ind>65000.0000</ind><dep>0.7570</dep></entry>
       </interpolation>
       <axis>
         <x>0</x>
@@ -631,106 +539,31 @@ ________________________________________________________________________________
       <subtype>textranslate</subtype>
       <property>/instrumentation/altimeter/indicated-altitude-ft</property>
       <interpolation>
-        <entry>
-          <ind>00000.0000</ind>
-          <dep>0.000</dep>
-        </entry>
-        <entry>
-          <ind>05000.0000</ind>
-          <dep>0.000</dep>
-        </entry>
-        <entry>
-          <ind>05000.0001</ind>
-          <dep>0.075</dep>
-        </entry>
-        <entry>
-          <ind>10000.0000</ind>
-          <dep>0.075</dep>
-        </entry>
-        <entry>
-          <ind>10000.0001</ind>
-          <dep>0.150</dep>
-        </entry>
-        <entry>
-          <ind>15000.0000</ind>
-          <dep>0.150</dep>
-        </entry>
-        <entry>
-          <ind>15000.0001</ind>
-          <dep>0.225</dep>
-        </entry>
-        <entry>
-          <ind>20000.0000</ind>
-          <dep>0.225</dep>
-        </entry>
-        <entry>
-          <ind>20000.0001</ind>
-          <dep>0.300</dep>
-        </entry>
-        <entry>
-          <ind>25000.0000</ind>
-          <dep>0.300</dep>
-        </entry>
-        <entry>
-          <ind>25000.0001</ind>
-          <dep>0.375</dep>
-        </entry>
-        <entry>
-          <ind>30000.0000</ind>
-          <dep>0.375</dep>
-        </entry>
-        <entry>
-          <ind>30000.0001</ind>
-          <dep>0.450</dep>
-        </entry>
-        <entry>
-          <ind>35000.0000</ind>
-          <dep>0.450</dep>
-        </entry>
-        <entry>
-          <ind>35000.0001</ind>
-          <dep>0.525</dep>
-        </entry>
-        <entry>
-          <ind>40000.0000</ind>
-          <dep>0.525</dep>
-        </entry>
-        <entry>
-          <ind>40000.0001</ind>
-          <dep>0.600</dep>
-        </entry>
-        <entry>
-          <ind>45000.0000</ind>
-          <dep>0.600</dep>
-        </entry>
-        <entry>
-          <ind>45000.0001</ind>
-          <dep>0.675</dep>
-        </entry>
-        <entry>
-          <ind>50000.0000</ind>
-          <dep>0.675</dep>
-        </entry>
-        <entry>
-          <ind>50000.0001</ind>
-          <dep>0.750</dep>
-        </entry>
-        <entry>
-          <ind>55000.0000</ind>
-          <dep>0.750</dep>
-        </entry>
-        <entry>
-          <ind>55000.0001</ind>
-          <dep>0.825</dep>
-        </entry>
-        <entry>
-          <ind>60000.0000</ind>
-          <dep>0.825</dep>
-        </entry>
-        <entry>
-          <ind>60000.0001</ind>
-          <dep>0.900</dep>
-        </entry>
+        <entry><ind>00000.0000</ind><dep>0.000</dep></entry>
+        <entry><ind>05000.0000</ind><dep>0.000</dep></entry>
+        <entry><ind>05000.0001</ind><dep>0.075</dep></entry>
+        <entry><ind>10000.0000</ind><dep>0.075</dep></entry>
+        <entry><ind>10000.0001</ind><dep>0.150</dep></entry>
+        <entry><ind>15000.0000</ind><dep>0.150</dep></entry>
+        <entry><ind>15000.0001</ind><dep>0.225</dep></entry>
+        <entry><ind>20000.0000</ind><dep>0.225</dep></entry>
+        <entry><ind>20000.0001</ind><dep>0.300</dep></entry>
+        <entry><ind>25000.0000</ind><dep>0.300</dep></entry>
+        <entry><ind>25000.0001</ind><dep>0.375</dep></entry>
+        <entry><ind>30000.0000</ind><dep>0.375</dep></entry>
+        <entry><ind>30000.0001</ind><dep>0.450</dep></entry>
+        <entry><ind>35000.0000</ind><dep>0.450</dep></entry>
+        <entry><ind>35000.0001</ind><dep>0.525</dep></entry>
+        <entry><ind>40000.0000</ind><dep>0.525</dep></entry>
+        <entry><ind>40000.0001</ind><dep>0.600</dep></entry>
+        <entry><ind>45000.0000</ind><dep>0.600</dep></entry>
+        <entry><ind>45000.0001</ind><dep>0.675</dep></entry>
+        <entry><ind>50000.0000</ind><dep>0.675</dep></entry>
+        <entry><ind>50000.0001</ind><dep>0.750</dep></entry>
+        <entry><ind>55000.0000</ind><dep>0.750</dep></entry>
+        <entry><ind>55000.0001</ind><dep>0.825</dep></entry>
+        <entry><ind>60000.0000</ind><dep>0.825</dep></entry>
+        <entry><ind>60000.0001</ind><dep>0.900</dep></entry>
       </interpolation>
       <axis>
         <x>-1</x>
@@ -838,18 +671,9 @@ ________________________________________________________________________________
     <object-name>vsi.needle</object-name>
     <property>autopilot/internal/vert-speed-fpm</property>
     <interpolation>
-      <entry>
-        <ind>-9000.0</ind>
-        <dep>-90</dep>
-      </entry>
-      <entry>
-        <ind>0.0</ind>
-        <dep>0.0</dep>
-      </entry>
-      <entry>
-        <ind>9000</ind>
-        <dep>90</dep>
-      </entry>
+      <entry><ind>-9000.0</ind><dep>-90</dep></entry>
+      <entry><ind>0.0</ind><dep>0.0</dep></entry>
+      <entry><ind>9000</ind><dep>90</dep></entry>
     </interpolation>
     <axis>
       <x>-1</x>
@@ -971,9 +795,7 @@ ________________________________________________________________________________
     <type>select</type>
     <object-name>HDGlabel-mag</object-name>
     <condition>
-      <not>
-        <property>/instrumentation/my_aircraft/nd/inputs/true-north</property>
-      </not>
+      <not><property>/instrumentation/my_aircraft/nd/inputs/true-north</property></not>
     </condition>
   </animation>
 
@@ -1044,54 +866,18 @@ ________________________________________________________________________________
       <subtype>textranslate</subtype>
       <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
       <interpolation>
-        <entry>
-          <ind>000.0000</ind>
-          <dep>0.0000</dep>
-        </entry>
-        <entry>
-          <ind>100.0000</ind>
-          <dep>0.4536</dep>
-        </entry>
-        <entry>
-          <ind>100.0001</ind>
-          <dep>0.0000</dep>
-        </entry>
-        <entry>
-          <ind>180.0000</ind>
-          <dep>0.4536</dep>
-        </entry>
-        <entry>
-          <ind>180.0001</ind>
-          <dep>0.0000</dep>
-        </entry>
-        <entry>
-          <ind>270.0000</ind>
-          <dep>0.4536</dep>
-        </entry>
-        <entry>
-          <ind>270.0001</ind>
-          <dep>0.0000</dep>
-        </entry>
-        <entry>
-          <ind>360.0000</ind>
-          <dep>0.4536</dep>
-        </entry>
-        <entry>
-          <ind>360.0001</ind>
-          <dep>0.0000</dep>
-        </entry>
-        <entry>
-          <ind>450.0000</ind>
-          <dep>0.4536</dep>
-        </entry>
-        <entry>
-          <ind>450.0001</ind>
-          <dep>0.0000</dep>
-        </entry>
-        <entry>
-          <ind>540.0000</ind>
-          <dep>0.4536</dep>
-        </entry>
+        <entry><ind>000.0000</ind><dep>0.0000</dep></entry>
+        <entry><ind>100.0000</ind><dep>0.4536</dep></entry>
+        <entry><ind>100.0001</ind><dep>0.0000</dep></entry>
+        <entry><ind>180.0000</ind><dep>0.4536</dep></entry>
+        <entry><ind>180.0001</ind><dep>0.0000</dep></entry>
+        <entry><ind>270.0000</ind><dep>0.4536</dep></entry>
+        <entry><ind>270.0001</ind><dep>0.0000</dep></entry>
+        <entry><ind>360.0000</ind><dep>0.4536</dep></entry>
+        <entry><ind>360.0001</ind><dep>0.0000</dep></entry>
+        <entry><ind>450.0000</ind><dep>0.4536</dep></entry>
+        <entry><ind>450.0001</ind><dep>0.0000</dep></entry>
+        <entry><ind>540.0000</ind><dep>0.4536</dep></entry>
       </interpolation>
       <axis>
         <x>0</x>
@@ -1102,54 +888,18 @@ ________________________________________________________________________________
       <subtype>textranslate</subtype>
       <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
       <interpolation>
-        <entry>
-          <ind>000.0000</ind>
-          <dep>0.00</dep>
-        </entry>
-        <entry>
-          <ind>100.0000</ind>
-          <dep>0.00</dep>
-        </entry>
-        <entry>
-          <ind>100.0001</ind>
-          <dep>0.11</dep>
-        </entry>
-        <entry>
-          <ind>180.0000</ind>
-          <dep>0.11</dep>
-        </entry>
-        <entry>
-          <ind>180.0001</ind>
-          <dep>0.22</dep>
-        </entry>
-        <entry>
-          <ind>270.0000</ind>
-          <dep>0.22</dep>
-        </entry>
-        <entry>
-          <ind>270.0001</ind>
-          <dep>0.33</dep>
-        </entry>
-        <entry>
-          <ind>360.0000</ind>
-          <dep>0.33</dep>
-        </entry>
-        <entry>
-          <ind>360.0001</ind>
-          <dep>0.44</dep>
-        </entry>
-        <entry>
-          <ind>450.0000</ind>
-          <dep>0.44</dep>
-        </entry>
-        <entry>
-          <ind>450.0001</ind>
-          <dep>0.55</dep>
-        </entry>
-        <entry>
-          <ind>540.0000</ind>
-          <dep>0.55</dep>
-        </entry>
+        <entry><ind>000.0000</ind><dep>0.00</dep></entry>
+        <entry><ind>100.0000</ind><dep>0.00</dep></entry>
+        <entry><ind>100.0001</ind><dep>0.11</dep></entry>
+        <entry><ind>180.0000</ind><dep>0.11</dep></entry>
+        <entry><ind>180.0001</ind><dep>0.22</dep></entry>
+        <entry><ind>270.0000</ind><dep>0.22</dep></entry>
+        <entry><ind>270.0001</ind><dep>0.33</dep></entry>
+        <entry><ind>360.0000</ind><dep>0.33</dep></entry>
+        <entry><ind>360.0001</ind><dep>0.44</dep></entry>
+        <entry><ind>450.0000</ind><dep>0.44</dep></entry>
+        <entry><ind>450.0001</ind><dep>0.55</dep></entry>
+        <entry><ind>540.0000</ind><dep>0.55</dep></entry>
       </interpolation>
       <axis>
         <x>1</x>

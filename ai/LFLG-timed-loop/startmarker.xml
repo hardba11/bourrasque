@@ -114,7 +114,7 @@ distLoop.singleShot = 1;
 var listenStarttime = setlistener("/homemade-loop-timer/starttime", func(){ distLoop.restart(0.2); });
 var listenNotcleared = setlistener("/homemade-loop-timer/finished-notcleared", func(){ distLoop.restart(0.2); });
 distLoop.start();
-    ]]>
+      ]]>
     </load>
     <unload>
       <![CDATA[
@@ -126,7 +126,7 @@ distLoop.stop();
 distLoop = nil;
 machCheck.stop();
 machCheck = nil;
-    ]]>
+      ]]>
     </unload>
   </nasal>
 

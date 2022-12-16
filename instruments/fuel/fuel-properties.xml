@@ -11,9 +11,9 @@ PROPERTY-PATH : /instrumentation/my_aircraft/fuel/
 
 <PropertyList>
 
-  <fuel-center-tank-m3 type="float">0</fuel-center-tank-m3>
-  <fuel-left-tank-m3 type="float">0</fuel-left-tank-m3>
-  <fuel-right-tank-m3 type="float">0</fuel-right-tank-m3>
+  <fuel-center-tank-m3  type="float">0</fuel-center-tank-m3>
+  <fuel-left-tank-m3    type="float">0</fuel-left-tank-m3>
+  <fuel-right-tank-m3   type="float">0</fuel-right-tank-m3>
 
   <h-remaining type="int">0</h-remaining>
   <m-remaining type="int">0</m-remaining>
@@ -30,3 +30,4 @@ PROPERTY-PATH : /instrumentation/my_aircraft/fuel/
   </bingo>
 
 </PropertyList>
+

@@ -158,14 +158,8 @@ my_aircraft_functions.event_control_gear(-1, 0);
     <object-name>command.gears-emit</object-name>
     <property>sim/model/lever_gear</property>
     <interpolation>
-      <entry>
-        <ind>1</ind>
-        <dep>0</dep>
-      </entry>
-      <entry>
-        <ind>0</ind>
-        <dep>-60</dep>
-      </entry>
+      <entry><ind>1</ind><dep>0</dep></entry>
+      <entry><ind>0</ind><dep>-60</dep></entry>
     </interpolation>
     <center>
       <x-m>-0.006758</x-m>
@@ -260,14 +254,8 @@ my_aircraft_functions.event_control_gear(-1, 0);
     <object-name>command.parkbrake-emit</object-name>
     <property>sim/model/lever_parkbrake</property>
     <interpolation>
-      <entry>
-        <ind>1</ind>
-        <dep>0</dep>
-      </entry>
-      <entry>
-        <ind>0</ind>
-        <dep>80</dep>
-      </entry>
+      <entry><ind>1</ind><dep>0</dep></entry>
+      <entry><ind>0</ind><dep>80</dep></entry>
     </interpolation>
     <center>
       <x-m>0</x-m>
@@ -320,22 +308,10 @@ my_aircraft_functions.event_control_gear(-1, 0);
     <object-name>command.hook</object-name>
     <property>/gear/tailhook/position-norm</property>
     <interpolation>
-      <entry>
-        <ind>0</ind>
-        <dep>0</dep>
-      </entry>
-      <entry>
-        <ind>0.001</ind>
-        <dep>0</dep>
-      </entry>
-      <entry>
-        <ind>0.01</ind>
-        <dep>80</dep>
-      </entry>
-      <entry>
-        <ind>1</ind>
-        <dep>81</dep>
-      </entry>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>0.001</ind><dep>0</dep></entry>
+      <entry><ind>0.01</ind><dep>80</dep></entry>
+      <entry><ind>1</ind><dep>81</dep></entry>
     </interpolation>
     <center>
       <x-m>0</x-m>
@@ -437,18 +413,9 @@ my_aircraft_functions.event_control_canopy();
     <object-name>command.canopy</object-name>
     <property>/controls/doors/canopy</property>
     <interpolation>
-      <entry>
-        <ind>1</ind>
-        <dep>0</dep>
-      </entry>
-      <entry>
-        <ind>0.6</ind>
-        <dep>-30</dep>
-      </entry>
-      <entry>
-        <ind>0</ind>
-        <dep>-60</dep>
-      </entry>
+      <entry><ind>1</ind><dep>0</dep></entry>
+      <entry><ind>0.6</ind><dep>-30</dep></entry>
+      <entry><ind>0</ind><dep>-60</dep></entry>
     </interpolation>
     <center>
       <x-m>0.008</x-m>
@@ -605,3 +572,4 @@ my_aircraft_functions.event_control_canopy();
   </animation>
 
 </PropertyList>
+

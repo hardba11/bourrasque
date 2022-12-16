@@ -33,9 +33,7 @@
           <property>engines/engine[0]/stopped</property>
           <value>0</value>
         </equals>
-        <not>
-          <property>/sim/crashed</property>
-        </not>
+        <not><property>/sim/crashed</property></not>
       </and>
     </condition>
   </animation>
@@ -46,3 +44,4 @@
   </effect>
 
 </PropertyList>
+

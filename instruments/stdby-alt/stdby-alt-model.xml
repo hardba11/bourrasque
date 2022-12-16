@@ -394,9 +394,7 @@ changelog
     <object-name>alt.knob</object-name>
     <condition>
       <property>/systems/electrical/bus/avionics</property>
-      <not>
-        <property>/instrumentation/my_aircraft/stdby-alt/controls/std-alt</property>
-      </not>
+      <not><property>/instrumentation/my_aircraft/stdby-alt/controls/std-alt</property></not>
     </condition>
     <action>
       <button>0</button>
@@ -594,3 +592,4 @@ my_aircraft_functions.event_toggle_std_atm(-1);
   </animation>
 
 </PropertyList>
+

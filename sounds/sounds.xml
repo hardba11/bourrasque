@@ -47,9 +47,7 @@ ________________________________________________________________________________
             <property>/instrumentation/my_aircraft/engines/controls/engine[0]/is_stopping</property>
             <value>0</value>
           </equals>
-          <not>
-            <property>/sim/crashed</property>
-          </not>
+          <not><property>/sim/crashed</property></not>
         </and>
       </condition>
       <volume>
@@ -74,9 +72,7 @@ ________________________________________________________________________________
             <property>/instrumentation/my_aircraft/engines/controls/engine[0]/is_stopping</property>
             <value>0</value>
           </equals>
-          <not>
-            <property>/sim/crashed</property>
-          </not>
+          <not><property>/sim/crashed</property></not>
         </and>
       </condition>
       <volume>
@@ -102,12 +98,8 @@ ________________________________________________________________________________
       <path>bourrasque_jet_ext.wav</path>
       <mode>looped</mode>
       <condition>
-        <not>
-          <property>/engines/engine[0]/stopped</property>
-        </not>
-        <not>
-          <property>/sim/crashed</property>
-        </not>
+        <not><property>/engines/engine[0]/stopped</property></not>
+        <not><property>/sim/crashed</property></not>
       </condition>
       <orientation>
         <x>1.0</x>
@@ -154,9 +146,7 @@ ________________________________________________________________________________
             <property>/instrumentation/my_aircraft/engines/controls/engine[0]/is_stopping</property>
             <value>1</value>
           </equals>
-          <not>
-            <property>/sim/crashed</property>
-          </not>
+          <not><property>/sim/crashed</property></not>
         </and>
       </condition>
       <volume>
@@ -189,9 +179,7 @@ ________________________________________________________________________________
             <property>/instrumentation/my_aircraft/engines/controls/engine[1]/is_stopping</property>
             <value>0</value>
           </equals>
-          <not>
-            <property>/sim/crashed</property>
-          </not>
+          <not><property>/sim/crashed</property></not>
         </and>
       </condition>
       <volume>
@@ -215,9 +203,7 @@ ________________________________________________________________________________
             <property>/instrumentation/my_aircraft/engines/controls/engine[1]/is_stopping</property>
             <value>0</value>
           </equals>
-          <not>
-            <property>/sim/crashed</property>
-          </not>
+          <not><property>/sim/crashed</property></not>
         </and>
       </condition>
       <volume>
@@ -243,12 +229,8 @@ ________________________________________________________________________________
       <path>bourrasque_jet_ext.wav</path>
       <mode>looped</mode>
       <condition>
-        <not>
-          <property>/engines/engine[1]/stopped</property>
-        </not>
-        <not>
-          <property>/sim/crashed</property>
-        </not>
+        <not><property>/engines/engine[1]/stopped</property></not>
+        <not><property>/sim/crashed</property></not>
       </condition>
       <orientation>
         <x>1.0</x>
@@ -295,9 +277,7 @@ ________________________________________________________________________________
             <property>/instrumentation/my_aircraft/engines/controls/engine[1]/is_stopping</property>
             <value>1</value>
           </equals>
-          <not>
-            <property>/sim/crashed</property>
-          </not>
+          <not><property>/sim/crashed</property></not>
         </and>
       </condition>
       <volume>
@@ -416,9 +396,7 @@ ________________________________________________________________________________
             <value>0.1</value>
           </greater-than>
           <or>
-            <not>
-              <property>/sim/current-view/internal</property>
-            </not>
+            <not><property>/sim/current-view/internal</property></not>
             <greater-than>
               <property>/sim/model/canopy-pos-norm</property>
               <value>0</value>
@@ -565,9 +543,7 @@ ________________________________________________________________________________
             <value>1</value>
           </equals>
           <property>/sim/current-view/internal</property>
-          <not>
-            <property>/gear/gear[0]/wow</property>
-          </not>
+          <not><property>/gear/gear[0]/wow</property></not>
         </and>
       </condition>
     </stall_caution>
@@ -584,9 +560,7 @@ ________________________________________________________________________________
             <value>2</value>
           </equals>
           <property>/sim/current-view/internal</property>
-          <not>
-            <property>/gear/gear[0]/wow</property>
-          </not>
+          <not><property>/gear/gear[0]/wow</property></not>
         </and>
       </condition>
     </stall_alert>

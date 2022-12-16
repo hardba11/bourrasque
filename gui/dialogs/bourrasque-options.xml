@@ -21,29 +21,13 @@ changelog
   <modal type="bool">false</modal>
   <layout>vbox</layout>
   <group>
-    <layout>hbox</layout>
-    <empty>
-      <stretch>1</stretch>
-    </empty>
-    <text>
-      <label>bourrasque's options</label>
-    </text>
-    <empty>
-      <stretch>1</stretch>
-    </empty>
-    <button>
-      <pref-width>16</pref-width>
-      <pref-height>16</pref-height>
-      <legend />
-      <default>1</default>
-      <keynum>27</keynum>
-      <border>2</border>
-      <binding>
-        <command>dialog-close</command>
-      </binding>
-      <binding>
-        <command>dialog-apply</command>
-      </binding>
+    <layout>hbox</layout><empty><stretch>1</stretch></empty>
+    <text><label>bourrasque's options</label></text>
+    <empty><stretch>1</stretch></empty>
+    <button><pref-width>16</pref-width><pref-height>16</pref-height><legend />
+      <default>1</default><keynum>27</keynum><border>2</border>
+      <binding><command>dialog-close</command></binding>
+      <binding><command>dialog-apply</command></binding>
     </button>
   </group>
 
@@ -54,8 +38,7 @@ changelog
     <layout>table</layout>
     <halign>left</halign>
     <checkbox>
-      <row>0</row>
-      <col>0</col>
+      <row>0</row><col>0</col>
       <x>50</x>
       <y>200</y>
       <width>12</width>
@@ -67,8 +50,7 @@ changelog
       </binding>
     </checkbox>
     <text>
-      <row>0</row>
-      <col>1</col>
+      <row>0</row><col>1</col>
       <halign>left</halign>
       <label>Cockpit shake effect</label>
     </text>
@@ -80,13 +62,11 @@ changelog
     <layout>table</layout>
     <halign>left</halign>
     <text>
-      <row>0</row>
-      <col>0</col>
+      <row>0</row><col>0</col>
       <label>HUD helper</label>
     </text>
     <checkbox>
-      <row>1</row>
-      <col>0</col>
+      <row>1</row><col>0</col>
       <x>150</x>
       <y>200</y>
       <width>12</width>
@@ -98,14 +78,12 @@ changelog
       </binding>
     </checkbox>
     <text>
-      <row>1</row>
-      <col>1</col>
+      <row>1</row><col>1</col>
       <halign>left</halign>
       <label>Show targets' positions</label>
     </text>
     <checkbox>
-      <row>2</row>
-      <col>0</col>
+      <row>2</row><col>0</col>
       <x>150</x>
       <y>200</y>
       <width>12</width>
@@ -117,8 +95,7 @@ changelog
       </binding>
     </checkbox>
     <text>
-      <row>2</row>
-      <col>1</col>
+      <row>2</row><col>1</col>
       <halign>left</halign>
       <label>Show multiplayers targets (AI if unchecked)</label>
     </text>
@@ -131,15 +108,12 @@ changelog
     <layout>table</layout>
     <halign>left</halign>
     <text>
-      <row>0</row>
-      <col>0</col>
+      <row>0</row><col>0</col>
       <label>Pilot</label>
     </text>
     <button>
-      <row>0</row>
-      <col>1</col>
-      <pref-width>70</pref-width>
-      <pref-height>20</pref-height>
+      <row>0</row><col>1</col>
+      <pref-width>70</pref-width><pref-height>20</pref-height>
       <legend>Away</legend>
       <binding>
         <command>property-assign</command>
@@ -148,10 +122,8 @@ changelog
       </binding>
     </button>
     <button>
-      <row>0</row>
-      <col>2</col>
-      <pref-width>70</pref-width>
-      <pref-height>20</pref-height>
+      <row>0</row><col>2</col>
+      <pref-width>70</pref-width><pref-height>20</pref-height>
       <legend>Seated</legend>
       <binding>
         <command>property-assign</command>
@@ -160,15 +132,12 @@ changelog
       </binding>
     </button>
     <text>
-      <row>1</row>
-      <col>0</col>
+      <row>1</row><col>0</col>
       <label>Copilot</label>
     </text>
     <button>
-      <row>1</row>
-      <col>1</col>
-      <pref-width>70</pref-width>
-      <pref-height>20</pref-height>
+      <row>1</row><col>1</col>
+      <pref-width>70</pref-width><pref-height>20</pref-height>
       <legend>Away</legend>
       <binding>
         <command>property-assign</command>
@@ -177,10 +146,8 @@ changelog
       </binding>
     </button>
     <button>
-      <row>1</row>
-      <col>2</col>
-      <pref-width>70</pref-width>
-      <pref-height>20</pref-height>
+      <row>1</row><col>2</col>
+      <pref-width>70</pref-width><pref-height>20</pref-height>
       <legend>Seated</legend>
       <binding>
         <command>property-assign</command>
@@ -197,13 +164,11 @@ changelog
     <layout>table</layout>
     <halign>left</halign>
     <text>
-      <row>0</row>
-      <col>0</col>
+      <row>0</row><col>0</col>
       <label>Hippodrome leg</label>
     </text>
     <button>
-      <row>0</row>
-      <col>1</col>
+      <row>0</row><col>1</col>
       <legend>2 min</legend>
       <binding>
         <command>property-assign</command>
@@ -212,8 +177,7 @@ changelog
       </binding>
     </button>
     <button>
-      <row>0</row>
-      <col>2</col>
+      <row>0</row><col>2</col>
       <legend>5 min</legend>
       <binding>
         <command>property-assign</command>
@@ -222,8 +186,7 @@ changelog
       </binding>
     </button>
     <button>
-      <row>0</row>
-      <col>3</col>
+      <row>0</row><col>3</col>
       <legend>10 min</legend>
       <binding>
         <command>property-assign</command>
@@ -236,3 +199,7 @@ changelog
   <hrule />
 
 </PropertyList>
+
+
+
+
