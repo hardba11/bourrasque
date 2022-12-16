@@ -14,7 +14,9 @@
     <condition>
       <or>
         <and>
-          <not><property>sim/multiplay/generic/float[10]</property></not>
+          <not>
+            <property>sim/multiplay/generic/float[10]</property>
+          </not>
           <property>sim/multiplay/generic/float[12]</property>
           <greater-than>
             <property>/environment/rain-norm</property>
@@ -76,10 +78,18 @@
 
       <start>
         <color>
-          <red><value>0.7</value></red>
-          <green><value>0.7</value></green>
-          <blue><value>0.7</value></blue>
-          <alpha><value>0.4</value></alpha>
+          <red>
+            <value>0.7</value>
+          </red>
+          <green>
+            <value>0.7</value>
+          </green>
+          <blue>
+            <value>0.7</value>
+          </blue>
+          <alpha>
+            <value>0.4</value>
+          </alpha>
         </color>
         <size>
           <value>5</value>
@@ -88,10 +98,18 @@
 
       <end>
         <color>
-          <red><value>0.7</value></red>
-          <green><value>0.7</value></green>
-          <blue><value>0.7</value></blue>
-          <alpha><value>0.1</value></alpha>
+          <red>
+            <value>0.7</value>
+          </red>
+          <green>
+            <value>0.7</value>
+          </green>
+          <blue>
+            <value>0.7</value>
+          </blue>
+          <alpha>
+            <value>0.1</value>
+          </alpha>
         </color>
         <size>
           <value>15</value>

@@ -6,7 +6,7 @@
 
   <nasal>
     <load>
-    <![CDATA[
+      <![CDATA[
 srand(); # set seed for random generator
 
 var root = cmdarg();
@@ -117,7 +117,7 @@ distLoop.start();
     ]]>
     </load>
     <unload>
-    <![CDATA[
+      <![CDATA[
 #screen.log.write("Mach Loop finish unloaded");
 print("LFLG timed loop finish unloaded");
 removelistener(listenStarttime);

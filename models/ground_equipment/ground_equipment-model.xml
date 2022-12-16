@@ -91,7 +91,8 @@ changelog
       </or>
     </condition>
   </animation>
-  <animation> <!-- as the object touchs the ground, I had to add a translation -->
+  <animation>
+    <!-- as the object touchs the ground, I had to add a translation -->
     <type>translate</type>
     <object-name>ground_equipment.gears</object-name>
     <offset-m>-.1</offset-m>
@@ -219,4 +220,3 @@ changelog
 
 
 </PropertyList>
-

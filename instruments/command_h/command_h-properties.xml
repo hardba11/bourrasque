@@ -10,10 +10,10 @@ PROPERTY-PATH : /instrumentation/my_aircraft/command_h/
 -->
 
 <PropertyList>
-  <sound_alert type="int">0</sound_alert>     <!-- play a sound -->
+  <sound_alert type="int">0</sound_alert> <!-- play a sound -->
   <sound_caution type="int">0</sound_caution> <!-- play a sound -->
-  <ack_alert type="int">0</ack_alert>         <!-- 1=btn clicked, nasal will process -->
-  <blink_alert type="int">0</blink_alert>     <!-- to creat blinking labels on instrument -->
+  <ack_alert type="int">0</ack_alert> <!-- 1=btn clicked, nasal will process -->
+  <blink_alert type="int">0</blink_alert> <!-- to creat blinking labels on instrument -->
 
   <panel_status>
     <engine0_status type="int">0</engine0_status>
@@ -41,4 +41,3 @@ PROPERTY-PATH : /instrumentation/my_aircraft/command_h/
   </message>
 
 </PropertyList>
-

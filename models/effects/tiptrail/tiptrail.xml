@@ -30,7 +30,9 @@
           <property>/accelerations/pilot-g</property>
           <value>3</value>
         </greater-than>
-        <not><property>/sim/crashed</property></not>
+        <not>
+          <property>/sim/crashed</property>
+        </not>
       </and>
     </condition>
 
@@ -60,10 +62,18 @@
 
       <start>
         <color>
-          <red><value>1</value></red>
-          <green><value>1</value></green>
-          <blue><value>1</value></blue>
-          <alpha><value>0.4</value></alpha>
+          <red>
+            <value>1</value>
+          </red>
+          <green>
+            <value>1</value>
+          </green>
+          <blue>
+            <value>1</value>
+          </blue>
+          <alpha>
+            <value>0.4</value>
+          </alpha>
         </color>
         <size>
           <value>0.2</value>
@@ -72,10 +82,18 @@
 
       <end>
         <color>
-          <red><value>1</value></red>
-          <green><value>1</value></green>
-          <blue><value>1</value></blue>
-          <alpha><value>0.01</value></alpha>
+          <red>
+            <value>1</value>
+          </red>
+          <green>
+            <value>1</value>
+          </green>
+          <blue>
+            <value>1</value>
+          </blue>
+          <alpha>
+            <value>0.01</value>
+          </alpha>
         </color>
         <size>
           <value>0.1</value>

@@ -20,7 +20,7 @@ changelog
       <item n="0">
         <label>Autostart</label>
         <binding>
-        <command>nasal</command>
+          <command>nasal</command>
           <script>
             <![CDATA[
 core.autostart();
@@ -109,7 +109,7 @@ aircraft.livery.dialog.toggle();
           <dialog-name>bourrasque-set-views</dialog-name>
         </binding>
       </item>
-<!--
+      <!--
       <item n="9">
         <label>DevTools ...</label>
         <name>dev-tools</name>
@@ -126,4 +126,3 @@ aircraft.livery.dialog.toggle();
   </default>
 
 </PropertyList>
-

@@ -21,13 +21,29 @@ changelog
   <modal type="bool">false</modal>
   <layout>vbox</layout>
   <group>
-    <layout>hbox</layout><empty><stretch>1</stretch></empty>
-    <text><label>bourrasque's commands</label></text>
-    <empty><stretch>1</stretch></empty>
-    <button><pref-width>16</pref-width><pref-height>16</pref-height><legend />
-      <default>1</default><keynum>27</keynum><border>2</border>
-      <binding><command>dialog-close</command></binding>
-      <binding><command>dialog-apply</command></binding>
+    <layout>hbox</layout>
+    <empty>
+      <stretch>1</stretch>
+    </empty>
+    <text>
+      <label>bourrasque's commands</label>
+    </text>
+    <empty>
+      <stretch>1</stretch>
+    </empty>
+    <button>
+      <pref-width>16</pref-width>
+      <pref-height>16</pref-height>
+      <legend />
+      <default>1</default>
+      <keynum>27</keynum>
+      <border>2</border>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+      <binding>
+        <command>dialog-apply</command>
+      </binding>
     </button>
   </group>
 
@@ -38,11 +54,13 @@ changelog
     <layout>table</layout>
     <halign>left</halign>
     <text>
-      <row>0</row><col>0</col>
+      <row>0</row>
+      <col>0</col>
       <label>Do hippodrome !</label>
     </text>
     <button>
-      <row>0</row><col>1</col>
+      <row>0</row>
+      <col>1</col>
       <legend>Disable</legend>
       <binding>
         <command>nasal</command>
@@ -54,7 +72,8 @@ my_aircraft_functions.event_toggle_hippodrome(0);
       </binding>
     </button>
     <button>
-      <row>0</row><col>2</col>
+      <row>0</row>
+      <col>2</col>
       <legend>Enable</legend>
       <binding>
         <command>nasal</command>
@@ -74,11 +93,13 @@ my_aircraft_functions.event_toggle_hippodrome(1);
     <layout>table</layout>
     <halign>left</halign>
     <text>
-      <row>0</row><col>0</col>
+      <row>0</row>
+      <col>0</col>
       <label>Flashlight</label>
     </text>
     <button>
-      <row>0</row><col>1</col>
+      <row>0</row>
+      <col>1</col>
       <legend>Off</legend>
       <binding>
         <command>property-assign</command>
@@ -87,7 +108,8 @@ my_aircraft_functions.event_toggle_hippodrome(1);
       </binding>
     </button>
     <button>
-      <row>0</row><col>2</col>
+      <row>0</row>
+      <col>2</col>
       <legend>White</legend>
       <binding>
         <command>property-assign</command>
@@ -96,7 +118,8 @@ my_aircraft_functions.event_toggle_hippodrome(1);
       </binding>
     </button>
     <button>
-      <row>0</row><col>3</col>
+      <row>0</row>
+      <col>3</col>
       <legend>Red</legend>
       <binding>
         <command>property-assign</command>
@@ -109,11 +132,13 @@ my_aircraft_functions.event_toggle_hippodrome(1);
     <layout>table</layout>
     <halign>left</halign>
     <text>
-      <row>0</row><col>0</col>
+      <row>0</row>
+      <col>0</col>
       <label>Searchlight</label>
     </text>
     <button>
-      <row>0</row><col>1</col>
+      <row>0</row>
+      <col>1</col>
       <legend>Off</legend>
       <binding>
         <command>property-assign</command>
@@ -122,7 +147,8 @@ my_aircraft_functions.event_toggle_hippodrome(1);
       </binding>
     </button>
     <button>
-      <row>0</row><col>2</col>
+      <row>0</row>
+      <col>2</col>
       <legend>On</legend>
       <binding>
         <command>property-assign</command>
@@ -139,11 +165,13 @@ my_aircraft_functions.event_toggle_hippodrome(1);
     <layout>table</layout>
     <halign>left</halign>
     <text>
-      <row>0</row><col>0</col>
+      <row>0</row>
+      <col>0</col>
       <label>Refueling pipe</label>
     </text>
     <button>
-      <row>0</row><col>1</col>
+      <row>0</row>
+      <col>1</col>
       <legend>Retract</legend>
       <binding>
         <command>nasal</command>
@@ -155,7 +183,8 @@ my_aircraft_functions.event_control_pod_pipe(0);
       </binding>
     </button>
     <button>
-      <row>0</row><col>2</col>
+      <row>0</row>
+      <col>2</col>
       <legend>Extend</legend>
       <binding>
         <command>nasal</command>
@@ -175,11 +204,13 @@ my_aircraft_functions.event_control_pod_pipe(1);
     <layout>table</layout>
     <halign>left</halign>
     <text>
-      <row>0</row><col>0</col>
+      <row>0</row>
+      <col>0</col>
       <label>Smoke</label>
     </text>
     <button>
-      <row>0</row><col>1</col>
+      <row>0</row>
+      <col>1</col>
       <legend>Off</legend>
       <binding>
         <command>nasal</command>
@@ -191,7 +222,8 @@ my_aircraft_functions.event_smoke(0);
       </binding>
     </button>
     <button>
-      <row>0</row><col>2</col>
+      <row>0</row>
+      <col>2</col>
       <legend>Blue</legend>
       <binding>
         <command>nasal</command>
@@ -208,7 +240,8 @@ my_aircraft_functions.event_smoke(1);
       </binding>
     </button>
     <button>
-      <row>0</row><col>3</col>
+      <row>0</row>
+      <col>3</col>
       <legend>White</legend>
       <binding>
         <command>nasal</command>
@@ -225,7 +258,8 @@ my_aircraft_functions.event_smoke(1);
       </binding>
     </button>
     <button>
-      <row>0</row><col>4</col>
+      <row>0</row>
+      <col>4</col>
       <legend>Red</legend>
       <binding>
         <command>nasal</command>
@@ -250,7 +284,8 @@ my_aircraft_functions.event_smoke(1);
     <layout>table</layout>
     <halign>left</halign>
     <button>
-      <row>0</row><col>0</col>
+      <row>0</row>
+      <col>0</col>
       <legend>Need assistance !</legend>
       <binding>
         <command>property-assign</command>
@@ -259,7 +294,8 @@ my_aircraft_functions.event_smoke(1);
       </binding>
     </button>
     <button>
-      <row>0</row><col>1</col>
+      <row>0</row>
+      <col>1</col>
       <legend>It is ok</legend>
       <binding>
         <command>property-assign</command>
@@ -276,11 +312,13 @@ my_aircraft_functions.event_smoke(1);
     <layout>table</layout>
     <halign>left</halign>
     <text>
-      <row>0</row><col>0</col>
+      <row>0</row>
+      <col>0</col>
       <label>Pushback</label>
     </text>
     <button>
-      <row>0</row><col>1</col>
+      <row>0</row>
+      <col>1</col>
       <legend>Use</legend>
       <binding>
         <command>dialog-show</command>
@@ -292,4 +330,3 @@ my_aircraft_functions.event_smoke(1);
   <hrule />
 
 </PropertyList>
-

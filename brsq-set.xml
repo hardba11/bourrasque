@@ -137,26 +137,26 @@ http://wiki.flightgear.org/Property_tree
       <canopy_sound type="string"></canopy_sound>
 
       <!-- for MP -->
-      <canopy-pos-norm       type="float">1</canopy-pos-norm>
-      <canards-pos-norm      type="float">0</canards-pos-norm>
+      <canopy-pos-norm type="float">1</canopy-pos-norm>
+      <canards-pos-norm type="float">0</canards-pos-norm>
       <store-refuel-pos-norm type="float">0</store-refuel-pos-norm>
 
       <!-- for MP : encoded and decoded -->
-      <ground-equipment-e    type="int">1</ground-equipment-e>  <!-- covers -->
-      <ground-equipment-g    type="int">1</ground-equipment-g>  <!-- chocks -->
-      <ground-equipment-s    type="int">1</ground-equipment-s>  <!-- scale -->
-      <ground-equipment-p    type="int">1</ground-equipment-p>  <!-- power unit -->
-      <ground-equipment-f    type="int">1</ground-equipment-f>  <!-- fuel truck -->
+      <ground-equipment-e type="int">1</ground-equipment-e> <!-- covers -->
+      <ground-equipment-g type="int">1</ground-equipment-g> <!-- chocks -->
+      <ground-equipment-s type="int">1</ground-equipment-s> <!-- scale -->
+      <ground-equipment-p type="int">1</ground-equipment-p> <!-- power unit -->
+      <ground-equipment-f type="int">1</ground-equipment-f> <!-- fuel truck -->
 
-      <carrier-equipment     type="int">0</carrier-equipment>   <!-- launch bar + tail hook -->
-      <wing-tanks-1250       type="int">0</wing-tanks-1250>
-      <wing-tanks-2000       type="int">0</wing-tanks-2000>
-      <center-tank-1250      type="int">0</center-tank-1250>
-      <center-tank-2000      type="int">0</center-tank-2000>
-      <center-refuel-pod     type="int">0</center-refuel-pod>
+      <carrier-equipment type="int">0</carrier-equipment> <!-- launch bar + tail hook -->
+      <wing-tanks-1250 type="int">0</wing-tanks-1250>
+      <wing-tanks-2000 type="int">0</wing-tanks-2000>
+      <center-tank-1250 type="int">0</center-tank-1250>
+      <center-tank-2000 type="int">0</center-tank-2000>
+      <center-refuel-pod type="int">0</center-refuel-pod>
       <wing-pylons-smoke-pod type="int">0</wing-pylons-smoke-pod>
-      <smoking               type="int">0</smoking>
-      <smoking-color         type="string">white</smoking-color>
+      <smoking type="int">0</smoking>
+      <smoking-color type="string">white</smoking-color>
 
     </model>
 
@@ -196,24 +196,24 @@ http://wiki.flightgear.org/Property_tree
     </current-view>
 
     <!-- ~~~~~~~~~~~~~~~~~~ views -->
-    <view n="0"     include="include/sim-view0-properties.xml" />
-    <view n="101"   include="include/sim-view101-properties.xml" />
-    <view n="102"   include="include/sim-view102-properties.xml" />
-    <view n="103"   include="include/sim-view103-properties.xml" />
-    <view n="104"   include="include/sim-view104-properties.xml" />
-    <view n="105"   include="include/sim-view105-properties.xml" />
+    <view n="0" include="include/sim-view0-properties.xml" />
+    <view n="101" include="include/sim-view101-properties.xml" />
+    <view n="102" include="include/sim-view102-properties.xml" />
+    <view n="103" include="include/sim-view103-properties.xml" />
+    <view n="104" include="include/sim-view104-properties.xml" />
+    <view n="105" include="include/sim-view105-properties.xml" />
 
     <!-- ~~~~~~~~~~~~~~~~~~ huds -->
-    <hud            include="include/sim-hud-properties.xml" />
+    <hud include="include/sim-hud-properties.xml" />
 
     <!-- ~~~~~~~~~~~~~~~~~~ multiplay -->
-    <multiplay      include="include/sim-multiplay-properties.xml" />
+    <multiplay include="include/sim-multiplay-properties.xml" />
 
     <!-- ~~~~~~~~~~~~~~~~~~ rendering -->
-    <rendering      include="include/sim-rendering-properties.xml" />
+    <rendering include="include/sim-rendering-properties.xml" />
 
     <!-- ~~~~~~~~~~~~~~~~~~ help -->
-    <help           include="docs/sim-help.xml" />
+    <help include="docs/sim-help.xml" />
 
     <!-- ~~~~~~~~~~~~~~~~~~ systems -->
     <systems>
@@ -384,19 +384,19 @@ http://wiki.flightgear.org/Property_tree
 ================================================================================
   -->
 
-  <systems          include="include/systems-properties.xml" />
+  <systems include="include/systems-properties.xml" />
 
-  <engines          include="include/engines-properties.xml" />
+  <engines include="include/engines-properties.xml" />
 
-  <input            include="include/input-properties.xml" />
+  <input include="include/input-properties.xml" />
 
-  <controls         include="include/controls-properties.xml" />
+  <controls include="include/controls-properties.xml" />
 
-  <instrumentation  include="include/instrumentation-properties.xml" />
+  <instrumentation include="include/instrumentation-properties.xml" />
 
-  <autopilot        include="include/autopilot-properties.xml" />
+  <autopilot include="include/autopilot-properties.xml" />
 
-  <environment      include="include/environment-properties.xml" />
+  <environment include="include/environment-properties.xml" />
 
   <!--
 ================================================================================
@@ -496,4 +496,3 @@ http://wiki.flightgear.org/Property_tree
   </nasal>
 
 </PropertyList>
-

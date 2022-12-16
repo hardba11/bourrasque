@@ -25,19 +25,19 @@ changelog
     <!-- for MP : encoded and decoded : int 0|1 - init to 0 -->
     <sim>
       <model>
-        <ground-equipment-e    type="int">0</ground-equipment-e>  <!-- covers -->
-        <ground-equipment-g    type="int">0</ground-equipment-g>  <!-- chocks -->
-        <ground-equipment-s    type="int">0</ground-equipment-s>  <!-- scale -->
-        <ground-equipment-p    type="int">0</ground-equipment-p>  <!-- power unit -->
-        <ground-equipment-f    type="int">0</ground-equipment-f>  <!-- fuel truck -->
-        <carrier-equipment     type="int">0</carrier-equipment>   <!-- launch bar + tail hook -->
-        <wing-tanks-1250       type="int">0</wing-tanks-1250>
-        <wing-tanks-2000       type="int">0</wing-tanks-2000>
-        <center-tank-1250      type="int">0</center-tank-1250>
-        <center-tank-2000      type="int">0</center-tank-2000>
-        <center-refuel-pod     type="int">0</center-refuel-pod>
+        <ground-equipment-e type="int">0</ground-equipment-e> <!-- covers -->
+        <ground-equipment-g type="int">0</ground-equipment-g> <!-- chocks -->
+        <ground-equipment-s type="int">0</ground-equipment-s> <!-- scale -->
+        <ground-equipment-p type="int">0</ground-equipment-p> <!-- power unit -->
+        <ground-equipment-f type="int">0</ground-equipment-f> <!-- fuel truck -->
+        <carrier-equipment type="int">0</carrier-equipment> <!-- launch bar + tail hook -->
+        <wing-tanks-1250 type="int">0</wing-tanks-1250>
+        <wing-tanks-2000 type="int">0</wing-tanks-2000>
+        <center-tank-1250 type="int">0</center-tank-1250>
+        <center-tank-2000 type="int">0</center-tank-2000>
+        <center-refuel-pod type="int">0</center-refuel-pod>
         <wing-pylons-smoke-pod type="int">0</wing-pylons-smoke-pod>
-        <smoking               type="int">0</smoking>
+        <smoking type="int">0</smoking>
       </model>
     </sim>
 
@@ -506,9 +506,18 @@ ________________________________________________________________________________
     <object-name>block_canopy</object-name>
     <property>sim/multiplay/generic/float[0]</property> <!-- for MP sim/model/canopy-pos-norm -->
     <interpolation>
-      <entry><ind>.2</ind><dep>0</dep></entry>
-      <entry><ind>.6</ind><dep>2.5</dep></entry>
-      <entry><ind>1</ind><dep>45</dep></entry>
+      <entry>
+        <ind>.2</ind>
+        <dep>0</dep>
+      </entry>
+      <entry>
+        <ind>.6</ind>
+        <dep>2.5</dep>
+      </entry>
+      <entry>
+        <ind>1</ind>
+        <dep>45</dep>
+      </entry>
     </interpolation>
     <center>
       <x-m>-1.0765</x-m>
@@ -533,10 +542,22 @@ ________________________________________________________________________________
     <object-name>trappe_roue_train</object-name>
     <property>gear/gear[0]/position-norm</property>
     <interpolation>
-      <entry><ind>0.0</ind><dep>0</dep></entry>
-      <entry><ind>0.2</ind><dep>-100</dep></entry>
-      <entry><ind>0.9</ind><dep>-100</dep></entry>
-      <entry><ind>1.0</ind><dep>0</dep></entry>
+      <entry>
+        <ind>0.0</ind>
+        <dep>0</dep>
+      </entry>
+      <entry>
+        <ind>0.2</ind>
+        <dep>-100</dep>
+      </entry>
+      <entry>
+        <ind>0.9</ind>
+        <dep>-100</dep>
+      </entry>
+      <entry>
+        <ind>1.0</ind>
+        <dep>0</dep>
+      </entry>
     </interpolation>
     <center>
       <x-m>-3.47</x-m>
@@ -555,10 +576,22 @@ ________________________________________________________________________________
     <object-name>trappe_jambe_train_R</object-name>
     <property>gear/gear[0]/position-norm</property>
     <interpolation>
-      <entry><ind>0.0</ind><dep>0</dep></entry>
-      <entry><ind>0.2</ind><dep>-5</dep></entry>
-      <entry><ind>0.9</ind><dep>-65</dep></entry>
-      <entry><ind>1.0</ind><dep>-65</dep></entry>
+      <entry>
+        <ind>0.0</ind>
+        <dep>0</dep>
+      </entry>
+      <entry>
+        <ind>0.2</ind>
+        <dep>-5</dep>
+      </entry>
+      <entry>
+        <ind>0.9</ind>
+        <dep>-65</dep>
+      </entry>
+      <entry>
+        <ind>1.0</ind>
+        <dep>-65</dep>
+      </entry>
     </interpolation>
     <center>
       <x-m>-2.44</x-m>
@@ -576,10 +609,22 @@ ________________________________________________________________________________
     <object-name>trappe_jambe_train_L</object-name>
     <property>gear/gear[0]/position-norm</property>
     <interpolation>
-      <entry><ind>0.0</ind><dep>0</dep></entry>
-      <entry><ind>0.2</ind><dep>5</dep></entry>
-      <entry><ind>0.9</ind><dep>65</dep></entry>
-      <entry><ind>1.0</ind><dep>65</dep></entry>
+      <entry>
+        <ind>0.0</ind>
+        <dep>0</dep>
+      </entry>
+      <entry>
+        <ind>0.2</ind>
+        <dep>5</dep>
+      </entry>
+      <entry>
+        <ind>0.9</ind>
+        <dep>65</dep>
+      </entry>
+      <entry>
+        <ind>1.0</ind>
+        <dep>65</dep>
+      </entry>
     </interpolation>
     <center>
       <x-m>-2.44</x-m>
@@ -599,10 +644,22 @@ ________________________________________________________________________________
     <object-name>trappe_roue_train_principal_L</object-name>
     <property>gear/gear[1]/position-norm</property>
     <interpolation>
-      <entry><ind>0.0</ind><dep>0</dep></entry>
-      <entry><ind>0.2</ind><dep>110</dep></entry>
-      <entry><ind>0.9</ind><dep>110</dep></entry>
-      <entry><ind>1.0</ind><dep>0</dep></entry>
+      <entry>
+        <ind>0.0</ind>
+        <dep>0</dep>
+      </entry>
+      <entry>
+        <ind>0.2</ind>
+        <dep>110</dep>
+      </entry>
+      <entry>
+        <ind>0.9</ind>
+        <dep>110</dep>
+      </entry>
+      <entry>
+        <ind>1.0</ind>
+        <dep>0</dep>
+      </entry>
     </interpolation>
     <center>
       <x-m>0.71</x-m>
@@ -621,10 +678,22 @@ ________________________________________________________________________________
     <object-name>trappe_jambe_train_principal_L</object-name>
     <property>gear/gear[1]/position-norm</property>
     <interpolation>
-      <entry><ind>0.0</ind><dep>0</dep></entry>
-      <entry><ind>0.2</ind><dep>0</dep></entry>
-      <entry><ind>0.9</ind><dep>90</dep></entry>
-      <entry><ind>1.0</ind><dep>90</dep></entry>
+      <entry>
+        <ind>0.0</ind>
+        <dep>0</dep>
+      </entry>
+      <entry>
+        <ind>0.2</ind>
+        <dep>0</dep>
+      </entry>
+      <entry>
+        <ind>0.9</ind>
+        <dep>90</dep>
+      </entry>
+      <entry>
+        <ind>1.0</ind>
+        <dep>90</dep>
+      </entry>
     </interpolation>
     <center>
       <x-m>2.00</x-m>
@@ -644,10 +713,22 @@ ________________________________________________________________________________
     <object-name>trappe_roue_train_principal_R</object-name>
     <property>gear/gear[2]/position-norm</property>
     <interpolation>
-      <entry><ind>0.0</ind><dep>0</dep></entry>
-      <entry><ind>0.2</ind><dep>-110</dep></entry>
-      <entry><ind>0.9</ind><dep>-110</dep></entry>
-      <entry><ind>1.0</ind><dep>0</dep></entry>
+      <entry>
+        <ind>0.0</ind>
+        <dep>0</dep>
+      </entry>
+      <entry>
+        <ind>0.2</ind>
+        <dep>-110</dep>
+      </entry>
+      <entry>
+        <ind>0.9</ind>
+        <dep>-110</dep>
+      </entry>
+      <entry>
+        <ind>1.0</ind>
+        <dep>0</dep>
+      </entry>
     </interpolation>
     <center>
       <x-m>0.71</x-m>
@@ -666,10 +747,22 @@ ________________________________________________________________________________
     <object-name>trappe_jambe_train_principal_R</object-name>
     <property>gear/gear[2]/position-norm</property>
     <interpolation>
-      <entry><ind>0.0</ind><dep>0</dep></entry>
-      <entry><ind>0.2</ind><dep>0</dep></entry>
-      <entry><ind>0.9</ind><dep>-90</dep></entry>
-      <entry><ind>1.0</ind><dep>-90</dep></entry>
+      <entry>
+        <ind>0.0</ind>
+        <dep>0</dep>
+      </entry>
+      <entry>
+        <ind>0.2</ind>
+        <dep>0</dep>
+      </entry>
+      <entry>
+        <ind>0.9</ind>
+        <dep>-90</dep>
+      </entry>
+      <entry>
+        <ind>1.0</ind>
+        <dep>-90</dep>
+      </entry>
     </interpolation>
     <center>
       <x-m>2.00</x-m>
@@ -714,8 +807,14 @@ ________________________________________________________________________________
     <object-name>hook</object-name>
     <property>gear/tailhook/position-norm</property>
     <interpolation>
-      <entry><ind>0.0</ind><dep>0</dep></entry>
-      <entry><ind>0.2</ind><dep>70</dep></entry>
+      <entry>
+        <ind>0.0</ind>
+        <dep>0</dep>
+      </entry>
+      <entry>
+        <ind>0.2</ind>
+        <dep>70</dep>
+      </entry>
     </interpolation>
     <center>
       <x-m>3.475</x-m>
@@ -762,4 +861,3 @@ ________________________________________________________________________________
 
 
 </PropertyList>
-

@@ -21,97 +21,148 @@ see :
   -->
   <keyboard>
 
-  <!--
+    <!--
 ________________________________________________________________________________
                                          RAS of some useless keys for bourrasque
   -->
     <key n="2">
       <name>ctrl-b</name>
       <desc>RAZ</desc>
-      <binding n="0"><command>nasal</command><script /></binding>
+      <binding n="0">
+        <command>nasal</command>
+        <script />
+      </binding>
     </key>
     <key n="7">
       <name>ctrl-g</name>
       <desc>RAZ</desc>
-      <binding><command>nasal</command><script /></binding>
+      <binding>
+        <command>nasal</command>
+        <script />
+      </binding>
     </key>
     <key n="10">
       <name>Enter</name>
       <desc>RAZ</desc>
-      <binding><command>nasal</command><script /></binding>
+      <binding>
+        <command>nasal</command>
+        <script />
+      </binding>
     </key>
     <key n="13">
       <name>Keypad Enter</name>
       <desc>RAZ</desc>
-      <binding><command>nasal</command><script /></binding>
+      <binding>
+        <command>nasal</command>
+        <script />
+      </binding>
     </key>
     <key n="20">
       <name>ctrl-t</name>
       <desc>RAZ</desc>
-      <binding><command>nasal</command><script /></binding>
+      <binding>
+        <command>nasal</command>
+        <script />
+      </binding>
     </key>
     <key n="21">
       <name>ctrl-u</name>
       <desc>RAZ</desc>
-      <binding><command>nasal</command><script /></binding>
+      <binding>
+        <command>nasal</command>
+        <script />
+      </binding>
     </key>
     <key n="23">
       <name>ctrl-w</name>
       <desc>RAZ</desc>
-      <binding><command>nasal</command><script /></binding>
+      <binding>
+        <command>nasal</command>
+        <script />
+      </binding>
     </key>
     <key n="33">
       <name>!</name>
       <desc>RAZ</desc>
-      <binding><command>nasal</command><script /></binding>
+      <binding>
+        <command>nasal</command>
+        <script />
+      </binding>
     </key>
     <key n="35">
       <name>#</name>
       <desc>RAZ</desc>
-      <binding><command>nasal</command><script /></binding>
+      <binding>
+        <command>nasal</command>
+        <script />
+      </binding>
     </key>
     <key n="36">
       <name>$</name>
       <desc>RAZ</desc>
-      <binding><command>nasal</command><script /></binding>
+      <binding>
+        <command>nasal</command>
+        <script />
+      </binding>
     </key>
     <key n="48">
       <name>0</name>
       <desc>RAZ</desc>
-      <binding><command>nasal</command><script /></binding>
+      <binding>
+        <command>nasal</command>
+        <script />
+      </binding>
     </key>
     <key n="64">
       <name>@</name>
       <desc>RAZ</desc>
-      <binding><command>nasal</command><script /></binding>
+      <binding>
+        <command>nasal</command>
+        <script />
+      </binding>
     </key>
     <key n="80">
       <name>P</name>
       <desc>RAZ</desc>
-      <binding><command>nasal</command><script /></binding>
+      <binding>
+        <command>nasal</command>
+        <script />
+      </binding>
     </key>
     <key n="83">
       <name>S</name>
       <desc>RAZ</desc>
-      <binding><command>nasal</command><script /></binding>
+      <binding>
+        <command>nasal</command>
+        <script />
+      </binding>
     </key>
     <key n="99">
       <name>c</name>
       <desc>RAZ</desc>
-      <binding><command>nasal</command><script /></binding>
+      <binding>
+        <command>nasal</command>
+        <script />
+      </binding>
     </key>
     <key n="126">
       <name>~</name>
       <desc>RAZ</desc>
-      <binding><command>nasal</command><script /></binding>
+      <binding>
+        <command>nasal</command>
+        <script />
+      </binding>
     </key>
     <key n="262">
       <name>F6</name>
       <desc>RAZ</desc>
-      <binding><command>nasal</command><script /></binding>
+      <binding>
+        <command>nasal</command>
+        <script />
+      </binding>
     </key>
 
-  <!--
+    <!--
 ________________________________________________________________________________
                                                                            TOOLS
   -->
@@ -140,7 +191,7 @@ tools.event_reinit_loop();
       </binding>
     </key>
 
-  <!--
+    <!--
 ________________________________________________________________________________
                                                                         COMMANDS
   -->
@@ -489,7 +540,7 @@ instrument_chrono.event_click_chr_btn();
       </binding>
     </key>
 
-  <!--
+    <!--
 ________________________________________________________________________________
                                                                         CONTROLS
   -->
@@ -509,12 +560,12 @@ my_aircraft_functions.center_flight_controls();
       <mod-ctrl>
         <desc>center all trim</desc>
         <binding>
-        <command>nasal</command>
-        <script>
-          <![CDATA[
+          <command>nasal</command>
+          <script>
+            <![CDATA[
 my_aircraft_functions.center_flight_controls_trim();
           ]]>
-        </script>
+          </script>
         </binding>
       </mod-ctrl>
     </key>
@@ -712,7 +763,7 @@ my_aircraft_functions.inc_throttle(-0.01, -1);
       </binding>
     </key>
 
-  <!--
+    <!--
 ________________________________________________________________________________
                                                                            VIEWS
   -->
@@ -808,151 +859,160 @@ my_aircraft_functions.view_cockpit_panels(1);
 ================================================================================
   -->
   <mice>
-  <mouse n="0">
+    <mouse n="0">
 
-  <!--
+      <!--
 ________________________________________________________________________________
                                                                          BUTTONS
   -->
-    <mode n="1"> <!-- crosshair -->
+      <mode n="1">
+        <!-- crosshair -->
 
-      <button n="3"> <!-- scroll up adjust throttle if AP disabled, adjust speed if AP enabled -->
-        <binding>
-          <command>nasal</command>
-          <script>
-            <![CDATA[
+        <button n="3">
+          <!-- scroll up adjust throttle if AP disabled, adjust speed if AP enabled -->
+          <binding>
+            <command>nasal</command>
+            <script>
+              <![CDATA[
 my_aircraft_functions.inc_throttle(0.01, 1);
             ]]>
-          </script>
-          <offset>0</offset>
-          <property />
-          <step />
-        </binding>
-      </button>
+            </script>
+            <offset>0</offset>
+            <property />
+            <step />
+          </binding>
+        </button>
 
-      <button n="4"> <!-- scroll down adjust throttle if AP disabled, adjust speed if AP enabled -->
-        <binding>
-          <command>nasal</command>
-          <script>
-            <![CDATA[
+        <button n="4">
+          <!-- scroll down adjust throttle if AP disabled, adjust speed if AP enabled -->
+          <binding>
+            <command>nasal</command>
+            <script>
+              <![CDATA[
 my_aircraft_functions.inc_throttle(-0.01, -1);
             ]]>
-          </script>
-          <offset>0</offset>
-          <property />
-          <step />
-        </binding>
-      </button>
+            </script>
+            <offset>0</offset>
+            <property />
+            <step />
+          </binding>
+        </button>
 
-  <!--
+        <!--
 ________________________________________________________________________________
                                                                LEFT/RIGHT MOTION
   -->
-      <x-axis>
-        <!-- no buttons pressed: control ailerons -->
-        <binding n="0">
-          <condition>
-            <and>
-              <not><property>/devices/status/mice/mouse[0]/button[0]</property></not>
-              <not><property>/devices/status/mice/mouse[0]/button[1]</property></not>
-            </and>
-          </condition>
-          <command>property-adjust</command>
-          <property>/controls/flight/aileron</property>
-          <factor type="double">1.0</factor>
-          <min type="double">-1.0</min>
-          <max type="double">1.0</max>
-          <wrap type="bool">false</wrap>
-        </binding>
-
-        <!-- 2nd binding has to be void to disable default conditions -->
-        <binding n="1">
-          <condition n="0" />
-          <command>nasal</command>
-          <property />
-          <factor />
-          <min />
-          <max />
-          <wrap />
-        </binding>
-
-        <!-- left or middle button pressed : control rudder -->
-        <binding n="2">
-          <condition>
-            <or>
-              <property>/devices/status/mice/mouse[0]/button[0]</property>
+        <x-axis>
+          <!-- no buttons pressed: control ailerons -->
+          <binding n="0">
+            <condition>
               <and>
-                <property>/devices/status/mice/mouse[0]/button[1]</property>
-                <property>/gear/gear[0]/wow</property>
+                <not>
+                  <property>/devices/status/mice/mouse[0]/button[0]</property>
+                </not>
+                <not>
+                  <property>/devices/status/mice/mouse[0]/button[1]</property>
+                </not>
               </and>
-            </or>
-          </condition>
-          <command>property-adjust</command>
-          <property>/controls/flight/rudder</property>
-          <factor type="double">.7</factor>
-          <min type="double">-1.0</min>
-          <max type="double">1.0</max>
-          <wrap type="bool">false</wrap>
-        </binding>
-      </x-axis>
+            </condition>
+            <command>property-adjust</command>
+            <property>/controls/flight/aileron</property>
+            <factor type="double">1.0</factor>
+            <min type="double">-1.0</min>
+            <max type="double">1.0</max>
+            <wrap type="bool">false</wrap>
+          </binding>
 
-  <!--
+          <!-- 2nd binding has to be void to disable default conditions -->
+          <binding n="1">
+            <condition n="0" />
+            <command>nasal</command>
+            <property />
+            <factor />
+            <min />
+            <max />
+            <wrap />
+          </binding>
+
+          <!-- left or middle button pressed : control rudder -->
+          <binding n="2">
+            <condition>
+              <or>
+                <property>/devices/status/mice/mouse[0]/button[0]</property>
+                <and>
+                  <property>/devices/status/mice/mouse[0]/button[1]</property>
+                  <property>/gear/gear[0]/wow</property>
+                </and>
+              </or>
+            </condition>
+            <command>property-adjust</command>
+            <property>/controls/flight/rudder</property>
+            <factor type="double">.7</factor>
+            <min type="double">-1.0</min>
+            <max type="double">1.0</max>
+            <wrap type="bool">false</wrap>
+          </binding>
+        </x-axis>
+
+        <!--
 ________________________________________________________________________________
                                                                   UP/DOWN MOTION
   -->
-      <y-axis>
+        <y-axis>
 
-        <!-- no button pressed: control elevator -->
-        <binding n="0">
-          <condition>
-            <not><property>/devices/status/mice/mouse[0]/button[0]</property></not>
-            <not><property>/devices/status/mice/mouse[0]/button[1]</property></not>
-          </condition>
-          <command>property-adjust</command>
-          <property>/controls/flight/elevator</property>
-          <factor type="double">-2.0</factor>
-          <min type="double">-1.0</min>
-          <max type="double">1.0</max>
-          <wrap type="bool">false</wrap>
-        </binding>
+          <!-- no button pressed: control elevator -->
+          <binding n="0">
+            <condition>
+              <not>
+                <property>/devices/status/mice/mouse[0]/button[0]</property>
+              </not>
+              <not>
+                <property>/devices/status/mice/mouse[0]/button[1]</property>
+              </not>
+            </condition>
+            <command>property-adjust</command>
+            <property>/controls/flight/elevator</property>
+            <factor type="double">-2.0</factor>
+            <min type="double">-1.0</min>
+            <max type="double">1.0</max>
+            <wrap type="bool">false</wrap>
+          </binding>
 
-        <!-- left button pressed : control elevator if no mod=taxi and wow -->
-        <binding n="1">
-          <condition>
-            <property>/devices/status/mice/mouse[0]/button[0]</property>
-            <not>
-              <equals>
-                <property>/instrumentation/my_aircraft/nd/controls/mode</property>
-                <value>TAXI</value>
-              </equals>
-              <property>/gear/gear[0]/wow</property>
-            </not>
-          </condition>
-          <command>property-adjust</command>
-          <property>/controls/flight/elevator</property>
-          <factor type="double">-2.0</factor>
-          <min type="double">-1.0</min>
-          <max type="double">1.0</max>
-          <wrap type="bool">false</wrap>
-        </binding>
+          <!-- left button pressed : control elevator if no mod=taxi and wow -->
+          <binding n="1">
+            <condition>
+              <property>/devices/status/mice/mouse[0]/button[0]</property>
+              <not>
+                <equals>
+                  <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+                  <value>TAXI</value>
+                </equals>
+                <property>/gear/gear[0]/wow</property>
+              </not>
+            </condition>
+            <command>property-adjust</command>
+            <property>/controls/flight/elevator</property>
+            <factor type="double">-2.0</factor>
+            <min type="double">-1.0</min>
+            <max type="double">1.0</max>
+            <wrap type="bool">false</wrap>
+          </binding>
 
-        <!-- middle button pressed: control throttle -->
-        <binding n="2">
-          <command>nasal</command>
-          <script>
-            <![CDATA[
+          <!-- middle button pressed: control throttle -->
+          <binding n="2">
+            <command>nasal</command>
+            <script>
+              <![CDATA[
 my_aircraft_functions.throttle_mouse();
             ]]>
-          </script>
-        </binding>
+            </script>
+          </binding>
 
-      </y-axis>
+        </y-axis>
 
-    </mode>
+      </mode>
 
-  </mouse>
+    </mouse>
   </mice>
 
 </PropertyList>
-
-

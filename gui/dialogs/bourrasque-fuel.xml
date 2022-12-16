@@ -21,13 +21,29 @@ changelog
   <modal type="bool">false</modal>
   <layout>vbox</layout>
   <group>
-    <layout>hbox</layout><empty><stretch>1</stretch></empty>
-    <text><label>bourrasque's fuel</label></text>
-    <empty><stretch>1</stretch></empty>
-    <button><pref-width>16</pref-width><pref-height>16</pref-height><legend />
-      <default>1</default><keynum>27</keynum><border>2</border>
-      <binding><command>dialog-close</command></binding>
-      <binding><command>dialog-apply</command></binding>
+    <layout>hbox</layout>
+    <empty>
+      <stretch>1</stretch>
+    </empty>
+    <text>
+      <label>bourrasque's fuel</label>
+    </text>
+    <empty>
+      <stretch>1</stretch>
+    </empty>
+    <button>
+      <pref-width>16</pref-width>
+      <pref-height>16</pref-height>
+      <legend />
+      <default>1</default>
+      <keynum>27</keynum>
+      <border>2</border>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+      <binding>
+        <command>dialog-apply</command>
+      </binding>
     </button>
   </group>
 
@@ -38,7 +54,8 @@ changelog
     <layout>table</layout>
     <halign>left</halign>
     <checkbox>
-      <row>0</row><col>0</col>
+      <row>0</row>
+      <col>0</col>
       <x>150</x>
       <y>200</y>
       <width>12</width>
@@ -50,7 +67,8 @@ changelog
       </binding>
     </checkbox>
     <text>
-      <row>0</row><col>1</col>
+      <row>0</row>
+      <col>1</col>
       <halign>left</halign>
       <label>Fuel freeze</label>
     </text>
@@ -65,7 +83,8 @@ changelog
     <text>
       <pref-width>150</pref-width>
       <label>level-norm</label>
-      <row>0</row><col>0</col>
+      <row>0</row>
+      <col>0</col>
       <halign>left</halign>
       <format>fuel fraction : %0.2f / 1.00</format>
       <live>true</live>
@@ -74,7 +93,8 @@ changelog
 
     <slider>
       <name>fuel-fraction</name>
-      <row>1</row><col>0</col>
+      <row>1</row>
+      <col>0</col>
       <pref-width>150</pref-width>
       <min>0</min>
       <max>1</max>
@@ -115,4 +135,3 @@ setprop("/consumables/fuel/tank[7]/level-norm", level_norm);
   <hrule />
 
 </PropertyList>
-

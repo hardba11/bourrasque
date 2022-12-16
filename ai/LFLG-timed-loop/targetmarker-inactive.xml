@@ -6,13 +6,12 @@
 
   <nasal>
     <load>
-    <![CDATA[
+      <![CDATA[
 props.globals.initNode("/homemade-loop-timer/color-red", 1, "DOUBLE");
 props.globals.initNode("/homemade-loop-timer/color-green", 0.35, "DOUBLE");
     ]]>
     </load>
-    <unload>
-    </unload>
+    <unload></unload>
   </nasal>
 
   <animation>
