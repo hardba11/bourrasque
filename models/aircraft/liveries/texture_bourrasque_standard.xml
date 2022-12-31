@@ -6,7 +6,7 @@
     <model>
       <livery>
 
-        <name type="string">[1-tactic] low visibility</name>
+        <name type="string">[1-tactic] Low Visibility</name>
         <texture>liveries/texture_bourrasque_standard.png</texture>
         <texture-tank>texture_tanks.png</texture-tank>
         <texture-gears>texture_gears.png</texture-gears>

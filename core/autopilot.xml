@@ -9,11 +9,6 @@
 http://www.flightgear.org/Docs/XMLAutopilot/node4.html
 file Aircraft/Generic/generic-autopilot-helper.xml
 
-
-
-
-
-
 -->
 
 <PropertyList>
@@ -45,6 +40,9 @@ file Aircraft/Generic/generic-autopilot-helper.xml
   TODO
   assouplir entre 130kt et 300kt
   qq parasites vers 400kt
+
+
+<Kp>/_debug/Kp</Kp><Ti>/_debug/Ti</Ti><Td>/_debug/Td</Td>
 
   -->
   <!--
@@ -105,7 +103,6 @@ file Aircraft/Generic/generic-autopilot-helper.xml
     </reference>
     <output>/controls/flight/fbw-aileron</output>
     <config>
-      <!--<Kp>/_debug/Kp</Kp><Ti>/_debug/Ti</Ti><Td>/_debug/Td</Td>-->
       <Kp>
         <expression>
           <table>
@@ -137,9 +134,6 @@ file Aircraft/Generic/generic-autopilot-helper.xml
       </condition>
       <value>0.3</value>
     </gain>
-<!--
-    <gain>1.0</gain>
--->
     <gain>
       <expression>
         <table>
@@ -176,8 +170,9 @@ file Aircraft/Generic/generic-autopilot-helper.xml
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                                                                            PITCH
   -->
+
   <pid-controller>
-    <name>fbw-elevator</name>
+    <name>fbw-elevator-g</name>
     <debug>false</debug>
     <enable>
       <condition>
@@ -222,11 +217,8 @@ file Aircraft/Generic/generic-autopilot-helper.xml
         </table>
       </expression>
     </reference>
-    <output>/controls/flight/fbw-elevator</output>
+    <output>/controls/flight/fbw-elevator-g</output>
     <config>
-      <!--
-<Kp>/_debug/Kp</Kp><Ti>/_debug/Ti</Ti><Td>/_debug/Td</Td>
--->
       <Kp>
         <expression>
           <table>
@@ -250,26 +242,16 @@ file Aircraft/Generic/generic-autopilot-helper.xml
       <u_max>1.0</u_max>
     </config>
   </pid-controller>
+
   <filter>
-    <name>fcm-elevator</name>
+    <name>fcm-elevator-g</name>
     <type>gain</type>
-    <gain>
-      <condition>
-        <property>/controls/gear/gear-down</property>
-      </condition>
-      <value>0.6</value>
-    </gain>
-<!--
-    <gain>1.0</gain>
--->
     <gain>
       <expression>
         <table>
           <property>/velocities/airspeed-kt</property>
-          <entry><ind>100</ind><dep>0.4</dep></entry>
-          <entry><ind>150</ind><dep>0.4</dep></entry>
-          <entry><ind>200</ind><dep>0.6</dep></entry>
-          <entry><ind>250</ind><dep>0.8</dep></entry>
+          <entry><ind>200</ind><dep>0.0</dep></entry>
+          <entry><ind>260</ind><dep>0.5</dep></entry>
           <entry><ind>300</ind><dep>1.0</dep></entry>
           <entry><ind>1500</ind><dep>1.0</dep></entry>
         </table>
@@ -288,12 +270,121 @@ file Aircraft/Generic/generic-autopilot-helper.xml
           </or>
         </not>
       </condition>
-      <property>/controls/flight/fbw-elevator</property>
+      <property>/controls/flight/fbw-elevator-g</property>
     </input>
     <input>/controls/flight/elevator</input>
-    <output>/controls/flight/fcm-elevator</output>
+    <output>/controls/flight/fcm-elevator-g</output>
   </filter>
 
+  <pid-controller>
+    <name>fbw-elevator-aoa</name>
+    <debug>false</debug>
+    <enable>
+      <condition>
+        <not>
+          <or>
+            <equals><property>/gear/gear[1]/wow</property><value>1</value></equals>
+            <equals><property>/gear/gear[2]/wow</property><value>1</value></equals>
+          </or>
+        </not>
+      </condition>
+    </enable>
+    <feedback-if-disabled>true</feedback-if-disabled>
+    <input>
+      <expression>
+        <table>
+          <property>/orientation/alpha-deg</property>
+          <entry><ind>-60</ind><dep>1.00</dep></entry>
+          <entry><ind>2.5</ind><dep>0.00</dep></entry>
+          <entry><ind>25.0</ind><dep>-1.00</dep></entry>
+        </table>
+      </expression>
+    </input>
+    <reference>
+      <expression>
+        <table>
+          <property>/controls/flight/elevator</property>
+          <entry><ind>-1.000</ind><dep>-0.999</dep></entry>
+          <entry><ind>-0.200</ind><dep>-0.050</dep></entry>
+          <entry><ind>-0.007</ind><dep>0.000</dep></entry>
+          <entry><ind>0.000</ind><dep>0.000</dep></entry>
+          <entry><ind>0.007</ind><dep>0.000</dep></entry>
+          <entry><ind>0.200</ind><dep>0.050</dep></entry>
+          <entry><ind>1.000</ind><dep>0.999</dep></entry>
+        </table>
+      </expression>
+    </reference>
+    <output>/controls/flight/fbw-elevator-aoa</output>
+    <config>
+      <Kp>
+        <expression>
+          <table>
+            <property>/velocities/airspeed-kt</property>
+            <entry><ind>100</ind><dep>1.7</dep></entry>
+            <entry><ind>150</ind><dep>1.6</dep></entry>
+            <entry><ind>200</ind><dep>1</dep></entry>
+            <entry><ind>300</ind><dep>0.8</dep></entry>
+            <entry><ind>450</ind><dep>0.55</dep></entry>
+            <entry><ind>600</ind><dep>0.4</dep></entry>
+            <entry><ind>800</ind><dep>0.2</dep></entry>
+            <entry><ind>1000</ind><dep>0.10</dep></entry>
+            <entry><ind>1200</ind><dep>0.05</dep></entry>
+            <entry><ind>1500</ind><dep>0.02</dep></entry>
+          </table>
+        </expression>
+      </Kp>
+      <Ti>1</Ti>
+      <Td>0.00001</Td>
+      <u_min>-1.0</u_min>
+      <u_max>1.0</u_max>
+    </config>
+  </pid-controller>
+
+  <filter>
+    <name>fcm-elevator-aoa</name>
+    <type>gain</type>
+    <gain>
+      <expression>
+        <table>
+          <property>/velocities/airspeed-kt</property>
+          <entry><ind>200</ind><dep>1.0</dep></entry>
+          <entry><ind>260</ind><dep>0.5</dep></entry>
+          <entry><ind>300</ind><dep>0.0</dep></entry>
+        </table>
+      </expression>
+    </gain>
+    <input>
+      <condition>
+        <not>
+          <or>
+            <equals><property>/gear/gear[1]/wow</property><value>1</value></equals>
+            <equals><property>/gear/gear[2]/wow</property><value>1</value></equals>
+          </or>
+        </not>
+      </condition>
+      <property>/controls/flight/fbw-elevator-aoa</property>
+    </input>
+    <input>/controls/flight/elevator</input>
+    <output>/controls/flight/fcm-elevator-aoa</output>
+  </filter>
+
+  <filter>
+    <name>fcm-elevator</name>
+    <type>gain</type>
+    <gain>1.0</gain>
+    <input>
+      <expression>
+        <div>
+          <sum>
+            <property>/controls/flight/fcm-elevator-g</property>
+            <property>/controls/flight/fcm-elevator-aoa</property>
+          </sum>
+          <value>2</value>
+        </div>
+      </expression>
+    </input>
+    <output>/controls/flight/fcm-elevator</output>
+  </filter>
 
   <!--
 ================================================================================

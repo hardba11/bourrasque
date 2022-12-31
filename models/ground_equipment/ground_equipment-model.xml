@@ -35,6 +35,20 @@ changelog
     <object-name>extincteur</object-name>
     <object-name>cone</object-name>
   </animation>
+  <effect>
+    <inherits-from>Aircraft/bourrasque/models/effects/aircraft/aircraft</inherits-from>
+    <object-name>ground_equipment.engine</object-name>
+    <object-name>ground_equipment.flags</object-name>
+    <object-name>ground_equipment.gears</object-name>
+    <object-name>ground_equipment.scale</object-name>
+    <object-name>external-power-unit.box</object-name>
+    <object-name>external-power-unit.wire</object-name>
+    <object-name>fuel-truck.base</object-name>
+    <object-name>fuel-truck.pipe</object-name>
+    <object-name>fuel-truck.tank</object-name>
+    <object-name>extincteur</object-name>
+    <object-name>cone</object-name>
+  </effect>
 
   <!--
 ================================================================================

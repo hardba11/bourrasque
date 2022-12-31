@@ -14,12 +14,12 @@ see :
 <PropertyList>
 
   <enable3d>true</enable3d>
-  <!--
+<!--
 ================================================================================
                                                                           LADDER
 ================================================================================
 -->
-  <!-- ~~~~~~~~~~~~~~~~~~ ladder 5 for VFR mode -->
+<!-- ~~~~~~~~~~~~~~~~~~ ladder 5 for VFR mode -->
   <ladder>
     <name>Pitch Ladder VFR</name>
     <type>pitch</type>
@@ -65,7 +65,7 @@ see :
       </or>
     </condition>
   </ladder>
-  <!-- ~~~~~~~~~~~~~~~~~~ ladder 5 for NAV mode -->
+<!-- ~~~~~~~~~~~~~~~~~~ ladder 5 for NAV mode -->
   <ladder>
     <name>Pitch Ladder NAV</name>
     <type>pitch</type>
@@ -111,7 +111,7 @@ see :
       </or>
     </condition>
   </ladder>
-  <!-- ~~~~~~~~~~~~~~~~~~ ladder 2 for APP mode -->
+<!-- ~~~~~~~~~~~~~~~~~~ ladder 2 for APP mode -->
   <ladder>
     <name>Pitch Ladder APP</name>
     <type>pitch</type>
@@ -157,7 +157,7 @@ see :
       </or>
     </condition>
   </ladder>
-  <!-- ~~~~~~~~~~~~~~~~~~ ladder 0 for TAXI mode -->
+<!-- ~~~~~~~~~~~~~~~~~~ ladder 0 for TAXI mode -->
   <ladder>
     <name>Pitch Ladder TAXI</name>
     <type>pitch</type>
@@ -204,12 +204,12 @@ see :
     </condition>
   </ladder>
 
-  <!--
+<!--
 ================================================================================
                                                              TURN BANK INDICATOR
 ================================================================================
 -->
-  <!-- ~~~~~~~~~~~~~~~~~~ tbi for NAV, VFR mode -->
+<!-- ~~~~~~~~~~~~~~~~~~ tbi for NAV, VFR mode -->
   <turn-bank-indicator>
     <name>Turn Indicator</name>
     <x>-50</x>
@@ -239,7 +239,7 @@ see :
     </condition>
   </turn-bank-indicator>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ tbi for APP mode -->
+<!-- ~~~~~~~~~~~~~~~~~~ tbi for APP mode -->
   <turn-bank-indicator>
     <name>Turn Indicator APP</name>
     <x>-80</x>
@@ -265,12 +265,12 @@ see :
     </condition>
   </turn-bank-indicator>
 
-  <!--
+<!--
 ================================================================================
                                                                          HEADING
 ================================================================================
 -->
-  <!-- ~~~~~~~~~~~~~~~~~~ heading top center for APP, VFR mode -->
+<!-- ~~~~~~~~~~~~~~~~~~ heading top center for APP, VFR mode -->
   <label>
     <name>Heading Label top</name>
     <x>-9</x>
@@ -332,7 +332,7 @@ see :
     </condition>
   </label>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ heading middle center for NAV mode -->
+<!-- ~~~~~~~~~~~~~~~~~~ heading middle center for NAV mode -->
   <label>
     <name>Heading Label middle</name>
     <x>-9</x>
@@ -386,7 +386,7 @@ see :
     </condition>
   </label>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ heading tape top for VFR mode -->
+<!-- ~~~~~~~~~~~~~~~~~~ heading tape top for VFR mode -->
   <tape>
     <name>Gyrocompass</name>
     <input>
@@ -426,7 +426,7 @@ see :
       </or>
     </condition>
   </tape>
-  <!-- ~~~~~~~~~~~~~~~~~~ heading tape middle for NAV mode -->
+<!-- ~~~~~~~~~~~~~~~~~~ heading tape middle for NAV mode -->
   <tape>
     <name>Gyrocompass middle</name>
     <input>
@@ -466,7 +466,7 @@ see :
       </or>
     </condition>
   </tape>
-  <!-- ~~~~~~~~~~~~~~~~~~ heading tape bottom for TAXI mode -->
+<!-- ~~~~~~~~~~~~~~~~~~ heading tape bottom for TAXI mode -->
   <tape>
     <name>Gyrocompass bottom</name>
     <input>
@@ -508,12 +508,12 @@ see :
     </condition>
   </tape>
 
-  <!--
+<!--
 ================================================================================
                                                                            SPEED
 ================================================================================
 -->
-  <!-- ~~~~~~~~~~~~~~~~~~ airspeed in box for APP, NAV, VFR mode -->
+<!-- ~~~~~~~~~~~~~~~~~~ airspeed in box for APP, NAV, VFR mode -->
   <label>
     <name>KIAS</name>
     <x>-109</x>
@@ -582,7 +582,7 @@ see :
       </or>
     </condition>
   </label>
-  <!-- ~~~~~~~~~~~~~~~~~~ airspeed without box for TAXI mode -->
+<!-- ~~~~~~~~~~~~~~~~~~ airspeed without box for TAXI mode -->
   <label>
     <name>KIAS secondary</name>
     <x>-99</x>
@@ -606,7 +606,7 @@ see :
     </condition>
   </label>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ mach -->
+<!-- ~~~~~~~~~~~~~~~~~~ mach -->
   <label>
     <name>MACH Number</name>
     <input>
@@ -637,7 +637,7 @@ see :
     </condition>
   </label>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ groundspeed in box for TAXI mode -->
+<!-- ~~~~~~~~~~~~~~~~~~ groundspeed in box for TAXI mode -->
   <label>
     <name>GroundSpeed</name>
     <input>
@@ -661,7 +661,7 @@ see :
     </condition>
   </label>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ groundspeed without box for APP mode -->
+<!-- ~~~~~~~~~~~~~~~~~~ groundspeed without box for APP mode -->
   <label>
     <name>GroundSpeed secondary</name>
     <input>
@@ -685,7 +685,7 @@ see :
     </condition>
   </label>
 
-  <!--
+<!--
 ================================================================================
                                                                         ALTITUDE
 ================================================================================
@@ -907,12 +907,12 @@ see :
     </condition>
   </tape>
 
-  <!--
+<!--
 ================================================================================
                                                                         COMMANDS
 ================================================================================
 -->
-  <!-- ~~~~~~~~~~~~~~~~~~ commands positions -->
+<!-- ~~~~~~~~~~~~~~~~~~ commands positions -->
   <gauge>
     <name>roll gauge</name>
     <x>80</x>
@@ -997,7 +997,7 @@ see :
     </input>
   </gauge>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ throttle 0 for TAXI and APP mode -->
+<!-- ~~~~~~~~~~~~~~~~~~ throttle 0 for TAXI and APP mode -->
   <gauge>
     <name>throttle0</name>
     <x>-100</x>
@@ -1028,7 +1028,7 @@ see :
       </or>
     </condition>
   </gauge>
-  <!-- ~~~~~~~~~~~~~~~~~~ throttle 1 for TAXI and APP mode -->
+<!-- ~~~~~~~~~~~~~~~~~~ throttle 1 for TAXI and APP mode -->
   <gauge>
     <name>throttle1</name>
     <x>-100</x>
@@ -1060,7 +1060,7 @@ see :
     </condition>
   </gauge>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ throttle 0 for NAV and VFR mode -->
+<!-- ~~~~~~~~~~~~~~~~~~ throttle 0 for NAV and VFR mode -->
   <gauge>
     <name>throttle0-thumb</name>
     <x>-100</x>
@@ -1091,7 +1091,7 @@ see :
       </or>
     </condition>
   </gauge>
-  <!-- ~~~~~~~~~~~~~~~~~~ throttle 1 for NAV and VFR mode -->
+<!-- ~~~~~~~~~~~~~~~~~~ throttle 1 for NAV and VFR mode -->
   <gauge>
     <name>throttle1-thumb</name>
     <x>-100</x>
@@ -1122,12 +1122,13 @@ see :
       </or>
     </condition>
   </gauge>
-  <!--
+
+<!--
 ================================================================================
                                                                   AVIONICS INFOS
 ================================================================================
 -->
-  <!-- ~~~~~~~~~~~~~~~~~~ angle of attack -->
+<!-- ~~~~~~~~~~~~~~~~~~ angle of attack -->
   <label>
     <name>AoA</name>
     <input>
@@ -1169,7 +1170,6 @@ see :
       </or>
     </condition>
   </label>
-
   <tape>
     <name>aoa gauge</name>
     <x>55</x>
@@ -1225,7 +1225,7 @@ see :
     </condition>
   </tape>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ gears -->
+<!-- ~~~~~~~~~~~~~~~~~~ gears -->
   <label>
     <name>Gear</name>
     <x>-56</x>
@@ -1242,7 +1242,7 @@ see :
     <halign>right</halign>
   </label>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ parking brake -->
+<!-- ~~~~~~~~~~~~~~~~~~ parking brake -->
   <label>
     <name>Parking Brake</name>
     <x>-56</x>
@@ -1259,7 +1259,7 @@ see :
     <halign>right</halign>
   </label>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ speed brake -->
+<!-- ~~~~~~~~~~~~~~~~~~ speed brake -->
   <label>
     <name>Speed Brake</name>
     <input>
@@ -1283,7 +1283,7 @@ see :
     <halign>right</halign>
   </label>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ hook -->
+<!-- ~~~~~~~~~~~~~~~~~~ hook -->
   <label>
     <name>Hook</name>
     <x>-56</x>
@@ -1302,7 +1302,7 @@ see :
     <format>hook</format>
     <halign>right</halign>
   </label>
-  <!-- ~~~~~~~~~~~~~~~~~~ launch bar -->
+<!-- ~~~~~~~~~~~~~~~~~~ launch bar -->
   <label>
     <name>Launch Bar</name>
     <x>-78</x>
@@ -1322,7 +1322,7 @@ see :
     <halign>right</halign>
   </label>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ starting -->
+<!-- ~~~~~~~~~~~~~~~~~~ starting -->
   <label>
     <name>starting engine 0</name>
     <x>-20</x>
@@ -1371,7 +1371,7 @@ see :
     <format>ENGINE 1 STARTING</format>
     <halign>center</halign>
   </label>
-  <!-- ~~~~~~~~~~~~~~~~~~ stopped -->
+<!-- ~~~~~~~~~~~~~~~~~~ stopped -->
   <label>
     <name>engine 0 stopped</name>
     <x>-20</x>
@@ -1420,8 +1420,7 @@ see :
     <format>ENGINE 1 STOPPED</format>
     <halign>center</halign>
   </label>
-
-  <!-- ~~~~~~~~~~~~~~~~~~ stopping -->
+<!-- ~~~~~~~~~~~~~~~~~~ stopping -->
   <label>
     <name>starting engine 0</name>
     <x>-20</x>
@@ -1459,7 +1458,7 @@ see :
     <halign>center</halign>
   </label>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ G load -->
+<!-- ~~~~~~~~~~~~~~~~~~ G load -->
   <label>
     <name>G Load</name>
     <x>-60</x>
@@ -1486,12 +1485,12 @@ see :
     </condition>
   </label>
 
-  <!--
+<!--
 ================================================================================
                                                                AVIONICS WARNINGS
 ================================================================================
 -->
-  <!-- ~~~~~~~~~~~~~~~~~~ stall alert -->
+<!-- ~~~~~~~~~~~~~~~~~~ stall alert -->
   <label>
     <name>Stall Alert</name>
     <x>-35</x>
@@ -1517,7 +1516,7 @@ see :
     <halign>left</halign>
   </label>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ stall warning -->
+<!-- ~~~~~~~~~~~~~~~~~~ stall warning -->
   <label>
     <name>Stall Warning</name>
     <x>-40</x>
@@ -1543,7 +1542,7 @@ see :
     <halign>left</halign>
   </label>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ altitude to low -->
+<!-- ~~~~~~~~~~~~~~~~~~ altitude to low -->
   <label>
     <name>elevationWarn</name>
     <x>0</x>
@@ -1577,12 +1576,12 @@ see :
     </blinking>
   </label>
 
-  <!--
+<!--
 ================================================================================
                                                                         NAV DATA
 ================================================================================
 -->
-  <!-- ~~~~~~~~~~~~~~~~~~ GPS data if nav1 slave -->
+<!-- ~~~~~~~~~~~~~~~~~~ GPS data if nav1 slave -->
   <label>
     <name>nav_data_gps_id</name>
     <x>40</x>
@@ -1720,7 +1719,7 @@ see :
     <halign>left</halign>
   </label>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ nav1 data if nav1 master -->
+<!-- ~~~~~~~~~~~~~~~~~~ nav1 data if nav1 master -->
   <label>
     <name>nav_data_nav1_id</name>
     <x>40</x>
@@ -1897,7 +1896,7 @@ see :
     <halign>left</halign>
   </label>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ nav2 data if nav2 selected and adf2 not selected -->
+<!-- ~~~~~~~~~~~~~~~~~~ nav2 data if nav2 selected and adf2 not selected -->
   <label>
     <name>nav_data_nav2_id</name>
     <x>40</x>
@@ -2081,7 +2080,7 @@ see :
     <halign>left</halign>
   </label>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ tacan data if nav2 master and adf2 enabled -->
+<!-- ~~~~~~~~~~~~~~~~~~ tacan data if nav2 master and adf2 enabled -->
   <label>
     <name>nav_data_tacan_id</name>
     <x>40</x>
@@ -2269,14 +2268,14 @@ see :
   </label>
 
 
-  <!--
+<!--
 ================================================================================
                                                                        DEV TOOLS
 ================================================================================
 -->
 
   <gauge>
-    <name>debug fbw-elevator</name>
+    <name>debug fbw-elevator-aoa</name>
     <x>89</x>
     <y>-135</y>
     <width>10</width>
@@ -2285,7 +2284,42 @@ see :
     <option>left</option>
     <option>notext</option>
     <input>
-      <property>/controls/flight/fbw-elevator</property>
+      <property>/controls/flight/fbw-elevator-aoa</property>
+      <factor>-1</factor>
+      <max>1.0</max>
+      <min>-1.0</min>
+    </input>
+    <condition>
+      <property>/_debug/show_devtools</property>
+    </condition>
+  </gauge>
+  <label>
+    <name>debug AoA</name>
+    <input>
+      <property>/orientation/alpha-deg</property>
+    </input>
+    <x>50</x>
+    <y>-105</y>
+    <width>30</width>
+    <height>8</height>
+    <halign>left</halign>
+    <format>aoa %3.1f</format>
+    <condition>
+      <property>/_debug/show_devtools</property>
+    </condition>
+  </label>
+
+  <gauge>
+    <name>debug fbw-elevator-g</name>
+    <x>100</x>
+    <y>-135</y>
+    <width>10</width>
+    <height>48</height>
+    <option>vertical</option>
+    <option>right</option>
+    <option>notext</option>
+    <input>
+      <property>/controls/flight/fbw-elevator-g</property>
       <factor>-1</factor>
       <max>1.0</max>
       <min>-1.0</min>
@@ -2309,10 +2343,11 @@ see :
       <property>/_debug/show_devtools</property>
     </condition>
   </label>
+
   <gauge>
     <name>debug fbw-aileron</name>
     <x>74</x>
-    <y>-135</y>
+    <y>-75</y>
     <width>50</width>
     <height>10</height>
     <option>top</option>
@@ -2330,12 +2365,12 @@ see :
     </condition>
   </gauge>
   <label>
-    <name>rolldegs</name>
-    <x>74</x>
-    <y>-145</y>
+    <name>debug rolldegs</name>
+    <x>80</x>
+    <y>-68</y>
     <width>20</width>
     <height>6</height>
-    <format>%.02f</format>
+    <format>roll %.02f</format>
     <input>
       <property>/orientation/roll-rate-degps</property>
     </input>

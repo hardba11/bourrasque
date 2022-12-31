@@ -6,9 +6,9 @@
     <model>
       <livery>
 
-        <name type="string">[3-artwork] Furtiv Night</name>
-        <texture>liveries/texture_bourrasque_furtiv_night.png</texture>
-        <texture-tank>texture_tanks_furtiv_night.png</texture-tank>
+        <name type="string">[2-legende] Japan</name>
+        <texture>liveries/texture_bourrasque_japon.png</texture>
+        <texture-tank>texture_tanks.png</texture-tank>
         <texture-gears>texture_gears.png</texture-gears>
 
       </livery>
