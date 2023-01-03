@@ -355,9 +355,9 @@ http://wiki.flightgear.org/Property_tree
 
   <!-- for tests and settings -->
   <_debug>
-    <Kp type="float">1.0</Kp>
-    <Ti type="float">10000000000.0</Ti>
-    <Td type="float">0.0</Td>
+    <Kp type="float">1.6</Kp>
+    <Ti type="float">1.0</Ti>
+    <Td type="float">0.00001</Td>
     <int1 type="int">0</int1>
     <int2 type="int">0</int2>
     <int3 type="int">0</int3>

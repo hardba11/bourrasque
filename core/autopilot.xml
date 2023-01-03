@@ -58,10 +58,10 @@ file Aircraft/Generic/generic-autopilot-helper.xml
           <or>
             <equals><property>/gear/gear[1]/wow</property><value>1</value></equals>
             <equals><property>/gear/gear[2]/wow</property><value>1</value></equals>
-            <greater-than-equals>
+            <!--greater-than-equals>
               <property>/velocities/airspeed-kt</property>
               <value>1800</value>
-            </greater-than-equals>
+            </greater-than-equals-->
           </or>
         </not>
       </condition>
@@ -143,7 +143,11 @@ file Aircraft/Generic/generic-autopilot-helper.xml
           <entry><ind>200</ind><dep>0.6</dep></entry>
           <entry><ind>250</ind><dep>0.8</dep></entry>
           <entry><ind>300</ind><dep>1.0</dep></entry>
-          <entry><ind>1500</ind><dep>1.0</dep></entry>
+          <entry><ind>600</ind><dep>1.0</dep></entry>
+          <entry><ind>800</ind><dep>0.6</dep></entry>
+          <entry><ind>1000</ind><dep>0.2</dep></entry>
+          <entry><ind>1600</ind><dep>0.1</dep></entry>
+          <entry><ind>2000</ind><dep>0.1</dep></entry>
         </table>
       </expression>
     </gain>
@@ -153,10 +157,6 @@ file Aircraft/Generic/generic-autopilot-helper.xml
           <or>
             <equals><property>/gear/gear[1]/wow</property><value>1</value></equals>
             <equals><property>/gear/gear[2]/wow</property><value>1</value></equals>
-            <greater-than-equals>
-              <property>/velocities/airspeed-kt</property>
-              <value>1800</value>
-            </greater-than-equals>
           </or>
         </not>
       </condition>
@@ -316,25 +316,9 @@ file Aircraft/Generic/generic-autopilot-helper.xml
     </reference>
     <output>/controls/flight/fbw-elevator-aoa</output>
     <config>
-      <Kp>
-        <expression>
-          <table>
-            <property>/velocities/airspeed-kt</property>
-            <entry><ind>100</ind><dep>1.7</dep></entry>
-            <entry><ind>150</ind><dep>1.6</dep></entry>
-            <entry><ind>200</ind><dep>1</dep></entry>
-            <entry><ind>300</ind><dep>0.8</dep></entry>
-            <entry><ind>450</ind><dep>0.55</dep></entry>
-            <entry><ind>600</ind><dep>0.4</dep></entry>
-            <entry><ind>800</ind><dep>0.2</dep></entry>
-            <entry><ind>1000</ind><dep>0.10</dep></entry>
-            <entry><ind>1200</ind><dep>0.05</dep></entry>
-            <entry><ind>1500</ind><dep>0.02</dep></entry>
-          </table>
-        </expression>
-      </Kp>
+      <Kp>1.6</Kp>
       <Ti>1</Ti>
-      <Td>0.00001</Td>
+      <Td>0.000005</Td>
       <u_min>-1.0</u_min>
       <u_max>1.0</u_max>
     </config>
