@@ -29,11 +29,11 @@ print("*** LOADING tools - assistance.nas ... ***");
 #      |                                 |||                           |                 |
 #  0  W+--------------------------------+-0-+--------------------------+                 |E
 #      |                                |   |                          |                 |
-#      |  zone1      ^                  | ^ | zone2_2  ---->           |                 |
+#      |  zone1      ^                  | ^ | zone2_2                  |                 |
 #      |  ENTRANCE   |                  | | | CROSSWIND                |                 |
 #      |  250kt      |                  | | | 200kt                    |                 |
 #      |  2500ft     |                  | | | 1500ft                   |                 |
-#      |                                |   |                          |                 |
+#      |                                |   | ---->                    |                 |
 #      |                                |z6 |                          |                 |
 # -.1  |                                | F +------------+-------------+                 |
 #      |                                | I |            |             |                 |
@@ -48,6 +48,39 @@ print("*** LOADING tools - assistance.nas ... ***");
 # -.2  '--------------------------------+---+------------+-------------------------------'
 #                                         S
 #     -.2                          -.015  0 .015       .05             .1               .2
+
+#                                         N
+#  .1  .-------------------------------------------------+-------------------------------.
+#      |                                                 |                               |
+#      |  zone2_1 ------>                                | zone3    |                    |
+#      |  CROSSWIND                                      | DOWNWIND |                    |
+#      |  250kt                          |||             | 200kt    |                    |
+#      |  2500ft                         |.|             | 1500ft   V                    |
+#      |                                 |.|             |                               |
+#      |                                 |.|             |                               |
+#      |                                 |.|             |                               |
+#      |                                 |||             |                               |
+#  0  W+--------------------------------+-0-+------------+                               |E
+#      |                                |   |            |                               |
+#      |  zone1      ^                  | ^ | zone2_2    |                               |
+#      |  ENTRANCE   |                  | | | CROSSWIND  |                               |
+#      |  250kt      |                  | | | 200kt      |                               |
+#      |  2500ft     |                  | | | 1500ft     |                               |
+#      |                                |   | ---->      |                               |
+#      |                                |z6 |            |                               |
+# -.1  |                                | F +------------+                               |
+#      |                                | I |            |                               |
+#      |                                | N | zone4      |                               |
+#      |                                | A | BASE       |                               |
+#      |                                | L | 200kt      |                               |
+# -.15 |                                |   | 1500ft     +-------------------------------+
+#      |                                |   | __         |                               |
+#      |                                |   | |\         | zone5  <-----                 |
+#      |                                |   |   \        | BASE                          |
+#      |                                |   |    \       | 200kt 1500ft                  |
+# -.2  '--------------------------------+---+------------+-------------------------------'
+#                                         S
+#     -.2                          -.015  0 .015       .05                              .2
 #
 # how to install for another aircraft
 # -----------------------------------
@@ -154,7 +187,7 @@ var get_aircraft_info = func() {
     var a = {};
 
     a['callsign']     = getprop("/sim/multiplay/callsign") or 'callsig';
-    a['heading']      = getprop("/orientation/heading-magnetic-deg") or 0;
+    a['heading']      = getprop("/orientation/heading-deg") or 0; # true north
     a['altitude']     = getprop("/position/altitude-ft") or 0;
     a['speed']        = getprop("/velocities/airspeed-kt") or 0;
     a['is_gear_down'] = getprop("/controls/gear/gear-down") or 0;
@@ -191,7 +224,7 @@ var get_airport_info = func() {
     }
     my_runway = runways[longest_rwy_id];
     a['rwy']        = longest_rwy_id;
-    a['heading']    = my_runway.heading;
+    a['heading']    = my_runway.heading; # true north
     a['lng']        = my_runway.lon;
     a['lat']        = my_runway.lat;
     a['rwy_length'] = my_runway.length * 3.28;
@@ -206,7 +239,7 @@ var get_airport_info = func() {
 # on doit donc aussi rotationner et translater les coords de l avion
 # on recupere l angle + distance actuels de l avion par rapport a
 # l aeroport
-var find_in_which_zone_is_aircraft = func(lat, lng, heading, aircraft_bearing, aircraft_dist_nm) {
+var find_in_which_zone_is_aircraft = func(lat, lng, heading, aircraft_bearing, aircraft_dist_nm, aircraft_elevation) {
 
     var atc_zone = [
         {
@@ -224,7 +257,7 @@ var find_in_which_zone_is_aircraft = func(lat, lng, heading, aircraft_bearing, a
             'id': 'zone2_1',
             'top_left_x': -.2,
             'top_left_y': .1,
-            'bottom_right_x': .1,
+            'bottom_right_x': .05,
             'bottom_right_y': 0,
             'speed': 250,
             'heading': 90,
@@ -235,7 +268,7 @@ var find_in_which_zone_is_aircraft = func(lat, lng, heading, aircraft_bearing, a
             'id': 'zone2_2',
             'top_left_x': .015,
             'top_left_y': 0,
-            'bottom_right_x': .1,
+            'bottom_right_x': .05,
             'bottom_right_y': -.1,
             'speed': 200,
             'heading': 90,
@@ -243,21 +276,10 @@ var find_in_which_zone_is_aircraft = func(lat, lng, heading, aircraft_bearing, a
             'circuit': 'crosswind',
         },
         {
-            'id': 'zone3_1',
-            'top_left_x': .1,
+            'id': 'zone3',
+            'top_left_x': .05,
             'top_left_y': .1,
             'bottom_right_x': .2,
-            'bottom_right_y': -.15,
-            'speed': 200,
-            'heading': 180,
-            'alt': 1500,
-            'circuit': 'downwind',
-        },
-        {
-            'id': 'zone3_2',
-            'top_left_x': .05,
-            'top_left_y': -.1,
-            'bottom_right_x': .1,
             'bottom_right_y': -.15,
             'speed': 200,
             'heading': 180,
@@ -298,6 +320,20 @@ var find_in_which_zone_is_aircraft = func(lat, lng, heading, aircraft_bearing, a
             'circuit': 'final',
         },
     ];
+    var zone_outside = {
+        'id': 'OUTSIDE',
+        'speed': 300,
+        'heading': 0,
+        'alt': 5000,
+        'circuit': 'outside',
+    };
+    var zone_landing = {
+        'id': 'LANDING',
+        'speed': 150,
+        'heading': 0,
+        'alt': 0,
+        'circuit': 'landing',
+    };
 
     var coord = geo.Coord.new();
     coord.set_latlon(lat, lng);
@@ -320,20 +356,17 @@ var find_in_which_zone_is_aircraft = func(lat, lng, heading, aircraft_bearing, a
             and (translated_aircraft_lat > zone['bottom_right_y'])
             and (translated_aircraft_lat < zone['top_left_y']))
         {
+            # la zone 2_1 ne va pas jusqu'au sol
+            if((zone['id'] == 'zone2_1') and (aircraft_elevation < 200))
+            {
+                return zone_landing;
+            }
             return zone;
         }
     }
 
     # if not found, return default zone
-    var zone = {
-        'id': 'OUTSIDE',
-        'speed': 300,
-        'heading': 0,
-        'alt': 5000,
-        'circuit': 'outside',
-    };
-
-    return zone
+    return zone_outside;
 }
 
 #-------------------------------------------------------------------------------
@@ -375,7 +408,7 @@ var assistance_loop = func() {
                 setprop("/sim/messages/atc", assistance_message);
 
                 assistance_message = sprintf(
-                    "Follow my instructions, heading in magnetic, set altitude %.2f inhg",
+                    "Follow my instructions, heading true north, set altitude %.2f inhg",
                     getprop("/environment/pressure-sea-level-inhg"));
                 #print(assistance_message);
                 setprop("/sim/messages/atc", assistance_message);
@@ -392,20 +425,21 @@ var assistance_loop = func() {
             var to = coord_aircraft;
             var (aircraft_bearing_from_airport, dist_nm) = courseAndDistance(from, to);
             var airport_bearing_from_aircraft = math.mod((aircraft_bearing_from_airport + 180), 360);
-            var zone = find_in_which_zone_is_aircraft(airport['lat'], airport['lng'], airport['heading'], aircraft_bearing_from_airport, dist_nm);
+            var zone = find_in_which_zone_is_aircraft(airport['lat'], airport['lng'], airport['heading'], aircraft_bearing_from_airport, dist_nm, aircraft['altitude'] - airport['elevation_ft']);
 
             atc['heading'] = math.mod(airport['heading'] + zone['heading'], 360);
             atc['speed']   = zone['speed'];
             atc['alt']     = (sprintf('%d', zone['alt'] / 100) + sprintf('%d', airport['elevation_ft'] / 100)) * 100;
             atc['circuit'] = zone['circuit'];
 
-            var assistance_message                = '';
+            #print("DEBUG airport[heading]="~ airport['heading'] ~" aircraft_bearing_from_airport="~ aircraft_bearing_from_airport ~" aircraft[heading]"~ aircraft['heading']);
+
+            var assistance_message            = '';
             var assistance_message_header     = sprintf('atc %s, %s.', airport['id'], aircraft['callsign']);
             var assistance_message_horizontal = '';
             var assistance_message_vertical   = '';
             var assistance_message_vitesse    = '';
             var assistance_message_bonus      = '';
-
 
 # GESTION DES MESSAGES POUR LA PARTIE HORIZONTALE
             # on gere differemment selon si l avion est dans ou hors zone
@@ -434,6 +468,10 @@ var assistance_loop = func() {
                             airport['rwy'],
                             correction);
                     }
+                }
+                elsif(atc['circuit'] == 'landing')
+                {
+                    assistance_message_horizontal = sprintf('landing.');
                 }
                 elsif(math.cos((aircraft['heading'] - atc['heading']) * D2R) > math.cos(5 * D2R))
                 {
@@ -517,12 +555,14 @@ var assistance_loop = func() {
             {
                 assistance_message_vertical = sprintf('keep 3deg descent glide.');
             }
-
+            elsif(atc['circuit'] == 'landing')
+            {
+                assistance_message_vertical = '';
+            }
             elsif(atc['circuit'] == 'outside')
             {
                 assistance_message_vertical = '';
             }
-
             elsif(aircraft['altitude'] > (atc['alt'] + 100))
             {
                 assistance_message_vertical = sprintf('descend to %d ft (%.2f inhg).',
@@ -542,7 +582,11 @@ var assistance_loop = func() {
             }
 
 # GESTION DES MESSAGES POUR LA PARTIE VITESSE
-            if(aircraft['speed'] > (atc['speed'] + 20))
+            if(atc['circuit'] == 'landing')
+            {
+                assistance_message_vitesse = '';
+            }
+            elsif(aircraft['speed'] > (atc['speed'] + 20))
             {
                 assistance_message_vitesse = sprintf('lower speed to %d kt.',
                     atc['speed']);

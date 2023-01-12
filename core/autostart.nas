@@ -481,9 +481,10 @@ var check_start_airborn = func() {
             var preset_alt = getprop("/sim/presets/altitude-ft") or 10000;
             var preset_speed = getprop("/sim/presets/airspeed-kt") or 300;
             var preset_hdg = getprop("/sim/presets/heading-deg") or 300;
+            var offset_deg = getprop("/instrumentation/heading-indicator/offset-deg") or 0;
             setprop("/autopilot/settings/target-altitude-ft", preset_alt);
             setprop("/autopilot/settings/target-speed-kt", preset_speed);
-            setprop("/autopilot/settings/heading-bug-deg", preset_hdg);
+            setprop("/autopilot/settings/heading-bug-deg", (preset_hdg + offset_deg));
         }, 2);
 
         # enable autopilot :

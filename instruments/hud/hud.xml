@@ -2275,41 +2275,6 @@ see :
 -->
 
   <gauge>
-    <name>debug fbw-elevator-aoa</name>
-    <x>89</x>
-    <y>-135</y>
-    <width>10</width>
-    <height>48</height>
-    <option>vertical</option>
-    <option>left</option>
-    <option>notext</option>
-    <input>
-      <property>/controls/flight/fbw-elevator-aoa</property>
-      <factor>-1</factor>
-      <max>1.0</max>
-      <min>-1.0</min>
-    </input>
-    <condition>
-      <property>/_debug/show_devtools</property>
-    </condition>
-  </gauge>
-  <label>
-    <name>debug AoA</name>
-    <input>
-      <property>/orientation/alpha-deg</property>
-    </input>
-    <x>50</x>
-    <y>-105</y>
-    <width>30</width>
-    <height>8</height>
-    <halign>left</halign>
-    <format>aoa %3.1f</format>
-    <condition>
-      <property>/_debug/show_devtools</property>
-    </condition>
-  </label>
-
-  <gauge>
     <name>debug fbw-elevator-g</name>
     <x>100</x>
     <y>-135</y>

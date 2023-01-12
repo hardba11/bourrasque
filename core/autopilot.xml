@@ -36,12 +36,6 @@ file Aircraft/Generic/generic-autopilot-helper.xml
   I   Decrease    Increase    Increase    Eliminate
   D   No effect   Decrease    Decrease    No effect
 
-
-  TODO
-  assouplir entre 130kt et 300kt
-  qq parasites vers 400kt
-
-
 <Kp>/_debug/Kp</Kp><Ti>/_debug/Ti</Ti><Td>/_debug/Td</Td>
 
   -->
@@ -58,10 +52,6 @@ file Aircraft/Generic/generic-autopilot-helper.xml
           <or>
             <equals><property>/gear/gear[1]/wow</property><value>1</value></equals>
             <equals><property>/gear/gear[2]/wow</property><value>1</value></equals>
-            <!--greater-than-equals>
-              <property>/velocities/airspeed-kt</property>
-              <value>1800</value>
-            </greater-than-equals-->
           </or>
         </not>
       </condition>
@@ -171,6 +161,7 @@ file Aircraft/Generic/generic-autopilot-helper.xml
                                                                            PITCH
   -->
 
+<!-- le manche agit sur les Gs -->
   <pid-controller>
     <name>fbw-elevator-g</name>
     <debug>false</debug>
@@ -180,10 +171,10 @@ file Aircraft/Generic/generic-autopilot-helper.xml
           <or>
             <equals><property>/gear/gear[1]/wow</property><value>1</value></equals>
             <equals><property>/gear/gear[2]/wow</property><value>1</value></equals>
-            <greater-than-equals>
+            <!--greater-than-equals>
               <property>/velocities/airspeed-kt</property>
               <value>1800</value>
-            </greater-than-equals>
+            </greater-than-equals-->
           </or>
         </not>
       </condition>
@@ -276,56 +267,10 @@ file Aircraft/Generic/generic-autopilot-helper.xml
     <output>/controls/flight/fcm-elevator-g</output>
   </filter>
 
-  <pid-controller>
-    <name>fbw-elevator-aoa</name>
-    <debug>false</debug>
-    <enable>
-      <condition>
-        <not>
-          <or>
-            <equals><property>/gear/gear[1]/wow</property><value>1</value></equals>
-            <equals><property>/gear/gear[2]/wow</property><value>1</value></equals>
-          </or>
-        </not>
-      </condition>
-    </enable>
-    <feedback-if-disabled>true</feedback-if-disabled>
-    <input>
-      <expression>
-        <table>
-          <property>/orientation/alpha-deg</property>
-          <entry><ind>-60</ind><dep>1.00</dep></entry>
-          <entry><ind>2.5</ind><dep>0.00</dep></entry>
-          <entry><ind>25.0</ind><dep>-1.00</dep></entry>
-        </table>
-      </expression>
-    </input>
-    <reference>
-      <expression>
-        <table>
-          <property>/controls/flight/elevator</property>
-          <entry><ind>-1.000</ind><dep>-0.999</dep></entry>
-          <entry><ind>-0.200</ind><dep>-0.050</dep></entry>
-          <entry><ind>-0.007</ind><dep>0.000</dep></entry>
-          <entry><ind>0.000</ind><dep>0.000</dep></entry>
-          <entry><ind>0.007</ind><dep>0.000</dep></entry>
-          <entry><ind>0.200</ind><dep>0.050</dep></entry>
-          <entry><ind>1.000</ind><dep>0.999</dep></entry>
-        </table>
-      </expression>
-    </reference>
-    <output>/controls/flight/fbw-elevator-aoa</output>
-    <config>
-      <Kp>1.6</Kp>
-      <Ti>1</Ti>
-      <Td>0.000005</Td>
-      <u_min>-1.0</u_min>
-      <u_max>1.0</u_max>
-    </config>
-  </pid-controller>
 
+<!-- le manche agit en direct -->
   <filter>
-    <name>fcm-elevator-aoa</name>
+    <name>fcm-elevator-direct</name>
     <type>gain</type>
     <gain>
       <expression>
@@ -338,18 +283,20 @@ file Aircraft/Generic/generic-autopilot-helper.xml
       </expression>
     </gain>
     <input>
-      <condition>
-        <not>
-          <or>
-            <equals><property>/gear/gear[1]/wow</property><value>1</value></equals>
-            <equals><property>/gear/gear[2]/wow</property><value>1</value></equals>
-          </or>
-        </not>
-      </condition>
-      <property>/controls/flight/fbw-elevator-aoa</property>
+      <expression>
+        <table>
+          <property>/controls/flight/elevator</property>
+          <entry><ind>-1.000</ind><dep>-0.999</dep></entry>
+          <entry><ind>-0.200</ind><dep>-0.050</dep></entry>
+          <entry><ind>-0.007</ind><dep>0.000</dep></entry>
+          <entry><ind>0.000</ind><dep>0.000</dep></entry>
+          <entry><ind>0.007</ind><dep>0.000</dep></entry>
+          <entry><ind>0.200</ind><dep>0.050</dep></entry>
+          <entry><ind>1.000</ind><dep>0.999</dep></entry>
+        </table>
+      </expression>
     </input>
-    <input>/controls/flight/elevator</input>
-    <output>/controls/flight/fcm-elevator-aoa</output>
+    <output>/controls/flight/fcm-elevator-direct</output>
   </filter>
 
   <filter>
@@ -361,7 +308,7 @@ file Aircraft/Generic/generic-autopilot-helper.xml
         <div>
           <sum>
             <property>/controls/flight/fcm-elevator-g</property>
-            <property>/controls/flight/fcm-elevator-aoa</property>
+            <property>/controls/flight/fcm-elevator-direct</property>
           </sum>
           <value>2</value>
         </div>

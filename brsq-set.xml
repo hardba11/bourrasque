@@ -310,7 +310,7 @@ http://wiki.flightgear.org/Property_tree
       <path>/instrumentation/tacan/frequencies/selected-channel[4]</path>
       <path>/autopilot/settings/heading-bug-deg</path>
       <path>/instrumentation/my_aircraft/nd/inputs/inputs/tfc</path>
-      <path>/instrumentation/my_aircraft/nd/inputs/true-north</path>
+      <!--path>/instrumentation/my_aircraft/nd/inputs/true-north</path-->
       <path>/instrumentation/my_aircraft/sfd/controls/radar_range</path>
       <path>/consumables/fuel/tank[0]/level-norm</path>
       <path>/consumables/fuel/tank[1]/level-norm</path>
@@ -357,7 +357,7 @@ http://wiki.flightgear.org/Property_tree
   <_debug>
     <Kp type="float">1.6</Kp>
     <Ti type="float">1.0</Ti>
-    <Td type="float">0.00001</Td>
+    <Td type="float">0.000005</Td>
     <int1 type="int">0</int1>
     <int2 type="int">0</int2>
     <int3 type="int">0</int3>
