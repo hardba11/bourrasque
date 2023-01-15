@@ -111,24 +111,42 @@ file Aircraft/Generic/generic-autopilot-helper.xml
       </Kp>
       <Ti>0.1</Ti>
       <Td>0.00002</Td>
-      <u_min>-1.0</u_min>
-      <u_max>1.0</u_max>
+      <u_min>
+        <expression>
+          <table>
+            <property>/velocities/airspeed-kt</property>
+            <entry><ind>200</ind><dep>-0.5</dep></entry>
+            <entry><ind>300</ind><dep>-1.0</dep></entry>
+            <entry><ind>600</ind><dep>-1.0</dep></entry>
+            <entry><ind>1000</ind><dep>-0.2</dep></entry>
+            <entry><ind>1600</ind><dep>-0.1</dep></entry>
+            <entry><ind>2000</ind><dep>-0.05</dep></entry>
+          </table>
+        </expression>
+      </u_min>
+      <u_max>
+        <expression>
+          <table>
+            <property>/velocities/airspeed-kt</property>
+            <entry><ind>200</ind><dep>0.5</dep></entry>
+            <entry><ind>300</ind><dep>1.0</dep></entry>
+            <entry><ind>600</ind><dep>1.0</dep></entry>
+            <entry><ind>1000</ind><dep>0.2</dep></entry>
+            <entry><ind>1600</ind><dep>0.1</dep></entry>
+            <entry><ind>2000</ind><dep>0.05</dep></entry>
+          </table>
+        </expression>
+      </u_max>
     </config>
   </pid-controller>
   <filter>
     <name>fcm-aileron</name>
     <type>gain</type>
     <gain>
-      <condition>
-        <property>/controls/gear/gear-down</property>
-      </condition>
-      <value>0.3</value>
-    </gain>
-    <gain>
       <expression>
         <table>
           <property>/velocities/airspeed-kt</property>
-          <entry><ind>100</ind><dep>0.4</dep></entry>
+          <entry><ind>100</ind><dep>0.3</dep></entry>
           <entry><ind>150</ind><dep>0.4</dep></entry>
           <entry><ind>200</ind><dep>0.6</dep></entry>
           <entry><ind>250</ind><dep>0.8</dep></entry>

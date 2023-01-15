@@ -2001,6 +2001,12 @@ see :
             <property>/instrumentation/my_aircraft/stdby-hsi/controls/nav-selector</property>
             <value type="int">2</value>
           </equals>
+          <not>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/inputs/rh-vor-adf</property>
+              <value>-1</value>
+            </equals>
+          </not>
           <property>/instrumentation/nav[1]/serviceable</property>
         </and>
       </or>
@@ -2035,6 +2041,12 @@ see :
             <property>/instrumentation/my_aircraft/stdby-hsi/controls/nav-selector</property>
             <value type="int">2</value>
           </equals>
+          <not>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/inputs/rh-vor-adf</property>
+              <value>-1</value>
+            </equals>
+          </not>
           <property>/instrumentation/nav[1]/serviceable</property>
         </and>
       </or>
@@ -2069,6 +2081,12 @@ see :
             <property>/instrumentation/my_aircraft/stdby-hsi/controls/nav-selector</property>
             <value type="int">2</value>
           </equals>
+          <not>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/inputs/rh-vor-adf</property>
+              <value>-1</value>
+            </equals>
+          </not>
           <property>/instrumentation/nav[1]/serviceable</property>
         </and>
       </or>

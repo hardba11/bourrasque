@@ -15,40 +15,7 @@ print("*** LOADING tools - assistance.nas ... ***");
 # les coordonnees de l avion ont ete transposees dans le nouveau repere
 # on recherche alors dans quelle zone l avion se trouve
 # les ordre ATC adequats peuvent etre donnes
-
-#                                         N
-#  .1  .---------------------------------------------------------------+-----------------.
-#      |                                                               |                 |
-#      |  zone2_1 ------>                                              | zone3_1  |      |
-#      |  CROSSWIND                                                    | DOWNWIND |      |
-#      |  250kt                          |||                           | 200kt    |      |
-#      |  2500ft                         |.|                           | 1500ft   V      |
-#      |                                 |.|                           |                 |
-#      |                                 |.|                           |                 |
-#      |                                 |.|                           |                 |
-#      |                                 |||                           |                 |
-#  0  W+--------------------------------+-0-+--------------------------+                 |E
-#      |                                |   |                          |                 |
-#      |  zone1      ^                  | ^ | zone2_2                  |                 |
-#      |  ENTRANCE   |                  | | | CROSSWIND                |                 |
-#      |  250kt      |                  | | | 200kt                    |                 |
-#      |  2500ft     |                  | | | 1500ft                   |                 |
-#      |                                |   | ---->                    |                 |
-#      |                                |z6 |                          |                 |
-# -.1  |                                | F +------------+-------------+                 |
-#      |                                | I |            |             |                 |
-#      |                                | N | zone4      | zone3_2  |  |                 |
-#      |                                | A | BASE       | DOWNWIND |  |                 |
-#      |                                | L | 200kt      |          V  |                 |
-# -.15 |                                |   | 1500ft     +-------------+-----------------+
-#      |                                |   | __         |                               |
-#      |                                |   | |\         | zone5  <-----                 |
-#      |                                |   |   \        | BASE                          |
-#      |                                |   |    \       | 200kt 1500ft                  |
-# -.2  '--------------------------------+---+------------+-------------------------------'
-#                                         S
-#     -.2                          -.015  0 .015       .05             .1               .2
-
+#
 #                                         N
 #  .1  .-------------------------------------------------+-------------------------------.
 #      |                                                 |                               |
@@ -493,6 +460,8 @@ var assistance_loop = func() {
             }
             else
             {
+                # avion hors zone, on va donner a l avion le cap direct vers l aeroport
+
                 if(h == 0) h = airport_bearing_from_aircraft;
                 if(d == 0) d = dist_nm;
                 if(nb_cycle == 1)
@@ -500,11 +469,20 @@ var assistance_loop = func() {
                     h = airport_bearing_from_aircraft;
                     d = dist_nm;
                 }
-                # avion hors zone, on va donner a l avion le cap direct vers l aeroport
-                assistance_message_horizontal = sprintf('turn %s heading %03d - airport at %d NM.',
-                    turn_left_or_right(aircraft['heading'], airport_bearing_from_aircraft),
-                    h,
-                    d);
+
+                if(math.cos((aircraft['heading'] - airport_bearing_from_aircraft) * D2R) > math.cos(5 * D2R))
+                {
+                    assistance_message_horizontal = sprintf('maintain heading %03d - airport at %d NM.',
+                        h,
+                        d);
+                }
+                else
+                {
+                    assistance_message_horizontal = sprintf('turn %s heading %03d - airport at %d NM.',
+                        turn_left_or_right(aircraft['heading'], airport_bearing_from_aircraft),
+                        h,
+                        d);
+                }
             }
 
 # GESTION DES MESSAGES POUR LA PARTIE VERTICALE
