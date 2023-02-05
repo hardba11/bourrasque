@@ -21,19 +21,19 @@ var SETTINGS_MODS = [
 # @see include/sim-view0-properties.xml
 var SETTINGS_PANEL_VIEW_LEFT = [
     [ 'fov', 'heading', 'pitch',  'z'  ,  'x'  ,  'y'  ],
-    [  37.2,       0  ,   -35  ,  -3.32,   0   ,   0.99], # center stdby instruments
+    [  30.6,       0  ,   -35  ,  -3.32,   0   ,   0.99], # center stdby instruments
     [  54.6,      11.6,   -25  ,  -3.32,   0   ,   1.10], # right MFD
     [  33.8,      45  ,   -55  ,  -3.45,  -0.21,   0.99], # command
     [  41  ,      90  ,   -70  ,  -3.32,  -0.23,   0.87], # lights
-    [  37.2,       0  ,   -35  ,  -3.32,   0   ,   0.99], # center stdby instruments
+#    [  30.6,       0  ,   -35  ,  -3.32,   0   ,   0.99], # center stdby instruments
 ];
 var SETTINGS_PANEL_VIEW_RIGHT = [
     [ 'fov', 'heading', 'pitch',  'z'  ,  'x'  ,  'y'  ],
     [  54.6,     -11.6,   -25  ,  -3.32,   0   ,   1.10], # right MFD
-    [  68.7,     -60  ,   -55  ,  -3.63,   0.21,   0.85], # radio
-    [  41.7,     -11  ,   -55  ,  -3.32,   0   ,   1.1 ], # tablet
-    [  64.3,     -90  ,   -60  ,  -3.28,   0.19,   0.78], # systems
-    [  37.2,       0  ,   -35  ,  -3.32,   0   ,   0.99], # center stdby instruments
+    [  68.7,     -60  ,   -55  ,  -3.63,   0.27,   0.82], # radio
+    [  31.1,     -11  ,   -55  ,  -3.36,   0.10,   1.00], # tablet
+    [  64.3,     -90  ,   -60  ,  -3.28,   0.30,   0.78], # systems
+#    [  30.6,       0  ,   -35  ,  -3.32,   0   ,   0.99], # center stdby instruments
 ];
 
 #===============================================================================
@@ -622,12 +622,14 @@ var event_control_gear = func(down, animate_view) {
             save_current_view();
             view_panel_command();
             #settimer(func() { setprop("/controls/gear/gear-down", 1); setprop("sim/model/lever_gear", 1); }, .3);
-            settimer(func() { setprop("/controls/gear/gear-down", 1); }, .3);
+            settimer(func() { setprop("/controls/gear/gear-down", 1);setprop("/controls/flight/elevator-trim", -0.15); }, .3);
             settimer(func() { load_current_view(); }, .3);
         }
         else
         {
             setprop("/controls/gear/gear-down", 1);
+            setprop("/controls/flight/elevator-trim", -0.15);
+
             #setprop("sim/model/lever_gear", 1);
         }
         # retract refuel pod pipe
@@ -643,7 +645,8 @@ var event_control_gear = func(down, animate_view) {
             save_current_view();
             view_panel_command();
             #settimer(func() { setprop("/controls/gear/gear-down", 0); setprop("sim/model/lever_gear", 0); }, 0.3);
-            settimer(func() { setprop("/controls/gear/gear-down", 0); }, 0.3);
+            settimer(func() { setprop("/controls/gear/gear-down", 0); }, .3);
+            settimer(func() { setprop("/controls/flight/elevator-trim", 0); }, 8.3);
             settimer(func() { load_current_view(); }, .3);
         }
         else
@@ -651,6 +654,7 @@ var event_control_gear = func(down, animate_view) {
             setprop("/controls/gear/launchbar", 0);
             setprop("/controls/gear/catapult-launch-cmd", 0);
             setprop("/controls/gear/gear-down", 0);
+            settimer(func() { setprop("/controls/flight/elevator-trim", 0); }, 8); # see yasim extend gear : 8seconds
             #setprop("sim/model/lever_gear", 0);
         }
     }

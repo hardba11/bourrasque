@@ -118,6 +118,9 @@ http://wiki.flightgear.org/Property_tree
       <name type="string">brsq</name>
       <path type="string">Aircraft/bourrasque/models/brsq.xml</path>
 
+      <!-- @see AI/Aircraft/fallback_models.xml -->
+      <fallback-model-index type="int">527</fallback-model-index>
+
       <constant type="int">1</constant>
 
       <rendering>
@@ -490,7 +493,7 @@ http://wiki.flightgear.org/Property_tree
     <!-- ~~~~~~~~~~~~~~~~~~ other tools -->
     <tools>
       <file type="string">tools/trace-loop/trace-loop.nas</file>
-      <file type="string">tools/assistance_to_closest_airport/assistance.nas</file>
+      <file type="string">tools/assistance_to_closest_airport/assistance-brsq.nas</file>
     </tools>
 
   </nasal>

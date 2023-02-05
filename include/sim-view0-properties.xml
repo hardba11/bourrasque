@@ -28,14 +28,14 @@ PROPERTY-PATH : /sim/view[0]/
     <limits>
       <enabled type="bool">true</enabled>
       <left>
-        <heading-max-deg type="double">160</heading-max-deg>
-        <x-offset-max-m type="double">0.20</x-offset-max-m>
-        <x-offset-threshold-deg type="double">65</x-offset-threshold-deg>
+        <heading-max-deg type="double">165</heading-max-deg>
+        <x-offset-max-m type="double">0.25</x-offset-max-m>
+        <x-offset-threshold-deg type="double">95</x-offset-threshold-deg>
       </left>
       <right>
-        <heading-max-deg type="double">160</heading-max-deg>
-        <x-offset-max-m type="double">0.20</x-offset-max-m>
-        <x-offset-threshold-deg type="double">65</x-offset-threshold-deg>
+        <heading-max-deg type="double">165</heading-max-deg>
+        <x-offset-max-m type="double">0.25</x-offset-max-m>
+        <x-offset-threshold-deg type="double">95</x-offset-threshold-deg>
       </right>
     </limits>
   </config>

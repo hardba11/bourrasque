@@ -18,7 +18,7 @@
         </greater-than>
         <less-than>
           <property>velocities/airspeed-kt</property>
-          <value>400</value>
+          <value>250</value>
         </less-than>
         <less-than>
           <property>position/altitude-ft</property>

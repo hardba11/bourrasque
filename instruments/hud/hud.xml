@@ -917,7 +917,7 @@ see :
     <name>roll gauge</name>
     <x>80</x>
     <y>8</y>
-    <width>25</width>
+    <width>24</width>
     <height>5</height>
     <option>top</option>
     <option>horizontal</option>
@@ -932,12 +932,12 @@ see :
   </gauge>
   <gauge>
     <name>pitch gauge</name>
-    <x>80</x>
+    <x>99</x>
     <y>-4</y>
-    <width>10</width>
+    <width>5</width>
     <height>24</height>
     <option>vertical</option>
-    <option>right</option>
+    <option>left</option>
     <option>notext</option>
     <major-divisions>1</major-divisions>
     <minor-divisions>0</minor-divisions>
@@ -963,18 +963,18 @@ see :
   </label>
   <gauge>
     <name>pitch trim gauge</name>
-    <x>74</x>
-    <y>0</y>
-    <width>5</width>
-    <height>16</height>
+    <x>104</x>
+    <y>-4</y>
+    <width>3</width>
+    <height>24</height>
     <option>vertical</option>
-    <option>left</option>
+    <option>right</option>
     <option>notext</option>
     <major-divisions>1</major-divisions>
     <minor-divisions>0</minor-divisions>
     <input>
       <property>/controls/flight/elevator-trim</property>
-      <factor>-2</factor>
+      <factor>-1</factor>
       <max>1.0</max>
       <min>-1.0</min>
     </input>
@@ -983,7 +983,7 @@ see :
     <name>yaw gauge</name>
     <x>80</x>
     <y>5</y>
-    <width>25</width>
+    <width>24</width>
     <height>3</height>
     <option>horizontal</option>
     <option>bottom</option>

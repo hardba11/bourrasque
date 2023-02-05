@@ -18,9 +18,9 @@ thx SU-27 team
                                                                         APPROACH
 ================================================================================
   -->
-  <approach speed="145" aoa="8" fuel="1">
-    <control-setting axis="/controls/engines/engine[0]/throttle" value=".4" />
-    <control-setting axis="/controls/engines/engine[1]/throttle" value=".4" />
+  <approach speed="140" aoa="7" fuel="1">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value=".1" />
+    <control-setting axis="/controls/engines/engine[1]/throttle" value=".1" />
     <control-setting axis="/controls/engines/engine[0]/reheat"   value="0" />
     <control-setting axis="/controls/engines/engine[1]/reheat"   value="0" />
     <control-setting axis="/controls/flight/flaps"               value="0" />
@@ -34,7 +34,7 @@ thx SU-27 team
                                                                           CRUISE
 ================================================================================
   -->
-  <cruise speed="1000" alt="25000" fuel="0.8">
+  <cruise speed="1300" alt="25000" fuel="0.8">
     <control-setting axis="/controls/engines/engine[0]/throttle" value=".8" />
     <control-setting axis="/controls/engines/engine[1]/throttle" value=".8" />
     <control-setting axis="/controls/engines/engine[0]/reheat"   value="0" />
@@ -102,7 +102,7 @@ ________________________________________________________________________________
     <control-speed  control="FLAP0" transition-time="0" />
 
     <!-- ~~~~~~~~~~~~~~~~~~ speedbrakes -->
-    <spoiler start="0" end="0.15" lift="1.1" drag="390" />
+    <spoiler start="0" end="0.25" lift="1.1" drag="500" />
     <control-input  control="SPOILER" axis="/controls/flight/speedbrake" />
     <control-output control="SPOILER" prop="/surface-positions/speedbrake-pos-norm" />
     <control-speed  control="SPOILER" transition-time="1" />
@@ -245,8 +245,8 @@ ________________________________________________________________________________
   <jet
       x="-5.9" y="1.14" z=".9"
       mass="3460"
-      thrust="11910"
-      afterburner="27560"
+      thrust="13910"
+      afterburner="29560"
       rotate="720">
     <actionpt x="-10" y="1.14" z=".9" />
     <control-input  control="THROTTLE" axis="/controls/engines/engine[0]/throttle"
@@ -261,8 +261,8 @@ ________________________________________________________________________________
   <!-- ~~~~~~~~~~~~~~~~~~ right engine -->
   <jet x="-5.9" y="-1.14" z=".9"
       mass="3460"
-      thrust="11910"
-      afterburner="27560"
+      thrust="13910"
+      afterburner="29560"
       rotate="720">
     <actionpt x="-10" y="-1.14" z=".9" />
     <control-input  control="THROTTLE" axis="/controls/engines/engine[1]/throttle"
@@ -275,7 +275,7 @@ ________________________________________________________________________________
   </jet>
 
   <!-- ~~~~~~~~~~~~~~~~~~ thruster : boost + pushback -->
-  <thruster thrust="100000"
+  <thruster thrust="120000"
       x="-4.9" y="0" z="1"
       vx="1" vy="0" vz="0">
     <control-input axis="/controls/jato/throttle" control="THROTTLE" />
@@ -308,7 +308,7 @@ ________________________________________________________________________________
   </launchbar>
 
   <!-- ~~~~~~~~~~~~~~~~~~ front gear -->
-  <gear x="2.75" y="0" z="-1.7"
+  <gear x="2.75" y="0" z="-1.8"
       compression=".9" spring=".5" damp=".6"
       dfric=".6" sfric=".2">
     <control-input  control="BRAKE" axis="/controls/gear/brake-parking" />

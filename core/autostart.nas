@@ -171,19 +171,19 @@ var flashlight = func(n) {
 var settings_depending_luminosity = {
     'day':{
         'hud_color':        0,
-        'hud_brightness':   1,
+        'hud_brightness':   .9,
         'panel_light':      0,
-        'instrument_light': 0,
-        'nav_light':        0,
-        'pos_light':        0,
-        'form_light':       0,
+        'instrument_light': 1,
+        'nav_light':        1,
+        'pos_light':        1,
+        'form_light':       1,
         'flashlight':       0,
     },
     'dawn':{
         'hud_color':        0,
         'hud_brightness':   .7,
         'panel_light':      0,
-        'instrument_light': 1,
+        'instrument_light': .6,
         'nav_light':        1,
         'pos_light':        1,
         'form_light':       1,
@@ -193,7 +193,7 @@ var settings_depending_luminosity = {
         'hud_color':        1,
         'hud_brightness':   .5,
         'panel_light':      .8,
-        'instrument_light': .6,
+        'instrument_light': .4,
         'nav_light':        1,
         'pos_light':        1,
         'form_light':       .66,
@@ -306,6 +306,13 @@ var fast_start = func() {
 var stop = func() {
     printf('stop ...');
 
+    var is_on_ground = getprop("/gear/gear[0]/wow") or 0;
+    if(!is_on_ground)
+    {
+        printf('  airborn : noop.');
+        return;
+    }
+
     if(process_status == 'READY')
     {
         process_status = 'AUTOSTOPPING';
@@ -375,6 +382,13 @@ var stop = func() {
 
 var autostart = func() {
     printf('autostart ...');
+
+    var is_on_ground = getprop("/gear/gear[0]/wow") or 0;
+    if(!is_on_ground)
+    {
+        printf('  airborn : noop.');
+        return;
+    }
 
     if(process_status == 'READY')
     {
