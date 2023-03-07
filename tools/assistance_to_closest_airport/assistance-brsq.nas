@@ -1,6 +1,6 @@
 print("*** LOADING tools - assistance-brsq.nas ... ***");
 
-# namespace : tools
+# namespace : tools/assistance
 
 #                               ~~~ README ~~~
 #
@@ -52,14 +52,15 @@ print("*** LOADING tools - assistance-brsq.nas ... ***");
 # how to install for another aircraft
 # -----------------------------------
 #
-# 1- copy this file in a directory (tools/assistance_to_closest_airport for example)
+# 1- copy this file in a directory (tools/assistance_to_closest_airport/ for example) 
+#    and rename it to assistance-YOUR-AIRPLANE.nas
 #
 # 2- add the nasal script in your aircraft -set.xml file :
 #     <nasal>
 #       ... other scripts
-#       <tools>
-#         <file type="string">tools/assistance_to_closest_airport/assistance.nas</file>
-#       </tools>
+#       <tools-assistance>
+#         <file type="string">tools/assistance_to_closest_airport/assistance-YOUR-AIRPLANE.nas</file>
+#       </tools-assistance>
 #     </nasal>
 #
 # 3- add a new property in the property tree in your aircraft -set.xml file :
@@ -69,7 +70,7 @@ print("*** LOADING tools - assistance-brsq.nas ... ***");
 #     </controls>
 #
 # 4- add a button or a menu gui to enable/disable assistance property
-#    example (gui/dialogs/bourrasque-commands.xml) :
+#    example (gui/dialogs/YOUR-AIRPLANE-commands.xml) :
 #     <!-- ~~~~~~~~~~~~~~~~~~ assistance -->
 #     <group>
 #       <layout>table</layout>
@@ -349,14 +350,20 @@ var assistance = func() {
     if(is_enabled != 1)
     {
         # assistance disabled
-        airport['id'] = '';
         if(hasta_la_vista == 1)
         {
-            assistance_message = "It's OK, Have a good day ! Over.";
+            # deja ete enabled, les variables airport et aircraft ont deja ete initialisees ;)
+            assistance_message_header = sprintf('atc %s, %s.', airport['id'], aircraft['callsign']);
+            assistance_message = sprintf('%s %s',
+                assistance_message_header,
+                "It's OK, Have a good day ! Over."
+            );
+
             setprop("/sim/messages/atc", assistance_message);
             hasta_la_vista = 0;
         }
         nb_cycle = 0;
+        airport['id'] = '';
         return;
     }
 
@@ -370,30 +377,38 @@ var assistance = func() {
     # get some info on aircraft
     aircraft = get_aircraft_info();
 
-    # end of assistance if landed
-    if(aircraft['is_wow'])
-    {
-        is_enabled = 0;
-        hasta_la_vista = 0;
-        setprop("/controls/assistance", is_enabled);
-
-        assistance_message = "You landed, congratulations, have a good day ! Over.";
-        setprop("/sim/messages/atc", assistance_message);
-
-        return;
-    }
-
     # on recupere l aeroport le plus proche si il n a pas deja ete choisi
     # on fait ca pour eviter la bascule vers un nouvel aeroport plus proche
     # lorsqu'on navigue dans le circuit
     if(airport['id'] == '')
     {
+        # get some info on airport
         airport = get_airport_info();
         welcome = 1;
 
         #printf("DEBUG : AIRPORT %s - %s - %s - %s - %d - RUNWAY %s - %d - %d", airport['id'], airport['name'], airport['lng'], airport['lat'], airport['elevation_ft'], airport['rwy'], airport['rwy_length'], airport['heading']);
         #DEBUG : AIRPORT LFRQ - Quimper Pluguffan - -4.1722096 - 47.972947 - 296 - RUNWAY 10 - 7052 - 93
     }
+
+    assistance_message_header = sprintf('atc %s, %s.', airport['id'], aircraft['callsign']);
+
+    # end of assistance if landed
+    if(aircraft['is_wow'])
+    {
+        is_enabled = 0;
+        hasta_la_vista = 0;
+        welcome = 0;
+        setprop("/controls/assistance", is_enabled);
+
+        assistance_message = sprintf('%s %s',
+            assistance_message_header,
+            "You landed, congratulations, have a good day ! Over."
+        );
+        setprop("/sim/messages/atc", assistance_message);
+
+        return;
+    }
+
 
     # on recupere les coordonnees de l aeroport et de l avion
     coord_airport.set_latlon(airport['lat'], airport['lng']);
@@ -410,7 +425,7 @@ var assistance = func() {
     atc['alt']     = (sprintf('%d', zone['alt'] / 100) + sprintf('%d', airport['elevation_ft'] / 100)) * 100;
     atc['circuit'] = zone['circuit'];
 
-    assistance_message_header     = sprintf('atc %s, %s.', airport['id'], aircraft['callsign']);
+
 
 # GESTION DES MESSAGES POUR LA PARTIE HORIZONTALE
     # on gere differemment selon si l avion est dans ou hors zone

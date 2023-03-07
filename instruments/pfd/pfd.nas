@@ -130,7 +130,7 @@ var event_click_lock_alt = func(do_enable)
     {
         setprop("/autopilot/locks/altitude", '');
 
-        var airspeed = getprop("/velocities/airspeed-kt") or 0;
+#        var airspeed = getprop("/velocities/airspeed-kt") or 0;
 #        if(airspeed > 300)
 #        {
             setprop("/controls/flight/elevator-trim", 0);

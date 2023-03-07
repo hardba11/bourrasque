@@ -69,7 +69,11 @@ PROPERTY-PATH : /controls/
     <instruments-norm type="float">0</instruments-norm>
   </lighting>
 
+  <!-- see tools/assistance_to_closest_airport/ -->
   <assistance type="bool">0</assistance>
+
+  <!-- see tools/copilot/ -->
+  <copilot type="bool">1</copilot>
 
 </PropertyList>
 

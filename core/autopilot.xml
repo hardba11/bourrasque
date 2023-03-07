@@ -102,6 +102,7 @@ file Aircraft/Generic/generic-autopilot-helper.xml
             <entry><ind>1200</ind><dep>.3</dep></entry>
             <entry><ind>1400</ind><dep>.2</dep></entry>
             <entry><ind>1600</ind><dep>.1</dep></entry>
+            <entry><ind>4000</ind><dep>.1</dep></entry>
           </table>
         </expression>
       </Kp>
@@ -117,7 +118,7 @@ file Aircraft/Generic/generic-autopilot-helper.xml
             <entry><ind>1000</ind><dep>-0.6</dep></entry>
             <entry><ind>1600</ind><dep>-0.2</dep></entry>
             <entry><ind>2000</ind><dep>-0.1</dep></entry>
-            <entry><ind>10000</ind><dep>-0.1</dep></entry>
+            <entry><ind>4000</ind><dep>-0.1</dep></entry>
           </table>
         </expression>
       </u_min>
@@ -130,8 +131,8 @@ file Aircraft/Generic/generic-autopilot-helper.xml
             <entry><ind>600</ind><dep>1.0</dep></entry>
             <entry><ind>1000</ind><dep>0.6</dep></entry>
             <entry><ind>1600</ind><dep>0.2</dep></entry>
-            <entry><ind>2000</ind><dep>0.01</dep></entry>
-            <entry><ind>10000</ind><dep>0.01</dep></entry>
+            <entry><ind>2000</ind><dep>0.1</dep></entry>
+            <entry><ind>4000</ind><dep>0.1</dep></entry>
           </table>
         </expression>
       </u_max>
@@ -153,7 +154,7 @@ file Aircraft/Generic/generic-autopilot-helper.xml
           <entry><ind>800</ind><dep>0.6</dep></entry>
           <entry><ind>1000</ind><dep>0.2</dep></entry>
           <entry><ind>1600</ind><dep>0.1</dep></entry>
-          <entry><ind>2000</ind><dep>0.1</dep></entry>
+          <entry><ind>4000</ind><dep>0.1</dep></entry>
         </table>
       </expression>
     </gain>
@@ -182,6 +183,7 @@ file Aircraft/Generic/generic-autopilot-helper.xml
         <equals><property>/gear/gear[0]/position-norm</property><value>0</value></equals>
         <equals><property>/gear/gear[1]/wow</property><value>0</value></equals>
         <equals><property>/gear/gear[2]/wow</property><value>0</value></equals>
+        <less-than><property>/velocities/airspeed-kt</property><value>2500</value></less-than>
       </condition>
     </enable>
     <feedback-if-disabled>false</feedback-if-disabled>
@@ -206,7 +208,7 @@ file Aircraft/Generic/generic-autopilot-helper.xml
           <entry><ind>-0.007</ind> <dep>0.000</dep></entry>
           <entry> <ind>0.000</ind> <dep>0.000</dep></entry>
           <entry> <ind>0.007</ind> <dep>0.000</dep></entry>
-          <entry> <ind>0.200</ind> <dep>0.050</dep></entry>
+          <entry> <ind>0.200</ind> <dep>0.100</dep></entry>
           <entry> <ind>0.300</ind> <dep>0.400</dep></entry>
           <entry> <ind>1.000</ind> <dep>0.450</dep></entry>
         </table>
@@ -228,6 +230,8 @@ file Aircraft/Generic/generic-autopilot-helper.xml
             <entry><ind>1000</ind><dep>0.10</dep></entry>
             <entry><ind>1200</ind><dep>0.05</dep></entry>
             <entry><ind>1500</ind><dep>0.02</dep></entry>
+            <entry><ind>2000</ind><dep>0.01</dep></entry>
+            <entry><ind>4000</ind><dep>0.01</dep></entry>
           </table>
         </expression>
       </Kp>
@@ -253,7 +257,8 @@ file Aircraft/Generic/generic-autopilot-helper.xml
           <entry><ind>0.000</ind><dep>0.000</dep></entry>
           <entry><ind>0.007</ind><dep>0.000</dep></entry>
           <entry><ind>0.200</ind><dep>0.050</dep></entry>
-          <entry><ind>1.000</ind><dep>0.999</dep></entry>
+          <entry><ind>0.400</ind><dep>0.300</dep></entry>
+          <entry><ind>1.000</ind><dep>0.350</dep></entry>
         </table>
       </expression>
     </input>
@@ -269,6 +274,7 @@ file Aircraft/Generic/generic-autopilot-helper.xml
         <equals><property>/gear/gear[0]/position-norm</property><value>0</value></equals>
         <equals><property>/gear/gear[1]/wow</property><value>0</value></equals>
         <equals><property>/gear/gear[2]/wow</property><value>0</value></equals>
+        <less-than><property>/velocities/airspeed-kt</property><value>2500</value></less-than>
       </condition>
       <property>/controls/flight/fbw-elevator-g</property>
     </input>

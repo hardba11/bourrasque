@@ -19,8 +19,8 @@ thx SU-27 team
 ================================================================================
   -->
   <approach speed="140" aoa="7" fuel="1">
-    <control-setting axis="/controls/engines/engine[0]/throttle" value=".1" />
-    <control-setting axis="/controls/engines/engine[1]/throttle" value=".1" />
+    <control-setting axis="/controls/engines/engine[0]/throttle" value=".3" />
+    <control-setting axis="/controls/engines/engine[1]/throttle" value=".3" />
     <control-setting axis="/controls/engines/engine[0]/reheat"   value="0" />
     <control-setting axis="/controls/engines/engine[1]/reheat"   value="0" />
     <control-setting axis="/controls/flight/flaps"               value="0" />
@@ -34,9 +34,9 @@ thx SU-27 team
                                                                           CRUISE
 ================================================================================
   -->
-  <cruise speed="1300" alt="25000" fuel="0.8">
-    <control-setting axis="/controls/engines/engine[0]/throttle" value=".8" />
-    <control-setting axis="/controls/engines/engine[1]/throttle" value=".8" />
+  <cruise speed="2000" alt="55000" fuel="1">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value=".7" />
+    <control-setting axis="/controls/engines/engine[1]/throttle" value=".7" />
     <control-setting axis="/controls/engines/engine[0]/reheat"   value="0" />
     <control-setting axis="/controls/engines/engine[1]/reheat"   value="0" />
     <control-setting axis="/controls/flight/flaps"               value="0" />
@@ -215,7 +215,7 @@ ________________________________________________________________________________
                                                                         HACK !!!
   -->
   <!-- ~~~~~~~~~~~~~~~~~~ canopy -->
-  <mstab x="0" y="0" z="0" length=".0001" chord=".0001" sweep=".0001" taper=".0001" dihedral="0" camber="0" incidence="0">
+  <mstab x="0.1" y="0" z="0" length=".0001" chord=".0001" sweep=".0001" taper=".0001" dihedral="0" camber="0" incidence="0">
     <control-input  control="FLAP0" axis="/controls/doors/canopy" />
     <control-output control="FLAP0" prop="/sim/model/canopy-pos-norm" /> <!-- alias for MP -->
     <control-speed  control="FLAP0" transition-time="14" />
@@ -227,7 +227,7 @@ ________________________________________________________________________________
     <control-speed  control="FLAP0" transition-time="2" />
   </mstab>
   <!-- ~~~~~~~~~~~~~~~~~~ buddy buddy -->
-  <mstab x="0" y="0" z="0" length=".0001" chord=".0001" sweep=".0001" taper=".0001" dihedral="0" camber="0" incidence="0">
+  <mstab x="-0.1" y="0" z="0" length=".0001" chord=".0001" sweep=".0001" taper=".0001" dihedral="0" camber="0" incidence="0">
     <control-input  control="FLAP0" axis="/controls/refuel-pod/pipe-extended" />
     <control-output control="FLAP0" prop="/sim/model/store-refuel-pos-norm" /> <!-- alias for MP -->
     <control-speed  control="FLAP0" transition-time="15" />
@@ -247,6 +247,7 @@ ________________________________________________________________________________
       mass="3460"
       thrust="13910"
       afterburner="29560"
+      exhaust-speed="3000"
       rotate="720">
     <actionpt x="-10" y="1.14" z=".9" />
     <control-input  control="THROTTLE" axis="/controls/engines/engine[0]/throttle"
@@ -263,6 +264,7 @@ ________________________________________________________________________________
       mass="3460"
       thrust="13910"
       afterburner="29560"
+      exhaust-speed="3000"
       rotate="720">
     <actionpt x="-10" y="-1.14" z=".9" />
     <control-input  control="THROTTLE" axis="/controls/engines/engine[1]/throttle"
@@ -329,7 +331,7 @@ ________________________________________________________________________________
     <control-input  control="BRAKE" axis="/controls/gear/brake-left" />
     <control-input  control="BRAKE" axis="/controls/gear/brake-parking" />
     <control-output control="BRAKE" prop="/gear/gear[1]/brake-position-norm" />
-    <control-speed  control="BRAKE" transition-time=".3" />
+    <control-speed  control="BRAKE" transition-time=".1" />
     <control-input  control="EXTEND" axis="/controls/gear/gear-down" />
     <control-output control="EXTEND" prop="/gear/gear[1]/position-norm" />
     <control-speed  control="EXTEND" transition-time="8" />
@@ -342,7 +344,7 @@ ________________________________________________________________________________
     <control-input  control="BRAKE" axis="/controls/gear/brake-right" />
     <control-input  control="BRAKE" axis="/controls/gear/brake-parking" />
     <control-output control="BRAKE" prop="/gear/gear[2]/brake-position-norm" />
-    <control-speed  control="BRAKE" transition-time=".3" />
+    <control-speed  control="BRAKE" transition-time=".1" />
     <control-input  control="EXTEND" axis="/controls/gear/gear-down" />
     <control-output control="EXTEND" prop="/gear/gear[2]/position-norm" />
     <control-speed  control="EXTEND" transition-time="8" />
