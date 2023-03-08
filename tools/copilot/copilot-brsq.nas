@@ -111,21 +111,21 @@ var events = {
     },
     'speed_limit': {
         'time': 0,
-        'repeat_every_time': 10,
+        'repeat_every_time': 63,
         'message': 'Your are under FL100, your speed is limited to 250 kt.',
         'data': [],
         'envoie_message': 0,
     },
     'autotrim_on': {
         'time': 0,
-        'repeat_every_time': 10,
+        'repeat_every_time': 15,
         'message': 'Your gears are down, you should autotrim (\'s\' key).',
         'data': [],
         'envoie_message': 0,
     },
     'autotrim_off': {
         'time': 0,
-        'repeat_every_time': 10,
+        'repeat_every_time': 5,
         'message': 'Your gears are up, you should disable autotrim (\'s\' key) and center (ctrl + numpad 5 key).',
         'data': [],
         'envoie_message': 0,
@@ -160,7 +160,7 @@ var get_aircraft_info = func()
     aircraft['alt']                 = getprop("/position/altitude-ft") or 0;
     aircraft['vspd']                = getprop("/autopilot/internal/vert-speed-fpm") or 0;
     aircraft['is_gear_down']        = getprop("/controls/gear/gear-down") or 0;
-    aircraft['is_wow']              = getprop("/gear/gear[0]/wow") or 0;
+    aircraft['is_wow']              = getprop("/gear/gear[1]/wow") or 0;
 }
 
 #-------------------------------------------------------------------------------

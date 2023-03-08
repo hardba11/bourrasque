@@ -18,7 +18,7 @@ thx SU-27 team
                                                                         APPROACH
 ================================================================================
   -->
-  <approach speed="140" aoa="7" fuel="1">
+  <approach speed="140" aoa="8" fuel="1">
     <control-setting axis="/controls/engines/engine[0]/throttle" value=".3" />
     <control-setting axis="/controls/engines/engine[1]/throttle" value=".3" />
     <control-setting axis="/controls/engines/engine[0]/reheat"   value="0" />
@@ -34,9 +34,9 @@ thx SU-27 team
                                                                           CRUISE
 ================================================================================
   -->
-  <cruise speed="2000" alt="55000" fuel="1">
-    <control-setting axis="/controls/engines/engine[0]/throttle" value=".7" />
-    <control-setting axis="/controls/engines/engine[1]/throttle" value=".7" />
+  <cruise speed="1000" alt="25000" fuel="0.8">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value=".6" />
+    <control-setting axis="/controls/engines/engine[1]/throttle" value=".6" />
     <control-setting axis="/controls/engines/engine[0]/reheat"   value="0" />
     <control-setting axis="/controls/engines/engine[1]/reheat"   value="0" />
     <control-setting axis="/controls/flight/flaps"               value="0" />
@@ -241,51 +241,61 @@ ________________________________________________________________________________
 ________________________________________________________________________________
                                                                              JET
   -->
-  <!-- ~~~~~~~~~~~~~~~~~~ left engine -->
+  <!-- ~~~~~~~~~~~~~~~~~~ left engine + hack to lower fuel consumption -->
   <jet
       x="-5.9" y="1.14" z=".9"
       mass="3460"
-      thrust="13910"
-      afterburner="29560"
-      exhaust-speed="3000"
+      thrust="11000"
+      afterburner="16000"
+      exhaust-speed="1900"
       rotate="720">
     <actionpt x="-10" y="1.14" z=".9" />
     <control-input  control="THROTTLE" axis="/controls/engines/engine[0]/throttle"
       src0="0" dst0="0" src1=".86" dst1="1" />
     <control-speed  control="THROTTLE" transition-time="1" />
     <control-input  control="REHEAT" axis="/controls/engines/engine[0]/throttle"
-      src0=".88" dst0="0" src1="1" dst1="1" />
+      src0=".86" dst0="0" src1="1" dst1="1" />
     <control-output control="REHEAT" prop="/engines/engine[0]/reheat" />
     <control-speed  control="REHEAT" transition-time="2" />
   </jet>
+  <thruster thrust="8000"
+      x="-5.9" y="1.14" z=".9"
+      vx="1" vy="0" vz="0">
+    <control-input control="THROTTLE" axis="/controls/hack/engine[0]/throttle" />
+  </thruster>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ right engine -->
+  <!-- ~~~~~~~~~~~~~~~~~~ right engine + hack to lower fuel consumption -->
   <jet x="-5.9" y="-1.14" z=".9"
       mass="3460"
-      thrust="13910"
-      afterburner="29560"
-      exhaust-speed="3000"
+      thrust="11000"
+      afterburner="16000"
+      exhaust-speed="1900"
       rotate="720">
     <actionpt x="-10" y="-1.14" z=".9" />
     <control-input  control="THROTTLE" axis="/controls/engines/engine[1]/throttle"
       src0="0" dst0="0" src1=".86" dst1="1" />
     <control-speed  control="THROTTLE" transition-time="1" />
     <control-input  control="REHEAT" axis="/controls/engines/engine[1]/throttle"
-      src0=".88" dst0="0" src1="1" dst1="1" />
+      src0=".86" dst0="0" src1="1" dst1="1" />
     <control-output control="REHEAT" prop="/engines/engine[1]/reheat" />
     <control-speed  control="REHEAT" transition-time="2" />
   </jet>
+  <thruster thrust="8000"
+      x="-5.9" y="-1.14" z=".9"
+      vx="1" vy="0" vz="0">
+    <control-input control="THROTTLE" axis="/controls/hack/engine[1]/throttle" />
+  </thruster>
 
   <!-- ~~~~~~~~~~~~~~~~~~ thruster : boost + pushback -->
   <thruster thrust="120000"
       x="-4.9" y="0" z="1"
       vx="1" vy="0" vz="0">
-    <control-input axis="/controls/jato/throttle" control="THROTTLE" />
+    <control-input control="THROTTLE" axis="/controls/jato/throttle" />
   </thruster>
   <thruster thrust="2500"
       x="3" y="0" z="-.3"
       vx="1" vy="0" vz="0">
-    <control-input axis="/sim/model/pushback/target-speed-fps" control="THROTTLE"
+    <control-input control="THROTTLE" axis="/sim/model/pushback/target-speed-fps"
         src0="-1" src1="1" dst0="-1" dst1="1" />
   </thruster>
 

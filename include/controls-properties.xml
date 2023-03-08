@@ -35,6 +35,14 @@ PROPERTY-PATH : /controls/
     <null type="float">0</null>
     <throttle alias="/controls/jato/null" />   <!-- alias switched by functions.nas -->
   </jato>
+  <hack>
+    <engine n="0">
+      <throttle alias="/controls/engines/engine[0]/throttle" />
+    </engine>
+    <engine n="1">
+      <throttle alias="/controls/engines/engine[1]/throttle" />
+    </engine>
+  </hack>
 
   <gear>
     <!-- set property : parking brake at start -->
