@@ -628,12 +628,28 @@ var event_control_gear = func(down, animate_view) {
         else
         {
             setprop("/controls/gear/gear-down", 1);
-            setprop("/controls/flight/elevator-trim", -0.15);
-
             #setprop("sim/model/lever_gear", 1);
         }
         # retract refuel pod pipe
         setprop("/controls/refuel-pod/pipe-extended", 0);
+
+        var speed = getprop("/instrumentation/airspeed-indicator/true-speed-kt") or 0;
+        var trim = 0;
+        if(speed <= 130)    { trim = (-444 + (6.7  * (speed - 120))) / 1000; }
+        elsif(speed <= 140) { trim = (-377 + (5.7  * (speed - 130))) / 1000; }
+        elsif(speed <= 150) { trim = (-320 + (2.5  * (speed - 140))) / 1000; }
+        elsif(speed <= 160) { trim = (-295 + (4.0  * (speed - 150))) / 1000; }
+        elsif(speed <= 170) { trim = (-255 + (3.5  * (speed - 160))) / 1000; }
+        elsif(speed <= 180) { trim = (-220 + (2.3  * (speed - 170))) / 1000; }
+        elsif(speed <= 200) { trim = (-197 + (1.6  * (speed - 180))) / 1000; }
+        elsif(speed <= 220) { trim = (-165 + (0.55 * (speed - 200))) / 1000; }
+        elsif(speed <= 250) { trim = (-154 + (1.8  * (speed - 220))) / 1000; }
+        elsif(speed <= 280) { trim = -98 / 1000; }
+
+
+        setprop("/controls/flight/elevator-trim", trim);
+
+
     }
     elsif((down == 0) and (is_on_ground == 0))
     {
@@ -646,7 +662,6 @@ var event_control_gear = func(down, animate_view) {
             view_panel_command();
             #settimer(func() { setprop("/controls/gear/gear-down", 0); setprop("sim/model/lever_gear", 0); }, 0.3);
             settimer(func() { setprop("/controls/gear/gear-down", 0); }, .3);
-            settimer(func() { setprop("/controls/flight/elevator-trim", 0); }, 8.3);
             settimer(func() { load_current_view(); }, .3);
         }
         else
@@ -654,9 +669,9 @@ var event_control_gear = func(down, animate_view) {
             setprop("/controls/gear/launchbar", 0);
             setprop("/controls/gear/catapult-launch-cmd", 0);
             setprop("/controls/gear/gear-down", 0);
-            settimer(func() { setprop("/controls/flight/elevator-trim", 0); }, 8); # see yasim extend gear : 8seconds
             #setprop("sim/model/lever_gear", 0);
         }
+        settimer(func() { setprop("/controls/flight/elevator-trim", 0); }, 8); # see yasim extend gear : 8seconds
     }
 }
 

@@ -2870,7 +2870,7 @@ refs 4
 kids 0
 OBJECT poly
 name "fuel.screen.off"
-texture "texture_instrument_fuel.png"
+texture "texture_instrument_fuel_black.png"
 texrep 1 1
 numvert 4
 0.0012804 0.0483659 0.0483659
@@ -2888,7 +2888,7 @@ refs 4
 kids 0
 OBJECT poly
 name "fuel_canvas_screen"
-texture "texture_instrument_fuel.png"
+texture "texture_instrument_fuel_black.png"
 texrep 1 1
 numvert 4
 0.0010928 0.0483659 0.0483659

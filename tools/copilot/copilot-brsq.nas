@@ -479,15 +479,18 @@ var detect_autotrim_on = func()
     var e = 'autotrim_on';
 
     # activer autotrim
-    # si trains sortis, pas au sol et pas autotrim
+    # si trains sortis, pas au sol, pas autotrim et pas autopilot
 
     var autotrim = getprop("/controls/flight/autotrim-pitch") or 0;
+    var autopilot_alt = getprop("/instrumentation/my_aircraft/pfd/inputs/autopilot/locks/altitude") or '-';
     if(
         (aircraft['is_gear_down'])
         and
         (!aircraft['is_wow'])
         and
         (!autotrim)
+        and
+        (autopilot_alt == '-')
     )
     {
         # gestion de la repetition du message

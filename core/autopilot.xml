@@ -186,7 +186,7 @@ file Aircraft/Generic/generic-autopilot-helper.xml
         <less-than><property>/velocities/airspeed-kt</property><value>2500</value></less-than>
       </condition>
     </enable>
-    <feedback-if-disabled>false</feedback-if-disabled>
+    <feedback-if-disabled>true</feedback-if-disabled>
     <input>
       <expression>
         <table>
@@ -235,8 +235,30 @@ file Aircraft/Generic/generic-autopilot-helper.xml
           </table>
         </expression>
       </Kp>
-      <Ti>1</Ti>
-      <Td>0.00001</Td>
+      <Ti>
+        <expression>
+          <table>
+            <property>/velocities/airspeed-kt</property>
+            <entry> <ind>100</ind><dep>1.5</dep></entry>
+            <entry> <ind>300</ind><dep>1.4</dep></entry>
+            <entry> <ind>450</ind><dep>1.2</dep></entry>
+            <entry> <ind>600</ind><dep>1</dep></entry>
+            <entry><ind>4000</ind><dep>1</dep></entry>
+          </table>
+        </expression>
+      </Ti>
+      <Td>
+        <expression>
+          <table>
+            <property>/velocities/airspeed-kt</property>
+            <entry> <ind>100</ind><dep>0.000005</dep></entry>
+            <entry> <ind>300</ind><dep>0.000003</dep></entry>
+            <entry> <ind>450</ind><dep>0.00001</dep></entry>
+            <entry> <ind>600</ind><dep>0.00001</dep></entry>
+            <entry><ind>4000</ind><dep>0.00001</dep></entry>
+          </table>
+        </expression>
+      </Td>
       <u_min>-1.0</u_min>
       <u_max>1.0</u_max>
     </config>
