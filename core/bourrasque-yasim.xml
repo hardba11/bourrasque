@@ -232,7 +232,7 @@ ________________________________________________________________________________
     <control-output control="REHEAT" prop="/engines/engine[0]/reheat" />
     <control-speed  control="REHEAT" transition-time="2" />
   </jet>
-  <thruster thrust="8000"
+  <thruster thrust="10000"
       x="-5.9" y="1.14" z=".9"
       vx="1" vy="0" vz="0">
     <control-input control="THROTTLE" axis="/controls/hack/engine[0]/throttle" />
@@ -254,7 +254,7 @@ ________________________________________________________________________________
     <control-output control="REHEAT" prop="/engines/engine[1]/reheat" />
     <control-speed  control="REHEAT" transition-time="2" />
   </jet>
-  <thruster thrust="8000"
+  <thruster thrust="10000"
       x="-5.9" y="-1.14" z=".9"
       vx="1" vy="0" vz="0">
     <control-input control="THROTTLE" axis="/controls/hack/engine[1]/throttle" />

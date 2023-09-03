@@ -543,13 +543,9 @@ var assistance = func()
             atc['speed']);
     }
 
+    assistance_message_bonus = '';
     if (
-        (
-            (atc['circuit'] == 'downwind')
-            or
-            (atc['circuit'] == 'base')
-            or (atc['circuit'] == 'final')
-        )
+        (atc['circuit'] == 'final')
         and
         (aircraft['is_gear_down'] != 1)
     ) {

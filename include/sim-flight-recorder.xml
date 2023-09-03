@@ -14,8 +14,7 @@ see :
 
 <PropertyList>
 
-
-  <replay-config type="int">1</replay-config>
+  <replay-config type="int">0</replay-config>
   <config n="0" include="/Aircraft/Generic/flightrecorder/generic-jet.xml">
     <name type="string">specific flight recorder</name>
     <signal>
@@ -43,6 +42,24 @@ see :
       <property type="string">/sim/model/store-refuel-pos-norm</property>
       <interpolation>linear</interpolation>
     </signal>
+
+    <!--signal>
+      <type>float</type>
+      <property type="string">/gear/gear[0]/rollspeed-ms</property>
+      <interpolation>linear</interpolation>
+    </signal>
+    <signal>
+      <type>float</type>
+      <property type="string">/gear/gear[1]/rollspeed-ms</property>
+      <interpolation>linear</interpolation>
+    </signal>
+    <signal>
+      <type>float</type>
+      <property type="string">/gear/gear[2]/rollspeed-ms</property>
+      <interpolation>linear</interpolation>
+    </signal-->
+
+
   </config>
 
 </PropertyList>

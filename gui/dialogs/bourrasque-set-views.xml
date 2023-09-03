@@ -53,8 +53,8 @@ changelog
       </text>
       <dial>
         <wrap>false</wrap>
-        <min>-100</min>
-        <max>100</max>
+        <min>-200</min>
+        <max>200</max>
         <stretch>true</stretch>
         <live>true</live>
         <property>/sim/current-view/x-offset-m</property>
@@ -63,7 +63,7 @@ changelog
         </binding>
       </dial>
       <text>
-        <label>-100.00</label>
+        <label>-200.00</label>
         <format>%-0.2f m</format>
         <live>true</live>
         <property>/sim/current-view/x-offset-m</property>
@@ -81,8 +81,8 @@ changelog
             <command>property-adjust</command>
             <property>/sim/current-view/x-offset-m</property>
             <step type="double">-0.1</step>
-            <min>-100</min>
-            <max>100</max>
+            <min>-200</min>
+            <max>200</max>
           </binding>
           <binding>
             <command>dialog-update</command>
@@ -96,8 +96,8 @@ changelog
             <command>property-adjust</command>
             <property>/sim/current-view/x-offset-m</property>
             <step type="double">-0.01</step>
-            <min>-100</min>
-            <max>100</max>
+            <min>-200</min>
+            <max>200</max>
           </binding>
           <binding>
             <command>dialog-update</command>
@@ -114,8 +114,8 @@ changelog
             <command>property-adjust</command>
             <property>/sim/current-view/x-offset-m</property>
             <step type="double">0.01</step>
-            <min>-100</min>
-            <max>100</max>
+            <min>-200</min>
+            <max>200</max>
           </binding>
           <binding>
             <command>dialog-update</command>
@@ -129,8 +129,8 @@ changelog
             <command>property-adjust</command>
             <property>/sim/current-view/x-offset-m</property>
             <step type="double">0.1</step>
-            <min>-100</min>
-            <max>100</max>
+            <min>-200</min>
+            <max>200</max>
           </binding>
           <binding>
             <command>dialog-update</command>
@@ -169,15 +169,15 @@ changelog
       </text>
       <dial>
         <wrap>false</wrap>
-        <min>-100</min>
-        <max>100</max>
+        <min>-200</min>
+        <max>200</max>
         <stretch>true</stretch>
         <live>true</live>
         <property>/sim/current-view/y-offset-m</property>
         <binding><command>dialog-apply</command></binding>
       </dial>
       <text>
-        <label>-100.00</label>
+        <label>-200.00</label>
         <format>%-0.2f m</format>
         <live>true</live>
         <property>/sim/current-view/y-offset-m</property>
@@ -196,8 +196,8 @@ changelog
             <command>property-adjust</command>
             <property>/sim/current-view/y-offset-m</property>
             <step type="double">-0.1</step>
-            <min>-100</min>
-            <max>100</max>
+            <min>-200</min>
+            <max>200</max>
           </binding>
           <binding>
             <command>dialog-update</command>
@@ -211,8 +211,8 @@ changelog
             <command>property-adjust</command>
             <property>/sim/current-view/y-offset-m</property>
             <step type="double">-0.01</step>
-            <min>-100</min>
-            <max>100</max>
+            <min>-200</min>
+            <max>200</max>
           </binding>
           <binding>
             <command>dialog-update</command>
@@ -229,8 +229,8 @@ changelog
             <command>property-adjust</command>
             <property>/sim/current-view/y-offset-m</property>
             <step type="double">0.01</step>
-            <min>-100</min>
-            <max>100</max>
+            <min>-200</min>
+            <max>200</max>
           </binding>
           <binding>
             <command>dialog-update</command>
@@ -244,8 +244,8 @@ changelog
             <command>property-adjust</command>
             <property>/sim/current-view/y-offset-m</property>
             <step type="double">0.1</step>
-            <min>-100</min>
-            <max>100</max>
+            <min>-200</min>
+            <max>200</max>
           </binding>
           <binding>
             <command>dialog-update</command>
@@ -287,15 +287,15 @@ changelog
       </text>
       <dial>
         <wrap>false</wrap>
-        <min>-100</min>
-        <max>100</max>
+        <min>-200</min>
+        <max>200</max>
         <stretch>true</stretch>
         <live>true</live>
         <property>/sim/current-view/z-offset-m</property>
         <binding><command>dialog-apply</command></binding>
       </dial>
       <text>
-        <label>-100.00</label>
+        <label>-200.00</label>
         <format>%-0.2f m</format>
         <live>true</live>
         <property>/sim/current-view/z-offset-m</property>
@@ -313,8 +313,8 @@ changelog
             <command>property-adjust</command>
             <property>/sim/current-view/z-offset-m</property>
             <step type="double">-0.1</step>
-            <min>-100</min>
-            <max>100</max>
+            <min>-200</min>
+            <max>200</max>
           </binding>
           <binding>
             <command>dialog-update</command>
@@ -328,8 +328,8 @@ changelog
             <command>property-adjust</command>
             <property>/sim/current-view/z-offset-m</property>
             <step type="double">-0.01</step>
-            <min>-100</min>
-            <max>100</max>
+            <min>-200</min>
+            <max>200</max>
           </binding>
           <binding>
             <command>dialog-update</command>
@@ -346,8 +346,8 @@ changelog
             <command>property-adjust</command>
             <property>/sim/current-view/z-offset-m</property>
             <step type="double">0.01</step>
-            <min>-100</min>
-            <max>100</max>
+            <min>-200</min>
+            <max>200</max>
           </binding>
           <binding>
             <command>dialog-update</command>
@@ -361,8 +361,8 @@ changelog
             <command>property-adjust</command>
             <property>/sim/current-view/z-offset-m</property>
             <step type="double">0.1</step>
-            <min>-100</min>
-            <max>100</max>
+            <min>-200</min>
+            <max>200</max>
           </binding>
           <binding>
             <command>dialog-update</command>

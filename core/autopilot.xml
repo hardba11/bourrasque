@@ -98,10 +98,10 @@ file Aircraft/Generic/generic-autopilot-helper.xml
             <entry><ind>450</ind><dep>2.3</dep></entry>
             <entry><ind>600</ind><dep>2.0</dep></entry>
             <entry><ind>800</ind><dep>1.3</dep></entry>
-            <entry><ind>1000</ind><dep>.8</dep></entry>
-            <entry><ind>1200</ind><dep>.3</dep></entry>
-            <entry><ind>1400</ind><dep>.2</dep></entry>
-            <entry><ind>1600</ind><dep>.1</dep></entry>
+            <entry><ind>1000</ind><dep>1.2</dep></entry>
+            <entry><ind>1200</ind><dep>1.1</dep></entry>
+            <entry><ind>1400</ind><dep>1.0</dep></entry>
+            <entry><ind>1600</ind><dep>0.9</dep></entry>
             <entry><ind>4000</ind><dep>.1</dep></entry>
           </table>
         </expression>
@@ -115,10 +115,10 @@ file Aircraft/Generic/generic-autopilot-helper.xml
             <entry><ind>200</ind><dep>-0.5</dep></entry>
             <entry><ind>300</ind><dep>-1.0</dep></entry>
             <entry><ind>600</ind><dep>-1.0</dep></entry>
-            <entry><ind>1000</ind><dep>-0.6</dep></entry>
+            <!--entry><ind>1000</ind><dep>-0.6</dep></entry>
             <entry><ind>1600</ind><dep>-0.2</dep></entry>
             <entry><ind>2000</ind><dep>-0.1</dep></entry>
-            <entry><ind>4000</ind><dep>-0.1</dep></entry>
+            <entry><ind>4000</ind><dep>-0.1</dep></entry-->
           </table>
         </expression>
       </u_min>
@@ -129,10 +129,10 @@ file Aircraft/Generic/generic-autopilot-helper.xml
             <entry><ind>200</ind><dep>0.5</dep></entry>
             <entry><ind>300</ind><dep>1.0</dep></entry>
             <entry><ind>600</ind><dep>1.0</dep></entry>
-            <entry><ind>1000</ind><dep>0.6</dep></entry>
+            <!--entry><ind>1000</ind><dep>0.6</dep></entry>
             <entry><ind>1600</ind><dep>0.2</dep></entry>
             <entry><ind>2000</ind><dep>0.1</dep></entry>
-            <entry><ind>4000</ind><dep>0.1</dep></entry>
+            <entry><ind>4000</ind><dep>0.1</dep></entry-->
           </table>
         </expression>
       </u_max>
@@ -232,6 +232,7 @@ file Aircraft/Generic/generic-autopilot-helper.xml
             <entry><ind>1500</ind><dep>0.02</dep></entry>
             <entry><ind>2000</ind><dep>0.01</dep></entry>
             <entry><ind>4000</ind><dep>0.01</dep></entry>
+            <entry><ind>8000</ind><dep>0.001</dep></entry>
           </table>
         </expression>
       </Kp>
@@ -244,6 +245,7 @@ file Aircraft/Generic/generic-autopilot-helper.xml
             <entry> <ind>450</ind><dep>1.2</dep></entry>
             <entry> <ind>600</ind><dep>1</dep></entry>
             <entry><ind>4000</ind><dep>1</dep></entry>
+            <entry><ind>8000</ind><dep>.1</dep></entry>
           </table>
         </expression>
       </Ti>
@@ -255,7 +257,8 @@ file Aircraft/Generic/generic-autopilot-helper.xml
             <entry> <ind>300</ind><dep>0.000003</dep></entry>
             <entry> <ind>450</ind><dep>0.00001</dep></entry>
             <entry> <ind>600</ind><dep>0.00001</dep></entry>
-            <entry><ind>4000</ind><dep>0.00001</dep></entry>
+            <entry><ind>4000</ind><dep>0.0001</dep></entry>
+            <entry><ind>8000</ind><dep>1</dep></entry>
           </table>
         </expression>
       </Td>

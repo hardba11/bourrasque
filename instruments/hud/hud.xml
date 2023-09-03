@@ -643,8 +643,8 @@ see :
     <input>
       <property>/velocities/groundspeed-kt</property>
     </input>
-    <x>-100</x>
-    <y>-70</y>
+    <x>-120</x>
+    <y>-55</y>
     <width>50</width>
     <height>10</height>
     <format>GS %3.0fkt</format>
@@ -667,8 +667,8 @@ see :
     <input>
       <property>/velocities/groundspeed-kt</property>
     </input>
-    <x>-100</x>
-    <y>-70</y>
+    <x>-120</x>
+    <y>-55</y>
     <width>50</width>
     <height>10</height>
     <format>GS %3.0fkt</format>
@@ -836,14 +836,14 @@ see :
 
   <label>
     <name>Ralt</name>
-    <x>85</x>
-    <y>-61</y>
+    <x>84</x>
+    <y>-66</y>
     <width>18</width>
     <height>8</height>
     <input>
       <property>/position/altitude-agl-ft</property>
     </input>
-    <format>R %4.0fft</format>
+    <format>%4.0fft R</format>
     <halign>left</halign>
     <box>false</box>
     <option>top</option>
@@ -868,11 +868,11 @@ see :
       <property>/position/altitude-agl-ft</property>
       <factor>.1</factor>
     </input>
-    <x>80</x>
+    <x>110</x>
     <y>-85</y>
     <width>15</width>
-    <height>55</height>
-    <option>right</option>
+    <height>45</height>
+    <option>left</option>
     <option>vertical</option>
     <label-gap-width>8</label-gap-width>
     <major-divisions>1</major-divisions>
@@ -914,16 +914,34 @@ see :
 -->
 <!-- ~~~~~~~~~~~~~~~~~~ commands positions -->
   <gauge>
+    <name>pitch gauge</name>
+    <x>-100</x>
+    <y>-98</y>
+    <width>6</width>
+    <height>28</height>
+    <option>vertical</option>
+    <option>right</option>
+    <option>notext</option>
+    <major-divisions>1</major-divisions>
+    <minor-divisions>1</minor-divisions>
+    <input>
+      <property>/controls/flight/elevator</property>
+      <factor>-1</factor>
+      <max>1.0</max>
+      <min>-1.0</min>
+    </input>
+  </gauge>
+  <gauge>
     <name>roll gauge</name>
-    <x>80</x>
-    <y>8</y>
+    <x>-100</x>
+    <y>-84</y>
     <width>24</width>
-    <height>5</height>
+    <height>6</height>
     <option>top</option>
     <option>horizontal</option>
     <option>notext</option>
     <major-divisions>1</major-divisions>
-    <minor-divisions>0</minor-divisions>
+    <minor-divisions>1</minor-divisions>
     <input>
       <property>/controls/flight/aileron</property>
       <max>1.0</max>
@@ -931,19 +949,18 @@ see :
     </input>
   </gauge>
   <gauge>
-    <name>pitch gauge</name>
-    <x>99</x>
-    <y>-4</y>
-    <width>5</width>
-    <height>24</height>
-    <option>vertical</option>
-    <option>left</option>
+    <name>yaw gauge</name>
+    <x>-100</x>
+    <y>-87</y>
+    <width>24</width>
+    <height>3</height>
+    <option>horizontal</option>
+    <option>bottom</option>
     <option>notext</option>
     <major-divisions>1</major-divisions>
-    <minor-divisions>0</minor-divisions>
+    <minor-divisions>1</minor-divisions>
     <input>
-      <property>/controls/flight/elevator</property>
-      <factor>-1</factor>
+      <property>/controls/flight/rudder</property>
       <max>1.0</max>
       <min>-1.0</min>
     </input>
@@ -954,12 +971,21 @@ see :
     <input>
       <property>/controls/flight/elevator-trim</property>
     </input>
-    <x>70</x>
-    <y>20</y>
+    <x>82</x>
+    <y>0</y>
     <width>10</width>
     <height>8</height>
     <halign>middle</halign>
     <format>%.3f</format>
+    <condition>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <not-equals>
+          <property>/controls/flight/elevator-trim</property>
+          <value>0</value>
+        </not-equals>
+      </or>
+    </condition>
   </label>
   <gauge>
     <name>pitch trim gauge</name>
@@ -978,23 +1004,15 @@ see :
       <max>1.0</max>
       <min>-1.0</min>
     </input>
-  </gauge>
-  <gauge>
-    <name>yaw gauge</name>
-    <x>80</x>
-    <y>5</y>
-    <width>24</width>
-    <height>3</height>
-    <option>horizontal</option>
-    <option>bottom</option>
-    <option>notext</option>
-    <major-divisions>1</major-divisions>
-    <minor-divisions>0</minor-divisions>
-    <input>
-      <property>/controls/flight/rudder</property>
-      <max>1.0</max>
-      <min>-1.0</min>
-    </input>
+    <condition>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <not-equals>
+          <property>/controls/flight/elevator-trim</property>
+          <value>0</value>
+        </not-equals>
+      </or>
+    </condition>
   </gauge>
 
 <!-- ~~~~~~~~~~~~~~~~~~ throttle 0 for TAXI and APP mode -->
@@ -1003,7 +1021,7 @@ see :
     <x>-100</x>
     <y>-135</y>
     <width>10</width>
-    <height>45</height>
+    <height>35</height>
     <option>vertical</option>
     <option>left</option>
     <option>notext</option>
@@ -1034,7 +1052,7 @@ see :
     <x>-100</x>
     <y>-135</y>
     <width>10</width>
-    <height>45</height>
+    <height>35</height>
     <option>vertical</option>
     <option>right</option>
     <option>notext</option>
@@ -1287,7 +1305,7 @@ see :
   <label>
     <name>Hook</name>
     <x>-56</x>
-    <y>-96</y>
+    <y>-130</y>
     <width>15</width>
     <height>6</height>
     <condition>
@@ -1306,7 +1324,7 @@ see :
   <label>
     <name>Launch Bar</name>
     <x>-78</x>
-    <y>-96</y>
+    <y>-130</y>
     <width>15</width>
     <height>6</height>
     <condition>
@@ -1461,7 +1479,7 @@ see :
 <!-- ~~~~~~~~~~~~~~~~~~ G load -->
   <label>
     <name>G Load</name>
-    <x>-60</x>
+    <x>-120</x>
     <y>-5</y>
     <width>1.5</width>
     <height>1.5</height>

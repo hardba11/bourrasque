@@ -282,7 +282,8 @@ http://wiki.flightgear.org/Property_tree
       <path>/sim/model/smoking-color</path>
       <path>/instrumentation/my_aircraft/hud_target_positions/controls/enabled</path>
       <path>/instrumentation/my_aircraft/hud_target_positions/controls/targets_are_mp</path>
-      <path>controls/pax/copilot</path>
+      <path>/controls/pax/copilot</path>
+      <path>/controls/copilot</path>
       <path>/controls/cockpit/shake-effect</path>
       <path>/instrumentation/my_aircraft/pfd/controls/hippodrome-leg-duration</path>
       <path>/instrumentation/adf[0]/mode</path>
@@ -313,7 +314,7 @@ http://wiki.flightgear.org/Property_tree
       <path>/instrumentation/tacan/frequencies/selected-channel[4]</path>
       <path>/autopilot/settings/heading-bug-deg</path>
       <path>/instrumentation/my_aircraft/nd/inputs/inputs/tfc</path>
-      <!--path>/instrumentation/my_aircraft/nd/inputs/true-north</path-->
+      <path>/instrumentation/my_aircraft/nd/inputs/true-north</path>
       <path>/instrumentation/my_aircraft/sfd/controls/radar_range</path>
       <path>/consumables/fuel/tank[0]/level-norm</path>
       <path>/consumables/fuel/tank[1]/level-norm</path>

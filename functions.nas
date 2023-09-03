@@ -250,8 +250,8 @@ var throttle_mouse = func() {
 
 var inc_throttle = func() {
 
-    var locked = getprop("/autopilot/locks/speed");
-    if(locked)
+    var lock_speed = getprop("/autopilot/locks/speed") or '';
+    if(lock_speed)
     {
         var node = props.globals.getNode("/autopilot/settings/target-speed-kt", 1);
         if(node.getValue() == nil)
