@@ -240,6 +240,11 @@ http://wiki.flightgear.org/Property_tree
         <path>Aircraft/bourrasque/models/effects/shadow/3d-shadow-filters.xml</path>
         <serviceable type="bool">1</serviceable>
       </property-rule>
+      <property-rule n="104">
+        <name>adf-filters</name>
+        <path>Aircraft/bourrasque/instruments/nd/nd-filters.xml</path>
+        <serviceable type="bool">1</serviceable>
+      </property-rule>
 
       <!-- ~~~~~~~~~~~~~~~~~~ autopilot -->
       <autopilot>

@@ -36,7 +36,13 @@ PROPERTY-PATH : /instrumentation/my_aircraft/nd/
     <indicated-heading   alias="/orientation/heading-magnetic-deg" />   <!-- alias switched by nd.nas -->
     <heading-bug-deg     alias="/autopilot/settings/heading-bug-deg" /> <!-- alias switched by nd.nas -->
     <true-heading-bug-deg type="float" />                               <!-- calculated by bourrasque.nas -->
+    <true-heading-bug-deg type="float" />                               <!-- calculated by bourrasque.nas -->
   </outputs>
+
+  <adf>
+    <heading-deg type="float" />                                        <!-- calculated by nd-filters.xml -->
+  </adf>
+
 
 </PropertyList>
 

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PropertyList>
+
+  <filter>
+    <type>gain</type>
+    <debug>false</debug>
+    <gain>1</gain>
+    <input>
+      <expression>
+        <mod>
+          <sum>
+            <property>/instrumentation/adf[0]/indicated-bearing-deg</property>
+            <property>/instrumentation/my_aircraft/nd/outputs/indicated-heading</property>
+          </sum>
+          <value>360</value>
+        </mod>
+      </expression>
+    </input>
+    <output>/instrumentation/my_aircraft/nd/adf/heading-deg</output>
+  </filter>
+
+
+</PropertyList>
+
