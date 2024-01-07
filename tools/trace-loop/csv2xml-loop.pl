@@ -1,7 +1,7 @@
 #!/usr/bin/perl -W
 
 # author : hardball
-# version : v20191125-01
+# version : v20231115-01
 # description :
 #   csv loop to xml scenario
 
@@ -26,16 +26,18 @@ use Term::ANSIColor ;
 #                                                                     CONSTANTES
 
 # filepath
+#my $LOOPNAME                = 'LFLG-timed-loop';
+my $LOOPNAME                = 'homemade-timed-loop';
 my $FILENAME_IN_CSV         = 'trace-loop-INPUT.csv' ;
 my $FILENAME_INC_HEADER_XML = 'loop-HEADER.inc.xml' ;
 my $FILENAME_INC_FOOTER_XML = 'loop-FOOTER.inc.xml' ;
-my $FILENAME_OUT_XML        = 'LFLG-timed-loop.xml' ;
+my $FILENAME_OUT_XML        = $LOOPNAME .'.xml' ;
 
 my $TPL_ENTRANCE = '
     <entry>
       <name>loop-entrance%02d</name>
       <callsign>L-IN%02d</callsign>
-      <model type="string">LFLG-timed-loop/lineupmarker.xml</model>
+      <model type="string">'. $LOOPNAME .'/lineupmarker.xml</model>
       <latitude type="double">%s</latitude>
       <longitude type="double">%s</longitude>
       <altitude type="double">%s</altitude>
@@ -48,7 +50,7 @@ my $TPL_START1 = '
     <entry>
       <name>loop-start-marker</name>
       <callsign>L-STRT</callsign>
-      <model type="string">LFLG-timed-loop/startmarker.xml</model>
+      <model type="string">'. $LOOPNAME .'/startmarker.xml</model>
       <latitude type="double">%s</latitude>
       <longitude type="double">%s</longitude>
       <altitude type="double">%s</altitude>
@@ -59,7 +61,7 @@ my $TPL_START2 = '
     <entry>
       <name>loop-start</name>
       <callsign>L-STRT</callsign>
-      <model type="string">LFLG-timed-loop/targetmarker-inactive.xml</model>
+      <model type="string">'. $LOOPNAME .'/targetmarker-inactive.xml</model>
       <latitude type="double">%s</latitude>
       <longitude type="double">%s</longitude>
       <altitude type="double">%s</altitude>
@@ -72,7 +74,7 @@ my $TPL_LOOP = '
     <entry>
       <name>loop-gate-%02d</name>
       <callsign>L-GT%02d</callsign>
-      <model type="string">LFLG-timed-loop/targetmarker.xml</model>
+      <model type="string">'. $LOOPNAME .'/targetmarker.xml</model>
       <latitude type="double">%s</latitude>
       <longitude type="double">%s</longitude>
       <altitude type="double">%s</altitude>
@@ -85,7 +87,7 @@ my $TPL_FINISH1 = '
     <entry>
       <name>loop-finish</name>
       <callsign>L-END</callsign>
-      <model type="string">LFLG-timed-loop/targetmarker-inactive.xml</model>
+      <model type="string">'. $LOOPNAME .'/targetmarker-inactive.xml</model>
       <latitude type="double">%s</latitude>
       <longitude type="double">%s</longitude>
       <altitude type="double">%s</altitude>
@@ -96,7 +98,7 @@ my $TPL_FINISH2 = '
     <entry>
       <name>loop-finish-marker</name>
       <callsign>L-END</callsign>
-      <model type="string">LFLG-timed-loop/finishmarker.xml</model>
+      <model type="string">'. $LOOPNAME .'/finishmarker.xml</model>
       <latitude type="double">%s</latitude>
       <longitude type="double">%s</longitude>
       <altitude type="double">%s</altitude>
@@ -109,7 +111,7 @@ my $TPL_EXIT = '
     <entry>
       <name>loop-exit-%02d</name>
       <callsign>L-EX%02d</callsign>
-      <model type="string">LFLG-timed-loop/lineupmarker.xml</model>
+      <model type="string">'. $LOOPNAME .'/lineupmarker.xml</model>
       <latitude type="double">%s</latitude>
       <longitude type="double">%s</longitude>
       <altitude type="double">%s</altitude>

@@ -100,6 +100,28 @@ r = 37
     </condition>
   </animation>
 
+  <!-- ~~~~~~~~~~~~~~~~~~ livery specific pilot texture -->
+  <animation>
+    <type>material</type>
+    <property-base>sim/model/livery</property-base>
+    <texture-prop>texture-pilot</texture-prop>
+    <texture-pilot>pilot.png</texture-pilot>
+    <object-name>tete</object-name>
+    <object-name>corps</object-name>
+    <object-name>brasG</object-name>
+    <object-name>avantbrasG</object-name>
+    <object-name>mainG</object-name>
+    <object-name>brasD</object-name>
+    <object-name>avantbrasD</object-name>
+    <object-name>mainD</object-name>
+    <object-name>jambeD</object-name>
+    <object-name>molletD</object-name>
+    <object-name>piedD</object-name>
+    <object-name>jambeG</object-name>
+    <object-name>molletG</object-name>
+    <object-name>piedG</object-name>
+  </animation>
+
   <!-- ~~~~~~~~~~~~~~~~~~ full pilot block without legs -->
   <animation>
     <name>bloc_pilote</name>

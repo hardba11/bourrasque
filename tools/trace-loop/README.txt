@@ -7,7 +7,7 @@ You have some beginning and ending doors to help you to find the starting door.
 
 
 how to
-======
+================================================================================
 
 recording doors coordinates when flying
 ---------------------------------------
@@ -36,8 +36,8 @@ creating ai scenario
 
 1- put your file trace-loop-INPUT.csv in the directory tools/trace-loop/
 2- open a terminal and run :
-chmod 0700 csv2xml-loop.pl
-./csv2xml-loop.pl
+    chmod 0700 csv2xml-loop.pl
+    ./csv2xml-loop.pl
 3- a new file has been created : homemade-timed-loop.xml
 4- copy it in the directory fgdata/AI/
 5- copy directory bourrasque/ai/homemade-timed-loop/ in the directory fgdata/AI/

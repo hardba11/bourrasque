@@ -322,7 +322,7 @@ changelog
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>tooltip-nd-set-bug</tooltip-id>
-        <label>Set heading-bug %3d</label>
+        <label>Set heading-bug %3d MAG</label>
         <mapping>heading</mapping>
         <property>/autopilot/settings/heading-bug-deg</property>
       </binding>

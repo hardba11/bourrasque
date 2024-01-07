@@ -10,6 +10,8 @@
         <texture>liveries/texture_bourrasque_serpent.png</texture>
         <texture-tank>texture_tanks_serpent.png</texture-tank>
         <texture-gears>texture_gears.png</texture-gears>
+        <texture-pilot>pilot.png</texture-pilot>
+        <texture-copilot>copilot.png</texture-copilot>
 
       </livery>
     </model>

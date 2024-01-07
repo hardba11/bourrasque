@@ -10,6 +10,8 @@
         <texture>liveries/texture_bourrasque_winter.png</texture>
         <texture-tank>texture_tanks_winter.png</texture-tank>
         <texture-gears>texture_gears.png</texture-gears>
+        <texture-pilot>pilot-hiver.png</texture-pilot>
+        <texture-copilot>copilot-hiver.png</texture-copilot>
 
       </livery>
     </model>

@@ -6,7 +6,75 @@ var my_reticle_radius = 10;
 var max_reticle = 10;
 var px_factor = 330;
 
-
+var transparency = .7;
+var colors = [
+#00ee6b
+    {
+        'r': 0,
+        'g': 238,
+        'b': 107,
+    },
+#fff236
+    {
+        'r': 255,
+        'g': 242,
+        'b': 54,
+    },
+#c01c28
+    {
+        'r': 192,
+        'g': 28,
+        'b': 40,
+    },
+#ea66f9
+    {
+        'r': 234,
+        'g': 102,
+        'b': 249,
+    },
+#eeb900
+    {
+        'r': 238,
+        'g': 185,
+        'b': 0,
+    },
+#f11a99
+    {
+        'r': 241,
+        'g': 26,
+        'b': 153,
+    },
+#ff7800
+    {
+        'r': 255,
+        'g': 120,
+        'b': 0,
+    },
+#b5835a
+    {
+        'r': 181,
+        'g': 131,
+        'b': 90,
+    },
+#ffffff
+    {
+        'r': 255,
+        'g': 255,
+        'b': 255,
+    },
+#b3ff74
+    {
+        'r': 179,
+        'g': 255,
+        'b': 116,
+    },
+#000000
+    {
+        'r': 0,
+        'g': 0,
+        'b': 0,
+    },
+];
 
 #===============================================================================
 #                                                                      CLASS HUD
@@ -62,13 +130,20 @@ var HUD = {
             m.target = m.horizontal_container.createChild('group', 'target-'~ i);
             m.t_target = m.target.createTransform();
 
+            # le point est statique et sert de repere
+            m.repere = m.target.createChild('path', 'repere-'~ i)
+                .setStrokeLineWidth(2)
+                .set('stroke', 'rgba('~ colors[i]['r'] ~', '~ colors[i]['g'] ~', '~ colors[i]['b'] ~', '~ transparency ~')')
+                .moveTo(0, -my_reticle_radius - 2)
+                .lineTo(0, -my_reticle_radius - 6);
+
             m.reticle = m.target.createChild('group', 'reticle-'~ i);
             m.t_reticle = m.reticle.createTransform();
 
             # le cercle identifie la cible
             m.circle = m.reticle.createChild('path', 'circle-'~ i)
                 .setStrokeLineWidth(2)
-                .set('stroke', 'rgba(255, 255, 220, 0.9)')
+                .set('stroke', 'rgba('~ colors[i]['r'] ~', '~ colors[i]['g'] ~', '~ colors[i]['b'] ~', '~ transparency ~')')
                 .moveTo(0 - my_reticle_radius, 0)
                 .arcSmallCW(my_reticle_radius, my_reticle_radius, 0, (my_reticle_radius * 2), 0)
                 .arcSmallCW(my_reticle_radius, my_reticle_radius, 0, -(my_reticle_radius * 2), 0);
@@ -76,7 +151,7 @@ var HUD = {
             # le triangle donne le cap relatif
             m.triangle = m.reticle.createChild('path', 'triangle-'~ i)
                 .setStrokeLineWidth(2)
-                .set('stroke', 'rgba(255, 255, 220, 0.9)')
+                .set('stroke', 'rgba('~ colors[i]['r'] ~', '~ colors[i]['g'] ~', '~ colors[i]['b'] ~', '~ transparency ~')')
                 .moveTo(-2, 17)
                 .lineTo(0, 12)
                 .lineTo(2, 17);
@@ -85,35 +160,35 @@ var HUD = {
             m.speed_info = m.target.createChild('group', 'speed_info-'~ i);
             m.speed_bar = m.speed_info.createChild('path', 'speed_bar-'~ i)
                 .setStrokeLineWidth(2)
-                .set('stroke', 'rgba(255, 255, 220, 0.9)')
+                .set('stroke', 'rgba('~ colors[i]['r'] ~', '~ colors[i]['g'] ~', '~ colors[i]['b'] ~', '~ transparency ~')')
                 .moveTo(-(my_reticle_radius + 6), 0)
                 .lineTo(-my_reticle_radius, 0)
                 .moveTo(my_reticle_radius, 0)
                 .lineTo(my_reticle_radius + 6, 0);
             m.text_speed = m.speed_info.createChild('text', 'text_speed-'~ i)
-                .setTranslation(-30, 0)
+                .setTranslation(-18, 0)
                 .setAlignment('right-center')
                 .setFont('LiberationFonts/LiberationSansNarrow-Bold.ttf')
-                .setFontSize(8)
-                .setColor(1, 1, 0.7, 1)
+                .setFontSize(7)
+                .setColor((colors[i]['r'] / 255), (colors[i]['g'] / 255), (colors[i]['b'] / 255), transparency)
                 .setText('VOID'~ i);
             m.t_speed_info = m.speed_info.createTransform();
 
             # on affiche des infos de la cible a cote du cercle
-            m.text_info = m.target.createChild('text', 'text_info-'~ i)
-                .setTranslation(15, -10)
+            m.text_lbl = m.target.createChild('text', 'text_lbl-'~ i)
+                .setTranslation(18, 0)
                 .setAlignment('left-center')
                 .setFont('LiberationFonts/LiberationSansNarrow-Bold.ttf')
-                .setFontSize(9)
-                .setColor(1, 1, 0.7, 1)
-                .setText('INFO'~ i);
-            m.text_lbl = m.target.createChild('text', 'text_lbl-'~ i)
-                .setTranslation(0, 20)
-                .setAlignment('center-center')
-                .setFont('LiberationFonts/LiberationSansNarrow-Bold.ttf')
                 .setFontSize(8)
-                .setColor(1, 1, 0.7, 1)
+                .setColor((colors[i]['r'] / 255), (colors[i]['g'] / 255), (colors[i]['b'] / 255), transparency)
                 .setText('LABEL'~ i);
+            m.text_info = m.target.createChild('text', 'text_info-'~ i)
+                .setTranslation(18, 10)
+                .setAlignment('left-center')
+                .setFont('LiberationFonts/LiberationSansNarrow-Bold.ttf')
+                .setFontSize(7)
+                .setColor((colors[i]['r'] / 255), (colors[i]['g'] / 255), (colors[i]['b'] / 255), transparency)
+                .setText('INFO'~ i);
 
             m.target.setTranslation(512, 512);
             m.target.hide();
@@ -133,10 +208,9 @@ var HUD = {
         if(show_targets == 1)
         {
 
-            # recuperation de la position de l'avion
+            # recuperation de la position de l'avion, on neglige le yaw
             var pitch_deg      = getprop("/orientation/pitch-deg");
             var roll_deg       = getprop("/orientation/roll-deg");
-            # on neglige le yaw
             var velocity       = getprop("/instrumentation/airspeed-indicator/true-speed-kt");
             var my_heading_deg = getprop("/orientation/heading-deg"); # true north
             var my_aoa_deg     = getprop("/orientation/alpha-deg");
@@ -175,7 +249,8 @@ var HUD = {
             var targets_datas  = [];
             for(var i = 0; i < size(list_obj); i += 1)
             {
-                var target_callsign    = list_obj[i].getNode("callsign").getValue() or 0;
+                var target_callsign    = list_obj[i].getNode("callsign").getValue() or '';
+                var target_model       = list_obj[i].getNode("model-short", 1).getValue() or '';
                 var target_in_range    = list_obj[i].getNode("radar/in-range").getValue() or 0;
                 var is_valid           = list_obj[i].getNode("valid").getValue() or 0;
                 var target_range       = list_obj[i].getNode("radar/range-nm").getValue() or 1000;
@@ -245,19 +320,20 @@ var HUD = {
                     var relative_speed_M             = velocity        * math.cos(horizontal_offset * D2R);
                     var relative_speed_T             = target_airspeed * math.cos((target_heading_deg - target_bearing_deg) * D2R);
                     var relative_speed               = relative_speed_T - relative_speed_M;
-                    var speed_y                      = (sprintf('%d', relative_speed) == 0) ? 0 : math.log10(math.abs(sprintf('%d', relative_speed) / 2)) * 5;
+#                    var speed_y                      = (sprintf('%d', relative_speed) == 0) ? 0 : math.log10(math.abs(sprintf('%d', relative_speed) / 2)) * 5;
+                    var speed_y                      = (sprintf('%d', relative_speed) == 0) ? 0 : math.log10(math.abs(sprintf('%d', relative_speed))) * 5;
                     var positive_or_negative         = (relative_speed >= 0) ? 1 : -1;
 
                     target_data.speed_bars_y         = positive_or_negative * speed_y;
                     target_data.text_speed           = sprintf('%.1f', -relative_speed);
                     if(target_range > 5)
                     {
-                        target_data.text_lbl         = sprintf('%s : %d nm', target_callsign, target_range);
+                        target_data.text_lbl         = sprintf('%s : %d nm [%s]', target_callsign, target_range, target_model);
                         target_data.text_info        = "";
                     }
                     else
                     {
-                        target_data.text_lbl         = sprintf('%s : %.2f nm', target_callsign, target_range);
+                        target_data.text_lbl         = sprintf('%s : %.2f nm [%s]', target_callsign, target_range, target_model);
                         target_data.text_info        = sprintf('%d ft / %d kt', target_altitude, target_airspeed);
                     }
                     target_data.coord_x              = coord_x;

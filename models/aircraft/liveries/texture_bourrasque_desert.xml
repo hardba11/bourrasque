@@ -10,6 +10,8 @@
         <texture>liveries/texture_bourrasque_desert.png</texture>
         <texture-tank>texture_tanks_desert.png</texture-tank>
         <texture-gears>texture_gears.png</texture-gears>
+        <texture-pilot>pilot-sable.png</texture-pilot>
+        <texture-copilot>copilot-sable.png</texture-copilot>
 
       </livery>
     </model>

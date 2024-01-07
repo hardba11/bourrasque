@@ -91,10 +91,12 @@
     </condition>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ specific copilot texture -->
+  <!-- ~~~~~~~~~~~~~~~~~~ livery specific copilot texture -->
   <animation>
     <type>material</type>
-    <texture>copilot.png</texture>
+    <property-base>sim/model/livery</property-base>
+    <texture-prop>texture-copilot</texture-prop>
+    <texture-copilot>copilot.png</texture-copilot>
     <object-name>tete</object-name>
     <object-name>corps</object-name>
     <object-name>brasG</object-name>

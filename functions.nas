@@ -23,16 +23,13 @@ var SETTINGS_MODS = [
 var SETTINGS_PANEL_VIEW_LEFT = [
     [ 'fov', 'heading', 'pitch',  'z'  ,  'x'  ,  'y'  ],
     [  30.6,       0  ,   -35  ,  -3.32,   0   ,   0.99], # center stdby instruments
-#    [  54.6,      11.6,   -25  ,  -3.32,   0   ,   1.10], # left MFD
-#    [  33.8,      45  ,   -55  ,  -3.45,  -0.21,   0.99], # command
     [  54.6,      16.5,   -37  ,  -3.32,   0   ,   1.10], # left MFD + command
     [  41  ,      90  ,   -70  ,  -3.32,  -0.23,   0.87], # lights
-    [  70,         0  ,     0  ,  -6.02,   0   ,   1.15], # hud full view
+    [  70,         0  ,     0  ,  -7.15,   0   ,  -0.05], # hud full view
 ];
 var SETTINGS_PANEL_VIEW_RIGHT = [
     [ 'fov', 'heading', 'pitch',  'z'  ,  'x'  ,  'y'  ],
-#    [  54.6,     -11.6,   -25  ,  -3.32,   0   ,   1.10], # right MFD
-    [  54.6,     -21.5,   -33  ,  -3.32,   0   ,   1.10], # right MFD
+    [  54.6,     -17.5,   -33  ,  -3.32,   0   ,   1.10], # right MFD
     [  68.7,     -60  ,   -55  ,  -3.63,   0.27,   0.82], # radio
     [  31.1,     -11  ,   -55  ,  -3.36,   0.10,   1.00], # tablet
     [  64.3,     -90  ,   -60  ,  -3.28,   0.30,   0.78], # systems

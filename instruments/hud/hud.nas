@@ -25,6 +25,7 @@ var minihud_loop = func()
 
     var x_offset       = getprop("/sim/current-view/x-offset-m");
     var y_offset       = getprop("/sim/current-view/y-offset-m");
+    var z_offset       = getprop("/sim/current-view/z-offset-m");
     
     var x = math.sin(heading_offset * math.pi / 180);
     var y = math.sin(pitch_offset * math.pi / 180);
@@ -55,10 +56,22 @@ var minihud_loop = func()
                 hud_number = 1;
                 setprop("/sim/hud/current-path", hud_number);
             }
-            setprop("/sim/hud/clipping/left",   (clipping_left - (x_offset * 1000)));
-            setprop("/sim/hud/clipping/right",  (clipping_right - (x_offset * 1000)));
-            setprop("/sim/hud/clipping/top",    (clipping_top - ((y_offset -1.10) * 1000)));
-            setprop("/sim/hud/clipping/bottom", (clipping_bottom - ((y_offset -1.10) * 1000)));
+
+            # if not hud full view, we crop (@see functions.nas)
+            if (z_offset > -7)
+            {
+                setprop("/sim/hud/clipping/left",   (clipping_left   - (x_offset          * 1000)));
+                setprop("/sim/hud/clipping/right",  (clipping_right  - (x_offset          * 1000)));
+                setprop("/sim/hud/clipping/top",    (clipping_top    - ((y_offset - 1.10) * 1000)));
+                setprop("/sim/hud/clipping/bottom", (clipping_bottom - ((y_offset - 1.10) * 1000)));
+            }
+            else
+            {
+                setprop("/sim/hud/clipping/left",   clipping_left - 50);
+                setprop("/sim/hud/clipping/right",  clipping_right + 50);
+                setprop("/sim/hud/clipping/top",    clipping_top + 50);
+                setprop("/sim/hud/clipping/bottom", clipping_bottom - 50);
+            }
 
             # if too much G, and dynamic cockpit view enabled, the bottom of
             # the hud is hidden
