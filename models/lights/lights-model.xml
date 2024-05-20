@@ -19,12 +19,12 @@
   -->
   <animation>
     <type>material</type>
-    <type>light_nav_green</type>
-    <type>light_nav_red</type>
-    <type>light_pos</type>
-    <type>light_anticoll</type>
-    <type>light_strobe</type>
-    <type>light_form</type>
+    <object-name>light_nav_green</object-name>
+    <object-name>light_nav_red</object-name>
+    <object-name>light_pos</object-name>
+    <object-name>light_anticoll</object-name>
+    <object-name>light_strobe</object-name>
+    <object-name>light_form</object-name>
   </animation>
 
   <!--

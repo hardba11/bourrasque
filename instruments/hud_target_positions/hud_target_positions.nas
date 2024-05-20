@@ -6,74 +6,20 @@ var my_reticle_radius = 10;
 var max_reticle = 10;
 var px_factor = 330;
 
-var transparency = .7;
+var alpha = .7;
+# nombre d'entrees, voir max_reticle
 var colors = [
-#00ee6b
-    {
-        'r': 0,
-        'g': 238,
-        'b': 107,
-    },
-#fff236
-    {
-        'r': 255,
-        'g': 242,
-        'b': 54,
-    },
-#c01c28
-    {
-        'r': 192,
-        'g': 28,
-        'b': 40,
-    },
-#ea66f9
-    {
-        'r': 234,
-        'g': 102,
-        'b': 249,
-    },
-#eeb900
-    {
-        'r': 238,
-        'g': 185,
-        'b': 0,
-    },
-#f11a99
-    {
-        'r': 241,
-        'g': 26,
-        'b': 153,
-    },
-#ff7800
-    {
-        'r': 255,
-        'g': 120,
-        'b': 0,
-    },
-#b5835a
-    {
-        'r': 181,
-        'g': 131,
-        'b': 90,
-    },
-#ffffff
-    {
-        'r': 255,
-        'g': 255,
-        'b': 255,
-    },
-#b3ff74
-    {
-        'r': 179,
-        'g': 255,
-        'b': 116,
-    },
-#000000
-    {
-        'r': 0,
-        'g': 0,
-        'b': 0,
-    },
+    { 'r':   0, 'g': 238, 'b': 107, }, #00ee6b
+    { 'r': 255, 'g': 242, 'b':  54, }, #fff236
+    { 'r': 192, 'g':  28, 'b':  40, }, #c01c28
+    { 'r': 234, 'g': 102, 'b': 249, }, #ea66f9
+    { 'r': 238, 'g': 185, 'b':   0, }, #eeb900
+    { 'r': 241, 'g':  26, 'b': 153, }, #f11a99
+    { 'r': 255, 'g': 120, 'b':   0, }, #ff7800
+    { 'r': 181, 'g': 131, 'b':  90, }, #b5835a
+    { 'r': 255, 'g': 255, 'b': 255, }, #ffffff
+    { 'r': 179, 'g': 255, 'b': 116, }, #b3ff74
+    { 'r':   0, 'g':   0, 'b':   0, }, #000000
 ];
 
 #===============================================================================
@@ -92,9 +38,10 @@ var HUD = {
         #   canvas:
         #       my_container:
         #           horizontal_container (t_ : permet la rotation selon le roulis):
-        #               debug_rectangle:
+        #               debug_*
         #               target (t_ : translation sur x et y pour postionner la cible):
         #                   reticle (t_ : rotation pour afficher le cap relatif):
+        #                       repere
         #                       circle
         #                       triangle
         #                   speed_info (translation pour la vitesse relative)
@@ -133,7 +80,7 @@ var HUD = {
             # le point est statique et sert de repere
             m.repere = m.target.createChild('path', 'repere-'~ i)
                 .setStrokeLineWidth(2)
-                .set('stroke', 'rgba('~ colors[i]['r'] ~', '~ colors[i]['g'] ~', '~ colors[i]['b'] ~', '~ transparency ~')')
+                .set('stroke', 'rgba('~ colors[i]['r'] ~', '~ colors[i]['g'] ~', '~ colors[i]['b'] ~', '~ alpha ~')')
                 .moveTo(0, -my_reticle_radius - 2)
                 .lineTo(0, -my_reticle_radius - 6);
 
@@ -143,7 +90,7 @@ var HUD = {
             # le cercle identifie la cible
             m.circle = m.reticle.createChild('path', 'circle-'~ i)
                 .setStrokeLineWidth(2)
-                .set('stroke', 'rgba('~ colors[i]['r'] ~', '~ colors[i]['g'] ~', '~ colors[i]['b'] ~', '~ transparency ~')')
+                .set('stroke', 'rgba('~ colors[i]['r'] ~', '~ colors[i]['g'] ~', '~ colors[i]['b'] ~', '~ alpha ~')')
                 .moveTo(0 - my_reticle_radius, 0)
                 .arcSmallCW(my_reticle_radius, my_reticle_radius, 0, (my_reticle_radius * 2), 0)
                 .arcSmallCW(my_reticle_radius, my_reticle_radius, 0, -(my_reticle_radius * 2), 0);
@@ -151,7 +98,7 @@ var HUD = {
             # le triangle donne le cap relatif
             m.triangle = m.reticle.createChild('path', 'triangle-'~ i)
                 .setStrokeLineWidth(2)
-                .set('stroke', 'rgba('~ colors[i]['r'] ~', '~ colors[i]['g'] ~', '~ colors[i]['b'] ~', '~ transparency ~')')
+                .set('stroke', 'rgba('~ colors[i]['r'] ~', '~ colors[i]['g'] ~', '~ colors[i]['b'] ~', '~ alpha ~')')
                 .moveTo(-2, 17)
                 .lineTo(0, 12)
                 .lineTo(2, 17);
@@ -160,7 +107,7 @@ var HUD = {
             m.speed_info = m.target.createChild('group', 'speed_info-'~ i);
             m.speed_bar = m.speed_info.createChild('path', 'speed_bar-'~ i)
                 .setStrokeLineWidth(2)
-                .set('stroke', 'rgba('~ colors[i]['r'] ~', '~ colors[i]['g'] ~', '~ colors[i]['b'] ~', '~ transparency ~')')
+                .set('stroke', 'rgba('~ colors[i]['r'] ~', '~ colors[i]['g'] ~', '~ colors[i]['b'] ~', '~ alpha ~')')
                 .moveTo(-(my_reticle_radius + 6), 0)
                 .lineTo(-my_reticle_radius, 0)
                 .moveTo(my_reticle_radius, 0)
@@ -170,7 +117,7 @@ var HUD = {
                 .setAlignment('right-center')
                 .setFont('LiberationFonts/LiberationSansNarrow-Bold.ttf')
                 .setFontSize(7)
-                .setColor((colors[i]['r'] / 255), (colors[i]['g'] / 255), (colors[i]['b'] / 255), transparency)
+                .setColor((colors[i]['r'] / 255), (colors[i]['g'] / 255), (colors[i]['b'] / 255), alpha)
                 .setText('VOID'~ i);
             m.t_speed_info = m.speed_info.createTransform();
 
@@ -180,14 +127,14 @@ var HUD = {
                 .setAlignment('left-center')
                 .setFont('LiberationFonts/LiberationSansNarrow-Bold.ttf')
                 .setFontSize(8)
-                .setColor((colors[i]['r'] / 255), (colors[i]['g'] / 255), (colors[i]['b'] / 255), transparency)
+                .setColor((colors[i]['r'] / 255), (colors[i]['g'] / 255), (colors[i]['b'] / 255), alpha)
                 .setText('LABEL'~ i);
             m.text_info = m.target.createChild('text', 'text_info-'~ i)
                 .setTranslation(18, 10)
                 .setAlignment('left-center')
                 .setFont('LiberationFonts/LiberationSansNarrow-Bold.ttf')
                 .setFontSize(7)
-                .setColor((colors[i]['r'] / 255), (colors[i]['g'] / 255), (colors[i]['b'] / 255), transparency)
+                .setColor((colors[i]['r'] / 255), (colors[i]['g'] / 255), (colors[i]['b'] / 255), alpha)
                 .setText('INFO'~ i);
 
             m.target.setTranslation(512, 512);
@@ -260,12 +207,19 @@ var HUD = {
                 if(target_in_range
                     and is_valid
                     and target_range < radar_range
-                    and (math.mod(math.mod(360 - horizontal_offset, 360) - heading_view_deg, 360) > 240
-                        or math.mod(math.mod(360 - horizontal_offset, 360) - heading_view_deg, 360) < 120
-                    )
+#                    and (math.mod(math.mod(360 - horizontal_offset, 360) - heading_view_deg, 360) > 240
+#                        or math.mod(math.mod(360 - horizontal_offset, 360) - heading_view_deg, 360) < 120
+#                    )
                 )
                 {
                     var target_data = {};
+
+                    target_data.view = 0;
+                    if((math.mod(math.mod(360 - horizontal_offset, 360) - heading_view_deg, 360) > 240)
+                        or (math.mod(math.mod(360 - horizontal_offset, 360) - heading_view_deg, 360) < 120))
+                    {
+                        target_data.view = 1;
+                    }
 
                     var target_elevation_deg         = list_obj[i].getNode("radar/elevation-deg").getValue() or 0;
                     var target_heading_deg           = list_obj[i].getNode("orientation/true-heading-deg").getValue() or 0;
@@ -328,7 +282,7 @@ var HUD = {
                     target_data.text_speed           = sprintf('%.1f', -relative_speed);
                     if(target_range > 5)
                     {
-                        target_data.text_lbl         = sprintf('%s : %d nm [%s]', target_callsign, target_range, target_model);
+                        target_data.text_lbl         = sprintf('%s : %d nm', target_callsign, target_range);
                         target_data.text_info        = "";
                     }
                     else
@@ -350,7 +304,7 @@ var HUD = {
                     #  coord_x, coord_y, 
                     #  coord_R, coord_T, coord_F));
                 }
-                if(size(targets_datas) >= max_reticle)
+                if(size(targets_datas) > max_reticle)
                 {
                     break;
                 }
@@ -359,6 +313,7 @@ var HUD = {
             # affichage
             for(var i = 0; i < max_reticle; i += 1)
             {
+                me.targets[i].hide();
                 if(i < size(targets_datas))
                 {
                     var td = targets_datas[i];
@@ -379,13 +334,11 @@ var HUD = {
                     me.t_reticles[i].setRotation(td.relative_heading_deg * D2R);
                     me.t_targets[i].setScale(scale_reticle, scale_reticle);
 
-                    me.targets[i].show();
-                    #print(sprintf('SHOW target %s', td.text_info));
-                }
-                else
-                {
-                    me.targets[i].hide();
-                    #print(sprintf('HIDE target %d', i));
+                    if(td.view == 1)
+                    {
+                        me.targets[i].show();
+                        #print(sprintf('SHOW target %s', td.text_info));
+                    }
                 }
             }
             #me.t_horizontal_container.setRotation(-(roll_deg * D2R), 512, 512);

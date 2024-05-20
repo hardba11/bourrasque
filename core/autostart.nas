@@ -480,7 +480,8 @@ var toggle_autostart = func() {
 
 var check_start_airborn = func() {
     var is_onground = getprop('/sim/presets/onground') or 0;
-    if(! is_onground)
+    var carrier_pos = getprop('/sim/presets/carrier-position') or '';
+    if(! is_onground or (carrier_pos == 'FLOLS'))
     {
         printf('starting airborn ...');
 

@@ -14,7 +14,7 @@ PROPERTY-PATH : /sim/multiplay/
   <!-- http://wiki.flightgear.org/Multiplayer_protocol#Multiplay_debug-level -->
   <!--debug-level>1</debug-level-->
 
-  <visibility-range-nm type="int">200</visibility-range-nm>
+  <visibility-range-nm type="int">160</visibility-range-nm>
 
   <generic>
 

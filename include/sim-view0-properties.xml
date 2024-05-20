@@ -26,7 +26,8 @@ PROPERTY-PATH : /sim/view[0]/
     <default-field-of-view-deg type="double">70.0</default-field-of-view-deg>
     <dynamic-view type="bool">true</dynamic-view>
     <limits>
-      <enabled type="bool">true</enabled>
+      <enabled type="bool">false</enabled>
+      <!--enabled type="bool">true</enabled>
       <left>
         <heading-max-deg type="double">165</heading-max-deg>
         <x-offset-max-m type="double">0.25</x-offset-max-m>
@@ -36,7 +37,7 @@ PROPERTY-PATH : /sim/view[0]/
         <heading-max-deg type="double">165</heading-max-deg>
         <x-offset-max-m type="double">0.25</x-offset-max-m>
         <x-offset-threshold-deg type="double">95</x-offset-threshold-deg>
-      </right>
+      </right-->
     </limits>
   </config>
 
