@@ -719,7 +719,7 @@ changelog
   <animation>
     <type>knob</type>
     <object-name>light.knob_6</object-name>
-    <property>/controls/lighting/panel-norm</property>
+    <!--property>/controls/lighting/panel-norm</property-->
     <action>
       <binding>
         <command>property-adjust</command>
@@ -769,7 +769,7 @@ changelog
   <animation>
     <type>knob</type>
     <object-name>light.knob_8</object-name>
-    <property>/controls/lighting/instruments-norm</property>
+    <!--property>/controls/lighting/instruments-norm</property-->
     <action>
       <binding>
         <command>property-adjust</command>

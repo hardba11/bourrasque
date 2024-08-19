@@ -10,9 +10,6 @@ the dialogbox is autoloaded if in gui/dialog
 
 https://sourceforge.net/p/flightgear/fgdata/ci/next/tree/Docs/README.gui
 
-changelog
-- 2016-10-22 : create
-
 -->
 
 <PropertyList>
@@ -239,58 +236,6 @@ my_aircraft_functions.event_smoke(1);
         <command>property-assign</command>
         <property>/sim/model/smoking-color</property>
         <value>red</value>
-      </binding>
-    </button>
-  </group>
-
-  <hrule />
-
-  <!-- ~~~~~~~~~~~~~~~~~~ assistance -->
-  <group>
-    <layout>table</layout>
-    <halign>left</halign>
-    <button>
-      <row>0</row><col>0</col>
-      <legend>Need assistance !</legend>
-      <binding>
-        <command>property-assign</command>
-        <property>/controls/assistance</property>
-        <value>1</value>
-      </binding>
-    </button>
-    <button>
-      <row>0</row><col>1</col>
-      <legend>It is ok</legend>
-      <binding>
-        <command>property-assign</command>
-        <property>/controls/assistance</property>
-        <value>0</value>
-      </binding>
-    </button>
-  </group>
-
-  <hrule />
-
-  <!-- ~~~~~~~~~~~~~~~~~~ copilot -->
-  <group>
-    <layout>table</layout>
-    <halign>left</halign>
-    <button>
-      <row>0</row><col>0</col>
-      <legend>copilot notifs</legend>
-      <binding>
-        <command>property-assign</command>
-        <property>/controls/copilot</property>
-        <value>1</value>
-      </binding>
-    </button>
-    <button>
-      <row>0</row><col>1</col>
-      <legend>mute</legend>
-      <binding>
-        <command>property-assign</command>
-        <property>/controls/copilot</property>
-        <value>0</value>
       </binding>
     </button>
   </group>

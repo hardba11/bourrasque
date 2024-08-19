@@ -73,8 +73,9 @@ PROPERTY-PATH : /controls/
     <strobe type="int">0</strobe>
     <taxi-light type="int">0</taxi-light>
     <landing-lights type="int">0</landing-lights>
-    <formation-lights type="float">0</formation-lights>
-    <instruments-norm type="float">0</instruments-norm>
+    <formation-lights type="double">0</formation-lights>
+    <panel-norm type="double">0</panel-norm>
+    <instruments-norm type="double">0</instruments-norm>
   </lighting>
 
   <!-- see tools/assistance_to_closest_airport/ -->

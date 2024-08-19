@@ -88,34 +88,34 @@ var event_click_radar = func()
     setprop("instrumentation/my_aircraft/nd/inputs/inputs/tfc", infos_displayed);
 }
 
-var event_click_true_north = func()
+var set_north = func()
 {
     var is_true_north = getprop("/instrumentation/my_aircraft/nd/inputs/true-north") or 0;
-    is_true_north = (is_true_north) ? 0 : 1;
-    setprop("/instrumentation/my_aircraft/nd/inputs/true-north", is_true_north);
 
     var indicated_heading = props.globals.getNode("/instrumentation/my_aircraft/nd/outputs/indicated-heading");
     var heading_bug = props.globals.getNode("/instrumentation/my_aircraft/nd/outputs/heading-bug-deg");
-    if(is_true_north)
-    {
-        indicated_heading.unalias();
+    indicated_heading.unalias();
+    heading_bug.unalias();
+
+    if (is_true_north == 1) {
         var indicated_true_heading = props.globals.getNode("/orientation/heading-deg");
+        var indicated_bug_true = props.globals.getNode("/instrumentation/my_aircraft/nd/outputs/true-heading-bug-deg");
         indicated_heading.alias(indicated_true_heading);
-
-        heading_bug.unalias();
-        var indicated_true_heading = props.globals.getNode("/instrumentation/my_aircraft/nd/outputs/true-heading-bug-deg");
-        heading_bug.alias(indicated_true_heading);
-    }
-    else
-    {
-        indicated_heading.unalias();
+        heading_bug.alias(indicated_bug_true);
+    } else {
         var indicated_mag_heading = props.globals.getNode("/orientation/heading-magnetic-deg");
+        var indicated_bug_mag = props.globals.getNode("/autopilot/settings/heading-bug-deg");
         indicated_heading.alias(indicated_mag_heading);
-
-        heading_bug.unalias();
-        var indicated_true_heading = props.globals.getNode("/autopilot/settings/heading-bug-deg");
-        heading_bug.alias(indicated_true_heading);
+        heading_bug.alias(indicated_bug_mag);
     }
+}
+
+var event_toggle_true_north = func()
+{
+    var is_true_north = getprop("/instrumentation/my_aircraft/nd/inputs/true-north") or 0;
+    setprop("/instrumentation/my_aircraft/nd/inputs/true-north", ((is_true_north) ? 0 : 1));
+
+    set_north();
 }
 
 

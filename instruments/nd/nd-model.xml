@@ -703,7 +703,7 @@ instrument_nd.event_click_radar();
         <command>nasal</command>
         <script>
           <![CDATA[
-instrument_nd.event_click_true_north();
+instrument_nd.event_toggle_true_north();
           ]]>
         </script>
       </binding>

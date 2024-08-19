@@ -71,6 +71,10 @@ changelog
         <property>engines/engine[1]/stopped</property>
         <value type="int">1</value>
       </equals>
+      <less-than>
+        <property>sim/multiplay/generic/float[4]</property>
+        <value>1</value>
+      </less-than>
     </condition>
   </animation>
   <!-- ~~~~~~~~~~~~~~~~~~~~~~ hide engines covers + flags -->
@@ -95,11 +99,15 @@ changelog
       <property>sim/model/ground-equipment-g</property>
       <or>
         <less-than>
-          <property>velocities/groundspeed-kt</property>
-          <value>2</value>
+          <property>sim/multiplay/generic/float[4]</property>
+          <value>1</value>
         </less-than>
         <equals>
           <property>engines/engine[0]/stopped</property>
+          <value type="int">1</value>
+        </equals>
+        <equals>
+          <property>engines/engine[1]/stopped</property>
           <value type="int">1</value>
         </equals>
       </or>
@@ -136,11 +144,15 @@ changelog
       <property>sim/model/ground-equipment-s</property>
       <or>
         <less-than>
-          <property>velocities/groundspeed-kt</property>
-          <value>2</value>
+          <property>sim/multiplay/generic/float[4]</property>
+          <value>1</value>
         </less-than>
         <equals>
           <property>engines/engine[0]/stopped</property>
+          <value type="int">1</value>
+        </equals>
+        <equals>
+          <property>engines/engine[1]/stopped</property>
           <value type="int">1</value>
         </equals>
       </or>
@@ -168,8 +180,8 @@ changelog
     <condition>
       <property>sim/model/ground-equipment-p</property>
       <less-than>
-        <property>velocities/groundspeed-kt</property>
-        <value>2</value>
+        <property>sim/multiplay/generic/float[4]</property>
+        <value>1</value>
       </less-than>
     </condition>
   </animation>
@@ -199,8 +211,8 @@ changelog
     <condition>
       <property>sim/model/ground-equipment-f</property>
       <less-than>
-        <property>velocities/groundspeed-kt</property>
-        <value>2</value>
+        <property>sim/multiplay/generic/float[4]</property>
+        <value>1</value>
       </less-than>
     </condition>
   </animation>

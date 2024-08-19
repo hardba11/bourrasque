@@ -431,8 +431,8 @@ ________________________________________________________________________________
       <or>
         <property>controls/pax/pilot</property>
         <greater-than>
-          <property>/velocities/groundspeed-kt</property>
-          <value>2</value>
+          <property>sim/multiplay/generic/float[4]</property>
+          <value>1</value>
         </greater-than>
       </or>
     </condition>

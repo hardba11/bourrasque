@@ -124,7 +124,47 @@ changelog
 ================================================================================
   -->
 
-  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control hud brightness -->
+
+  <animation>
+    <type>pick</type>
+    <object-name>command_h.knob_hud</object-name>
+    <action>
+      <button>3</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/sim/hud/color/brightness</property>
+        <step>.1</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <action>
+      <button>4</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/sim/hud/color/brightness</property>
+        <step>-.1</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-command-h-hud-brightness</tooltip-id>
+        <label>Hud brighness %s%% (H)</label>
+        <mapping>percent</mapping>
+        <property>/sim/hud/color/brightness</property>
+      </binding>
+    </hovered>
+  </animation>
+
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control hud brightness
   <animation>
     <type>knob</type>
     <object-name>command_h.knob_hud</object-name>
@@ -148,7 +188,7 @@ changelog
       </binding>
     </hovered>
   </animation>
-
+ -->
   <!-- ~~~~~~~~~~~~~~~~~~~~~~ control hud red -->
   <animation>
     <type>pick</type>

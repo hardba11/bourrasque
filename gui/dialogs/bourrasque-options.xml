@@ -10,9 +10,6 @@ the dialogbox is autoloaded if in gui/dialog
 
 https://sourceforge.net/p/flightgear/fgdata/ci/next/tree/Docs/README.gui
 
-changelog
-- 2016-10-22 : create
-
 -->
 
 <PropertyList>
@@ -28,6 +25,82 @@ changelog
       <default>1</default><keynum>27</keynum><border>2</border>
       <binding><command>dialog-close</command></binding>
       <binding><command>dialog-apply</command></binding>
+    </button>
+  </group>
+
+  <hrule />
+
+  <!-- ~~~~~~~~~~~~~~~~~~ assistance -->
+  <group>
+    <layout>table</layout>
+    <halign>left</halign>
+    <text>
+      <row>0</row><col>0</col>
+      <label>ATC</label>
+    </text>
+    <button>
+      <row>0</row><col>1</col>
+      <legend>Need assistance !</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/controls/assistance</property>
+        <value>1</value>
+      </binding>
+    </button>
+    <button>
+      <row>0</row><col>2</col>
+      <legend>It is ok</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/controls/assistance</property>
+        <value>0</value>
+      </binding>
+    </button>
+  </group>
+
+  <hrule />
+
+  <!-- ~~~~~~~~~~~~~~~~~~ copilot -->
+  <group>
+    <layout>table</layout>
+    <halign>left</halign>
+    <text>
+      <row>0</row><col>0</col>
+      <label>Copilot</label>
+    </text>
+    <button>
+      <row>0</row><col>1</col>
+      <legend>Notify</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/controls/copilot</property>
+        <value>1</value>
+      </binding>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+setprop("/sim/messages/copilot", '[copilot] Ok, I will help you and give you some feedbacks during your flight !');
+          ]]>
+        </script>
+      </binding>
+    </button>
+    <button>
+      <row>0</row><col>2</col>
+      <legend>Mute</legend>
+      <binding>
+        <command>property-assign</command>
+        <property>/controls/copilot</property>
+        <value>0</value>
+      </binding>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+setprop("/sim/messages/copilot", '[copilot] Ok, I wont disturb you !');
+          ]]>
+        </script>
+      </binding>
     </button>
   </group>
 

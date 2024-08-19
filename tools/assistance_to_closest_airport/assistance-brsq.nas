@@ -28,26 +28,26 @@ print("*** LOADING tools - assistance-brsq.nas ... ***");
 #      |                                 |.|             |                               |
 #      |                                 |||             |                               |
 #  0  W+--------------------------------+-0-+------------+                               |E
-#      |                                |   |            |                               |
-#      |  zone1      ^                  | ^ | zone2_2    |                               |
-#      |  ENTRANCE   |                  | | | CROSSWIND  |                               |
-#      |  250kt      |                  | | | 200kt      |                               |
-#      |  2500ft     |                  | | | 1500ft     |                               |
-#      |                                |   | ---->      |                               |
-#      |                                |z6 |            |                               |
-# -.1  |                                | F +------------+                               |
-#      |                                | I |            |                               |
-#      |                                | N | zone4      |                               |
-#      |                                | A | BASE       |                               |
-#      |                                | L | 200kt      |                               |
-# -.15 |                                |   | 1500ft     +-------------------------------+
-#      |                                |   | __         |                               |
-#      |                                |   | |\         | zone5  <-----                 |
-#      |                                |   |   \        | BASE                          |
-#      |                                |   |    \       | 200kt 1500ft                  |
-# -.2  '--------------------------------+---+------------+-------------------------------'
+#      |                               |     |           |                               |
+#      |  zone1      ^                 |  ^  | zone2_2   |                               |
+#      |  ENTRANCE   |                 |  |  | CROSSWIND |                               |
+#      |  250kt      |                 |  |  | 200kt     |                               |
+#      |  2500ft     |                 |  |  | 1500ft    |                               |
+#      |                               |     | ---->     |                               |
+# -.08 |                               | z6  +-----------+                               |
+#      |                               |  F  |           |                               |
+#      |                               |  I  |           |                               |
+# -.12 |                               |  N  | zone4     +-------------------------------+
+#      |                               |  A  | BASE      |                               |
+#      |                               |  L  | 200kt     |                               |
+#      |                               |     | 1500ft    |                               |
+#      |                               |  1  | __        |                               |
+#      |                               |  5  | |\        | zone5  <-----                 |
+#      |                               |  0  |   \       | BASE                          |
+#      |                               |  kt |    \      | 200kt 1500ft                  |
+# -.2  '-------------------------------+-----+-----------+-------------------------------'
 #                                         S
-#     -.2                          -.015  0 .015       .05                              .2
+#     -.2                          -.025  0 .025       .05                              .2
 #
 # how to install for another aircraft
 # -----------------------------------
@@ -141,7 +141,7 @@ var atc_zone = [
         'id': 'zone1',
         'top_left_x': -.2,
         'top_left_y': 0,
-        'bottom_right_x': -.015,
+        'bottom_right_x': -.025,
         'bottom_right_y': -.2,
         'speed': 250,
         'heading': 0,
@@ -161,10 +161,10 @@ var atc_zone = [
     },
     {
         'id': 'zone2_2',
-        'top_left_x': .015,
+        'top_left_x': .025,
         'top_left_y': 0,
         'bottom_right_x': .05,
-        'bottom_right_y': -.1,
+        'bottom_right_y': -.08,
         'speed': 200,
         'heading': 90,
         'alt': 1500,
@@ -175,7 +175,7 @@ var atc_zone = [
         'top_left_x': .05,
         'top_left_y': .1,
         'bottom_right_x': .2,
-        'bottom_right_y': -.15,
+        'bottom_right_y': -.12,
         'speed': 250,
         'heading': 180,
         'alt': 1500,
@@ -183,8 +183,8 @@ var atc_zone = [
     },
     {
         'id': 'zone4',
-        'top_left_x': .015,
-        'top_left_y': -.1,
+        'top_left_x': .025,
+        'top_left_y': -.08,
         'bottom_right_x': .05,
         'bottom_right_y': -.2,
         'speed': 200,
@@ -195,7 +195,7 @@ var atc_zone = [
     {
         'id': 'zone5',
         'top_left_x': .05,
-        'top_left_y': -.15,
+        'top_left_y': -.12,
         'bottom_right_x': .2,
         'bottom_right_y': -.2,
         'speed': 200,
@@ -205,9 +205,9 @@ var atc_zone = [
     },
     {
         'id': 'zone6',
-        'top_left_x': -.015,
+        'top_left_x': -.025,
         'top_left_y': 0,
-        'bottom_right_x': .015,
+        'bottom_right_x': .025,
         'bottom_right_y': -.2,
         'speed': 150,
         'heading': 0,
@@ -351,13 +351,14 @@ var assistance = func()
         # assistance disabled
         if (hasta_la_vista == 1) {
             # deja ete enabled, les variables airport et aircraft ont deja ete initialisees ;)
-            assistance_message_header = sprintf('atc %s, %s.', airport['id'], aircraft['callsign']);
+            assistance_message_header = sprintf('[atc] %s, %s.', airport['id'], aircraft['callsign']);
             assistance_message = sprintf('%s %s',
                 assistance_message_header,
                 "It's OK, Have a good day ! Over."
             );
 
             setprop("/sim/messages/atc", assistance_message);
+            debug.dump(assistance_message);
             hasta_la_vista = 0;
         }
         nb_cycle = 0;
@@ -381,7 +382,7 @@ var assistance = func()
         #DEBUG : AIRPORT LFRQ - Quimper Pluguffan - -4.1722096 - 47.972947 - 296 - RUNWAY 10 - 7052 - 93
     }
 
-    assistance_message_header = sprintf('atc %s, %s.', airport['id'], aircraft['callsign']);
+    assistance_message_header = sprintf('[atc] %s, %s.', airport['id'], aircraft['callsign']);
 
     # end of assistance if landed
     if (aircraft['is_wow']) {
@@ -395,6 +396,7 @@ var assistance = func()
             "You landed, congratulations, have a good day ! Over."
         );
         setprop("/sim/messages/atc", assistance_message);
+        debug.dump(assistance_message);
 
         return;
     }
@@ -470,11 +472,13 @@ var assistance = func()
         }
 
         if (math.cos((aircraft['heading'] - airport_bearing_from_aircraft) * D2R) > math.cos(5 * D2R)) {
-            assistance_message_horizontal = sprintf('maintain heading %03d - airport at %d NM.',
+            assistance_message_horizontal = sprintf(
+                'maintain heading %03d - airport at %d NM.',
                 h,
                 d);
         } else {
-            assistance_message_horizontal = sprintf('TURN %s heading %03d - airport at %d NM.',
+            assistance_message_horizontal = sprintf(
+                'TURN %s heading %03d - airport at %d NM.',
                 turn_left_or_right(aircraft['heading'], airport_bearing_from_aircraft),
                 h,
                 d);
@@ -486,13 +490,13 @@ var assistance = func()
     if ((atc['circuit'] == 'final') and (dist_nm > 5.5)) {
 
         if (aircraft['altitude'] > (atc['alt'] + 100)) {
-            assistance_message_vertical = sprintf('DESCEND to %d ft (%.2f inHg).',
+            assistance_message_vertical = sprintf('DESCEND to %d ft (got %d ft)',
                 atc['alt'],
-                getprop("/environment/pressure-sea-level-inhg"));
+                aircraft['altitude']);
         } elsif (aircraft['altitude'] < (atc['alt'] - 100)) {
-            assistance_message_vertical = sprintf('CLIMB to %d ft (%.2f inHg).',
+            assistance_message_vertical = sprintf('CLIMB to %d ft (got %d ft)',
                 atc['alt'],
-                getprop("/environment/pressure-sea-level-inhg"));
+                aircraft['altitude']);
         } else {
             assistance_message_vertical = sprintf('maintain %d ft.',
                 atc['alt']);
@@ -517,13 +521,13 @@ var assistance = func()
     } elsif (atc['circuit'] == 'outside') {
         assistance_message_vertical = '';
     } elsif (aircraft['altitude'] > (atc['alt'] + 100)) {
-        assistance_message_vertical = sprintf('DESCEND to %d ft (%.2f inHg).',
+        assistance_message_vertical = sprintf('DESCEND to %d ft (got %d ft)',
             atc['alt'],
-            getprop("/environment/pressure-sea-level-inhg"));
+            aircraft['altitude']);
     } elsif (aircraft['altitude'] < (atc['alt'] - 100)) {
-        assistance_message_vertical = sprintf('CLIMB to %d ft (%.2f inHg).',
+        assistance_message_vertical = sprintf('CLIMB to %d ft (got %d ft)',
             atc['alt'],
-            getprop("/environment/pressure-sea-level-inhg"));
+            aircraft['altitude']);
     } else {
         assistance_message_vertical = sprintf('maintain %d ft.',
             atc['alt']);
@@ -533,11 +537,13 @@ var assistance = func()
     if (atc['circuit'] == 'landing') {
         assistance_message_vitesse = '';
     } elsif (aircraft['speed'] > (atc['speed'] + 20)) {
-        assistance_message_vitesse = sprintf('LOWER speed to %d kt.',
-            atc['speed']);
+        assistance_message_vitesse = sprintf('LOWER speed to %d kt (got %d kt)',
+            atc['speed'],
+            aircraft['speed']);
     } elsif (aircraft['speed'] < (atc['speed'] - 20)) {
-        assistance_message_vitesse = sprintf('RAISE speed to %d kt.',
-            atc['speed']);
+        assistance_message_vitesse = sprintf('RAISE speed to %d kt (got %d kt)',
+            atc['speed'],
+            aircraft['speed']);
     } else {
         assistance_message_vitesse = sprintf('maintain speed %d kt.',
             atc['speed']);
@@ -556,28 +562,35 @@ var assistance = func()
     nb_cycle += 1;
     #print("nb_cycle="~ nb_cycle ~" - welcome="~welcome);
 
+    # DEBUT
     if (welcome == 1) {
         hasta_la_vista = 1;
         if (nb_cycle == 1) {
             assistance_message = sprintf(
-                "%s, %s AIRPORT. You asked for assistance...",
+                "[atc] %s, %s AIRPORT. You asked for assistance...",
                 aircraft['callsign'],
                 airport['name']
             );
-            #print(assistance_message);
             setprop("/sim/messages/atc", assistance_message);
+            debug.dump(assistance_message);
         } elsif (nb_cycle == 3) {
             assistance_message = sprintf(
                 "follow my instructions to REACH %s and to land on RUNWAY %s",
                 airport['id'],
                 airport['rwy']);
-            #print(assistance_message);
             setprop("/sim/messages/atc", assistance_message);
-        } elsif (nb_cycle == 5) {
-            assistance_message = sprintf("HEADING : set true north");
-            #print(assistance_message);
-            setprop("/sim/messages/atc", assistance_message);
+            debug.dump(assistance_message);
         } elsif (nb_cycle == 7) {
+            assistance_message = sprintf("HEADING : set true north");
+            setprop("/sim/messages/atc", assistance_message);
+            debug.dump(assistance_message);
+        } elsif (nb_cycle == 10) {
+            assistance_message = sprintf(
+                "SET ALT : %.2f inHg",
+                getprop("/environment/pressure-sea-level-inhg")
+            );
+            setprop("/sim/messages/atc", assistance_message);
+            debug.dump(assistance_message);
             welcome = 0;
             nb_cycle = 0;
         }
@@ -591,16 +604,45 @@ var assistance = func()
         assistance_message_vitesse,
         assistance_message_bonus);
 
-    # on affiche le message que si il y a un changement mais on rappelle le message tous les 10 cycles
-    if ((assistance_message != previous_assistance_message)
-        or (nb_cycle > 10)
+    # si il y a un changement 
+    # on affiche le message tous les 3 ou 6 cycles 
+    # ou tous les 2 cycles si on est en finale
+    # mais on rappelle le message tous les 10 cycles
+    if (
+        (
+            (
+                (nb_cycle == 3)
+                or
+                (nb_cycle == 6)
+            )
+            and
+            (assistance_message != previous_assistance_message)
+        )
+        or
+        (
+            (
+                (nb_cycle == 2)
+                or
+                (nb_cycle == 4)
+                or
+                (nb_cycle == 6)
+                or
+                (nb_cycle == 8)
+            )
+            and
+            (atc['circuit'] == 'final')
+            and
+            (assistance_message != previous_assistance_message)
+        )
+        or
+        (nb_cycle > 10)
     ) {
-        #print(assistance_message);
         setprop("/sim/messages/atc", assistance_message);
+        debug.dump(assistance_message);
         nb_cycle = 0;
     }
-
     previous_assistance_message = assistance_message;
+
 }
 
 #-------------------------------------------------------------------------------

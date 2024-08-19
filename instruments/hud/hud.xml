@@ -128,8 +128,8 @@ see :
     <compression-factor>10</compression-factor>
     <display-span>25</display-span>
     <divisions>2.0</divisions>
-    <screen-hole>2</screen-hole>
-    <tick-length>0</tick-length>
+    <screen-hole>8</screen-hole>
+    <tick-length>2</tick-length>
     <zero-bar-overlength>20</zero-bar-overlength>
     <enable-dive-bar-angle>true</enable-dive-bar-angle>
     <enable-dynamic-origin>false</enable-dynamic-origin>
@@ -585,7 +585,7 @@ see :
 <!-- ~~~~~~~~~~~~~~~~~~ airspeed without box for TAXI mode -->
   <label>
     <name>KIAS secondary</name>
-    <x>-99</x>
+    <x>-109</x>
     <y>-26</y>
     <width>38</width>
     <height>10</height>
@@ -621,7 +621,7 @@ see :
     <condition>
       <greater-than>
         <property>/velocities/mach</property>
-        <value>0.70</value>
+        <value>0.50</value>
       </greater-than>
       <or>
         <property>/_debug/instruments/hud_show_all</property>
@@ -690,6 +690,20 @@ see :
                                                                         ALTITUDE
 ================================================================================
 -->
+  <label>
+    <name>vspeed</name>
+    <x>79</x>
+    <y>-8</y>
+    <width>36</width>
+    <height>8</height>
+    <input>
+      <property>autopilot/internal/vert-speed-fpm</property>
+    </input>
+    <format>VS %d fpm</format>
+    <halign>right</halign>
+    <box>false</box>
+  </label>
+
   <label>
     <name>Altitude</name>
     <x>79</x>
@@ -809,9 +823,9 @@ see :
   <label>
     <name>elevationOk</name>
     <x>0</x>
-    <y>-120</y>
+    <y>-40</y>
     <halign>center</halign>
-    <format>R %4.0fft</format>
+    <format>Ralt %4.0fft</format>
     <input>
       <property>/position/altitude-agl-ft</property>
     </input>
@@ -836,15 +850,15 @@ see :
 
   <label>
     <name>Ralt</name>
-    <x>84</x>
-    <y>-66</y>
+    <x>100</x>
+    <y>-70</y>
     <width>18</width>
     <height>8</height>
     <input>
       <property>/position/altitude-agl-ft</property>
     </input>
-    <format>%4.0fft R</format>
-    <halign>left</halign>
+    <format>Ralt %4.0fft</format>
+    <halign>right</halign>
     <box>false</box>
     <option>top</option>
     <condition>
@@ -869,9 +883,9 @@ see :
       <factor>.1</factor>
     </input>
     <x>110</x>
-    <y>-85</y>
+    <y>-95</y>
     <width>15</width>
-    <height>45</height>
+    <height>60</height>
     <option>left</option>
     <option>vertical</option>
     <label-gap-width>8</label-gap-width>
@@ -1152,8 +1166,8 @@ see :
     <input>
       <property>/orientation/alpha-deg</property>
     </input>
-    <x>36</x>
-    <y>-28</y>
+    <x>50</x>
+    <y>-45</y>
     <width>30</width>
     <height>8</height>
     <halign>right</halign>
@@ -1188,12 +1202,12 @@ see :
       </or>
     </condition>
   </label>
-  <tape>
+  <!--tape>
     <name>aoa gauge</name>
     <x>55</x>
     <y>-85</y>
     <width>10</width>
-    <height>60</height>
+    <height>40</height>
     <option>right</option>
     <option>vertical</option>
     <label-gap-width>0</label-gap-width>
@@ -1227,11 +1241,21 @@ see :
           <value>APP</value>
         </equals>
         <or>
-          <greater-than>
-            <property>/orientation/alpha-deg</property>
-            <value>2.0</value>
-          </greater-than>
           <and>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>VFR</value>
+            </equals>
+            <greater-than>
+              <property>/orientation/alpha-deg</property>
+              <value>2.0</value>
+            </greater-than>
+          </and>
+          <and>
+            <equals>
+              <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+              <value>VFR</value>
+            </equals>
             <property>/controls/gear/gear-down</property>
             <greater-than>
               <property>/orientation/alpha-deg</property>
@@ -1241,7 +1265,7 @@ see :
         </or>
       </or>
     </condition>
-  </tape>
+  </tape-->
 
 <!-- ~~~~~~~~~~~~~~~~~~ gears -->
   <label>
@@ -1479,8 +1503,8 @@ see :
 <!-- ~~~~~~~~~~~~~~~~~~ G load -->
   <label>
     <name>G Load</name>
-    <x>-120</x>
-    <y>-5</y>
+    <x>-90</x>
+    <y>-70</y>
     <width>1.5</width>
     <height>1.5</height>
     <input>
@@ -1491,14 +1515,12 @@ see :
     <condition>
       <or>
         <property>/_debug/instruments/hud_show_all</property>
-        <equals>
-          <property>/instrumentation/my_aircraft/nd/controls/mode</property>
-          <value>APP</value>
-        </equals>
-        <equals>
-          <property>/instrumentation/my_aircraft/nd/controls/mode</property>
-          <value>VFR</value>
-        </equals>
+        <not>
+          <equals>
+            <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+            <value>TAXI</value>
+          </equals>
+        </not>
       </or>
     </condition>
   </label>
@@ -1511,10 +1533,9 @@ see :
 <!-- ~~~~~~~~~~~~~~~~~~ stall alert -->
   <label>
     <name>Stall Alert</name>
-    <x>-35</x>
-    <y>-60</y>
-    <width>15</width>
-    <height>6</height>
+    <x>0</x>
+    <y>-25</y>
+    <halign>center</halign>
     <condition>
       <or>
         <property>/_debug/instruments/hud_show_all</property>
@@ -1537,10 +1558,9 @@ see :
 <!-- ~~~~~~~~~~~~~~~~~~ stall warning -->
   <label>
     <name>Stall Warning</name>
-    <x>-40</x>
-    <y>-60</y>
-    <width>15</width>
-    <height>6</height>
+    <x>0</x>
+    <y>-25</y>
+    <halign>center</halign>
     <condition>
       <or>
         <property>/_debug/instruments/hud_show_all</property>
@@ -1564,7 +1584,8 @@ see :
   <label>
     <name>elevationWarn</name>
     <x>0</x>
-    <y>-50</y>
+    <y>-15</y>
+    <halign>center</halign>
     <condition>
       <or>
         <property>/_debug/instruments/hud_show_all</property>
@@ -1584,7 +1605,6 @@ see :
         </and>
       </or>
     </condition>
-    <halign>center</halign>
     <format>PULL UP ! %5.0fft</format>
     <input>
       <property>/position/altitude-agl-ft</property>

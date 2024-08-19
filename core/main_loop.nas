@@ -113,6 +113,7 @@ var main_loop = func() {
 
 var run_once = func() {
     my_aircraft_functions.change_mod(0);
+    instrument_nd.set_north();
 }
 setlistener("/sim/signals/fdm-initialized", main_loop);
 setlistener("/sim/signals/fdm-initialized", run_once);

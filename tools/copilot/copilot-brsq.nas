@@ -130,6 +130,18 @@ var events = {
         'data': [],
         'envoie_message': 0,
     },
+    'takeoff_v1': {
+        'trigger': 0,
+        'message': 'v1 : do not abort takeoff !',
+        'data': [],
+        'envoie_message': 0,
+    },
+    'takeoff_v2': {
+        'trigger': 0,
+        'message': 'v2 : rotate !',
+        'data': [],
+        'envoie_message': 0,
+    },
 
 };
 
@@ -351,6 +363,68 @@ var detect_lower_traffic_area = func()
 }
 
 #-------------------------------------------------------------------------------
+#                                                              detect_takeoff_v1
+# 
+var detect_takeoff_v1 = func()
+{
+    var e = 'takeoff_v1';
+
+    # reinit
+    if(
+        (aircraft['speed'] < 100)
+        and
+        (aircraft['is_wow'])
+        and
+        (events[e]['trigger'] == 0)
+    ) {
+        events[e]['trigger'] = 1;
+    }
+
+    # declenchement si on passe 100kt au decollage
+    if(
+        (aircraft['speed'] > 100)
+        and
+        (aircraft['is_wow'])
+        and
+        (events[e]['trigger'] == 1)
+    ) {
+        events[e]['envoie_message'] = 1;
+        events[e]['trigger'] = 0;
+    }
+}
+
+#-------------------------------------------------------------------------------
+#                                                              detect_takeoff_v2
+# 
+var detect_takeoff_v2 = func()
+{
+    var e = 'takeoff_v2';
+
+    # reinit
+    if(
+        (aircraft['speed'] < 140)
+        and
+        (aircraft['is_wow'])
+        and
+        (events[e]['trigger'] == 0)
+    ) {
+        events[e]['trigger'] = 1;
+    }
+
+    # declenchement si on passe 140kt au decollage
+    if(
+        (aircraft['speed'] > 140)
+        and
+        (aircraft['is_wow'])
+        and
+        (events[e]['trigger'] == 1)
+    ) {
+        events[e]['envoie_message'] = 1;
+        events[e]['trigger'] = 0;
+    }
+}
+
+#-------------------------------------------------------------------------------
 #                                                         detect_semicircular_fl
 # 
 var detect_semicircular_fl = func()
@@ -365,6 +439,8 @@ var detect_semicircular_fl = func()
         (aircraft['indicated_altitude'] >= 6000)
         and
         (math.abs(aircraft['vspd']) < 500)
+        and
+        (aircraft['elevation'] >= 3000)
     ) {
         var semicircular_status = get_semicircular_status(aircraft['heading'], aircraft['indicated_altitude']);
 
@@ -491,6 +567,8 @@ var detect_autotrim_on = func()
         (!autotrim)
         and
         (autopilot_alt == '-')
+        and
+        (aircraft['elevation'] >= 400)
     )
     {
         # gestion de la repetition du message
@@ -566,6 +644,8 @@ var detect_events = func()
     detect_speed_limit();
     detect_autotrim_on();
     detect_autotrim_off();
+    detect_takeoff_v1();
+    detect_takeoff_v2();
 
     #print('==========================================================================');
     #debug.dump(aircraft);
@@ -597,8 +677,8 @@ var set_messages = func()
             } elsif(size(events[event]['data']) == 2) {
                 message = sprintf(events[event]['message'], events[event]['data'][0], events[event]['data'][1]);
             }
-            setprop("/sim/messages/copilot", message);
-            debug.dump(message);
+            setprop("/sim/messages/copilot", '[copilot] '~ message);
+            debug.dump('[copilot] '~ message);
             events[event]['envoie_message'] = 0;
         }
     }
@@ -632,9 +712,14 @@ var copilot_loop = func()
 var go = 0;
 
 # message de presentation
-elapsed = elapsed + 15;
+elapsed = elapsed + 12;
 settimer(func() {
-    setprop("/sim/messages/copilot", 'Hello I am your copilot. I will help you and give you some feedbacks during your flight !');
+    var is_enabled = getprop("/controls/copilot") or 0;
+    if(is_enabled == 1) {
+        setprop("/sim/messages/copilot", '[copilot] Hello, I will help you and give you some feedbacks ! To disable me : menu brsq - Option');
+    } else {
+        setprop("/sim/messages/copilot", '[copilot] Hello, I am disabled. To enable me : menu brsq - Option');
+    }
     go = 1;
 }, elapsed);
 
