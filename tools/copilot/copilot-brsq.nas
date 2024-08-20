@@ -716,9 +716,9 @@ elapsed = elapsed + 12;
 settimer(func() {
     var is_enabled = getprop("/controls/copilot") or 0;
     if(is_enabled == 1) {
-        setprop("/sim/messages/copilot", '[copilot] Hello, I will help you and give you some feedbacks ! To disable me : menu brsq - Option');
+        setprop("/sim/messages/copilot", '[copilot] Hello, I will help you and give you some feedbacks ! To disable me : menu brsq - Commands - Copilot');
     } else {
-        setprop("/sim/messages/copilot", '[copilot] Hello, I am disabled. To enable me : menu brsq - Option');
+        setprop("/sim/messages/copilot", '[copilot] Hello, I am disabled. To enable me : menu brsq - Commands - Copilot');
     }
     go = 1;
 }, elapsed);
@@ -728,7 +728,7 @@ var is_cold_and_dark = getprop('/sim/presets/onground') or 0;
 if(is_cold_and_dark) {
     elapsed = elapsed + 4;
     settimer(func() {
-        setprop("/sim/messages/copilot", 'To autostart : menu brsq - autostart or faststart');
+        setprop("/sim/messages/copilot", 'To autostart : menu brsq - Commands - Autostart or Fast Start');
     }, elapsed);
 }
 
