@@ -40,10 +40,11 @@ var update_alarms = func() {
     var stall_warning = 0;
     var speed = getprop("/instrumentation/airspeed-indicator/true-speed-kt") or 0;
     var aoa = getprop("/orientation/alpha-deg") or 0;
-    if(speed < 120)
+    var wow = getprop("/gear/gear[1]/wow") or 0;
+    if((speed < 110) and (wow == 0))
     {
-        if(aoa >= 9)  { stall_warning = 1; }
-        if(aoa >= 13) { stall_warning = 2; }
+        if(aoa >= 12)  { stall_warning = 1; }
+        if(aoa >= 15) { stall_warning = 2; }
     }
     setprop("/sim/alarms/stall-warning", stall_warning);
 }
@@ -259,7 +260,7 @@ var calculate_shake = func() {
             shake_y = math.sin(11 * my_time) / (1 + (1000 * 150 / (speed + 1)));
             shake_z = math.sin(15 * my_time) / (1 + (400 * 150 / (speed + 1)));
         }
-        elsif((g_load > 4) or ((aoa > 10) and (wow == 0)))
+        elsif((g_load > 4) or ((aoa > 13) and (wow == 0)))
         {
             shake_y = math.sin(9 * my_time) / (1 + (2000 * 7 / (aoa + 1)));
             shake_z = math.sin(75 * my_time) / (1 + (700 * 5 / (aoa + 1)));

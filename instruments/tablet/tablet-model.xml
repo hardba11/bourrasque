@@ -5,9 +5,6 @@ description :
     (mouvements, lightings)
     it loads if necessary the submodels files
 
-changelog
-- 2017-11-25 : create
-
 -->
 
 <PropertyList>
@@ -30,14 +27,67 @@ changelog
     <object-name>tablet.bright_up</object-name>
     <object-name>tablet.menu_screen</object-name>
     <object-name>tablet.zone_menu</object-name>
-    <object-name>tablet.zone1</object-name>
-    <object-name>tablet.zone2</object-name>
-    <object-name>tablet.zone3</object-name>
-    <object-name>tablet.zone4</object-name>
     <object-name>tablet.zone_prev</object-name>
     <object-name>tablet.zone_next</object-name>
     <object-name>tablet.zone_minus</object-name>
     <object-name>tablet.zone_plus</object-name>
+
+    <object-name>tablet.zone.L1C1</object-name>
+    <object-name>tablet.zone.L1C2</object-name>
+    <object-name>tablet.zone.L1C3</object-name>
+    <object-name>tablet.zone.L1C4</object-name>
+    <object-name>tablet.zone.L1C5</object-name>
+    <object-name>tablet.zone.L1C6</object-name>
+    <object-name>tablet.zone.L1C7</object-name>
+    <object-name>tablet.zone.L2C1</object-name>
+    <object-name>tablet.zone.L2C2</object-name>
+    <object-name>tablet.zone.L2C3</object-name>
+    <object-name>tablet.zone.L2C4</object-name>
+    <object-name>tablet.zone.L2C5</object-name>
+    <object-name>tablet.zone.L2C6</object-name>
+    <object-name>tablet.zone.L2C7</object-name>
+    <object-name>tablet.zone.L3C1</object-name>
+    <object-name>tablet.zone.L3C2</object-name>
+    <object-name>tablet.zone.L3C3</object-name>
+    <object-name>tablet.zone.L3C4</object-name>
+    <object-name>tablet.zone.L3C5</object-name>
+    <object-name>tablet.zone.L3C6</object-name>
+    <object-name>tablet.zone.L3C7</object-name>
+    <object-name>tablet.zone.L4C1</object-name>
+    <object-name>tablet.zone.L4C2</object-name>
+    <object-name>tablet.zone.L4C3</object-name>
+    <object-name>tablet.zone.L4C4</object-name>
+    <object-name>tablet.zone.L4C5</object-name>
+    <object-name>tablet.zone.L4C6</object-name>
+    <object-name>tablet.zone.L4C7</object-name>
+    <object-name>tablet.zone.L5C1</object-name>
+    <object-name>tablet.zone.L5C2</object-name>
+    <object-name>tablet.zone.L5C3</object-name>
+    <object-name>tablet.zone.L5C4</object-name>
+    <object-name>tablet.zone.L5C5</object-name>
+    <object-name>tablet.zone.L5C6</object-name>
+    <object-name>tablet.zone.L5C7</object-name>
+    <object-name>tablet.zone.L6C1</object-name>
+    <object-name>tablet.zone.L6C2</object-name>
+    <object-name>tablet.zone.L6C3</object-name>
+    <object-name>tablet.zone.L6C4</object-name>
+    <object-name>tablet.zone.L6C5</object-name>
+    <object-name>tablet.zone.L6C6</object-name>
+    <object-name>tablet.zone.L6C7</object-name>
+    <object-name>tablet.zone.L7C1</object-name>
+    <object-name>tablet.zone.L7C2</object-name>
+    <object-name>tablet.zone.L7C3</object-name>
+    <object-name>tablet.zone.L7C4</object-name>
+    <object-name>tablet.zone.L7C5</object-name>
+    <object-name>tablet.zone.L7C6</object-name>
+    <object-name>tablet.zone.L7C7</object-name>
+    <object-name>tablet.zone.L8C1</object-name>
+    <object-name>tablet.zone.L8C2</object-name>
+    <object-name>tablet.zone.L8C3</object-name>
+    <object-name>tablet.zone.L8C4</object-name>
+    <object-name>tablet.zone.L8C5</object-name>
+    <object-name>tablet.zone.L8C6</object-name>
+    <object-name>tablet.zone.L8C7</object-name>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
@@ -51,14 +101,66 @@ changelog
 
   <animation>
     <type>select</type>
-    <object-name>tablet.zone1</object-name>
-    <object-name>tablet.zone2</object-name>
-    <object-name>tablet.zone3</object-name>
-    <object-name>tablet.zone4</object-name>
+    <object-name>tablet.zone.L1C1</object-name>
+    <object-name>tablet.zone.L1C2</object-name>
+    <object-name>tablet.zone.L1C3</object-name>
+    <object-name>tablet.zone.L1C4</object-name>
+    <object-name>tablet.zone.L1C5</object-name>
+    <object-name>tablet.zone.L1C6</object-name>
+    <object-name>tablet.zone.L1C7</object-name>
+    <object-name>tablet.zone.L2C1</object-name>
+    <object-name>tablet.zone.L2C2</object-name>
+    <object-name>tablet.zone.L2C3</object-name>
+    <object-name>tablet.zone.L2C4</object-name>
+    <object-name>tablet.zone.L2C5</object-name>
+    <object-name>tablet.zone.L2C6</object-name>
+    <object-name>tablet.zone.L2C7</object-name>
+    <object-name>tablet.zone.L3C1</object-name>
+    <object-name>tablet.zone.L3C2</object-name>
+    <object-name>tablet.zone.L3C3</object-name>
+    <object-name>tablet.zone.L3C4</object-name>
+    <object-name>tablet.zone.L3C5</object-name>
+    <object-name>tablet.zone.L3C6</object-name>
+    <object-name>tablet.zone.L3C7</object-name>
+    <object-name>tablet.zone.L4C1</object-name>
+    <object-name>tablet.zone.L4C2</object-name>
+    <object-name>tablet.zone.L4C3</object-name>
+    <object-name>tablet.zone.L4C4</object-name>
+    <object-name>tablet.zone.L4C5</object-name>
+    <object-name>tablet.zone.L4C6</object-name>
+    <object-name>tablet.zone.L4C7</object-name>
+    <object-name>tablet.zone.L5C1</object-name>
+    <object-name>tablet.zone.L5C2</object-name>
+    <object-name>tablet.zone.L5C3</object-name>
+    <object-name>tablet.zone.L5C4</object-name>
+    <object-name>tablet.zone.L5C5</object-name>
+    <object-name>tablet.zone.L5C6</object-name>
+    <object-name>tablet.zone.L5C7</object-name>
+    <object-name>tablet.zone.L6C1</object-name>
+    <object-name>tablet.zone.L6C2</object-name>
+    <object-name>tablet.zone.L6C3</object-name>
+    <object-name>tablet.zone.L6C4</object-name>
+    <object-name>tablet.zone.L6C5</object-name>
+    <object-name>tablet.zone.L6C6</object-name>
+    <object-name>tablet.zone.L6C7</object-name>
+    <object-name>tablet.zone.L7C1</object-name>
+    <object-name>tablet.zone.L7C2</object-name>
+    <object-name>tablet.zone.L7C3</object-name>
+    <object-name>tablet.zone.L7C4</object-name>
+    <object-name>tablet.zone.L7C5</object-name>
+    <object-name>tablet.zone.L7C6</object-name>
+    <object-name>tablet.zone.L7C7</object-name>
+    <object-name>tablet.zone.L8C1</object-name>
+    <object-name>tablet.zone.L8C2</object-name>
+    <object-name>tablet.zone.L8C3</object-name>
+    <object-name>tablet.zone.L8C4</object-name>
+    <object-name>tablet.zone.L8C5</object-name>
+    <object-name>tablet.zone.L8C6</object-name>
+    <object-name>tablet.zone.L8C7</object-name>
     <condition>
       <equals>
         <property>/instrumentation/my_aircraft/tablet/controls/page</property>
-        <value>0</value>
+        <value>menu</value>
       </equals>
     </condition>
   </animation>
@@ -149,7 +251,7 @@ changelog
       <binding>
         <command>property-assign</command>
         <property>/instrumentation/my_aircraft/tablet/controls/page</property>
-        <value>0</value>
+        <value>menu</value>
       </binding>
     </action>
     <hovered>
@@ -161,10 +263,16 @@ changelog
     </hovered>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control zone prev -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control zone prev : checklist -->
   <animation>
     <type>pick</type>
     <object-name>tablet.zone_prev</object-name>
+    <condition>
+      <equals>
+        <property>/instrumentation/my_aircraft/tablet/controls/page</property>
+        <value>checklist</value>
+      </equals>
+    </condition>
     <action>
       <button>0</button>
       <binding>
@@ -185,10 +293,16 @@ changelog
     </hovered>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control zone next -->
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control zone next : checklist -->
   <animation>
     <type>pick</type>
     <object-name>tablet.zone_next</object-name>
+    <condition>
+      <equals>
+        <property>/instrumentation/my_aircraft/tablet/controls/page</property>
+        <value>checklist</value>
+      </equals>
+    </condition>
     <action>
       <button>0</button>
       <binding>
@@ -197,6 +311,126 @@ changelog
         <step>1</step>
         <min>0</min>
         <max>8</max>
+        <wrap>1</wrap>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-tablet-next</tooltip-id>
+        <label>next page</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control zone prev : vor fr -->
+  <animation>
+    <type>pick</type>
+    <object-name>tablet.zone_prev</object-name>
+    <condition>
+      <equals>
+        <property>/instrumentation/my_aircraft/tablet/controls/page</property>
+        <value>vor</value>
+      </equals>
+    </condition>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/my_aircraft/tablet/controls/vor/page</property>
+        <step>-1</step>
+        <min>0</min>
+        <max>2</max>
+        <wrap>1</wrap>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-tablet-prev</tooltip-id>
+        <label>previous page</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control zone next : vor -->
+  <animation>
+    <type>pick</type>
+    <object-name>tablet.zone_next</object-name>
+    <condition>
+      <equals>
+        <property>/instrumentation/my_aircraft/tablet/controls/page</property>
+        <value>vor</value>
+      </equals>
+    </condition>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/my_aircraft/tablet/controls/vor/page</property>
+        <step>1</step>
+        <min>0</min>
+        <max>2</max>
+        <wrap>1</wrap>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-tablet-next</tooltip-id>
+        <label>next page</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control zone prev : infos -->
+  <animation>
+    <type>pick</type>
+    <object-name>tablet.zone_prev</object-name>
+    <condition>
+      <equals>
+        <property>/instrumentation/my_aircraft/tablet/controls/page</property>
+        <value>infos</value>
+      </equals>
+    </condition>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/my_aircraft/tablet/controls/infos/page</property>
+        <step>-1</step>
+        <min>0</min>
+        <max>1</max>
+        <wrap>1</wrap>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-tablet-prev</tooltip-id>
+        <label>previous page</label>
+      </binding>
+    </hovered>
+  </animation>
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control zone next : infos -->
+  <animation>
+    <type>pick</type>
+    <object-name>tablet.zone_next</object-name>
+    <condition>
+      <equals>
+        <property>/instrumentation/my_aircraft/tablet/controls/page</property>
+        <value>infos</value>
+      </equals>
+    </condition>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-adjust</command>
+        <property>/instrumentation/my_aircraft/tablet/controls/infos/page</property>
+        <step>1</step>
+        <min>0</min>
+        <max>1</max>
         <wrap>1</wrap>
       </binding>
     </action>
@@ -257,17 +491,29 @@ changelog
     </hovered>
   </animation>
 
-
   <!-- ~~~~~~~~~~~~~~~~~~~~~~ control zone menu1 -->
   <animation>
     <type>pick</type>
-    <object-name>tablet.zone1</object-name>
+    <object-name>tablet.zone.L1C1</object-name>
+    <object-name>tablet.zone.L1C2</object-name>
+    <object-name>tablet.zone.L1C3</object-name>
+    <object-name>tablet.zone.L1C4</object-name>
+    <object-name>tablet.zone.L1C5</object-name>
+    <object-name>tablet.zone.L1C6</object-name>
+    <object-name>tablet.zone.L1C7</object-name>
+    <object-name>tablet.zone.L2C1</object-name>
+    <object-name>tablet.zone.L2C2</object-name>
+    <object-name>tablet.zone.L2C3</object-name>
+    <object-name>tablet.zone.L2C4</object-name>
+    <object-name>tablet.zone.L2C5</object-name>
+    <object-name>tablet.zone.L2C6</object-name>
+    <object-name>tablet.zone.L2C7</object-name>
     <action>
       <button>0</button>
       <binding>
         <command>property-assign</command>
         <property>/instrumentation/my_aircraft/tablet/controls/page</property>
-        <value>1</value>
+        <value>map</value>
       </binding>
     </action>
     <hovered>
@@ -282,13 +528,27 @@ changelog
   <!-- ~~~~~~~~~~~~~~~~~~~~~~ control zone menu2 -->
   <animation>
     <type>pick</type>
-    <object-name>tablet.zone2</object-name>
+    <object-name>tablet.zone.L3C1</object-name>
+    <object-name>tablet.zone.L3C2</object-name>
+    <object-name>tablet.zone.L3C3</object-name>
+    <object-name>tablet.zone.L3C4</object-name>
+    <object-name>tablet.zone.L3C5</object-name>
+    <object-name>tablet.zone.L3C6</object-name>
+    <object-name>tablet.zone.L3C7</object-name>
+    <object-name>tablet.zone.L4C1</object-name>
+    <object-name>tablet.zone.L4C2</object-name>
+    <object-name>tablet.zone.L4C3</object-name>
+    <object-name>tablet.zone.L4C4</object-name>
+    <object-name>tablet.zone.L4C5</object-name>
+    <object-name>tablet.zone.L4C6</object-name>
+    <object-name>tablet.zone.L4C7</object-name>
+
     <action>
       <button>0</button>
       <binding>
         <command>property-assign</command>
         <property>/instrumentation/my_aircraft/tablet/controls/page</property>
-        <value>2</value>
+        <value>checklist</value>
       </binding>
     </action>
     <hovered>
@@ -303,20 +563,69 @@ changelog
   <!-- ~~~~~~~~~~~~~~~~~~~~~~ control zone menu3 -->
   <animation>
     <type>pick</type>
-    <object-name>tablet.zone3</object-name>
+    <object-name>tablet.zone.L5C1</object-name>
+    <object-name>tablet.zone.L5C2</object-name>
+    <object-name>tablet.zone.L5C3</object-name>
+    <object-name>tablet.zone.L5C4</object-name>
+    <object-name>tablet.zone.L5C5</object-name>
+    <object-name>tablet.zone.L5C6</object-name>
+    <object-name>tablet.zone.L5C7</object-name>
+    <object-name>tablet.zone.L6C1</object-name>
+    <object-name>tablet.zone.L6C2</object-name>
+    <object-name>tablet.zone.L6C3</object-name>
+    <object-name>tablet.zone.L6C4</object-name>
+    <object-name>tablet.zone.L6C5</object-name>
+    <object-name>tablet.zone.L6C6</object-name>
+    <object-name>tablet.zone.L6C7</object-name>
     <action>
       <button>0</button>
       <binding>
         <command>property-assign</command>
         <property>/instrumentation/my_aircraft/tablet/controls/page</property>
-        <value>3</value>
+        <value>vor</value>
       </binding>
     </action>
     <hovered>
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>tooltip-tablet-menu-vor-fr</tooltip-id>
-        <label>display main vor frequencies france</label>
+        <label>display main vor frequencies</label>
+      </binding>
+    </hovered>
+  </animation>
+
+
+  <!-- ~~~~~~~~~~~~~~~~~~~~~~ control zone menu4 -->
+  <animation>
+    <type>pick</type>
+    <object-name>tablet.zone.L7C1</object-name>
+    <object-name>tablet.zone.L7C2</object-name>
+    <object-name>tablet.zone.L7C3</object-name>
+    <object-name>tablet.zone.L7C4</object-name>
+    <object-name>tablet.zone.L7C5</object-name>
+    <object-name>tablet.zone.L7C6</object-name>
+    <object-name>tablet.zone.L7C7</object-name>
+    <object-name>tablet.zone.L8C1</object-name>
+    <object-name>tablet.zone.L8C2</object-name>
+    <object-name>tablet.zone.L8C3</object-name>
+    <object-name>tablet.zone.L8C4</object-name>
+    <object-name>tablet.zone.L8C5</object-name>
+    <object-name>tablet.zone.L8C6</object-name>
+    <object-name>tablet.zone.L8C7</object-name>
+    <action>
+      <button>0</button>
+      <binding>
+        <command>property-assign</command>
+        <property>/instrumentation/my_aircraft/tablet/controls/page</property>
+        <value>infos</value>
+      </binding>
+    </action>
+
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <tooltip-id>tooltip-tablet-menu-info</tooltip-id>
+        <label>Aircraft informations</label>
       </binding>
     </hovered>
   </animation>

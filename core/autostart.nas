@@ -476,7 +476,7 @@ var toggle_autostart = func() {
 }
 
 #===============================================================================
-#                                                     AUTOMATIC AIRBORN STARTING
+#                                                             AUTOMATIC STARTING
 
 var check_start_airborn = func() {
     var is_onground = getprop('/sim/presets/onground') or 0;
@@ -510,5 +510,19 @@ var check_start_airborn = func() {
     }
 }
 
-check_start_airborn();
+var check_start = func() {
+    var engines_started = getprop('/sim/presets/engines_started') or 0;
+    if(engines_started == 1)
+    {
+        printf('starting ...');
+        fast_start();
+    }
+    else
+    {
+        check_start_airborn();
+    }
+}
+
+check_start();
+
 

@@ -14,12 +14,13 @@ PROPERTY-PATH : /instrumentation/my_aircraft/tablet/
   <controls>
     <serviceable type="bool">1</serviceable>
     <brightness type="float">0.4</brightness>
-    <page type="int">0</page>
+    <page>menu</page>
     <!--
-    - page 0 = menu
-    - page 1 = map
-    - page 2 = checklist
-    - page 3 = vor fance
+    - menu
+    - map
+    - checklist
+    - vor
+    - infos
     -->
     <map>
       <zoom type="int">6</zoom> <!-- 5 - 13 -->
@@ -27,6 +28,12 @@ PROPERTY-PATH : /instrumentation/my_aircraft/tablet/
     <checklist>
       <page type="int">0</page> <!-- adjusted on tablet-model.xml, used in tablet_canvas.nas-->
     </checklist>
+    <vor>
+      <page type="int">0</page> <!-- adjusted on tablet-model.xml, used in tablet_canvas.nas-->
+    </vor>
+    <infos>
+      <page type="int">0</page> <!-- adjusted on tablet-model.xml, used in tablet_canvas.nas-->
+    </infos>
   </controls>
 
 </PropertyList>

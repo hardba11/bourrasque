@@ -51,11 +51,17 @@ http://wiki.flightgear.org/Property_tree
       <code-repository>https://github.com/hardba11/bourrasque</code-repository>
     </urls>
 
+    <presets>
+      <engines_started type="int">0</engines_started>
+    </presets>
+
     <status type="string">early production</status>
     <tags>
       <!-- aircraftTypeTags -->
       <tag>bizjet</tag>
       <tag>fighter</tag>
+      <tag>carrier</tag>
+      <tag>tanker</tag>
       <!-- manufacturerTags -->
       <tag>dassault</tag>
       <!-- eraTags -->
@@ -64,12 +70,17 @@ http://wiki.flightgear.org/Property_tree
       <tag>canard</tag>
       <tag>delta</tag>
       <tag>fictional</tag>
+      <tag>glass-cockpit</tag>
+      <tag>mid-wing</tag>
       <tag>hud</tag>
       <tag>ifr</tag>
+      <tag>pressurised</tag>
+      <tag>prototype</tag>
       <tag>refuel</tag>
       <tag>retractable-gear</tag>
       <tag>supersonic</tag>
       <tag>tail-hook</tag>
+      <tag>twin-boom</tag>
       <!-- propulsionTags -->
       <tag>afterburner</tag>
       <tag>jet</tag>
@@ -364,9 +375,9 @@ http://wiki.flightgear.org/Property_tree
 
   <!-- for tests and settings -->
   <_debug>
-    <Kp type="float">1.6</Kp>
-    <Ti type="float">1.0</Ti>
-    <Td type="float">0.00001</Td>
+    <Kp type="float">0.5</Kp>
+    <Ti type="float">10000000000</Ti>
+    <Td type="float">0.000000000</Td>
     <int1 type="int">0</int1>
     <int2 type="int">0</int2>
     <int3 type="int">0</int3>

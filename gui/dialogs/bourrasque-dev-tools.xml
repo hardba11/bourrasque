@@ -119,13 +119,13 @@
       <col>1</col>
       <pref-width>50</pref-width>
       <pref-height>25</pref-height>
-      <legend>/10</legend>
+      <legend>/2</legend>
       <binding>
         <command>nasal</command>
         <script>
           <![CDATA[
 var Ti = getprop("/_debug/Ti") or 0;
-setprop("/_debug/Ti", (Ti / 10));
+setprop("/_debug/Ti", (Ti / 2));
           ]]>
         </script>
       </binding>
@@ -140,13 +140,13 @@ setprop("/_debug/Ti", (Ti / 10));
       <col>2</col>
       <pref-width>50</pref-width>
       <pref-height>25</pref-height>
-      <legend>*10</legend>
+      <legend>*2</legend>
       <binding>
         <command>nasal</command>
         <script>
           <![CDATA[
 var Ti = getprop("/_debug/Ti") or 0;
-setprop("/_debug/Ti", (Ti * 10));
+setprop("/_debug/Ti", (Ti * 2));
           ]]>
         </script>
       </binding>
@@ -191,6 +191,48 @@ setprop("/_debug/Ti", (Ti * 10));
         <command>property-adjust</command>
         <property>/_debug/Td</property>
         <step>0.00001</step>
+      </binding>
+      <binding>
+        <command>reinit</command>
+        <subsystem>xml-autopilot</subsystem>
+      </binding>
+    </button>
+
+    <button>
+      <row>2</row>
+      <col>3</col>
+      <pref-width>50</pref-width>
+      <pref-height>25</pref-height>
+      <legend>/2</legend>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+var Td = getprop("/_debug/Td") or 0;
+setprop("/_debug/Td", (Td / 2));
+          ]]>
+        </script>
+      </binding>
+      <binding>
+        <command>reinit</command>
+        <subsystem>xml-autopilot</subsystem>
+      </binding>
+    </button>
+
+    <button>
+      <row>2</row>
+      <col>4</col>
+      <pref-width>50</pref-width>
+      <pref-height>25</pref-height>
+      <legend>*2</legend>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+var Td = getprop("/_debug/Td") or 0;
+setprop("/_debug/Td", (Td * 2));
+          ]]>
+        </script>
       </binding>
       <binding>
         <command>reinit</command>

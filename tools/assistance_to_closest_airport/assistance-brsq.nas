@@ -2,6 +2,13 @@ print("*** LOADING tools - assistance-brsq.nas ... ***");
 
 # namespace : tools/assistance
 
+
+# TODO
+# gerer le vent pour corriger les caps
+
+# /environment/wind-speed-kt
+# /environment/wind-from-heading-deg
+
 #                               ~~~ README ~~~
 #
 #

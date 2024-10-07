@@ -363,9 +363,9 @@ ________________________________________________________________________________
     <object-name>block_roue_train</object-name>
     <property>gear/gear[0]/compression-norm</property>
     <interpolation>
-      <entry><ind>0</ind><dep>-0.12</dep></entry>   <!-- airborn -->
-      <entry><ind>.19</ind><dep>0</dep></entry>     <!-- ground -->
-      <entry><ind>.4</ind><dep>0.15</dep></entry>   <!-- compressed -->
+      <entry><ind>0</ind><dep>-0.05</dep></entry>   <!-- airborn -->
+      <entry><ind>.15</ind><dep>0</dep></entry>     <!-- ground -->
+      <entry><ind>.5</ind><dep>0.10</dep></entry>   <!-- compressed -->
     </interpolation>
     <axis>
       <x>0.023</x>
@@ -379,9 +379,9 @@ ________________________________________________________________________________
     <object-name>compas_piston_train</object-name>
     <property>gear/gear[0]/compression-norm</property>
     <interpolation>
-      <entry><ind>0</ind><dep>-25</dep></entry>
-      <entry><ind>0.19</ind><dep>0</dep></entry>
-      <entry><ind>0.4</ind><dep>20</dep></entry>
+      <entry><ind>0</ind><dep>-10</dep></entry>
+      <entry><ind>0.15</ind><dep>0</dep></entry>
+      <entry><ind>0.5</ind><dep>15</dep></entry>
     </interpolation>
     <center>
       <x-m>-2.6749</x-m>
@@ -400,9 +400,9 @@ ________________________________________________________________________________
     <object-name>compas_jambe_train</object-name>
     <property>gear/gear[0]/compression-norm</property>
     <interpolation>
-      <entry><ind>0</ind><dep>25</dep></entry>
-      <entry><ind>0.19</ind><dep>0</dep></entry>
-      <entry><ind>0.4</ind><dep>-20</dep></entry>
+      <entry><ind>0</ind><dep>10</dep></entry>
+      <entry><ind>0.15</ind><dep>0</dep></entry>
+      <entry><ind>0.5</ind><dep>-15</dep></entry>
     </interpolation>
     <center>
       <x-m>-2.6402</x-m>

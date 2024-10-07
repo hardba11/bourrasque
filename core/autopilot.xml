@@ -18,26 +18,23 @@ file Aircraft/Generic/generic-autopilot-helper.xml
                                                                      FLY BY WIRE
 ================================================================================
 
-  INIT : Ti=10000000000, Td=0
-  AJUSTER Kp sans oscillations
-  REDUIRE Ti pour arriver a la consigne
-  AJOUTER Td par increments de 0.00001 s'arreter avant les oscillations
-  - Kp : present, agit sur la rapidite de correction
-  - Ti : passe, corrige les perturbations -Ti <=> +I
-  - Td : futur, permet d'anticiper et eviter l'overshoot +Td <=> +D
+Comprendre les termes du PID :
 
-  fast rise - Is the rate at which the output rises
-  overshoot - if the output overshoots (and then adjusts) the target
-  settling - this is how the output settles towards the target
-  steady error - continuous error from output to a target that doesn't change
-
-      fast rise   overshoot   settling    steady error
-  P   Decrease    Increase    No effect   Decrease
-  I   Decrease    Increase    Increase    Eliminate
-  D   No effect   Decrease    Decrease    No effect
+    P (Proportionnel) : Réagit à l'erreur actuelle.
+    I (Intégral) : Réagit à l'accumulation des erreurs passées.
+    D (Dérivé) : Réagit à la prédiction de l'erreur future.
 
 <Kp>/_debug/Kp</Kp><Ti>/_debug/Ti</Ti><Td>/_debug/Td</Td>
 
+1- initialisation
+  <Kp>0.5</Kp><Ti>10000000000</Ti><Td>0</Td>
+2- augmenter k jusqu a une oscillation continue autour de la consigne 
+   avec amplitude constante
+3-    Kp / 2
+4- reduire Ti  pour reduire le temps de montee jusqu a oscillation continue
+5-    Ti * 3
+6- augmenter Td jusqu a oscillation continue
+7-    Td / 3
   -->
   <!--
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -112,13 +109,9 @@ file Aircraft/Generic/generic-autopilot-helper.xml
         <expression>
           <table>
             <property>/velocities/airspeed-kt</property>
-            <entry><ind>200</ind><dep>-0.7</dep></entry>
-            <entry><ind>300</ind><dep>-1.0</dep></entry>
-            <entry><ind>600</ind><dep>-1.0</dep></entry>
-            <!--entry><ind>1000</ind><dep>-0.6</dep></entry>
-            <entry><ind>1600</ind><dep>-0.2</dep></entry>
+            <entry><ind>100</ind><dep>-1.0</dep></entry>
+            <entry><ind>650</ind><dep>-1.0</dep></entry>
             <entry><ind>2000</ind><dep>-0.1</dep></entry>
-            <entry><ind>4000</ind><dep>-0.1</dep></entry-->
           </table>
         </expression>
       </u_min>
@@ -126,13 +119,9 @@ file Aircraft/Generic/generic-autopilot-helper.xml
         <expression>
           <table>
             <property>/velocities/airspeed-kt</property>
-            <entry><ind>200</ind><dep>0.7</dep></entry>
-            <entry><ind>300</ind><dep>1.0</dep></entry>
-            <entry><ind>600</ind><dep>1.0</dep></entry>
-            <!--entry><ind>1000</ind><dep>0.6</dep></entry>
-            <entry><ind>1600</ind><dep>0.2</dep></entry>
+            <entry><ind>100</ind><dep>1.0</dep></entry>
+            <entry><ind>650</ind><dep>1.0</dep></entry>
             <entry><ind>2000</ind><dep>0.1</dep></entry>
-            <entry><ind>4000</ind><dep>0.1</dep></entry-->
           </table>
         </expression>
       </u_max>
@@ -145,14 +134,9 @@ file Aircraft/Generic/generic-autopilot-helper.xml
       <expression>
         <table>
           <property>/velocities/airspeed-kt</property>
-          <entry><ind>100</ind><dep>0.7</dep></entry>
-          <entry><ind>200</ind><dep>0.8</dep></entry>
-          <entry><ind>300</ind><dep>1.0</dep></entry>
-          <entry><ind>600</ind><dep>1.0</dep></entry>
-          <entry><ind>800</ind><dep>0.6</dep></entry>
-          <entry><ind>1000</ind><dep>0.2</dep></entry>
-          <entry><ind>1600</ind><dep>0.1</dep></entry>
-          <entry><ind>4000</ind><dep>0.1</dep></entry>
+          <entry><ind>100</ind><dep>1.0</dep></entry>
+          <entry><ind>650</ind><dep>1.0</dep></entry>
+          <entry><ind>2000</ind><dep>0.1</dep></entry>
         </table>
       </expression>
     </gain>
@@ -172,67 +156,117 @@ file Aircraft/Generic/generic-autopilot-helper.xml
                                                                            PITCH
   -->
 
-<!-- le manche agit sur les Gs -->
-  <pid-controller>
-    <name>fbw-elevator-g</name>
-    <debug>false</debug>
-    <enable>
-      <condition>
-        <equals><property>/gear/gear[0]/position-norm</property><value>0</value></equals>
-<!--
-        <equals><property>/gear/gear[1]/wow</property><value>0</value></equals>
-        <equals><property>/gear/gear[2]/wow</property><value>0</value></equals>
--->
-        <less-than><property>/velocities/airspeed-kt</property><value>2500</value></less-than>
-      </condition>
-    </enable>
-    <feedback-if-disabled>true</feedback-if-disabled>
+<!-- zone morte du manche -->
+  <filter>
+    <name>command-pitch-norm</name>
+    <type>gain</type>
+    <gain>1.0</gain>
     <input>
       <expression>
         <table>
-          <property>/accelerations/pilot-g</property>
-          <entry><ind>-19.0</ind> <dep>1.00</dep></entry>
-          <entry><ind>-11.5</ind> <dep>1.00</dep></entry>
-          <entry>  <ind>1.0</ind> <dep>0.00</dep></entry>
-          <entry> <ind>12.5</ind><dep>-1.00</dep></entry>
-          <entry> <ind>20.0</ind><dep>-1.00</dep></entry>
+          <property>/controls/flight/elevator</property>
+          <entry><ind>-1.00</ind><dep>-0.999</dep></entry>
+          <entry><ind>-0.20</ind><dep>-0.050</dep></entry>
+          <entry><ind>-0.01</ind> <dep>0.000</dep></entry>
+          <entry> <ind>0.00</ind> <dep>0.000</dep></entry>
+          <entry> <ind>0.01</ind> <dep>0.000</dep></entry>
+          <entry> <ind>0.20</ind> <dep>0.050</dep></entry>
+          <entry> <ind>1.00</ind> <dep>0.999</dep></entry>
         </table>
       </expression>
     </input>
-    <reference>
+    <output>/controls/flight/fbw/command-pitch-norm</output>
+    <min>-1</min>
+    <max>1</max>
+  </filter>
+
+<!-- mapping debattement manche -> aoa -->
+  <filter>
+    <name>target-aoa</name>
+    <type>gain</type>
+    <gain>1.0</gain>
+    <input>
       <expression>
         <table>
-          <property>/controls/flight/elevator</property>
-          <entry><ind>-1.000</ind><dep>-0.999</dep></entry>
-          <entry><ind>-0.200</ind><dep>-0.050</dep></entry>
-          <entry><ind>-0.007</ind> <dep>0.000</dep></entry>
-          <entry> <ind>0.000</ind> <dep>0.000</dep></entry>
-          <entry> <ind>0.007</ind> <dep>0.000</dep></entry>
-          <entry> <ind>0.200</ind> <dep>0.100</dep></entry>
-          <entry> <ind>0.300</ind> <dep>0.400</dep></entry>
-          <entry> <ind>1.000</ind> <dep>0.450</dep></entry>
+          <property>/controls/flight/fbw/command-pitch-norm</property>
+          <entry><ind>-1.000</ind><dep>15</dep></entry>
+          <entry><ind>0.000</ind><dep>0</dep></entry>
+          <entry><ind>1.000</ind><dep>-15</dep></entry>
         </table>
       </expression>
+    </input>
+    <output>/controls/flight/fbw/target-aoa</output>
+    <min>-8</min>
+    <max>17</max>
+  </filter>
+
+<!-- mapping debattement manche -> g -->
+  <filter>
+    <name>target-g</name>
+    <type>gain</type>
+    <gain>1.0</gain>
+    <input>
+      <expression>
+        <table>
+          <property>/controls/flight/fbw/command-pitch-norm</property>
+          <entry><ind>-1.000</ind><dep>12.5</dep></entry>
+          <entry><ind>0.000</ind><dep>1</dep></entry>
+          <entry><ind>1.000</ind><dep>-10.5</dep></entry>
+        </table>
+      </expression>
+    </input>
+    <output>/controls/flight/fbw/target-g</output>
+    <min>-3.5</min>
+    <max>12.5</max>
+  </filter>
+
+<!-- le manche agit sur l'aoa ou les Gs selon la vitesse -->
+  <pid-controller>
+    <name>fbw-elevator</name>
+    <debug>false</debug>
+    <feedback-if-disabled>true</feedback-if-disabled>
+    <input>/controls/flight/fbw/target-g</input>
+    <reference>/accelerations/pilot-g</reference>
+    <input>
+      <condition>
+        <less-than><property>/velocities/airspeed-kt</property><value>250</value></less-than>
+      </condition>
+      <property>/controls/flight/fbw/target-aoa</property>
+    </input>
+    <reference>
+      <condition>
+        <less-than><property>/velocities/airspeed-kt</property><value>250</value></less-than>
+      </condition>
+      <property>/orientation/alpha-deg</property>
     </reference>
-    <output>/controls/flight/fbw-elevator-g</output>
+    <output>/controls/flight/fbw-elevator</output>
     <config>
+<!-- 
+1- demarrage
+  <Kp>0.5</Kp><Ti>10000000000</Ti><Td>0</Td>
+2- augmenter k jusqu a une oscillation continue avec amplitude constante
+3-    Kp / 2
+4- reduire Ti jusqu a oscillation continue
+5-    Ti * 3
+6- augmenter Td jusqu a oscillation continue
+7-    Td / 3
+
+420kt 5000ft 
+      <Kp>.07</Kp><Ti>2.5</Ti><Td>0.00000001</Td>
+
+650kt 5000ft 
+      <Kp>.05</Kp><Ti>7</Ti><Td>0.00001</Td>
+-->
       <Kp>
         <expression>
           <table>
             <property>/velocities/airspeed-kt</property>
-            <entry> <ind>100</ind><dep>1.70</dep></entry>
-            <entry> <ind>150</ind><dep>1.60</dep></entry>
-            <entry> <ind>200</ind><dep>1.00</dep></entry>
-            <entry> <ind>300</ind><dep>0.80</dep></entry>
-            <entry> <ind>450</ind><dep>0.55</dep></entry>
-            <entry> <ind>600</ind><dep>0.40</dep></entry>
-            <entry> <ind>800</ind><dep>0.20</dep></entry>
-            <entry><ind>1000</ind><dep>0.10</dep></entry>
-            <entry><ind>1200</ind><dep>0.05</dep></entry>
-            <entry><ind>1500</ind><dep>0.02</dep></entry>
-            <entry><ind>2000</ind><dep>0.01</dep></entry>
-            <entry><ind>4000</ind><dep>0.01</dep></entry>
-            <entry><ind>8000</ind><dep>0.001</dep></entry>
+            <entry><ind> 200</ind><dep>.07</dep></entry>
+            <entry><ind> 420</ind><dep>.07</dep></entry>
+            <entry><ind> 650</ind><dep>.05</dep></entry>
+            <entry><ind> 700</ind><dep>.03</dep></entry>
+            <entry><ind> 900</ind><dep>.012</dep></entry>
+            <entry><ind>1200</ind><dep>.012</dep></entry>
           </table>
         </expression>
       </Kp>
@@ -240,12 +274,12 @@ file Aircraft/Generic/generic-autopilot-helper.xml
         <expression>
           <table>
             <property>/velocities/airspeed-kt</property>
-            <entry> <ind>100</ind><dep>1.5</dep></entry>
-            <entry> <ind>300</ind><dep>1.4</dep></entry>
-            <entry> <ind>450</ind><dep>1.2</dep></entry>
-            <entry> <ind>600</ind><dep>1</dep></entry>
-            <entry><ind>4000</ind><dep>1</dep></entry>
-            <entry><ind>8000</ind><dep>.1</dep></entry>
+            <entry><ind> 200</ind><dep>2.5</dep></entry>
+            <entry><ind> 420</ind><dep>2.5</dep></entry>
+            <entry><ind> 650</ind><dep>7</dep></entry>
+            <entry><ind> 700</ind><dep>9</dep></entry>
+            <entry><ind> 900</ind><dep>1</dep></entry>
+            <entry><ind>1200</ind><dep>1</dep></entry>
           </table>
         </expression>
       </Ti>
@@ -253,58 +287,26 @@ file Aircraft/Generic/generic-autopilot-helper.xml
         <expression>
           <table>
             <property>/velocities/airspeed-kt</property>
-            <entry> <ind>100</ind><dep>0.000005</dep></entry>
-            <entry> <ind>300</ind><dep>0.000003</dep></entry>
-            <entry> <ind>450</ind><dep>0.00001</dep></entry>
-            <entry> <ind>600</ind><dep>0.00001</dep></entry>
-            <entry><ind>4000</ind><dep>0.0001</dep></entry>
-            <entry><ind>8000</ind><dep>1</dep></entry>
+            <entry><ind> 200</ind><dep>0.00000001</dep></entry>
+            <entry><ind> 420</ind><dep>0.00000001</dep></entry>
+            <entry><ind> 650</ind><dep>0.00001</dep></entry>
+            <entry><ind> 700</ind><dep>0.001</dep></entry>
+            <entry><ind> 900</ind><dep>0.001</dep></entry>
+            <entry><ind>1200</ind><dep>0.001</dep></entry>
           </table>
         </expression>
       </Td>
-      <u_min>-1.0</u_min>
-      <u_max>1.0</u_max>
+      <min>-1</min>
+      <max>1</max>
     </config>
   </pid-controller>
-
-<!-- le manche agit en direct -->
-  <filter>
-    <name>fcm-elevator-direct</name>
-    <type>gain</type>
-    <gain>1.0</gain>
-    <input>
-      <expression>
-        <table>
-          <property>/controls/flight/elevator</property>
-          <entry><ind>-1.000</ind><dep>-0.999</dep></entry>
-          <entry><ind>-0.200</ind><dep>-0.050</dep></entry>
-          <entry><ind>-0.007</ind><dep>0.000</dep></entry>
-          <entry><ind>0.000</ind><dep>0.000</dep></entry>
-          <entry><ind>0.007</ind><dep>0.000</dep></entry>
-          <entry><ind>0.200</ind><dep>0.050</dep></entry>
-          <entry><ind>0.400</ind><dep>0.300</dep></entry>
-          <entry><ind>1.000</ind><dep>0.350</dep></entry>
-        </table>
-      </expression>
-    </input>
-    <output>/controls/flight/fcm-elevator-direct</output>
-  </filter>
 
   <filter>
     <name>fcm-elevator</name>
     <type>gain</type>
     <gain>1.0</gain>
     <input>
-      <condition>
-        <equals><property>/gear/gear[0]/position-norm</property><value>0</value></equals>
-        <equals><property>/gear/gear[1]/wow</property><value>0</value></equals>
-        <equals><property>/gear/gear[2]/wow</property><value>0</value></equals>
-        <less-than><property>/velocities/airspeed-kt</property><value>4000</value></less-than>
-      </condition>
-      <property>/controls/flight/fbw-elevator-g</property>
-    </input>
-    <input>
-      <property>/controls/flight/fcm-elevator-direct</property>
+      <property>/controls/flight/fbw-elevator</property>
     </input>
     <output>/controls/flight/fcm-elevator</output>
   </filter>
@@ -1021,8 +1023,8 @@ file Aircraft/Generic/generic-autopilot-helper.xml
       <property>/controls/engines/engine[1]/throttle</property>
     </output>
     <config>
-      <Kp>0.05</Kp>
-      <Ti>10.0</Ti>
+      <Kp>0.02</Kp>
+      <Ti>8.0</Ti>
       <Td>0.0001</Td>
       <u_min>0.0</u_min>
       <u_max>0.90</u_max>

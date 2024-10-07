@@ -249,7 +249,7 @@ var checklists = [
             {'list': '.--------------------------------------------', 'check': 'info'},
             {'list': '| approach at 150kts use speedbrakes',          'check': 'info'},
             {'list': '| velocity vector on runway s threshold',       'check': 'info'},
-            {'list': '| velocity vector -3deg on hud ladder',         'check': 'info!'},
+            {'list': '| velocity vector -3deg on hud ladder',         'check': 'info'},
             {'list': '| touchdown at 120kts',                         'check': 'info'},
             {'list': '`--------------------------------------------', 'check': 'info'},
         ],
@@ -441,28 +441,46 @@ var MAP = {
             .setTranslation(0, 0);
 
 
+# INFOS STUFF
+        m.g_page_infos = m.root.createChild('group').set('z-index', 96);
+        m.txt_infos_title = m.g_page_infos.createChild('text', 'infos_title')
+            .setTranslation(200, 120)
+            .setAlignment('left-top')
+            .setFont('LiberationFonts/LiberationSansNarrow-Bold.ttf')
+            .setFontSize(50)
+            .setColor(.8, .8, .8, 1)
+            .setText('INFOS')
+            .set('z-index', 1);
+
+
+
+
         return m;
     },
     update: func() {
         var serviceable = getprop("/instrumentation/my_aircraft/tablet/controls/serviceable") or 0;
         var time_speed = getprop("/sim/speed-up") or 1;
         var loop_speed = (time_speed == 1) ? 1 : 4 * time_speed;
-        var page = getprop("/instrumentation/my_aircraft/tablet/controls/page") or 0;
+        var page = getprop("/instrumentation/my_aircraft/tablet/controls/page") or 'menu';
         var no_page_checklist = getprop("/instrumentation/my_aircraft/tablet/controls/checklist/page") or 0;
+        var no_page_vor = getprop("/instrumentation/my_aircraft/tablet/controls/vor/page") or 0;
+        var no_page_infos = getprop("/instrumentation/my_aircraft/tablet/controls/infos/page") or 0;
 
-# page0 = MENU
-        if((serviceable == 1) and (page == 0))
+# page = MENU
+        if((serviceable == 1) and (page == 'menu'))
         {
-            me.g_page_menu.setVisible(1);
+            me.g_page_menu.setVisible(0);
             me.g_page_checklist.setVisible(0);
             me.g_page_vor.setVisible(0);
             me.g_page_mapvor.setVisible(0);
-
             me.g_page_map.setVisible(0);
+            me.g_page_infos.setVisible(0);
+
+            me.g_page_menu.setVisible(1);
         }
 
-# page1 = MAP
-        elsif((serviceable == 1) and (page == 1))
+# page = MAP
+        elsif((serviceable == 1) and (page == 'map'))
         {
             me.svg_symbol.setRotation(me.myHeadingProp.getValue() * D2R);
             me.zoom = getprop("/instrumentation/my_aircraft/tablet/controls/map/zoom") or 10;
@@ -550,14 +568,16 @@ var MAP = {
             me.g_page_checklist.setVisible(0);
             me.g_page_vor.setVisible(0);
             me.g_page_mapvor.setVisible(0);
+            me.g_page_map.setVisible(0);
+            me.g_page_infos.setVisible(0);
 
             me.g_page_map.setVisible(1);
 
             loop_speed = (time_speed == 1) ? .5 : 4;
         }
 
-# page2 = CHECKLIST
-        elsif((serviceable == 1) and (page == 2))
+# page = CHECKLIST
+        elsif((serviceable == 1) and (page == 'checklist'))
         {
             var list = '';
             var check = '';
@@ -574,32 +594,58 @@ var MAP = {
             me.txt_check_content.setText(check);
 
             me.g_page_menu.setVisible(0);
-            me.g_page_checklist.setVisible(1);
+            me.g_page_checklist.setVisible(0);
             me.g_page_vor.setVisible(0);
             me.g_page_mapvor.setVisible(0);
-
             me.g_page_map.setVisible(0);
-            me.g_page_mapvor.setVisible(0);
+            me.g_page_infos.setVisible(0);
+
+            me.g_page_checklist.setVisible(1);
         }
 
-# page3 = VOR FR
-        elsif((serviceable == 1) and (page == 3))
+# page = VOR
+        elsif((serviceable == 1) and (page == 'vor'))
         {
             me.g_page_menu.setVisible(0);
             me.g_page_checklist.setVisible(0);
-            if(math.mod(no_page_checklist, 2) == 0)
+            me.g_page_vor.setVisible(0);
+            me.g_page_mapvor.setVisible(0);
+            me.g_page_map.setVisible(0);
+            me.g_page_infos.setVisible(0);
+
+            if(no_page_vor == 0)
             {
                 me.g_page_vor.setVisible(1);
-                me.g_page_mapvor.setVisible(0);
             }
             else
             {
-                me.g_page_vor.setVisible(0);
                 me.g_page_mapvor.setVisible(1);
             }
-
-            me.g_page_map.setVisible(0);
         }
+
+
+# page = INFOS
+        elsif((serviceable == 1) and (page == 'infos'))
+        {
+            me.g_page_menu.setVisible(0);
+            me.g_page_checklist.setVisible(0);
+            me.g_page_vor.setVisible(0);
+            me.g_page_mapvor.setVisible(0);
+            me.g_page_map.setVisible(0);
+            me.g_page_infos.setVisible(0);
+
+
+            me.g_page_infos.setVisible(1);
+
+            if(no_page_infos == 0)
+            {
+            }
+            else
+            {
+            }
+        }
+
+
         settimer(func() { me.update(); }, loop_speed);
     },
 };
