@@ -10,7 +10,6 @@ keyboard shortcuts
 - c : open/close canopy, you can click on the canopy handles or on the canopy switch to half-open it
 - k : Extend Speedbrakes (5 positions)
 - j : Retract Speedbrakes (5 positions)
-- s : Toggle Autotrim (pitch)
 - ctrl-a : enable autopilot on Altitude
 - ctrl-s : enable autopilot on Speed
 - ctrl-h : enable autopilot on Heading (bug)
@@ -40,6 +39,7 @@ mouse functionnalities
 ----------------------
 
 when on stick mode (cross cursor - hit TAB to change)
+
 - pitch : vertical axis (no MMB pressed)
 - roll : horizontal axis (no buttons pressed)
 - yaw : horizontal axis (LMB or MMB pressed)
@@ -147,7 +147,7 @@ how-to
 in air start at 5000ft and 250kt
 --------------------------------
 
-launch flightgear adding 2 parameters : --altitude=5000 --vc=250
+launch flightgear adding 2 parameters : `--altitude=5000 --vc=250`
 aircraft will automatically fast start and enable autopilot
 
 
@@ -155,7 +155,7 @@ fast start
 ----------
 
 use the bourrasque menu
-
+launch flightgear adding 1 parameter : `--prop:/sim/presets/engines_started=1`
 
 autostart
 ---------
@@ -191,35 +191,7 @@ see checklist on the knee tablet
 stop
 ----
 
-- command panel : parkbrake [BRAKE]
-- gui/equipment : wheel chocks [PUT]
-- command panel : canopy [HALF-CLOSE]
-- electrical instrument : switch [BAT]
-- engine 0 instrument : cut [OFF]
-- engine 0 instrument : pump [OFF]
-- engine 1 instrument : cut [OFF]
-- engine 1 instrument : pump [OFF]
-- engine 0 stopped [WAIT]
-- engine 1 stopped [WAIT]
-- electrical instrument : engines [OFF]
-- lights panel : landing and taxi [OFF]
-- lights panel : formation [OFF]
-- lights panel : anti-collision [OFF]
-- lights panel : strobe [OFF]
-- lights panel : navigation [OFF]
-- lights panel : position [OFF]
-- radio : NAV1 [OFF]
-- radio : COM1 [OFF]
-- radio : NAV2 [OFF]
-- radio : COM2 [OFF]
-- radio : ADF  [OFF]
-- radio : TRANSPONDER [OFF]
-- electrical instrument : cmd [OFF]
-- electrical instrument : avionics [OFF]
-- lights panel : instrument light [OFF]
-- gui/equipment : scale [PUT]
-- gui/equipment : covers [PUT]
-- gui/equipment : fuel truck [PUT]
+see checklist on the knee tablet
 
 
 carrier take off
@@ -239,7 +211,7 @@ an automatic hippodrome driven by autopilot is available
 - gui/equipment : center pylon [refuel pod]
 - the copilot proGo view will be disable and the view refuelling pod will be enabled
 
-check-list :
+check-list buddy buddy :
 
 - PFD : autopilot speed [ADJUST to 200kt AND ENABLE]
 - PFD : autopilot alt [ADJUST to 10000ft AND ENABLE]

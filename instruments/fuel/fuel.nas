@@ -9,10 +9,6 @@ var fuel = func()
     var level_1                 = getprop("/consumables/fuel/tank[1]/level-m3") or 0;
     var level_2                 = getprop("/consumables/fuel/tank[2]/level-m3") or 0;
     var level_3                 = getprop("/consumables/fuel/tank[3]/level-m3") or 0;
-    var level_4                 = getprop("/consumables/fuel/tank[4]/level-m3") or 0;
-    var level_5                 = getprop("/consumables/fuel/tank[5]/level-m3") or 0;
-    var level_6                 = getprop("/consumables/fuel/tank[6]/level-m3") or 0;
-    var level_7                 = getprop("/consumables/fuel/tank[7]/level-m3") or 0;
     var ff0                     = getprop("/engines/engine[0]/fuel-flow-gph") or 0;
     var ff1                     = getprop("/engines/engine[1]/fuel-flow-gph") or 0;
     var bingo_enabled           = getprop("/instrumentation/my_aircraft/fuel/bingo/is_bingo_enabled") or 0;
@@ -21,9 +17,9 @@ var fuel = func()
     var bingo_distance_nm       = getprop("/instrumentation/my_aircraft/fuel/bingo/distance_nm") or 0;
 
     var nan_remaining = 0;
-    var level_left   = level_2 + level_4 + level_6;
-    var level_center = level_0 + level_1;
-    var level_right  = level_3 + level_5 + level_7;
+    var level_left   = level_1;
+    var level_center = level_0 + level_3;
+    var level_right  = level_2;
 
     var ff0_kg_s  = ff0 * 0.0508 / 60;
     var ff1_kg_s  = ff1 * 0.0508 / 60;

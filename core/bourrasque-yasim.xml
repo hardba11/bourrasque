@@ -277,7 +277,7 @@ ________________________________________________________________________________
   </launchbar>
 
   <!-- ~~~~~~~~~~~~~~~~~~ front gear -->
-  <gear x="2.85" y="0" z="-1.6"
+  <gear x="2.85" y="0" z="-1.55"
       compression=".4" spring=".42" damp=".6"
       dfric=".6" sfric=".8">
     <control-input  control="STEER" axis="/controls/flight/fcm-rudder" square="true" />
@@ -291,9 +291,9 @@ ________________________________________________________________________________
   </gear>
 
   <!-- ~~~~~~~~~~~~~~~~~~ left main gear -->
-  <gear x="-2.05" y="1.2" z="-1.65"
+  <gear x="-2.05" y="1.4" z="-1.6"
       compression=".4" spring="1" damp=".9"
-      dfric=".6" sfric=".7">
+      dfric=".7" sfric=".7">
     <control-input  control="BRAKE" axis="/controls/gear/brake-left" />
     <control-input  control="BRAKE" axis="/controls/gear/brake-parking" />
     <control-output control="BRAKE" prop="/gear/gear[1]/brake-position-norm" />
@@ -304,9 +304,9 @@ ________________________________________________________________________________
   </gear>
 
   <!-- ~~~~~~~~~~~~~~~~~~ right main gear -->
-  <gear x="-2.05" y="-1.21" z="-1.65"
+  <gear x="-2.05" y="-1.4" z="-1.6"
       compression=".4" spring="1" damp=".9"
-      dfric=".6" sfric=".7">
+      dfric=".7" sfric=".7">
     <control-input  control="BRAKE" axis="/controls/gear/brake-right" />
     <control-input  control="BRAKE" axis="/controls/gear/brake-parking" />
     <control-output control="BRAKE" prop="/gear/gear[2]/brake-position-norm" />
@@ -324,16 +324,16 @@ ________________________________________________________________________________
 ________________________________________________________________________________
                                                                             TANK
   -->
-  <!-- ~~~~~~~~~~~~~~~~~~ fuselage tank -->
+  <!-- ~~~~~~~~~~~~~~~~~~ tank[0] : fuselage tank -->
   <tank x="-0.15"  y="0" z="0.1" jet="true" capacity="4000" />
 
-  <!-- ~~~~~~~~~~~~~~~~~~ left wing tank -->
+  <!-- ~~~~~~~~~~~~~~~~~~ tank[1] : left wing tank -->
   <tank x="-2.55" y="2.1" z="0" jet="true" capacity="3000" />
 
-  <!-- ~~~~~~~~~~~~~~~~~~ right wing tank -->
+  <!-- ~~~~~~~~~~~~~~~~~~ tank[2] : right wing tank -->
   <tank x="-2.55" y="-2.1" z="0" jet="true" capacity="3000" />
 
-  <!-- ~~~~~~~~~~~~~~~~~~ tail tank -->
+  <!-- ~~~~~~~~~~~~~~~~~~ tank[3] : tail tank -->
   <tank x="-4.8" y="0" z="1.4" jet="true" capacity="500" />
 
   <!--

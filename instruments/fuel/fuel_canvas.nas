@@ -184,14 +184,10 @@ var FUEL_CANVAS = {
         var capacity_1      = getprop("/consumables/fuel/tank[1]/capacity-m3") or 0;
         var capacity_2      = getprop("/consumables/fuel/tank[2]/capacity-m3") or 0;
         var capacity_3      = getprop("/consumables/fuel/tank[3]/capacity-m3") or 0;
-        var capacity_4      = getprop("/consumables/fuel/tank[4]/capacity-m3") or 0;
-        var capacity_5      = getprop("/consumables/fuel/tank[5]/capacity-m3") or 0;
-        var capacity_6      = getprop("/consumables/fuel/tank[6]/capacity-m3") or 0;
-        var capacity_7      = getprop("/consumables/fuel/tank[7]/capacity-m3") or 0;
 
-        var t_left   = level_left   / (capacity_2 + capacity_4 + capacity_6);
-        var t_center = level_center / (capacity_0 + capacity_1);
-        var t_right  = level_right  / (capacity_3 + capacity_5 + capacity_7);
+        var t_left   = level_left   / (capacity_1);
+        var t_center = level_center / (capacity_0 + capacity_3);
+        var t_right  = level_right  / (capacity_2);
 
         me.total_fuel_value.setText(sprintf('%.1f kg', level_tot * 805));
         if(nan_remaining)

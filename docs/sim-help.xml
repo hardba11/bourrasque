@@ -21,7 +21,7 @@ changelog
   <key><name>G</name><desc>Gears down</desc></key>
   <key><name>k</name><desc>Extend Speedbrakes (5 positions)</desc></key>
   <key><name>j</name><desc>Retract Speedbrakes (5 positions)</desc></key>
-  <key><name>s</name><desc>Toggle Autotrim (pitch)</desc></key>
+  <!--key><name>s</name><desc>Toggle Autotrim (pitch)</desc></key-->
   <key><name>b</name><desc>Brake (wheels)</desc></key>
   <key><name>B</name><desc>Toggle parkbrakes</desc></key>
   <key><name>m</name><desc>Select previous mod (MFD+FDM+AP presets)</desc></key>

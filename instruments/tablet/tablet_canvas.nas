@@ -200,7 +200,7 @@ var checklists = [
         'title': 'CLIMBING',
         'items': [
             {'list': '.--------------------------------------------', 'check': 'info'},
-            {'list': '| reaching 2500ft after 00:01:45 / 4.7NM',      'check': 'info'},
+            {'list': '| reaching 2500ft after 00:01:35 / 4.4NM',      'check': 'info'},
             {'list': '`--------------------------------------------', 'check': 'info'},
             {'list': 'ND : autopilot heading',                        'check': 'ADJUST'},
             {'list': 'PFD : autopilot vs',                            'check': '4000ft/min'},
@@ -208,9 +208,9 @@ var checklists = [
             {'list': 'PFD : autopilot alt',                           'check': '40000ft'},
             {'list': 'ALT Hpa std',                                   'check': 'STD'},
             {'list': '.--------------------------------------------', 'check': 'info'},
-            {'list': '| 2500ft|200kt to 40000ft|600kt',               'check': 'info'},
-            {'list': '| - 00:09:45',                                  'check': 'info'},
-            {'list': '| - 95NM',                                      'check': 'info'},
+            {'list': '| 2500ft|200kt to FL400|600kt',                 'check': 'info'},
+            {'list': '| - 00:09:40',                                  'check': 'info'},
+            {'list': '| - 91NM',                                      'check': 'info'},
             {'list': '`--------------------------------------------', 'check': 'info'},
         ],
     },
@@ -229,9 +229,9 @@ var checklists = [
         'title': 'DESCENT',
         'items': [
             {'list': '.--------------------------------------------', 'check': 'info'},
-            {'list': '| 40000ft|600kt to 4000ft 400kt',               'check': 'info'},
-            {'list': '| - 00:09:30',                                  'check': 'info'},
-            {'list': '| - 83NM',                                      'check': 'info'},
+            {'list': '| FL400|600kt to 4000ft 400kt',                 'check': 'info'},
+            {'list': '| - 00:09:15',                                  'check': 'info'},
+            {'list': '| - 65NM',                                      'check': 'info'},
             {'list': '`--------------------------------------------', 'check': 'info'},
             {'list': 'PFD : autopilot speed',                         'check': '300kt'},
             {'list': 'PFD : autopilot vs',                            'check': '4000ft/min'},
@@ -247,10 +247,10 @@ var checklists = [
             {'list': 'command panel : gears',                         'check': 'DOWN'},
             {'list': 'command panel : trim',                          'check': 'ADJUST'},
             {'list': '.--------------------------------------------', 'check': 'info'},
-            {'list': '| approach at 150kts use speedbrakes',          'check': 'info'},
+            {'list': '| approach at 140kts use speedbrakes',          'check': 'info'},
             {'list': '| velocity vector on runway s threshold',       'check': 'info'},
             {'list': '| velocity vector -3deg on hud ladder',         'check': 'info'},
-            {'list': '| touchdown at 120kts',                         'check': 'info'},
+            {'list': '| touchdown at 110kts',                         'check': 'info'},
             {'list': '`--------------------------------------------', 'check': 'info'},
         ],
     },
@@ -440,7 +440,6 @@ var MAP = {
             .setSize(1024, 1024)
             .setTranslation(0, 0);
 
-
 # INFOS STUFF
         m.g_page_infos = m.root.createChild('group').set('z-index', 96);
         m.txt_infos_title = m.g_page_infos.createChild('text', 'infos_title')
@@ -451,9 +450,6 @@ var MAP = {
             .setColor(.8, .8, .8, 1)
             .setText('INFOS')
             .set('z-index', 1);
-
-
-
 
         return m;
     },
@@ -623,7 +619,6 @@ var MAP = {
             }
         }
 
-
 # page = INFOS
         elsif((serviceable == 1) and (page == 'infos'))
         {
@@ -634,17 +629,17 @@ var MAP = {
             me.g_page_map.setVisible(0);
             me.g_page_infos.setVisible(0);
 
-
             me.g_page_infos.setVisible(1);
 
             if(no_page_infos == 0)
             {
+                # TODO
             }
             else
             {
+                # TODO
             }
         }
-
 
         settimer(func() { me.update(); }, loop_speed);
     },
@@ -655,4 +650,6 @@ var init = setlistener("/sim/signals/fdm-initialized", func() {
     var tablet_map = MAP.new({'node': 'tablet.screen'});
     tablet_map.update();
 });
+
+
 

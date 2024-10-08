@@ -18,8 +18,8 @@ layout
 
 ai/
     scenario to link or copy to FGDATA/AI/
-fdm/
-    yasim and nasal which modifies aircraft behaviours
+core/
+    yasim, autopilot and nasal which modifies aircraft behaviours
 
 models/
     this part is used in multiplay environment
@@ -37,10 +37,14 @@ models/effects/*
     all effects : xml, ac, nas
 instruments/
     for aircraft-specific 3D instruments : instrument's directory/ : xml, ac, png, nas
+    each intrument declare xml properties in /instrumentation/my_aircraft/
 sounds/
     for aircraft-specific sounds : xml, wav
 include/
     properties settings (but not specific instrument properties : xml)
+
+gui/
+    menus and theme
 
 contrib/
     limits.xml - XML file configuring aircraft specific flight regime limits, i.e. to provide crash detection parameters

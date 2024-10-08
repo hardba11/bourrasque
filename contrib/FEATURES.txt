@@ -6,14 +6,15 @@ Features
 
 last version (beta) :
 ---------------------
+
 - detailled model
 - animated controls (ailerons, elevons, slats, canard)
 - usable and clickable instruments with tooltips : VOR, PFD, alt, asi, etc
-- 4 mods (TAXI, APP, NAV, VFR) changing hud and fly-by-wire laws
+- 4 mods (TAXI, APP, NAV, VFR) changing hud and ND config
 - autopilot
 - start/stop procedure
 - autostart/autostop shortcuts
-- hud + mini-hud + hud canvas
+- hud + mini-hud + hud canvas to show aircraft positions
 - sounds
 - reheat (enable ALS)
 - other animations : opening canopy, retracting gears, lights, gears suspension
@@ -24,11 +25,13 @@ last version (beta) :
 - choice of liveries
 - external stores (fuel tanks)
 - 3d shadow (enable ALS)
-- multiplayer back-seat
+- multiplayer back-seat (still work in progress)
 - 2 wingmen AI demo
 - multiplayer tanker buddy-buddy
 - hippodrome autopilot driven
-- ATC assistance to reach clostest airport
+- ATC assistance to reach closest airport
+- start with engines started or not
+- start in air with autopilot enabled
 
 enjoy ;)
 
@@ -40,19 +43,23 @@ I wanted to build my own aircraft for fun and with freedom.
 Fun to BUILD an fun to FLY.
 
 Build has interresting aspects for me :
+
 - architecture,
 - reusability and comprehensiveness,
 - scripting,
 - 3d modelling,
 - texturing, painting,
 - animating
+
 I want to test other frameworks (organisation of files, modularity, property tree) than commonly used.
 
 Fly consists of technical and agility challenges :
+
 - mastering instruments
 - mastering radio-navigation
 - smooth landings even if there are turbulences
 - keeping flight level, speed and bearing
+
 And explore earth, big international airports, very short runways on little islands or altiports.
 So the first release of this aircraft, according to me, had to permit theese things.
 
@@ -65,6 +72,7 @@ I did not create a REAL aircraft but I tried to make a REALISTIC aircraft.
 
 I like piloting, I like speed, I like pretty aircrafts !
 So the primary goals are :
+
 - a good looking aircraft
 - an aircraft which one it's possible to radio-navigate
 - enough instruments to be able to fly
@@ -73,7 +81,8 @@ So the primary goals are :
 
 
 Expected for the futur releases
-- rembrandt/als
+
+- --rembrandt/als-- hdr
 - improve yasim
 - add more instruments : gps, radar
 - more playable (tooltips, tutorials)
@@ -85,6 +94,7 @@ Hopes ;)
 ========
 
 Building
+
 - lean : https://en.wikipedia.org/wiki/Lean_manufacturing
 - improve FPS
 - respect best practices
@@ -92,6 +102,7 @@ Building
 - become a test aircraft to test reusability of instruments, to test MVC-like architecture
 
 Flying
+
 - become a frequent used aircraft
 
 
