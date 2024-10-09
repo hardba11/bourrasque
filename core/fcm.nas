@@ -120,15 +120,17 @@ var slats_and_canards_manager = func() {
     if(gear_pos == 1)
     {
         # gears down
-        canard_pos = ((airbrk_pos + speedbrk_pos) * 10) - ((1 + gear_comp) * pitch_pos * 80);
+        canard_pos = ((airbrk_pos + speedbrk_pos) * 10) - ((1 + gear_comp) * pitch_pos * 40);
+        canard_pos = (canard_pos >  8) ?  8 : canard_pos;
+        canard_pos = (canard_pos < -8) ? -8 : canard_pos;
         #printf("canard_pos :: rbrk %.1f - sbrk %.1f - gcomp %.1f - pitch %.1f", airbrk_pos, speedbrk_pos, gear_comp, pitch_pos);
     }
     else
     {
         canard_pos = ((airbrk_pos + speedbrk_pos) * 10) + (pitch_pos * 10) - (alpha_deg * 1.3);
+        canard_pos = (canard_pos >  20) ?  20 : canard_pos;
+        canard_pos = (canard_pos < -20) ? -20 : canard_pos;
     }
-    canard_pos = (canard_pos >  20) ?  20 : canard_pos;
-    canard_pos = (canard_pos < -20) ? -20 : canard_pos;
     canard_pos /= 20; # value must be between -1 and 1
 
     # animation slats

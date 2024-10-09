@@ -203,7 +203,7 @@ var FUEL_CANVAS = {
         me.right_fuel_value.setText(sprintf('%.1f', level_right * 805));
         me.bingo_text.setText(sprintf('bingo : %s', bingo_text));
 
-        var color_gauge = ((level_tot * 805) < 3000) ? 'red' : 'blue';
+        var color_gauge = ((level_tot * 805) < 900) ? 'red' : 'blue';
         update_gauge(me.left_gauge, 0, -t_left * 250, color_gauge);
         update_gauge(me.center_gauge, 0, -t_center * 250, color_gauge);
         update_gauge(me.right_gauge, 0, -t_right * 250, color_gauge);

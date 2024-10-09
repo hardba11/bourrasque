@@ -105,7 +105,7 @@ ________________________________________________________________________________
     <control-speed  control="FLAP0" transition-time="0" />
 
     <!-- ~~~~~~~~~~~~~~~~~~ speedbrakes -->
-    <spoiler start="0" end="0.25" lift="1.1" drag="160" />
+    <spoiler start="0" end="0.25" lift="1.05" drag="130" />
     <control-input  control="SPOILER" axis="/controls/flight/speedbrake" />
     <control-output control="SPOILER" prop="/surface-positions/speedbrake-pos-norm" />
     <control-speed  control="SPOILER" transition-time="1" />
@@ -156,7 +156,7 @@ ________________________________________________________________________________
       sweep="27.5"
       taper=".28">
     <stall aoa="30" width="10" peak="1.5" />
-    <flap0 start="0" end=".8" lift="1.5" drag="1.1" />
+    <flap0 start="0" end=".8" lift="2" drag="0" />
     <control-input  control="FLAP0" axis="/controls/flight/fcm-rudder"  invert="true" />
     <control-input  control="FLAP0" axis="/controls/flight/rudder-trim" invert="true" />
     <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm" />
@@ -202,7 +202,7 @@ ________________________________________________________________________________
       afterburner="20000"
       spool-time="3"
       exhaust-speed="2500"
-      tsfc=""
+      tsfc="0.25"
       rotate="720">
     <actionpt x="-6" y="0.5" z="0.2" />
     <control-input  control="THROTTLE" axis="/controls/engines/engine[0]/throttle"
@@ -213,11 +213,6 @@ ________________________________________________________________________________
     <control-output control="REHEAT" prop="/engines/engine[0]/reheat" />
     <control-speed  control="REHEAT" transition-time="2" />
   </jet>
-  <!--thruster thrust="10000"
-      x="-6" y="0.5" z="0.1"
-      vx="1" vy="0" vz="0">
-    <control-input control="THROTTLE" axis="/controls/hack/engine[0]/throttle" />
-  </thruster-->
 
   <!-- ~~~~~~~~~~~~~~~~~~ right engine + hack to lower fuel consumption -->
   <jet x="-2" y="-0.5" z=".1"
@@ -226,7 +221,7 @@ ________________________________________________________________________________
       afterburner="20000"
       spool-time="3"
       exhaust-speed="2500"
-      tsfc=""
+      tsfc="0.25"
       rotate="720">
     <actionpt x="-6" y="-0.5" z="0.2" />
     <control-input  control="THROTTLE" axis="/controls/engines/engine[1]/throttle"
@@ -237,11 +232,6 @@ ________________________________________________________________________________
     <control-output control="REHEAT" prop="/engines/engine[1]/reheat" />
     <control-speed  control="REHEAT" transition-time="2" />
   </jet>
-  <!--thruster thrust="10000"
-       x="-6" y="-0.5" z="0.1"
-      vx="1" vy="0" vz="0">
-    <control-input control="THROTTLE" axis="/controls/hack/engine[1]/throttle" />
-  </thruster-->
 
   <!-- ~~~~~~~~~~~~~~~~~~ thruster : boost + pushback -->
   <thruster thrust="120000"
@@ -279,7 +269,7 @@ ________________________________________________________________________________
   <!-- ~~~~~~~~~~~~~~~~~~ front gear -->
   <gear x="2.85" y="0" z="-1.55"
       compression=".4" spring=".42" damp=".6"
-      dfric=".6" sfric=".8">
+      dfric=".76" sfric=".8">
     <control-input  control="STEER" axis="/controls/flight/fcm-rudder" square="true" />
     <control-output control="STEER" prop="/gear/gear[0]/steering-norm" />
     <control-input  control="BRAKE" axis="/controls/gear/brake-parking" />
