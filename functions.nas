@@ -2,6 +2,10 @@ print("*** LOADING my_aircraft_functions - functions.nas ... ***");
 
 # namespace : my_aircraft_functions
 
+#
+#   IN THIS FILE : COMMON/SHARED FUNCTIONS (NO LOOP HERE)
+#
+
 # signification des index de SETTINGS_MODS :
 var I_MODE              = 0;
 var I_DISPLAY_MODE_NUM  = 1;
@@ -124,7 +128,8 @@ var view_cockpit_panels = func(inc)
     }
 }
 
-var save_current_view = func() {
+var save_current_view = func()
+{
     var view_number = getprop("/sim/current-view/view-number") or 0;
     if(view_number == 0)
     {
@@ -136,7 +141,8 @@ var save_current_view = func() {
         current_y       = getprop("/sim/current-view/y-offset-m") or 0;
     }
 }
-var load_current_view = func() {
+var load_current_view = func()
+{
     var view_number = getprop("/sim/current-view/view-number") or 0;
     if(view_number == 0)
     {
@@ -149,7 +155,8 @@ var load_current_view = func() {
     }
 }
 
-var view_panel_electrical = func() {
+var view_panel_electrical = func()
+{
     var view_number = getprop("/sim/current-view/view-number") or 0;
     if(view_number == 0)
     {
@@ -158,7 +165,8 @@ var view_panel_electrical = func() {
         setprop("/sim/current-view/goal-pitch-offset-deg", -56);
     }
 }
-var view_panel_engines = func() {
+var view_panel_engines = func()
+{
     var view_number = getprop("/sim/current-view/view-number") or 0;
     if(view_number == 0)
     {
@@ -167,7 +175,8 @@ var view_panel_engines = func() {
         setprop("/sim/current-view/goal-pitch-offset-deg", -57);
     }
 }
-var view_sfd = func() {
+var view_sfd = func()
+{
     var view_number = getprop("/sim/current-view/view-number") or 0;
     if(view_number == 0)
     {
@@ -176,7 +185,8 @@ var view_sfd = func() {
         setprop("/sim/current-view/goal-pitch-offset-deg", -20);
     }
 }
-var view_panel_command = func() {
+var view_panel_command = func()
+{
     var view_number = getprop("/sim/current-view/view-number") or 0;
     if(view_number == 0)
     {
@@ -185,7 +195,8 @@ var view_panel_command = func() {
         setprop("/sim/current-view/goal-pitch-offset-deg", -41);
     }
 }
-var view_panel_light = func() {
+var view_panel_light = func()
+{
     var view_number = getprop("/sim/current-view/view-number") or 0;
     if(view_number == 0)
     {
@@ -194,7 +205,8 @@ var view_panel_light = func() {
         setprop("/sim/current-view/goal-pitch-offset-deg", -55);
     }
 }
-var view_panel_radio = func() {
+var view_panel_radio = func()
+{
     var view_number = getprop("/sim/current-view/view-number") or 0;
     if(view_number == 0)
     {
@@ -207,7 +219,8 @@ var view_panel_radio = func() {
 #===============================================================================
 #                                                                    ENVIRONMENT
 # NOT YET USED, NEED DEBUG
-var set_max_cloud_layer = func() {
+var set_max_cloud_layer = func()
+{
     var node_clouds = props.globals.getNode("/environment/clouds/");
     var max_cloud_layer_alt = 0;
     foreach(var item ; node_clouds.getChildren())
@@ -225,7 +238,8 @@ var set_max_cloud_layer = func() {
 #                                                                         INPUTS
 # used in include/input-properties.xml
 
-var throttle_mouse = func() {
+var throttle_mouse = func()
+{
     # throttle only if center mouse button pressed
     if(! getprop("/devices/status/mice/mouse[0]/button[1]"))
     {
@@ -247,7 +261,8 @@ var throttle_mouse = func() {
     setprop("/controls/engines/engine[1]/throttle", new_thr1_value);
 }
 
-var inc_throttle = func() {
+var inc_throttle = func()
+{
 
     var lock_speed = getprop("/autopilot/locks/speed") or '';
     if(lock_speed)
@@ -278,7 +293,8 @@ var inc_throttle = func() {
     }
 }
 
-var inc_elevator = func() {
+var inc_elevator = func()
+{
 
     var lock_alt = getprop("/autopilot/locks/altitude") or '';
     if(lock_alt == 'altitude-hold')
@@ -308,8 +324,8 @@ var inc_elevator = func() {
     }
 }
 
-var inc_aileron = func() {
-
+var inc_aileron = func()
+{
     var lock_hdg = getprop("/autopilot/locks/heading") or '';
     if(lock_hdg == 'dg-heading-hold')
     {
@@ -338,19 +354,22 @@ var inc_aileron = func() {
     }
 }
 
-var center_flight_controls = func() {
+var center_flight_controls = func()
+{
     setprop("/controls/flight/elevator", 0);
     setprop("/controls/flight/aileron", 0);
     setprop("/controls/flight/rudder", 0);
 }
 
-var center_flight_controls_trim = func() {
+var center_flight_controls_trim = func()
+{
     setprop("/controls/flight/elevator-trim", 0);
     setprop("/controls/flight/aileron-trim", 0);
     setprop("/controls/flight/rudder-trim", 0);
 }
 
-var change_mod = func(inc) {
+var change_mod = func(inc)
+{
     var current_mod = getprop("/instrumentation/my_aircraft/nd/controls/mode") or 'VFR';
     var chosen_mod_number = 0;
 
@@ -366,7 +385,8 @@ var change_mod = func(inc) {
     set_mod(SETTINGS_MODS[math.mod(chosen_mod_number, 4)][I_MODE]);
 }
 
-var set_mod = func(current_mod) {
+var set_mod = func(current_mod)
+{
     var chosen_mod_number = 0;
     foreach(var mod ; SETTINGS_MODS)
     {
@@ -395,7 +415,8 @@ var set_mod = func(current_mod) {
     setprop("/sim/model/click", (getprop("/sim/model/click") ? 0 : 1));
 }
 
-var inc_bingo = func(inc) {
+var inc_bingo = func(inc)
+{
     var bingo_choose          = getprop("/instrumentation/my_aircraft/fuel/bingo/choose") or 0;
     var bingo_distance_minute = getprop("/instrumentation/my_aircraft/fuel/bingo/distance_minute") or 0;
     var bingo_distance_nm     = getprop("/instrumentation/my_aircraft/fuel/bingo/distance_nm") or 0;
@@ -414,7 +435,8 @@ var inc_bingo = func(inc) {
     }
 }
 
-var disable_hippodrome_if_ap_not_ok = func() {
+var disable_hippodrome_if_ap_not_ok = func()
+{
     var is_hippodrome_enabled = getprop("/instrumentation/my_aircraft/pfd/controls/hippodrome") or 0;
     var ap_heading_mode = getprop("/autopilot/locks/heading")  or '';
     var ap_alt_mode     = getprop("/autopilot/locks/altitude") or '';
@@ -431,7 +453,8 @@ var disable_hippodrome_if_ap_not_ok = func() {
     }
 }
 
-var event_toggle_hippodrome = func(do_enable) {
+var event_toggle_hippodrome = func(do_enable)
+{
     var is_hippodrome_enabled = getprop("/instrumentation/my_aircraft/pfd/controls/hippodrome") or 0;
     var heading_bug_error_deg = math.abs(sprintf('%d', getprop("/autopilot/internal/heading-bug-error-deg") or 0));
     if(do_enable == -1)
@@ -450,7 +473,8 @@ var event_toggle_hippodrome = func(do_enable) {
     disable_hippodrome_if_ap_not_ok();
 }
 
-var event_toggle_lights = func() {
+var event_toggle_lights = func()
+{
     var beacon = getprop("/controls/lighting/beacon") or 0;
     var nav    = getprop("/controls/lighting/nav-lights") or 0;
     var pos    = getprop("/controls/lighting/pos-lights") or 0;
@@ -464,7 +488,8 @@ var event_toggle_lights = func() {
     setprop("/controls/lighting/strobe",     toggle_lights);
 }
 
-var event_toggle_landing_lights = func() {
+var event_toggle_landing_lights = func()
+{
     var taxi = getprop("/controls/lighting/taxi-light") or 0;
 
     var toggle_lights = (taxi == 0) ? 1 : 0;
@@ -472,7 +497,8 @@ var event_toggle_landing_lights = func() {
     setprop("/controls/lighting/taxi-light", toggle_lights);
 }
 
-var event_smoke = func(do_enable) {
+var event_smoke = func(do_enable)
+{
     var is_smokepod_installed = getprop("/sim/model/wing-pylons-smoke-pod") or 0;
     var is_smoking = getprop("/sim/model/smoking") or 0;
 
@@ -487,26 +513,29 @@ var event_smoke = func(do_enable) {
     }
 }
 
-var event_acknowledge_master_caution = func() {
+var event_acknowledge_master_caution = func()
+{
+    # first click : alert remain (master caution no blinking and alert-sound disabled) :
+    # second click : reinit
     setprop("/instrumentation/my_aircraft/command_h/ack_alert", 1);
 }
 
-var event_swap_sfd_screen = func() {
+var event_swap_sfd_screen = func()
+{
     var current_screen = getprop("/instrumentation/my_aircraft/sfd/controls/display_sfd_screen") or '';
 
-    # first click : alert remain (master caution no blinking and alert-sound disabled) :
     if(current_screen == 'EICAS')
     {
         setprop("/instrumentation/my_aircraft/sfd/controls/display_sfd_screen", 'RADAR');
     }
-    # second click : reinit
     elsif(current_screen == 'RADAR')
     {
         setprop("/instrumentation/my_aircraft/sfd/controls/display_sfd_screen", 'EICAS');
     }
 }
 
-var event_toggle_launchbar = func(do_enable) {
+var event_toggle_launchbar = func(do_enable)
+{
     var is_carrier_equiped = getprop("/sim/model/carrier-equipment") or 0;
     if(is_carrier_equiped != 1) { return; }
 
@@ -544,7 +573,8 @@ var event_toggle_launchbar = func(do_enable) {
     }
 }
 
-var event_launch = func() {
+var event_launch = func()
+{
     var is_carrier_equiped = getprop("/sim/model/carrier-equipment") or 0;
     if(is_carrier_equiped != 1) { return; }
 
@@ -561,7 +591,8 @@ var event_launch = func() {
     }
 }
 
-var event_control_canopy = func() {
+var event_control_canopy = func()
+{
     var is_on_ground = getprop("/gear/gear[1]/wow") or 0;
     var is_on = getprop("/instrumentation/my_aircraft/electricals/controls/master-switch") or 0;
     var command_position = getprop("/controls/doors/canopy") or 0;
@@ -592,13 +623,14 @@ var event_control_canopy = func() {
             command_position = 1;
             canopy_sound = '';
         }
-#print("DEBUG2 "~ command_position ~ " >> "~ canopy_sound) ;
+
         setprop("/controls/doors/canopy", command_position);
         setprop("/sim/model/canopy_sound", canopy_sound);
     }
 }
 
-var event_control_gear = func(down, animate_view) {
+var event_control_gear = func(down, animate_view)
+{
     var is_on_ground = getprop("/gear/gear[1]/wow") or 0;
     var is_serviceable = getprop("/sim/failure-manager/controls/gear/serviceable") or 0;
     if(down == -1)
@@ -646,8 +678,6 @@ var event_control_gear = func(down, animate_view) {
         #elsif(speed <= 280) { trim = -98 / 1000; }
         #
         #setprop("/controls/flight/elevator-trim", trim);
-
-
     }
     elsif((down == 0) and (is_on_ground == 0))
     {
@@ -673,7 +703,8 @@ var event_control_gear = func(down, animate_view) {
     }
 }
 
-var event_control_pod_pipe = func(extend) {
+var event_control_pod_pipe = func(extend)
+{
     var is_gear_down = getprop("/controls/gear/gear-down") or 0;
     var center_pod = getprop("/sim/model/center-refuel-pod") or 0;
     
@@ -703,7 +734,8 @@ var event_control_pod_pipe = func(extend) {
     }
 }
 
-var event_choose_enabled_cams = func() {
+var event_choose_enabled_cams = func()
+{
     # view managed by this function must have :
     # <enabled type="bool">false</enabled>
 
@@ -734,7 +766,8 @@ var event_choose_enabled_cams = func() {
     }
 }
 
-var event_toggle_carrier_equipment = func(do_enable) {
+var event_toggle_carrier_equipment = func(do_enable)
+{
     var is_carrier_equiped = getprop("/sim/model/carrier-equipment") or 0;
     if(do_enable == -1)
     {
@@ -746,7 +779,8 @@ var event_toggle_carrier_equipment = func(do_enable) {
     setprop("/controls/gear/launchbar", 0);
 }
 
-var event_toggle_jato = func(do_enable) {
+var event_toggle_jato = func(do_enable)
+{
 
     var engine_throttle = props.globals.getNode("/controls/engines/engine[1]/throttle");
     var jato_throttle = props.globals.getNode("/controls/jato/throttle");
@@ -765,7 +799,8 @@ var event_toggle_jato = func(do_enable) {
     setprop("/controls/jato/enabled", do_enable);
 }
 
-var event_load_store = func(place, load) {
+var event_load_store = func(place, load)
+{
     if(place == 'wing')
     {
         if(load == 'none')
@@ -830,27 +865,30 @@ var event_load_store = func(place, load) {
     }
 }
 
-var event_brake = func(do_enable) {
+var event_brake = func(do_enable)
+{
     setprop("/controls/gear/brake-left", do_enable);
     setprop("/controls/gear/brake-right", do_enable);
 }
 
-var event_airbrake = func(do_enable) {
+var event_airbrake = func(do_enable)
+{
     var speedbrake = getprop("/controls/flight/speedbrake") or 0;
     if(do_enable == 1)
     {
-        speedbrake = (speedbrake >= .75) ? 1 : speedbrake + .2;
+        speedbrake = (speedbrake >= .89) ? 1 : speedbrake + .1;
         setprop("/controls/flight/speedbrake", speedbrake);
     }
     else
     {
-        speedbrake = (speedbrake <= .25) ? 0 : speedbrake - .2;
+        speedbrake = (speedbrake <= .09) ? 0 : speedbrake - .1;
         setprop("/controls/flight/speedbrake", speedbrake);
     }
     event_status_ap_speed();
 }
 
-var event_status_ap_speed = func() {
+var event_status_ap_speed = func()
+{
     var speedbrake     = getprop("/controls/flight/speedbrake") or 0;
     var ap_speed       = getprop("/autopilot/locks/speed") or ''; # speed-with-throttle
     var stdby_ap_speed = getprop("/instrumentation/my_aircraft/pfd/controls/lock-speed-stdby") or 0;
@@ -859,13 +897,14 @@ var event_status_ap_speed = func() {
     {
         setprop("/autopilot/locks/speed", '');
     }
-    elsif((speedbrake <= .1) and (stdby_ap_speed == 1))
+    elsif((speedbrake <= .09) and (stdby_ap_speed == 1))
     {
         setprop("/autopilot/locks/speed", 'speed-with-throttle');
     }
 }
 
-var event_toggle_std_atm = func(do_enable) {
+var event_toggle_std_atm = func(do_enable)
+{
     var is_std_atm = getprop("/instrumentation/my_aircraft/stdby-alt/controls/std-alt") or 0;
     if(do_enable == -1)
     {
@@ -887,7 +926,8 @@ var event_toggle_std_atm = func(do_enable) {
     }
 }
 
-var event_set_view = func(action) {
+var event_set_view = func(action)
+{
     if(action == 0)
     {
         setprop("/sim/current-view/view-number", 0);
@@ -902,17 +942,19 @@ var event_set_view = func(action) {
 #===============================================================================
 #                                                                          TOOLS
 
-var reload_fx = func() {
+var reload_fx = func()
+{
     fgcommand("reinit", props.Node.new({ subsystem: "sound" }));
 }
 
-var check_source_aliases = func() {
+var check_source_aliases = func()
+{
     var list_of_properties = [
         "/orientation/pitch-deg",
         "/orientation/roll-deg",
         "/orientation/heading-magnetic-deg",
     ];
-    
+
     for(var i = 0 ; i < size(list_of_properties) ; i += 1)
     {
         var property = list_of_properties[i];
@@ -922,7 +964,8 @@ var check_source_aliases = func() {
     }
 }
 
-var dump_properties = func() {
+var dump_properties = func()
+{
     io.write_properties('/home/nico/.fgfs/Export/foo.xml', '/');
 }
 

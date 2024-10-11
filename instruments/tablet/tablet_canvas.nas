@@ -256,6 +256,35 @@ var checklists = [
     },
 ];
 
+# max 23 lignes par page
+# lines : 45 char max
+var informations = [
+# 1
+    {
+        'title': 'TACAN',
+        'lines': [
+            '--------------------------------------------',
+            'CARRIER R99 - Foch (LFTH) : 026X',
+            'CARRIER R98 - Clemenceau (LFMN) : 026Y',
+            'CARRIER 063 - Kuznetsov (barents) : 026Y',
+            'CARRIER 16 - Liaoning (Wenzhou) : 026Y',
+            'CARRIER LPD-17 - San Antonio (KNZY) : 028X',
+            'CARRIER CVN-70 - Vinson (KSFO) : 029X',
+            'CARRIER CVN-68 - Nimitz (KSFO) : 029Y',
+            'CARRIER CVN-69 - Eisenhower (norfolk) : 030Y',
+            'CARRIER CVN-75 - Harry Truman (PHNL) : 031X',
+            '',
+#            'TANKER KA6-D (probe) : 050X',
+#            'TANKER A4-F (probe) : 052X',
+#            'TANKER A330-MRTT (probe) : 040X',
+#            'TANKER KC-130 (probe) : 051X',
+#            'TANKER KC-135 (boom) : ',
+#            'TANKER Rafale buddy-buddy (probe) : 061X',
+        ],
+    },
+];
+
+
 var MAP = {
     canvas_settings: {
         'name': 'map',
@@ -451,6 +480,16 @@ var MAP = {
             .setText('INFOS')
             .set('z-index', 1);
 
+        m.txt_infos_content = m.g_page_infos.createChild('text', 'infos_content')
+            .setTranslation(160, 180)
+            .setAlignment('left-top')
+            .setFont('LiberationFonts/LiberationSansNarrow-Regular.ttf')
+            .setFontSize(34)
+            .setColor(.8, .8, .8, 1)
+            .setText('')
+            .set('z-index', 1);
+
+
         return m;
     },
     update: func() {
@@ -622,6 +661,16 @@ var MAP = {
 # page = INFOS
         elsif((serviceable == 1) and (page == 'infos'))
         {
+            var lines = '';
+            for(var line = 0; line < size(informations[no_page_infos]['lines']); line += 1)
+            {
+                lines = lines ~ informations[no_page_infos]['lines'][line] ~'
+';
+            }
+
+            me.txt_infos_title.setText(informations[no_page_infos]['title']);
+            me.txt_infos_content.setText(lines);
+
             me.g_page_menu.setVisible(0);
             me.g_page_checklist.setVisible(0);
             me.g_page_vor.setVisible(0);
@@ -630,15 +679,6 @@ var MAP = {
             me.g_page_infos.setVisible(0);
 
             me.g_page_infos.setVisible(1);
-
-            if(no_page_infos == 0)
-            {
-                # TODO
-            }
-            else
-            {
-                # TODO
-            }
         }
 
         settimer(func() { me.update(); }, loop_speed);

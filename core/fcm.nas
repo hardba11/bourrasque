@@ -2,6 +2,10 @@ print("*** LOADING core - fcm.nas ... ***");
 
 # namespace : core
 
+#
+#   IN THIS FILE : FLY BY WIRE
+#
+
 # description :
 # - flight control manager
 #                                                   fcm.nas
@@ -84,7 +88,8 @@ var node_speedbrakes      = props.globals.getNode("/surface-positions/speedbrake
 #-------------------------------------------------------------------------------
 #                                                                enable_commands
 # this function is used when the engine is started
-var enable_commands = func(pitch, roll, yaw, slats, canard) {
+var enable_commands = func(pitch, roll, yaw, slats, canard)
+{
     var is_on = getprop("/systems/electrical/bus/commands") or 0;
 
     if(is_on == 0)
@@ -103,9 +108,9 @@ var enable_commands = func(pitch, roll, yaw, slats, canard) {
 #-------------------------------------------------------------------------------
 #                                                      slats_and_canards_manager
 #
-# To calculate the slats and canards positions
-var slats_and_canards_manager = func() {
-
+# calculates the slats and canards positions
+var slats_and_canards_manager = func()
+{
     var airbrk_pos   = node_airbrakes.getValue()    or 0;
     var speedbrk_pos = node_speedbrakes.getValue()  or 0;
     var gear_pos     = node_gears.getValue()        or 0;
@@ -150,7 +155,8 @@ var slats_and_canards_manager = func() {
 #-------------------------------------------------------------------------------
 #                                                                       fcm_loop
 #
-var fcm_loop = func() {
+var fcm_loop = func()
+{
     # we are getting the input values (pilot's controls)
     var input_pitch  = node_control_pitch.getValue() or 0;
     var input_roll   = node_control_roll.getValue()  or 0;

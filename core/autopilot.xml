@@ -127,6 +127,7 @@ Comprendre les termes du PID :
       </u_max>
     </config>
   </pid-controller>
+
   <filter>
     <name>fcm-aileron</name>
     <type>gain</type>
@@ -241,22 +242,6 @@ Comprendre les termes du PID :
     </reference>
     <output>/controls/flight/fbw-elevator</output>
     <config>
-<!-- 
-1- demarrage
-  <Kp>0.5</Kp><Ti>10000000000</Ti><Td>0</Td>
-2- augmenter k jusqu a une oscillation continue avec amplitude constante
-3-    Kp / 2
-4- reduire Ti jusqu a oscillation continue
-5-    Ti * 3
-6- augmenter Td jusqu a oscillation continue
-7-    Td / 3
-
-420kt 5000ft 
-      <Kp>.07</Kp><Ti>2.5</Ti><Td>0.00000001</Td>
-
-650kt 5000ft 
-      <Kp>.05</Kp><Ti>7</Ti><Td>0.00001</Td>
--->
       <Kp>
         <expression>
           <table>

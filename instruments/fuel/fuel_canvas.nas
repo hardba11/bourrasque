@@ -157,10 +157,14 @@ var FUEL_CANVAS = {
         m.left_gauge = m.my_group.createChild('path', 'left_gauge');
         draw_gauge(m.left_gauge, 95, 425, 0, -100, 'blue', 20);
 
+#        m.center_frame = m.my_group.createChild('path', 'center_frame');
+#        draw_rectangle(m.center_frame, 230, 172, colors['light_grey'], 30, 258);
+#        m.center_gauge = m.my_group.createChild('path', 'center_gauge');
+#        draw_gauge(m.center_gauge, 245, 425, 0, -100, 'blue', 20);
         m.center_frame = m.my_group.createChild('path', 'center_frame');
-        draw_rectangle(m.center_frame, 230, 172, colors['light_grey'], 30, 258);
+        draw_rectangle(m.center_frame, 230, 172, colors['light_grey'], 50, 258);
         m.center_gauge = m.my_group.createChild('path', 'center_gauge');
-        draw_gauge(m.center_gauge, 245, 425, 0, -100, 'blue', 20);
+        draw_gauge(m.center_gauge, 255, 425, 0, -100, 'blue', 40);
 
         m.right_frame = m.my_group.createChild('path', 'right_frame');
         draw_rectangle(m.right_frame, 380, 172, colors['light_grey'], 30, 258);

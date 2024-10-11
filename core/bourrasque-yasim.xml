@@ -202,7 +202,7 @@ ________________________________________________________________________________
       afterburner="20000"
       spool-time="3"
       exhaust-speed="2500"
-      tsfc="0.25"
+      tsfc="0.2"
       rotate="720">
     <actionpt x="-6" y="0.5" z="0.2" />
     <control-input  control="THROTTLE" axis="/controls/engines/engine[0]/throttle"
@@ -221,7 +221,7 @@ ________________________________________________________________________________
       afterburner="20000"
       spool-time="3"
       exhaust-speed="2500"
-      tsfc="0.25"
+      tsfc="0.2"
       rotate="720">
     <actionpt x="-6" y="-0.5" z="0.2" />
     <control-input  control="THROTTLE" axis="/controls/engines/engine[1]/throttle"
@@ -268,7 +268,7 @@ ________________________________________________________________________________
 
   <!-- ~~~~~~~~~~~~~~~~~~ front gear -->
   <gear x="2.85" y="0" z="-1.55"
-      compression=".4" spring=".42" damp=".6"
+      compression=".4" spring=".42" damp=".5"
       dfric=".76" sfric=".8">
     <control-input  control="STEER" axis="/controls/flight/fcm-rudder" square="true" />
     <control-output control="STEER" prop="/gear/gear[0]/steering-norm" />
@@ -282,7 +282,7 @@ ________________________________________________________________________________
 
   <!-- ~~~~~~~~~~~~~~~~~~ left main gear -->
   <gear x="-2.05" y="1.4" z="-1.6"
-      compression=".4" spring="1" damp=".9"
+      compression=".4" spring="1.5" damp=".9"
       dfric=".7" sfric=".7">
     <control-input  control="BRAKE" axis="/controls/gear/brake-left" />
     <control-input  control="BRAKE" axis="/controls/gear/brake-parking" />
@@ -295,7 +295,7 @@ ________________________________________________________________________________
 
   <!-- ~~~~~~~~~~~~~~~~~~ right main gear -->
   <gear x="-2.05" y="-1.4" z="-1.6"
-      compression=".4" spring="1" damp=".9"
+      compression=".4" spring="1.5" damp=".9"
       dfric=".7" sfric=".7">
     <control-input  control="BRAKE" axis="/controls/gear/brake-right" />
     <control-input  control="BRAKE" axis="/controls/gear/brake-parking" />

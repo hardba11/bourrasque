@@ -2,7 +2,12 @@ print("*** LOADING core - bourrasque.nas ... ***");
 
 # namespace : core
 
-var egtf2egtc = func() {
+#
+#   IN THIS FILE : AIRCRAFT PROPERTIES UPDATE
+#
+
+var egtf2egtc = func()
+{
     setprop("/engines/engine[0]/egt", 0);
     var m0egt_degf = getprop("/engines/engine[0]/egt-degf");
     if(m0egt_degf)
@@ -19,7 +24,8 @@ var egtf2egtc = func() {
     }
 }
 
-var vor_true_to_mag = func() {
+var vor_true_to_mag = func()
+{
     var tru_orientation = getprop("/orientation/heading-deg") or 0;
     var mag_orientation = getprop("/orientation/heading-magnetic-deg") or 0;
 
@@ -30,13 +36,15 @@ var vor_true_to_mag = func() {
     setprop("/instrumentation/nav[1]/heading-magnetic-deg", nav2_tru + (mag_orientation - tru_orientation));
 }
 
-var loud_sound = func() {
+var loud_sound = func()
+{
     var is_internal = getprop("sim/current-view/internal") or 0;
     var canopy_position = getprop("sim/model/canopy-pos-norm") or 0;
     setprop("/environment/loud-sound", ((is_internal == 1) and (canopy_position == 0)) ? 0.2 : 1);
 }
 
-var update_alarms = func() {
+var update_alarms = func()
+{
     var stall_warning = 0;
     var speed = getprop("/instrumentation/airspeed-indicator/true-speed-kt") or 0;
     var aoa = getprop("/orientation/alpha-deg") or 0;
@@ -53,7 +61,8 @@ var is_smoke   = [0, 0, 0];
 var wow_gear   = [0, 0, 0];
 var buffer_wow = [0, 0, 0]; # keep value of wow between cycles
 var cycle_wow  = [0, 2, 2]; # number of nasal cycles for smoking
-var touchdown_smoke = func() {
+var touchdown_smoke = func()
+{
     var groundspeed  = getprop("/velocities/groundspeed-kt") or 0;
     for(var i = 1; i <= 2; i += 1)
     {
@@ -99,7 +108,8 @@ var touchdown_smoke = func() {
 # - 2: virage en cours : detecter la fin
 # - 3: attendre
 var top_hippo = 0;
-var hippo_turn = func() {
+var hippo_turn = func()
+{
     #print("+++ call hippo_turn");
 
     hippo_enabled = getprop("/instrumentation/my_aircraft/pfd/controls/hippodrome") or 0;
@@ -121,7 +131,8 @@ var hippo_turn = func() {
     }
 }
 
-var mp_encode = func(list_of_values) {
+var mp_encode = func(list_of_values)
+{
     var values_encoded = 0;
 
     forindex(var index; list_of_values)
@@ -170,7 +181,8 @@ var mp_encode = func(list_of_values) {
 #  ----------------------------
 #   32     + 8     + 2 + 1 = 43
 
-var bourrasque_mp_loop_encode = func() {
+var bourrasque_mp_loop_encode = func()
+{
     # encoded in int[0] :
     var beacon                  = getprop("/controls/lighting/beacon") or 0;
     var nav_lights              = getprop("/controls/lighting/nav-lights") or 0;
@@ -233,7 +245,8 @@ var bourrasque_mp_loop_encode = func() {
         carrier_equipment]));
 }
 
-var calculate_shake = func() {
+var calculate_shake = func()
+{
 
     var shake_enabled = getprop("/controls/cockpit/shake-effect") or 0;
     var is_crashed    = getprop("/sim/crashed") or 0;
@@ -287,7 +300,8 @@ var calculate_shake = func() {
     }
 }
 
-var calculate_shake_external_view = func() {
+var calculate_shake_external_view = func()
+{
 
     # x: left/right - y:down/up - z:fwd/back
 
@@ -365,8 +379,8 @@ var calculate_shake_external_view = func() {
     }
 }
 
-
-var hippo_loop = func() {
+var hippo_loop = func()
+{
     hippo_enabled = getprop("/instrumentation/my_aircraft/pfd/controls/hippodrome") or 0;
     if(hippo_enabled == 1)
     {

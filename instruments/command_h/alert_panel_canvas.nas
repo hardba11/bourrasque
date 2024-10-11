@@ -51,13 +51,13 @@ var WARN_PANEL = {
             .setFontSize(36)
             .setColor(0, 0, 0, 1)
             .setText('HYDR');
-        m.fuel = m.my_group.createChild('text', 'FUEL')
+        m.avcs = m.my_group.createChild('text', 'AVCS')
             .setTranslation(192, 120)
             .setAlignment('center-bottom')
             .setFont('LiberationFonts/LiberationSansNarrow-Bold.ttf')
             .setFontSize(36)
             .setColor(0, 0, 0, 1)
-            .setText('FUEL');
+            .setText('AVCS');
 
         m.gear = m.my_group.createChild('text', 'GEAR')
             .setTranslation(320, 50)
@@ -126,21 +126,22 @@ var WARN_PANEL = {
             .setFontSize(36)
             .setColor(0, 0, 0, 1)
             .setText('BNGO');
-        m.aarf = m.my_group.createChild('text', 'AARF')
+        m.fuel = m.my_group.createChild('text', 'FUEL')
             .setTranslation(832, 120)
+            .setAlignment('center-bottom')
+            .setFont('LiberationFonts/LiberationSansNarrow-Bold.ttf')
+            .setFontSize(36)
+            .setColor(0, 0, 0, 1)
+            .setText('FUEL');
+
+        m.aarf = m.my_group.createChild('text', 'AARF')
+            .setTranslation(960, 50)
             .setAlignment('center-bottom')
             .setFont('LiberationFonts/LiberationSansNarrow-Bold.ttf')
             .setFontSize(36)
             .setColor(0, 0, 0, 1)
             .setText('AARF');
 
-        m.avcs = m.my_group.createChild('text', 'AVCS')
-            .setTranslation(960, 50)
-            .setAlignment('center-bottom')
-            .setFont('LiberationFonts/LiberationSansNarrow-Bold.ttf')
-            .setFontSize(36)
-            .setColor(0, 0, 0, 1)
-            .setText('AVCS');
         m.trim = m.my_group.createChild('text', 'TRIM')
             .setTranslation(960, 120)
             .setAlignment('center-bottom')

@@ -458,19 +458,6 @@ ________________________________________________________________________________
       <reference-dist>100</reference-dist>
       <max-dist>1000</max-dist>
     </touchdown_right>
-    <touchdown_nose>
-      <name>touchdown_nose</name>
-      <path>touchdown.wav</path>
-      <mode>once</mode>
-      <condition>
-        <property>/gear/gear[0]/wow</property>
-      </condition>
-      <volume>
-        <max>0.2</max>
-      </volume>
-      <reference-dist>100</reference-dist>
-      <max-dist>1000</max-dist>
-    </touchdown_nose>
 
     <!--
 ================================================================================

@@ -2,6 +2,10 @@ print("*** LOADING core - systems.nas ... ***");
 
 # namespace : core
 
+#
+#   IN THIS FILE : AIRCRAFT ELECTRICAL AND ENGINES SYSTEMS
+#
+
 #     evenement push btn "start" et tt est ok
 #               |
 #               V
@@ -117,12 +121,12 @@ var systems_loop = func()
         }
 
         ### EVENTS
-        var level_tot = getprop("/consumables/fuel/total-fuel-m3") or 0;
+        var level_tot = getprop("/consumables/fuel/total-fuel-kg") or 0;
         if(((is_bus_avionics_on == 0)
                 or (is_bus_engines_on == 0)
                 or (is_pump == 0)
                 or (is_fuelon == 0)
-                or (level_tot <= 1))
+                or (level_tot <= 60))
             and(is_stopped == 0))
         {
             # lancer l'arret si plus d'alimentation en fuel

@@ -43,7 +43,7 @@ Still in development but fully usable.
 - Carrier landing and takeoff capability
 - Multiplayer back-seat : fly as passenger !
 - If you start in the air, brsq starts automatically systems and engines and enables autopilot
-- ATC assistance to reach clostest airport
+- ATC assistance to reach closest airport
 
 ### Effects
 

@@ -2,6 +2,10 @@ print("*** LOADING core - main_loop.nas ... ***");
 
 # namespace : core
 
+#
+#   IN THIS FILE : LOOPS
+#
+
 #===============================================================================
 #                                                                          LOOPS
 

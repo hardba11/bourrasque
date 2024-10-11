@@ -113,18 +113,18 @@ changelog
       </or>
     </condition>
   </animation>
-<!-- as the object touchs the ground, I had to add a translation
+<!-- as the object touchs the ground, I had to add a translation -->
   <animation>
     <type>translate</type>
     <object-name>ground_equipment.gears</object-name>
-    <offset-m>-.1</offset-m>
+    <offset-m>-.08</offset-m>
     <axis>
       <x>0</x>
       <y>0</y>
       <z>1</z>
     </axis>
   </animation>
- -->
+
   <!-- ~~~~~~~~~~~~~~~~~~~~~~ hide gears chocks -->
   <animation>
     <type>pick</type>

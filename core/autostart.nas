@@ -2,6 +2,11 @@ print("*** LOADING core - autostart.nas ... ***");
 
 # namespace : core
 
+#
+#   IN THIS FILE : SPECIFIC FUNCTIONS FOR STARTING/STOPPING AIRCRAFT
+#
+
+
 #===============================================================================
 #                                               INSTRUMENTS START/STOP FUNCTIONS
 

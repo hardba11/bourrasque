@@ -54,7 +54,8 @@ var checking_aircraft_status = func()
     var is_on_ground        = getprop("/gear/gear[0]/wow") or 0;
     var is_gear_down        = getprop("/gear/gear[0]/position-norm") or 0;
     var is_epu_connected    = getprop("/sim/model/ground-equipment-p") or 0;
-    var is_fuel_connected   = getprop("/sim/model/ground-equipment-f") or 0;
+    #var is_fuel_connected   = getprop("/sim/model/ground-equipment-f") or 0;
+    var fuel_level          = getprop("/consumables/fuel/total-fuel-m3") or 0;
     var is_engine0_reheat   = getprop("/engines/engine[0]/reheat") or 0;
     var is_engine1_reheat   = getprop("/engines/engine[1]/reheat") or 0;
     var is_hook_down        = getprop("/controls/gear/tailhook") or 0;
@@ -120,9 +121,7 @@ var checking_aircraft_status = func()
         elsif(hydraulics_status == WARN)    { hydraulics_status = NOTICE; }
         elsif(hydraulics_status == ALERT)   { hydraulics_status = WARN; }
 
-        if(fuel_status == CAUTION)    { fuel_status = NOTICE; }
-        elsif(fuel_status == WARN)    { fuel_status = NOTICE; }
-        elsif(fuel_status == ALERT)   { fuel_status = WARN; }
+        if(fuel_status == ALERT)   { fuel_status = WARN; }
 
         if(gear_status == CAUTION)    { gear_status = NOTICE; }
         elsif(gear_status == WARN)    { gear_status = NOTICE; }
@@ -218,12 +217,10 @@ var checking_aircraft_status = func()
     setprop("/instrumentation/my_aircraft/command_h/panel_status/hydraulics_status", hydraulics_status);
 
     # alert rules for FUEL
-    if((fuel_status == ALERT) or (fuel_status == WARN))
-        {}
-    elsif((is_fuel_connected == 1) and ((is_engine0_stopped == 0) or (is_engine1_stopped == 0)))
+    if(((fuel_level * 805) < 900) and (fuel_status != WARN))
         { fuel_status = ALERT; }
-    elsif(is_fuel_connected == 1)
-        { fuel_status = NOTICE; }
+    elsif((fuel_level * 805) < 900)
+        { fuel_status = WARN; }
     else
         { fuel_status = OK; }
     setprop("/instrumentation/my_aircraft/command_h/panel_status/fuel_status", fuel_status);
