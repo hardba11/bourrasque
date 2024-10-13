@@ -105,7 +105,7 @@ ________________________________________________________________________________
     <control-speed  control="FLAP0" transition-time="0" />
 
     <!-- ~~~~~~~~~~~~~~~~~~ speedbrakes -->
-    <spoiler start="0" end="0.25" lift="1.05" drag="130" />
+    <spoiler start="0" end="0.25" lift="1.05" drag="100" />
     <control-input  control="SPOILER" axis="/controls/flight/speedbrake" />
     <control-output control="SPOILER" prop="/surface-positions/speedbrake-pos-norm" />
     <control-speed  control="SPOILER" transition-time="1" />
@@ -114,7 +114,7 @@ ________________________________________________________________________________
     <slat aoa="5" start=".1" end=".9" lift="1.3" drag="1.05" />
     <control-input  control="SLAT" axis="/controls/flight/slats" />
     <control-output control="SLAT" prop="/surface-positions/slat-pos-norm" />
-    <control-speed  control="SLAT" transition-time="3" />
+    <control-speed  control="SLAT" transition-time="2" />
 
   </wing>
 
@@ -156,7 +156,7 @@ ________________________________________________________________________________
       sweep="27.5"
       taper=".28">
     <stall aoa="30" width="10" peak="1.5" />
-    <flap0 start="0" end=".8" lift="2" drag="0" />
+    <flap0 start="0" end=".8" lift="2" drag="1" />
     <control-input  control="FLAP0" axis="/controls/flight/fcm-rudder"  invert="true" />
     <control-input  control="FLAP0" axis="/controls/flight/rudder-trim" invert="true" />
     <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm" />

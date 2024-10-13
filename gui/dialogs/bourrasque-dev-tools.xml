@@ -26,6 +26,22 @@
 
   <hrule />
 
+  <group>
+    <layout>table</layout>
+    <button>
+      <row>0</row>
+      <col>0</col>
+      <pref-width>200</pref-width>
+      <pref-height>50</pref-height>
+      <legend>reinit A/P</legend>
+      <binding>
+        <command>reinit</command>
+        <subsystem>xml-autopilot</subsystem>
+      </binding>
+    </button>
+  </group>
+
+  <hrule />
 
   <group>
     <layout>table</layout>

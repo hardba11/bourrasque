@@ -269,7 +269,7 @@ var get_aircraft_info = func()
     aircraft['callsign']     = getprop("/sim/multiplay/callsign") or 'callsig';
     aircraft['heading']      = getprop("/orientation/heading-deg") or 0; # true north
     aircraft['altitude']     = getprop("/position/altitude-ft") or 0;
-    aircraft['speed']        = getprop("/velocities/airspeed-kt") or 0;
+    aircraft['speed']        = getprop("/velocities/groundspeed-kt") or 0;
     aircraft['is_gear_down'] = getprop("/controls/gear/gear-down") or 0;
     aircraft['is_wow']       = getprop("/gear/gear[0]/wow") or 0;
 }

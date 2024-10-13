@@ -20,11 +20,14 @@ file Aircraft/Generic/generic-autopilot-helper.xml
 
 Comprendre les termes du PID :
 
-    P (Proportionnel) : Réagit à l'erreur actuelle.
-    I (Intégral) : Réagit à l'accumulation des erreurs passées.
-    D (Dérivé) : Réagit à la prédiction de l'erreur future.
+    P (Proportionnel) : Reagit a l'erreur actuelle.
+    I (Integral) : Reagit a l'accumulation des erreurs passees.
+    D (Derive) : Reagit à la prediction de l'erreur future.
 
 <Kp>/_debug/Kp</Kp><Ti>/_debug/Ti</Ti><Td>/_debug/Td</Td>
+
+attention, la vitesse est /velocities/airspeed-kt qui varie de la 
+vitesse affichee sur le hud
 
 1- initialisation
   <Kp>0.5</Kp><Ti>10000000000</Ti><Td>0</Td>
@@ -90,28 +93,54 @@ Comprendre les termes du PID :
         <expression>
           <table>
             <property>/velocities/airspeed-kt</property>
-            <entry><ind>200</ind><dep>2.6</dep></entry>
-            <entry><ind>300</ind><dep>2.5</dep></entry>
-            <entry><ind>450</ind><dep>2.3</dep></entry>
-            <entry><ind>600</ind><dep>2.0</dep></entry>
-            <entry><ind>800</ind><dep>1.3</dep></entry>
-            <entry><ind>1000</ind><dep>1.2</dep></entry>
-            <entry><ind>1200</ind><dep>1.1</dep></entry>
-            <entry><ind>1400</ind><dep>1.0</dep></entry>
-            <entry><ind>1600</ind><dep>0.9</dep></entry>
+            <entry><ind> 192</ind><dep>2.6</dep></entry>
+            <entry><ind> 288</ind><dep>2.5</dep></entry>
+            <entry><ind> 433</ind><dep>2.3</dep></entry>
+            <entry><ind> 578</ind><dep>2.0</dep></entry>
+            <entry><ind> 769</ind><dep>1.3</dep></entry>
+            <entry><ind> 936</ind><dep>1.1</dep></entry>
+            <entry><ind>1075</ind><dep>.8</dep></entry>
+            <entry><ind>1195</ind><dep>.6</dep></entry>
+            <entry><ind>1300</ind><dep>.4</dep></entry>
             <entry><ind>4000</ind><dep>.1</dep></entry>
           </table>
         </expression>
       </Kp>
-      <Ti>0.1</Ti>
-      <Td>0.00002</Td>
+      <Ti>
+        <expression>
+          <table>
+            <property>/velocities/airspeed-kt</property>
+            <entry><ind>  95</ind><dep>.1</dep></entry>
+            <entry><ind> 936</ind><dep>.1</dep></entry>
+            <entry><ind>1075</ind><dep>.5</dep></entry>
+            <entry><ind>1195</ind><dep>.8</dep></entry>
+            <entry><ind>1300</ind><dep>1.0</dep></entry>
+            <entry><ind>4000</ind><dep>2.0</dep></entry>
+          </table>
+        </expression>
+      </Ti>
+      <Td>
+        <expression>
+          <table>
+            <property>/velocities/airspeed-kt</property>
+            <entry><ind>  95</ind><dep>0.00002</dep></entry>
+            <entry><ind> 936</ind><dep>0.00002</dep></entry>
+            <entry><ind>1075</ind><dep>0.00002</dep></entry>
+            <entry><ind>1195</ind><dep>0.000002</dep></entry>
+            <entry><ind>1300</ind><dep>0.000002</dep></entry>
+            <entry><ind>4000</ind><dep>0.0000002</dep></entry>
+          </table>
+        </expression>
+      </Td>
       <u_min>
         <expression>
           <table>
             <property>/velocities/airspeed-kt</property>
-            <entry><ind>100</ind><dep>-1.0</dep></entry>
-            <entry><ind>650</ind><dep>-1.0</dep></entry>
-            <entry><ind>2000</ind><dep>-0.1</dep></entry>
+            <entry><ind>  95</ind><dep>-1.0</dep></entry>
+            <entry><ind> 627</ind><dep>-1.0</dep></entry>
+            <entry><ind>1137</ind><dep>-.1</dep></entry>
+            <entry><ind>1478</ind><dep>-.1</dep></entry>
+            <entry><ind>4000</ind><dep>-.01</dep></entry>
           </table>
         </expression>
       </u_min>
@@ -119,9 +148,11 @@ Comprendre les termes du PID :
         <expression>
           <table>
             <property>/velocities/airspeed-kt</property>
-            <entry><ind>100</ind><dep>1.0</dep></entry>
-            <entry><ind>650</ind><dep>1.0</dep></entry>
-            <entry><ind>2000</ind><dep>0.1</dep></entry>
+            <entry><ind>  95</ind><dep>1.0</dep></entry>
+            <entry><ind> 627</ind><dep>1.0</dep></entry>
+            <entry><ind>1137</ind><dep>.1</dep></entry>
+            <entry><ind>1478</ind><dep>.1</dep></entry>
+            <entry><ind>4000</ind><dep>.01</dep></entry>
           </table>
         </expression>
       </u_max>
@@ -135,9 +166,9 @@ Comprendre les termes du PID :
       <expression>
         <table>
           <property>/velocities/airspeed-kt</property>
-          <entry><ind>100</ind><dep>1.0</dep></entry>
-          <entry><ind>650</ind><dep>1.0</dep></entry>
-          <entry><ind>2000</ind><dep>0.1</dep></entry>
+          <entry><ind>  95</ind><dep>1.0</dep></entry>
+          <entry><ind> 627</ind><dep>1.0</dep></entry>
+          <entry><ind>1478</ind><dep>0.1</dep></entry>
         </table>
       </expression>
     </gain>
@@ -166,13 +197,13 @@ Comprendre les termes du PID :
       <expression>
         <table>
           <property>/controls/flight/elevator</property>
-          <entry><ind>-1.00</ind><dep>-0.999</dep></entry>
-          <entry><ind>-0.20</ind><dep>-0.050</dep></entry>
-          <entry><ind>-0.01</ind> <dep>0.000</dep></entry>
-          <entry> <ind>0.00</ind> <dep>0.000</dep></entry>
-          <entry> <ind>0.01</ind> <dep>0.000</dep></entry>
-          <entry> <ind>0.20</ind> <dep>0.050</dep></entry>
-          <entry> <ind>1.00</ind> <dep>0.999</dep></entry>
+          <entry><ind>-1.00</ind><dep>-.999</dep></entry>
+          <entry><ind>-0.20</ind><dep>-.050</dep></entry>
+          <entry><ind>-0.01</ind> <dep>.000</dep></entry>
+          <entry> <ind>0.00</ind> <dep>.000</dep></entry>
+          <entry> <ind>0.01</ind> <dep>.000</dep></entry>
+          <entry> <ind>0.20</ind> <dep>.050</dep></entry>
+          <entry> <ind>1.00</ind> <dep>.999</dep></entry>
         </table>
       </expression>
     </input>
@@ -190,15 +221,15 @@ Comprendre les termes du PID :
       <expression>
         <table>
           <property>/controls/flight/fbw/command-pitch-norm</property>
-          <entry><ind>-1.000</ind><dep>15</dep></entry>
-          <entry><ind>0.000</ind><dep>0</dep></entry>
-          <entry><ind>1.000</ind><dep>-15</dep></entry>
+          <entry><ind>-1.000</ind><dep>18</dep></entry>
+          <entry><ind>0.000</ind><dep>4</dep></entry>
+          <entry><ind>1.000</ind><dep>-14</dep></entry>
         </table>
       </expression>
     </input>
     <output>/controls/flight/fbw/target-aoa</output>
-    <min>-8</min>
-    <max>17</max>
+    <min>-9</min>
+    <max>18</max>
   </filter>
 
 <!-- mapping debattement manche -> g -->
@@ -217,7 +248,7 @@ Comprendre les termes du PID :
       </expression>
     </input>
     <output>/controls/flight/fbw/target-g</output>
-    <min>-3.5</min>
+    <min>-4.5</min>
     <max>12.5</max>
   </filter>
 
@@ -226,32 +257,79 @@ Comprendre les termes du PID :
     <name>fbw-elevator</name>
     <debug>false</debug>
     <feedback-if-disabled>true</feedback-if-disabled>
-    <input>/controls/flight/fbw/target-g</input>
-    <reference>/accelerations/pilot-g</reference>
+
+<!--
+    <reference>/accelerations/pilot-aoa</reference><input>/controls/flight/fbw/target-aoa</input>
+    <reference>/accelerations/pilot-g</reference><input>/controls/flight/fbw/target-g</input>
+-->
+
+
+    <reference>
+      <condition>
+        <not-equals><property>/gear/gear[1]/wow</property><value>0</value></not-equals>
+        <not-equals><property>/gear/gear[2]/wow</property><value>0</value></not-equals>
+      </condition>
+      <property>/controls/flight/fbw/target-aoa</property>
+    </reference>
     <input>
       <condition>
-        <less-than><property>/velocities/airspeed-kt</property><value>250</value></less-than>
+        <not-equals><property>/gear/gear[1]/wow</property><value>0</value></not-equals>
+        <not-equals><property>/gear/gear[2]/wow</property><value>0</value></not-equals>
       </condition>
       <property>/controls/flight/fbw/target-aoa</property>
     </input>
+
+
     <reference>
       <condition>
-        <less-than><property>/velocities/airspeed-kt</property><value>250</value></less-than>
+        <equals><property>/gear/gear[1]/wow</property><value>0</value></equals>
+        <equals><property>/gear/gear[2]/wow</property><value>0</value></equals>
+        <less-than><property>/velocities/airspeed-kt</property><value>265</value></less-than>
       </condition>
       <property>/orientation/alpha-deg</property>
     </reference>
+    <input>
+      <condition>
+        <equals><property>/gear/gear[1]/wow</property><value>0</value></equals>
+        <equals><property>/gear/gear[2]/wow</property><value>0</value></equals>
+        <less-than><property>/velocities/airspeed-kt</property><value>265</value></less-than>
+      </condition>
+      <property>/controls/flight/fbw/target-aoa</property>
+    </input>
+
+
+    <reference>
+      <condition>
+        <greater-or-equals><property>/velocities/airspeed-kt</property><value>265</value></greater-or-equals>
+      </condition>
+      <property>/accelerations/pilot-g</property>
+    </reference>
+    <input>
+      <condition>
+        <greater-or-equals><property>/velocities/airspeed-kt</property><value>265</value></greater-or-equals>
+      </condition>
+      <property>/controls/flight/fbw/target-g</property>
+    </input>
+
+
     <output>/controls/flight/fbw-elevator</output>
     <config>
       <Kp>
         <expression>
           <table>
             <property>/velocities/airspeed-kt</property>
-            <entry><ind> 200</ind><dep>.07</dep></entry>
-            <entry><ind> 420</ind><dep>.07</dep></entry>
-            <entry><ind> 650</ind><dep>.05</dep></entry>
-            <entry><ind> 700</ind><dep>.03</dep></entry>
-            <entry><ind> 900</ind><dep>.012</dep></entry>
-            <entry><ind>1200</ind><dep>.012</dep></entry>
+            <!--entry><ind>  50</ind><dep>.08</dep></entry-->
+            <entry><ind> 104</ind><dep>.08</dep></entry> <!-- 2000ft .08 -->
+            <entry><ind> 192</ind><dep>.031</dep></entry> <!-- OK 2000ft .031 -->
+            <entry><ind> 240</ind><dep>.03</dep></entry> <!-- OK 2000ft .03 -->
+
+            <entry><ind> 288</ind><dep>.042</dep></entry> <!-- OK 2000ft .042 -->
+            <entry><ind> 384</ind><dep>.02</dep></entry> <!-- OK 2000ft .02 -->
+            <entry><ind> 627</ind><dep>.01</dep></entry> <!-- OK 2000ft .01 -->
+            <entry><ind> 769</ind><dep>.005</dep></entry> <!-- OK 2000ft .005 -->
+            <entry><ind>1075</ind><dep>.0005</dep></entry> <!-- OK 2000ft .0005 -->
+            <entry><ind>1137</ind><dep>.00005</dep></entry> <!-- OK 2000ft .00005 -->
+            <entry><ind>1478</ind><dep>.00005</dep></entry>
           </table>
         </expression>
       </Kp>
@@ -259,25 +337,37 @@ Comprendre les termes du PID :
         <expression>
           <table>
             <property>/velocities/airspeed-kt</property>
-            <entry><ind> 200</ind><dep>2.5</dep></entry>
-            <entry><ind> 420</ind><dep>2.5</dep></entry>
-            <entry><ind> 650</ind><dep>7</dep></entry>
-            <entry><ind> 700</ind><dep>9</dep></entry>
-            <entry><ind> 900</ind><dep>1</dep></entry>
-            <entry><ind>1200</ind><dep>1</dep></entry>
+            <!--entry><ind>  50</ind><dep>20000</dep></entry-->
+            <entry><ind> 104</ind><dep>2.5</dep></entry> <!-- OK 2000ft 2.5-->
+            <entry><ind> 192</ind><dep>1.2</dep></entry> <!-- OK 2000ft 1.2 -->
+            <entry><ind> 240</ind><dep>.9</dep></entry> <!-- OK 2000ft .9 -->
+
+            <entry><ind> 288</ind><dep>.32</dep></entry> <!-- OK 2000ft .32 -->
+            <entry><ind> 384</ind><dep>.15</dep></entry> <!-- OK 2000ft .15 -->
+            <entry><ind> 627</ind><dep>.1</dep></entry> <!-- OK 2000ft .1 -->
+            <entry><ind> 769</ind><dep>.08</dep></entry> <!-- OK 2000ft .08 -->
+            <entry><ind>1075</ind><dep>.04</dep></entry> <!-- OK 2000ft .04 -->
+            <entry><ind>1137</ind><dep>.001</dep></entry> <!-- OK 2000ft .001  -->
+            <entry><ind>1478</ind><dep>.001</dep></entry>
           </table>
         </expression>
-      </Ti>
+         </Ti>
       <Td>
         <expression>
           <table>
             <property>/velocities/airspeed-kt</property>
-            <entry><ind> 200</ind><dep>0.00000001</dep></entry>
-            <entry><ind> 420</ind><dep>0.00000001</dep></entry>
-            <entry><ind> 650</ind><dep>0.00001</dep></entry>
-            <entry><ind> 700</ind><dep>0.001</dep></entry>
-            <entry><ind> 900</ind><dep>0.001</dep></entry>
-            <entry><ind>1200</ind><dep>0.001</dep></entry>
+            <!--entry><ind>  50</ind><dep>.00000001</dep></entry-->
+            <entry><ind> 104</ind><dep>.00000001</dep></entry> <!-- OK 2000ft .00000001 -->
+            <entry><ind> 192</ind><dep>.03</dep></entry> <!-- OK 2000ft .03 -->
+            <entry><ind> 240</ind><dep>.025</dep></entry> <!-- OK 2000ft .025 -->
+
+            <entry><ind> 288</ind><dep>.11</dep></entry> <!-- OK 2000ft .11 -->
+            <entry><ind> 384</ind><dep>.1</dep></entry> <!-- OK 2000ft .1 -->
+            <entry><ind> 627</ind><dep>.000000001</dep></entry> <!-- OK 2000ft .000000001 -->
+            <entry><ind> 769</ind><dep>.000000001</dep></entry> <!-- OK 2000ft .000000001 -->
+            <entry><ind>1075</ind><dep>.000000001</dep></entry> <!-- OK 2000ft .000000001 -->
+            <entry><ind>1137</ind><dep>.000000001</dep></entry> <!-- OK 2000ft .000000001 -->
+            <entry><ind>1478</ind><dep>.000000001</dep></entry>
           </table>
         </expression>
       </Td>
@@ -292,8 +382,16 @@ Comprendre les termes du PID :
     <gain>1.0</gain>
     <input>
       <property>/controls/flight/fbw-elevator</property>
+      <condition>
+        <equals><property>/gear/gear[1]/wow</property><value>0</value></equals>
+        <equals><property>/gear/gear[2]/wow</property><value>0</value></equals>
+      </condition>
     </input>
+    <input>/controls/flight/elevator</input>
     <output>/controls/flight/fcm-elevator</output>
+    <enable>
+    </enable>
+
   </filter>
 
   <!--

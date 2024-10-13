@@ -238,7 +238,7 @@ ________________________________________________________________________________
     <type>rotate</type>
     <object-name>derive</object-name>
     <property>surface-positions/rudder-pos-norm</property>
-    <factor>10</factor>
+    <factor>20</factor>
     <center>
       <x-m>5.82</x-m>
       <y-m>0</y-m>
