@@ -222,8 +222,8 @@ vitesse affichee sur le hud
         <table>
           <property>/controls/flight/fbw/command-pitch-norm</property>
           <entry><ind>-1.000</ind><dep>18</dep></entry>
-          <entry><ind>0.000</ind><dep>4</dep></entry>
-          <entry><ind>1.000</ind><dep>-14</dep></entry>
+          <entry><ind>0.000</ind><dep>-5</dep></entry>
+          <entry><ind>1.000</ind><dep>-18</dep></entry>
         </table>
       </expression>
     </input>
@@ -252,73 +252,40 @@ vitesse affichee sur le hud
     <max>12.5</max>
   </filter>
 
-<!-- le manche agit sur l'aoa ou les Gs selon la vitesse -->
+<!-- le manche agit sur l'aoa ou les Gs selon la vitesse
+  si speed > 265
+      in    /controls/flight/fbw/target-g
+      ref   /accelerations/pilot-g
+
+  par defaut
+      in    /controls/flight/fbw/target-aoa
+      ref   /orientation/alpha-deg
+ -->
   <pid-controller>
     <name>fbw-elevator</name>
     <debug>false</debug>
-    <feedback-if-disabled>true</feedback-if-disabled>
-
-<!--
-    <reference>/accelerations/pilot-aoa</reference><input>/controls/flight/fbw/target-aoa</input>
-    <reference>/accelerations/pilot-g</reference><input>/controls/flight/fbw/target-g</input>
--->
-
-
-    <reference>
-      <condition>
-        <not-equals><property>/gear/gear[1]/wow</property><value>0</value></not-equals>
-        <not-equals><property>/gear/gear[2]/wow</property><value>0</value></not-equals>
-      </condition>
-      <property>/controls/flight/fbw/target-aoa</property>
-    </reference>
-    <input>
-      <condition>
-        <not-equals><property>/gear/gear[1]/wow</property><value>0</value></not-equals>
-        <not-equals><property>/gear/gear[2]/wow</property><value>0</value></not-equals>
-      </condition>
-      <property>/controls/flight/fbw/target-aoa</property>
-    </input>
-
-
-    <reference>
-      <condition>
-        <equals><property>/gear/gear[1]/wow</property><value>0</value></equals>
-        <equals><property>/gear/gear[2]/wow</property><value>0</value></equals>
-        <less-than><property>/velocities/airspeed-kt</property><value>265</value></less-than>
-      </condition>
-      <property>/orientation/alpha-deg</property>
-    </reference>
-    <input>
-      <condition>
-        <equals><property>/gear/gear[1]/wow</property><value>0</value></equals>
-        <equals><property>/gear/gear[2]/wow</property><value>0</value></equals>
-        <less-than><property>/velocities/airspeed-kt</property><value>265</value></less-than>
-      </condition>
-      <property>/controls/flight/fbw/target-aoa</property>
-    </input>
-
-
+    <feedback-if-disabled>false</feedback-if-disabled>
     <reference>
       <condition>
         <greater-or-equals><property>/velocities/airspeed-kt</property><value>265</value></greater-or-equals>
       </condition>
       <property>/accelerations/pilot-g</property>
     </reference>
+    <reference>/orientation/alpha-deg</reference>
     <input>
       <condition>
         <greater-or-equals><property>/velocities/airspeed-kt</property><value>265</value></greater-or-equals>
       </condition>
       <property>/controls/flight/fbw/target-g</property>
     </input>
-
-
+    <input>/controls/flight/fbw/target-aoa</input>
     <output>/controls/flight/fbw-elevator</output>
     <config>
       <Kp>
         <expression>
           <table>
             <property>/velocities/airspeed-kt</property>
-            <!--entry><ind>  50</ind><dep>.08</dep></entry-->
+            <entry><ind>   0</ind><dep>.08</dep></entry>
             <entry><ind> 104</ind><dep>.08</dep></entry> <!-- 2000ft .08 -->
             <entry><ind> 192</ind><dep>.031</dep></entry> <!-- OK 2000ft .031 -->
             <entry><ind> 240</ind><dep>.03</dep></entry> <!-- OK 2000ft .03 -->
@@ -337,7 +304,7 @@ vitesse affichee sur le hud
         <expression>
           <table>
             <property>/velocities/airspeed-kt</property>
-            <!--entry><ind>  50</ind><dep>20000</dep></entry-->
+            <entry><ind>   0</ind><dep>2.5</dep></entry>
             <entry><ind> 104</ind><dep>2.5</dep></entry> <!-- OK 2000ft 2.5-->
             <entry><ind> 192</ind><dep>1.2</dep></entry> <!-- OK 2000ft 1.2 -->
             <entry><ind> 240</ind><dep>.9</dep></entry> <!-- OK 2000ft .9 -->
@@ -356,7 +323,7 @@ vitesse affichee sur le hud
         <expression>
           <table>
             <property>/velocities/airspeed-kt</property>
-            <!--entry><ind>  50</ind><dep>.00000001</dep></entry-->
+            <entry><ind>   0</ind><dep>.00000001</dep></entry>
             <entry><ind> 104</ind><dep>.00000001</dep></entry> <!-- OK 2000ft .00000001 -->
             <entry><ind> 192</ind><dep>.03</dep></entry> <!-- OK 2000ft .03 -->
             <entry><ind> 240</ind><dep>.025</dep></entry> <!-- OK 2000ft .025 -->
@@ -380,18 +347,8 @@ vitesse affichee sur le hud
     <name>fcm-elevator</name>
     <type>gain</type>
     <gain>1.0</gain>
-    <input>
-      <property>/controls/flight/fbw-elevator</property>
-      <condition>
-        <equals><property>/gear/gear[1]/wow</property><value>0</value></equals>
-        <equals><property>/gear/gear[2]/wow</property><value>0</value></equals>
-      </condition>
-    </input>
-    <input>/controls/flight/elevator</input>
+    <input>/controls/flight/fbw-elevator</input>
     <output>/controls/flight/fcm-elevator</output>
-    <enable>
-    </enable>
-
   </filter>
 
   <!--
