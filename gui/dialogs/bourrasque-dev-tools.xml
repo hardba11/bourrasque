@@ -43,10 +43,9 @@
 
   <hrule />
 
+<!--
   <group>
     <layout>table</layout>
-
-    <!-- ROW 1 -->
 
     <text>
       <row>0</row>
@@ -122,8 +121,6 @@
       </binding>
     </button>
 
-    <!-- ROW 2 -->
-
     <text>
       <row>1</row>
       <col>0</col>
@@ -171,8 +168,6 @@ setprop("/_debug/Ti", (Ti * 2));
         <subsystem>xml-autopilot</subsystem>
       </binding>
     </button>
-
-    <!-- ROW 3 -->
 
     <text>
       <row>2</row>
@@ -257,7 +252,7 @@ setprop("/_debug/Td", (Td * 2));
     </button>
 
   </group>
-
+-->
 
 </PropertyList>
 

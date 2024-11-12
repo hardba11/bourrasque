@@ -51,8 +51,8 @@ var checking_aircraft_status = func()
     var is_engine1_stopped  = getprop("/engines/engine[1]/stopped") or 0;
     var is_engine0_stopping = getprop("/instrumentation/my_aircraft/engines/controls/engine[0]/is_stopping") or 0;
     var is_engine1_stopping = getprop("/instrumentation/my_aircraft/engines/controls/engine[1]/is_stopping") or 0;
-    var is_on_ground        = getprop("/gear/gear[0]/wow") or 0;
-    var is_gear_down        = getprop("/gear/gear[0]/position-norm") or 0;
+    var is_on_ground        = getprop("/gear/gear[1]/wow") or 0;
+    var is_gear_down        = getprop("/gear/gear[1]/position-norm") or 0;
     var is_epu_connected    = getprop("/sim/model/ground-equipment-p") or 0;
     #var is_fuel_connected   = getprop("/sim/model/ground-equipment-f") or 0;
     var fuel_level          = getprop("/consumables/fuel/total-fuel-m3") or 0;
@@ -75,6 +75,10 @@ var checking_aircraft_status = func()
     var state_launchbar     = getprop("/gear/launchbar/state") or 'Disengaged';
     var is_autotrim_enabled = getprop("/controls/flight/autotrim-pitch") or 0;
     var gear_serviceable    = getprop("/sim/failure-manager/controls/gear/serviceable") or 0;
+    var ap_h                = getprop("/autopilot/locks/heading") or '';
+    var ap_s                = getprop("/autopilot/locks/speed") or '';
+    var ap_a                = getprop("/autopilot/locks/altitude") or '';
+    var ap_disabled = ((ap_h == '') and (ap_s == '') and (ap_a == ''));
 
 
     #---------------------------------------------------------------------------
@@ -96,6 +100,7 @@ var checking_aircraft_status = func()
     var air_refuel_status   = getprop("/instrumentation/my_aircraft/command_h/panel_status/air_refuel_status") or 0;
     var avionics_status     = getprop("/instrumentation/my_aircraft/command_h/panel_status/avionics_status") or 0;
     var autotrim_status     = getprop("/instrumentation/my_aircraft/command_h/panel_status/autotrim_status") or 0;
+    var ap_status           = getprop("/instrumentation/my_aircraft/command_h/panel_status/ap_status") or 0;
 
 
     #---------------------------------------------------------------------------
@@ -170,6 +175,8 @@ var checking_aircraft_status = func()
         if(autotrim_status == CAUTION)    { autotrim_status = NOTICE; }
         elsif(autotrim_status == WARN)    { autotrim_status = NOTICE; }
         elsif(autotrim_status == ALERT)   { autotrim_status = WARN; }
+
+        #if(ap_status == INFO) { ap_status = INFO; }
 
         setprop("/instrumentation/my_aircraft/command_h/sound_alert", 0);
         setprop("/instrumentation/my_aircraft/command_h/sound_caution", 0);
@@ -359,6 +366,13 @@ var checking_aircraft_status = func()
         { autotrim_status = OK; }
     setprop("/instrumentation/my_aircraft/command_h/panel_status/autotrim_status", autotrim_status);
 
+    # alert rules for A/P
+    if(!ap_disabled)
+        { ap_status = INFO; }
+    else
+        { ap_status = OK; }
+    setprop("/instrumentation/my_aircraft/command_h/panel_status/ap_status", ap_status);
+
 
     #---------------------------------------------------------------------------
     # 5- DETECT IF THERE IS A NOT-YET-ACKNOWLEDGED-ALERT (A SOUND WILL PLAY)
@@ -477,6 +491,48 @@ var blink = func()
     light = (light == 0) ? 1 : 0;
     setprop("/instrumentation/my_aircraft/command_h/blink_alert", light);
 }
+
+
+var reset = func()
+{
+    setprop("/instrumentation/my_aircraft/command_h/panel_status/engine0_status", OK);
+    setprop("/instrumentation/my_aircraft/command_h/panel_status/engine1_status", OK);
+    setprop("/instrumentation/my_aircraft/command_h/panel_status/hydraulics_status", OK);
+    setprop("/instrumentation/my_aircraft/command_h/panel_status/fuel_status", OK);
+    setprop("/instrumentation/my_aircraft/command_h/panel_status/gear_status", OK);
+    setprop("/instrumentation/my_aircraft/command_h/panel_status/hook_status", OK);
+    setprop("/instrumentation/my_aircraft/command_h/panel_status/speedbrake_status", OK);
+    setprop("/instrumentation/my_aircraft/command_h/panel_status/parkbrake_status", OK);
+    setprop("/instrumentation/my_aircraft/command_h/panel_status/canopy_status", OK);
+    setprop("/instrumentation/my_aircraft/command_h/panel_status/epu_status", OK);
+    setprop("/instrumentation/my_aircraft/command_h/panel_status/reheat0_status", OK);
+    setprop("/instrumentation/my_aircraft/command_h/panel_status/reheat1_status", OK);
+    setprop("/instrumentation/my_aircraft/command_h/panel_status/bingo_status", OK);
+    setprop("/instrumentation/my_aircraft/command_h/panel_status/air_refuel_status", OK);
+    setprop("/instrumentation/my_aircraft/command_h/panel_status/avionics_status", OK);
+    setprop("/instrumentation/my_aircraft/command_h/panel_status/autotrim_status", OK);
+    setprop("/instrumentation/my_aircraft/command_h/panel_status/ap_status", OK);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

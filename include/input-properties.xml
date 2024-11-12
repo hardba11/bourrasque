@@ -75,11 +75,11 @@ ________________________________________________________________________________
       <desc>RAZ</desc>
       <binding><command>nasal</command><script /></binding>
     </key>
-    <key n="48">
+    <!--key n="48">
       <name>0</name>
       <desc>RAZ</desc>
       <binding><command>nasal</command><script /></binding>
-    </key>
+    </key-->
     <key n="64">
       <name>@</name>
       <desc>RAZ</desc>
@@ -518,6 +518,20 @@ my_aircraft_functions.center_flight_controls_trim();
         </binding>
       </mod-ctrl>
     </key>
+    <key n="29">
+      <name>keypad 5</name>
+      <mod-ctrl>
+        <desc>center all trim</desc>
+        <binding>
+          <command>nasal</command>
+          <script>
+            <![CDATA[
+my_aircraft_functions.center_flight_controls_trim();
+            ]]>
+          </script>
+        </binding>
+      </mod-ctrl>
+    </key>
 
     <!-- ~~~~~~~~~~~~~~~~~~ pitch / trim / ap alt -->
 
@@ -550,6 +564,48 @@ my_aircraft_functions.inc_elevator(-0.05, 1);
         </binding>
       </mod-shift>
     </key>
+    <key n="50">
+      <name>elevator up</name>
+      <desc>decrease elevator or autopilot altitude</desc>
+      <repeatable type="bool">true</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.inc_elevator(-0.05, 1);
+          ]]>
+        </script>
+      </binding>
+      <mod-ctrl>
+        <desc>trim up</desc>
+        <binding>
+          <command>property-adjust</command>
+          <property>/controls/flight/elevator-trim</property>
+          <step type="double">-0.0005</step>
+        </binding>
+      </mod-ctrl>
+      <mod-shift>
+        <desc>look backwards</desc>
+        <binding>
+          <command>property-assign</command>
+          <property>/sim/current-view/goal-heading-offset-deg</property>
+          <property>/sim/view/config/back-direction-deg</property>
+        </binding>
+      </mod-shift>
+    </key>
+    <key n="0">
+      <name>elevator up</name>
+      <desc>decrease elevator or autopilot altitude</desc>
+      <repeatable type="bool">true</repeatable>
+      <mod-ctrl>
+        <desc>trim up</desc>
+        <binding>
+          <command>property-adjust</command>
+          <property>/controls/flight/elevator-trim</property>
+          <step type="double">-0.0005</step>
+        </binding>
+      </mod-ctrl>
+    </key>
 
     <key n="357">
       <name>elevator down</name>
@@ -579,6 +635,46 @@ my_aircraft_functions.inc_elevator(0.05, -1);
           <property>/sim/view/config/front-direction-deg</property>
         </binding>
       </mod-shift>
+    </key>
+    <key n="56">
+      <name>elevator down</name>
+      <desc>increase elevator or autopilot altitude</desc>
+      <repeatable type="bool">true</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.inc_elevator(0.05, -1);
+          ]]>
+        </script>
+      </binding>
+      <mod-ctrl>
+        <desc>trim down</desc>
+        <binding>
+          <command>property-adjust</command>
+          <property>/controls/flight/elevator-trim</property>
+          <step type="double">0.0005</step>
+        </binding>
+      </mod-ctrl>
+      <mod-shift>
+        <desc>look forward</desc>
+        <binding>
+          <command>property-assign</command>
+          <property>/sim/current-view/goal-heading-offset-deg</property>
+          <property>/sim/view/config/front-direction-deg</property>
+        </binding>
+      </mod-shift>
+    </key>
+    <key n="127">
+      <name>elevator down</name>
+      <mod-ctrl>
+        <desc>trim down</desc>
+        <binding>
+          <command>property-adjust</command>
+          <property>/controls/flight/elevator-trim</property>
+          <step type="double">0.0005</step>
+        </binding>
+      </mod-ctrl>
     </key>
 
     <!-- ~~~~~~~~~~~~~~~~~~ roll / trim / ap hdg -->
@@ -612,6 +708,46 @@ my_aircraft_functions.inc_aileron(-0.05, -1);
         </binding>
       </mod-shift>
     </key>
+    <key n="52">
+      <name>left arrow</name>
+      <desc>move aileron left</desc>
+      <repeatable type="bool">true</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.inc_aileron(-0.05, -1);
+          ]]>
+        </script>
+      </binding>
+      <mod-ctrl>
+        <desc>trim left</desc>
+        <binding>
+          <command>property-adjust</command>
+          <property>/controls/flight/aileron-trim</property>
+          <step type="double">-0.001</step>
+        </binding>
+      </mod-ctrl>
+      <mod-shift>
+        <desc>look left</desc>
+        <binding>
+          <command>property-assign</command>
+          <property>/sim/current-view/goal-heading-offset-deg</property>
+          <property>/sim/view/config/left-direction-deg</property>
+        </binding>
+      </mod-shift>
+    </key>
+    <key n="28">
+      <name>left arrow</name>
+      <mod-ctrl>
+        <desc>trim left</desc>
+        <binding>
+          <command>property-adjust</command>
+          <property>/controls/flight/aileron-trim</property>
+          <step type="double">-0.001</step>
+        </binding>
+      </mod-ctrl>
+    </key>
 
     <key n="358">
       <name>right arrow</name>
@@ -642,10 +778,68 @@ my_aircraft_functions.inc_aileron(0.05, 1);
         </binding>
       </mod-shift>
     </key>
+    <key n="54">
+      <name>right arrow</name>
+      <desc>move aileron right (or adjust AP heading.)</desc>
+      <repeatable type="bool">true</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.inc_aileron(0.05, 1);
+          ]]>
+        </script>
+      </binding>
+      <mod-ctrl>
+        <desc>trim right</desc>
+        <binding>
+          <command>property-adjust</command>
+          <property>/controls/flight/aileron-trim</property>
+          <step type="double">0.001</step>
+        </binding>
+      </mod-ctrl>
+      <mod-shift>
+        <desc>look right</desc>
+        <binding>
+          <command>property-assign</command>
+          <property>/sim/current-view/goal-heading-offset-deg</property>
+          <property>/sim/view/config/right-direction-deg</property>
+        </binding>
+      </mod-shift>
+    </key>
+    <key n="30">
+      <name>right arrow</name>
+      <mod-ctrl>
+        <desc>trim right</desc>
+        <binding>
+          <command>property-adjust</command>
+          <property>/controls/flight/aileron-trim</property>
+          <step type="double">0.001</step>
+        </binding>
+      </mod-ctrl>
+    </key>
 
     <!-- ~~~~~~~~~~~~~~~~~~ rudder / trim -->
 
     <key n="363">
+      <name>Keypad 1</name>
+      <desc>rudder left</desc>
+      <repeatable type="bool">true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/controls/flight/rudder</property>
+        <step type="double">-0.02</step>
+      </binding>
+      <mod-ctrl>
+        <desc>trim rudder left</desc>
+        <binding>
+          <command>property-adjust</command>
+          <property>/controls/flight/rudder-trim</property>
+          <step type="double">-0.001</step>
+        </binding>
+      </mod-ctrl>
+    </key>
+    <key n="49">
       <name>Keypad 1</name>
       <desc>rudder left</desc>
       <repeatable type="bool">true</repeatable>
@@ -682,6 +876,24 @@ my_aircraft_functions.inc_aileron(0.05, 1);
         </binding>
       </mod-ctrl>
     </key>
+    <key n="51">
+      <name>Keypad 3</name>
+      <desc>rudder right</desc>
+      <repeatable type="bool">true</repeatable>
+      <binding>
+        <command>property-adjust</command>
+        <property>/controls/flight/rudder</property>
+        <step type="double">0.02</step>
+      </binding>
+      <mod-ctrl>
+        <desc>trim rudder right</desc>
+        <binding>
+          <command>property-adjust</command>
+          <property>/controls/flight/rudder-trim</property>
+          <step type="double">0.001</step>
+        </binding>
+      </mod-ctrl>
+    </key>
 
     <!-- ~~~~~~~~~~~~~~~~~~ throttle / ap speed -->
     <key n="43">
@@ -699,6 +911,19 @@ my_aircraft_functions.inc_throttle(0.01, 1);
     </key>
 
     <key n="364">
+      <name>Keypad 0</name>
+      <desc>decrease throttle or autopilot speed</desc>
+      <repeatable type="bool">true</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.inc_throttle(-0.01, -1);
+          ]]>
+        </script>
+      </binding>
+    </key>
+    <key n="48">
       <name>Keypad 0</name>
       <desc>decrease throttle or autopilot speed</desc>
       <repeatable type="bool">true</repeatable>
@@ -784,8 +1009,36 @@ my_aircraft_functions.view_cockpit_panels(-1);
         <property />
       </binding>
     </key>
+    <key n="55">
+      <name>Home</name>
+      <desc>toggle view left</desc>
+      <repeatable type="bool">false</repeatable>
+      <binding n="0">
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.view_cockpit_panels(-1);
+          ]]>
+        </script>
+        <property />
+      </binding>
+    </key>
 
     <key n="360">
+      <name>PageUp</name>
+      <desc>toggle view right</desc>
+      <repeatable type="bool">false</repeatable>
+      <binding n="0">
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+my_aircraft_functions.view_cockpit_panels(1);
+          ]]>
+        </script>
+        <property />
+      </binding>
+    </key>
+    <key n="57">
       <name>PageUp</name>
       <desc>toggle view right</desc>
       <repeatable type="bool">false</repeatable>

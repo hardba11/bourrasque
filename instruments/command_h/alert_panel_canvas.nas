@@ -141,7 +141,6 @@ var WARN_PANEL = {
             .setFontSize(36)
             .setColor(0, 0, 0, 1)
             .setText('AARF');
-
         m.trim = m.my_group.createChild('text', 'TRIM')
             .setTranslation(960, 120)
             .setAlignment('center-bottom')
@@ -149,6 +148,13 @@ var WARN_PANEL = {
             .setFontSize(36)
             .setColor(0, 0, 0, 1)
             .setText('TRIM');
+        m.ap = m.my_group.createChild('text', 'AP')
+            .setTranslation(960, 200)
+            .setAlignment('center-bottom')
+            .setFont('LiberationFonts/LiberationSansNarrow-Bold.ttf')
+            .setFontSize(36)
+            .setColor(0, 0, 0, 1)
+            .setText('A/P');
 
         return m;
     },
@@ -283,6 +289,14 @@ var WARN_PANEL = {
         elsif(autotrim_status == CAUTION) { me.trim.setColor(1, 1, 0, blinking); }
         elsif(autotrim_status == WARN)    { me.trim.setColor(1, 0, 0, 1); }
         elsif(autotrim_status == ALERT)   { me.trim.setColor(1, 0, 0, blinking); }
+
+        var ap_status = getprop("/instrumentation/my_aircraft/command_h/panel_status/ap_status") or 0;
+        if(ap_status == OK)         { me.ap.setColor(0, 0, 0, 0); }
+        elsif(ap_status == INFO)    { me.ap.setColor(0, 1, 0, 1); }
+        elsif(ap_status == NOTICE)  { me.ap.setColor(1, 1, 0, 1); }
+        elsif(ap_status == CAUTION) { me.ap.setColor(1, 1, 0, blinking); }
+        elsif(ap_status == WARN)    { me.ap.setColor(1, 0, 0, 1); }
+        elsif(ap_status == ALERT)   { me.ap.setColor(1, 0, 0, blinking); }
 
         var time_speed = getprop("/sim/speed-up") or 1;
         var loop_speed = (time_speed == 1) ? .1 : 5 * time_speed;

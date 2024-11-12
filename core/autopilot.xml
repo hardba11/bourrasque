@@ -7,6 +7,7 @@
 ################################################################################
 
 http://www.flightgear.org/Docs/XMLAutopilot/node4.html
+https://wiki.flightgear.org/Autopilot_configuration_reference#Feedback_%3Cfeedback-if-disabled%3E
 file Aircraft/Generic/generic-autopilot-helper.xml
 
 -->
@@ -187,12 +188,10 @@ vitesse affichee sur le hud
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                                                                            PITCH
   -->
-
 <!-- zone morte du manche -->
   <filter>
     <name>command-pitch-norm</name>
     <type>gain</type>
-    <gain>1.0</gain>
     <input>
       <expression>
         <table>
@@ -207,36 +206,16 @@ vitesse affichee sur le hud
         </table>
       </expression>
     </input>
+    <gain>1.0</gain>
     <output>/controls/flight/fbw/command-pitch-norm</output>
     <min>-1</min>
     <max>1</max>
-  </filter>
-
-<!-- mapping debattement manche -> aoa -->
-  <filter>
-    <name>target-aoa</name>
-    <type>gain</type>
-    <gain>1.0</gain>
-    <input>
-      <expression>
-        <table>
-          <property>/controls/flight/fbw/command-pitch-norm</property>
-          <entry><ind>-1.000</ind><dep>18</dep></entry>
-          <entry><ind>0.000</ind><dep>-5</dep></entry>
-          <entry><ind>1.000</ind><dep>-18</dep></entry>
-        </table>
-      </expression>
-    </input>
-    <output>/controls/flight/fbw/target-aoa</output>
-    <min>-9</min>
-    <max>18</max>
   </filter>
 
 <!-- mapping debattement manche -> g -->
   <filter>
     <name>target-g</name>
     <type>gain</type>
-    <gain>1.0</gain>
     <input>
       <expression>
         <table>
@@ -247,94 +226,64 @@ vitesse affichee sur le hud
         </table>
       </expression>
     </input>
+    <gain>1.0</gain>
     <output>/controls/flight/fbw/target-g</output>
     <min>-4.5</min>
     <max>12.5</max>
   </filter>
 
-<!-- le manche agit sur l'aoa ou les Gs selon la vitesse
-  si speed > 265
-      in    /controls/flight/fbw/target-g
-      ref   /accelerations/pilot-g
-
-  par defaut
-      in    /controls/flight/fbw/target-aoa
-      ref   /orientation/alpha-deg
- -->
   <pid-controller>
     <name>fbw-elevator</name>
     <debug>false</debug>
     <feedback-if-disabled>false</feedback-if-disabled>
-    <reference>
-      <condition>
-        <greater-or-equals><property>/velocities/airspeed-kt</property><value>265</value></greater-or-equals>
-      </condition>
-      <property>/accelerations/pilot-g</property>
-    </reference>
-    <reference>/orientation/alpha-deg</reference>
-    <input>
-      <condition>
-        <greater-or-equals><property>/velocities/airspeed-kt</property><value>265</value></greater-or-equals>
-      </condition>
-      <property>/controls/flight/fbw/target-g</property>
-    </input>
-    <input>/controls/flight/fbw/target-aoa</input>
-    <output>/controls/flight/fbw-elevator</output>
+    <reference>/accelerations/pilot-g</reference>
+    <input>/controls/flight/fbw/target-g</input>
+    <output>/controls/flight/fcm-elevator</output>
     <config>
+<!--
+  <Kp>0.010</Kp><Ti>.04</Ti><Td>0.01</Td>  M0.20 ~  133
+  <Kp>0.010</Kp><Ti>.04</Ti><Td>0.01</Td>  M0.35 ~  225
+  <Kp>0.010</Kp><Ti>.08</Ti><Td>0.01</Td>  M0.50 ~  337
+  <Kp>0.005</Kp><Ti>.08</Ti><Td>0.01</Td>  M1.00 ~  670
+  <Kp>0.002</Kp><Ti>.08</Ti><Td>0.01</Td>  M1.50 ~  995
+  <Kp>0.001</Kp><Ti>.08</Ti><Td>0.01</Td>  M2.00 ~ 1334
+-->
       <Kp>
         <expression>
           <table>
-            <property>/velocities/airspeed-kt</property>
-            <entry><ind>   0</ind><dep>.08</dep></entry>
-            <entry><ind> 104</ind><dep>.08</dep></entry> <!-- 2000ft .08 -->
-            <entry><ind> 192</ind><dep>.031</dep></entry> <!-- OK 2000ft .031 -->
-            <entry><ind> 240</ind><dep>.03</dep></entry> <!-- OK 2000ft .03 -->
-
-            <entry><ind> 288</ind><dep>.042</dep></entry> <!-- OK 2000ft .042 -->
-            <entry><ind> 384</ind><dep>.02</dep></entry> <!-- OK 2000ft .02 -->
-            <entry><ind> 627</ind><dep>.01</dep></entry> <!-- OK 2000ft .01 -->
-            <entry><ind> 769</ind><dep>.005</dep></entry> <!-- OK 2000ft .005 -->
-            <entry><ind>1075</ind><dep>.0005</dep></entry> <!-- OK 2000ft .0005 -->
-            <entry><ind>1137</ind><dep>.00005</dep></entry> <!-- OK 2000ft .00005 -->
-            <entry><ind>1478</ind><dep>.00005</dep></entry>
+            <property>/velocities/mach</property>
+            <entry><ind>0.20</ind><dep>0.010</dep></entry>
+            <entry><ind>0.35</ind><dep>0.010</dep></entry>
+            <entry><ind>0.50</ind><dep>0.010</dep></entry>
+            <entry><ind>1.00</ind><dep>0.005</dep></entry>
+            <entry><ind>1.50</ind><dep>0.002</dep></entry>
+            <entry><ind>2.00</ind><dep>0.001</dep></entry>
           </table>
         </expression>
       </Kp>
       <Ti>
         <expression>
           <table>
-            <property>/velocities/airspeed-kt</property>
-            <entry><ind>   0</ind><dep>2.5</dep></entry>
-            <entry><ind> 104</ind><dep>2.5</dep></entry> <!-- OK 2000ft 2.5-->
-            <entry><ind> 192</ind><dep>1.2</dep></entry> <!-- OK 2000ft 1.2 -->
-            <entry><ind> 240</ind><dep>.9</dep></entry> <!-- OK 2000ft .9 -->
-
-            <entry><ind> 288</ind><dep>.32</dep></entry> <!-- OK 2000ft .32 -->
-            <entry><ind> 384</ind><dep>.15</dep></entry> <!-- OK 2000ft .15 -->
-            <entry><ind> 627</ind><dep>.1</dep></entry> <!-- OK 2000ft .1 -->
-            <entry><ind> 769</ind><dep>.08</dep></entry> <!-- OK 2000ft .08 -->
-            <entry><ind>1075</ind><dep>.04</dep></entry> <!-- OK 2000ft .04 -->
-            <entry><ind>1137</ind><dep>.001</dep></entry> <!-- OK 2000ft .001  -->
-            <entry><ind>1478</ind><dep>.001</dep></entry>
+            <property>/velocities/mach</property>
+            <entry><ind>0.20</ind><dep>.04</dep></entry>
+            <entry><ind>0.35</ind><dep>.04</dep></entry>
+            <entry><ind>0.50</ind><dep>.08</dep></entry>
+            <entry><ind>1.00</ind><dep>.08</dep></entry>
+            <entry><ind>1.50</ind><dep>.08</dep></entry>
+            <entry><ind>2.00</ind><dep>.08</dep></entry>
           </table>
         </expression>
-         </Ti>
+      </Ti>
       <Td>
         <expression>
           <table>
-            <property>/velocities/airspeed-kt</property>
-            <entry><ind>   0</ind><dep>.00000001</dep></entry>
-            <entry><ind> 104</ind><dep>.00000001</dep></entry> <!-- OK 2000ft .00000001 -->
-            <entry><ind> 192</ind><dep>.03</dep></entry> <!-- OK 2000ft .03 -->
-            <entry><ind> 240</ind><dep>.025</dep></entry> <!-- OK 2000ft .025 -->
-
-            <entry><ind> 288</ind><dep>.11</dep></entry> <!-- OK 2000ft .11 -->
-            <entry><ind> 384</ind><dep>.1</dep></entry> <!-- OK 2000ft .1 -->
-            <entry><ind> 627</ind><dep>.000000001</dep></entry> <!-- OK 2000ft .000000001 -->
-            <entry><ind> 769</ind><dep>.000000001</dep></entry> <!-- OK 2000ft .000000001 -->
-            <entry><ind>1075</ind><dep>.000000001</dep></entry> <!-- OK 2000ft .000000001 -->
-            <entry><ind>1137</ind><dep>.000000001</dep></entry> <!-- OK 2000ft .000000001 -->
-            <entry><ind>1478</ind><dep>.000000001</dep></entry>
+            <property>/velocities/mach</property>
+            <entry><ind>0.20</ind><dep>0.01</dep></entry>
+            <entry><ind>0.35</ind><dep>0.01</dep></entry>
+            <entry><ind>0.50</ind><dep>0.01</dep></entry>
+            <entry><ind>1.00</ind><dep>0.01</dep></entry>
+            <entry><ind>1.50</ind><dep>0.01</dep></entry>
+            <entry><ind>2.00</ind><dep>0.01</dep></entry>
           </table>
         </expression>
       </Td>
@@ -342,14 +291,6 @@ vitesse affichee sur le hud
       <max>1</max>
     </config>
   </pid-controller>
-
-  <filter>
-    <name>fcm-elevator</name>
-    <type>gain</type>
-    <gain>1.0</gain>
-    <input>/controls/flight/fbw-elevator</input>
-    <output>/controls/flight/fcm-elevator</output>
-  </filter>
 
   <!--
 ================================================================================

@@ -3,9 +3,10 @@ print("*** LOADING core - fcm.nas ... ***");
 # namespace : core
 
 #
-#   IN THIS FILE : FLY BY WIRE
+#   IN THIS FILE : FCM ANIMATIONS
 #
 
+# DEPRECATED -- DEPRECATED -- DEPRECATED -- DEPRECATED -- DEPRECATED -- DEPRECATED
 # description :
 # - flight control manager
 #                                                   fcm.nas
@@ -78,7 +79,6 @@ var node_aoa              = props.globals.getNode("/orientation/alpha-deg");
 var node_gears            = props.globals.getNode("/gear/gear[0]/position-norm");
 var node_gears_comp       = props.globals.getNode("/gear/gear[0]/compression-norm");
 var node_elevator_pos     = props.globals.getNode("/surface-positions/elevator-pos-norm", 1);
-var node_airbrakes        = props.globals.getNode("/surface-positions/left-flap-pos-norm", 1);
 var node_speedbrakes      = props.globals.getNode("/surface-positions/speedbrake-pos-norm", 1);
 
 
@@ -111,7 +111,6 @@ var enable_commands = func(pitch, roll, yaw, slats, canard)
 # calculates the slats and canards positions
 var slats_and_canards_manager = func()
 {
-    var airbrk_pos   = node_airbrakes.getValue()    or 0;
     var speedbrk_pos = node_speedbrakes.getValue()  or 0;
     var gear_pos     = node_gears.getValue()        or 0;
     var gear_comp    = node_gears_comp.getValue()   or 0;
@@ -125,16 +124,16 @@ var slats_and_canards_manager = func()
     if(gear_pos == 1)
     {
         # gears down
-        canard_pos = ((airbrk_pos + speedbrk_pos) * 10) - ((1 + gear_comp) * pitch_pos * 40);
-        canard_pos = (canard_pos >  8) ?  8 : canard_pos;
-        canard_pos = (canard_pos < -8) ? -8 : canard_pos;
-        #printf("canard_pos :: rbrk %.1f - sbrk %.1f - gcomp %.1f - pitch %.1f", airbrk_pos, speedbrk_pos, gear_comp, pitch_pos);
+        canard_pos = (speedbrk_pos * 10) - ((1 + gear_comp) * pitch_pos * 40);
+        canard_pos = (canard_pos >  10) ?  10 : canard_pos;
+        canard_pos = (canard_pos < -8)  ? -8 : canard_pos;
+        #printf("canard_pos :: rbrk %.1f - gcomp %.1f - pitch %.1f", speedbrk_pos, gear_comp, pitch_pos);
     }
     else
     {
-        canard_pos = ((airbrk_pos + speedbrk_pos) * 10) + (pitch_pos * 10) - (alpha_deg * 1.3);
+        canard_pos = (speedbrk_pos * 10) + (pitch_pos * 7) - (alpha_deg * 1.8);
         canard_pos = (canard_pos >  20) ?  20 : canard_pos;
-        canard_pos = (canard_pos < -20) ? -20 : canard_pos;
+        canard_pos = (canard_pos < -15) ? -15 : canard_pos;
     }
     canard_pos /= 20; # value must be between -1 and 1
 
@@ -182,6 +181,11 @@ var fcm_loop = func()
     node_fcm_yaw.setValue(output_yaw);
     node_fcm_slat.setValue(output_slats);
     node_fcm_canard.setValue(output_canard);
+
+
 }
+
+
+
 
 

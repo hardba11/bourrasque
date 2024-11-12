@@ -32,6 +32,7 @@ PROPERTY-PATH : /instrumentation/my_aircraft/command_h/
     <air_refuel_status type="int">0</air_refuel_status>
     <avionics_status type="int">0</avionics_status>
     <autotrim_status type="int">0</autotrim_status>
+    <ap_status type="int">0</ap_status>
   </panel_status>
 
   <message>

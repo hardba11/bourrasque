@@ -438,6 +438,9 @@ ________________________________________________________________________________
       <mode>once</mode>
       <condition>
         <property>/gear/gear[1]/wow</property>
+        <greater-than><property>/instrumentation/airspeed-indicator/true-speed-kt</property><value>90</value></greater-than>
+        <less-than><property>/instrumentation/airspeed-indicator/true-speed-kt</property><value>130</value></less-than>
+        <not><property>/gear/gear[0]/wow</property></not>
       </condition>
       <volume>
         <max>0.2</max>
@@ -451,6 +454,9 @@ ________________________________________________________________________________
       <mode>once</mode>
       <condition>
         <property>/gear/gear[2]/wow</property>
+        <greater-than><property>/instrumentation/airspeed-indicator/true-speed-kt</property><value>90</value></greater-than>
+        <less-than><property>/instrumentation/airspeed-indicator/true-speed-kt</property><value>130</value></less-than>
+        <not><property>/gear/gear[0]/wow</property></not>
       </condition>
       <volume>
         <max>0.2</max>

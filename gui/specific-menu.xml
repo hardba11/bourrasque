@@ -73,6 +73,7 @@ aircraft.livery.dialog.toggle();
           <dialog-name>bourrasque-set-views</dialog-name>
         </binding>
       </item>
+
 <!--
       <item n="7">
         <label>DevTools ...</label>

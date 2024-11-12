@@ -267,7 +267,7 @@ ________________________________________________________________________________
   </launchbar>
 
   <!-- ~~~~~~~~~~~~~~~~~~ front gear -->
-  <gear x="2.85" y="0" z="-1.55"
+  <gear x="2.85" y="0" z="-1.6"
       compression=".4" spring=".42" damp=".5"
       dfric=".76" sfric=".8">
     <control-input  control="STEER" axis="/controls/flight/fcm-rudder" square="true" />
@@ -281,7 +281,7 @@ ________________________________________________________________________________
   </gear>
 
   <!-- ~~~~~~~~~~~~~~~~~~ left main gear -->
-  <gear x="-2.05" y="1.4" z="-1.6"
+  <gear x="-2.05" y="1.5" z="-1.65"
       compression=".4" spring="1.5" damp=".9"
       dfric=".7" sfric=".7">
     <control-input  control="BRAKE" axis="/controls/gear/brake-left" />
@@ -294,7 +294,7 @@ ________________________________________________________________________________
   </gear>
 
   <!-- ~~~~~~~~~~~~~~~~~~ right main gear -->
-  <gear x="-2.05" y="-1.4" z="-1.6"
+  <gear x="-2.05" y="-1.5" z="-1.65"
       compression=".4" spring="1.5" damp=".9"
       dfric=".7" sfric=".7">
     <control-input  control="BRAKE" axis="/controls/gear/brake-right" />
