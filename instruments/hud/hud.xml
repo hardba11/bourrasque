@@ -697,7 +697,7 @@ see :
     <width>36</width>
     <height>8</height>
     <input>
-      <property>autopilot/internal/vert-speed-fpm</property>
+      <property>/autopilot/internal/vert-speed-fpm</property>
     </input>
     <format>VS %d fpm</format>
     <halign>right</halign>
@@ -2472,7 +2472,7 @@ see :
     <major-divisions>1</major-divisions>
     <minor-divisions>1</minor-divisions>
     <input>
-      <property>/controls/flight/fcm-elevator</property>
+      <property>/controls/flight/fbw-elevator</property>
       <factor>-1</factor>
       <max>1.0</max>
       <min>-1.0</min>
@@ -2528,7 +2528,7 @@ see :
     <height>1.5</height>
     <halign>left</halign>
     <input>
-      <property>/controls/flight/fcm-elevator</property>
+      <property>/controls/flight/fbw-elevator</property>
     </input>
     <format>%2.4f</format>
     <condition>

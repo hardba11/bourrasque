@@ -20,32 +20,55 @@ file Aircraft/Generic/generic-autopilot-helper.xml
 ================================================================================
 
 Comprendre les termes du PID :
-
     P (Proportionnel) : Reagit a l'erreur actuelle.
     I (Integral) : Reagit a l'accumulation des erreurs passees.
     D (Derive) : Reagit à la prediction de l'erreur future.
-
 <Kp>/_debug/Kp</Kp><Ti>/_debug/Ti</Ti><Td>/_debug/Td</Td>
-
 attention, la vitesse est /velocities/airspeed-kt qui varie de la 
 vitesse affichee sur le hud
 
-1- initialisation
-  <Kp>0.5</Kp><Ti>10000000000</Ti><Td>0</Td>
-2- augmenter k jusqu a une oscillation continue autour de la consigne 
-   avec amplitude constante
-3-    Kp / 2
-4- reduire Ti  pour reduire le temps de montee jusqu a oscillation continue
-5-    Ti * 3
-6- augmenter Td jusqu a oscillation continue
-7-    Td / 3
+ .~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.
+ |    control (mouse & joystick)  |~~~~~~+
+ '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'      |
+     .                                   V
+     .                       input : /controls/flight/*         
+     .                      .~~~~~~~~~~~~~~~~~~~~~~~~.          .~~~~~~~~~~~~~~~~~~~~~~~~.
+  (default fg settings)     | FBW                    |          | AUTOPILOT              |
+     .                      | /controls/flight/fbw/* |          '~~~~~~~~~~~~~~~~~~~~~~~~'
+     .                      '~~~~~~~~~~~~~~~~~~~~~~~~'              |
+     .                       output : /controls/flight/fbw-*        |
+     .                                   |                          |
+     .                                   V                          V
+     .                      .~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.
+     .                      |   if AP disabled fdm = fbw                |
+     .                      '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+     .                       output : /controls/flight/fdm-*
+     .                                |
+     V                                V
+  .~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.
+  |   yasim / fdm (aircraft behaviour)   |
+  '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+               output values (/surface-positions/*, /sim/model/*)
+                    |
+                    V
+  .~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.
+  |     sim-multiplay-properties.xml     |
+  '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+                aliases (/sim/multiplay/generic/*, /surface-positions/*)
+                    |
+                    V
+           input values (sim/multiplay/generic/*, surface-positions/*)
+  .~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~.
+  |          model animations            |
+  '~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'
+
   -->
   <!--
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                                                                             ROLL
   -->
   <pid-controller>
-    <name>fbw-aileron</name>
+    <name>fbw/aileron</name>
     <debug>false</debug>
     <enable>
       <condition>
@@ -88,7 +111,7 @@ vitesse affichee sur le hud
         </table>
       </expression>
     </reference>
-    <output>/controls/flight/fbw-aileron</output>
+    <output>/controls/flight/fbw/aileron</output>
     <config>
       <Kp>
         <expression>
@@ -161,7 +184,7 @@ vitesse affichee sur le hud
   </pid-controller>
 
   <filter>
-    <name>fcm-aileron</name>
+    <name>fbw-aileron</name>
     <type>gain</type>
     <gain>
       <expression>
@@ -178,10 +201,10 @@ vitesse affichee sur le hud
         <equals><property>/gear/gear[1]/wow</property><value>0</value></equals>
         <equals><property>/gear/gear[2]/wow</property><value>0</value></equals>
       </condition>
-      <property>/controls/flight/fbw-aileron</property>
+      <property>/controls/flight/fbw/aileron</property>
     </input>
     <input>/controls/flight/aileron</input>
-    <output>/controls/flight/fcm-aileron</output>
+    <output>/controls/flight/fbw-aileron</output>
   </filter>
 
   <!--
@@ -190,7 +213,7 @@ vitesse affichee sur le hud
   -->
 <!-- zone morte du manche -->
   <filter>
-    <name>command-pitch-norm</name>
+    <name>fbw/command-pitch-norm</name>
     <type>gain</type>
     <input>
       <expression>
@@ -214,7 +237,7 @@ vitesse affichee sur le hud
 
 <!-- mapping debattement manche -> g -->
   <filter>
-    <name>target-g</name>
+    <name>fbw/target-g</name>
     <type>gain</type>
     <input>
       <expression>
@@ -233,12 +256,20 @@ vitesse affichee sur le hud
   </filter>
 
   <pid-controller>
-    <name>fbw-elevator</name>
+    <name>fbw/elevator</name>
     <debug>false</debug>
     <feedback-if-disabled>false</feedback-if-disabled>
     <reference>/accelerations/pilot-g</reference>
+<!--
+    <enable>
+      <condition>
+        <equals><property>/gear/gear[1]/wow</property><value>0</value></equals>
+        <equals><property>/gear/gear[2]/wow</property><value>0</value></equals>
+      </condition>
+    </enable>
+-->
     <input>/controls/flight/fbw/target-g</input>
-    <output>/controls/flight/fcm-elevator</output>
+    <output>/controls/flight/fbw/elevator</output>
     <config>
 <!--
   <Kp>0.010</Kp><Ti>.04</Ti><Td>0.01</Td>  M0.20 ~  133
@@ -252,6 +283,9 @@ vitesse affichee sur le hud
         <expression>
           <table>
             <property>/velocities/mach</property>
+            <entry><ind>0.00</ind><dep>0.0001</dep></entry>
+            <entry><ind>0.10</ind><dep>0.001</dep></entry>
+            <entry><ind>0.15</ind><dep>0.010</dep></entry>
             <entry><ind>0.20</ind><dep>0.010</dep></entry>
             <entry><ind>0.35</ind><dep>0.010</dep></entry>
             <entry><ind>0.50</ind><dep>0.010</dep></entry>
@@ -265,6 +299,7 @@ vitesse affichee sur le hud
         <expression>
           <table>
             <property>/velocities/mach</property>
+            <entry><ind>0.00</ind><dep>.04</dep></entry>
             <entry><ind>0.20</ind><dep>.04</dep></entry>
             <entry><ind>0.35</ind><dep>.04</dep></entry>
             <entry><ind>0.50</ind><dep>.08</dep></entry>
@@ -278,6 +313,7 @@ vitesse affichee sur le hud
         <expression>
           <table>
             <property>/velocities/mach</property>
+            <entry><ind>0.00</ind><dep>0.01</dep></entry>
             <entry><ind>0.20</ind><dep>0.01</dep></entry>
             <entry><ind>0.35</ind><dep>0.01</dep></entry>
             <entry><ind>0.50</ind><dep>0.01</dep></entry>
@@ -291,6 +327,26 @@ vitesse affichee sur le hud
       <max>1</max>
     </config>
   </pid-controller>
+
+  <filter>
+    <name>fbw-elevator</name>
+    <type>gain</type>
+    <gain>1.0</gain>
+    <input>/controls/flight/fbw/elevator</input>
+<!--
+    <input>
+      <property>/controls/flight/fbw/elevator</property>
+      <condition>
+        <equals><property>/gear/gear[1]/wow</property><value>0</value></equals>
+        <equals><property>/gear/gear[2]/wow</property><value>0</value></equals>
+      </condition>
+    </input>
+    <input>/controls/flight/elevator</input>
+-->
+    <output>/controls/flight/fbw-elevator</output>
+    <enable>
+    </enable>
+  </filter>
 
   <!--
 ================================================================================
@@ -307,7 +363,7 @@ vitesse affichee sur le hud
   -->
 
   <filter>
-    <name>IT-CONTROLLER: HDG KP (P Gain)</name>
+    <name>kp-hdg</name>
     <type>gain</type>
     <gain>1.0</gain>
     <input>
@@ -325,7 +381,7 @@ vitesse affichee sur le hud
   </filter>
 
   <filter>
-    <name>IT-CONTROLLER: HDG LIMIT</name>
+    <name>bank-limit</name>
     <type>gain</type>
     <gain>1.0</gain>
     <enable>
@@ -345,7 +401,7 @@ vitesse affichee sur le hud
     <output>/autopilot/internal/bank-limit</output>
   </filter>
   <filter>
-    <name>IT-CONTROLLER: HDG LIMIT hippodrome</name>
+    <name>bank-limit : hippodrome</name>
     <type>gain</type>
     <gain>1.0</gain>
     <enable>
@@ -367,7 +423,7 @@ vitesse affichee sur le hud
 
   <!-- ~~~~~~~~~~~~~~~~~~ heading bug -->
   <pi-simple-controller>
-    <name>HEADING MAGNETIC</name>
+    <name>target-roll-deg : hdg bug</name>
     <debug>false</debug>
     <enable>
       <condition>
@@ -403,7 +459,7 @@ vitesse affichee sur le hud
 
   <!-- ~~~~~~~~~~~~~~~~~~ nav radial -->
   <pi-simple-controller>
-    <name>NAV1 TRK</name>
+    <name>target-roll-deg : nav1trk</name>
     <debug>false</debug>
     <enable>
       <condition>
@@ -437,7 +493,7 @@ vitesse affichee sur le hud
   </pi-simple-controller>
 
   <filter>
-    <name>System Command: Roll Sync</name>
+    <name>target-roll-deg : sync</name>
     <debug>false</debug>
     <type>gain</type>
     <gain>1</gain>
@@ -462,7 +518,7 @@ vitesse affichee sur le hud
   </filter>
 
   <filter>
-    <name>System Command: Roll Rate</name>
+    <name>roll-rate</name>
     <debug>false</debug>
     <type>gain</type>
     <gain>-1.8</gain>
@@ -494,7 +550,7 @@ vitesse affichee sur le hud
   </filter>
 
   <filter>
-    <name>IT-CONTROLLER: ROLL RATE KP (P Gain)</name>
+    <name>kp-roll</name>
     <type>gain</type>
     <gain>1.0</gain>
     <input>
@@ -512,7 +568,7 @@ vitesse affichee sur le hud
   </filter>
 
   <pid-controller>
-    <name>System Command: Aileron</name>
+    <name>aileron-ap</name>
     <debug>false</debug>
     <enable>
       <condition>
@@ -549,7 +605,7 @@ vitesse affichee sur le hud
   </pid-controller>
 
   <filter>
-    <name>System Command: Aileron Filter</name>
+    <name>aileron</name>
     <debug>false</debug>
     <type>noise-spike</type>
     <feedback-if-disabled>true</feedback-if-disabled>
@@ -579,7 +635,7 @@ vitesse affichee sur le hud
   -->
 
   <filter>
-    <name>IT-CONTROLLER: ALTITUDE V/S MAX</name>
+    <name>max-vs</name>
     <type>gain</type>
     <gain>1.0</gain>
     <input>
@@ -593,7 +649,7 @@ vitesse affichee sur le hud
   </filter>
 
   <predict-simple>
-    <name>ALTITUDE 2 SECONDS AHEAD</name>
+    <name>altitude-2-sec-ahead</name>
     <debug>false</debug>
     <input>/instrumentation/altimeter/indicated-altitude-ft</input>
     <output>/autopilot/internal/altitude-2-sec-ahead</output>
@@ -602,7 +658,7 @@ vitesse affichee sur le hud
   </predict-simple>
 
   <filter>
-    <name>ALTITUDE CAPTURE/HOLD</name>
+    <name>target-fpm-alt</name>
     <debug>false</debug>
     <type>gain</type>
     <input>
@@ -630,7 +686,7 @@ vitesse affichee sur le hud
   </filter>
 
   <filter>
-    <name>IT-CONTROLLER: FPM KP (P Gain)</name>
+    <name>kp-vs</name>
     <type>gain</type>
     <gain>1.0</gain>
     <input>
@@ -648,7 +704,7 @@ vitesse affichee sur le hud
 
   <!-- ~~~~~~~~~~~~~~~~~~ altitude + vspeed -->
   <pid-controller>
-    <name>FPM HOLD</name>
+    <name>target-pitch-deg</name>
     <debug>false</debug>
     <enable>
       <condition>
@@ -697,14 +753,8 @@ vitesse affichee sur le hud
       <u_min>
         <condition>
           <and>
-            <equals>
-              <property>gear/gear[1]/wow</property>
-              <value>0</value>
-            </equals>
-            <equals>
-              <property>gear/gear[2]/wow</property>
-              <value>0</value>
-            </equals>
+            <equals><property>gear/gear[1]/wow</property><value>0</value></equals>
+            <equals><property>gear/gear[2]/wow</property><value>0</value></equals>
           </and>
         </condition>
         <value>-30</value>
@@ -712,14 +762,8 @@ vitesse affichee sur le hud
       <u_min>
         <condition>
           <or>
-            <equals>
-              <property>gear/gear[1]/wow</property>
-              <value>1</value>
-            </equals>
-            <equals>
-              <property>gear/gear[2]/wow</property>
-              <value>1</value>
-            </equals>
+            <equals><property>gear/gear[1]/wow</property><value>1</value></equals>
+            <equals><property>gear/gear[2]/wow</property><value>1</value></equals>
           </or>
         </condition>
         <value>0</value>
@@ -727,14 +771,8 @@ vitesse affichee sur le hud
       <u_max>
         <condition>
           <and>
-            <equals>
-              <property>gear/gear[1]/wow</property>
-              <value>0</value>
-            </equals>
-            <equals>
-              <property>gear/gear[2]/wow</property>
-              <value>0</value>
-            </equals>
+            <equals><property>gear/gear[1]/wow</property><value>0</value></equals>
+            <equals><property>gear/gear[2]/wow</property><value>0</value></equals>
           </and>
         </condition>
         <value>45</value>
@@ -742,14 +780,8 @@ vitesse affichee sur le hud
       <u_max>
         <condition>
           <or>
-            <equals>
-              <property>gear/gear[1]/wow</property>
-              <value>1</value>
-            </equals>
-            <equals>
-              <property>gear/gear[2]/wow</property>
-              <value>1</value>
-            </equals>
+            <equals><property>gear/gear[1]/wow</property><value>1</value></equals>
+            <equals><property>gear/gear[2]/wow</property><value>1</value></equals>
           </or>
         </condition>
         <value>10</value>
@@ -758,21 +790,15 @@ vitesse affichee sur le hud
   </pid-controller>
 
   <filter>
-    <name>PITCH DEG SYNC</name>
+    <name>target-pitch-deg : sync</name>
     <debug>false</debug>
     <type>gain</type>
     <gain>1.0</gain>
     <enable>
       <condition>
         <and>
-          <not-equals>
-            <property>/autopilot/locks/altitude</property>
-            <value>vertical-speed-hold</value>
-          </not-equals>
-          <not-equals>
-            <property>/autopilot/locks/altitude</property>
-            <value>altitude-hold</value>
-          </not-equals>
+          <not-equals><property>/autopilot/locks/altitude</property><value>vertical-speed-hold</value></not-equals>
+          <not-equals><property>/autopilot/locks/altitude</property><value>altitude-hold</value></not-equals>
         </and>
       </condition>
     </enable>
@@ -783,21 +809,15 @@ vitesse affichee sur le hud
   </filter>
 
   <filter>
-    <name>System Command: Pitch Rate</name>
+    <name>pitch-rate</name>
     <debug>false</debug>
     <type>gain</type>
     <gain>-0.9</gain>
     <enable>
       <condition>
         <or>
-          <equals>
-            <property>/autopilot/locks/altitude</property>
-            <value>vertical-speed-hold</value>
-          </equals>
-          <equals>
-            <property>/autopilot/locks/altitude</property>
-            <value>altitude-hold</value>
-          </equals>
+          <equals><property>/autopilot/locks/altitude</property><value>vertical-speed-hold</value></equals>
+          <equals><property>/autopilot/locks/altitude</property><value>altitude-hold</value></equals>
         </or>
       </condition>
     </enable>
@@ -815,7 +835,7 @@ vitesse affichee sur le hud
   </filter>
 
   <filter>
-    <name>IT-CONTROLLER: PITCH RATE KP (P Gain)</name>
+    <name>kp-pitch</name>
     <type>gain</type>
     <gain>1.0</gain>
     <input>
@@ -832,19 +852,13 @@ vitesse affichee sur le hud
   </filter>
 
   <pid-controller>
-    <name>System Command: Elevator</name>
+    <name>elevator-ap</name>
     <debug>false</debug>
     <enable>
       <condition>
         <or>
-          <equals>
-            <property>/autopilot/locks/altitude</property>
-            <value>vertical-speed-hold</value>
-          </equals>
-          <equals>
-            <property>/autopilot/locks/altitude</property>
-            <value>altitude-hold</value>
-          </equals>
+          <equals><property>/autopilot/locks/altitude</property><value>vertical-speed-hold</value></equals>
+          <equals><property>/autopilot/locks/altitude</property><value>altitude-hold</value></equals>
         </or>
       </condition>
     </enable>
@@ -869,7 +883,7 @@ vitesse affichee sur le hud
   </pid-controller>
 
   <filter>
-    <name>IT-CONTROLLER: ELEVATOR INVERT</name>
+    <name>elevator</name>
     <type>gain</type>
     <gain>1.0</gain>
     <feedback-if-disabled>true</feedback-if-disabled>
@@ -877,28 +891,16 @@ vitesse affichee sur le hud
     <enable>
       <condition>
         <or>
-          <equals>
-            <property>/autopilot/locks/altitude</property>
-            <value>vertical-speed-hold</value>
-          </equals>
-          <equals>
-            <property>/autopilot/locks/altitude</property>
-            <value>altitude-hold</value>
-          </equals>
+          <equals><property>/autopilot/locks/altitude</property><value>vertical-speed-hold</value></equals>
+          <equals><property>/autopilot/locks/altitude</property><value>altitude-hold</value></equals>
         </or>
       </condition>
     </enable>
     <input>
       <condition>
         <and>
-          <less-than-equals>
-            <property>/orientation/roll-deg</property>
-            <value>90</value>
-          </less-than-equals>
-          <greater-than-equals>
-            <property>/orientation/roll-deg</property>
-            <value>-90</value>
-          </greater-than-equals>
+          <less-than-equals><property>/orientation/roll-deg</property><value>90</value></less-than-equals>
+          <greater-than-equals><property>/orientation/roll-deg</property><value>-90</value></greater-than-equals>
         </and>
       </condition>
       <property>/controls/flight/elevator-ap</property>
@@ -911,59 +913,35 @@ vitesse affichee sur le hud
   </filter>
 
   <filter>
-    <name>IT-CONTROLLER: PITCH TRIM</name>
+    <name>elevator-trim</name>
     <debug>false</debug>
     <feedback-if-disabled>true</feedback-if-disabled>
     <initialize-to>output</initialize-to>
     <enable>
       <condition>
         <and>
-          <equals>
-            <property>/gear/gear[1]/wow</property>
-            <value>0</value>
-          </equals>
-          <equals>
-            <property>/gear/gear[2]/wow</property>
-            <value>0</value>
-          </equals>
+          <equals><property>/gear/gear[1]/wow</property><value>0</value></equals>
+          <equals><property>/gear/gear[2]/wow</property><value>0</value></equals>
           <or>
-            <equals>
-              <property>/autopilot/locks/altitude</property>
-              <value>vertical-speed-hold</value>
-            </equals>
-            <equals>
-              <property>/autopilot/locks/altitude</property>
-              <value>altitude-hold</value>
-            </equals>
+            <equals><property>/autopilot/locks/altitude</property><value>vertical-speed-hold</value></equals>
+            <equals><property>/autopilot/locks/altitude</property><value>altitude-hold</value></equals>
           </or>
           <or>
-            <greater-than>
-              <property>/controls/flight/elevator</property>
-              <value>0.02</value>
-            </greater-than>
-            <less-than>
-              <property>/controls/flight/elevator</property>
-              <value>-0.02</value>
-            </less-than>
+            <greater-than><property>/controls/flight/elevator</property><value>0.02</value></greater-than>
+            <less-than><property>/controls/flight/elevator</property><value>-0.02</value></less-than>
           </or>
         </and>
       </condition>
     </enable>
     <input>
       <condition>
-        <greater-than>
-          <property>/controls/flight/elevator</property>
-          <value>0.02</value>
-        </greater-than>
+        <greater-than><property>/controls/flight/elevator</property><value>0.02</value></greater-than>
       </condition>
       <value>1</value>
     </input>
     <input>
       <condition>
-        <less-than>
-          <property>/controls/flight/elevator</property>
-          <value>-0.02</value>
-        </less-than>
+        <less-than><property>/controls/flight/elevator</property><value>-0.02</value></less-than>
       </condition>
       <value>-1</value>
     </input>
@@ -979,18 +957,12 @@ vitesse affichee sur le hud
 
   <!-- ~~~~~~~~~~~~~~~~~~ auto-throttle airborn -->
   <pid-controller>
-    <name>IAS Hold</name>
+    <name>throttle</name>
     <debug>false</debug>
     <enable>
       <condition>
-        <equals>
-          <property>/autopilot/locks/speed</property>
-          <value>speed-with-throttle</value>
-        </equals>
-        <not-equals>
-          <property>instrumentation/my_aircraft/nd/controls/mode</property>
-          <value>TAXI</value>
-        </not-equals>
+        <equals><property>/autopilot/locks/speed</property><value>speed-with-throttle</value></equals>
+        <not-equals><property>instrumentation/my_aircraft/nd/controls/mode</property><value>TAXI</value></not-equals>
       </condition>
     </enable>
     <input>
@@ -1013,18 +985,12 @@ vitesse affichee sur le hud
   </pid-controller>
   <!-- ~~~~~~~~~~~~~~~~~~ auto-throttle on ground (mode = TAXI) -->
   <pid-controller>
-    <name>ground IAS Hold</name>
+    <name>throttle : taxi</name>
     <debug>false</debug>
     <enable>
       <condition>
-        <equals>
-          <property>/autopilot/locks/speed</property>
-          <value>speed-with-throttle</value>
-        </equals>
-        <equals>
-          <property>instrumentation/my_aircraft/nd/controls/mode</property>
-          <value>TAXI</value>
-        </equals>
+        <equals><property>/autopilot/locks/speed</property><value>speed-with-throttle</value></equals>
+        <equals><property>instrumentation/my_aircraft/nd/controls/mode</property><value>TAXI</value></equals>
       </condition>
     </enable>
     <input>
@@ -1058,7 +1024,7 @@ vitesse affichee sur le hud
   -->
 
   <filter>
-    <name>pitch distance from zero</name>
+    <name>autotrim-rate-of-change</name>
     <type>gain</type>
     <gain>1.0</gain>
     <input>
@@ -1078,7 +1044,7 @@ vitesse affichee sur le hud
   </filter>
 
   <filter>
-    <name>autotrim pitch</name>
+    <name>elevator-trim</name>
     <debug>false</debug>
     <initialize-to>output</initialize-to>
     <enable>
@@ -1088,19 +1054,13 @@ vitesse affichee sur le hud
     </enable>
     <input>
       <condition>
-        <greater-than>
-          <property>/controls/flight/elevator</property>
-          <value>0.02</value>
-        </greater-than>
+        <greater-than><property>/controls/flight/elevator</property><value>0.02</value></greater-than>
       </condition>
       <value>1</value>
     </input>
     <input>
       <condition>
-        <less-than>
-          <property>/controls/flight/elevator</property>
-          <value>-0.02</value>
-        </less-than>
+        <less-than><property>/controls/flight/elevator</property><value>-0.02</value></less-than>
       </condition>
       <value>-1</value>
     </input>
@@ -1130,7 +1090,7 @@ directly connect output to the FDM when AP is on otherwise connect FCM to FDM
       <property>/controls/flight/aileron</property>
     </input>
     <input>
-      <property>/controls/flight/fcm-aileron</property>
+      <property>/controls/flight/fbw-aileron</property>
     </input>
     <output>/controls/flight/fdm-aileron</output>
   </filter>
@@ -1149,7 +1109,7 @@ directly connect output to the FDM when AP is on otherwise connect FCM to FDM
       <property>/controls/flight/elevator</property>
     </input>
     <input>
-      <property>/controls/flight/fcm-elevator</property>
+      <property>/controls/flight/fbw-elevator</property>
     </input>
     <output>/controls/flight/fdm-elevator</output>
   </filter>

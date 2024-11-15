@@ -268,7 +268,7 @@ ________________________________________________________________________________
 
   <!-- ~~~~~~~~~~~~~~~~~~ front gear -->
   <gear x="2.85" y="0" z="-1.6"
-      compression=".4" spring=".42" damp=".5"
+      compression=".35" spring=".4" damp=".65"
       dfric=".76" sfric=".8">
     <control-input  control="STEER" axis="/controls/flight/fcm-rudder" square="true" />
     <control-output control="STEER" prop="/gear/gear[0]/steering-norm" />
@@ -282,7 +282,7 @@ ________________________________________________________________________________
 
   <!-- ~~~~~~~~~~~~~~~~~~ left main gear -->
   <gear x="-2.05" y="1.5" z="-1.65"
-      compression=".4" spring="1.5" damp=".9"
+      compression=".45" spring="1.2" damp=".8"
       dfric=".7" sfric=".7">
     <control-input  control="BRAKE" axis="/controls/gear/brake-left" />
     <control-input  control="BRAKE" axis="/controls/gear/brake-parking" />
@@ -295,7 +295,7 @@ ________________________________________________________________________________
 
   <!-- ~~~~~~~~~~~~~~~~~~ right main gear -->
   <gear x="-2.05" y="-1.5" z="-1.65"
-      compression=".4" spring="1.5" damp=".9"
+      compression=".45" spring="1.2" damp=".8"
       dfric=".7" sfric=".7">
     <control-input  control="BRAKE" axis="/controls/gear/brake-right" />
     <control-input  control="BRAKE" axis="/controls/gear/brake-parking" />

@@ -20,8 +20,8 @@ PROPERTY-PATH : /controls/
 
   <flight>
     <!-- init properties used by fcm.nas autopilot and yasim -->
-    <fcm-elevator>0.00</fcm-elevator>
-    <fcm-aileron>0.00</fcm-aileron>
+    <fbw-elevator>0.00</fbw-elevator>
+    <fbw-aileron>0.00</fbw-aileron>
     <fcm-rudder>0.00</fcm-rudder>
     <fcm-canard>0.00</fcm-canard>
     <fdm-elevator>0.00</fdm-elevator>

@@ -12,7 +12,6 @@ changelog
 /engines/engine[0]/prop-thrust  : 0.40 min - 25000 max
 /engines/engine[0]/n2           : 73 min - 101 max
 
-
 sim/current-view/internal
 sim/model/canopy-pos-norm
 
@@ -380,8 +379,8 @@ ________________________________________________________________________________
         <factor>0.01</factor>
         <offset>0.75</offset>
       </pitch>
-      <reference-dist>100</reference-dist>
-      <max-dist>1000</max-dist>
+      <!--reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist-->
     </wind_ext>
 
     <!-- ~~~~~~~~~~~~~~~~~~ external rain -->
@@ -441,12 +440,13 @@ ________________________________________________________________________________
         <greater-than><property>/instrumentation/airspeed-indicator/true-speed-kt</property><value>90</value></greater-than>
         <less-than><property>/instrumentation/airspeed-indicator/true-speed-kt</property><value>130</value></less-than>
         <not><property>/gear/gear[0]/wow</property></not>
+        <less-than><property>/autopilot/internal/vert-speed-fpm</property><value>0</value></less-than>
       </condition>
       <volume>
         <max>0.2</max>
       </volume>
       <reference-dist>100</reference-dist>
-      <max-dist>1000</max-dist>
+      <max-dist>200</max-dist>
     </touchdown_left>
     <touchdown_right>
       <name>touchdown_right</name>
@@ -457,12 +457,13 @@ ________________________________________________________________________________
         <greater-than><property>/instrumentation/airspeed-indicator/true-speed-kt</property><value>90</value></greater-than>
         <less-than><property>/instrumentation/airspeed-indicator/true-speed-kt</property><value>130</value></less-than>
         <not><property>/gear/gear[0]/wow</property></not>
+        <less-than><property>/autopilot/internal/vert-speed-fpm</property><value>0</value></less-than>
       </condition>
       <volume>
         <max>0.2</max>
       </volume>
       <reference-dist>100</reference-dist>
-      <max-dist>1000</max-dist>
+      <max-dist>200</max-dist>
     </touchdown_right>
 
     <!--
@@ -682,6 +683,8 @@ ________________________________________________________________________________
       <volume>
         <max>0.07</max>
       </volume>
+      <reference-dist>10</reference-dist>
+      <max-dist>50</max-dist>
     </gear>
     <!-- ~~~~~~~~~~~~~~~~~~ gears lock -->
     <gear_lock>
@@ -696,6 +699,8 @@ ________________________________________________________________________________
       <volume>
         <max>0.1</max>
       </volume>
+      <reference-dist>10</reference-dist>
+      <max-dist>50</max-dist>
     </gear_lock>
 
     <!-- ~~~~~~~~~~~~~~~~~~ canopy open/close -->
@@ -713,6 +718,7 @@ ________________________________________________________________________________
             <property>/sim/model/canopy-pos-norm</property>
             <value>.59</value>
           </less-than>
+          <property>/sim/current-view/internal</property>
         </and>
       </condition>
       <pitch>
@@ -738,6 +744,7 @@ ________________________________________________________________________________
             <property>/sim/model/canopy-pos-norm</property>
             <value>1</value>
           </less-than>
+          <property>/sim/current-view/internal</property>
         </and>
       </condition>
       <pitch>
@@ -765,6 +772,7 @@ ________________________________________________________________________________
             <property>/sim/model/canopy-pos-norm</property>
             <value>.1</value>
           </less-than>
+          <property>/sim/current-view/internal</property>
         </and>
       </condition>
       <volume>
@@ -787,6 +795,7 @@ ________________________________________________________________________________
             <property>/sim/model/canopy-pos-norm</property>
             <value>0</value>
           </greater-than>
+          <property>/sim/current-view/internal</property>
         </and>
       </condition>
       <volume>
@@ -797,3 +806,9 @@ ________________________________________________________________________________
 
   </fx>
 </PropertyList>
+
+
+
+
+
+

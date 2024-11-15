@@ -6,56 +6,6 @@ print("*** LOADING core - fcm.nas ... ***");
 #   IN THIS FILE : FCM ANIMATIONS
 #
 
-# DEPRECATED -- DEPRECATED -- DEPRECATED -- DEPRECATED -- DEPRECATED -- DEPRECATED
-# description :
-# - flight control manager
-#                                                   fcm.nas
-#                                           vvvvvvvvvvvvvvvvvvvvvvvvv
-#
-# .--------------------------------------.
-# |      control (mouse & joystick)      |-----------+
-# '--------------------------------------'           |
-#     .                                              V
-#     .                                         input values (/controls/flight/*)
-#     .                                    .--------------------.
-#  (default fg settings)                   |        fcm         |
-#     .                                    '--------------------'
-#     .                                         output values (/controls/flight/fcm-*)
-#     .                                              |
-#     .                                              |
-#     .   .--------------------------.               |
-#     .   |       AUTOPILOT          |               |
-#     .   |                          |               |
-#     .   | if AP disabled           |               |
-#     .   |   fdm = fbw-fcm          |               |
-#     .   |                          |               |
-#     .   '--------------------------'               |
-#     .           output values (/controls/flight/fdm-*)
-#     .             |
-#     V             V
-# .--------------------------------------.
-# |   yasim / fdm (aircraft behaviour)   |
-# '--------------------------------------'
-#              output values (/surface-positions/*, /sim/model/*)
-#                   |
-#                   V
-# .--------------------------------------.
-# |     sim-multiplay-properties.xml     |
-# '--------------------------------------'
-#               aliases (/sim/multiplay/generic/*, /surface-positions/*)
-#                   |
-#                   V
-#          input values (sim/multiplay/generic/*, surface-positions/*)
-# .--------------------------------------.
-# |          model animations            |
-# '--------------------------------------'
-
-
-# fcm settings
-# - /instrumentation/my_aircraft/nd/controls/mode
-# - TAXI, APP, NAV, VFR
-
-
 #===============================================================================
 #                                                                      CONSTANTS
 

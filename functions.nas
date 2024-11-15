@@ -876,12 +876,12 @@ var event_airbrake = func(do_enable)
     var speedbrake = getprop("/controls/flight/speedbrake") or 0;
     if(do_enable == 1)
     {
-        speedbrake = (speedbrake >= .89) ? 1 : speedbrake + .1;
+        speedbrake = (speedbrake > .9) ? 1.0 : speedbrake + .1;
         setprop("/controls/flight/speedbrake", speedbrake);
     }
     else
     {
-        speedbrake = (speedbrake <= .09) ? 0 : speedbrake - .1;
+        speedbrake = (speedbrake < .11) ? 0.0 : speedbrake - .1;
         setprop("/controls/flight/speedbrake", speedbrake);
     }
     event_status_ap_speed();
