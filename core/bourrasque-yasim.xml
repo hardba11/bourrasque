@@ -156,7 +156,7 @@ ________________________________________________________________________________
       sweep="27.5"
       taper=".28">
     <stall aoa="30" width="10" peak="1.5" />
-    <flap0 start="0" end=".8" lift="2" drag="1" />
+    <flap0 start="0" end=".8" lift="2.2" drag="1" />
     <control-input  control="FLAP0" axis="/controls/flight/fcm-rudder"  invert="true" />
     <control-input  control="FLAP0" axis="/controls/flight/rudder-trim" invert="true" />
     <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm" />
@@ -234,12 +234,12 @@ ________________________________________________________________________________
   </jet>
 
   <!-- ~~~~~~~~~~~~~~~~~~ thruster : boost + pushback -->
-  <thruster thrust="120000"
+  <thruster thrust="150000"
       x="-6" y="0" z="0.1"
       vx="1" vy="0" vz="0">
     <control-input control="THROTTLE" axis="/controls/jato/throttle" />
   </thruster>
-  <thruster thrust="2500"
+  <thruster thrust="2000"
       x="3" y="0" z="-.3"
       vx="1" vy="0" vz="0">
     <control-input control="THROTTLE" axis="/sim/model/pushback/target-speed-fps"
@@ -268,13 +268,14 @@ ________________________________________________________________________________
 
   <!-- ~~~~~~~~~~~~~~~~~~ front gear -->
   <gear x="2.85" y="0" z="-1.6"
-      compression=".35" spring=".4" damp=".65"
-      dfric=".76" sfric=".8">
+      upx="-.1" upy="0" upz="1"
+      compression=".4" spring=".4" damp=".65"
+      dfric=".6" sfric=".6">
     <control-input  control="STEER" axis="/controls/flight/fcm-rudder" square="true" />
     <control-output control="STEER" prop="/gear/gear[0]/steering-norm" />
     <control-input  control="BRAKE" axis="/controls/gear/brake-parking" />
     <control-output control="BRAKE" prop="/gear/gear[0]/brake-position-norm" />
-    <control-speed  control="BRAKE" transition-time=".1" />
+    <control-speed  control="BRAKE" transition-time=".5" />
     <control-input  control="EXTEND" axis="/controls/gear/gear-down" />
     <control-output control="EXTEND" prop="/gear/gear[0]/position-norm" />
     <control-speed  control="EXTEND" transition-time="8" />
@@ -282,8 +283,9 @@ ________________________________________________________________________________
 
   <!-- ~~~~~~~~~~~~~~~~~~ left main gear -->
   <gear x="-2.05" y="1.5" z="-1.65"
-      compression=".45" spring="1.2" damp=".8"
-      dfric=".7" sfric=".7">
+      upx="0" upy=".1" upz="1"
+      compression=".45" spring="1.3" damp=".3"
+      dfric=".65" sfric=".65">
     <control-input  control="BRAKE" axis="/controls/gear/brake-left" />
     <control-input  control="BRAKE" axis="/controls/gear/brake-parking" />
     <control-output control="BRAKE" prop="/gear/gear[1]/brake-position-norm" />
@@ -295,8 +297,9 @@ ________________________________________________________________________________
 
   <!-- ~~~~~~~~~~~~~~~~~~ right main gear -->
   <gear x="-2.05" y="-1.5" z="-1.65"
-      compression=".45" spring="1.2" damp=".8"
-      dfric=".7" sfric=".7">
+      upx="0" upy=".1" upz="1"
+      compression=".45" spring="1.3" damp=".3"
+      dfric=".65" sfric=".65">
     <control-input  control="BRAKE" axis="/controls/gear/brake-right" />
     <control-input  control="BRAKE" axis="/controls/gear/brake-parking" />
     <control-output control="BRAKE" prop="/gear/gear[2]/brake-position-norm" />

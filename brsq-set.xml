@@ -348,16 +348,16 @@ http://wiki.flightgear.org/Property_tree
     <gear-agl-ft type="float">0</gear-agl-ft>
   </position>
 
-  <!-- smoke touchdown, data updated by bourrasque.nas -->
+  <!-- tyre smoke and squeal when touchdown, data updated by bourrasque.nas -->
   <gear>
     <gear n="0">
       <launchbar-position-norm type="float">0</launchbar-position-norm>
     </gear>
     <gear n="1">
-      <tyre-smoke type="bool">0</tyre-smoke>
+      <tyre-touchdown type="bool">0</tyre-touchdown>
     </gear>
     <gear n="2">
-      <tyre-smoke type="bool">0</tyre-smoke>
+      <tyre-touchdown type="bool">0</tyre-touchdown>
     </gear>
   </gear>
 

@@ -436,11 +436,7 @@ ________________________________________________________________________________
       <path>touchdown.wav</path>
       <mode>once</mode>
       <condition>
-        <property>/gear/gear[1]/wow</property>
-        <greater-than><property>/instrumentation/airspeed-indicator/true-speed-kt</property><value>90</value></greater-than>
-        <less-than><property>/instrumentation/airspeed-indicator/true-speed-kt</property><value>130</value></less-than>
-        <not><property>/gear/gear[0]/wow</property></not>
-        <less-than><property>/autopilot/internal/vert-speed-fpm</property><value>0</value></less-than>
+        <property>/gear/gear[1]/tyre-touchdown</property>
       </condition>
       <volume>
         <max>0.2</max>
@@ -453,11 +449,7 @@ ________________________________________________________________________________
       <path>touchdown.wav</path>
       <mode>once</mode>
       <condition>
-        <property>/gear/gear[2]/wow</property>
-        <greater-than><property>/instrumentation/airspeed-indicator/true-speed-kt</property><value>90</value></greater-than>
-        <less-than><property>/instrumentation/airspeed-indicator/true-speed-kt</property><value>130</value></less-than>
-        <not><property>/gear/gear[0]/wow</property></not>
-        <less-than><property>/autopilot/internal/vert-speed-fpm</property><value>0</value></less-than>
+        <property>/gear/gear[2]/tyre-touchdown</property>
       </condition>
       <volume>
         <max>0.2</max>
@@ -502,6 +494,9 @@ ________________________________________________________________________________
       <name>alert</name>
       <path>alert.wav</path>
       <mode>looped</mode>
+      <volume>
+        <max>0.8</max>
+      </volume>
       <condition>
         <and>
           <property>/instrumentation/my_aircraft/command_h/sound_alert</property>
@@ -515,6 +510,9 @@ ________________________________________________________________________________
       <name>caution</name>
       <path>caution.wav</path>
       <mode>looped</mode>
+      <volume>
+        <max>0.8</max>
+      </volume>
       <condition>
         <and>
           <property>/instrumentation/my_aircraft/command_h/sound_caution</property>

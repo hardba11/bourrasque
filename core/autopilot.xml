@@ -149,9 +149,9 @@ vitesse affichee sur le hud
             <property>/velocities/airspeed-kt</property>
             <entry><ind>  95</ind><dep>0.00002</dep></entry>
             <entry><ind> 936</ind><dep>0.00002</dep></entry>
-            <entry><ind>1075</ind><dep>0.00002</dep></entry>
-            <entry><ind>1195</ind><dep>0.000002</dep></entry>
-            <entry><ind>1300</ind><dep>0.000002</dep></entry>
+            <entry><ind>1075</ind><dep>0.00001</dep></entry>
+            <entry><ind>1195</ind><dep>0.000001</dep></entry>
+            <entry><ind>1300</ind><dep>0.0000002</dep></entry>
             <entry><ind>4000</ind><dep>0.0000002</dep></entry>
           </table>
         </expression>
@@ -258,7 +258,7 @@ vitesse affichee sur le hud
   <pid-controller>
     <name>fbw/elevator</name>
     <debug>false</debug>
-    <feedback-if-disabled>false</feedback-if-disabled>
+    <feedback-if-disabled>true</feedback-if-disabled>
     <reference>/accelerations/pilot-g</reference>
 <!--
     <enable>
@@ -284,8 +284,8 @@ vitesse affichee sur le hud
           <table>
             <property>/velocities/mach</property>
             <entry><ind>0.00</ind><dep>0.0001</dep></entry>
-            <entry><ind>0.10</ind><dep>0.001</dep></entry>
-            <entry><ind>0.15</ind><dep>0.010</dep></entry>
+            <entry><ind>0.05</ind><dep>0.001</dep></entry>
+            <entry><ind>0.10</ind><dep>0.010</dep></entry>
             <entry><ind>0.20</ind><dep>0.010</dep></entry>
             <entry><ind>0.35</ind><dep>0.010</dep></entry>
             <entry><ind>0.50</ind><dep>0.010</dep></entry>

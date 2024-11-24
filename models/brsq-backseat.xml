@@ -16,7 +16,7 @@ changelog
       <![CDATA[
 # NASAL EXECUTED IN MULTIPLAYER MODE
 var livery_update = aircraft.livery_update.new("Aircraft/bourrasque/models/aircraft/liveries");
-cmdarg().getNode("sim/model/ac-type", 1).setValue("bourrasque-backseat");
+cmdarg().getNode("sim/model/ac-type", 1).setValue("brsq-backseat");
 
 var mp_decode = func(values_encoded, list_of_values) {
 

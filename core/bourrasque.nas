@@ -57,45 +57,26 @@ var update_alarms = func()
     setprop("/sim/alarms/stall-warning", stall_warning);
 }
 
-var is_smoke   = [0, 0, 0];
-var wow_gear   = [0, 0, 0];
-var buffer_wow = [0, 0, 0]; # keep value of wow between cycles
-var cycle_wow  = [0, 2, 2]; # number of nasal cycles for smoking
+
+var touchdown_is_smoke         = [0, 0, 0];
+var touchdown_rollspeed        = [0, 0, 0];
+var touchdown_buffer_rollspeed = [0, 0, 0];
 var touchdown_smoke = func()
 {
-    var groundspeed  = getprop("/velocities/groundspeed-kt") or 0;
     for(var i = 1; i <= 2; i += 1)
     {
-        wow_gear[i] = getprop("/gear/gear["~i~"]/wow") or 0;
+        touchdown_rollspeed[i] = getprop("/gear/gear["~i~"]/rollspeed-ms") or 0;
+        touchdown_is_smoke[i] = 0;
 
-        # if last wow value was 0 (airborn last cycle) and current wow value is 1, begin smoke
-        if((buffer_wow[i] == 0)
-            and (wow_gear[i] == 1)
-            and (is_smoke[i] == 0)
-            and (groundspeed > 80))
+        # if last rollspeed value was 0 and current value > last value
+        # begin smoke and squeal
+        if((touchdown_buffer_rollspeed[i] == 0)
+            and ((touchdown_rollspeed[i] - 1) > touchdown_buffer_rollspeed[i]))
         {
-            is_smoke[i] = 1;
+            touchdown_is_smoke[i] = 1;
         }
-        buffer_wow[i] = wow_gear[i];
-
-        if(is_smoke[i] == 1)
-        {
-            # smoking during 2 cycles
-            if(cycle_wow[i] > 0)
-            {
-                cycle_wow[i] -= 1;
-            }
-            else
-            {
-                is_smoke[i] = 0;
-            }
-        }
-        else
-        {
-            # end of cycle, stopping smoke and reinit
-            cycle_wow[i] = 2;
-        }
-        setprop("/gear/gear["~i~"]/tyre-smoke", is_smoke[i]);
+        touchdown_buffer_rollspeed[i] = touchdown_rollspeed[i];
+        setprop("/gear/gear["~i~"]/tyre-touchdown", touchdown_is_smoke[i]);
     }
 }
 

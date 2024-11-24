@@ -81,7 +81,7 @@ TODO :
     <condition>
       <or>
         <not><property>systems/electrical/bus/avionics</property></not>
-        <equals><property>/sim/aircraft</property><value>bourrasque-backseat</value></equals>
+        <equals><property>/sim/aircraft</property><value>brsq-backseat</value></equals>
       </or>
     </condition>
   </animation>

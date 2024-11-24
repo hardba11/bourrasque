@@ -33,7 +33,7 @@ see :
     <pitch-input>
       <property>/orientation/pitch-deg</property>
     </pitch-input>
-    <compression-factor>11.5</compression-factor>
+    <compression-factor>10</compression-factor>
     <display-span>25</display-span>
     <divisions>5.0</divisions>
     <screen-hole>6</screen-hole>
@@ -79,7 +79,7 @@ see :
     <pitch-input>
       <property>/orientation/pitch-deg</property>
     </pitch-input>
-    <compression-factor>11.5</compression-factor>
+    <compression-factor>10</compression-factor>
     <display-span>15</display-span>
     <divisions>5.0</divisions>
     <screen-hole>0</screen-hole>
@@ -125,7 +125,7 @@ see :
     <pitch-input>
       <property>/orientation/pitch-deg</property>
     </pitch-input>
-    <compression-factor>11.5</compression-factor>
+    <compression-factor>10</compression-factor>
     <display-span>25</display-span>
     <divisions>3.0</divisions>
     <screen-hole>8</screen-hole>
@@ -171,7 +171,7 @@ see :
     <pitch-input>
       <property>/orientation/pitch-deg</property>
     </pitch-input>
-    <compression-factor>11.5</compression-factor>
+    <compression-factor>10</compression-factor>
     <display-span>4</display-span>
     <divisions>90</divisions>
     <screen-hole>0</screen-hole>
@@ -2580,7 +2580,7 @@ see :
   <label>
     <name>debug rolldegs</name>
     <x>80</x>
-    <y>-38</y>
+    <y>-48</y>
     <width>20</width>
     <height>6</height>
     <format>roll %.02f</format>
