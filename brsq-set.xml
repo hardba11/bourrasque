@@ -137,6 +137,7 @@ http://wiki.flightgear.org/Property_tree
       <rendering>
         <relative-navlight-luminosity type="float">0</relative-navlight-luminosity>
         <relative-strobelight-luminosity type="float">0</relative-strobelight-luminosity>
+        <relative-taxilight-luminosity type="float">0</relative-taxilight-luminosity>
       </rendering>
 
       <livery>

@@ -177,7 +177,7 @@ livery_update.stop();
 
   <!-- ~~~~~~~~~~~~~~~~~~ als lights -->
   <model>
-    <name>left light top</name>
+    <name>left-light-top</name>
     <path>Aircraft/bourrasque/models/lights/light_nav_left.xml</path>
     <offsets>
       <x-m type="float">3.5</x-m>
@@ -186,7 +186,7 @@ livery_update.stop();
     </offsets>
   </model>
   <model>
-    <name>left light bottom</name>
+    <name>left-light-bottom</name>
     <path>Aircraft/bourrasque/models/lights/light_nav_left.xml</path>
     <offsets>
       <x-m type="float">3.5</x-m>
@@ -195,7 +195,7 @@ livery_update.stop();
     </offsets>
   </model>
   <model>
-    <name>right light top</name>
+    <name>right-light-top</name>
     <path>Aircraft/bourrasque/models/lights/light_nav_right.xml</path>
     <offsets>
       <x-m type="float">3.5</x-m>
@@ -204,7 +204,7 @@ livery_update.stop();
     </offsets>
   </model>
   <model>
-    <name>right light bottom</name>
+    <name>right-light-bottom</name>
     <path>Aircraft/bourrasque/models/lights/light_nav_right.xml</path>
     <offsets>
       <x-m type="float">3.5</x-m>
@@ -213,7 +213,7 @@ livery_update.stop();
     </offsets>
   </model>
   <model>
-    <name>tail light</name>
+    <name>tail-light</name>
     <path>Aircraft/bourrasque/models/lights/light_nav_tail.xml</path>
     <offsets>
       <x-m type="float">7.12</x-m>
@@ -222,7 +222,7 @@ livery_update.stop();
     </offsets>
   </model>
   <model>
-    <name>strobe light</name>
+    <name>strobe-light</name>
     <path>Aircraft/bourrasque/models/lights/light_strobe.xml</path>
     <offsets>
       <x-m type="float">1.15</x-m>
@@ -231,7 +231,7 @@ livery_update.stop();
     </offsets>
   </model>
   <model>
-    <name>anticoll light</name>
+    <name>anticoll-light</name>
     <path>Aircraft/bourrasque/models/lights/light_anticoll.xml</path>
     <offsets>
       <x-m type="float">-1.08</x-m>
@@ -240,7 +240,7 @@ livery_update.stop();
     </offsets>
   </model>
   <model>
-    <name>landing light left</name>
+    <name>landing-light-left</name>
     <path>Aircraft/bourrasque/models/lights/light_landing.xml</path>
     <offsets>
       <x-m type="float">-2.8</x-m>
@@ -249,7 +249,7 @@ livery_update.stop();
     </offsets>
   </model>
   <model>
-    <name>landing light right</name>
+    <name>landing-light-right</name>
     <path>Aircraft/bourrasque/models/lights/light_landing.xml</path>
     <offsets>
       <x-m type="float">-2.8</x-m>
@@ -257,6 +257,140 @@ livery_update.stop();
       <z-m type="float">-.8</z-m>
     </offsets>
   </model>
+  <animation>
+    <type>noshadow</type>
+    <object-name>left-light-top</object-name>
+    <object-name>left-light-bottom</object-name>
+    <object-name>right-light-top</object-name>
+    <object-name>right-light-bottom</object-name>
+    <object-name>tail-light</object-name>
+    <object-name>strobe-light</object-name>
+    <object-name>anticoll-light</object-name>
+    <object-name>landing-light-left</object-name>
+    <object-name>landing-light-right</object-name>
+  </animation>
+ 
+  <!-- landing light -->
+  <animation>
+      <type>select</type>
+      <object-name>landing-light-right-spot</object-name>
+      <nopreview/>
+      <condition>
+        <equals><property>gear/gear[0]/position-norm</property><value>1</value></equals>
+        <equals><property>/systems/electrical/bus/commands</property><value>1</value></equals>
+        <equals><property>/controls/lighting/taxi-light</property><value>1</value></equals>
+      </condition>
+  </animation>
+  <light>
+    <name>landing-light-right-spot</name>
+    <type>spot</type>
+    <position>
+      <x-m type="float">-2.8</x-m>
+      <y-m type="float">-.1</y-m>
+      <z-m type="float">-.8</z-m>
+    </position>
+    <direction>
+      <lookat-x-m>-10</lookat-x-m>
+      <lookat-y-m>0</lookat-y-m>
+      <lookat-z-m>-1</lookat-z-m>
+    </direction>
+    <ambient>
+      <r>/sim/model/rendering/relative-taxilight-luminosity</r>
+      <g>/sim/model/rendering/relative-taxilight-luminosity</g>
+      <b>/sim/model/rendering/relative-taxilight-luminosity</b>
+      <a>/sim/model/rendering/relative-taxilight-luminosity</a>
+    </ambient>
+    <diffuse>
+      <r>/sim/model/rendering/relative-taxilight-luminosity</r>
+      <g>/sim/model/rendering/relative-taxilight-luminosity</g>
+      <b>/sim/model/rendering/relative-taxilight-luminosity</b>
+      <a>/sim/model/rendering/relative-taxilight-luminosity</a>
+    </diffuse>
+    <specular>
+      <r>/sim/model/rendering/relative-taxilight-luminosity</r>
+      <g>/sim/model/rendering/relative-taxilight-luminosity</g>
+      <b>/sim/model/rendering/relative-taxilight-luminosity</b>
+      <a>/sim/model/rendering/relative-taxilight-luminosity</a>
+    </specular>
+    <attenuation>
+      <c>.5</c> <!-- .5 proche -->
+      <l>.001</l> <!-- .001 -->
+      <q>.0005</q> <!-- .0005 loin -->
+    </attenuation>
+    <spot-exponent>30</spot-exponent> <!-- 30 eloignement du spot -->
+    <spot-cutoff>35</spot-cutoff> <!-- 35 demi angle d'ouverture -->
+    <range-m>500</range-m> <!-- 500 ??? -->
+    <debug-color>
+      <r>1</r>
+      <g>1</g>
+      <b>1</b>
+      <a>1</a>
+    </debug-color>
+  </light>
+
+  <animation>
+      <type>select</type>
+      <object-name>landing-light-left-spot</object-name>
+      <nopreview/>
+      <condition>
+        <equals><property>gear/gear[0]/position-norm</property><value>1</value></equals>
+        <equals><property>/systems/electrical/bus/commands</property><value>1</value></equals>
+        <equals><property>/controls/lighting/taxi-light</property><value>1</value></equals>
+      </condition>
+  </animation>
+  <light>
+    <name>landing-light-left-spot</name>
+    <type>spot</type>
+    <position>
+      <x-m type="float">-3.0</x-m>
+      <y-m type="float">.1</y-m>
+      <z-m type="float">-1</z-m>
+    </position>
+    <direction>
+      <lookat-x-m>-5</lookat-x-m>
+      <lookat-y-m>0</lookat-y-m>
+      <lookat-z-m>-1</lookat-z-m>
+    </direction>
+    <ambient>
+      <r>1</r>
+      <g>1</g>
+      <b>1</b>
+      <a>1</a>
+    </ambient>
+    <diffuse>
+      <r>1</r>
+      <g>1</g>
+      <b>1</b>
+      <a>1</a>
+    </diffuse>
+    <specular>
+      <r>1</r>
+      <g>1</g>
+      <b>1</b>
+      <a>1</a>
+    </specular>
+    <attenuation>
+      <c>1</c>
+      <l>.1</l>
+      <q>.01</q>
+    </attenuation>
+    <spot-exponent>2</spot-exponent>
+    <spot-cutoff>80</spot-cutoff>
+    <range-m>500</range-m>
+    <debug-color>
+      <r>1</r>
+      <g>1</g>
+      <b>1</b>
+      <a>1</a>
+    </debug-color>
+  </light>
+
+
+
+
+
+
+
 
   <!-- ~~~~~~~~~~~~~~~~~~ cockpit -->
   <model>
@@ -390,6 +524,7 @@ livery_update.stop();
   </model>
 
   <!-- ~~~~~~~~~~~~~~~~~~ als 3d exterior shadow (hide if backseat or MP) -->
+<!--
   <model>
     <object-name>als-shadow</object-name>
     <path>Aircraft/bourrasque/models/effects/shadow/3d-shadow.xml</path>
@@ -406,7 +541,7 @@ livery_update.stop();
       </not>
     </condition>
   </model>
-
+-->
   <!-- ~~~~~~~~~~~~~~~~~~ contrails -->
   <model>
     <name>left contrail</name>

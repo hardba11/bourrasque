@@ -49,7 +49,7 @@ var loop_200ms = func() {
 
 var loop_100ms = func() {
 
-    instrument_light.light();
+    #instrument_light.light();
 
     # systems
     core.systems_loop();
@@ -119,7 +119,7 @@ var run_once = func() {
     my_aircraft_functions.change_mod(0);
     instrument_nd.set_north();
 
-    settimer(instrument_command_h.reset, 5);
+    settimer(instrument_command_h.reset, 3);
 
 }
 setlistener("/sim/signals/fdm-initialized", main_loop);

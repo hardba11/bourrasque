@@ -8,7 +8,7 @@
     <input>/rendering/scene/diffuse/green</input>
     <reference>1</reference>
     <output>/sim/model/rendering/relative-navlight-luminosity</output>
-    <min>.4</min>
+    <min>.3</min>
     <max>1</max>
   </filter>
 
@@ -17,6 +17,15 @@
     <gain>2</gain>
     <input>/sim/model/rendering/relative-navlight-luminosity</input>
     <output>/sim/model/rendering/relative-strobelight-luminosity</output>
+  </filter>
+
+  <filter>
+    <type>gain</type>
+    <gain>.3</gain>
+    <input>/sim/model/rendering/relative-navlight-luminosity</input>
+    <output>/sim/model/rendering/relative-taxilight-luminosity</output>
+    <min>.1</min>
+    <max>1</max>
   </filter>
 
 </PropertyList>
