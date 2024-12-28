@@ -16,7 +16,7 @@ var clipping_bottom =  -95;
 var minihud_loop = func()
 {
     var hud_number     = getprop("/sim/hud/current-path");
-    var is_pilot       = getprop("/sim/current-view/view-number") == 0;
+    var is_pilot       = getprop("/sim/current-view/view-number-raw") == 0;
 
     var is_on          = getprop("/systems/electrical/bus/avionics");
 

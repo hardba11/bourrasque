@@ -75,7 +75,7 @@ var current_y = 0;
 var view_cockpit_panels_number = 0;
 var view_cockpit_panels = func(inc)
 {
-    var view_number = getprop("/sim/current-view/view-number") or 0;
+    var view_number = getprop("/sim/current-view/view-number-raw") or 0;
     if((view_number == 0) and (view_cockpit_panels_number == 0))
     {
         save_current_view();
@@ -130,7 +130,7 @@ var view_cockpit_panels = func(inc)
 
 var save_current_view = func()
 {
-    var view_number = getprop("/sim/current-view/view-number") or 0;
+    var view_number = getprop("/sim/current-view/view-number-raw") or 0;
     if(view_number == 0)
     {
         current_fov     = getprop("/sim/current-view/field-of-view") or 0;
@@ -143,7 +143,7 @@ var save_current_view = func()
 }
 var load_current_view = func()
 {
-    var view_number = getprop("/sim/current-view/view-number") or 0;
+    var view_number = getprop("/sim/current-view/view-number-raw") or 0;
     if(view_number == 0)
     {
         setprop("/sim/current-view/field-of-view", current_fov);
@@ -157,7 +157,7 @@ var load_current_view = func()
 
 var view_panel_electrical = func()
 {
-    var view_number = getprop("/sim/current-view/view-number") or 0;
+    var view_number = getprop("/sim/current-view/view-number-raw") or 0;
     if(view_number == 0)
     {
         setprop("/sim/current-view/field-of-view", 40);
@@ -167,7 +167,7 @@ var view_panel_electrical = func()
 }
 var view_panel_engines = func()
 {
-    var view_number = getprop("/sim/current-view/view-number") or 0;
+    var view_number = getprop("/sim/current-view/view-number-raw") or 0;
     if(view_number == 0)
     {
         setprop("/sim/current-view/field-of-view", 40);
@@ -177,7 +177,7 @@ var view_panel_engines = func()
 }
 var view_sfd = func()
 {
-    var view_number = getprop("/sim/current-view/view-number") or 0;
+    var view_number = getprop("/sim/current-view/view-number-raw") or 0;
     if(view_number == 0)
     {
         setprop("/sim/current-view/field-of-view", 40);
@@ -187,7 +187,7 @@ var view_sfd = func()
 }
 var view_panel_command = func()
 {
-    var view_number = getprop("/sim/current-view/view-number") or 0;
+    var view_number = getprop("/sim/current-view/view-number-raw") or 0;
     if(view_number == 0)
     {
         setprop("/sim/current-view/field-of-view", 40);
@@ -197,7 +197,7 @@ var view_panel_command = func()
 }
 var view_panel_light = func()
 {
-    var view_number = getprop("/sim/current-view/view-number") or 0;
+    var view_number = getprop("/sim/current-view/view-number-raw") or 0;
     if(view_number == 0)
     {
         setprop("/sim/current-view/field-of-view", 40);
@@ -207,7 +207,7 @@ var view_panel_light = func()
 }
 var view_panel_radio = func()
 {
-    var view_number = getprop("/sim/current-view/view-number") or 0;
+    var view_number = getprop("/sim/current-view/view-number-raw") or 0;
     if(view_number == 0)
     {
         setprop("/sim/current-view/field-of-view", 40);
@@ -930,7 +930,7 @@ var event_set_view = func(action)
 {
     if(action == 0)
     {
-        setprop("/sim/current-view/view-number", 0);
+        setprop("/sim/current-view/view-number-raw", 0);
     }
     else
     {

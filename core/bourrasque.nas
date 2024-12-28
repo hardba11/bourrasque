@@ -291,7 +291,7 @@ var calculate_shake_external_view = func()
 
     if((shake_enabled == 1) and ! is_crashed)
     {
-        var view_number     = getprop("/sim/current-view/view-number") or 0;
+        var view_number     = getprop("/sim/current-view/view-number-raw") or 0;
         var wow             = getprop("/gear/gear[1]/wow") or 0;
         var offset_saved    = getprop("/sim/current-view/offset-saved") or 0;
 

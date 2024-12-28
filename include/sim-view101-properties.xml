@@ -49,7 +49,7 @@ WARNING :
     </limits>
     <x-offset-m type="double">0</x-offset-m>
     <y-offset-m type="double">1.28</y-offset-m>
-    <z-offset-m type="double">-1.75</z-offset-m>
+    <z-offset-m type="double">-1.95</z-offset-m>
     <pitch-offset-deg type="double">-10</pitch-offset-deg>
     <heading-offset-deg type="double">0</heading-offset-deg>
     <roll-offset-deg type="double">0</roll-offset-deg>

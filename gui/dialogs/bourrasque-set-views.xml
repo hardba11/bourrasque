@@ -143,7 +143,7 @@ changelog
         <button>
           <enable>
             <equals>
-              <property>sim/current-view/view-number</property>
+              <property>sim/current-view/view-number-raw</property>
               <value>0</value>
             </equals>
           </enable>
@@ -261,7 +261,7 @@ changelog
         <button>
           <enable>
             <equals>
-              <property>sim/current-view/view-number</property>
+              <property>sim/current-view/view-number-raw</property>
               <value>0</value>
             </equals>
           </enable>
@@ -375,7 +375,7 @@ changelog
         <button>
           <enable>
             <equals>
-              <property>sim/current-view/view-number</property>
+              <property>sim/current-view/view-number-raw</property>
               <value>0</value>
             </equals>
           </enable>

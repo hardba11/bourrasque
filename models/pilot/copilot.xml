@@ -210,8 +210,8 @@ ________________________________________________________________________________
     <condition>
       <or>
         <not-equals>
-          <property>/sim/current-view/view-number</property>
-          <value>8</value>
+          <property>/sim/current-view/view-number-raw</property>
+          <value>101</value>
         </not-equals>
         <not-equals>
           <property>sim/model/name</property>
@@ -228,12 +228,12 @@ ________________________________________________________________________________
     <condition>
       <or>
         <not-equals>
-          <property>/sim/current-view/view-number</property>
+          <property>/sim/current-view/view-number-raw</property>
           <value>0</value>
         </not-equals>
         <and>
           <equals>
-            <property>/sim/current-view/view-number</property>
+            <property>/sim/current-view/view-number-raw</property>
             <value>0</value>
           </equals>
           <or>
@@ -254,13 +254,13 @@ ________________________________________________________________________________
       </or>
       <or>
         <not-equals>
-          <property>/sim/current-view/view-number</property>
-          <value>8</value>
+          <property>/sim/current-view/view-number-raw</property>
+          <value>101</value>
         </not-equals>
         <and>
           <equals>
-            <property>/sim/current-view/view-number</property>
-            <value>8</value>
+            <property>/sim/current-view/view-number-raw</property>
+            <value>101</value>
           </equals>
           <or>
             <greater-than>

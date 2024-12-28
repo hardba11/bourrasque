@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <!--
-
-pivot visiere
--3.1735
--0.1688
-1.134
-r = 37
+pivot visiere : -3.1735 -0.1688 1.134 r = 37
 -->
 
 <PropertyList>
@@ -219,7 +214,7 @@ ________________________________________________________________________________
     <condition>
       <or>
         <not-equals>
-          <property>/sim/current-view/view-number</property>
+          <property>/sim/current-view/view-number-raw</property>
           <value>0</value>
         </not-equals>
         <not-equals>
@@ -237,12 +232,12 @@ ________________________________________________________________________________
     <condition>
       <or>
         <not-equals>
-          <property>/sim/current-view/view-number</property>
+          <property>/sim/current-view/view-number-raw</property>
           <value>0</value>
         </not-equals>
         <and>
           <equals>
-            <property>/sim/current-view/view-number</property>
+            <property>/sim/current-view/view-number-raw</property>
             <value>0</value>
           </equals>
           <or>

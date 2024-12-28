@@ -166,7 +166,7 @@ var do_hud_color = func(value) { # 0=green/1=red
 }
 
 var flashlight = func(n) {
-    var view_number = getprop('/sim/current-view/view-number') or 0;
+    var view_number = getprop('/sim/current-view/view-number-raw') or 0;
     if(view_number == 0)
     {
         setprop("/sim/rendering/als-secondary-lights/use-flashlight", n);
