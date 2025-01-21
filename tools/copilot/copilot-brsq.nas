@@ -116,20 +116,20 @@ var events = {
         'data': [],
         'envoie_message': 0,
     },
-    'autotrim_on': {
-        'time': 0,
-        'repeat_every_time': 15,
-        'message': 'Your gears are down, you should autotrim (\'s\' key).',
-        'data': [],
-        'envoie_message': 0,
-    },
-    'autotrim_off': {
-        'time': 0,
-        'repeat_every_time': 5,
-        'message': 'Your gears are up, you should disable autotrim (\'s\' key) and center (ctrl + numpad 5 key).',
-        'data': [],
-        'envoie_message': 0,
-    },
+#    'autotrim_on': {
+#        'time': 0,
+#        'repeat_every_time': 15,
+#        'message': 'Your gears are down, you should autotrim (\'s\' key).',
+#        'data': [],
+#        'envoie_message': 0,
+#    },
+#    'autotrim_off': {
+#        'time': 0,
+#        'repeat_every_time': 5,
+#        'message': 'Your gears are up, you should disable autotrim (\'s\' key) and center (ctrl + numpad 5 key).',
+#        'data': [],
+#        'envoie_message': 0,
+#    },
     'takeoff_v1': {
         'trigger': 0,
         'message': 'v1 : do not abort takeoff !',
@@ -547,84 +547,84 @@ var detect_speed_limit = func()
     }
 }
 
-#-------------------------------------------------------------------------------
-#                                                             detect_autotrim_on
-# 
-var detect_autotrim_on = func()
-{
-    var e = 'autotrim_on';
-
-    # activer autotrim
-    # si trains sortis, pas au sol, pas autotrim et pas autopilot
-
-    var autotrim = getprop("/controls/flight/autotrim-pitch") or 0;
-    var autopilot_alt = getprop("/instrumentation/my_aircraft/pfd/inputs/autopilot/locks/altitude") or '-';
-    if(
-        (aircraft['is_gear_down'])
-        and
-        (!aircraft['is_wow'])
-        and
-        (!autotrim)
-        and
-        (autopilot_alt == '-')
-        and
-        (aircraft['elevation'] >= 400)
-    )
-    {
-        # gestion de la repetition du message
-        if(events[e]['time'] >= events[e]['repeat_every_time'])
-        {
-            events[e]['time'] = 0;
-        }
-
-        # annonce du message
-        if(events[e]['time'] == 0)
-        {
-            events[e]['envoie_message'] = 1;
-        }
-        events[e]['time'] += 1;
-    }
-    else
-    {
-        events[e]['time'] = 0;
-    }
-}
-
-#-------------------------------------------------------------------------------
-#                                                            detect_autotrim_off
-# 
-var detect_autotrim_off = func()
-{
-    var e = 'autotrim_off';
-
-    # raz autotrim
-    # si trains rentres
-
-    var autotrim = getprop("/controls/flight/autotrim-pitch") or 0;
-    if(
-        (!aircraft['is_gear_down'])
-        and
-        (autotrim)
-    )
-    {
-        # gestion de la repetition du message
-        if(events[e]['time'] >= events[e]['repeat_every_time'])
-        {
-            events[e]['time'] = 0;
-        }
-
-        # annonce du message
-        if(events[e]['time'] == 0)
-        {
-            events[e]['envoie_message'] = 1;
-        }
-        events[e]['time'] += 1;
-    }
-    else
-    {
-        events[e]['time'] = 0;
-    }
-}
+##-------------------------------------------------------------------------------
+##                                                             detect_autotrim_on
+## 
+#var detect_autotrim_on = func()
+#{
+#    var e = 'autotrim_on';
+#
+#    # activer autotrim
+#    # si trains sortis, pas au sol, pas autotrim et pas autopilot
+#
+#    var autotrim = getprop("/controls/flight/autotrim-pitch") or 0;
+#    var autopilot_alt = getprop("/instrumentation/my_aircraft/pfd/inputs/autopilot/locks/altitude") or '-';
+#    if(
+#        (aircraft['is_gear_down'])
+#        and
+#        (!aircraft['is_wow'])
+#        and
+#        (!autotrim)
+#        and
+#        (autopilot_alt == '-')
+#        and
+#        (aircraft['elevation'] >= 400)
+#    )
+#    {
+#        # gestion de la repetition du message
+#        if(events[e]['time'] >= events[e]['repeat_every_time'])
+#        {
+#            events[e]['time'] = 0;
+#        }
+#
+#        # annonce du message
+#        if(events[e]['time'] == 0)
+#        {
+#            events[e]['envoie_message'] = 1;
+#        }
+#        events[e]['time'] += 1;
+#    }
+#    else
+#    {
+#        events[e]['time'] = 0;
+#    }
+#}
+#
+##-------------------------------------------------------------------------------
+##                                                            detect_autotrim_off
+## 
+#var detect_autotrim_off = func()
+#{
+#    var e = 'autotrim_off';
+#
+#    # raz autotrim
+#    # si trains rentres
+#
+#    var autotrim = getprop("/controls/flight/autotrim-pitch") or 0;
+#    if(
+#        (!aircraft['is_gear_down'])
+#        and
+#        (autotrim)
+#    )
+#    {
+#        # gestion de la repetition du message
+#        if(events[e]['time'] >= events[e]['repeat_every_time'])
+#        {
+#            events[e]['time'] = 0;
+#        }
+#
+#        # annonce du message
+#        if(events[e]['time'] == 0)
+#        {
+#            events[e]['envoie_message'] = 1;
+#        }
+#        events[e]['time'] += 1;
+#    }
+#    else
+#    {
+#        events[e]['time'] = 0;
+#    }
+#}
 
 #-------------------------------------------------------------------------------
 #                                                                  detect_events
@@ -642,8 +642,8 @@ var detect_events = func()
     detect_lower_traffic_area();
     detect_semicircular_fl();
     detect_speed_limit();
-    detect_autotrim_on();
-    detect_autotrim_off();
+    #detect_autotrim_on();
+    #detect_autotrim_off();
     detect_takeoff_v1();
     detect_takeoff_v2();
 

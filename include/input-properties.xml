@@ -1142,7 +1142,17 @@ ________________________________________________________________________________
           </condition>
           <command>property-adjust</command>
           <property>/controls/flight/rudder</property>
-          <factor type="double">.7</factor>
+          <factor type="double">1.5
+            <!--expression>
+              <table>
+                <property>/velocities/airspeed-kt</property>
+                <entry><ind>   0</ind><dep>1.5</dep></entry>
+                <entry><ind> 150</ind><dep>1.0</dep></entry>
+                <entry><ind> 300</ind><dep>0.5</dep></entry>
+                <entry><ind>4000</ind><dep>0.01</dep></entry>
+              </table>
+            </expression-->
+          </factor>
           <min type="double">-1.0</min>
           <max type="double">1.0</max>
           <wrap type="bool">false</wrap>

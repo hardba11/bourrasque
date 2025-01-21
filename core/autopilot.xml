@@ -113,6 +113,11 @@ vitesse affichee sur le hud
     </reference>
     <output>/controls/flight/fbw/aileron</output>
     <config>
+      <!--Kp>/_debug/Kp</Kp><Ti>/_debug/Ti</Ti><Td>/_debug/Td</Td-->
+      <Kp>1</Kp><Ti>.1</Ti><Td>.001</Td>
+      <u_min>-1</u_min>
+      <u_max>1</u_max>
+<!--
       <Kp>
         <expression>
           <table>
@@ -180,6 +185,7 @@ vitesse affichee sur le hud
           </table>
         </expression>
       </u_max>
+-->
     </config>
   </pid-controller>
 

@@ -143,7 +143,6 @@ http://wiki.flightgear.org/Property_tree
 
       <!-- for MP -->
       <canopy-pos-norm       type="float">1</canopy-pos-norm>
-      <canards-pos-norm      type="float">0</canards-pos-norm>
       <store-refuel-pos-norm type="float">0</store-refuel-pos-norm>
 
       <!-- for MP : encoded and decoded -->
@@ -231,11 +230,11 @@ http://wiki.flightgear.org/Property_tree
         <path>sounds/sounds-filters.xml</path>
         <serviceable type="bool">1</serviceable>
       </property-rule>
-      <property-rule n="103">
+      <!--property-rule n="103">
         <name>3d-shadow-filters</name>
         <path>Aircraft/bourrasque/models/effects/shadow/3d-shadow-filters.xml</path>
         <serviceable type="bool">1</serviceable>
-      </property-rule>
+      </property-rule-->
       <property-rule n="104">
         <name>adf-filters</name>
         <path>Aircraft/bourrasque/instruments/nd/nd-filters.xml</path>

@@ -285,16 +285,22 @@ livery_update.stop();
     <name>landing-light-right-spot</name>
     <type>spot</type>
     <position>
-      <x-m type="float">-2.8</x-m>
+      <x-m type="float">-4.3</x-m>
       <y-m type="float">-.1</y-m>
       <z-m type="float">-.8</z-m>
     </position>
     <direction>
       <lookat-x-m>-10</lookat-x-m>
       <lookat-y-m>0</lookat-y-m>
-      <lookat-z-m>-1</lookat-z-m>
+      <lookat-z-m>-1.2</lookat-z-m>
     </direction>
     <ambient>
+<!--
+      <r>0</r>
+      <g>0</g>
+      <b>0</b>
+      <a>0</a>
+-->
       <r>/sim/model/rendering/relative-taxilight-luminosity</r>
       <g>/sim/model/rendering/relative-taxilight-luminosity</g>
       <b>/sim/model/rendering/relative-taxilight-luminosity</b>
@@ -313,12 +319,12 @@ livery_update.stop();
       <a>/sim/model/rendering/relative-taxilight-luminosity</a>
     </specular>
     <attenuation>
-      <c>.5</c> <!-- .5 proche -->
-      <l>.001</l> <!-- .001 -->
-      <q>.0005</q> <!-- .0005 loin -->
+      <c>.1</c> <!-- .1 proche -->
+      <l>.005</l> <!-- .005 -->
+      <q>.0001</q> <!-- .0001 loin -->
     </attenuation>
-    <spot-exponent>30</spot-exponent> <!-- 30 eloignement du spot -->
-    <spot-cutoff>35</spot-cutoff> <!-- 35 demi angle d'ouverture -->
+    <spot-exponent>40</spot-exponent> <!-- 40 eloignement du spot -->
+    <spot-cutoff>50</spot-cutoff> <!-- 35 demi angle d'ouverture -->
     <range-m>500</range-m> <!-- 500 ??? -->
     <debug-color>
       <r>1</r>
@@ -342,39 +348,39 @@ livery_update.stop();
     <name>landing-light-left-spot</name>
     <type>spot</type>
     <position>
-      <x-m type="float">-3.0</x-m>
+      <x-m type="float">-4.8</x-m>
       <y-m type="float">.1</y-m>
-      <z-m type="float">-1</z-m>
+      <z-m type="float">-.5</z-m>
     </position>
     <direction>
-      <lookat-x-m>-5</lookat-x-m>
+      <lookat-x-m>-8</lookat-x-m>
       <lookat-y-m>0</lookat-y-m>
-      <lookat-z-m>-1</lookat-z-m>
+      <lookat-z-m>-8</lookat-z-m>
     </direction>
     <ambient>
-      <r>1</r>
-      <g>1</g>
-      <b>1</b>
-      <a>1</a>
+      <r>/sim/model/rendering/relative-taxilight-luminosity</r>
+      <g>/sim/model/rendering/relative-taxilight-luminosity</g>
+      <b>/sim/model/rendering/relative-taxilight-luminosity</b>
+      <a>/sim/model/rendering/relative-taxilight-luminosity</a>
     </ambient>
     <diffuse>
-      <r>1</r>
-      <g>1</g>
-      <b>1</b>
-      <a>1</a>
+      <r>/sim/model/rendering/relative-taxilight-luminosity</r>
+      <g>/sim/model/rendering/relative-taxilight-luminosity</g>
+      <b>/sim/model/rendering/relative-taxilight-luminosity</b>
+      <a>/sim/model/rendering/relative-taxilight-luminosity</a>
     </diffuse>
     <specular>
-      <r>1</r>
-      <g>1</g>
-      <b>1</b>
-      <a>1</a>
+      <r>/sim/model/rendering/relative-taxilight-luminosity</r>
+      <g>/sim/model/rendering/relative-taxilight-luminosity</g>
+      <b>/sim/model/rendering/relative-taxilight-luminosity</b>
+      <a>/sim/model/rendering/relative-taxilight-luminosity</a>
     </specular>
     <attenuation>
-      <c>1</c>
-      <l>.1</l>
+      <c>.1</c>
+      <l>.01</l>
       <q>.01</q>
     </attenuation>
-    <spot-exponent>2</spot-exponent>
+    <spot-exponent>1.4</spot-exponent>
     <spot-cutoff>80</spot-cutoff>
     <range-m>500</range-m>
     <debug-color>

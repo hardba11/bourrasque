@@ -229,6 +229,13 @@ var zone_outside = {
     'alt': 5000,
     'circuit': 'outside',
 };
+var zone_far = {
+    'id': 'FAR',
+    'speed': 600,
+    'heading': 0,
+    'alt': 20000,
+    'circuit': 'far',
+};
 var zone_landing = {
     'id': 'LANDING',
     'speed': 150,
@@ -279,7 +286,6 @@ var get_aircraft_info = func()
 # 
 var get_airport_info = func()
 {
-
     # get some info on airport
     airport['id'] = getprop("/sim/airport/closest-airport-id") or '';
     var arpt = airportinfo(airport['id']);
@@ -343,6 +349,10 @@ var find_in_which_zone_is_aircraft = func(lat, lng, heading, aircraft_bearing, a
         }
     }
 
+    if (aircraft_dist_nm > 30) {
+        return zone_far;
+    }
+
     # if not found, return default zone
     return zone_outside;
 }
@@ -352,7 +362,6 @@ var find_in_which_zone_is_aircraft = func(lat, lng, heading, aircraft_bearing, a
 # 
 var assistance = func()
 {
-
     var is_enabled = getprop("/controls/assistance") or 0;
     if (is_enabled != 1) {
         # assistance disabled
@@ -423,15 +432,17 @@ var assistance = func()
         aircraft['altitude'] - airport['elevation_ft']
     );
 
+    atc['circuit'] = zone['circuit'];
     atc['heading'] = math.mod(airport['heading'] + zone['heading'], 360);
     atc['speed']   = zone['speed'];
-    atc['alt']     = (sprintf('%d', zone['alt'] / 100) + sprintf('%d', airport['elevation_ft'] / 100)) * 100;
-    atc['circuit'] = zone['circuit'];
-
+    atc['alt']     = zone['alt'];
+    if ((atc['circuit'] != 'outside') and (atc['circuit'] != 'far')) {
+        atc['alt'] = (sprintf('%d', zone['alt'] / 100) + sprintf('%d', airport['elevation_ft'] / 100)) * 100;
+    }
 
 # GESTION DES MESSAGES POUR LA PARTIE HORIZONTALE
     # on gere differemment selon si l avion est dans ou hors zone
-    if (atc['circuit'] != 'outside') {
+    if ((atc['circuit'] != 'outside') and (atc['circuit'] != 'far')) {
         # avion en finale
         # zone final leg :
         if (atc['circuit'] == 'final') {
@@ -470,13 +481,8 @@ var assistance = func()
     } else {
         # avion hors zone, on va donner a l avion le cap direct vers l aeroport
 
-        # on ne fait varier le message que chaque 10 cycles
-        if (h == 0) h = airport_bearing_from_aircraft;
-        if (d == 0) d = dist_nm;
-        if (nb_cycle == 9) {
-            h = airport_bearing_from_aircraft;
-            d = dist_nm;
-        }
+        h = airport_bearing_from_aircraft;
+        d = dist_nm;
 
         if (math.cos((aircraft['heading'] - airport_bearing_from_aircraft) * D2R) > math.cos(5 * D2R)) {
             assistance_message_horizontal = sprintf(
@@ -525,8 +531,8 @@ var assistance = func()
         assistance_message_vertical = sprintf('keep 3deg descent glide.');
     } elsif (atc['circuit'] == 'landing') {
         assistance_message_vertical = '';
-    } elsif (atc['circuit'] == 'outside') {
-        assistance_message_vertical = '';
+    #} elsif (atc['circuit'] == 'outside') {
+    #    assistance_message_vertical = '';
     } elsif (aircraft['altitude'] > (atc['alt'] + 100)) {
         assistance_message_vertical = sprintf('DESCEND to %d ft (got %d ft)',
             atc['alt'],
@@ -611,38 +617,39 @@ var assistance = func()
         assistance_message_vitesse,
         assistance_message_bonus);
 
-    # si il y a un changement 
-    # on affiche le message tous les 3 ou 6 cycles 
-    # ou tous les 2 cycles si on est en finale
-    # mais on rappelle le message tous les 10 cycles
+    # on gere l'affichage et la frequence des messages
     if (
         (
+            (dist_nm < 30)
+            and
             (
-                (nb_cycle == 3)
-                or
-                (nb_cycle == 6)
+                (nb_cycle == 3) or (nb_cycle == 6) or (nb_cycle == 9) or (nb_cycle == 12) or (nb_cycle == 15) or (nb_cycle == 19)
             )
             and
             (assistance_message != previous_assistance_message)
         )
         or
         (
-            (
-                (nb_cycle == 2)
-                or
-                (nb_cycle == 4)
-                or
-                (nb_cycle == 6)
-                or
-                (nb_cycle == 8)
-            )
-            and
             (atc['circuit'] == 'final')
+            and
+            (
+                (nb_cycle == 2) or (nb_cycle == 4) or (nb_cycle == 6) or (nb_cycle == 8) or (nb_cycle == 10) or (nb_cycle == 12) or (nb_cycle == 14) or (nb_cycle == 16) or (nb_cycle == 18)
+            )
             and
             (assistance_message != previous_assistance_message)
         )
         or
-        (nb_cycle > 10)
+        (
+            (dist_nm > 30)
+            and
+            (
+                (nb_cycle == 9)
+            )
+            and
+            (assistance_message != previous_assistance_message)
+        )
+        or
+        (nb_cycle > 20)
     ) {
         setprop("/sim/messages/atc", assistance_message);
         debug.dump(assistance_message);

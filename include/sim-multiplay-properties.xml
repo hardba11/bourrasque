@@ -23,7 +23,6 @@ PROPERTY-PATH : /sim/multiplay/
     <int                  n="2" />
 
     <float                n="0"  alias="/sim/model/canopy-pos-norm" />
-    <float                n="1"  alias="/sim/model/canards-pos-norm" />
     <float                n="2"  alias="/controls/lighting/formation-lights" />
     <float                n="4"  alias="/gear/gear[0]/rollspeed-ms" />
     <float                n="5"  alias="/gear/gear[1]/rollspeed-ms" />

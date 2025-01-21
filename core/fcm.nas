@@ -21,7 +21,7 @@ var node_control_yaw      = props.globals.getNode("/controls/flight/rudder");
 
 # outputs
 var node_fcm_yaw          = props.globals.getNode("/controls/flight/fcm-rudder");
-var node_fcm_canard       = props.globals.getNode("/controls/flight/fcm-canard");
+#var node_fcm_canard       = props.globals.getNode("/controls/flight/fcm-canard");
 var node_fcm_slat         = props.globals.getNode("/controls/flight/slats", 1);
 
 var node_aoa              = props.globals.getNode("/orientation/alpha-deg");
@@ -130,7 +130,7 @@ var fcm_loop = func()
     # values must be between -1 and 1
     node_fcm_yaw.setValue(output_yaw);
     node_fcm_slat.setValue(output_slats);
-    node_fcm_canard.setValue(output_canard);
+    #node_fcm_canard.setValue(output_canard);
 
 
 }

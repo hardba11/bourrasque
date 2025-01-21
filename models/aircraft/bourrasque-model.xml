@@ -214,8 +214,40 @@ ________________________________________________________________________________
   <animation>
     <type>rotate</type>
     <object-name>block_canard</object-name>
-    <property>sim/multiplay/generic/float[1]</property> <!-- for MP sim/model/canards-pos-norm -->
-    <factor>20</factor>
+<!--
+gear=0 => -12    (slat x ((gear - 1) x 12 x bus) + (gear x 15 x bus))) + ((bus - 1) x -18)=-12
+gear=1 => 15     (slat x ((gear - 1) x 12 x bus) + (gear x 15 x bus))) + ((bus - 1) x -18)=15
+bus=0 => 18      (slat x ((gear - 1) x 12 x bus) + (gear x 15 x bus))) + ((bus - 1) x -18)=18
+-->
+    <expression>
+      <sum>
+        <product>
+          <property>surface-positions/slat-pos-norm</property>
+          <sum>
+            <product>
+              <value>12</value>
+              <sum>
+                <property>gear/gear[0]/position-norm</property>
+                <value>-1</value>
+              </sum>
+              <property>/systems/electrical/bus/commands</property>
+            </product>
+            <product>
+              <value>15</value>
+              <property>gear/gear[0]/position-norm</property>
+              <property>/systems/electrical/bus/commands</property>
+            </product>
+          </sum>
+        </product>
+        <product>
+          <value>-18</value>
+          <sum>
+            <property>/systems/electrical/bus/commands</property>
+            <value>-1</value>
+          </sum>
+        </product>
+      </sum>
+    </expression>
     <center>
       <x-m>-1.69</x-m>
       <y-m>0</y-m>

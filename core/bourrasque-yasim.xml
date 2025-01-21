@@ -150,7 +150,7 @@ ________________________________________________________________________________
                                                              VERTICAL STABILIZER
   -->
   <vstab
-      x="-4.2" y="0" z="1"
+      x="-4.2" y="0" z="-.5"
       length="3.15"
       chord="3.3"
       sweep="27.5"
@@ -167,19 +167,16 @@ ________________________________________________________________________________
 ________________________________________________________________________________
                                                                         HACK !!!
   -->
-  <!-- ~~~~~~~~~~~~~~~~~~ canopy -->
+  <!-- ~~~~~~~~~~~~~~~~~~ limit yaw -->
+  <mstab x="-5" y="0" z="1" length="1.5" chord="1.5" sweep="15" taper=".15" dihedral="0" camber="0" incidence="0">
+  </mstab>
+  <!-- ~~~~~~~~~~~~~~~~~~ animation canopy -->
   <mstab x="0.1" y="0" z="0" length=".0001" chord=".0001" sweep=".0001" taper=".0001" dihedral="0" camber="0" incidence="0">
     <control-input  control="FLAP0" axis="/controls/doors/canopy" />
     <control-output control="FLAP0" prop="/sim/model/canopy-pos-norm" /> <!-- alias for MP -->
     <control-speed  control="FLAP0" transition-time="14" />
   </mstab>
-  <!-- ~~~~~~~~~~~~~~~~~~ canard -->
-  <mstab x="0" y="0" z="0" length=".0001" chord=".0001" sweep=".0001" taper=".0001" dihedral="0" camber="0" incidence="0">
-    <control-input  control="FLAP0" axis="/controls/flight/fcm-canard" />
-    <control-output control="FLAP0" prop="/sim/model/canards-pos-norm" /> <!-- alias for MP -->
-    <control-speed  control="FLAP0" transition-time="2" />
-  </mstab>
-  <!-- ~~~~~~~~~~~~~~~~~~ buddy buddy -->
+  <!-- ~~~~~~~~~~~~~~~~~~ animation buddy buddy -->
   <mstab x="-0.1" y="0" z="0" length=".0001" chord=".0001" sweep=".0001" taper=".0001" dihedral="0" camber="0" incidence="0">
     <control-input  control="FLAP0" axis="/controls/refuel-pod/pipe-extended" />
     <control-output control="FLAP0" prop="/sim/model/store-refuel-pos-norm" /> <!-- alias for MP -->
@@ -194,7 +191,7 @@ ________________________________________________________________________________
 ________________________________________________________________________________
                                                                              JET
   -->
-  <!-- ~~~~~~~~~~~~~~~~~~ left engine + hack to lower fuel consumption -->
+  <!-- ~~~~~~~~~~~~~~~~~~ left engine -->
   <jet
       x="-2" y="0.5" z="0.1"
       mass="1900"
@@ -214,7 +211,7 @@ ________________________________________________________________________________
     <control-speed  control="REHEAT" transition-time="2" />
   </jet>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ right engine + hack to lower fuel consumption -->
+  <!-- ~~~~~~~~~~~~~~~~~~ right engine -->
   <jet x="-2" y="-0.5" z=".1"
       mass="1900"
       thrust="15000"

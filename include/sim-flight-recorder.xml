@@ -19,11 +19,6 @@ see :
     <name type="string">specific flight recorder</name>
     <signal>
       <type>float</type>
-      <property type="string">/sim/model/canards-pos-norm</property>
-      <interpolation>linear</interpolation>
-    </signal>
-    <signal>
-      <type>float</type>
       <property type="string">/sim/model/canopy-pos-norm</property>
       <interpolation>linear</interpolation>
     </signal>
@@ -42,24 +37,6 @@ see :
       <property type="string">/sim/model/store-refuel-pos-norm</property>
       <interpolation>linear</interpolation>
     </signal>
-
-    <!--signal>
-      <type>float</type>
-      <property type="string">/gear/gear[0]/rollspeed-ms</property>
-      <interpolation>linear</interpolation>
-    </signal>
-    <signal>
-      <type>float</type>
-      <property type="string">/gear/gear[1]/rollspeed-ms</property>
-      <interpolation>linear</interpolation>
-    </signal>
-    <signal>
-      <type>float</type>
-      <property type="string">/gear/gear[2]/rollspeed-ms</property>
-      <interpolation>linear</interpolation>
-    </signal-->
-
-
   </config>
 
 </PropertyList>

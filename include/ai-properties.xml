@@ -35,7 +35,6 @@ PROPERTY-PATH : /ai/
             <int                  n="1"  alias="/sim/multiplay/generic/int[1]" />
             <int                  n="2"  alias="/sim/multiplay/generic/int[2]" />
             <float                n="0"  alias="/sim/model/canopy-pos-norm" />
-            <float                n="1"  alias="/sim/model/canards-pos-norm" />
             <float                n="2"  alias="/controls/lighting/formation-lights" />
             <float                n="3"  alias="/position/altitude-agl-m" />
             <float                n="4"  alias="/gear/gear[0]/rollspeed-ms" />
@@ -86,7 +85,6 @@ PROPERTY-PATH : /ai/
             <int                  n="1"  alias="/sim/multiplay/generic/int[1]" />
             <int                  n="2"  alias="/sim/multiplay/generic/int[2]" />
             <float                n="0"  alias="/sim/model/canopy-pos-norm" />
-            <float                n="1"  alias="/sim/model/canards-pos-norm" />
             <float                n="2"  alias="/controls/lighting/formation-lights" />
             <float                n="3"  alias="/position/altitude-agl-m" />
             <float                n="4"  alias="/gear/gear[0]/rollspeed-ms" />
