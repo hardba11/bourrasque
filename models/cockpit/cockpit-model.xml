@@ -364,9 +364,13 @@ ________________________________________________________________________________
     <property>sim/multiplay/generic/float[0]</property> <!-- for MP sim/model/canopy-pos-norm -->
     <interpolation>
       <entry><ind>0</ind><dep>0</dep></entry>
-      <entry><ind>.6</ind><dep>0</dep></entry>
-      <entry><ind>.87</ind><dep>0</dep></entry>
-      <entry><ind>1</ind><dep>1</dep></entry>
+      <entry><ind>.1</ind><dep>0</dep></entry>
+      <entry><ind>.2</ind><dep>2.5</dep></entry>
+      <entry><ind>.6</ind><dep>2.5</dep></entry>
+      <entry><ind>.7</ind><dep>2.2</dep></entry>
+      <entry><ind>.8</ind><dep>2.3</dep></entry>
+      <entry><ind>.9</ind><dep>2.5</dep></entry>
+      <entry><ind>1</ind><dep>3.2</dep></entry>
     </interpolation>
     <center>
       <x-m>-1.431</x-m>
@@ -386,8 +390,13 @@ ________________________________________________________________________________
     <property>sim/multiplay/generic/float[0]</property> <!-- for MP sim/model/canopy-pos-norm -->
     <interpolation>
       <entry><ind>0</ind><dep>0</dep></entry>
-      <entry><ind>.6</ind><dep>.005</dep></entry>
-      <entry><ind>1</ind><dep>.073</dep></entry>
+      <entry><ind>.1</ind><dep>0</dep></entry>
+      <entry><ind>.2</ind><dep>.015</dep></entry>
+      <entry><ind>.6</ind><dep>.02</dep></entry>
+      <entry><ind>.7</ind><dep>.038</dep></entry>
+      <entry><ind>.8</ind><dep>.055</dep></entry>
+      <entry><ind>.9</ind><dep>.072</dep></entry>
+      <entry><ind>1</ind><dep>.09</dep></entry>
     </interpolation>
     <axis>
       <x>.6</x>

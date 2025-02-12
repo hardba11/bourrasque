@@ -348,6 +348,12 @@ http://wiki.flightgear.org/Property_tree
     <gear-agl-ft type="float">0</gear-agl-ft>
   </position>
 
+  <surface-positions>
+    <out-left-aileron-pos-norm type="float">0</out-left-aileron-pos-norm>
+    <out-right-aileron-pos-norm type="float">0</out-right-aileron-pos-norm>
+    <out-elevator-pos-norm type="float">0</out-elevator-pos-norm>
+  </surface-positions>
+
   <!-- tyre smoke and squeal when touchdown, data updated by bourrasque.nas -->
   <gear>
     <gear n="0">
@@ -471,8 +477,6 @@ http://wiki.flightgear.org/Property_tree
     <core>
       <!-- aircraft properties update -->
       <file type="string">core/bourrasque.nas</file>
-      <!-- fly by wire -->
-      <file type="string">core/fcm.nas</file>
       <!-- aircraft electrical and engines systems -->
       <file type="string">core/systems.nas</file>
       <!-- specific functions for starting/stopping aircraft -->

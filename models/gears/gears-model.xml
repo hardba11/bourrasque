@@ -128,7 +128,6 @@ changelog
     </condition>
   </animation>
 
-
   <!-- ~~~~~~~~~~~~~~~~~~ front gear blocks -->
   <animation>
     <name>block_verrin_jambe_train</name>
@@ -154,6 +153,13 @@ changelog
     <object-name>essieu_train</object-name>
     <object-name>roue_train</object-name>
     <object-name>compas_piston_train</object-name>
+  </animation>
+  <animation>
+    <name>block_train</name>
+    <object-name>piston_train</object-name>
+    <object-name>essieu_train</object-name>
+    <object-name>compas_piston_train</object-name>
+    <object-name>compas_jambe_train</object-name>
   </animation>
 
   <!-- ~~~~~~~~~~~~~~~~~~ left gear blocks -->
@@ -418,6 +424,54 @@ ________________________________________________________________________________
 
   <!--
 ________________________________________________________________________________
+                                                            STEERING FRONT GEARS
+  -->
+  <!-- ~~~~~~~~~~~~~~~~~~ steering wheels -->
+  <animation>
+    <type>rotate</type>
+    <object-name>roue_train</object-name>
+    <expression>
+      <product>
+        <property>systems/electrical/bus/commands</property>
+        <property>sim/multiplay/generic/float[7]</property>
+        <value>-45</value>
+      </product>
+    </expression>
+    <center>
+      <x-m>-2.75</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>block_train</object-name>
+    <expression>
+      <product>
+        <property>systems/electrical/bus/commands</property>
+        <property>sim/multiplay/generic/float[7]</property>
+        <value>-45</value>
+      </product>
+    </expression>
+    <center>
+      <x-m>-2.677</x-m>
+      <y-m>0</y-m>
+      <z-m>-0.941</z-m>
+    </center>
+    <axis>
+      <x>0.023</x>
+      <y>0</y>
+      <z>0.117</z>
+    </axis>
+  </animation>
+
+  <!--
+________________________________________________________________________________
                                                       WHEEL ROTATION FRONT GEARS
   -->
   <!-- ~~~~~~~~~~~~~~~~~~ rotating wheels when taxiing -->
@@ -435,28 +489,6 @@ ________________________________________________________________________________
       <x>0</x>
       <y>-1</y>
       <z>0</z>
-    </axis>
-  </animation>
-  <!--
-________________________________________________________________________________
-                                                            STEERING FRONT GEARS
-  -->
-  <!-- ~~~~~~~~~~~~~~~~~~ steering wheels -->
-  <animation>
-    <type>rotate</type>
-    <object-name>block_roue_train</object-name>
-    <object-name>compas_jambe_train</object-name>
-    <property>sim/multiplay/generic/float[7]</property>
-    <factor>-45</factor>
-    <center>
-      <x-m>-2.677</x-m>
-      <y-m>0</y-m>
-      <z-m>-0.941</z-m>
-    </center>
-    <axis>
-      <x>0.023</x>
-      <y>0</y>
-      <z>0.117</z>
     </axis>
   </animation>
 

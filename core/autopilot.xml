@@ -113,79 +113,9 @@ vitesse affichee sur le hud
     </reference>
     <output>/controls/flight/fbw/aileron</output>
     <config>
-      <!--Kp>/_debug/Kp</Kp><Ti>/_debug/Ti</Ti><Td>/_debug/Td</Td-->
       <Kp>1</Kp><Ti>.1</Ti><Td>.001</Td>
       <u_min>-1</u_min>
       <u_max>1</u_max>
-<!--
-      <Kp>
-        <expression>
-          <table>
-            <property>/velocities/airspeed-kt</property>
-            <entry><ind> 192</ind><dep>2.6</dep></entry>
-            <entry><ind> 288</ind><dep>2.5</dep></entry>
-            <entry><ind> 433</ind><dep>2.3</dep></entry>
-            <entry><ind> 578</ind><dep>2.0</dep></entry>
-            <entry><ind> 769</ind><dep>1.3</dep></entry>
-            <entry><ind> 936</ind><dep>1.1</dep></entry>
-            <entry><ind>1075</ind><dep>.8</dep></entry>
-            <entry><ind>1195</ind><dep>.6</dep></entry>
-            <entry><ind>1300</ind><dep>.4</dep></entry>
-            <entry><ind>4000</ind><dep>.1</dep></entry>
-          </table>
-        </expression>
-      </Kp>
-      <Ti>
-        <expression>
-          <table>
-            <property>/velocities/airspeed-kt</property>
-            <entry><ind>  95</ind><dep>.1</dep></entry>
-            <entry><ind> 936</ind><dep>.1</dep></entry>
-            <entry><ind>1075</ind><dep>.5</dep></entry>
-            <entry><ind>1195</ind><dep>.8</dep></entry>
-            <entry><ind>1300</ind><dep>1.0</dep></entry>
-            <entry><ind>4000</ind><dep>2.0</dep></entry>
-          </table>
-        </expression>
-      </Ti>
-      <Td>
-        <expression>
-          <table>
-            <property>/velocities/airspeed-kt</property>
-            <entry><ind>  95</ind><dep>0.00002</dep></entry>
-            <entry><ind> 936</ind><dep>0.00002</dep></entry>
-            <entry><ind>1075</ind><dep>0.00001</dep></entry>
-            <entry><ind>1195</ind><dep>0.000001</dep></entry>
-            <entry><ind>1300</ind><dep>0.0000002</dep></entry>
-            <entry><ind>4000</ind><dep>0.0000002</dep></entry>
-          </table>
-        </expression>
-      </Td>
-      <u_min>
-        <expression>
-          <table>
-            <property>/velocities/airspeed-kt</property>
-            <entry><ind>  95</ind><dep>-1.0</dep></entry>
-            <entry><ind> 627</ind><dep>-1.0</dep></entry>
-            <entry><ind>1137</ind><dep>-.1</dep></entry>
-            <entry><ind>1478</ind><dep>-.1</dep></entry>
-            <entry><ind>4000</ind><dep>-.01</dep></entry>
-          </table>
-        </expression>
-      </u_min>
-      <u_max>
-        <expression>
-          <table>
-            <property>/velocities/airspeed-kt</property>
-            <entry><ind>  95</ind><dep>1.0</dep></entry>
-            <entry><ind> 627</ind><dep>1.0</dep></entry>
-            <entry><ind>1137</ind><dep>.1</dep></entry>
-            <entry><ind>1478</ind><dep>.1</dep></entry>
-            <entry><ind>4000</ind><dep>.01</dep></entry>
-          </table>
-        </expression>
-      </u_max>
--->
     </config>
   </pid-controller>
 
@@ -249,31 +179,23 @@ vitesse affichee sur le hud
       <expression>
         <table>
           <property>/controls/flight/fbw/command-pitch-norm</property>
-          <entry><ind>-1.000</ind><dep>12.5</dep></entry>
+          <entry><ind>-1.000</ind><dep>13.5</dep></entry>
           <entry><ind>0.000</ind><dep>1</dep></entry>
-          <entry><ind>1.000</ind><dep>-10.5</dep></entry>
+          <entry><ind>1.000</ind><dep>-11.5</dep></entry>
         </table>
       </expression>
     </input>
     <gain>1.0</gain>
     <output>/controls/flight/fbw/target-g</output>
     <min>-4.5</min>
-    <max>12.5</max>
+    <max>13.5</max>
   </filter>
 
   <pid-controller>
     <name>fbw/elevator</name>
     <debug>false</debug>
-    <feedback-if-disabled>true</feedback-if-disabled>
+    <feedback-if-disabled>false</feedback-if-disabled>
     <reference>/accelerations/pilot-g</reference>
-<!--
-    <enable>
-      <condition>
-        <equals><property>/gear/gear[1]/wow</property><value>0</value></equals>
-        <equals><property>/gear/gear[2]/wow</property><value>0</value></equals>
-      </condition>
-    </enable>
--->
     <input>/controls/flight/fbw/target-g</input>
     <output>/controls/flight/fbw/elevator</output>
     <config>
@@ -289,8 +211,7 @@ vitesse affichee sur le hud
         <expression>
           <table>
             <property>/velocities/mach</property>
-            <entry><ind>0.00</ind><dep>0.0001</dep></entry>
-            <entry><ind>0.05</ind><dep>0.001</dep></entry>
+            <entry><ind>0.00</ind><dep>0.010</dep></entry>
             <entry><ind>0.10</ind><dep>0.010</dep></entry>
             <entry><ind>0.20</ind><dep>0.010</dep></entry>
             <entry><ind>0.35</ind><dep>0.010</dep></entry>
@@ -339,20 +260,39 @@ vitesse affichee sur le hud
     <type>gain</type>
     <gain>1.0</gain>
     <input>/controls/flight/fbw/elevator</input>
-<!--
-    <input>
-      <property>/controls/flight/fbw/elevator</property>
-      <condition>
-        <equals><property>/gear/gear[1]/wow</property><value>0</value></equals>
-        <equals><property>/gear/gear[2]/wow</property><value>0</value></equals>
-      </condition>
-    </input>
-    <input>/controls/flight/elevator</input>
--->
     <output>/controls/flight/fbw-elevator</output>
     <enable>
     </enable>
   </filter>
+
+
+  <!--
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                                                                             YAW
+  -->
+  <filter>
+    <name>fbw-rudder</name>
+    <type>gain</type>
+    <gain>
+      <expression>
+        <table>
+          <property>/velocities/mach</property>
+          <entry><ind>0.00</ind><dep>0.80</dep></entry>
+          <entry><ind>0.05</ind><dep>0.70</dep></entry>
+          <entry><ind>0.25</ind><dep>0.70</dep></entry>
+          <entry><ind>0.50</ind><dep>0.10</dep></entry>
+          <entry><ind>1.00</ind><dep>0.01</dep></entry>
+          <entry><ind>2.00</ind><dep>0.01</dep></entry>
+        </table>
+      </expression>
+    </gain>
+    <input>/controls/flight/rudder</input>
+    <output>/controls/flight/fbw-rudder</output>
+    <min>-1</min>
+    <max>1</max>
+  </filter>
+
+
 
   <!--
 ================================================================================
@@ -1102,7 +1042,7 @@ directly connect output to the FDM when AP is on otherwise connect FCM to FDM
   </filter>
 
   <filter>
-    <name>fdm-elevato</name>
+    <name>fdm-elevator</name>
     <type>gain</type>
     <gain>1.0</gain>
     <input>
@@ -1118,6 +1058,25 @@ directly connect output to the FDM when AP is on otherwise connect FCM to FDM
       <property>/controls/flight/fbw-elevator</property>
     </input>
     <output>/controls/flight/fdm-elevator</output>
+  </filter>
+
+  <filter>
+    <name>fdm-rudder</name>
+    <type>gain</type>
+    <gain>1.0</gain>
+    <input>
+      <condition>
+        <or>
+          <equals><property>/autopilot/locks/altitude</property><value>vertical-speed-hold</value></equals>
+          <equals><property>/autopilot/locks/altitude</property><value>altitude-hold</value></equals>
+        </or>
+      </condition>
+      <property>/controls/flight/rudder</property>
+    </input>
+    <input>
+      <property>/controls/flight/fbw-rudder</property>
+    </input>
+    <output>/controls/flight/fdm-rudder</output>
   </filter>
 
 </PropertyList>

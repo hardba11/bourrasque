@@ -20,12 +20,12 @@ PROPERTY-PATH : /controls/
 
   <flight>
     <!-- init properties used by fcm.nas autopilot and yasim -->
-    <fbw-elevator>0.00</fbw-elevator>
-    <fbw-aileron>0.00</fbw-aileron>
-    <fcm-rudder>0.00</fcm-rudder>
-    <fcm-canard>0.00</fcm-canard>
-    <fdm-elevator>0.00</fdm-elevator>
-    <fdm-aileron>0.00</fdm-aileron>
+    <fbw-elevator type="float">0.00</fbw-elevator>
+    <fdm-elevator type="float">0.00</fdm-elevator>
+    <fbw-aileron type="float">0.00</fbw-aileron>
+    <fdm-aileron type="float">0.00</fdm-aileron>
+    <fbw-rudder type="float">0.00</fbw-rudder>
+    <fdm-rudder type="float">0.00</fdm-rudder>
     <autotrim-pitch type="bool">0</autotrim-pitch>
   </flight>
 
@@ -42,6 +42,11 @@ PROPERTY-PATH : /controls/
       <throttle alias="/controls/engines/engine[1]/throttle" />
     </engine>
   </hack>
+  <hydraulic>
+    <system>
+      <engine-pump type="bool">0</engine-pump>
+    </system>
+  </hydraulic>
 
   <gear>
     <!-- set property : parking brake at start -->

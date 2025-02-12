@@ -38,6 +38,8 @@ changelog
         <center-refuel-pod     type="int">0</center-refuel-pod>
         <wing-pylons-smoke-pod type="int">0</wing-pylons-smoke-pod>
         <smoking               type="int">0</smoking>
+        <hydraulic        type="float">1.0</hydraulic>
+        <hydraulic-canard type="float">1.0</hydraulic-canard>
       </model>
     </sim>
 
@@ -215,9 +217,9 @@ ________________________________________________________________________________
     <type>rotate</type>
     <object-name>block_canard</object-name>
 <!--
-gear=0 => -12    (slat x ((gear - 1) x 12 x bus) + (gear x 15 x bus))) + ((bus - 1) x -18)=-12
-gear=1 => 15     (slat x ((gear - 1) x 12 x bus) + (gear x 15 x bus))) + ((bus - 1) x -18)=15
-bus=0 => 18      (slat x ((gear - 1) x 12 x bus) + (gear x 15 x bus))) + ((bus - 1) x -18)=18
+gear=0 => -12    (slat x ((gear - 1) x 12 x hydr) + (gear x 15 x hydr))) + ((hydr - 1) x -18)=-12
+gear=1 => 15     (slat x ((gear - 1) x 12 x hydr) + (gear x 15 x hydr))) + ((hydr - 1) x -18)=15
+hydr=0 => 18     (slat x ((gear - 1) x 12 x hydr) + (gear x 15 x hydr))) + ((hydr - 1) x -18)=18
 -->
     <expression>
       <sum>
@@ -230,19 +232,19 @@ bus=0 => 18      (slat x ((gear - 1) x 12 x bus) + (gear x 15 x bus))) + ((bus -
                 <property>gear/gear[0]/position-norm</property>
                 <value>-1</value>
               </sum>
-              <property>/systems/electrical/bus/commands</property>
+              <property>sim/model/hydraulic-canard</property>
             </product>
             <product>
               <value>15</value>
               <property>gear/gear[0]/position-norm</property>
-              <property>/systems/electrical/bus/commands</property>
+              <property>sim/model/hydraulic-canard</property>
             </product>
           </sum>
         </product>
         <product>
           <value>-18</value>
           <sum>
-            <property>/systems/electrical/bus/commands</property>
+            <property>sim/model/hydraulic-canard</property>
             <value>-1</value>
           </sum>
         </product>
@@ -269,8 +271,13 @@ ________________________________________________________________________________
   <animation>
     <type>rotate</type>
     <object-name>derive</object-name>
-    <property>surface-positions/rudder-pos-norm</property>
-    <factor>20</factor>
+    <expression>
+      <product>
+        <property>systems/electrical/bus/commands</property>
+        <property>surface-positions/rudder-pos-norm</property>
+        <value>20</value>
+      </product>
+    </expression>
     <center>
       <x-m>5.82</x-m>
       <y-m>0</y-m>
@@ -291,25 +298,8 @@ ________________________________________________________________________________
   <animation>
     <type>rotate</type>
     <object-name>aileron_L</object-name>
-    <expression>
-      <sum>
-        <product>
-          <value>-16</value>
-          <sum>
-            <property>systems/electrical/bus/commands</property>
-            <value>-1</value>
-          </sum>
-        </product>
-        <product>
-          <property>systems/electrical/bus/commands</property>
-          <sum>
-            <property>surface-positions/left-aileron-pos-norm</property>
-            <property>surface-positions/elevator-pos-norm</property>
-          </sum>
-          <value>8</value>
-        </product>
-      </sum>
-    </expression>
+    <property>surface-positions/left-aileron-pos-norm</property>
+    <factor>25</factor>
     <center>
       <x-m>4.08</x-m>
       <y-m>-3.73</y-m>
@@ -325,25 +315,8 @@ ________________________________________________________________________________
   <animation>
     <type>rotate</type>
     <object-name>aileron_R</object-name>
-    <expression>
-      <sum>
-        <product>
-          <value>-16</value>
-          <sum>
-            <property>systems/electrical/bus/commands</property>
-            <value>-1</value>
-          </sum>
-        </product>
-        <product>
-          <property>systems/electrical/bus/commands</property>
-          <sum>
-            <property>surface-positions/right-aileron-pos-norm</property>
-            <property>surface-positions/elevator-pos-norm</property>
-          </sum>
-          <value>8</value>
-        </product>
-      </sum>
-    </expression>
+    <property>surface-positions/right-aileron-pos-norm</property>
+    <factor>25</factor>
     <center>
       <x-m>4.08</x-m>
       <y-m>3.73</y-m>
@@ -365,22 +338,8 @@ ________________________________________________________________________________
   <animation>
     <type>rotate</type>
     <object-name>elevon_L</object-name>
-    <expression>
-      <sum>
-        <product>
-          <value>-16</value>
-          <sum>
-            <property>systems/electrical/bus/commands</property>
-            <value>-1</value>
-          </sum>
-        </product>
-        <product>
-          <property>systems/electrical/bus/commands</property>
-          <property>surface-positions/elevator-pos-norm</property>
-          <value>8</value>
-        </product>
-      </sum>
-    </expression>
+    <property>surface-positions/elevator-pos-norm</property>
+    <factor>25</factor>
     <center>
       <x-m>4.08</x-m>
       <y-m>-2.01</y-m>
@@ -396,22 +355,8 @@ ________________________________________________________________________________
   <animation>
     <type>rotate</type>
     <object-name>elevon_R</object-name>
-    <expression>
-      <sum>
-        <product>
-          <value>-16</value>
-          <sum>
-            <property>systems/electrical/bus/commands</property>
-            <value>-1</value>
-          </sum>
-        </product>
-        <product>
-          <property>systems/electrical/bus/commands</property>
-          <property>surface-positions/elevator-pos-norm</property>
-          <value>8</value>
-        </product>
-      </sum>
-    </expression>
+    <property>surface-positions/elevator-pos-norm</property>
+    <factor>25</factor>
     <center>
       <x-m>4.08</x-m>
       <y-m>2.01</y-m>
@@ -523,7 +468,7 @@ ________________________________________________________________________________
         <property>/controls/doors/canopy</property>
         <command>property-cycle</command>
         <value>0</value>
-        <value>0.6</value>
+        <value>.6</value>
         <value>1</value>
         <wrap>true</wrap>
         <condition>
@@ -532,7 +477,24 @@ ________________________________________________________________________________
       </binding>
     </action>
   </animation>
-  <!-- ~~~~~~~~~~~~~~~~~~ movement -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ movements -->
+  <animation>
+    <type>translate</type>
+    <object-name>block_canopy</object-name>
+    <property>sim/multiplay/generic/float[0]</property> <!-- for MP sim/model/canopy-pos-norm -->
+    <interpolation>
+      <entry><ind>0</ind><dep>0</dep></entry>
+      <entry><ind>.1</ind><dep>0</dep></entry>
+      <entry><ind>.2</ind><dep>.03</dep></entry>
+      <entry><ind>1</ind><dep>.03</dep></entry>
+    </interpolation>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
   <animation>
     <type>rotate</type>
     <object-name>block_canopy</object-name>

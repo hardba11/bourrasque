@@ -94,14 +94,11 @@ ________________________________________________________________________________
 
     <!-- ~~~~~~~~~~~~~~~~~~ ailerons : ROLL -->
     <flap0 start=".3" end="1" lift="1.3" drag="0" />
-<!--
-    <control-input  control="FLAP0" axis="/controls/flight/aileron"  split="true" />
--->
     <control-input  control="FLAP0" axis="/controls/flight/fdm-aileron"  split="true" />
     <control-input  control="FLAP0" axis="/controls/flight/aileron-trim" split="true" />
     <control-output control="FLAP0" prop="/surface-positions/aileron-pos-norm" />
-    <control-output control="FLAP0" prop="/surface-positions/left-aileron-pos-norm"  side="left" />
-    <control-output control="FLAP0" prop="/surface-positions/right-aileron-pos-norm" side="right" />
+    <control-output control="FLAP0" prop="/surface-positions/out-left-aileron-pos-norm"  side="left" />
+    <control-output control="FLAP0" prop="/surface-positions/out-right-aileron-pos-norm" side="right" />
     <control-speed  control="FLAP0" transition-time="0" />
 
     <!-- ~~~~~~~~~~~~~~~~~~ speedbrakes -->
@@ -134,12 +131,9 @@ ________________________________________________________________________________
 
     <!-- ~~~~~~~~~~~~~~~~~~ elevator : PITCH -->
     <flap0 start="0" end=".3" lift="2.1" drag="0" />
-<!--
-    <control-input  control="FLAP0" axis="/controls/flight/elevator" />
--->
     <control-input  control="FLAP0" axis="/controls/flight/fdm-elevator" />
     <control-input  control="FLAP0" axis="/controls/flight/elevator-trim" />
-    <control-output control="FLAP0" prop="/surface-positions/elevator-pos-norm" />
+    <control-output control="FLAP0" prop="/surface-positions/out-elevator-pos-norm" />
     <control-speed  control="FLAP0" transition-time="0" />
 
   </hstab>
@@ -157,7 +151,7 @@ ________________________________________________________________________________
       taper=".28">
     <stall aoa="30" width="10" peak="1.5" />
     <flap0 start="0" end=".8" lift="2.2" drag="1" />
-    <control-input  control="FLAP0" axis="/controls/flight/fcm-rudder"  invert="true" />
+    <control-input  control="FLAP0" axis="/controls/flight/fdm-rudder"  invert="true" />
     <control-input  control="FLAP0" axis="/controls/flight/rudder-trim" invert="true" />
     <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm" />
     <control-speed  control="FLAP0" transition-time="0" />
@@ -167,20 +161,31 @@ ________________________________________________________________________________
 ________________________________________________________________________________
                                                                         HACK !!!
   -->
-  <!-- ~~~~~~~~~~~~~~~~~~ limit yaw -->
+  <!-- ~~~~~~~~~~~~~~~~~~ limit yaw oscillations -->
   <mstab x="-5" y="0" z="1" length="1.5" chord="1.5" sweep="15" taper=".15" dihedral="0" camber="0" incidence="0">
   </mstab>
   <!-- ~~~~~~~~~~~~~~~~~~ animation canopy -->
-  <mstab x="0.1" y="0" z="0" length=".0001" chord=".0001" sweep=".0001" taper=".0001" dihedral="0" camber="0" incidence="0">
+  <mstab x="0.01" y="0" z="0" length=".0001" chord=".0001" sweep=".0001" taper=".0001" dihedral="0" camber="0" incidence="0">
     <control-input  control="FLAP0" axis="/controls/doors/canopy" />
-    <control-output control="FLAP0" prop="/sim/model/canopy-pos-norm" /> <!-- alias for MP -->
+    <control-output control="FLAP0" prop="/sim/model/canopy-pos-norm" /> <!-- @see alias for MP -->
     <control-speed  control="FLAP0" transition-time="14" />
   </mstab>
   <!-- ~~~~~~~~~~~~~~~~~~ animation buddy buddy -->
-  <mstab x="-0.1" y="0" z="0" length=".0001" chord=".0001" sweep=".0001" taper=".0001" dihedral="0" camber="0" incidence="0">
+  <mstab x="-0.01" y="0" z="0" length=".0001" chord=".0001" sweep=".0001" taper=".0001" dihedral="0" camber="0" incidence="0">
     <control-input  control="FLAP0" axis="/controls/refuel-pod/pipe-extended" />
-    <control-output control="FLAP0" prop="/sim/model/store-refuel-pos-norm" /> <!-- alias for MP -->
+    <control-output control="FLAP0" prop="/sim/model/store-refuel-pos-norm" /> <!-- @see alias for MP -->
     <control-speed  control="FLAP0" transition-time="15" />
+  </mstab>
+  <!-- ~~~~~~~~~~~~~~~~~~ animation hydraulics -->
+  <mstab x="-0.02" y="0" z="0" length=".0001" chord=".0001" sweep=".0001" taper=".0001" dihedral="0" camber="0" incidence="0">
+    <control-input  control="FLAP0" axis="/controls/hydraulic/system/engine-pump" />
+    <control-output control="FLAP0" prop="/sim/model/hydraulic" />
+    <control-speed  control="FLAP0" transition-time="8" />
+  </mstab>
+  <mstab x="-0.02" y="0" z="0" length=".0002" chord=".0001" sweep=".0001" taper=".0001" dihedral="0" camber="0" incidence="0">
+    <control-input  control="FLAP0" axis="/controls/hydraulic/system/engine-pump" />
+    <control-output control="FLAP0" prop="/sim/model/hydraulic-canard" />
+    <control-speed  control="FLAP0" transition-time="1" />
   </mstab>
 
   <!--
@@ -248,9 +253,79 @@ ________________________________________________________________________________
                                                                    LANDING GEARS
 ================================================================================
 
+x, y, z definissent le point de contact du train
+- par rapport au point origine
+- le point de contact du train (la roue)
+- train sorti
+- sans compression
+compression
+- distance max en metres
+- effet sur la trainee trains sortis
+- upx, upy, upz : axe du piston
+spring
+- durete du ressort
+- avec une constante = masse x 10, cette constant fait reference
+  et spring agit comme multiplicateur
+damp
+- amortisseur, 1 = sans oscillation
+initial-load
 ________________________________________________________________________________
                                                                            GEARS
   -->
+
+  <!-- ~~~~~~~~~~~~~~~~~~ front gear -->
+  <gear x="2.8" y="0" z="-1.6"
+      upx="-.1" upy="0" upz="1"
+      compression=".4" spring=".4" damp=".65"
+      dfric=".6" sfric=".6">
+    <control-input  control="STEER" axis="/controls/flight/fdm-rudder" square="true" />
+    <control-output control="STEER" prop="/gear/gear[0]/steering-norm" />
+    <control-input  control="BRAKE" axis="/controls/gear/brake-parking" />
+    <control-output control="BRAKE" prop="/gear/gear[0]/brake-position-norm" />
+    <control-speed  control="BRAKE" transition-time=".5" />
+    <control-input  control="EXTEND" axis="/controls/gear/gear-down" />
+    <control-output control="EXTEND" prop="/gear/gear[0]/position-norm" />
+    <control-speed  control="EXTEND" transition-time="8" />
+  </gear>
+<!--
+1      compression=".45" spring="1.3" damp=".3"
+1      dfric=".65" sfric=".65">
+2      compression=".45" spring="1.27" damp=".32"
+2      dfric=".64" sfric=".64">
+3  <gear x="-2.05" y="1.6" z="-1.65"
+3      compression=".45" spring="1.33" damp=".27"
+3      dfric=".67" sfric=".67">
+4      upx=".1" upy=".1" upz="1"
+4      compression=".5" spring="1" damp=".3"
+4      dfric=".65" sfric=".7">
+-->
+  <!-- ~~~~~~~~~~~~~~~~~~ left main gear -->
+  <gear x="-2.0" y="1.6" z="-1.65"
+      upx=".1" upy=".1" upz="1"
+      compression=".5" spring="1" damp=".3"
+      dfric=".65" sfric=".7">
+    <control-input  control="BRAKE" axis="/controls/gear/brake-left" />
+    <control-input  control="BRAKE" axis="/controls/gear/brake-parking" />
+    <control-output control="BRAKE" prop="/gear/gear[1]/brake-position-norm" />
+    <control-speed  control="BRAKE" transition-time=".1" />
+    <control-input  control="EXTEND" axis="/controls/gear/gear-down" />
+    <control-output control="EXTEND" prop="/gear/gear[1]/position-norm" />
+    <control-speed  control="EXTEND" transition-time="8" />
+  </gear>
+
+  <!-- ~~~~~~~~~~~~~~~~~~ right main gear -->
+  <gear x="-2.0" y="-1.6" z="-1.65"
+      upx=".1" upy=".1" upz="1"
+      compression=".5" spring="1" damp=".3"
+      dfric=".65" sfric=".7">
+    <control-input  control="BRAKE" axis="/controls/gear/brake-right" />
+    <control-input  control="BRAKE" axis="/controls/gear/brake-parking" />
+    <control-output control="BRAKE" prop="/gear/gear[2]/brake-position-norm" />
+    <control-speed  control="BRAKE" transition-time=".1" />
+    <control-input  control="EXTEND" axis="/controls/gear/gear-down" />
+    <control-output control="EXTEND" prop="/gear/gear[2]/position-norm" />
+    <control-speed  control="EXTEND" transition-time="8" />
+  </gear>
 
   <!-- ~~~~~~~~~~~~~~~~~~ carrier catapult launch -->
   <hook x="-3.5" y="0.0" z="-1.0" length="2" down-angle="80" up-angle="-2">
@@ -262,49 +337,6 @@ ________________________________________________________________________________
     <control-speed  control="LEXTEND" transition-time="1" />
     <control-output control="LEXTEND" prop="/gear/gear[0]/launchbar-position-norm" />
   </launchbar>
-
-  <!-- ~~~~~~~~~~~~~~~~~~ front gear -->
-  <gear x="2.85" y="0" z="-1.6"
-      upx="-.1" upy="0" upz="1"
-      compression=".4" spring=".4" damp=".65"
-      dfric=".6" sfric=".6">
-    <control-input  control="STEER" axis="/controls/flight/fcm-rudder" square="true" />
-    <control-output control="STEER" prop="/gear/gear[0]/steering-norm" />
-    <control-input  control="BRAKE" axis="/controls/gear/brake-parking" />
-    <control-output control="BRAKE" prop="/gear/gear[0]/brake-position-norm" />
-    <control-speed  control="BRAKE" transition-time=".5" />
-    <control-input  control="EXTEND" axis="/controls/gear/gear-down" />
-    <control-output control="EXTEND" prop="/gear/gear[0]/position-norm" />
-    <control-speed  control="EXTEND" transition-time="8" />
-  </gear>
-
-  <!-- ~~~~~~~~~~~~~~~~~~ left main gear -->
-  <gear x="-2.05" y="1.5" z="-1.65"
-      upx="0" upy=".1" upz="1"
-      compression=".45" spring="1.3" damp=".3"
-      dfric=".65" sfric=".65">
-    <control-input  control="BRAKE" axis="/controls/gear/brake-left" />
-    <control-input  control="BRAKE" axis="/controls/gear/brake-parking" />
-    <control-output control="BRAKE" prop="/gear/gear[1]/brake-position-norm" />
-    <control-speed  control="BRAKE" transition-time=".1" />
-    <control-input  control="EXTEND" axis="/controls/gear/gear-down" />
-    <control-output control="EXTEND" prop="/gear/gear[1]/position-norm" />
-    <control-speed  control="EXTEND" transition-time="8" />
-  </gear>
-
-  <!-- ~~~~~~~~~~~~~~~~~~ right main gear -->
-  <gear x="-2.05" y="-1.5" z="-1.65"
-      upx="0" upy=".1" upz="1"
-      compression=".45" spring="1.3" damp=".3"
-      dfric=".65" sfric=".65">
-    <control-input  control="BRAKE" axis="/controls/gear/brake-right" />
-    <control-input  control="BRAKE" axis="/controls/gear/brake-parking" />
-    <control-output control="BRAKE" prop="/gear/gear[2]/brake-position-norm" />
-    <control-speed  control="BRAKE" transition-time=".1" />
-    <control-input  control="EXTEND" axis="/controls/gear/gear-down" />
-    <control-output control="EXTEND" prop="/gear/gear[2]/position-norm" />
-    <control-speed  control="EXTEND" transition-time="8" />
-  </gear>
 
   <!--
 ================================================================================

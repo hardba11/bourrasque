@@ -81,9 +81,6 @@ var ms = 0;
 var ratio_speed = 1;
 var main_loop = func() {
 
-    # fly by wire
-    core.fcm_loop();
-
     if(math.mod(ms, 100 * ratio_speed) == 0)
     {
         loop_100ms();

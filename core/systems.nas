@@ -184,5 +184,6 @@ var systems_loop = func()
     setprop("/systems/electrical/bus/avionics", is_bus_avionics_on);
     setprop("/systems/electrical/bus/engines",  is_bus_engines_on);
     setprop("/systems/electrical/bus/commands", is_bus_commands_on);
+    setprop("/controls/hydraulic/system/engine-pump", is_bus_commands_on);
 }
 

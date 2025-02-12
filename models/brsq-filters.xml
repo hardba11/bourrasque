@@ -28,5 +28,89 @@
     <max>1</max>
   </filter>
 
+  <filter>
+    <type>gain</type>
+    <gain>0.04</gain>
+    <input>
+      <expression>
+        <sum>
+          <product>
+            <value>-25</value>
+            <sum>
+              <property>sim/model/hydraulic</property>
+              <value>-1</value>
+            </sum>
+          </product>
+          <product>
+            <property>sim/model/hydraulic</property>
+            <sum>
+              <property>surface-positions/out-left-aileron-pos-norm</property>
+              <property>surface-positions/out-elevator-pos-norm</property>
+            </sum>
+            <value>8</value>
+          </product>
+        </sum>
+      </expression>
+    </input>
+    <output>surface-positions/left-aileron-pos-norm</output>
+    <min>-1</min>
+    <max>1</max>
+  </filter>
+
+  <filter>
+    <type>gain</type>
+    <gain>0.04</gain>
+    <input>
+      <expression>
+        <sum>
+          <product>
+            <value>-25</value>
+            <sum>
+              <property>sim/model/hydraulic</property>
+              <value>-1</value>
+            </sum>
+          </product>
+          <product>
+            <property>sim/model/hydraulic</property>
+            <sum>
+              <property>surface-positions/out-right-aileron-pos-norm</property>
+              <property>surface-positions/out-elevator-pos-norm</property>
+            </sum>
+            <value>8</value>
+          </product>
+        </sum>
+      </expression>
+    </input>
+    <output>surface-positions/right-aileron-pos-norm</output>
+    <min>-1</min>
+    <max>1</max>
+  </filter>
+
+  <filter>
+    <type>gain</type>
+    <gain>0.04</gain>
+    <input>
+      <expression>
+        <sum>
+          <product>
+            <value>-25</value>
+            <sum>
+              <property>sim/model/hydraulic</property>
+              <value>-1</value>
+            </sum>
+          </product>
+          <product>
+            <property>sim/model/hydraulic</property>
+            <property>surface-positions/out-elevator-pos-norm</property>
+            <value>8</value>
+          </product>
+        </sum>
+      </expression>
+    </input>
+    <output>surface-positions/elevator-pos-norm</output>
+    <min>-1</min>
+    <max>1</max>
+  </filter>
+
 </PropertyList>
 

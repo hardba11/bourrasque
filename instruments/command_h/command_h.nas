@@ -61,7 +61,7 @@ var checking_aircraft_status = func()
     var is_hook_down        = getprop("/controls/gear/tailhook") or 0;
     var is_parkbrake        = getprop("/controls/gear/brake-parking") or 0;
     var is_bus_avionics_on  = getprop("/systems/electrical/bus/avionics") or 0;
-    var is_bus_commands_on  = getprop("/systems/electrical/bus/commands") or 0;
+    var is_hydraulics_on    = getprop("/controls/hydraulic/system/engine-pump") or 0;
     var is_bingo            = getprop("/instrumentation/my_aircraft/fuel/bingo/is_bingo_alert") or 0;
     var is_air_refuelling   = getprop("/systems/refuel/contact") or 0;
     var groundspeed         = getprop("/velocities/groundspeed-kt") or 0;
@@ -215,9 +215,9 @@ var checking_aircraft_status = func()
     # alert rules for HYDR
     if((hydraulics_status == ALERT) or (hydraulics_status == WARN))
         {}
-    elsif((is_bus_commands_on == 0) and (is_on_ground == 0))
+    elsif((is_hydraulics_on == 0) and (is_on_ground == 0))
         { hydraulics_status = ALERT; }
-    elsif(is_bus_commands_on == 0)
+    elsif(is_hydraulics_on == 0)
         { hydraulics_status = NOTICE; }
     else
         { hydraulics_status = OK; }

@@ -272,14 +272,14 @@ livery_update.stop();
  
   <!-- landing light -->
   <animation>
-      <type>select</type>
-      <object-name>landing-light-right-spot</object-name>
-      <nopreview/>
-      <condition>
-        <equals><property>gear/gear[0]/position-norm</property><value>1</value></equals>
-        <equals><property>/systems/electrical/bus/commands</property><value>1</value></equals>
-        <equals><property>/controls/lighting/taxi-light</property><value>1</value></equals>
-      </condition>
+    <type>select</type>
+    <object-name>landing-light-right-spot</object-name>
+    <nopreview/>
+    <condition>
+      <equals><property>gear/gear[0]/position-norm</property><value>1</value></equals>
+      <equals><property>/systems/electrical/bus/commands</property><value>1</value></equals>
+      <equals><property>/controls/lighting/taxi-light</property><value>1</value></equals>
+    </condition>
   </animation>
   <light>
     <name>landing-light-right-spot</name>
@@ -319,30 +319,25 @@ livery_update.stop();
       <a>/sim/model/rendering/relative-taxilight-luminosity</a>
     </specular>
     <attenuation>
-      <c>.1</c> <!-- .1 proche -->
+      <c>.1</c> <!-- .1 bords du faisceau -->
       <l>.005</l> <!-- .005 -->
-      <q>.0001</q> <!-- .0001 loin -->
+      <q>.0001</q> <!-- .0001 centre -->
     </attenuation>
     <spot-exponent>40</spot-exponent> <!-- 40 eloignement du spot -->
     <spot-cutoff>50</spot-cutoff> <!-- 35 demi angle d'ouverture -->
     <range-m>500</range-m> <!-- 500 ??? -->
-    <debug-color>
-      <r>1</r>
-      <g>1</g>
-      <b>1</b>
-      <a>1</a>
-    </debug-color>
+    <debug-color><r>1</r><g>1</g><b>1</b><a>1</a></debug-color>
   </light>
 
   <animation>
-      <type>select</type>
-      <object-name>landing-light-left-spot</object-name>
-      <nopreview/>
-      <condition>
-        <equals><property>gear/gear[0]/position-norm</property><value>1</value></equals>
-        <equals><property>/systems/electrical/bus/commands</property><value>1</value></equals>
-        <equals><property>/controls/lighting/taxi-light</property><value>1</value></equals>
-      </condition>
+    <type>select</type>
+    <object-name>landing-light-left-spot</object-name>
+    <nopreview/>
+    <condition>
+      <equals><property>gear/gear[0]/position-norm</property><value>1</value></equals>
+      <equals><property>/systems/electrical/bus/commands</property><value>1</value></equals>
+      <equals><property>/controls/lighting/taxi-light</property><value>1</value></equals>
+    </condition>
   </animation>
   <light>
     <name>landing-light-left-spot</name>
@@ -383,12 +378,7 @@ livery_update.stop();
     <spot-exponent>1.4</spot-exponent>
     <spot-cutoff>80</spot-cutoff>
     <range-m>500</range-m>
-    <debug-color>
-      <r>1</r>
-      <g>1</g>
-      <b>1</b>
-      <a>1</a>
-    </debug-color>
+    <debug-color><r>1</r><g>1</g><b>1</b><a>1</a></debug-color>
   </light>
 
 
