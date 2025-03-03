@@ -28,6 +28,26 @@
     <max>1</max>
   </filter>
 
+<!--
+    if((alpha_deg > 2) and (alpha_deg < 30))
+    {
+        slat_aoa = alpha_deg / 10;
+    }
+    else
+    {
+        slat_aoa = 0;
+    }
+-->
+
+  <filter>
+    <type>gain</type>
+    <gain>0.1</gain>
+    <input>orientation/alpha-deg</input>
+    <output>/controls/flight/slats</output>
+    <min>-1</min>
+    <max>1</max>
+  </filter>
+
   <filter>
     <type>gain</type>
     <gain>0.04</gain>

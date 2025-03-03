@@ -27,6 +27,7 @@ PROPERTY-PATH : /controls/
     <fbw-rudder type="float">0.00</fbw-rudder>
     <fdm-rudder type="float">0.00</fdm-rudder>
     <autotrim-pitch type="bool">0</autotrim-pitch>
+    <slats type="float">0.00</slats>
   </flight>
 
   <jato>

@@ -168,7 +168,7 @@ ________________________________________________________________________________
   <mstab x="0.01" y="0" z="0" length=".0001" chord=".0001" sweep=".0001" taper=".0001" dihedral="0" camber="0" incidence="0">
     <control-input  control="FLAP0" axis="/controls/doors/canopy" />
     <control-output control="FLAP0" prop="/sim/model/canopy-pos-norm" /> <!-- @see alias for MP -->
-    <control-speed  control="FLAP0" transition-time="14" />
+    <control-speed  control="FLAP0" transition-time="17" />
   </mstab>
   <!-- ~~~~~~~~~~~~~~~~~~ animation buddy buddy -->
   <mstab x="-0.01" y="0" z="0" length=".0001" chord=".0001" sweep=".0001" taper=".0001" dihedral="0" camber="0" incidence="0">
@@ -300,7 +300,7 @@ ________________________________________________________________________________
 4      dfric=".65" sfric=".7">
 -->
   <!-- ~~~~~~~~~~~~~~~~~~ left main gear -->
-  <gear x="-2.0" y="1.6" z="-1.65"
+  <gear x="-2.1" y="1.6" z="-1.65"
       upx=".1" upy=".1" upz="1"
       compression=".5" spring="1" damp=".3"
       dfric=".65" sfric=".7">
@@ -314,7 +314,7 @@ ________________________________________________________________________________
   </gear>
 
   <!-- ~~~~~~~~~~~~~~~~~~ right main gear -->
-  <gear x="-2.0" y="-1.6" z="-1.65"
+  <gear x="-2.1" y="-1.6" z="-1.65"
       upx=".1" upy=".1" upz="1"
       compression=".5" spring="1" damp=".3"
       dfric=".65" sfric=".7">
