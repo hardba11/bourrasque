@@ -1,7 +1,7 @@
 #!/usr/bin/perl -W
 
 # author : hardball
-# version : v20231115-01
+# version : v20250318-01
 # description :
 #   csv loop to xml scenario
 
@@ -20,18 +20,17 @@
 #   3: "recording exit",
 #   4: "dumped",
 
-use Term::ANSIColor ;
+use Term::ANSIColor;
 
 #===============================================================================
 #                                                                     CONSTANTES
 
 # filepath
-#my $LOOPNAME                = 'LFLG-timed-loop';
 my $LOOPNAME                = 'homemade-timed-loop';
-my $FILENAME_IN_CSV         = 'trace-loop-INPUT.csv' ;
-my $FILENAME_INC_HEADER_XML = 'loop-HEADER.inc.xml' ;
-my $FILENAME_INC_FOOTER_XML = 'loop-FOOTER.inc.xml' ;
-my $FILENAME_OUT_XML        = $LOOPNAME .'.xml' ;
+my $FILENAME_IN_CSV         = 'trace-loop-INPUT.csv';
+my $FILENAME_INC_HEADER_XML = 'loop-HEADER.inc.xml';
+my $FILENAME_INC_FOOTER_XML = 'loop-FOOTER.inc.xml';
+my $FILENAME_OUT_XML        = $LOOPNAME .'.xml';
 
 my $TPL_ENTRANCE = '
     <entry>
@@ -44,7 +43,7 @@ my $TPL_ENTRANCE = '
       <heading type="double">%s</heading>
       <roll type="double">%s</roll>
     </entry>
-' ;
+';
 
 my $TPL_START1 = '
     <entry>
@@ -56,7 +55,7 @@ my $TPL_START1 = '
       <altitude type="double">%s</altitude>
       <heading type="double">%s</heading>
       <roll type="double">%s</roll>
-    </entry>' ;
+    </entry>';
 my $TPL_START2 = '
     <entry>
       <name>loop-start</name>
@@ -68,7 +67,7 @@ my $TPL_START2 = '
       <heading type="double">%s</heading>
       <roll type="double">%s</roll>
     </entry>
-' ;
+';
 
 my $TPL_LOOP = '
     <entry>
@@ -81,7 +80,7 @@ my $TPL_LOOP = '
       <heading type="double">%s</heading>
       <roll type="double">%s</roll>
     </entry>
-' ;
+';
 
 my $TPL_FINISH1 = '
     <entry>
@@ -93,7 +92,7 @@ my $TPL_FINISH1 = '
       <altitude type="double">%s</altitude>
       <heading type="double">%s</heading>
       <roll type="double">%s</roll>
-    </entry>' ;
+    </entry>';
 my $TPL_FINISH2 = '
     <entry>
       <name>loop-finish-marker</name>
@@ -105,7 +104,7 @@ my $TPL_FINISH2 = '
       <heading type="double">%s</heading>
       <roll type="double">%s</roll>
     </entry>
-' ;
+';
 
 my $TPL_EXIT = '
     <entry>
@@ -118,7 +117,7 @@ my $TPL_EXIT = '
       <heading type="double">%s</heading>
       <roll type="double">%s</roll>
     </entry>
-' ;
+';
 
 #===============================================================================
 #                                                                      FUNCTIONS
@@ -128,71 +127,73 @@ sub main
     @out = ();
 
     open(IN, $FILENAME_INC_HEADER_XML)
-        or die "unable to open file '$FILENAME_INC_HEADER_XML' : EXIT\n" ;
-    @header = <IN> ; close(IN) ;
+        or die "unable to open file '$FILENAME_INC_HEADER_XML' : EXIT\n";
+    @header = <IN>; close(IN);
 
     open(IN, $FILENAME_INC_FOOTER_XML)
-        or die "unable to open file '$FILENAME_INC_FOOTER_XML' : EXIT\n" ;
-    @footer = <IN> ; close(IN) ;
+        or die "unable to open file '$FILENAME_INC_FOOTER_XML' : EXIT\n";
+    @footer = <IN>; close(IN);
 
     open(IN, $FILENAME_IN_CSV)
-        or die "unable to open file '$FILENAME_IN_CSV' : EXIT\n" ;
-    @data = <IN> ; close(IN) ;
+        or die "unable to open file '$FILENAME_IN_CSV' : EXIT\n";
+    @data = <IN>; close(IN);
 
-    push @out, @header ;
+    push @out, @header;
 
-    $index_entrance = 0 ;
-    $index_loop = 0 ;
-    $index_exit = 0 ;
-    $previous_no_phase = 0 ;
+    $index_entrance = 0;
+    $index_loop = 0;
+    $index_exit = 0;
+    $previous_no_phase = 0;
     for(@data)
     {
-        chomp ;
-        s/\n+//g;
-        s/\r+//g;
-        ($no_phase, $lat, $lng, $alt, $hdg, $roll) = split(':') ;
+#        chomp;
+#        s/\n+//g;
+#        s/\r+//g;
+#        ($no_phase, $lat, $lng, $alt, $hdg, $roll) = split(':');
+        ($no_phase, $lat, $lng, $alt, $hdg, $roll) = (/([123]):(\S+):(\S+):(\S+):(\S+):(\S+)/);
+        next unless($no_phase);
 
-        $hdg += 90 ; $hdg %= 360 ;
-        $alt *= 3.28 ;
+        $hdg += 90; $hdg %= 360;
+        $alt *= 3.28;
 
         if($no_phase == 1)
         {
-            push @out, sprintf($TPL_ENTRANCE, ++$index_entrance, $index_entrance, $lat, $lng, $alt, $hdg, $roll) ;
+            push @out, sprintf($TPL_ENTRANCE, ++$index_entrance, $index_entrance, $lat, $lng, $alt, $hdg, $roll);
         }
         elsif(($no_phase == 2) && ($previous_no_phase == 1))
         {
-            push @out, sprintf($TPL_START1, $lat, $lng, $alt, $hdg, $roll) ;
-            push @out, sprintf($TPL_START2, $lat, $lng, $alt, $hdg, $roll) ;
+            push @out, sprintf($TPL_START1, $lat, $lng, $alt, $hdg, $roll);
+            push @out, sprintf($TPL_START2, $lat, $lng, $alt, $hdg, $roll);
         }
         elsif($no_phase == 2)
         {
-            push @out, sprintf($TPL_LOOP, ++$index_loop, $index_loop, $lat, $lng, $alt, $hdg, $roll) ;
+            push @out, sprintf($TPL_LOOP, ++$index_loop, $index_loop, $lat, $lng, $alt, $hdg, $roll);
         }
         elsif(($no_phase == 3) && ($previous_no_phase == 2))
         {
-            push @out, sprintf($TPL_FINISH1, $lat, $lng, $alt, $hdg, $roll) ;
-            push @out, sprintf($TPL_FINISH2, $lat, $lng, $alt, $hdg, $roll) ;
+            push @out, sprintf($TPL_FINISH1, $lat, $lng, $alt, $hdg, $roll);
+            push @out, sprintf($TPL_FINISH2, $lat, $lng, $alt, $hdg, $roll);
         }
         elsif($no_phase == 3)
         {
-            push @out, sprintf($TPL_EXIT, ++$index_exit, $index_exit, $lat, $lng, $alt, $hdg, $roll) ;
+            push @out, sprintf($TPL_EXIT, ++$index_exit, $index_exit, $lat, $lng, $alt, $hdg, $roll);
         }
 
-        $previous_no_phase = $no_phase ;
+        $previous_no_phase = $no_phase;
     }
 
-    push @out, @footer ;
+    push @out, @footer;
 
-    open(OUT, '>', $FILENAME_OUT_XML) or die ;
-    print OUT @out ;
-    close(OUT) ;
-    print "file '$FILENAME_OUT_XML' generated, copy it in the fgdata/AI/ directory.\n" ;
+    open(OUT, '>', $FILENAME_OUT_XML) or die;
+    print OUT @out;
+    close(OUT);
+    print "file '$FILENAME_OUT_XML' generated, copy it in the fgdata/AI/ directory.\n";
 }
 
 #===============================================================================
 #                                                                           MAIN
 
-main() ;
+main();
 
 ### EOF
 

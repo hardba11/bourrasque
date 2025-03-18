@@ -116,7 +116,8 @@ ________________________________________________________________________________
                                                                            TOOLS
   -->
     <!-- ~~~~~~~~~~~~~~~~~~ loop recording -->
-    <key n="92">
+    <!--key n="92"-->
+    <key n="60">
       <name>ltr</name>
       <desc>loop recording</desc>
       <binding>
@@ -128,7 +129,8 @@ tools.event_change_phase();
         </script>
       </binding>
     </key>
-    <key n="124">
+    <!--key n="124"-->
+    <key n="62">
       <name>shift-ltr</name>
       <binding>
         <command>nasal</command>
