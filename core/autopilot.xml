@@ -199,21 +199,12 @@ vitesse affichee sur le hud
     <input>/controls/flight/fbw/target-g</input>
     <output>/controls/flight/fbw/elevator</output>
     <config>
-<!--
-  <Kp>0.010</Kp><Ti>.04</Ti><Td>0.01</Td>  M0.20 ~  133
-  <Kp>0.010</Kp><Ti>.04</Ti><Td>0.01</Td>  M0.35 ~  225
-  <Kp>0.010</Kp><Ti>.08</Ti><Td>0.01</Td>  M0.50 ~  337
-  <Kp>0.005</Kp><Ti>.08</Ti><Td>0.01</Td>  M1.00 ~  670
-  <Kp>0.002</Kp><Ti>.08</Ti><Td>0.01</Td>  M1.50 ~  995
-  <Kp>0.001</Kp><Ti>.08</Ti><Td>0.01</Td>  M2.00 ~ 1334
--->
       <Kp>
         <expression>
           <table>
             <property>/velocities/mach</property>
-            <entry><ind>0.00</ind><dep>0.010</dep></entry>
-            <entry><ind>0.10</ind><dep>0.010</dep></entry>
-            <entry><ind>0.20</ind><dep>0.010</dep></entry>
+            <entry><ind>0.00</ind><dep>0.05</dep></entry>
+            <entry><ind>0.20</ind><dep>0.05</dep></entry>
             <entry><ind>0.35</ind><dep>0.010</dep></entry>
             <entry><ind>0.50</ind><dep>0.010</dep></entry>
             <entry><ind>1.00</ind><dep>0.005</dep></entry>
@@ -226,8 +217,8 @@ vitesse affichee sur le hud
         <expression>
           <table>
             <property>/velocities/mach</property>
-            <entry><ind>0.00</ind><dep>.04</dep></entry>
-            <entry><ind>0.20</ind><dep>.04</dep></entry>
+            <entry><ind>0.00</ind><dep>.4</dep></entry>
+            <entry><ind>0.20</ind><dep>.4</dep></entry>
             <entry><ind>0.35</ind><dep>.04</dep></entry>
             <entry><ind>0.50</ind><dep>.08</dep></entry>
             <entry><ind>1.00</ind><dep>.08</dep></entry>
@@ -250,9 +241,28 @@ vitesse affichee sur le hud
           </table>
         </expression>
       </Td>
+<!--
+  <Kp>.05</Kp><Ti>.4</Ti><Td>0.01</Td>
+  <Kp>0.010</Kp><Ti>.04</Ti><Td>0.01</Td>  M0.20 ~  133
+  <Kp>0.010</Kp><Ti>.04</Ti><Td>0.01</Td>  M0.35 ~  225
+  <Kp>0.010</Kp><Ti>.08</Ti><Td>0.01</Td>  M0.50 ~  337
+  <Kp>0.005</Kp><Ti>.08</Ti><Td>0.01</Td>  M1.00 ~  670
+  <Kp>0.002</Kp><Ti>.08</Ti><Td>0.01</Td>  M1.50 ~  995
+  <Kp>0.001</Kp><Ti>.08</Ti><Td>0.01</Td>  M2.00 ~ 1334
+-->
       <min>-1</min>
       <max>1</max>
     </config>
+    <enable>
+      <condition>
+        <not>
+          <or>
+            <equals><property>/autopilot/locks/altitude</property><value>vertical-speed-hold</value></equals>
+            <equals><property>/autopilot/locks/altitude</property><value>altitude-hold</value></equals>
+          </or>
+        </not>
+      </condition>
+    </enable>
   </pid-controller>
 
   <filter>
@@ -261,8 +271,6 @@ vitesse affichee sur le hud
     <gain>1.0</gain>
     <input>/controls/flight/fbw/elevator</input>
     <output>/controls/flight/fbw-elevator</output>
-    <enable>
-    </enable>
   </filter>
 
 

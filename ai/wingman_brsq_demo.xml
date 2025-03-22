@@ -19,10 +19,10 @@
       <formate>true</formate>
       <max-speed-kts>650</max-speed-kts>
       <coefficients>
-        <heading>5.0</heading>
-        <pitch>4.0</pitch>
-        <bank>4.0</bank>
-        <speed>2.5</speed>
+        <heading>1.0</heading>
+        <pitch>2.0</pitch>
+        <bank>2.0</bank>
+        <speed>2.2</speed>
       </coefficients>
     </entry>
 
@@ -36,10 +36,10 @@
       <formate>true</formate>
       <max-speed-kts>650</max-speed-kts>
       <coefficients>
-        <heading>5.0</heading>
-        <pitch>4.0</pitch>
-        <bank>4.0</bank>
-        <speed>2.5</speed>
+        <heading>1.0</heading>
+        <pitch>2.0</pitch>
+        <bank>3.0</bank>
+        <speed>2.6</speed>
       </coefficients>
     </entry>
 

@@ -129,11 +129,14 @@ var event_click_lock_alt = func(do_enable)
     else
     {
         setprop("/autopilot/locks/altitude", '');
+        setprop("/controls/flight/elevator-trim", 0);
+#        setprop("/controls/flight/fbw/elevator", 0);
+#        setprop("/controls/flight/fbw-elevator", 0);
 
 #        var airspeed = getprop("/velocities/airspeed-kt") or 0;
 #        if(airspeed > 300)
 #        {
-            setprop("/controls/flight/elevator-trim", 0);
+#            setprop("/controls/flight/elevator-trim", 0);
 #        }
     }
     setprop("/autopilot/internal/target-climb-rate-fps", 0);

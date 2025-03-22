@@ -67,7 +67,9 @@ var obj_carrier_equipment       = cmdarg().getNode("sim/model/carrier-equipment"
 var bourrasque_mp_loop_decode = func() {
     #print('bourrasque_mp_loop_decode');
 
-    var list_of_values = mp_decode(obj_in0.getValue(), [0, 0, 0, 0, 0, 0]);
+    var val_in0 = obj_in0.getValue();
+    var list_of_values = val_in0 ? mp_decode(val_in0, [0, 0, 0, 0, 0, 0]) : [1, 1, 1, 1, 1, 0];
+    #var list_of_values = [1, 1, 1, 1, 1, 0];
     # same order for each property : see bourrasque_mp_loop_encode()
     obj_beacon.setValue(list_of_values[0]);
     obj_nav_lights.setValue(list_of_values[1]);
@@ -76,7 +78,10 @@ var bourrasque_mp_loop_decode = func() {
     obj_taxi_light.setValue(list_of_values[4]);
     obj_smoking.setValue(list_of_values[5]);
 
-    var list_of_values = mp_decode(obj_in1.getValue(), [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+
+    var val_in1 = obj_in1.getValue();
+    var list_of_values = val_in1 ? mp_decode(val_in1, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]) : [0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0];
+    #var list_of_values = [0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0];
     # same order for each property : see bourrasque_mp_loop_encode()
     obj_ground_equipment_e.setValue(list_of_values[0]);
     obj_ground_equipment_g.setValue(list_of_values[1]);
@@ -90,7 +95,9 @@ var bourrasque_mp_loop_decode = func() {
     obj_center_refuel_pod.setValue(list_of_values[9]);
     obj_wing_pylons_smoke_pod.setValue(list_of_values[10]);
 
-    var list_of_values = mp_decode(obj_in2.getValue(), [0, 0, 0, 0, 0, 0, 0, 0, 0]);
+    var val_in2 = obj_in2.getValue();
+    var list_of_values = val_in2 ? mp_decode(val_in2, [0, 0, 0, 0, 0, 0, 0, 0, 0]) : [0, 0, 0, 0, 0, 1, 1, 0, 0];
+    #var list_of_values = [0, 0, 0, 0, 0, 1, 1, 0, 0];
     # same order for each property : see bourrasque_mp_loop_encode()
     obj_bus_avionics.setValue(list_of_values[0]);
     obj_bus_engines.setValue(list_of_values[1]);

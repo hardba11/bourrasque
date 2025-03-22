@@ -28,6 +28,11 @@ PROPERTY-PATH : /ai/
           <position-norm    alias="/gear/gear[2]/position-norm" />
         </gear>
       </gear>
+      <controls>
+        <break type="bool">0</break>
+        <formate-to-ac type="bool">1</formate-to-ac>
+        <join type="bool">0</join>
+      </controls>
       <sim>
         <multiplay>
           <generic>
@@ -78,6 +83,11 @@ PROPERTY-PATH : /ai/
           <position-norm    alias="/gear/gear[2]/position-norm" />
         </gear>
       </gear>
+      <controls>
+        <break type="bool">0</break>
+        <formate-to-ac type="bool">1</formate-to-ac>
+        <join type="bool">0</join>
+      </controls>
       <sim>
         <multiplay>
           <generic>

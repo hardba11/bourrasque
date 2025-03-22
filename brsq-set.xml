@@ -283,6 +283,18 @@ http://wiki.flightgear.org/Property_tree
       </engines>
     </failure-manager>
 
+    <ai>
+      <models>
+        <wingman>
+          <controls>
+            <break type="bool">0</break>
+            <formate-to-ac type="bool">1</formate-to-ac>
+            <join type="bool">0</join>
+          </controls>
+        </wingman>
+      </models>
+    </ai>
+
     <!-- ~~~~~~~~~~~~~~~~~~ saving all properties between sessions -->
     <aircraft-data>
       <path>/systems/refuel/serviceable</path>
