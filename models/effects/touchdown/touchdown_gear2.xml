@@ -9,7 +9,7 @@
     <lighting>false</lighting>
 
     <condition>
-      <property>/gear/gear[2]/tyre-touchdown</property>
+      <property>gear/gear[2]/tyre-touchdown</property>
     </condition>
 
     <attach>world</attach>

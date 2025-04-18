@@ -1145,11 +1145,27 @@ ________________________________________________________________________________
         <property>sim/model/click</property>
       </binding>
     </action>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+instrument_pfd.event_click_hold_hdg();
+          ]]>
+        </script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
     <hovered>
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>tooltip-pfd-ap-heading</tooltip-id>
-        <label>Toggle A/P heading bug (ctrl-h)</label>
+        <label>Toggle A/P heading bug (ctrl-h), MMB=hold hdg</label>
       </binding>
     </hovered>
   </animation>
@@ -1455,11 +1471,27 @@ instrument_pfd.event_click_lock_alt(-1);
         <property>sim/model/click</property>
       </binding>
     </action>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+instrument_pfd.event_click_hold_alt();
+          ]]>
+        </script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
     <hovered>
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>tooltip-pfd-ap-alt</tooltip-id>
-        <label>Toggle A/P ALT (ctrl-a)</label>
+        <label>Toggle A/P ALT (ctrl-a), MMB=hold alt</label>
       </binding>
     </hovered>
   </animation>
@@ -1600,11 +1632,27 @@ instrument_pfd.event_click_lock_speed(-1);
         <property>sim/model/click</property>
       </binding>
     </action>
+    <action>
+      <button>1</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>
+          <![CDATA[
+instrument_pfd.event_click_hold_speed();
+          ]]>
+        </script>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/model/click</property>
+      </binding>
+    </action>
     <hovered>
       <binding>
         <command>set-tooltip</command>
         <tooltip-id>tooltip-pfd-ap-speed</tooltip-id>
-        <label>Toggle A/P speed (ctrl-s)</label>
+        <label>Toggle A/P speed (ctrl-s), MMB=hold speed</label>
       </binding>
     </hovered>
   </animation>

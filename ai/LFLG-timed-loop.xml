@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PropertyList>
-  <name>LFLG-timed-loop</name>
   <scenario>
+    <name>LFLG-timed-loop</name>
     <description>
       LFLG timed loop (thanks to FGUK Mach Loop developpers !)
     </description>

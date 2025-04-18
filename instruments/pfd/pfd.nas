@@ -44,6 +44,30 @@ var pfd = func()
     );
 }
 
+var event_click_hold_speed = func()
+{
+    # set AP speed as current speed
+    var curr_speed = getprop("/instrumentation/airspeed-indicator/true-speed-kt") or 300;
+    setprop("/autopilot/settings/target-speed-kt", curr_speed);
+    event_click_lock_speed(1);
+}
+
+var event_click_hold_hdg = func()
+{
+    # set AP heading as curent heading
+    var curr_heading = getprop("/orientation/heading-magnetic-deg") or 0;
+    setprop("/autopilot/settings/heading-bug-deg", curr_heading);
+    setprop("/autopilot/locks/heading", 'dg-heading-hold');
+}
+
+var event_click_hold_alt = func()
+{
+    # set AP altitude as curent altitude
+    var curr_alt = getprop("/instrumentation/altimeter/indicated-altitude-ft") or 5000;
+    setprop("/autopilot/settings/target-altitude-ft", curr_alt);
+    setprop("/autopilot/locks/altitude", 'altitude-hold');
+}
+
 var event_click_hold_autopilot = func()
 {
     setprop("/instrumentation/my_aircraft/pfd/controls/hold-blink", 1);
@@ -61,10 +85,10 @@ var event_click_hold_autopilot = func()
     setprop("/autopilot/settings/heading-bug-deg", curr_heading);
 
     # arm AP for altitude, speed and heading
-    setprop("/autopilot/internal/target-roll-deg",          0);
-    setprop("/autopilot/internal/target-climb-rate-fps",    0);
-    setprop("/autopilot/locks/altitude",                    'altitude-hold');
-    setprop("/autopilot/locks/heading",                     'dg-heading-hold');
+    setprop("/autopilot/internal/target-roll-deg",       0);
+    setprop("/autopilot/internal/target-climb-rate-fps", 0);
+    setprop("/autopilot/locks/altitude",                 'altitude-hold');
+    setprop("/autopilot/locks/heading",                  'dg-heading-hold');
     event_click_lock_speed(1);
 
     var time_speed = getprop("/sim/speed-up") or 1;

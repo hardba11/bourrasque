@@ -24,8 +24,6 @@ http://wiki.flightgear.org/Property_tree
     <aircraft-version type="string">20241231</aircraft-version>
     <minimum-fg-version type="string">2017.1.1</minimum-fg-version>
 
-    <primary-set type="bool">true</primary-set>
-
     <!-- old / simple style -->
     <author type="string">hardball SLK</author>
 
@@ -43,6 +41,7 @@ http://wiki.flightgear.org/Property_tree
         <email>nico@localhost</email>
       </maintainer>
     </maintainers>
+
     <primary-set type="bool">true</primary-set>
     <urls>
       <home-page>https://hardba11.github.io/bourrasque/</home-page>
@@ -88,7 +87,7 @@ http://wiki.flightgear.org/Property_tree
     </tags>
 
     <rating>
-      <FDM type="int">2</FDM>
+      <FDM type="int">3</FDM>
       <systems type="int">2</systems>
       <cockpit type="int">4</cockpit>
       <model type="int">4</model>
@@ -135,9 +134,9 @@ http://wiki.flightgear.org/Property_tree
       <constant type="int">1</constant>
 
       <rendering>
-        <relative-navlight-luminosity type="float">0</relative-navlight-luminosity>
-        <relative-strobelight-luminosity type="float">0</relative-strobelight-luminosity>
-        <relative-taxilight-luminosity type="float">0</relative-taxilight-luminosity>
+        <relative-navlight-luminosity type="float">.5</relative-navlight-luminosity>
+        <relative-strobelight-luminosity type="float">.5</relative-strobelight-luminosity>
+        <relative-taxilight-luminosity type="float">.5</relative-taxilight-luminosity>
       </rendering>
 
       <livery>
@@ -508,10 +507,8 @@ http://wiki.flightgear.org/Property_tree
     <!-- ~~~~~~~~~~~~~~~~~~ 3rd party scripts to improve functionnalities -->
     <aar>
       <file>Aircraft/Generic/aar.nas</file>
+      <!-- <file>core/aar.nas</file> -->
     </aar>
-    <!--aar>
-      <file>core/aar.nas</file>
-    </aar-->
     <formation>
       <file>Aircraft/Generic/formation.nas</file>
     </formation>
