@@ -451,10 +451,13 @@ ________________________________________________________________________________
 ________________________________________________________________________________
                                                             HUD TARGET POSITIONS
 
-diameter = 2m,
-center : has to be the coords for view n=0
 @see include/sim-view0-properties.xml
-@see functions.nas
+@see instruments/hud_target_positions/
+diameter = 2m
+offsets and center : has to be the coords for view n=0
+* x-m = z-offset-m
+* z-m = y-offset-m
+default-field-of-view-deg has to be set on 70.0
   -->
   <model>
     <name>hud_target_positions</name>

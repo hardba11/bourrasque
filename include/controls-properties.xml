@@ -60,7 +60,7 @@ PROPERTY-PATH : /controls/
   </doors>
 
   <pax>
-    <helmet type="float">37</helmet>
+    <helmet type="float">0</helmet>
     <copilot-head type="int">-25</copilot-head>
     <pilot type="bool">1</pilot>
     <copilot type="bool">1</copilot>

@@ -203,11 +203,9 @@ var HUD = {
                 var target_range       = list_obj[i].getNode("radar/range-nm").getValue() or 1000;
                 var vertical_offset    = list_obj[i].getNode("radar/v-offset").getValue() or 0;
                 var horizontal_offset  = list_obj[i].getNode("radar/h-offset").getValue() or 0;
-
 #                var target_model       = list_obj[i].getNode("model-short", 1).getValue() or '';
 #                var target_model       = list_obj[i].getNode("model/name", 1).getValue() or '';
-
-                var model_path = list_obj[i].getNode("sim/model/path", 1).getValue() or '';
+                var model_path         = list_obj[i].getNode("sim/model/path", 1).getValue() or '';
                 var paths = split('/', model_path);
                 var filename_model = pop(paths);
                 var target_model = split('.', filename_model)[0];

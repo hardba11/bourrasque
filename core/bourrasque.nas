@@ -165,12 +165,12 @@ var mp_encode = func(list_of_values)
 var bourrasque_mp_loop_encode = func()
 {
     # encoded in int[0] :
-    var beacon                  = getprop("/controls/lighting/beacon") or 0;
-    var nav_lights              = getprop("/controls/lighting/nav-lights") or 0;
-    var pos_lights              = getprop("/controls/lighting/pos-lights") or 0;
-    var strobe                  = getprop("/controls/lighting/strobe") or 0;
-    var taxi_light              = getprop("/controls/lighting/taxi-light") or 0;
-    var smoking                 = getprop("/sim/model/smoking") or 0;
+    var beacon                  = getprop("/controls/lighting/beacon") or 0;      # 0
+    var nav_lights              = getprop("/controls/lighting/nav-lights") or 0;  # 1
+    var pos_lights              = getprop("/controls/lighting/pos-lights") or 0;  # 2
+    var strobe                  = getprop("/controls/lighting/strobe") or 0;      # 3
+    var taxi_light              = getprop("/controls/lighting/taxi-light") or 0;  # 4
+    var smoking                 = getprop("/sim/model/smoking") or 0;             # 5
     setprop("/sim/multiplay/generic/int[0]", mp_encode([
         beacon,
         nav_lights,
@@ -180,17 +180,17 @@ var bourrasque_mp_loop_encode = func()
         smoking]));
 
     # encoded in int[1] :
-    var ground_equipment_e      = getprop("/sim/model/ground-equipment-e") or 0;
-    var ground_equipment_g      = getprop("/sim/model/ground-equipment-g") or 0;
-    var ground_equipment_s      = getprop("/sim/model/ground-equipment-s") or 0;
-    var ground_equipment_p      = getprop("/sim/model/ground-equipment-p") or 0;
-    var ground_equipment_f      = getprop("/sim/model/ground-equipment-f") or 0;
-    var wing_tanks_1250         = getprop("/sim/model/wing-tanks-1250") or 0;
-    var wing_tanks_2000         = getprop("/sim/model/wing-tanks-2000") or 0;
-    var center_tank_1250        = getprop("/sim/model/center-tank-1250") or 0;
-    var center_tank_2000        = getprop("/sim/model/center-tank-2000") or 0;
-    var center_refuel_pod       = getprop("/sim/model/center-refuel-pod") or 0;
-    var wing_pylons_smoke_pod   = getprop("/sim/model/wing-pylons-smoke-pod") or 0;
+    var ground_equipment_e      = getprop("/sim/model/ground-equipment-e") or 0;    # 0
+    var ground_equipment_g      = getprop("/sim/model/ground-equipment-g") or 0;    # 1
+    var ground_equipment_s      = getprop("/sim/model/ground-equipment-s") or 0;    # 2
+    var ground_equipment_p      = getprop("/sim/model/ground-equipment-p") or 0;    # 3
+    var ground_equipment_f      = getprop("/sim/model/ground-equipment-f") or 0;    # 4
+    var wing_tanks_1250         = getprop("/sim/model/wing-tanks-1250") or 0;       # 5
+    var wing_tanks_2000         = getprop("/sim/model/wing-tanks-2000") or 0;       # 6
+    var center_tank_1250        = getprop("/sim/model/center-tank-1250") or 0;      # 7
+    var center_tank_2000        = getprop("/sim/model/center-tank-2000") or 0;      # 8
+    var center_refuel_pod       = getprop("/sim/model/center-refuel-pod") or 0;     # 9
+    var wing_pylons_smoke_pod   = getprop("/sim/model/wing-pylons-smoke-pod") or 0; # 10
     setprop("/sim/multiplay/generic/int[1]", mp_encode([
         ground_equipment_e,
         ground_equipment_g,
@@ -205,15 +205,15 @@ var bourrasque_mp_loop_encode = func()
         wing_pylons_smoke_pod]));
 
     # encoded in int[2] :
-    var bus_avionics            = getprop("/systems/electrical/bus/avionics") or 0;
-    var bus_engines             = getprop("/systems/electrical/bus/engines") or 0;
-    var bus_command             = getprop("/systems/electrical/bus/commands") or 0;
-    var engine0_stopped         = getprop("/engines/engine[0]/stopped") or 0;
-    var engine1_stopped         = getprop("/engines/engine[1]/stopped") or 0;
-    var pax_pilot               = getprop("/controls/pax/pilot") or 0;
-    var pax_copilot             = getprop("/controls/pax/copilot") or 0;
-    var refuel_serviceable      = getprop("/systems/refuel/serviceable") or 0;
-    var carrier_equipment       = getprop("/sim/model/carrier-equipment") or 0;
+    var bus_avionics            = getprop("/systems/electrical/bus/avionics") or 0; # 0
+    var bus_engines             = getprop("/systems/electrical/bus/engines") or 0;  # 1
+    var bus_command             = getprop("/systems/electrical/bus/commands") or 0; # 2
+    var engine0_stopped         = getprop("/engines/engine[0]/stopped") or 0;       # 3
+    var engine1_stopped         = getprop("/engines/engine[1]/stopped") or 0;       # 4
+    var pax_pilot               = getprop("/controls/pax/pilot") or 0;              # 5
+    var pax_copilot             = getprop("/controls/pax/copilot") or 0;            # 6
+    var refuel_serviceable      = getprop("/systems/refuel/serviceable") or 0;      # 7
+    var carrier_equipment       = getprop("/sim/model/carrier-equipment") or 0;     # 8
     setprop("/sim/multiplay/generic/int[2]", mp_encode([
         bus_avionics,
         bus_engines,

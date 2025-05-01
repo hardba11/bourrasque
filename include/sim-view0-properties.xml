@@ -17,7 +17,6 @@ PROPERTY-PATH : /sim/view[0]/
     <!-- 
     x,y,z used for hud target position, 
     @see models/cockpit/cockpit-model.xml
-    @see functions.nas
     -->
     <x-offset-m archive="y" type="double">.0</x-offset-m>
     <y-offset-m archive="y" type="double">1.15</y-offset-m>

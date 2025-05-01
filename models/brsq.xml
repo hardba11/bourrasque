@@ -6,9 +6,6 @@
 #
 ################################################################################
 
-changelog
-- 2016-10-22 : create
-
 -->
 <PropertyList>
   <nasal>
@@ -17,57 +14,55 @@ changelog
 # NASAL EXECUTED IN MULTIPLAYER MODE
 var livery_update = aircraft.livery_update.new("Aircraft/bourrasque/models/aircraft/liveries");
 
-var mp_decode = func(values_encoded, list_of_values) {
-
-    for(var index = size(list_of_values) - 1; index >= 0 ; index -= 1)
-    {
-        list_of_values[index] = math.floor(values_encoded / math.pow(2, index)) ;
-        values_encoded -= list_of_values[index] * math.pow(2, index) ;
-
+var mp_decode = func(values_encoded, list_of_values)
+{
+    for(var index = size(list_of_values) - 1; index >= 0 ; index -= 1) {
+        list_of_values[index] = math.floor(values_encoded / math.pow(2, index));
+        values_encoded -= list_of_values[index] * math.pow(2, index);
         #print('DEBUG '~ values_encoded ~' - index:'~ index ~' value:'~ list_of_values[index]);
     }
-    #print('');
     return list_of_values;
 }
 
 # no slash beginning
 
 var obj_in0 = cmdarg().getNode("sim/multiplay/generic/int[0]", 1);
-var obj_beacon      = cmdarg().getNode("controls/lighting/beacon", 1);
-var obj_nav_lights  = cmdarg().getNode("controls/lighting/nav-lights", 1);
-var obj_pos_lights  = cmdarg().getNode("controls/lighting/pos-lights", 1);
-var obj_strobe      = cmdarg().getNode("controls/lighting/strobe", 1);
-var obj_taxi_light  = cmdarg().getNode("controls/lighting/taxi-light", 1);
-var obj_smoking     = cmdarg().getNode("sim/model/smoking", 1);
+var obj_beacon      = cmdarg().getNode("controls/lighting/beacon", 1);        # 0
+var obj_nav_lights  = cmdarg().getNode("controls/lighting/nav-lights", 1);    # 1
+var obj_pos_lights  = cmdarg().getNode("controls/lighting/pos-lights", 1);    # 2
+var obj_strobe      = cmdarg().getNode("controls/lighting/strobe", 1);        # 3
+var obj_taxi_light  = cmdarg().getNode("controls/lighting/taxi-light", 1);    # 4
+var obj_smoking     = cmdarg().getNode("sim/model/smoking", 1);               # 5
 
 var obj_in1 = cmdarg().getNode("sim/multiplay/generic/int[1]", 1);
-var obj_ground_equipment_e      = cmdarg().getNode("sim/model/ground-equipment-e", 1);
-var obj_ground_equipment_g      = cmdarg().getNode("sim/model/ground-equipment-g", 1);
-var obj_ground_equipment_s      = cmdarg().getNode("sim/model/ground-equipment-s", 1);
-var obj_ground_equipment_p      = cmdarg().getNode("sim/model/ground-equipment-p", 1);
-var obj_ground_equipment_f      = cmdarg().getNode("sim/model/ground-equipment-f", 1);
-var obj_wing_tanks_1250         = cmdarg().getNode("sim/model/wing-tanks-1250", 1);
-var obj_wing_tanks_2000         = cmdarg().getNode("sim/model/wing-tanks-2000", 1);
-var obj_center_tank_1250        = cmdarg().getNode("sim/model/center-tank-1250", 1);
-var obj_center_tank_2000        = cmdarg().getNode("sim/model/center-tank-2000", 1);
-var obj_center_refuel_pod       = cmdarg().getNode("sim/model/center-refuel-pod", 1);
-var obj_wing_pylons_smoke_pod   = cmdarg().getNode("sim/model/wing-pylons-smoke-pod", 1);
+var obj_ground_equipment_e      = cmdarg().getNode("sim/model/ground-equipment-e", 1);    # 0
+var obj_ground_equipment_g      = cmdarg().getNode("sim/model/ground-equipment-g", 1);    # 1
+var obj_ground_equipment_s      = cmdarg().getNode("sim/model/ground-equipment-s", 1);    # 2
+var obj_ground_equipment_p      = cmdarg().getNode("sim/model/ground-equipment-p", 1);    # 3
+var obj_ground_equipment_f      = cmdarg().getNode("sim/model/ground-equipment-f", 1);    # 4
+var obj_wing_tanks_1250         = cmdarg().getNode("sim/model/wing-tanks-1250", 1);       # 5
+var obj_wing_tanks_2000         = cmdarg().getNode("sim/model/wing-tanks-2000", 1);       # 6
+var obj_center_tank_1250        = cmdarg().getNode("sim/model/center-tank-1250", 1);      # 7
+var obj_center_tank_2000        = cmdarg().getNode("sim/model/center-tank-2000", 1);      # 8
+var obj_center_refuel_pod       = cmdarg().getNode("sim/model/center-refuel-pod", 1);     # 9
+var obj_wing_pylons_smoke_pod   = cmdarg().getNode("sim/model/wing-pylons-smoke-pod", 1); # 10
 
 var obj_in2 = cmdarg().getNode("sim/multiplay/generic/int[2]", 1);
-var obj_bus_avionics            = cmdarg().getNode("systems/electrical/bus/avionics", 1);
-var obj_bus_engines             = cmdarg().getNode("systems/electrical/bus/engines", 1);
-var obj_bus_command             = cmdarg().getNode("systems/electrical/bus/commands", 1);
-var obj_engine0_stopped         = cmdarg().getNode("engines/engine[0]/stopped", 1);
-var obj_engine1_stopped         = cmdarg().getNode("engines/engine[1]/stopped", 1);
-var obj_pax_pilot               = cmdarg().getNode("controls/pax/pilot", 1);
-var obj_pax_copilot             = cmdarg().getNode("controls/pax/copilot", 1);
-var obj_refuel_serviceable      = cmdarg().getNode("systems/refuel/serviceable", 1);
-var obj_carrier_equipment       = cmdarg().getNode("sim/model/carrier-equipment", 1);
+var obj_bus_avionics            = cmdarg().getNode("systems/electrical/bus/avionics", 1); # 0
+var obj_bus_engines             = cmdarg().getNode("systems/electrical/bus/engines", 1);  # 1
+var obj_bus_command             = cmdarg().getNode("systems/electrical/bus/commands", 1); # 2
+var obj_engine0_stopped         = cmdarg().getNode("engines/engine[0]/stopped", 1);       # 3
+var obj_engine1_stopped         = cmdarg().getNode("engines/engine[1]/stopped", 1);       # 4
+var obj_pax_pilot               = cmdarg().getNode("controls/pax/pilot", 1);              # 5
+var obj_pax_copilot             = cmdarg().getNode("controls/pax/copilot", 1);            # 6
+var obj_refuel_serviceable      = cmdarg().getNode("systems/refuel/serviceable", 1);      # 7
+var obj_carrier_equipment       = cmdarg().getNode("sim/model/carrier-equipment", 1);     # 8
 
 var bourrasque_mp_loop_decode = func() {
     #print('bourrasque_mp_loop_decode');
 
     var val_in0 = obj_in0.getValue();
+    #                                                  0  1  2  3  4  5      0  1  2  3  4  5
     var list_of_values = val_in0 ? mp_decode(val_in0, [0, 0, 0, 0, 0, 0]) : [1, 1, 1, 1, 1, 0];
     #var list_of_values = [1, 1, 1, 1, 1, 0];
     # same order for each property : see bourrasque_mp_loop_encode()
@@ -78,9 +73,9 @@ var bourrasque_mp_loop_decode = func() {
     obj_taxi_light.setValue(list_of_values[4]);
     obj_smoking.setValue(list_of_values[5]);
 
-
     var val_in1 = obj_in1.getValue();
-    var list_of_values = val_in1 ? mp_decode(val_in1, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]) : [0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0];
+    #                                                  0  1  2  3  4  5  6  7  8  9  10     0  1  2  3  4  5  6  7  8  9  10
+    var list_of_values = val_in1 ? mp_decode(val_in1, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]) : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     #var list_of_values = [0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0];
     # same order for each property : see bourrasque_mp_loop_encode()
     obj_ground_equipment_e.setValue(list_of_values[0]);
@@ -96,6 +91,7 @@ var bourrasque_mp_loop_decode = func() {
     obj_wing_pylons_smoke_pod.setValue(list_of_values[10]);
 
     var val_in2 = obj_in2.getValue();
+    #                                                  0  1  2  3  4  5  6  7  8      0  1  2  3  4  5  6  7  8
     var list_of_values = val_in2 ? mp_decode(val_in2, [0, 0, 0, 0, 0, 0, 0, 0, 0]) : [0, 0, 0, 0, 0, 1, 1, 0, 0];
     #var list_of_values = [0, 0, 0, 0, 0, 1, 1, 0, 0];
     # same order for each property : see bourrasque_mp_loop_encode()
