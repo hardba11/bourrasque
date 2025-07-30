@@ -6,15 +6,6 @@
 #
 ################################################################################
 
-changelog
-- 2016-10-22 : create
-
-/engines/engine[0]/prop-thrust  : 0.40 min - 25000 max
-/engines/engine[0]/n2           : 73 min - 101 max
-
-sim/current-view/internal
-sim/model/canopy-pos-norm
-
 -->
 <PropertyList>
   <fx>

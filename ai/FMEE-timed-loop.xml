@@ -1,0 +1,1250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PropertyList>
+  <name>FMEE-timed-loop</name>
+  <scenario>
+    <description>
+      FMEE timed loop (thanks to FGUK Mach Loop developpers !)
+    </description>
+    <nasal>
+      <load>
+      <![CDATA[
+props.globals.initNode("/fmee-loop-timer/starttime", 0, "DOUBLE");
+props.globals.initNode("/fmee-loop-timer/lineup-green1", 0.0, "DOUBLE");
+props.globals.initNode("/fmee-loop-timer/lineup-green2", 0.2, "DOUBLE");
+props.globals.initNode("/fmee-loop-timer/lineup-green3", 0.4, "DOUBLE");
+var yellowGuide = func()
+{
+    interpolate("/fmee-loop-timer/lineup-green1", 0.8, 0.6);
+    settimer(func {
+        interpolate("/fmee-loop-timer/lineup-green1", 0, 0.6);
+        interpolate("/fmee-loop-timer/lineup-green2", 0.8, 0.6);
+        }
+    , 0.6);
+    settimer(func {
+        interpolate("/fmee-loop-timer/lineup-green2", 0.2, 0.6);
+        interpolate("/fmee-loop-timer/lineup-green3", 0.8, 0.6);
+        }
+    , 1.2);
+    settimer(func {
+        interpolate("/fmee-loop-timer/lineup-green3", 0.4, 0.6);
+        }
+    , 1.8);
+}
+var loop = maketimer(0.1, func() {
+        if(loop == nil) return;
+        yellowGuide();
+        loop.restart(4.4);
+});
+loop.singleShot = 1;
+loop.start();
+      ]]>
+      </load>
+      <unload>
+      <![CDATA[
+loop.stop();
+loop = nil;
+      ]]>
+      </unload>
+    </nasal>
+
+
+
+    <entry>
+      <name>loop-entrance01</name>
+      <callsign>L-IN01</callsign>
+      <model type="string">FMEE-timed-loop/lineupmarker.xml</model>
+      <latitude type="double">-20.88749804313379</latitude>
+      <longitude type="double">55.52484209398179</longitude>
+      <altitude type="double">2650.24</altitude>
+      <heading type="double">293</heading>
+      <roll type="double">-9</roll>
+    </entry>
+
+    <entry>
+      <name>loop-entrance02</name>
+      <callsign>L-IN02</callsign>
+      <model type="string">FMEE-timed-loop/lineupmarker.xml</model>
+      <latitude type="double">-20.89832202128001</latitude>
+      <longitude type="double">55.51937859481949</longitude>
+      <altitude type="double">1787.6</altitude>
+      <heading type="double">293</heading>
+      <roll type="double">-9</roll>
+    </entry>
+
+    <entry>
+      <name>loop-entrance03</name>
+      <callsign>L-IN03</callsign>
+      <model type="string">FMEE-timed-loop/lineupmarker.xml</model>
+      <latitude type="double">-20.90917669689294</latitude>
+      <longitude type="double">55.51406126846445</longitude>
+      <altitude type="double">1164.4</altitude>
+      <heading type="double">292</heading>
+      <roll type="double">-3</roll>
+    </entry>
+
+    <entry>
+      <name>loop-entrance04</name>
+      <callsign>L-IN04</callsign>
+      <model type="string">FMEE-timed-loop/lineupmarker.xml</model>
+      <latitude type="double">-20.92008978598084</latitude>
+      <longitude type="double">55.50871558134522</longitude>
+      <altitude type="double">961.04</altitude>
+      <heading type="double">293</heading>
+      <roll type="double">0</roll>
+    </entry>
+
+    <entry>
+      <name>loop-entrance05</name>
+      <callsign>L-IN05</callsign>
+      <model type="string">FMEE-timed-loop/lineupmarker.xml</model>
+      <latitude type="double">-20.93108057456077</latitude>
+      <longitude type="double">55.50345096013991</longitude>
+      <altitude type="double">970.88</altitude>
+      <heading type="double">289</heading>
+      <roll type="double">1</roll>
+    </entry>
+
+    <entry>
+      <name>loop-start-marker</name>
+      <callsign>L-STRT</callsign>
+      <model type="string">FMEE-timed-loop/startmarker.xml</model>
+      <latitude type="double">-20.94246551665739</latitude>
+      <longitude type="double">55.49934476189836</longitude>
+      <altitude type="double">1108.64</altitude>
+      <heading type="double">287</heading>
+      <roll type="double">4</roll>
+    </entry>
+    <entry>
+      <name>loop-start</name>
+      <callsign>L-STRT</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker-inactive.xml</model>
+      <latitude type="double">-20.94246551665739</latitude>
+      <longitude type="double">55.49934476189836</longitude>
+      <altitude type="double">1108.64</altitude>
+      <heading type="double">287</heading>
+      <roll type="double">4</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-01</name>
+      <callsign>L-GT01</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-20.95391570397394</latitude>
+      <longitude type="double">55.49547374189762</longitude>
+      <altitude type="double">1348.08</altitude>
+      <heading type="double">283</heading>
+      <roll type="double">5</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-02</name>
+      <callsign>L-GT02</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-20.96516955148774</latitude>
+      <longitude type="double">55.4911464561604</longitude>
+      <altitude type="double">1744.96</altitude>
+      <heading type="double">290</heading>
+      <roll type="double">7</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-03</name>
+      <callsign>L-GT03</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-20.97625195202192</latitude>
+      <longitude type="double">55.48663718375251</longitude>
+      <altitude type="double">2440.32</altitude>
+      <heading type="double">285</heading>
+      <roll type="double">10</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-04</name>
+      <callsign>L-GT04</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-20.98766918212688</latitude>
+      <longitude type="double">55.48309293248702</longitude>
+      <altitude type="double">3096.32</altitude>
+      <heading type="double">286</heading>
+      <roll type="double">8</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-05</name>
+      <callsign>L-GT05</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-20.99879300608417</latitude>
+      <longitude type="double">55.47833866073613</longitude>
+      <altitude type="double">3696.56</altitude>
+      <heading type="double">294</heading>
+      <roll type="double">11</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-06</name>
+      <callsign>L-GT06</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.00803223853255</latitude>
+      <longitude type="double">55.4718545574787</longitude>
+      <altitude type="double">5264.4</altitude>
+      <heading type="double">299</heading>
+      <roll type="double">26</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-07</name>
+      <callsign>L-GT07</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.01849631368804</latitude>
+      <longitude type="double">55.46883458133082</longitude>
+      <altitude type="double">5044.64</altitude>
+      <heading type="double">253</heading>
+      <roll type="double">-29</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-08</name>
+      <callsign>L-GT08</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.02898066140121</latitude>
+      <longitude type="double">55.47329871796672</longitude>
+      <altitude type="double">4201.68</altitude>
+      <heading type="double">262</heading>
+      <roll type="double">5</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-09</name>
+      <callsign>L-GT09</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.04028359548158</latitude>
+      <longitude type="double">55.47065629383748</longitude>
+      <altitude type="double">4214.8</altitude>
+      <heading type="double">305</heading>
+      <roll type="double">0</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-10</name>
+      <callsign>L-GT10</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.04911511980112</latitude>
+      <longitude type="double">55.46179326819606</longitude>
+      <altitude type="double">4660.88</altitude>
+      <heading type="double">315</heading>
+      <roll type="double">15</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-11</name>
+      <callsign>L-GT11</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.05785903894904</latitude>
+      <longitude type="double">55.45442172094522</longitude>
+      <altitude type="double">6261.52</altitude>
+      <heading type="double">289</heading>
+      <roll type="double">25</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-12</name>
+      <callsign>L-GT12</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.06838342231904</latitude>
+      <longitude type="double">55.45456128037012</longitude>
+      <altitude type="double">7822.8</altitude>
+      <heading type="double">237</heading>
+      <roll type="double">10</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-13</name>
+      <callsign>L-GT13</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.07536834455617</latitude>
+      <longitude type="double">55.46411450440385</longitude>
+      <altitude type="double">7990.08</altitude>
+      <heading type="double">192</heading>
+      <roll type="double">-5</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-14</name>
+      <callsign>L-GT14</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.07544962077937</latitude>
+      <longitude type="double">55.47650865865682</longitude>
+      <altitude type="double">6956.88</altitude>
+      <heading type="double">168</heading>
+      <roll type="double">-21</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-15</name>
+      <callsign>L-GT15</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.07165886741889</latitude>
+      <longitude type="double">55.48770134445163</longitude>
+      <altitude type="double">5169.28</altitude>
+      <heading type="double">148</heading>
+      <roll type="double">-21</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-16</name>
+      <callsign>L-GT16</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.06356488600806</latitude>
+      <longitude type="double">55.49606452058613</longitude>
+      <altitude type="double">3739.2</altitude>
+      <heading type="double">123</heading>
+      <roll type="double">-14</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-17</name>
+      <callsign>L-GT17</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.05374911317987</latitude>
+      <longitude type="double">55.50292476853347</longitude>
+      <altitude type="double">2974.96</altitude>
+      <heading type="double">143</heading>
+      <roll type="double">-1</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-18</name>
+      <callsign>L-GT18</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.04978052349658</latitude>
+      <longitude type="double">55.51437634186884</longitude>
+      <altitude type="double">2879.84</altitude>
+      <heading type="double">179</heading>
+      <roll type="double">0</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-19</name>
+      <callsign>L-GT19</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.05123197068703</latitude>
+      <longitude type="double">55.52674493962892</longitude>
+      <altitude type="double">3171.76</altitude>
+      <heading type="double">183</heading>
+      <roll type="double">12</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-20</name>
+      <callsign>L-GT20</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.0475067825127</latitude>
+      <longitude type="double">55.53791279801723</longitude>
+      <altitude type="double">3916.32</altitude>
+      <heading type="double">131</heading>
+      <roll type="double">6</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-21</name>
+      <callsign>L-GT21</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.03637879634956</latitude>
+      <longitude type="double">55.54088781938689</longitude>
+      <altitude type="double">3332.48</altitude>
+      <heading type="double">82</heading>
+      <roll type="double">-21</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-22</name>
+      <callsign>L-GT22</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.02458860151787</latitude>
+      <longitude type="double">55.53766943899091</longitude>
+      <altitude type="double">2046.72</altitude>
+      <heading type="double">64</heading>
+      <roll type="double">4</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-23</name>
+      <callsign>L-GT23</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.01421653174964</latitude>
+      <longitude type="double">55.53260333845978</longitude>
+      <altitude type="double">3312.8</altitude>
+      <heading type="double">87</heading>
+      <roll type="double">34</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-24</name>
+      <callsign>L-GT24</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.00817029077989</latitude>
+      <longitude type="double">55.53847265682641</longitude>
+      <altitude type="double">5320.16</altitude>
+      <heading type="double">176</heading>
+      <roll type="double">-2</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-25</name>
+      <callsign>L-GT25</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.01027724068369</latitude>
+      <longitude type="double">55.54881884508613</longitude>
+      <altitude type="double">4024.56</altitude>
+      <heading type="double">198</heading>
+      <roll type="double">-19</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-26</name>
+      <callsign>L-GT26</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.00983243098271</latitude>
+      <longitude type="double">55.55949892164358</longitude>
+      <altitude type="double">2164.8</altitude>
+      <heading type="double">157</heading>
+      <roll type="double">-25</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-27</name>
+      <callsign>L-GT27</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.00404954208138</latitude>
+      <longitude type="double">55.56968080869519</longitude>
+      <altitude type="double">1321.84</altitude>
+      <heading type="double">139</heading>
+      <roll type="double">2</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-28</name>
+      <callsign>L-GT28</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-20.99866261603582</latitude>
+      <longitude type="double">55.58017794259849</longitude>
+      <altitude type="double">1571.12</altitude>
+      <heading type="double">181</heading>
+      <roll type="double">-4</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-29</name>
+      <callsign>L-GT29</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.00142492984328</latitude>
+      <longitude type="double">55.59214196509458</longitude>
+      <altitude type="double">1059.44</altitude>
+      <heading type="double">189</heading>
+      <roll type="double">-4</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-30</name>
+      <callsign>L-GT30</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.00054211832557</latitude>
+      <longitude type="double">55.60458116600534</longitude>
+      <altitude type="double">1039.76</altitude>
+      <heading type="double">157</heading>
+      <roll type="double">-5</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-31</name>
+      <callsign>L-GT31</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-20.99368017556931</latitude>
+      <longitude type="double">55.61481557987657</longitude>
+      <altitude type="double">852.8</altitude>
+      <heading type="double">138</heading>
+      <roll type="double">0</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-32</name>
+      <callsign>L-GT32</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-20.98593484616186</latitude>
+      <longitude type="double">55.62468990849593</longitude>
+      <altitude type="double">741.28</altitude>
+      <heading type="double">149</heading>
+      <roll type="double">0</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-33</name>
+      <callsign>L-GT33</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-20.97989368610041</latitude>
+      <longitude type="double">55.63568651912646</longitude>
+      <altitude type="double">665.84</altitude>
+      <heading type="double">150</heading>
+      <roll type="double">0</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-34</name>
+      <callsign>L-GT34</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-20.97355999526292</latitude>
+      <longitude type="double">55.64621127485428</longitude>
+      <altitude type="double">951.2</altitude>
+      <heading type="double">142</heading>
+      <roll type="double">21</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-35</name>
+      <callsign>L-GT35</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-20.96739367620663</latitude>
+      <longitude type="double">55.65092246701753</longitude>
+      <altitude type="double">3791.68</altitude>
+      <heading type="double">81</heading>
+      <roll type="double">63</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-36</name>
+      <callsign>L-GT36</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-20.96185598443984</latitude>
+      <longitude type="double">55.64630773507399</longitude>
+      <altitude type="double">6760.08</altitude>
+      <heading type="double">43</heading>
+      <roll type="double">26</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-37</name>
+      <callsign>L-GT37</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-20.95484930904401</latitude>
+      <longitude type="double">55.63742084454136</longitude>
+      <altitude type="double">7222.56</altitude>
+      <heading type="double">28</heading>
+      <roll type="double">-14</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-38</name>
+      <callsign>L-GT38</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-20.95299726893026</latitude>
+      <longitude type="double">55.62630233533619</longitude>
+      <altitude type="double">5582.56</altitude>
+      <heading type="double">332</heading>
+      <roll type="double">-26</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-39</name>
+      <callsign>L-GT39</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-20.96192384335299</latitude>
+      <longitude type="double">55.62161652717827</longitude>
+      <altitude type="double">4162.32</altitude>
+      <heading type="double">259</heading>
+      <roll type="double">-4</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-40</name>
+      <callsign>L-GT40</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-20.97297816317199</latitude>
+      <longitude type="double">55.62469704386936</longitude>
+      <altitude type="double">4398.48</altitude>
+      <heading type="double">253</heading>
+      <roll type="double">6</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-41</name>
+      <callsign>L-GT41</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-20.98429768961012</latitude>
+      <longitude type="double">55.62803525398104</longitude>
+      <altitude type="double">4785.52</altitude>
+      <heading type="double">254</heading>
+      <roll type="double">5</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-42</name>
+      <callsign>L-GT42</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-20.99573286983169</latitude>
+      <longitude type="double">55.63105272806616</longitude>
+      <altitude type="double">5015.12</altitude>
+      <heading type="double">257</heading>
+      <roll type="double">0</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-43</name>
+      <callsign>L-GT43</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.00745641433641</latitude>
+      <longitude type="double">55.63253418254846</longitude>
+      <altitude type="double">4723.2</altitude>
+      <heading type="double">270</heading>
+      <roll type="double">-10</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-44</name>
+      <callsign>L-GT44</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.01884804797683</latitude>
+      <longitude type="double">55.63015014146255</longitude>
+      <altitude type="double">3637.52</altitude>
+      <heading type="double">289</heading>
+      <roll type="double">-15</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-45</name>
+      <callsign>L-GT45</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.0294781403499</latitude>
+      <longitude type="double">55.62487619252477</longitude>
+      <altitude type="double">2689.6</altitude>
+      <heading type="double">297</heading>
+      <roll type="double">-5</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-46</name>
+      <callsign>L-GT46</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.03986941088992</latitude>
+      <longitude type="double">55.61877667334315</longitude>
+      <altitude type="double">2397.68</altitude>
+      <heading type="double">296</heading>
+      <roll type="double">0</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-47</name>
+      <callsign>L-GT47</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.05039031661721</latitude>
+      <longitude type="double">55.61277979976759</longitude>
+      <altitude type="double">2479.68</altitude>
+      <heading type="double">298</heading>
+      <roll type="double">3</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-48</name>
+      <callsign>L-GT48</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.06050122271391</latitude>
+      <longitude type="double">55.60595729370639</longitude>
+      <altitude type="double">2748.64</altitude>
+      <heading type="double">306</heading>
+      <roll type="double">7</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-49</name>
+      <callsign>L-GT49</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.06941081223856</latitude>
+      <longitude type="double">55.59781259409537</longitude>
+      <altitude type="double">3578.48</altitude>
+      <heading type="double">308</heading>
+      <roll type="double">18</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-50</name>
+      <callsign>L-GT50</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.07887647325352</latitude>
+      <longitude type="double">55.59207938656102</longitude>
+      <altitude type="double">5152.88</altitude>
+      <heading type="double">278</heading>
+      <roll type="double">20</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-51</name>
+      <callsign>L-GT51</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.09034988542018</latitude>
+      <longitude type="double">55.59167627708313</longitude>
+      <altitude type="double">5339.84</altitude>
+      <heading type="double">251</heading>
+      <roll type="double">-19</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-52</name>
+      <callsign>L-GT52</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.09839168967483</latitude>
+      <longitude type="double">55.59982104586151</longitude>
+      <altitude type="double">4391.92</altitude>
+      <heading type="double">225</heading>
+      <roll type="double">7</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-53</name>
+      <callsign>L-GT53</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.10874229543977</latitude>
+      <longitude type="double">55.60461744515438</longitude>
+      <altitude type="double">4762.56</altitude>
+      <heading type="double">270</heading>
+      <roll type="double">5</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-54</name>
+      <callsign>L-GT54</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.11988445528538</latitude>
+      <longitude type="double">55.60113346503647</longitude>
+      <altitude type="double">5421.84</altitude>
+      <heading type="double">306</heading>
+      <roll type="double">6</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-55</name>
+      <callsign>L-GT55</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.12804560974111</latitude>
+      <longitude type="double">55.59149063550644</longitude>
+      <altitude type="double">5658</altitude>
+      <heading type="double">324</heading>
+      <roll type="double">3</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-56</name>
+      <callsign>L-GT56</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.13453519917717</latitude>
+      <longitude type="double">55.58028632866303</longitude>
+      <altitude type="double">5782.64</altitude>
+      <heading type="double">336</heading>
+      <roll type="double">2</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-57</name>
+      <callsign>L-GT57</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.13836873850946</latitude>
+      <longitude type="double">55.56783333041879</longitude>
+      <altitude type="double">5890.88</altitude>
+      <heading type="double">346</heading>
+      <roll type="double">1</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-58</name>
+      <callsign>L-GT58</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.13870421597473</latitude>
+      <longitude type="double">55.55486683949691</longitude>
+      <altitude type="double">6123.76</altitude>
+      <heading type="double">16</heading>
+      <roll type="double">3</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-59</name>
+      <callsign>L-GT59</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.13287109529892</latitude>
+      <longitude type="double">55.54339307736418</longitude>
+      <altitude type="double">6438.64</altitude>
+      <heading type="double">36</heading>
+      <roll type="double">5</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-60</name>
+      <callsign>L-GT60</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.12555915480509</latitude>
+      <longitude type="double">55.53262785937959</longitude>
+      <altitude type="double">6628.88</altitude>
+      <heading type="double">36</heading>
+      <roll type="double">1</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-61</name>
+      <callsign>L-GT61</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.11834320938766</latitude>
+      <longitude type="double">55.52181772237235</longitude>
+      <altitude type="double">6776.48</altitude>
+      <heading type="double">31</heading>
+      <roll type="double">8</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-62</name>
+      <callsign>L-GT62</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.11272170364945</latitude>
+      <longitude type="double">55.51034954137277</longitude>
+      <altitude type="double">7484.96</altitude>
+      <heading type="double">20</heading>
+      <roll type="double">11</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-63</name>
+      <callsign>L-GT63</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.10956446528506</latitude>
+      <longitude type="double">55.4978788830544</longitude>
+      <altitude type="double">8245.92</altitude>
+      <heading type="double">3</heading>
+      <roll type="double">7</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-64</name>
+      <callsign>L-GT64</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.11114910225163</latitude>
+      <longitude type="double">55.48505884228813</longitude>
+      <altitude type="double">7940.88</altitude>
+      <heading type="double">338</heading>
+      <roll type="double">-19</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-65</name>
+      <callsign>L-GT65</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.11619117823069</latitude>
+      <longitude type="double">55.47377009270046</longitude>
+      <altitude type="double">6323.84</altitude>
+      <heading type="double">326</heading>
+      <roll type="double">-14</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-66</name>
+      <callsign>L-GT66</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.12053746320654</latitude>
+      <longitude type="double">55.46187984787696</longitude>
+      <altitude type="double">5874.48</altitude>
+      <heading type="double">356</heading>
+      <roll type="double">-3</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-67</name>
+      <callsign>L-GT67</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.11903522324776</latitude>
+      <longitude type="double">55.44901408904884</longitude>
+      <altitude type="double">5808.88</altitude>
+      <heading type="double">16</heading>
+      <roll type="double">6</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-68</name>
+      <callsign>L-GT68</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.11461739727124</latitude>
+      <longitude type="double">55.43693231070042</longitude>
+      <altitude type="double">6517.36</altitude>
+      <heading type="double">27</heading>
+      <roll type="double">13</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-69</name>
+      <callsign>L-GT69</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.10826083949852</latitude>
+      <longitude type="double">55.42613928676116</longitude>
+      <altitude type="double">7576.8</altitude>
+      <heading type="double">35</heading>
+      <roll type="double">10</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-70</name>
+      <callsign>L-GT70</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.10089074624907</latitude>
+      <longitude type="double">55.41551727513612</longitude>
+      <altitude type="double">8039.28</altitude>
+      <heading type="double">39</heading>
+      <roll type="double">2</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-71</name>
+      <callsign>L-GT71</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.09276800791289</latitude>
+      <longitude type="double">55.40534289574425</longitude>
+      <altitude type="double">8003.2</altitude>
+      <heading type="double">45</heading>
+      <roll type="double">-2</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-72</name>
+      <callsign>L-GT72</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.08339893745548</latitude>
+      <longitude type="double">55.39671138863024</longitude>
+      <altitude type="double">7580.08</altitude>
+      <heading type="double">59</heading>
+      <roll type="double">-8</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-73</name>
+      <callsign>L-GT73</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.07210668021869</latitude>
+      <longitude type="double">55.39296166911714</longitude>
+      <altitude type="double">6550.16</altitude>
+      <heading type="double">89</heading>
+      <roll type="double">-18</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-74</name>
+      <callsign>L-GT74</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.06039154228556</latitude>
+      <longitude type="double">55.39352542093036</longitude>
+      <altitude type="double">5221.76</altitude>
+      <heading type="double">96</heading>
+      <roll type="double">-16</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-75</name>
+      <callsign>L-GT75</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.0484776290969</latitude>
+      <longitude type="double">55.39347912145135</longitude>
+      <altitude type="double">4444.4</altitude>
+      <heading type="double">90</heading>
+      <roll type="double">-10</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-76</name>
+      <callsign>L-GT76</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.03727164867323</latitude>
+      <longitude type="double">55.39578465831995</longitude>
+      <altitude type="double">3204.56</altitude>
+      <heading type="double">110</heading>
+      <roll type="double">-10</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-77</name>
+      <callsign>L-GT77</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.02604002111302</latitude>
+      <longitude type="double">55.3999255730823</longitude>
+      <altitude type="double">2391.12</altitude>
+      <heading type="double">108</heading>
+      <roll type="double">-11</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-78</name>
+      <callsign>L-GT78</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.01430829639209</latitude>
+      <longitude type="double">55.40071176493218</longitude>
+      <altitude type="double">1899.12</altitude>
+      <heading type="double">70</heading>
+      <roll type="double">-4</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-79</name>
+      <callsign>L-GT79</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-21.00428056193138</latitude>
+      <longitude type="double">55.39369332170862</longitude>
+      <altitude type="double">1459.6</altitude>
+      <heading type="double">37</heading>
+      <roll type="double">-1</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-80</name>
+      <callsign>L-GT80</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-20.99889165175079</latitude>
+      <longitude type="double">55.38193655997521</longitude>
+      <altitude type="double">1092.24</altitude>
+      <heading type="double">25</heading>
+      <roll type="double">-1</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-81</name>
+      <callsign>L-GT81</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-20.99124086909101</latitude>
+      <longitude type="double">55.371816702501</longitude>
+      <altitude type="double">928.24</altitude>
+      <heading type="double">50</heading>
+      <roll type="double">0</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-82</name>
+      <callsign>L-GT82</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-20.98221379034745</latitude>
+      <longitude type="double">55.36283453555743</longitude>
+      <altitude type="double">928.24</altitude>
+      <heading type="double">42</heading>
+      <roll type="double">0</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-83</name>
+      <callsign>L-GT83</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-20.97506973212063</latitude>
+      <longitude type="double">55.35208651463295</longitude>
+      <altitude type="double">744.56</altitude>
+      <heading type="double">22</heading>
+      <roll type="double">-2</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-84</name>
+      <callsign>L-GT84</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-20.97199110938348</latitude>
+      <longitude type="double">55.33939607036894</longitude>
+      <altitude type="double">665.84</altitude>
+      <heading type="double">10</heading>
+      <roll type="double">0</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-85</name>
+      <callsign>L-GT85</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-20.96970169046349</latitude>
+      <longitude type="double">55.32643528561086</longitude>
+      <altitude type="double">570.72</altitude>
+      <heading type="double">9</heading>
+      <roll type="double">0</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-86</name>
+      <callsign>L-GT86</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-20.96793918519489</latitude>
+      <longitude type="double">55.31420321078519</longitude>
+      <altitude type="double">1597.36</altitude>
+      <heading type="double">6</heading>
+      <roll type="double">38</roll>
+    </entry>
+
+    <entry>
+      <name>loop-gate-87</name>
+      <callsign>L-GT87</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker.xml</model>
+      <latitude type="double">-20.96572948984899</latitude>
+      <longitude type="double">55.30755406712177</longitude>
+      <altitude type="double">4910.16</altitude>
+      <heading type="double">67</heading>
+      <roll type="double">61</roll>
+    </entry>
+
+    <entry>
+      <name>loop-finish</name>
+      <callsign>L-END</callsign>
+      <model type="string">FMEE-timed-loop/targetmarker-inactive.xml</model>
+      <latitude type="double">-20.95829697715436</latitude>
+      <longitude type="double">55.30761764834336</longitude>
+      <altitude type="double">7691.6</altitude>
+      <heading type="double">106</heading>
+      <roll type="double">27</roll>
+    </entry>
+    <entry>
+      <name>loop-finish-marker</name>
+      <callsign>L-END</callsign>
+      <model type="string">FMEE-timed-loop/finishmarker.xml</model>
+      <latitude type="double">-20.95829697715436</latitude>
+      <longitude type="double">55.30761764834336</longitude>
+      <altitude type="double">7691.6</altitude>
+      <heading type="double">106</heading>
+      <roll type="double">27</roll>
+    </entry>
+
+    <entry>
+      <name>loop-exit-01</name>
+      <callsign>L-EX01</callsign>
+      <model type="string">FMEE-timed-loop/lineupmarker.xml</model>
+      <latitude type="double">-20.9484861194937</latitude>
+      <longitude type="double">55.3116349873202</longitude>
+      <altitude type="double">8632.96</altitude>
+      <heading type="double">121</heading>
+      <roll type="double">-2</roll>
+    </entry>
+
+    <entry>
+      <name>loop-exit-02</name>
+      <callsign>L-EX02</callsign>
+      <model type="string">FMEE-timed-loop/lineupmarker.xml</model>
+      <latitude type="double">-20.93943738815329</latitude>
+      <longitude type="double">55.31849432792905</longitude>
+      <altitude type="double">7648.96</altitude>
+      <heading type="double">138</heading>
+      <roll type="double">-23</roll>
+    </entry>
+
+    <entry>
+      <name>loop-exit-03</name>
+      <callsign>L-EX03</callsign>
+      <model type="string">FMEE-timed-loop/lineupmarker.xml</model>
+      <latitude type="double">-20.93292701774573</latitude>
+      <longitude type="double">55.32764781573993</longitude>
+      <altitude type="double">5822</altitude>
+      <heading type="double">148</heading>
+      <roll type="double">-22</roll>
+    </entry>
+
+    <entry>
+      <name>loop-exit-04</name>
+      <callsign>L-EX04</callsign>
+      <model type="string">FMEE-timed-loop/lineupmarker.xml</model>
+      <latitude type="double">-20.92685392793853</latitude>
+      <longitude type="double">55.33727744864931</longitude>
+      <altitude type="double">4195.12</altitude>
+      <heading type="double">146</heading>
+      <roll type="double">-19</roll>
+    </entry>
+
+    <entry>
+      <name>loop-exit-05</name>
+      <callsign>L-EX05</callsign>
+      <model type="string">FMEE-timed-loop/lineupmarker.xml</model>
+      <latitude type="double">-20.92039079574198</latitude>
+      <longitude type="double">55.34676834256413</longitude>
+      <altitude type="double">2715.84</altitude>
+      <heading type="double">143</heading>
+      <roll type="double">-17</roll>
+    </entry>
+
+    <entry>
+      <name>loop-exit-06</name>
+      <callsign>L-EX06</callsign>
+      <model type="string">FMEE-timed-loop/lineupmarker.xml</model>
+      <latitude type="double">-20.91301865441066</latitude>
+      <longitude type="double">55.35585970615754</longitude>
+      <altitude type="double">1472.72</altitude>
+      <heading type="double">136</heading>
+      <roll type="double">-13</roll>
+    </entry>
+
+    <entry>
+      <name>loop-exit-07</name>
+      <callsign>L-EX07</callsign>
+      <model type="string">FMEE-timed-loop/lineupmarker.xml</model>
+      <latitude type="double">-20.90436545391301</latitude>
+      <longitude type="double">55.36392736197758</longitude>
+      <altitude type="double">462.48</altitude>
+      <heading type="double">129</heading>
+      <roll type="double">-10</roll>
+    </entry>
+
+    <entry>
+      <name>loop-exit-08</name>
+      <callsign>L-EX08</callsign>
+      <model type="string">FMEE-timed-loop/lineupmarker.xml</model>
+      <latitude type="double">-20.89529508281903</latitude>
+      <longitude type="double">55.37186432212357</longitude>
+      <altitude type="double">39.36</altitude>
+      <heading type="double">138</heading>
+      <roll type="double">2</roll>
+    </entry>
+
+    <entry>
+      <name>loop-exit-09</name>
+      <callsign>L-EX09</callsign>
+      <model type="string">FMEE-timed-loop/lineupmarker.xml</model>
+      <latitude type="double">-20.88764049527609</latitude>
+      <longitude type="double">55.3813882246009</longitude>
+      <altitude type="double">121.36</altitude>
+      <heading type="double">144</heading>
+      <roll type="double">1</roll>
+    </entry>
+
+    <entry>
+      <name>loop-exit-10</name>
+      <callsign>L-EX10</callsign>
+      <model type="string">FMEE-timed-loop/lineupmarker.xml</model>
+      <latitude type="double">-20.88138243244086</latitude>
+      <longitude type="double">55.39218272814503</longitude>
+      <altitude type="double">150.88</altitude>
+      <heading type="double">157</heading>
+      <roll type="double">0</roll>
+    </entry>
+
+    <entry>
+      <name>loop-exit-11</name>
+      <callsign>L-EX11</callsign>
+      <model type="string">FMEE-timed-loop/lineupmarker.xml</model>
+      <latitude type="double">-20.87698688754361</latitude>
+      <longitude type="double">55.40386693639864</longitude>
+      <altitude type="double">160.72</altitude>
+      <heading type="double">162</heading>
+      <roll type="double">0</roll>
+    </entry>
+
+    <entry>
+      <name>loop-exit-12</name>
+      <callsign>L-EX12</callsign>
+      <model type="string">FMEE-timed-loop/lineupmarker.xml</model>
+      <latitude type="double">-20.87426187281219</latitude>
+      <longitude type="double">55.41604572944716</longitude>
+      <altitude type="double">193.52</altitude>
+      <heading type="double">175</heading>
+      <roll type="double">4</roll>
+    </entry>
+
+    <entry>
+      <name>loop-exit-13</name>
+      <callsign>L-EX13</callsign>
+      <model type="string">FMEE-timed-loop/lineupmarker.xml</model>
+      <latitude type="double">-20.87410072598778</latitude>
+      <longitude type="double">55.42847703694017</longitude>
+      <altitude type="double">669.12</altitude>
+      <heading type="double">185</heading>
+      <roll type="double">7</roll>
+    </entry>
+
+  </scenario>
+</PropertyList>

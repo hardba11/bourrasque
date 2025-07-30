@@ -66,15 +66,6 @@ aircraft.livery.dialog.toggle();
       </item>
 
       <item n="5">
-        <label>Set views ...</label>
-        <name>set-views</name>
-        <binding>
-          <command>dialog-show</command>
-          <dialog-name>bourrasque-set-views</dialog-name>
-        </binding>
-      </item>
-
-      <item n="6">
         <label>Loyal wingman ...</label>
         <name>synapse-autopilot</name>
         <binding>
@@ -83,6 +74,14 @@ aircraft.livery.dialog.toggle();
         </binding>
       </item>
 
+      <item n="6">
+        <label>Set views ...</label>
+        <name>set-views</name>
+        <binding>
+          <command>dialog-show</command>
+          <dialog-name>bourrasque-set-views</dialog-name>
+        </binding>
+      </item>
 <!--
       <item n="7">
         <label>DevTools ...</label>

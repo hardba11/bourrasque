@@ -828,50 +828,12 @@ ________________________________________________________________________________
     </axis>
   </animation>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ look at turn right on air -->
+  <!-- ~~~~~~~~~~~~~~~~~~ look at inside turn on air -->
   <animation>
     <type>rotate</type>
     <object-name>bloc_tete</object-name>
     <property>/instrumentation/turn-indicator/indicated-turn-rate</property>
-    <condition>
-      <not><property>/gear/gear[0]/wow</property></not>
-      <greater-than>
-        <property>/instrumentation/turn-indicator/indicated-turn-rate</property>
-        <value>0</value>
-      </greater-than>
-    </condition>
-    <interpolation>
-      <entry><ind>2</ind><dep>-20</dep></entry>
-      <entry><ind>0</ind><dep>0</dep></entry>
-    </interpolation>
-    <center>
-      <x-m>-3.13</x-m>
-      <y-m>.01</y-m>
-      <z-m>.9</z-m>
-    </center>
-    <axis>
-      <x>-1</x>
-      <y>-1</y>
-      <z>1</z>
-    </axis>
-  </animation>
-
-  <!-- ~~~~~~~~~~~~~~~~~~ look at turn left on air -->
-  <animation>
-    <type>rotate</type>
-    <object-name>bloc_tete</object-name>
-    <property>/instrumentation/turn-indicator/indicated-turn-rate</property>
-    <condition>
-      <not><property>/gear/gear[0]/wow</property></not>
-      <less-than>
-        <property>/instrumentation/turn-indicator/indicated-turn-rate</property>
-        <value>0</value>
-      </less-than>
-    </condition>
-    <interpolation>
-      <entry><ind>-2</ind><dep>20</dep></entry>
-      <entry><ind>0</ind><dep>0</dep></entry>
-    </interpolation>
+    <factor>-10</factor>
     <center>
       <x-m>-3.13</x-m>
       <y-m>.01</y-m>
@@ -885,3 +847,5 @@ ________________________________________________________________________________
   </animation>
 
 </PropertyList>
+
+

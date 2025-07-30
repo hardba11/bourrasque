@@ -16,6 +16,11 @@
     <object-name>fieldOfView</object-name>
   </animation>
 
+  <animation>
+    <type>noshadow</type>
+    <object-name>fieldOfView</object-name>
+  </animation>
+
   <!-- ~~~~~~~~~~~~~~~~~~ hidden -->
   <animation>
     <type>select</type>

@@ -52,5 +52,26 @@ Testing/using
 3. test
 
 
+Distributing
+-------------
+
+For example, you recorded a timed loop near Saint-Denis - La Réunion - FMEE
+
+It is amazing and you want to distribute it.
+
+1. create a directory `ai/to_distribute/FMEE-timed-loop`
+2. copy the directory `fgdata/AI/homemade-timed-loop/` in the directory `ai/to_distribute/FMEE-timed-loop/`
+3. copy the file `homemade-timed-loop.xml` in `ai/to_distribute/FMEE-timed-loop/FMEE-timed-loop.xml`
+4. replace `HOMEMADE` by `FMEE` in the files `ai/to_distribute/FMEE-timed-loop/startmarker.xml` and `ai/to_distribute/FMEE-timed-loop/finishmarker.xml`
+5. in the file `ai/to_distribute/FMEE-timed-loop/FMEE-timed-loop.xml`
+    - replace `/homemade-loop-timer/` by `/fmee-loop-timer/` 
+    - replace `homemade-timed-loop/` by `FMEE-timed-loop/`
+    - replace `<name>HOMEMADE-timed-loop</name>` by `<name>FMEE-timed-loop</name>`
+    - change the description (search `<description>`)
+
+
+
+
+
 
 

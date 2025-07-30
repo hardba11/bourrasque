@@ -268,7 +268,7 @@ Syd Adams
       <binding>
         <command>property-adjust</command>
         <property>instrumentation/comm[1]/volume</property>
-        <factor>-.05</factor>
+        <factor>.05</factor>
         <min>0</min>
         <max>1</max>
         <wrap>false</wrap>
