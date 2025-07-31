@@ -26,7 +26,7 @@ use Term::ANSIColor;
 #                                                                     CONSTANTES
 
 # filepath
-my $LOOPNAME                = 'homemade-timed-loop';
+my $LOOPNAME                = 'HOMEMADE-timed-loop';
 my $FILENAME_IN_CSV         = 'trace-loop-INPUT.csv';
 my $FILENAME_INC_HEADER_XML = 'loop-HEADER.inc.xml';
 my $FILENAME_INC_FOOTER_XML = 'loop-FOOTER.inc.xml';

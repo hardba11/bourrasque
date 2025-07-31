@@ -8,25 +8,25 @@
     <nasal>
       <load>
         <![CDATA[
-props.globals.initNode("/homemade-loop-timer/starttime", 0, "DOUBLE");
-props.globals.initNode("/homemade-loop-timer/lineup-green1", 0.0, "DOUBLE");
-props.globals.initNode("/homemade-loop-timer/lineup-green2", 0.2, "DOUBLE");
-props.globals.initNode("/homemade-loop-timer/lineup-green3", 0.4, "DOUBLE");
+props.globals.initNode("/lflg-loop-timer/starttime", 0, "DOUBLE");
+props.globals.initNode("/lflg-loop-timer/lineup-green1", 0.0, "DOUBLE");
+props.globals.initNode("/lflg-loop-timer/lineup-green2", 0.2, "DOUBLE");
+props.globals.initNode("/lflg-loop-timer/lineup-green3", 0.4, "DOUBLE");
 var yellowGuide = func()
 {
-    interpolate("/homemade-loop-timer/lineup-green1", 0.8, 0.6);
+    interpolate("/lflg-loop-timer/lineup-green1", 0.8, 0.6);
     settimer(func {
-        interpolate("/homemade-loop-timer/lineup-green1", 0, 0.6);
-        interpolate("/homemade-loop-timer/lineup-green2", 0.8, 0.6);
+        interpolate("/lflg-loop-timer/lineup-green1", 0, 0.6);
+        interpolate("/lflg-loop-timer/lineup-green2", 0.8, 0.6);
         }
     , 0.6);
     settimer(func {
-        interpolate("/homemade-loop-timer/lineup-green2", 0.2, 0.6);
-        interpolate("/homemade-loop-timer/lineup-green3", 0.8, 0.6);
+        interpolate("/lflg-loop-timer/lineup-green2", 0.2, 0.6);
+        interpolate("/lflg-loop-timer/lineup-green3", 0.8, 0.6);
         }
     , 1.2);
     settimer(func {
-        interpolate("/homemade-loop-timer/lineup-green3", 0.4, 0.6);
+        interpolate("/lflg-loop-timer/lineup-green3", 0.4, 0.6);
         }
     , 1.8);
 }

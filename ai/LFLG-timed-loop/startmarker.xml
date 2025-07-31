@@ -15,8 +15,8 @@ var markerPath = "/ai/models/aircraft["~ rootindex ~"]/";
 
 var greenFlash = func()
 {
-    settimer(func(){ interpolate("/homemade-loop-timer/color-red", 1, 0.6); }, 0.2);
-    interpolate("/homemade-loop-timer/color-red", 0.35, 0.2);
+    settimer(func(){ interpolate("/lflg-loop-timer/color-red", 1, 0.6); }, 0.2);
+    interpolate("/lflg-loop-timer/color-red", 0.35, 0.2);
 }
 
 var markerCoord = geo.Coord.new();
@@ -27,28 +27,28 @@ markerCoord.set_latlon(
 );
 
 var planeCoord = geo.Coord.new();
-props.globals.initNode("/homemade-loop-timer/starttime", 0, "DOUBLE");
-props.globals.initNode("/homemade-loop-timer/finished-notcleared", 0, "BOOL");
-props.globals.initNode("/homemade-loop-timer/start-delay", 1, "BOOL");
+props.globals.initNode("/lflg-loop-timer/starttime", 0, "DOUBLE");
+props.globals.initNode("/lflg-loop-timer/finished-notcleared", 0, "BOOL");
+props.globals.initNode("/lflg-loop-timer/start-delay", 1, "BOOL");
 
 var machCheck = maketimer(0.2,
     func()
     {
         if(machCheck == nil) return;
 
-        if(getprop("/velocities/mach") > 1.0 and getprop("/homemade-loop-timer/starttime") > 0)
+        if(getprop("/velocities/mach") > 1.0 and getprop("/lflg-loop-timer/starttime") > 0)
         {
             screen.log.write("BOOM! You went supersonic! Stopping timed run...");
             print("BOOM! You went supersonic! Stopping timed run...");
-            setprop("/homemade-loop-timer/starttime", 0);
-            interpolate("/homemade-loop-timer/color-green", 0.35, 2);
+            setprop("/lflg-loop-timer/starttime", 0);
+            interpolate("/lflg-loop-timer/color-green", 0.35, 2);
         }
-        if(getprop("/sim/speed-up") != 1.0 and getprop("/homemade-loop-timer/starttime") > 0)
+        if(getprop("/sim/speed-up") != 1.0 and getprop("/lflg-loop-timer/starttime") > 0)
         {
             screen.log.write("Changing sim speed! You ar cheating! Stopping timed run...");
             print("Changing sim speed! You ar cheating! Stopping timed run...");
-            setprop("/homemade-loop-timer/starttime", 0);
-            interpolate("/homemade-loop-timer/color-green", 0.35, 2);
+            setprop("/lflg-loop-timer/starttime", 0);
+            interpolate("/lflg-loop-timer/color-green", 0.35, 2);
         }
     }
 );
@@ -56,11 +56,11 @@ machCheck.singleShot = 0;
 
 var clearWaypoints = func()
 {
-    var wayptsNode = props.globals.getNode("/homemade-loop-timer");
+    var wayptsNode = props.globals.getNode("/lflg-loop-timer");
     forindex(var i; wayptsNode.getChildren("waypoint"))
     {
-        props.globals.initNode("/homemade-loop-timer/waypoint["~ i ~"]/passed", 0, "BOOL");
-        setprop("/homemade-loop-timer/waypoint["~ i ~"]/passed", 0);
+        props.globals.initNode("/lflg-loop-timer/waypoint["~ i ~"]/passed", 0, "BOOL");
+        setprop("/lflg-loop-timer/waypoint["~ i ~"]/passed", 0);
         #screen.log.write("Clearing waypoint "~ i);
         print("Clearing waypoint "~ i);
     }
@@ -71,8 +71,8 @@ var distLoop = maketimer(0.1,
     {
         if(distLoop == nil) return;
 
-        if(getprop("/homemade-loop-timer/starttime") == 0) machCheck.stop();
-        if(getprop("/homemade-loop-timer/start-delay"))
+        if(getprop("/lflg-loop-timer/starttime") == 0) machCheck.stop();
+        if(getprop("/lflg-loop-timer/start-delay"))
         {
             planeCoord.set_latlon(
                 getprop("/position/latitude-deg"),
@@ -92,14 +92,14 @@ var distLoop = maketimer(0.1,
 
             if(dist < 100)
             {
-                setprop("/homemade-loop-timer/starttime", getprop("/sim/time/elapsed-sec"));
+                setprop("/lflg-loop-timer/starttime", getprop("/sim/time/elapsed-sec"));
                 setprop("/sim/multiplay/chat", getprop("/sim/multiplay/callsign") ~" ("~ getprop("/sim/aircraft") ~") started timed LFLG timed loop !");
                 machCheck.start();
                 clearWaypoints();
-                setprop("/homemade-loop-timer/finished-notcleared", 0);
-                setprop("/homemade-loop-timer/start-delay", 0);
-                settimer(func(){ setprop("/homemade-loop-timer/start-delay", 1); }, 5);
-                interpolate("/homemade-loop-timer/color-green", 1, 0.2);
+                setprop("/lflg-loop-timer/finished-notcleared", 0);
+                setprop("/lflg-loop-timer/start-delay", 0);
+                settimer(func(){ setprop("/lflg-loop-timer/start-delay", 1); }, 5);
+                interpolate("/lflg-loop-timer/color-green", 1, 0.2);
                 greenFlash();
             }
             distLoop.restart(looptime);
@@ -111,8 +111,8 @@ var distLoop = maketimer(0.1,
     }
 );
 distLoop.singleShot = 1;
-var listenStarttime = setlistener("/homemade-loop-timer/starttime", func(){ distLoop.restart(0.2); });
-var listenNotcleared = setlistener("/homemade-loop-timer/finished-notcleared", func(){ distLoop.restart(0.2); });
+var listenStarttime = setlistener("/lflg-loop-timer/starttime", func(){ distLoop.restart(0.2); });
+var listenNotcleared = setlistener("/lflg-loop-timer/finished-notcleared", func(){ distLoop.restart(0.2); });
 distLoop.start();
       ]]>
     </load>
