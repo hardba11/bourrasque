@@ -407,9 +407,6 @@ http://wiki.flightgear.org/Property_tree
     </instruments>
   </_debug>
 
-  <!-- ~~~~~~~~~~~~~~~~~~ AI -->
-  <ai include="include/ai-properties.xml" />
-
   <!--
 ================================================================================
                                                                 OTHER PROPERTIES
