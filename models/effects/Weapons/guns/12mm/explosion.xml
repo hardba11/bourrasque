@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <model>
+    <path>ExplosionFire.xml</path>
+  </model>
+
+  <model>
+    <path>ExplosionSmoke.xml</path>
+  </model>
+
+</PropertyList>

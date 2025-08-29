@@ -7,7 +7,7 @@
 ################################################################################
 
 -->
-<PropertyList>
+<PropertyList include="brsq-bombableinclude.xml">
   <nasal>
     <load>
       <![CDATA[

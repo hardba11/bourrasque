@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <!-- Fire -->
+  <path>thrust_flame.ac</path>
+  <nopreview/>
+
+  <animation>
+    <type>scale</type>
+    <x-offset> 0.10 </x-offset>
+    <y-offset> 0.05 </y-offset>
+    <z-offset> 0.05 </z-offset>
+  </animation>
+
+  <effect>
+    <inherits-from>gunblaze</inherits-from>
+    <object-name>Bounding_box</object-name>
+  </effect>
+
+</PropertyList>

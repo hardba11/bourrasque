@@ -792,6 +792,21 @@ ________________________________________________________________________________
       </volume>
     </canopy_unlock>
 
+    <guns>
+      <name>gunfire</name>
+      <mode>looped</mode>
+      <path>gunfire.wav</path>
+      <condition>
+        <property>sim/multiplay/generic/int[10]</property>
+      </condition>
+      <volume>
+        <factor>1.2</factor>
+        <max>1.0</max>
+      </volume>
+      <reference-dist>100</reference-dist>
+      <max-dist>1000</max-dist>
+    </guns>
+
 
   </fx>
 </PropertyList>

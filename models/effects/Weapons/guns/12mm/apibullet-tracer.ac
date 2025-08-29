@@ -1,0 +1,58 @@
+AC3Db
+MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
+OBJECT world
+kids 1
+OBJECT poly
+name "trace"
+loc 0 0 -0
+data 5
+trace
+texture "apibullet-tracer.png"
+texrep 1.000000 1.000000
+crease 30.000001
+numvert 7
+-20 0.02 -0.034642
+-20 -0.02 -0.034644
+-20 -0.04 -0
+-20 -0.02 0.034642
+-20 0.02 0.034644
+-20 0.04 -0
+0 0 -0
+numsurf 6
+SURF 0x10
+mat 0
+refs 3
+0 0 0.75
+6 1 0.5
+1 0 0.25
+SURF 0x10
+mat 0
+refs 3
+1 0 0.25
+6 1 0.5
+2 0 0
+SURF 0x10
+mat 0
+refs 3
+2 0 0
+6 1 0.5
+3 0 0.25
+SURF 0x10
+mat 0
+refs 3
+3 0 0.25
+6 1 0.5
+4 0 0.75
+SURF 0x10
+mat 0
+refs 3
+4 0 0.75
+6 1 0.5
+5 0 1
+SURF 0x10
+mat 0
+refs 3
+6 1 0.5
+0 0 0.75
+5 0 1
+kids 0

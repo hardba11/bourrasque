@@ -55,12 +55,6 @@ Still in development but fully usable.
 - Rain effects : raindrops on canopy and fuselage, particles on ground
 - Smoke pods
 
-### AI Scenario (need to copy files in your FGDATA directory)
-
-- 2 wingmen AI demo - see [README](https://github.com/hardba11/bourrasque/blob/master/ai/README-wingmen.txt)
-- Timed loop AI demo over French Alps (takeoff LFLG : Grenoble le Versoud) - see [README](https://github.com/hardba11/bourrasque/blob/master/ai/README-LFLG-timed-loop.txt)
-- Add a new tanker beside the A330MRTT : Rafale Marine buddy-buddy - see [README](https://github.com/hardba11/bourrasque/blob/master/ai/README-tanker-rafale-marine.txt)
-
 ### Tools
 
 - Tool to record a timed loop - see [README](https://github.com/hardba11/bourrasque/blob/master/tools/trace-loop/README.txt)
@@ -126,11 +120,11 @@ Refuelling capability :
 
 ![Image](http://i.imgur.com/VrMoNWV.png)
 
-LFLG timed loop (need a copy to AI/ to install) :
+LFLG timed loop - see [hrdbTimedLoop add-on](https://github.com/hardba11/hrdb-addons/blob/master/hrdbTimedLoop-1.0.0/README.md) :
 
 ![Image](http://i.imgur.com/hd3LKso.png)
 
-AI Rafale Marine tanker (need a copy to AI/ to install) :
+AI Rafale Marine tanker - see [hrdbTankerMarine add-on](https://github.com/hardba11/hrdb-addons/blob/master/hrdbTankerMarine-1.0.0/README.md) :
 
 ![Image](http://i.imgur.com/dRmWRNU.png)
 

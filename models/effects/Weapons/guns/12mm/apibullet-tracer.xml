@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>apibullet-tracer.ac</path>
+
+  <animation>
+    <object-name>trace</object-name>
+  </animation>
+
+  <model>
+    <name>smoke</name>
+    <path>apibullet-smoke.xml</path>
+  </model>
+
+  <animation>
+    <type>noshadow</type>
+    <object-name>trace</object-name>
+    <object-name>smoke</object-name>
+  </animation>
+
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>trace</object-name>
+    <object-name>smoke</object-name>
+  </effect>
+
+  <animation>
+    <type>dist-scale</type>
+    <object-name>trace</object-name>
+    <interpolation>
+      <entry><ind>    0 </ind><dep>  0.05 </dep></entry>
+      <entry><ind>   10 </ind><dep>  0.20 </dep></entry>
+      <entry><ind>  400 </ind><dep> 10.00 </dep></entry>
+      <entry><ind> 5000 </ind><dep>  0.00 </dep></entry>
+    </interpolation>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>trace</object-name>
+    <emission>
+      <factor> 1 </factor>
+      <offset> 1 </offset>
+      <red>    0.75 </red>
+      <green>  0.25 </green>
+      <blue>   0.25 </blue>
+    </emission>
+  </animation>
+
+</PropertyList>

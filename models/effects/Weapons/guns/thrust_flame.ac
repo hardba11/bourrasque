@@ -1,0 +1,64 @@
+AC3Db
+MATERIAL "DefaultWhite" rgb 1 1 1  amb 1 1 1  emis 0 0 0  spec 0.5 0.5 0.5  shi 64  trans 0
+MATERIAL "Transparent" rgb 0.8 0.8 0.8 amb 1 1 1 emis 0 0 0 spec 1 1 1 shi 64 trans 0.7
+OBJECT world
+kids 1
+OBJECT poly
+name "Bounding_box"
+loc 0 0 -0
+data 12
+Bounding_box
+crease 30.000001
+numvert 8
+5 -1 -1
+5 -1 1
+0 -1 -1
+0 1 1
+5 1 1
+0 -1 1
+5 1 -1
+0 1 -1
+numsurf 6
+SURF 0x10
+mat 1
+refs 4
+3 0 1
+5 0 0
+1 1 0
+4 1 1
+SURF 0x10
+mat 1
+refs 4
+5 0 0
+2 0 0
+0 1 0
+1 1 0
+SURF 0x10
+mat 1
+refs 4
+3 0 1
+4 1 1
+6 1 1
+7 0 1
+SURF 0x10
+mat 1
+refs 4
+4 1 1
+1 1 0
+0 1 0
+6 1 1
+SURF 0x10
+mat 1
+refs 4
+7 0 1
+2 0 0
+5 0 0
+3 0 1
+SURF 0x10
+mat 1
+refs 4
+2 0 0
+7 0 1
+6 1 1
+0 1 0
+kids 0

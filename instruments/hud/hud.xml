@@ -702,6 +702,23 @@ see :
     <format>VS %d fpm</format>
     <halign>right</halign>
     <box>false</box>
+    <condition>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <equals>
+          <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+          <value>APP</value>
+        </equals>
+        <equals>
+          <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+          <value>NAV</value>
+        </equals>
+        <equals>
+          <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+          <value>VFR</value>
+        </equals>
+      </or>
+    </condition>
   </label>
 
   <label>
@@ -845,6 +862,15 @@ see :
         <property>/position/altitude-agl-ft</property>
         <value>5000</value>
       </less-than>
+      <not><property>/gear/gear[0]/wow</property></not>
+      <less-than>
+        <property>/orientation/roll-deg</property>
+        <value>85</value>
+      </less-than>
+      <greater-than>
+        <property>/orientation/roll-deg</property>
+        <value>-85</value>
+      </greater-than>
     </condition>
   </label>
 
@@ -873,6 +899,15 @@ see :
         <property>/position/altitude-agl-ft</property>
         <value>5000</value>
       </less-than>
+      <not><property>/gear/gear[0]/wow</property></not>
+      <less-than>
+        <property>/orientation/roll-deg</property>
+        <value>85</value>
+      </less-than>
+      <greater-than>
+        <property>/orientation/roll-deg</property>
+        <value>-85</value>
+      </greater-than>
     </condition>
   </label>
 
@@ -918,6 +953,15 @@ see :
         <property>/position/altitude-agl-ft</property>
         <value>5000</value>
       </less-than>
+      <not><property>/gear/gear[0]/wow</property></not>
+      <less-than>
+        <property>/orientation/roll-deg</property>
+        <value>85</value>
+      </less-than>
+      <greater-than>
+        <property>/orientation/roll-deg</property>
+        <value>-85</value>
+      </greater-than>
     </condition>
   </tape>
 
@@ -1524,6 +1568,43 @@ see :
       </or>
     </condition>
   </label>
+
+<!-- ~~~~~~~~~~~~~~~~~~ gear agl for APP mode -->
+  <gauge>
+    <name>touchdown</name>
+    <x>-40</x>
+    <y>-90</y>
+    <width>12</width>
+    <height>100</height>
+    <option>vertical</option>
+    <option>right</option>
+    <option>notext</option>
+    <major-divisions>15</major-divisions>
+    <minor-divisions>5</minor-divisions>
+    <input>
+      <property>/position/gear-agl-ft</property>
+      <factor>1</factor>
+      <max>50.0</max>
+      <min>0.0</min>
+    </input>
+    <condition>
+      <or>
+        <property>/_debug/instruments/hud_show_all</property>
+        <and>
+          <equals>
+            <property>/instrumentation/my_aircraft/nd/controls/mode</property>
+            <value>APP</value>
+          </equals>
+          <property>/controls/gear/gear-down</property>
+          <less-than>
+            <property>/position/gear-agl-ft</property>
+            <value>60</value>
+          </less-than>
+          <not><property>/gear/gear[0]/wow</property></not>
+        </and>
+      </or>
+    </condition>
+  </gauge>
 
 <!--
 ================================================================================

@@ -16,12 +16,12 @@ http://wiki.flightgear.org/YASim
 <airplane mass="22050" version="YASIM_VERSION_CURRENT">
   <!--
 ================================================================================
-                                                                        APPROACH
+                                                               APPROACH / CRUISE
 ================================================================================
   -->
-  <approach speed="110" aoa="11" fuel=".5">
-    <control-setting axis="/controls/engines/engine[0]/throttle" value=".3" />
-    <control-setting axis="/controls/engines/engine[1]/throttle" value=".3" />
+  <approach speed="110" aoa="11" fuel=".6">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value=".2" />
+    <control-setting axis="/controls/engines/engine[1]/throttle" value=".2" />
     <control-setting axis="/controls/engines/engine[0]/reheat"   value="0" />
     <control-setting axis="/controls/engines/engine[1]/reheat"   value="0" />
     <control-setting axis="/controls/flight/flaps"               value="0" />
@@ -30,14 +30,9 @@ http://wiki.flightgear.org/YASim
     <control-setting axis="/controls/gear/gear-down"             value="1" />
   </approach>
 
-  <!--
-================================================================================
-                                                                          CRUISE
-================================================================================
-  -->
-  <cruise speed="1000" alt="25000" fuel="0.8">
-    <control-setting axis="/controls/engines/engine[0]/throttle" value=".7" />
-    <control-setting axis="/controls/engines/engine[1]/throttle" value=".7" />
+  <cruise speed="1200" alt="25000" fuel="1.0">
+    <control-setting axis="/controls/engines/engine[0]/throttle" value=".6" />
+    <control-setting axis="/controls/engines/engine[1]/throttle" value=".6" />
     <control-setting axis="/controls/engines/engine[0]/reheat"   value="0" />
     <control-setting axis="/controls/engines/engine[1]/reheat"   value="0" />
     <control-setting axis="/controls/flight/flaps"               value="0" />
@@ -86,14 +81,14 @@ ________________________________________________________________________________
       length="4.4"
       taper="0.24"
       sweep="28"
-      dihedral="-2.7"
+      dihedral="2"
       incidence="0"
       camber="0"
       twist="-2">
     <stall aoa="25" width="6" peak="1.5" />
 
     <!-- ~~~~~~~~~~~~~~~~~~ ailerons : ROLL -->
-    <flap0 start=".3" end="1" lift="1.3" drag="0" />
+    <flap0 start=".3" end="1" lift="1.3" drag=".5" />
     <control-input  control="FLAP0" axis="/controls/flight/fdm-aileron"  split="true" />
     <control-input  control="FLAP0" axis="/controls/flight/aileron-trim" split="true" />
     <control-output control="FLAP0" prop="/surface-positions/aileron-pos-norm" />
@@ -102,7 +97,7 @@ ________________________________________________________________________________
     <control-speed  control="FLAP0" transition-time="0" />
 
     <!-- ~~~~~~~~~~~~~~~~~~ speedbrakes -->
-    <spoiler start="0" end="0.25" lift="1.05" drag="100" />
+    <spoiler start="0" end="0.25" lift="1.05" drag="90" />
     <control-input  control="SPOILER" axis="/controls/flight/speedbrake" />
     <control-output control="SPOILER" prop="/surface-positions/speedbrake-pos-norm" />
     <control-speed  control="SPOILER" transition-time="1" />
@@ -125,12 +120,12 @@ ________________________________________________________________________________
       length="2"
       taper="0.24"
       sweep="28"
-      dihedral="-2.7"
+      dihedral="2"
       camber="0">
     <stall aoa="40" width="2" peak="1.2" />
 
     <!-- ~~~~~~~~~~~~~~~~~~ elevator : PITCH -->
-    <flap0 start="0" end=".3" lift="2.1" drag="0" />
+    <flap0 start="0" end=".3" lift="2.2" drag="0" />
     <control-input  control="FLAP0" axis="/controls/flight/fdm-elevator" />
     <control-input  control="FLAP0" axis="/controls/flight/elevator-trim" />
     <control-output control="FLAP0" prop="/surface-positions/out-elevator-pos-norm" />
@@ -142,15 +137,16 @@ ________________________________________________________________________________
   <!--
 ________________________________________________________________________________
                                                              VERTICAL STABILIZER
+
   -->
   <vstab
-      x="-4.2" y="0" z="-.5"
+      x="-5.2" y="0" z="-.7"
       length="3.15"
       chord="3.3"
       sweep="27.5"
       taper=".28">
-    <stall aoa="30" width="10" peak="1.5" />
-    <flap0 start="0" end=".8" lift="2.2" drag="1" />
+    <stall aoa="20" width="10" peak="1.5" />
+    <flap0 start="0" end=".8" lift="2.2" drag="0" />
     <control-input  control="FLAP0" axis="/controls/flight/fdm-rudder"  invert="true" />
     <control-input  control="FLAP0" axis="/controls/flight/rudder-trim" invert="true" />
     <control-output control="FLAP0" prop="/surface-positions/rudder-pos-norm" />
@@ -161,9 +157,11 @@ ________________________________________________________________________________
 ________________________________________________________________________________
                                                                         HACK !!!
   -->
-  <!-- ~~~~~~~~~~~~~~~~~~ limit yaw oscillations -->
-  <mstab x="-5" y="0" z="1" length="1.5" chord="1.5" sweep="15" taper=".15" dihedral="0" camber="0" incidence="0">
-  </mstab>
+  <!-- ~~~~~~~~~~~~~~~~~~ limit yaw oscillations
+  <mstab x="-3" y="-5" z="0" length="1.5" chord="1.5" sweep="15" taper=".15" dihedral="0" camber="0" incidence="0"></mstab>
+  <mstab x="-3" y="5" z="0" length="1.5" chord="1.5" sweep="15" taper=".15" dihedral="0" camber="0" incidence="0"></mstab>
+  -->
+
   <!-- ~~~~~~~~~~~~~~~~~~ animation canopy -->
   <mstab x="0.01" y="0" z="0" length=".0001" chord=".0001" sweep=".0001" taper=".0001" dihedral="0" camber="0" incidence="0">
     <control-input  control="FLAP0" axis="/controls/doors/canopy" />
@@ -198,10 +196,10 @@ ________________________________________________________________________________
   -->
   <!-- ~~~~~~~~~~~~~~~~~~ left engine -->
   <jet
-      x="-2" y="0.5" z="0.1"
+      x="-1.9" y="0.5" z="0.1"
       mass="1900"
-      thrust="15000"
-      afterburner="20000"
+      thrust="18000"
+      afterburner="25000"
       spool-time="3"
       exhaust-speed="2500"
       tsfc="0.2"
@@ -217,10 +215,10 @@ ________________________________________________________________________________
   </jet>
 
   <!-- ~~~~~~~~~~~~~~~~~~ right engine -->
-  <jet x="-2" y="-0.5" z=".1"
+  <jet x="-1.9" y="-0.5" z=".1"
       mass="1900"
-      thrust="15000"
-      afterburner="20000"
+      thrust="18000"
+      afterburner="25000"
       spool-time="3"
       exhaust-speed="2500"
       tsfc="0.2"
@@ -236,7 +234,7 @@ ________________________________________________________________________________
   </jet>
 
   <!-- ~~~~~~~~~~~~~~~~~~ thruster : boost + pushback -->
-  <thruster thrust="150000"
+  <thruster thrust="180000"
       x="-6" y="0" z="0.1"
       vx="1" vy="0" vz="0">
     <control-input control="THROTTLE" axis="/controls/jato/throttle" />
@@ -368,7 +366,7 @@ ________________________________________________________________________________
   -->
 
   <!-- ~~~~~~~~~~~~~~~~~~ cockpit and radar -->
-  <ballast x="5.5" y="0" z="0.1" mass="2700" />
+  <ballast x="5.8" y="0" z="0.1" mass="2650" />
 
   <!--weight x="6" y="0" z="-2" size="1" mass-prop="/controls/launch/mass" /-->
 

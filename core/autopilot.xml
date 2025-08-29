@@ -74,6 +74,12 @@ vitesse affichee sur le hud
       <condition>
         <equals><property>/gear/gear[1]/wow</property><value>0</value></equals>
         <equals><property>/gear/gear[2]/wow</property><value>0</value></equals>
+        <not>
+          <or>
+            <equals><property>/autopilot/locks/heading</property><value>dg-heading-hold</value></equals>
+            <equals><property>/autopilot/locks/heading</property><value>nav1-hold</value></equals>
+          </or>
+        </not>
       </condition>
     </enable>
     <feedback-if-disabled>true</feedback-if-disabled>
@@ -117,16 +123,6 @@ vitesse affichee sur le hud
       <u_min>-1</u_min>
       <u_max>1</u_max>
     </config>
-    <enable>
-      <condition>
-        <not>
-          <or>
-            <equals><property>/autopilot/locks/heading</property><value>dg-heading-hold</value></equals>
-            <equals><property>/autopilot/locks/heading</property><value>nav1-hold</value></equals>
-          </or>
-        </not>
-      </condition>
-    </enable>
   </pid-controller>
 
   <filter>
@@ -288,6 +284,7 @@ vitesse affichee sur le hud
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
                                                                              YAW
   -->
+
   <filter>
     <name>fbw-rudder</name>
     <type>gain</type>
@@ -309,7 +306,6 @@ vitesse affichee sur le hud
     <min>-1</min>
     <max>1</max>
   </filter>
-
 
 
   <!--

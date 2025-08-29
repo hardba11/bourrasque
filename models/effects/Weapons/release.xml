@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <cannon>
+    <model>Aircraft/bourrasque/models/effects/Weapons/guns/12mm/apibullet-tracer.xml</model>
+    <!-- <trigger>controls/armament/trigger</trigger> -->
+    <trigger>sim/multiplay/generic/int[10]</trigger>
+    <speed>2755.9</speed>
+    <cd>0.193</cd>
+    <eda>0.00338158219</eda>
+    <weight>0.286600941</weight>
+    <life>40</life>
+    <repeat>true</repeat>
+    <delay>0.41</delay>
+    <count>-1</count> <!-- -1 = infini -->
+    <wind>false</wind>
+    <collision>true</collision>
+    <impact>true</impact>
+    <collision-report>sim/ai/aircraft/collision/cannon</collision-report>
+    <impact-reports>ai/models/model-impact</impact-reports>
+    <submodel-path>Aircraft/bourrasque/models/effects/Weapons/guns/12mm/submodel.xml</submodel-path>
+  </cannon>
+
+  <submodel>
+    <name>cannon</name>
+    <model            alias="../../cannon/model"/>
+    <trigger          alias="../../cannon/trigger"/>
+    <speed            alias="../../cannon/speed"/>
+    <cd               alias="../../cannon/cd"/>
+    <eda              alias="../../cannon/eda"/>
+    <weight           alias="../../cannon/weight"/>
+    <life             alias="../../cannon/life"/>
+    <repeat           alias="../../cannon/repeat"/>
+    <delay            alias="../../cannon/delay"/>
+    <count            alias="../../cannon/count"/>
+    <wind             alias="../../cannon/wind"/>
+    <collision        alias="../../cannon/collision"/>
+    <impact           alias="../../cannon/impact"/>
+    <collision-report alias="../../cannon/collision-report"/>
+    <impact-reports   alias="../../cannon/impact-reports"/>
+    <submodel-path    alias="../../cannon/submodel-path"/>
+    <offsets>
+      <x-m> -3.60391 </x-m>
+      <y-m>  0.97267 </y-m>
+      <z-m> -0.29442 </z-m>
+    </offsets>
+  </submodel>
+
+</PropertyList>

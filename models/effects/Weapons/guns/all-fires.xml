@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <model>
+    <path>fire.xml</path>
+    <condition>
+      <!-- <property>controls/armament/trigger</property> -->
+      <property>sim/multiplay/generic/int[10]</property>
+    </condition>
+    <offsets>
+      <x-m> -3.60391 </x-m>
+      <y-m>  0.97267 </y-m>
+      <z-m> -0.29442 </z-m>
+      <pitch-deg> 180 </pitch-deg>
+    </offsets>
+  </model>
+
+</PropertyList>

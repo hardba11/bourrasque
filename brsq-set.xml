@@ -333,7 +333,6 @@ http://wiki.flightgear.org/Property_tree
       <path>/instrumentation/my_aircraft/nd/inputs/range-nm</path>
       <path>/instrumentation/my_aircraft/nd/inputs/lh-vor-adf</path>
       <path>/instrumentation/my_aircraft/nd/inputs/rh-vor-adf</path>
-      <path>/instrumentation/nav[0]/slaved-to-gps</path>
       <path>/instrumentation/tacan/frequencies/selected-channel[0]</path>
       <path>/instrumentation/tacan/frequencies/selected-channel[1]</path>
       <path>/instrumentation/tacan/frequencies/selected-channel[2]</path>
