@@ -21,9 +21,10 @@ PROPERTY-PATH : /sim/multiplay/
     <int                  n="0" />
     <int                  n="1" />
     <int                  n="2" />
-    <int                  n="10" type="int">0</int>     <!-- bombable : trigger guns -->
-    <int                  n="14" type="int">12500</int> <!-- loyal wingman : alt -->
-    <int                  n="15" type="int">220</int>   <!-- loyal wingman : speed -->
+
+    <!--int                  n="10" type="int">0</int-->     <!-- bombable : trigger guns -->
+    <!--int                  n="14" type="int">12500</int--> <!-- loyal wingman : alt -->
+    <!--int                  n="15" type="int">220</int-->   <!-- loyal wingman : speed -->
 
     <float                n="0"  alias="/sim/model/canopy-pos-norm" />
     <float                n="2"  alias="/controls/lighting/formation-lights" />
@@ -41,9 +42,9 @@ PROPERTY-PATH : /sim/multiplay/
     <float                n="15" type="float">-1</float> <!-- loyal wingman : lng -->
 
     <string               n="0"  alias="/sim/model/smoking-color" />
-    <string               n="1"  type="string"></string> <!-- loyal wingman : callsign to follow -->
-    <string               n="2"  type="string"></string> <!-- loyal wingman : fix -->
-    <string               n="9"  type="string"></string> <!-- bombable -->
+    <!--string               n="1"  type="string"></string--> <!-- loyal wingman : callsign to follow -->
+    <!--string               n="2"  type="string"></string--> <!-- loyal wingman : fix -->
+    <!--string               n="9"  type="string"></string--> <!-- bombable -->
   </generic>
 
 </PropertyList>

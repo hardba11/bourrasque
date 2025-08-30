@@ -6,9 +6,6 @@
 #
 ################################################################################
 
-changelog
-- 2016-10-22 : create
-
 -->
 
 <PropertyList>
@@ -18,6 +15,17 @@ changelog
       <label>brsq</label>
 
       <item n="0">
+        <label>Fast Start</label>
+        <name>fast-start</name>
+        <binding>
+          <command>nasal</command>
+          <script><![CDATA[
+core.fast_start();
+          ]]>
+          </script>
+        </binding>
+      </item>
+      <item n="1">
         <label>Commands ...</label>
         <name>commands</name>
         <binding>
@@ -25,8 +33,7 @@ changelog
           <dialog-name>bourrasque-commands</dialog-name>
         </binding>
       </item>
-
-      <item n="1">
+      <item n="2">
         <label>Fuel ...</label>
         <name>fuel</name>
         <binding>
@@ -34,8 +41,7 @@ changelog
           <dialog-name>bourrasque-fuel</dialog-name>
         </binding>
       </item>
-
-      <item n="2">
+      <item n="3">
         <label>Options ...</label>
         <name>options</name>
         <binding>
@@ -43,8 +49,7 @@ changelog
           <dialog-name>bourrasque-options</dialog-name>
         </binding>
       </item>
-
-      <item n="3">
+      <item n="4">
         <label>Equipments ...</label>
         <name>equipments</name>
         <binding>
@@ -52,8 +57,7 @@ changelog
           <dialog-name>bourrasque-equipments</dialog-name>
         </binding>
       </item>
-
-      <item n="4">
+      <item n="5">
         <label>Select Livery ...</label>
         <binding>
           <command>nasal</command>
@@ -64,26 +68,8 @@ aircraft.livery.dialog.toggle();
           </script>
         </binding>
       </item>
-
-      <item n="5">
-        <label>Loyal wingman ...</label>
-        <name>synapse-autopilot</name>
-        <binding>
-          <command>dialog-show</command>
-          <dialog-name>synapse-autopilot</dialog-name>
-        </binding>
-      </item>
-
-      <item n="6">
-        <label>Set views ...</label>
-        <name>set-views</name>
-        <binding>
-          <command>dialog-show</command>
-          <dialog-name>bourrasque-set-views</dialog-name>
-        </binding>
-      </item>
 <!--
-      <item n="7">
+      <item n="6">
         <label>DevTools ...</label>
         <name>dev-tools</name>
         <binding>
@@ -92,7 +78,6 @@ aircraft.livery.dialog.toggle();
         </binding>
       </item>
 -->
-
     </menu>
 
   </default>

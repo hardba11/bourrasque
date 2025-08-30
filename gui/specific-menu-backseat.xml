@@ -28,26 +28,6 @@ dual_control_tools.copilot_dialog.show(aircraft_dual_control.pilot_type);
           </script>
         </binding>
       </item>
-
-      <item n="1">
-        <label>light</label>
-        <binding>
-          <command>property-cycle</command>
-          <property>/sim/rendering/als-secondary-lights/use-flashlight</property>
-          <value>0</value>
-          <value>2</value>
-        </binding>
-      </item>
-
-      <item n="2">
-        <label>Set views ...</label>
-        <name>set-views</name>
-        <binding>
-          <command>dialog-show</command>
-          <dialog-name>bourrasque-set-views</dialog-name>
-        </binding>
-      </item>
-
     </menu>
   </default>
 
