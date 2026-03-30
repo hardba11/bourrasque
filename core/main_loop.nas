@@ -11,7 +11,6 @@ print("*** LOADING core - main_loop.nas ... ***");
 
 
 var loop_2000ms = func() {
-
     core.bourrasque_mp_loop_encode();
     my_aircraft_functions.event_choose_enabled_cams();
     my_aircraft_functions.disable_hippodrome_if_ap_not_ok();
@@ -21,14 +20,12 @@ var loop_2000ms = func() {
 
 var loop_1000ms = func() {
     core.hippo_loop();
-
+    core.adjust_speedbrake();
     instrument_pfd.pfd();
     instrument_fuel.fuel();
-
 # TODO
 #    instrument_fuel_canvas
 #    instrument_tablet_map
-
     instrument_command_h.checking_aircraft_status();
 }
 
@@ -39,40 +36,22 @@ var loop_500ms = func() {
 
 var loop_200ms = func() {
     instrument_hud.minihud_loop();
-
-    # setting sound factor if internal and canopy closed
-    core.loud_sound();
-
-    # alarms update
-    core.update_alarms();
+    core.loud_sound(); # setting sound factor if internal and canopy closed
+    core.update_alarms(); # alarms update
 }
 
 var loop_100ms = func() {
-
     #instrument_light.light();
-
-    # systems
-    core.systems_loop();
-
-    # setting engine egt celsius from egt farenheit
-    core.egtf2egtc();
-
-    # setting altimeter kilopascal from inch hg
-    setprop("/instrumentation/altimeter/setting-kpa", (getprop("/instrumentation/altimeter/setting-inhg") * my_aircraft_functions.INHG2HPA));
-
-    # setting true-heading-bug from mag-heading-bug
-    setprop("/instrumentation/my_aircraft/nd/outputs/true-heading-bug-deg", math.mod(getprop("/autopilot/settings/heading-bug-deg") + getprop("/environment/magnetic-variation-deg"), 360));
-
+    core.systems_loop(); # systems
+    core.egtf2egtc(); # setting engine egt celsius from egt farenheit
+    setprop("/instrumentation/altimeter/setting-kpa", (getprop("/instrumentation/altimeter/setting-inhg") * my_aircraft_functions.INHG2HPA)); # setting altimeter kilopascal from inch hg
+    setprop("/instrumentation/my_aircraft/nd/outputs/true-heading-bug-deg", math.mod(getprop("/autopilot/settings/heading-bug-deg") + getprop("/environment/magnetic-variation-deg"), 360)); # setting true-heading-bug from mag-heading-bug
 # TODO
     #instrument_hud_target_positions
     #instrument_sfd_eicas
     #instrument_sfd_radar
     #instrument_command_h_canvas
-
-    # touchdown smoke
-    core.touchdown_smoke();
-
-    # shake cockpit
+    core.touchdown_smoke(); # touchdown smoke
     core.calculate_shake();
     core.calculate_shake_external_view();
 }
@@ -117,7 +96,6 @@ var run_once = func() {
     instrument_nd.set_north();
 
     settimer(instrument_command_h.reset, 3);
-
 }
 setlistener("/sim/signals/fdm-initialized", main_loop);
 setlistener("/sim/signals/fdm-initialized", run_once);

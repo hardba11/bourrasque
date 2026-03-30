@@ -294,13 +294,15 @@ vitesse affichee sur le hud
     <gain>
       <expression>
         <table>
-          <property>/velocities/mach</property>
-          <entry><ind>0.00</ind><dep>0.80</dep></entry>
-          <entry><ind>0.05</ind><dep>0.70</dep></entry>
-          <entry><ind>0.25</ind><dep>0.70</dep></entry>
-          <entry><ind>0.50</ind><dep>0.10</dep></entry>
-          <entry><ind>1.00</ind><dep>0.01</dep></entry>
-          <entry><ind>2.00</ind><dep>0.01</dep></entry>
+          <property>/instrumentation/airspeed-indicator/true-speed-kt</property>
+          <entry><ind>0</ind><dep>0.9</dep></entry>
+          <entry><ind>50</ind><dep>0.6</dep></entry>
+          <entry><ind>100</ind><dep>0.5</dep></entry>
+          <entry><ind>150</ind><dep>0.3</dep></entry>
+          <entry><ind>200</ind><dep>0.2</dep></entry>
+          <entry><ind>500</ind><dep>0.1</dep></entry>
+          <entry><ind>1000</ind><dep>0.01</dep></entry>
+          <entry><ind>2000</ind><dep>0.01</dep></entry>
         </table>
       </expression>
     </gain>
@@ -310,6 +312,25 @@ vitesse affichee sur le hud
     <max>1</max>
   </filter>
 
+  <filter>
+    <name>fbw-steering</name>
+    <type>gain</type>
+    <gain>
+      <expression>
+        <table>
+          <property>/velocities/groundspeed-kt</property>
+          <entry><ind>0</ind><dep>0.8</dep></entry>
+          <entry><ind>30</ind><dep>0.3</dep></entry>
+          <entry><ind>80</ind><dep>0.1</dep></entry>
+          <entry><ind>1000</ind><dep>0.0</dep></entry>
+        </table>
+      </expression>
+    </gain>
+    <input>/controls/flight/rudder</input>
+    <output>/controls/flight/fbw-steering</output>
+    <min>-1</min>
+    <max>1</max>
+  </filter>
 
   <!--
 ================================================================================
@@ -1094,6 +1115,16 @@ directly connect output to the FDM when AP is on otherwise connect FCM to FDM
       <property>/controls/flight/fbw-rudder</property>
     </input>
     <output>/controls/flight/fdm-rudder</output>
+  </filter>
+
+  <filter>
+    <name>fdm-steering</name>
+    <type>gain</type>
+    <gain>1.0</gain>
+    <input>
+      <property>/controls/flight/fbw-steering</property>
+    </input>
+    <output>/controls/flight/fdm-steering</output>
   </filter>
 
 </PropertyList>

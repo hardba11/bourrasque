@@ -26,6 +26,8 @@ PROPERTY-PATH : /controls/
     <fdm-aileron type="float">0.00</fdm-aileron>
     <fbw-rudder type="float">0.00</fbw-rudder>
     <fdm-rudder type="float">0.00</fdm-rudder>
+    <fbw-steering type="float">0.00</fbw-steering>
+    <fdm-steering type="float">0.00</fdm-steering>
     <autotrim-pitch type="bool">0</autotrim-pitch>
     <slats type="float">0.00</slats>
   </flight>

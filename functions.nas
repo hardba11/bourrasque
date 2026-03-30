@@ -875,14 +875,26 @@ var event_airbrake = func(do_enable)
     var speedbrake = getprop("/controls/flight/speedbrake") or 0;
     if(do_enable == 1)
     {
-        speedbrake = (speedbrake > .9) ? 1.0 : speedbrake + .1;
-        setprop("/controls/flight/speedbrake", speedbrake);
+        var speed = getprop("/instrumentation/airspeed-indicator/true-speed-kt") or 0;
+        # voir aussi core.adjust_speedbrake();
+        if((speed > 900) and (speedbrake > 0)) {}
+        elsif((speed > 700) and (speedbrake > 0.1)) {}
+        elsif((speed > 600) and (speedbrake > 0.2)) {}
+        elsif((speed > 500) and (speedbrake > 0.3)) {}
+        elsif((speed > 400) and (speedbrake > 0.4)) {}
+        elsif((speed > 380) and (speedbrake > 0.5)) {}
+        elsif((speed > 350) and (speedbrake > 0.6)) {}
+        else
+        {
+            # on autorise un cran supplementaire selon un vitesse max de sortie
+            speedbrake = (speedbrake > .9) ? 1.0 : speedbrake + .1;
+        }
     }
     else
     {
         speedbrake = (speedbrake < .11) ? 0.0 : speedbrake - .1;
-        setprop("/controls/flight/speedbrake", speedbrake);
     }
+    setprop("/controls/flight/speedbrake", speedbrake);
     event_status_ap_speed();
 }
 

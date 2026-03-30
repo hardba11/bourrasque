@@ -57,6 +57,46 @@ var update_alarms = func()
     setprop("/sim/alarms/stall-warning", stall_warning);
 }
 
+var adjust_speedbrake = func()
+{
+    # on autorise la sortie des aerofreins selon un vitesse max
+    var speedbrake = getprop("/controls/flight/speedbrake") or 0;
+    if(speedbrake > 0)
+    {
+        var speed = getprop("/instrumentation/airspeed-indicator/true-speed-kt") or 0;
+        if((speed > 900) and (speedbrake > 0.1))
+        {
+            speedbrake = 0.1;
+        }
+        elsif((speed > 700) and (speedbrake > 0.2))
+        {
+            speedbrake = 0.2;
+        }
+        elsif((speed > 600) and (speedbrake > 0.3))
+        {
+            speedbrake = 0.3;
+        }
+        elsif((speed > 500) and (speedbrake > 0.4))
+        {
+            speedbrake = 0.4;
+        }
+        elsif((speed > 400) and (speedbrake > 0.5))
+        {
+            speedbrake = 0.5;
+        }
+        elsif((speed > 380) and (speedbrake > 0.6))
+        {
+            speedbrake = 0.5;
+        }
+        elsif((speed > 350) and (speedbrake > 0.7))
+        {
+            speedbrake = 0.7;
+        }
+        setprop("/controls/flight/speedbrake", speedbrake);
+    }
+}
+
+
 
 var touchdown_is_smoke         = [0, 0, 0];
 var touchdown_rollspeed        = [0, 0, 0];

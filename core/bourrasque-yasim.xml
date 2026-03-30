@@ -286,7 +286,7 @@ ________________________________________________________________________________
       upx="-.1" upy="0" upz="1"
       compression=".4" spring=".4" damp=".65"
       dfric=".6" sfric=".6">
-    <control-input  control="STEER" axis="/controls/flight/fdm-rudder" square="true" />
+    <control-input  control="STEER" axis="/controls/flight/fdm-steering" square="true" />
     <control-output control="STEER" prop="/gear/gear[0]/steering-norm" />
     <control-input  control="BRAKE" axis="/controls/gear/brake-parking" />
     <control-output control="BRAKE" prop="/gear/gear[0]/brake-position-norm" />
