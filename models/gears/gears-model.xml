@@ -34,16 +34,20 @@ changelog
     <object-name>compas_piston_train</object-name>
     <object-name>piston_train</object-name>
     <object-name>roue_train</object-name>
+    <object-name>pneu_train</object-name>
+    <object-name>sabot</object-name>
     <object-name>jambe_train_principal_L</object-name>
     <object-name>compas_jambe_train_principal_L</object-name>
     <object-name>compas_piston_train_principal_L</object-name>
     <object-name>piston_train_principal_L</object-name>
     <object-name>roue_train_principal_L</object-name>
+    <object-name>pneu_train_principal_L</object-name>
     <object-name>jambe_train_principal_R</object-name>
     <object-name>compas_jambe_train_principal_R</object-name>
     <object-name>compas_piston_train_principal_R</object-name>
     <object-name>piston_train_principal_R</object-name>
     <object-name>roue_train_principal_R</object-name>
+    <object-name>pneu_train_principal_R</object-name>
     <object-name>projecteur_train</object-name>
     <object-name>projecteur_train_mirroir</object-name>
     <object-name>essieu_train</object-name>
@@ -74,16 +78,20 @@ changelog
     <object-name>compas_piston_train</object-name>
     <object-name>piston_train</object-name>
     <object-name>roue_train</object-name>
+    <object-name>pneu_train</object-name>
+    <object-name>sabot</object-name>
     <object-name>jambe_train_principal_L</object-name>
     <object-name>compas_jambe_train_principal_L</object-name>
     <object-name>compas_piston_train_principal_L</object-name>
     <object-name>piston_train_principal_L</object-name>
     <object-name>roue_train_principal_L</object-name>
+    <object-name>pneu_train_principal_L</object-name>
     <object-name>jambe_train_principal_R</object-name>
     <object-name>compas_jambe_train_principal_R</object-name>
     <object-name>compas_piston_train_principal_R</object-name>
     <object-name>piston_train_principal_R</object-name>
     <object-name>roue_train_principal_R</object-name>
+    <object-name>pneu_train_principal_R</object-name>
     <object-name>projecteur_train</object-name>
     <object-name>projecteur_train_mirroir</object-name>
     <object-name>essieu_train</object-name>
@@ -97,7 +105,9 @@ changelog
     <type>material</type>
     <object-name>roue_train</object-name>
     <object-name>roue_train_principal_L</object-name>
+    <object-name>pneu_train_principal_L</object-name>
     <object-name>roue_train_principal_R</object-name>
+    <object-name>pneu_train_principal_R</object-name>
     <property-base>sim/model/livery</property-base>
     <texture-prop>texture-gears</texture-prop>
     <texture-gears>texture_gears.png</texture-gears>
@@ -143,6 +153,8 @@ changelog
     <object-name>piston_train</object-name>
     <object-name>essieu_train</object-name>
     <object-name>roue_train</object-name>
+    <object-name>sabot</object-name>
+    <object-name>pneu_train</object-name>
     <object-name>projecteur_train</object-name>
     <object-name>projecteur_train_mirroir</object-name>
     <object-name>catapulte_support</object-name>
@@ -153,6 +165,8 @@ changelog
     <object-name>piston_train</object-name>
     <object-name>essieu_train</object-name>
     <object-name>roue_train</object-name>
+    <object-name>sabot</object-name>
+    <object-name>pneu_train</object-name>
     <object-name>compas_piston_train</object-name>
   </animation>
   <animation>
@@ -172,12 +186,14 @@ changelog
     <object-name>piston_train_principal_L</object-name>
     <object-name>essieu_train_principal_L</object-name>
     <object-name>roue_train_principal_L</object-name>
+    <object-name>pneu_train_principal_L</object-name>
   </animation>
   <animation>
     <name>block_roue_train_principal_L</name>
     <object-name>piston_train_principal_L</object-name>
     <object-name>essieu_train_principal_L</object-name>
     <object-name>roue_train_principal_L</object-name>
+    <object-name>pneu_train_principal_L</object-name>
     <object-name>compas_piston_train_principal_L</object-name>
   </animation>
 
@@ -190,12 +206,14 @@ changelog
     <object-name>piston_train_principal_R</object-name>
     <object-name>essieu_train_principal_R</object-name>
     <object-name>roue_train_principal_R</object-name>
+    <object-name>pneu_train_principal_R</object-name>
   </animation>
   <animation>
     <name>block_roue_train_principal_R</name>
     <object-name>piston_train_principal_R</object-name>
     <object-name>essieu_train_principal_R</object-name>
     <object-name>roue_train_principal_R</object-name>
+    <object-name>pneu_train_principal_R</object-name>
     <object-name>compas_piston_train_principal_R</object-name>
   </animation>
 
@@ -219,6 +237,7 @@ ________________________________________________________________________________
     <object-name>piston_train</object-name>
     <object-name>essieu_train</object-name>
     <object-name>roue_train</object-name>
+    <object-name>pneu_train</object-name>
     <condition>
       <greater-than>
         <property>gear/gear[0]/position-norm</property>
@@ -358,6 +377,24 @@ ________________________________________________________________________________
       <z>0</z>
     </axis>
   </animation>
+  <!--
+________________________________________________________________________________
+                                                                 SABOT CATAPULTE
+  -->
+  <animation>
+    <type>select</type>
+    <object-name>sabot</object-name>
+    <condition>
+      <not-equals>
+        <property>/gear/launchbar/state</property>
+        <value>Disengaged</value>
+      </not-equals>
+      <greater-than>
+        <property>gear/gear[0]/launchbar-position-norm</property>
+        <value>0.95</value>
+      </greater-than>
+    </condition>
+  </animation>
 
   <!--
 ________________________________________________________________________________
@@ -431,6 +468,8 @@ ________________________________________________________________________________
   <animation>
     <type>rotate</type>
     <object-name>roue_train</object-name>
+    <object-name>pneu_train</object-name>
+    <object-name>sabot</object-name>
     <expression>
       <product>
         <property>systems/electrical/bus/commands</property>
@@ -479,6 +518,7 @@ ________________________________________________________________________________
   <animation>
     <type>spin</type>
     <object-name>roue_train</object-name>
+    <object-name>pneu_train</object-name>
     <property>sim/multiplay/generic/float[4]</property>
     <factor>30</factor>
     <center>
@@ -510,6 +550,7 @@ ________________________________________________________________________________
     <object-name>piston_train_principal_L</object-name>
     <object-name>essieu_train_principal_L</object-name>
     <object-name>roue_train_principal_L</object-name>
+    <object-name>pneu_train_principal_L</object-name>
     <condition>
       <greater-than>
         <property>gear/gear[1]/position-norm</property>
@@ -635,6 +676,7 @@ ________________________________________________________________________________
   <animation>
     <type>spin</type>
     <object-name>roue_train_principal_L</object-name>
+    <object-name>pneu_train_principal_L</object-name>
     <property>sim/multiplay/generic/float[5]</property>
     <factor>30</factor>
     <center>
@@ -665,6 +707,7 @@ ________________________________________________________________________________
     <object-name>piston_train_principal_R</object-name>
     <object-name>essieu_train_principal_R</object-name>
     <object-name>roue_train_principal_R</object-name>
+    <object-name>pneu_train_principal_R</object-name>
     <condition>
       <greater-than>
         <property>gear/gear[2]/position-norm</property>
@@ -790,6 +833,7 @@ ________________________________________________________________________________
   <animation>
     <type>spin</type>
     <object-name>roue_train_principal_R</object-name>
+    <object-name>pneu_train_principal_R</object-name>
     <property>sim/multiplay/generic/float[6]</property>
     <factor>30</factor>
     <center>

@@ -2,7 +2,7 @@
 <PropertyList>
 
   <!-- quand on a declenche un clic, ce filtre fait varier click-sound (float)
-  entre 0 et 1, cela permet d'avoir un etat transitoir pour declencher le son
+  entre 0 et 1, cela permet d'avoir un etat transitoire pour declencher le son
   -->
   <filter>
     <name>click</name>
