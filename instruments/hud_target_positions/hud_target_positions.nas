@@ -259,12 +259,56 @@ var HUD = {
                     var z_t2 = (y_t1 * math.sin(roll_deg * D2R)) + (z_t1 * (math.cos(roll_deg * D2R)));
 
                     # on transforme les nouvelles coordonnees en angles
-                    var new_vertical_offset = math.asin(math.clamp(z_t2, -1, 1)) / D2R;
-                    var new_horizontal_offset = math.atan2(y_t2, x_t2) / D2R;
+                    # position 3D de la cible dans le repere fuselage (en m), depuis la ref FDM
+                    var range_m = target_range * 1852;    # nm -> m
+                    var Px = range_m * x_t2;
+                    var Py = range_m * y_t2;
+                    var Pz = range_m * z_t2;
+
+                    # offset oeil pilote dans le repere fuselage (lu dynamiquement)
+                    var eye_forward = -(getprop("/sim/view[0]/config/z-offset-m") or 0);
+                    var eye_right   =   getprop("/sim/view[0]/config/x-offset-m") or 0;
+                    var eye_up      =   getprop("/sim/view[0]/config/y-offset-m") or 0;
+
+                    # vecteur cible depuis l'oeil
+                    var Dx = Px - eye_forward;
+                    var Dy = Py - eye_right;
+                    var Dz = Pz - eye_up;
+
+                    var range_eye = math.sqrt((Dx * Dx) + (Dy * Dy) + (Dz * Dz));
+                    var new_vertical_offset   = math.asin(math.clamp(Dz / range_eye, -1, 1)) / D2R;
+                    var new_horizontal_offset = math.atan2(Dy, Dx) / D2R;
 
                     # la vue en se deplacant doit afficher les coordonnees (x diminue dans les hautes latitudes)
-                    var coord_x                      = math.tan((new_horizontal_offset + heading_view_deg) * D2R) * px_factor * math.sin((90 - pitch_view_deg) * D2R);
-                    var coord_y                      = math.tan((new_vertical_offset - pitch_view_deg) * D2R) * px_factor * -1;
+                    # repere camera dans le repere fuselage (yaw puis pitch, heading_view positif = gauche)
+                    var alpha = heading_view_deg * D2R;
+                    var beta  = pitch_view_deg   * D2R;
+                    var ca = math.cos(alpha); var sa = math.sin(alpha);
+                    var cb = math.cos(beta);  var sb = math.sin(beta);
+
+                    # vecteur unitaire de la cible dans le repere fuselage
+                    var cv = math.cos(new_vertical_offset * D2R);
+                    var sv = math.sin(new_vertical_offset * D2R);
+                    var ch = math.cos(new_horizontal_offset * D2R);
+                    var sh = math.sin(new_horizontal_offset * D2R);
+                    var tx = cv * ch;   # avant
+                    var ty = cv * sh;   # droite
+                    var tz = sv;        # haut
+
+                    # projection sur les trois axes camera
+                    var t_right   =  tx * sa      + ty * ca;
+                    var t_up      = -tx * ca * sb + ty * sa * sb + tz * cb;
+                    var t_forward =  tx * ca * cb - ty * sa * cb + tz * sb;
+
+                    var coord_x = 0;
+                    var coord_y = 0;
+                    if (t_forward > 0.01) {
+                        coord_x =  t_right / t_forward * px_factor;
+                        coord_y = -t_up    / t_forward * px_factor;   # Y canvas inverse
+                    } else {
+                        # cible derriere la direction de vue, forcer hors champ
+                        target_data.view = 0;
+                    }
 
 #                    print(sprintf('DEBUG h%d:v%d = [%.2f,%.2f,%.2f] -- r %d --> [%.2f,%.2f,%.2f] - p %d --> [%.2f,%.2f,%.2f] = h%d:v%d', 
 #                        horizontal_offset, vertical_offset,
@@ -325,7 +369,7 @@ var HUD = {
                     var td = targets_datas[i];
 
                     var scale_reticle = ((td.target_range < 10) and (td.target_range > 0))
-                        ? ((-.12 * td.target_range) + 1.5)
+                        ? ((-.08 * td.target_range) + 1.5)
                         : 0.3;
                     me.text_lbl   = me.targets[i].getElementById('text_lbl-'~ i);
                     me.text_info  = me.targets[i].getElementById('text_info-'~ i);

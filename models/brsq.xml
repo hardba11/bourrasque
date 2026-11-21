@@ -118,6 +118,19 @@ livery_update.stop();
     </unload>
   </nasal>
 
+
+<!--
+  <model>
+    <name>TEST</name>
+    <path>Aircraft/bourrasque/models/TEST/model-1416-hangarTwhite/hanger-t-single-white-01.xml</path>
+    <offsets>
+      <x-m>-20</x-m>
+      <y-m>10</y-m>
+      <z-m>-1.55</z-m>
+    </offsets>
+  </model>
+-->
+
   <!-- ~~~~~~~~~~~~~~~~~~ aircraft -->
   <model>
     <name>aircraft-model</name>

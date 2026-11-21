@@ -27,7 +27,7 @@
       <and>
         <greater-than>
           <property>sim/multiplay/generic/float[8]</property>
-          <value>0.02</value>
+          <value>0.01</value>
         </greater-than>
         <equals>
           <property>engines/engine[0]/stopped</property>

@@ -319,14 +319,14 @@ var checking_aircraft_status = func()
     setprop("/instrumentation/my_aircraft/command_h/panel_status/epu_status", epu_status);
 
     # alert rules for RHT1
-    if(is_engine0_reheat == 1)
+    if(is_engine0_reheat >= 0.1)
         { reheat0_status = INFO; }
     else
         { reheat0_status = OK; }
     setprop("/instrumentation/my_aircraft/command_h/panel_status/reheat0_status", reheat0_status);
 
     # alert rules for RHT2
-    if(is_engine1_reheat == 1)
+    if(is_engine1_reheat >= 0.1)
         { reheat1_status = INFO; }
     else
         { reheat1_status = OK; }

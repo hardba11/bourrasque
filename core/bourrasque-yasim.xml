@@ -209,7 +209,7 @@ ________________________________________________________________________________
       src0="0" dst0="0" src1=".86" dst1="1" />
     <control-speed  control="THROTTLE" transition-time="1" />
     <control-input  control="REHEAT" axis="/controls/engines/engine[0]/throttle"
-      src0=".86" dst0="0" src1="1" dst1="1" />
+      src0=".90" dst0="0" src1="1" dst1="1" />
     <control-output control="REHEAT" prop="/engines/engine[0]/reheat" />
     <control-speed  control="REHEAT" transition-time="2" />
   </jet>
@@ -233,7 +233,7 @@ ________________________________________________________________________________
       src0="0" dst0="0" src1=".86" dst1="1" />
     <control-speed  control="THROTTLE" transition-time="1" />
     <control-input  control="REHEAT" axis="/controls/engines/engine[1]/throttle"
-      src0=".86" dst0="0" src1="1" dst1="1" />
+      src0=".90" dst0="0" src1="1" dst1="1" />
     <control-output control="REHEAT" prop="/engines/engine[1]/reheat" />
     <control-speed  control="REHEAT" transition-time="2" />
   </jet>

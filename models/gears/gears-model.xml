@@ -78,20 +78,17 @@ changelog
     <object-name>compas_piston_train</object-name>
     <object-name>piston_train</object-name>
     <object-name>roue_train</object-name>
-    <object-name>pneu_train</object-name>
     <object-name>sabot</object-name>
     <object-name>jambe_train_principal_L</object-name>
     <object-name>compas_jambe_train_principal_L</object-name>
     <object-name>compas_piston_train_principal_L</object-name>
     <object-name>piston_train_principal_L</object-name>
     <object-name>roue_train_principal_L</object-name>
-    <object-name>pneu_train_principal_L</object-name>
     <object-name>jambe_train_principal_R</object-name>
     <object-name>compas_jambe_train_principal_R</object-name>
     <object-name>compas_piston_train_principal_R</object-name>
     <object-name>piston_train_principal_R</object-name>
     <object-name>roue_train_principal_R</object-name>
-    <object-name>pneu_train_principal_R</object-name>
     <object-name>projecteur_train</object-name>
     <object-name>projecteur_train_mirroir</object-name>
     <object-name>essieu_train</object-name>
