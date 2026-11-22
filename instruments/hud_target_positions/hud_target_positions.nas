@@ -121,17 +121,18 @@ var HUD = {
                 .setText('VOID'~ i);
             m.t_speed_info = m.speed_info.createTransform();
 
-            # on affiche des infos de la cible a cote du cercle
+            # on affiche des infos de la cible sous le cercle
+            # (le triangle tourne sur un rayon de 17 px, on commence en dessous)
             m.text_lbl = m.target.createChild('text', 'text_lbl-'~ i)
-                .setTranslation(18, 0)
-                .setAlignment('left-center')
+                .setTranslation(0, 24)
+                .setAlignment('center-center')
                 .setFont('LiberationFonts/LiberationSansNarrow-Bold.ttf')
                 .setFontSize(8)
                 .setColor((colors[i]['r'] / 255), (colors[i]['g'] / 255), (colors[i]['b'] / 255), alpha)
                 .setText('LABEL'~ i);
             m.text_info = m.target.createChild('text', 'text_info-'~ i)
-                .setTranslation(18, 10)
-                .setAlignment('left-center')
+                .setTranslation(0, 33)
+                .setAlignment('center-center')
                 .setFont('LiberationFonts/LiberationSansNarrow-Bold.ttf')
                 .setFontSize(7)
                 .setColor((colors[i]['r'] / 255), (colors[i]['g'] / 255), (colors[i]['b'] / 255), alpha)
@@ -325,7 +326,9 @@ var HUD = {
                     var relative_speed_T             = target_airspeed * math.cos((target_heading_deg - target_bearing_deg) * D2R);
                     var relative_speed               = relative_speed_T - relative_speed_M;
 #                    var speed_y                      = (sprintf('%d', relative_speed) == 0) ? 0 : math.log10(math.abs(sprintf('%d', relative_speed) / 2)) * 5;
-                    var speed_y                      = (sprintf('%d', relative_speed) == 0) ? 0 : math.log10(math.abs(sprintf('%d', relative_speed))) * 5;
+                    # amplitude des barres : speed_bars_factor px par decade de vitesse (10 kt, 100 kt...)
+                    var speed_bars_factor            = 3;
+                    var speed_y                      = (sprintf('%d', relative_speed) == 0) ? 0 : math.log10(math.abs(sprintf('%d', relative_speed))) * speed_bars_factor;
                     var positive_or_negative         = (relative_speed >= 0) ? 1 : -1;
 
                     target_data.speed_bars_y         = positive_or_negative * speed_y;
@@ -368,13 +371,28 @@ var HUD = {
                 {
                     var td = targets_datas[i];
 
-                    var scale_reticle = ((td.target_range < 10) and (td.target_range > 0))
-                        ? ((-.08 * td.target_range) + 1.5)
-                        : 0.3;
+                    # echelle lineaire : scale_min a scale_range_max nm, scale_max a 0 nm
+                    var scale_range_max = 15;
+                    var scale_min = 0.4;
+                    var scale_max = 1.8;
+                    var scale_reticle = ((td.target_range < scale_range_max) and (td.target_range > 0))
+                        ? (scale_max - ((scale_max - scale_min) * td.target_range / scale_range_max))
+                        : scale_min;
                     me.text_lbl   = me.targets[i].getElementById('text_lbl-'~ i);
                     me.text_info  = me.targets[i].getElementById('text_info-'~ i);
                     me.reticle    = me.targets[i].getElementById('reticle-'~ i);
                     me.text_speed = me.targets[i].getElementById('text_speed-'~ i);
+                    me.speed_info = me.targets[i].getElementById('speed_info-'~ i);
+
+                    # barres de vitesse uniquement a courte distance
+                    if(td.target_range > 5)
+                    {
+                        me.speed_info.hide();
+                    }
+                    else
+                    {
+                        me.speed_info.show();
+                    }
 
                     me.t_speed_infos[i].setTranslation(0, -td.speed_bars_y);
                     me.text_lbl.setText(td.text_lbl);
