@@ -71,6 +71,13 @@ var HUD = {
         m.t_targets = [];
         m.t_reticles = [];
         m.t_speed_infos = [];
+        # references conservees : getElementById renvoie un nouveau wrapper a chaque appel,
+        # et setScale/setTranslation sur un nouveau wrapper ajoute un nouveau noeud tf (cumul)
+        m.text_lbls = [];
+        m.text_infos = [];
+        m.text_speeds = [];
+        m.speed_infos = [];
+        m.circles = [];
 
         for(var i = 0; i < max_reticle; i += 1)
         {
@@ -121,17 +128,17 @@ var HUD = {
                 .setText('VOID'~ i);
             m.t_speed_info = m.speed_info.createTransform();
 
-            # on affiche des infos de la cible sous le cercle
-            # (le triangle tourne sur un rayon de 17 px, on commence en dessous)
+            # on affiche des infos de la cible au dessus du cercle
+            # (le triangle tourne sur un rayon de 17 px, on commence au dessus)
             m.text_lbl = m.target.createChild('text', 'text_lbl-'~ i)
-                .setTranslation(0, 24)
+                .setTranslation(0, -20)
                 .setAlignment('center-center')
                 .setFont('LiberationFonts/LiberationSansNarrow-Bold.ttf')
                 .setFontSize(8)
                 .setColor((colors[i]['r'] / 255), (colors[i]['g'] / 255), (colors[i]['b'] / 255), alpha)
                 .setText('LABEL'~ i);
             m.text_info = m.target.createChild('text', 'text_info-'~ i)
-                .setTranslation(0, 33)
+                .setTranslation(0, -29)
                 .setAlignment('center-center')
                 .setFont('LiberationFonts/LiberationSansNarrow-Bold.ttf')
                 .setFontSize(7)
@@ -145,6 +152,11 @@ var HUD = {
             append(m.t_targets, m.t_target);
             append(m.t_reticles, m.t_reticle);
             append(m.t_speed_infos, m.t_speed_info);
+            append(m.text_lbls, m.text_lbl);
+            append(m.text_infos, m.text_info);
+            append(m.text_speeds, m.text_speed);
+            append(m.speed_infos, m.speed_info);
+            append(m.circles, m.circle);
             #print('DEBUG new target no:'~ i);
         }
 
@@ -163,6 +175,7 @@ var HUD = {
             var my_heading_deg = getprop("/orientation/heading-deg"); # true north
             var my_aoa_deg     = getprop("/orientation/alpha-deg");
             var radar_range    = getprop("/instrumentation/my_aircraft/sfd/controls/radar_range") or 5;
+            var own_pos        = geo.aircraft_position();
 
             var pitch_view_deg   = getprop("/instrumentation/my_aircraft/hud_target_positions/view/pitch-offset-deg");
             var heading_view_deg = getprop("/instrumentation/my_aircraft/hud_target_positions/view/heading-offset-deg");
@@ -228,8 +241,7 @@ var HUD = {
                         target_data.view = 1;
                     }
 
-                    var target_elevation_deg         = list_obj[i].getNode("radar/elevation-deg").getValue() or 0;
-                    var target_heading_deg           = list_obj[i].getNode("orientation/true-heading-deg").getValue() or 0;
+                    var target_heading_deg          = list_obj[i].getNode("orientation/true-heading-deg").getValue() or 0;
                     var target_altitude              = list_obj[i].getNode("position/altitude-ft").getValue() or 0;
                     var target_airspeed              = list_obj[i].getNode("velocities/true-airspeed-kt").getValue() or 0;
                     var target_bearing_deg           = list_obj[i].getNode("radar/bearing-deg").getValue() or 0;
@@ -243,10 +255,21 @@ var HUD = {
                     # https://www.methodephysique.fr/coordonnees_cartesiennes_cylindriques_spheriques/
                     # https://www.random-science-tools.com/maths/coordinate-converter.htm
 
+                    # elevation recalculee a partir des positions : radar/v-offset (et radar/elevation-deg)
+                    # sont calcules par FG avec atan2(dh, distance oblique) au lieu de la distance
+                    # horizontale, ce qui sous-estime l'elevation des cibles hautes (45 deg -> 35 deg)
+                    var target_pos = geo.Coord.new().set_latlon(
+                        list_obj[i].getNode("position/latitude-deg").getValue() or 0,
+                        list_obj[i].getNode("position/longitude-deg").getValue() or 0,
+                        target_altitude * FT2M);
+                    var dist_h_m      = own_pos.distance_to(target_pos);
+                    var dh_m          = target_pos.alt() - own_pos.alt();
+                    var elevation_deg = math.atan2(dh_m, dist_h_m) * R2D;
+
                     # on transforme les angles v et h en coordonnees x, y, z sur une sphere de rayon 1
-                    var x = math.cos((vertical_offset + pitch_deg) * D2R) * math.cos(horizontal_offset * D2R);
-                    var y = math.cos((vertical_offset + pitch_deg) * D2R) * math.sin(horizontal_offset * D2R);
-                    var z = math.sin((vertical_offset + pitch_deg) * D2R);
+                    var x = math.cos(elevation_deg * D2R) * math.cos(horizontal_offset * D2R);
+                    var y = math.cos(elevation_deg * D2R) * math.sin(horizontal_offset * D2R);
+                    var z = math.sin(elevation_deg * D2R);
 
                     # on applique une matrice de rotation autour de y pour obtenir les nouvelles coordonnees de la cible en fonction du tangage
                     # on ramene ainsi l'axe du roulis sur x
@@ -261,7 +284,7 @@ var HUD = {
 
                     # on transforme les nouvelles coordonnees en angles
                     # position 3D de la cible dans le repere fuselage (en m), depuis la ref FDM
-                    var range_m = target_range * 1852;    # nm -> m
+                    var range_m = math.sqrt((dist_h_m * dist_h_m) + (dh_m * dh_m));
                     var Px = range_m * x_t2;
                     var Py = range_m * y_t2;
                     var Pz = range_m * z_t2;
@@ -378,11 +401,25 @@ var HUD = {
                     var scale_reticle = ((td.target_range < scale_range_max) and (td.target_range > 0))
                         ? (scale_max - ((scale_max - scale_min) * td.target_range / scale_range_max))
                         : scale_min;
-                    me.text_lbl   = me.targets[i].getElementById('text_lbl-'~ i);
-                    me.text_info  = me.targets[i].getElementById('text_info-'~ i);
-                    me.reticle    = me.targets[i].getElementById('reticle-'~ i);
-                    me.text_speed = me.targets[i].getElementById('text_speed-'~ i);
-                    me.speed_info = me.targets[i].getElementById('speed_info-'~ i);
+
+                    # echelle du texte inverse : plus gros loin (lisible), plus petit pres
+                    var text_scale_near = 1.0;   # a 0 nm
+                    var text_scale_far  = 1.1;   # a scale_range_max nm et au-dela
+                    var r = math.clamp(td.target_range / scale_range_max, 0, 1);
+                    var scale_text = text_scale_near + ((text_scale_far - text_scale_near) * r);
+                    # contre-echelle : le texte est enfant du target deja mis a l'echelle scale_reticle
+                    var k = scale_text / scale_reticle;
+
+                    # epaisseur du cercle en pixels reels : plus fine pres, contre-echelle comme le texte
+                    var circle_width_near = 0.8;   # a 0 nm
+                    var circle_width_far  = 0.9;   # a scale_range_max nm et au-dela (= rendu actuel 2 x 0.4)
+                    var circle_width = circle_width_near + ((circle_width_far - circle_width_near) * r);
+                    me.circles[i].setStrokeLineWidth(circle_width / scale_reticle);
+
+                    me.text_lbl   = me.text_lbls[i];
+                    me.text_info  = me.text_infos[i];
+                    me.text_speed = me.text_speeds[i];
+                    me.speed_info = me.speed_infos[i];
 
                     # barres de vitesse uniquement a courte distance
                     if(td.target_range > 5)
@@ -398,6 +435,16 @@ var HUD = {
                     me.text_lbl.setText(td.text_lbl);
                     me.text_info.setText(td.text_info);
                     me.text_speed.setText(td.text_speed);
+
+                    me.text_lbl.setScale(k);
+                    me.text_info.setScale(k);
+                    me.text_speed.setScale(k);
+                    # positions calculees en pixels reels puis ramenees dans le repere du target
+                    var top_px  = 17 * scale_reticle;            # rayon du triangle
+                    var lbl_px  = top_px + 3 + (4 * scale_text); # centre du label (police 8)
+                    var info_px = lbl_px + (9 * scale_text);     # ligne d'info au dessus
+                    me.text_lbl.setTranslation(0, -lbl_px / scale_reticle);
+                    me.text_info.setTranslation(0, -info_px / scale_reticle);
                     me.t_targets[i].setTranslation(td.coord_x, td.coord_y);
                     me.t_reticles[i].setRotation(td.relative_heading_deg * D2R);
                     me.t_targets[i].setScale(scale_reticle, scale_reticle);
